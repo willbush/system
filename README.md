@@ -1,11 +1,11 @@
 Using nelstrom's dotfile backup method see more about it here:
 
-    http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
-    https://github.com/nelstrom/dotfiles
+    [http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/]
+    [https://github.com/nelstrom/dotfiles]
 
 # Installation #
 
-    git clone git://github.com/willbush/ditfiles.git
+    git clone https://github.com/willbush/dotfiles
 
 Where possible, Vim plugins are installed as git submodules. Check these out by
 running the commands:
@@ -28,7 +28,7 @@ Everything VIM related is stored under dotfiles/vim.
 ## Adding Plugin Bundles ##
 
 Vim plugins that are published on github can be installed as submodules. For
-example, to install the [JavaScript bundle][jsbun], follow these steps:
+example, to install the (JavaScript bundle)[https://github.com/pangloss/vim-javascript], follow these steps:
 
     cd ~/dotfiles
     git submodule add http://github.com/pangloss/vim-javascript.git vim/bundle/vim-javascript
@@ -44,5 +44,5 @@ As well as checkout out the git repo into the
 as follows:
 
     git add .
-    git ci -m "Added the javascript bundle"
+    git commit -m "Added the javascript bundle"
 
