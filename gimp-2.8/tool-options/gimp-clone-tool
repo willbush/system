@@ -1,0 +1,8 @@
+# GIMP gimp-clone-tool options
+
+(brush "Clipboard")
+(dynamics "Dynamics Off")
+(pattern "Pine")
+(palette "Default")
+
+# end of gimp-clone-tool options

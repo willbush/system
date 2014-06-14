@@ -1,0 +1,8 @@
+# GIMP gimp-perspective-clone-tool options
+
+(brush "Clipboard")
+(dynamics "Dynamics Off")
+(pattern "Pine")
+(palette "Default")
+
+# end of gimp-perspective-clone-tool options

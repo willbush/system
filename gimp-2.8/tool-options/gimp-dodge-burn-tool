@@ -1,0 +1,7 @@
+# GIMP gimp-dodge-burn-tool options
+
+(brush "Clipboard")
+(dynamics "Dynamics Off")
+(palette "Default")
+
+# end of gimp-dodge-burn-tool options
