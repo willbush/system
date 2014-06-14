@@ -1,0 +1,7 @@
+# GIMP gimp-smudge-tool options
+
+(brush "Clipboard")
+(dynamics "Dynamics Off")
+(palette "Default")
+
+# end of gimp-smudge-tool options

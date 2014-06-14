@@ -1,0 +1,5 @@
+[user]
+	name = willbush
+	email = william.bush@utdallas.edu
+[credential]
+	helper = cache

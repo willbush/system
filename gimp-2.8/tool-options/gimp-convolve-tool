@@ -1,0 +1,7 @@
+# GIMP gimp-convolve-tool options
+
+(brush "Clipboard")
+(dynamics "Dynamics Off")
+(palette "Default")
+
+# end of gimp-convolve-tool options

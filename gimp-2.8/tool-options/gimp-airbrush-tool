@@ -1,0 +1,8 @@
+# GIMP gimp-airbrush-tool options
+
+(brush "2. Hardness 050")
+(dynamics "Pressure Opacity")
+(gradient "FG to BG (RGB)")
+(palette "Default")
+
+# end of gimp-airbrush-tool options
