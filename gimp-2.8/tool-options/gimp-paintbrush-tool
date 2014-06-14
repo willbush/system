@@ -1,0 +1,8 @@
+# GIMP gimp-paintbrush-tool options
+
+(brush "Clipboard")
+(dynamics "Dynamics Off")
+(gradient "FG to BG (RGB)")
+(palette "Default")
+
+# end of gimp-paintbrush-tool options

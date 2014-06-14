@@ -1,0 +1,55 @@
+set encoding=utf-8
+set spelllang=en_us
+
+"execute the pathogen plugin
+execute pathogen#infect()
+
+"Sets vim colors to 256
+set t_Co=256
+
+"syntax color hightlighting
+syntax on
+
+"turn line numbering on
+set number
+
+"set default tabstop
+set tabstop=4
+
+filetype indent plugin on
+
+au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+
+" Use the same symbols as TextMate for tabstops and EOLs (end of line) breaks
+set listchars=tab:▸\ ,eol:¬
+
+"turns on speical characters (i.e. tabs) and NonText (i.e. EOL)
+set list
+set hidden "lets vim navigate away from a buffer with unsaved changes
+"
+"search settings
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
+nmap \q :nohlsearch<cr>
+
+"remappings
+imap ii <esc>
+nmap <c-n> :bnext<cr>
+nmap <c-p> :bprev<cr>
+nmap \e :NERDTreeToggle<cr>
+command WQ wq
+command Wq wq
+command W w
+command Q q
+
+"sets color scheme
+colorscheme lucius
+LuciusDark
+
+"fixes backspace problem
+set backspace=2
+
+"annotation macro
+let @q='"aywgg/\caww"ay$$"ap\q0'
