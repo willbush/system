@@ -1,7 +1,8 @@
 Using nelstrom's dotfile backup method see more about it here:
 
-[http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/]
-[https://github.com/nelstrom/dotfiles]
+http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
+
+https://github.com/nelstrom/dotfiles
 
 # Installation #
 
