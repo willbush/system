@@ -21,6 +21,7 @@ Create symlinks:
     ln -s ~/dotfiles/vim/vimrc ~/.vimrc
     ln -s ~/dotfiles/gitconfig ~/.gitconfig
     ln -s ~/dotfiles/gimp-2.8 ~/.gimp-2.8
+    ln -s ~/dotfiles/zshrc ~/.zshrc
 
 ## VIM ##
 
@@ -44,6 +45,30 @@ As well as checkout out the git repo into the
 `vim/bundle/vim-javascript` directory. You can then commit these changes
 as follows:
 
-    git add .
+    git add -A
     git commit -m "Added the javascript bundle"
 
+### ZSH ###
+
+The zshrc config file for zsh shell is using the oh-my-zsh framework. Installation goes as follows:
+
+1. Install zsh, for example: 
+
+    sudo apt-get install zsh
+
+Zsh install script will prompt you with some options, choose the one that does not install a .zshrc.
+
+2. Install oh-my-zsh:
+
+    git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
+3. Set Zsh as your default shell:
+
+    chsh -s /bin/zsh
+
+Log out and back in, then verify the switch with:
+
+    echo $SHELL
+
+If the zshrc file was cloned and symlinked properly, everything should work.
+    
