@@ -8,7 +8,7 @@
 (session-info "toplevel"
     (factory-entry "gimp-toolbox-window")
     (position 0 25)
-    (size 144 820)
+    (size 128 820)
     (open-on-exit)
     (gimp-toolbox
         (book
