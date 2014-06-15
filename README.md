@@ -32,43 +32,51 @@ Everything VIM related is stored under dotfiles/vim.
 Vim plugins that are published on github can be installed as submodules. For
 example, to install the [JavaScript bundle](https://github.com/pangloss/vim-javascript), follow these steps:
 
-    cd ~/dotfiles
-    git submodule add http://github.com/pangloss/vim-javascript.git vim/bundle/vim-javascript
+```Shell
+cd ~/dotfiles
+git submodule add http://github.com/pangloss/vim-javascript.git vim/bundle/vim-javascript
+```
 
 This will update the `.gitmodules` file by appending something like:
 
-    [submodule "vim/bundle/vim-javascript"]
-        path = vim/bundle/vim-javascript
-        url = http://github.com/pangloss/vim-javascript.git
+```Shell
+[submodule "vim/bundle/vim-javascript"]
+    path = vim/bundle/vim-javascript
+    url = http://github.com/pangloss/vim-javascript.git
+```
     
 As well as checkout out the git repo into the
 `vim/bundle/vim-javascript` directory. You can then commit these changes
 as follows:
 
-    git add -A
-    git commit -m "Added the javascript bundle"
+```Shell
+git add -A
+git commit -m "Added the javascript bundle"
+```
 
 ### ZSH ###
 
 The zshrc config file for zsh shell is using the oh-my-zsh framework. Installation goes as follows:
 
-1. Install zsh, for example: 
-
-    sudo apt-get install zsh
+1. Install zsh, for example: `sudo apt-get install zsh`
 
 Zsh install script will prompt you with some options, choose the one that does not install a .zshrc.
 
 2. Install oh-my-zsh:
 
-    git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-
+```Shell
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+```
 3. Set Zsh as your default shell:
 
-    chsh -s /bin/zsh
+```Shell
+chsh -s /bin/zsh
+```
 
 Log out and back in, then verify the switch with:
 
-    echo $SHELL
-
+```Shell
+echo $SHELL
+```
 If the zshrc file was cloned and symlinked properly, everything should work.
     
