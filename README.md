@@ -87,20 +87,12 @@ echo $SHELL
 ```
 
 If the zshrc file was cloned and symlinked properly, everything should work.
-    
-### My Keyboard Config
 
-Below has been tested and works on xubuntu 14.04:
+###XCAPE###
 
-Swap capslock with left-control:
-```bash
-sudo vim /etc/default/keyboard
-```
-change `XKBOPTIONS=""` to `XKBOPTIONS="ctrl:swapcaps"`
+I install xcape exculsively for VIM use. Xcape lets you give a key like ctrl dual fuction. Press ctrl alone and it's like pressing esc, but actually use left shift instead because I find this easier to press. More info here: https://github.com/alols/xcape
 
-Then run: `sudo dpkg-reconfigure keyboard-configuration` and go through the prompts.
-
-Install xcape to take advantage of above settings to make esc in VIM and VIM IDE plugins easier. Default settings of xcape `xcape -e "Control_L=Escape"` works fine. These default settings are implicit when you simply execute `xcape`.
+I tired remapping capslock to left ctrl and found it was not for me. I find using keyboard settings outside the norm just makes it a huge pain to use someone elses computer. Another reason to use xcape is that some plugins like IdeaVim lack any real support for using "ii" or "jk" or "kj" etc to esc from insert mode.
 
 Install process goes something like this (assuming git, gcc, and make are already installed):
 ```bash
@@ -113,4 +105,5 @@ sudo mv xcape /usr/bin
 hash xcape
 xcape
 ```
-Then open Session and Startup found by typing "startup" in synapse or navigating all > settings manager > sessions and startup. Add the xcape command to your Application Autostart tab.
+Then open Session and Startup found by typing "startup" in synapse or navigating all > settings manager > sessions and startup. Add the following command to your Application Autostart tab: `xcape -e "Shift_L=Escape"`
+
