@@ -91,5 +91,16 @@ If the zshrc file was cloned and symlinked properly, everything should work.
 
 After trying a few setups to make escaping insert mode easier in VIM and VIM IDE plugins, I decided on swapping capslock and escape. I was trying to xcape, but the delay in giving a key like shift or ctrl multi function was just too much.
 
-Assuming the steps above were done, simply run `xmodmap ~/.keyswapper` to swap capslock with escape.
+```bash
+sudo vim /etc/default/keyboard
+```
+Find XKBOPTIONS and add `caps:swapescape`, for example:
+```bash
+XKBOPTIONS="terminate:ctrl_alt_bksp, caps:swapescape"
+```
+then run the following command and go through the prompts:
+```bash
+sudodpkg-reconfigure keyboard-configuration
+```
 
+That's it. To change it back remove the `caps:swapescape` from that file and reconfigure again.
