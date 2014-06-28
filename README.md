@@ -100,7 +100,7 @@ XKBOPTIONS="terminate:ctrl_alt_bksp, caps:swapescape"
 ```
 then run the following command and go through the prompts:
 ```bash
-sudodpkg-reconfigure keyboard-configuration
+sudo dpkg-reconfigure keyboard-configuration
 ```
 
 That's it. To change it back remove the `caps:swapescape` from that file and reconfigure again.
