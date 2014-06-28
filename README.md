@@ -7,6 +7,7 @@ https://github.com/nelstrom/dotfiles
 # Installation #
 
 ```bash
+cd ~/
 git clone https://github.com/willbush/dotfiles
 ```
 
@@ -14,7 +15,7 @@ Where possible, Vim plugins are installed as git submodules. Check these out by
 running the commands:
 
 ```bash
-cd dotfiles
+cd ~/dotfiles
 git submodule init
 git submodule update
 ```
@@ -22,11 +23,9 @@ git submodule update
 Create symlinks:
 
 ```bash
-ln -s ~/dotfiles/vim ~/.vim
-ln -s ~/dotfiles/vim/vimrc ~/.vimrc
-ln -s ~/dotfiles/gitconfig ~/.gitconfig
-ln -s ~/dotfiles/gimp-2.8 ~/.gimp-2.8
-ln -s ~/dotfiles/zshrc ~/.zshrc
+cd ~/dotfiles
+chmod +x init_symlinks.sh
+./init_symlinks.sh
 ```
 
 ## VIM ##
@@ -88,22 +87,9 @@ echo $SHELL
 
 If the zshrc file was cloned and symlinked properly, everything should work.
 
-###XCAPE###
+###key swap###
 
-I install xcape exculsively for VIM use. Xcape lets you give a key like ctrl dual fuction. Press ctrl alone and it's like pressing esc, but actually use left shift instead because I find this easier to press. More info here: https://github.com/alols/xcape
+After trying a few setups to make escaping insert mode easier in VIM and VIM IDE plugins, I decided on swapping capslock and escape. I was trying to xcape, but the delay in giving a key like shift or ctrl multi function was just too much.
 
-I tired remapping capslock to left ctrl and found it was not for me. I find using keyboard settings outside the norm just makes it a huge pain to use someone elses computer. Another reason to use xcape is that some plugins like IdeaVim lack any real support for using "ii" or "jk" or "kj" etc to esc from insert mode.
-
-Install process goes something like this (assuming git, gcc, and make are already installed):
-```bash
-cd ~/
-git clone https://github.com/alols/xcape.git
-cd xcape
-sudo apt-get install pkg-config libx11-dev libxtst-dev libxi-dev
-make
-sudo mv xcape /usr/bin
-hash xcape
-xcape
-```
-Then open Session and Startup found by typing "startup" in synapse or navigating all > settings manager > sessions and startup. Add the following command to your Application Autostart tab: `xcape -e "Shift_L=Escape"`
+Assuming the steps above were done, simply run 'xmodmap ~/.keyswapper' to swap capslock with escape.
 

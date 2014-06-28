@@ -6,20 +6,8 @@
 # you quit GIMP.  If this file isn't found, defaults are used.
 
 (session-info "toplevel"
-    (factory-entry "gimp-toolbox-window")
-    (position 0 25)
-    (size 128 820)
-    (open-on-exit)
-    (gimp-toolbox
-        (book
-            (current-page 0)
-            (dockable "gimp-tool-options"
-                (tab-style automatic)
-                (aux-info
-                    (show-button-bar "true"))))))
-(session-info "toplevel"
     (factory-entry "gimp-dock-window")
-    (position 1706 25)
+    (position 1708 25)
     (size 210 1098)
     (open-on-exit)
     (aux-info
@@ -47,7 +35,7 @@
                 (aux-info
                     (show-button-bar "true"))))
         (book
-            (position 284)
+            (position 321)
             (current-page 0)
             (dockable "gimp-layer-list"
                 (tab-style automatic)
@@ -79,7 +67,7 @@
                     (show-button-bar "true"))))))
 (session-info "toplevel"
     (factory-entry "gimp-empty-image-window")
-    (position 267 25)
+    (position 331 25)
     (size 620 200)
     (open-on-exit))
 (session-info "toplevel"
@@ -107,6 +95,18 @@
     (factory-entry "gimp-file-save-dialog")
     (position 766 25)
     (size 792 585))
+(session-info "toplevel"
+    (factory-entry "gimp-toolbox-window")
+    (position 0 25)
+    (size 128 820)
+    (open-on-exit)
+    (gimp-toolbox
+        (book
+            (current-page 0)
+            (dockable "gimp-tool-options"
+                (tab-style automatic)
+                (aux-info
+                    (show-button-bar "true"))))))
 
 (hide-docks no)
 (single-window-mode no)
