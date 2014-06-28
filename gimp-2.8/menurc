@@ -1137,7 +1137,7 @@
 ; (gtk_accel_path "<Actions>/context/context-foreground-blue-decrease-skip" "")
 (gtk_accel_path "<Actions>/windows/windows-display-0004" "<Alt>3")
 ; (gtk_accel_path "<Actions>/plug-in/plug-in-sinus" "")
-(gtk_accel_path "<Actions>/windows/windows-display-0002" "<Alt>1")
+(gtk_accel_path "<Actions>/windows/windows-display-0002" "<Alt>2")
 (gtk_accel_path "<Actions>/windows/windows-display-0001" "<Alt>1")
 ; (gtk_accel_path "<Actions>/dialogs/dialogs-vectors" "")
 ; (gtk_accel_path "<Actions>/quick-mask/quick-mask-toggle" "<Shift>q")
