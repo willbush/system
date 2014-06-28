@@ -91,5 +91,5 @@ If the zshrc file was cloned and symlinked properly, everything should work.
 
 After trying a few setups to make escaping insert mode easier in VIM and VIM IDE plugins, I decided on swapping capslock and escape. I was trying to xcape, but the delay in giving a key like shift or ctrl multi function was just too much.
 
-Assuming the steps above were done, simply run 'xmodmap ~/.keyswapper' to swap capslock with escape.
+Assuming the steps above were done, simply run `xmodmap ~/.keyswapper` to swap capslock with escape.
 
