@@ -35,8 +35,6 @@ set hlsearch
 nmap \q :nohlsearch<cr>
 
 "remappings
-imap jk <esc>
-imap kj <esc>
 nmap <c-n> :bnext<cr>
 nmap <c-p> :bprev<cr>
 nmap \e :NERDTreeToggle<cr>
