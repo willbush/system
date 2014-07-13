@@ -32,12 +32,12 @@ set incsearch
 set ignorecase
 set smartcase
 set hlsearch
-nmap \q :nohlsearch<cr>
+nmap \s :nohlsearch<cr>
 
 "remappings
 nmap <c-n> :bnext<cr>
 nmap <c-p> :bprev<cr>
-nmap \e :NERDTreeToggle<cr>
+nmap \t :NERDTreeToggle<cr>
 command WQ wq
 command Wq wq
 command W w
@@ -50,5 +50,3 @@ LuciusDark
 "fixes backspace problem
 set backspace=2
 
-"annotation macro
-let @q='"aywgg/\caww"ay$$"ap\q0'
