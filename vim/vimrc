@@ -8,7 +8,7 @@ execute pathogen#infect()
 set t_Co=256
 
 "syntax color hightlighting
-syntax on
+syntax enable
 
 "turn line numbering on
 set number
@@ -44,8 +44,8 @@ command W w
 command Q q
 
 "sets color scheme
-colorscheme lucius
-LuciusDark
+set background=dark
+colorscheme solarized
 
 "fixes backspace problem
 set backspace=2
