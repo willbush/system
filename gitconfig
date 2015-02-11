@@ -3,3 +3,7 @@
 	email = william.bush@utdallas.edu
 [credential]
 	helper = cache
+[push]
+	default = simple
+[core]
+	editor = vim

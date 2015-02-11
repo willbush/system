@@ -1,7 +1,0 @@
-# GIMP gimp-heal-tool options
-
-(brush "Clipboard")
-(dynamics "Dynamics Off")
-(palette "Default")
-
-# end of gimp-heal-tool options
