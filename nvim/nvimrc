@@ -1,0 +1,31 @@
+filetype off " required for Vundle
+set runtimepath+=~/.nvim/bundle/Vundle.vim
+call vundle#begin('~/.nvim/bundle')
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'flazz/vim-colorschemes'
+
+call vundle#end()
+filetype plugin indent on
+
+colorscheme lucius
+set background=dark
+
+syntax enable
+set ignorecase smartcase
+set tabstop=4 expandtab shiftwidth=4
+set number
+set list
+set listchars=tab:▸-,eol:¬,trail:•,precedes:…,extends:…
+set cursorline cursorcolumn
+set nowrap
+set visualbell
+
+" remappings
+nmap \s :nohlsearch<cr>
+nmap <c-n> :bnext<cr>
+nmap <c-p> :bprev<cr>
+command WQ wq
+command Wq wq
+command W w
+command Q q
