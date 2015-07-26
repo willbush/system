@@ -1,1 +1,0 @@
-go read about it here: https://github.com/krisajenkins/EvilBegins
