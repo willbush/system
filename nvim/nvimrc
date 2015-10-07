@@ -4,6 +4,9 @@ call vundle#begin('~/.nvim/bundle')
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'raichoo/haskell-vim'
+Plugin 'eagletmt/neco-ghc'
 
 call vundle#end()
 filetype plugin indent on
@@ -20,11 +23,17 @@ set listchars=tab:▸-,eol:¬,trail:•,precedes:…,extends:…
 set cursorline cursorcolumn
 set nowrap
 set visualbell
+set winminheight=0 " nice when using :split
 
 " remappings
 nmap \s :nohlsearch<cr>
 nmap <c-n> :bnext<cr>
 nmap <c-p> :bprev<cr>
+" allows for switching between split panes by
+" holding ctrl and pressing the j / k movement keys
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+" ignore my common case typos.
 command WQ wq
 command Wq wq
 command W w
