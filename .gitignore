@@ -1,3 +1,5 @@
 *.swp
 *~
-vim/bundle/
+nvim/bundle/
+nvim/spell/
+nvim/.*
