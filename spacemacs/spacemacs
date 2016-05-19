@@ -27,10 +27,14 @@ values."
      auto-completion
      ;; better-defaults
      emacs-lisp
-     (haskell :variables haskell-process-type 'stack-ghci haskell-enable-shm-support t)
+     (haskell :variables
+       haskell-process-type
+       'stack-ghci
+       ;;haskell-enable-shm-support t
+     )
      racket
      ;; git
-     ;; markdown
+     markdown
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -111,10 +115,10 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 15
+                               :size 16
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.2)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'

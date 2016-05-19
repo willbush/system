@@ -1,3 +1,4 @@
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -75,3 +76,5 @@ export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/home/will/.gvm/bin/gvm-init.sh" ]] && source "/home/will/.gvm/bin/gvm-init.sh"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
