@@ -33,7 +33,7 @@ values."
        ;;haskell-enable-shm-support t
      )
      racket
-     ;; git
+     git
      markdown
      ;; org
      ;; (shell :variables

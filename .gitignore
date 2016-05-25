@@ -1,5 +1,0 @@
-*.swp
-*~
-nvim/bundle/
-nvim/spell/
-nvim/.*
