@@ -30,6 +30,7 @@ values."
      (haskell :variables
        haskell-process-type
        'stack-ghci
+       haskell-enable-hindent-style "chris-done"
        ;;haskell-enable-shm-support t
      )
      racket
@@ -246,12 +247,24 @@ values."
 It is called immediately after `dotspacemacs/init'.  You are free to put almost
 any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
+  ;; (spacemacs/set-leader-keys "mqr" hindent-reformat-region)
   )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+
+
+  ;; custom hindent key bindings
+  (spacemacs/declare-prefix-for-mode 'haskell-mode
+    "mr" "haskell/hindent-reformat")
+  (spacemacs/set-leader-keys-for-major-mode 'haskell-mode
+    "rd" 'hindent-reformat-decl)
+  (spacemacs/set-leader-keys-for-major-mode 'haskell-mode
+    "rr" 'hindent-reformat-region)
+  (spacemacs/set-leader-keys-for-major-mode 'haskell-mode
+    "rb" 'hindent-reformat-buffer)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
