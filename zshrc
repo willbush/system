@@ -83,14 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="$HOME/.local/bin:$HOME/.rbenv/bin:$PATH"
 
-# Loads the rbenv automatically
-eval "$(rbenv init -)"
 
-# Allows shell autocompletion for the Haskell tool Stack
-# http://docs.haskellstack.org/en/stable/shell_autocompletion/
-autoload -U +X compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
-eval "$(stack --bash-completion-script stack)"
+
 
