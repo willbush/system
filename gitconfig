@@ -6,4 +6,4 @@
 [push]
 	default = simple
 [core]
-	editor = /usr/bin/emacs
+	editor = /usr/local/bin/emacs
