@@ -4,7 +4,7 @@
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
 
-plugins=(git)
+plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
