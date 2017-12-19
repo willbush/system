@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: stainless test mod
+# key: stestmod
+# --
+
+#[cfg(test)]
+describe! ${1:something} {
+    it "${2:does stuff}" {
+      $0
+    }
+}
