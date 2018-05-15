@@ -22,8 +22,9 @@ noremap <leader>rr :vsc Refactor.Rename<cr>
 noremap <leader>rm :vsc Refactor.ExtractMethod<cr>
 
 " testing and debugging
-noremap <leader>t :vsc TestExplorer.RunAllTestsInContext<cr>
-noremap <leader>T :vsc TestExplorer.RunAllTests<cr>
+noremap <leader>tc :vsc TestExplorer.RunAllTestsInContext<cr>
+noremap <leader>ta :vsc TestExplorer.RunAllTests<cr>
+noremap <leader>td :vsc TestExplorer.DebugSelectedTests<cr>
 
 " jump between compilation errors
 noremap <leader>e :vsc View.NextError<cr>
