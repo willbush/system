@@ -1,23 +1,32 @@
 set ignorecase
 set smartcase
 
-let mapleader=","
+:map <middlemouse> <nop>
+:imap <middlemouse> <nop>
+:map <Space> <nop>
+:imap <Space> <nop>
 
-:map <MiddleMouse> <Nop>
-:imap <MiddleMouse> <Nop>
+" make leader key the space key.
+let mapleader = " "
 
-:map gi :vsc Edit.GoToImplementation<CR>
-:map gr :vsc Edit.FindAllReferences<CR>
-:map gp :vsc Edit.PeekDefinition<CR>
+" quality of life stuff
+noremap <leader>gi :vsc Edit.GoToImplementation<cr>
+noremap <leader>gr :vsc Edit.FindAllReferences<cr>
+noremap <leader>gp :vsc Edit.PeekDefinition<cr>
 
-nnoremap R :vsc Refactor.Rename<cr>
+" spacemacs style settings
+noremap <leader>wx :vsc Window.CloseDocumentWindow<cr>
+noremap <leader>b<c-d> :vsc File.CloseAllButThis<cr>
+
+" refactoring
+noremap <leader>rr :vsc Refactor.Rename<cr>
+noremap <leader>rm :vsc Refactor.ExtractMethod<cr>
 
 " testing and debugging
-nnoremap <leader>b :vsc Debug.ToggleBreakpoint<cr>
-nnoremap <leader>r :vsc TestExplorer.RunAllTestsInContext<cr>
-nnoremap <leader>R :vsc TestExplorer.RunAllTests<cr>
+noremap <leader>t :vsc TestExplorer.RunAllTestsInContext<cr>
+noremap <leader>T :vsc TestExplorer.RunAllTests<cr>
 
 " jump between compilation errors
-nnoremap <leader>e :vsc View.NextError<cr>
-nnoremap <leader>E :vsc View.PreviousError<cr>
+noremap <leader>e :vsc View.NextError<cr>
+noremap <leader>E :vsc View.PreviousError<cr>
 
