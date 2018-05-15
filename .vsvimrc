@@ -4,7 +4,6 @@ set smartcase
 :map <middlemouse> <nop>
 :imap <middlemouse> <nop>
 :map <Space> <nop>
-:imap <Space> <nop>
 
 " make leader key the space key.
 let mapleader = " "
