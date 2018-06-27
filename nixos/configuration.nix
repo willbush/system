@@ -18,6 +18,7 @@
   boot.loader.grub.version = 2;
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+  boot.loader.grub.useOSProber = true; # autodetect installed OSes
 
   # Enable sound.
   sound.enable = true;
@@ -37,6 +38,7 @@
         # Enable the X11 windowing system.
         enable = true;
         layout = "us";
+        xkbOptions = "terminate:ctrl_alt_bksp, caps:swapescape";
 
         windowManager.xmonad = {
             enable = true;
@@ -73,12 +75,12 @@
     emacs
     firefox
     git
-    synapse
     redshift
-    dropbox
     keepassxc
-    hexchat
-    termite
+    #synapse
+    #dropbox
+    #hexchat
+    #termite
   ];
 
   # This value determines the NixOS release with which your system is to be
