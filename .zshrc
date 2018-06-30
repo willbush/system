@@ -6,8 +6,8 @@ ZSH_THEME="agnoster"
 
 plugins=(git vi-mode)
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-fpath=(~/.zsh/completion $fpath)
+# fpath=(~/.zsh/completion $fpath)
