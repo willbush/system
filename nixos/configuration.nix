@@ -50,15 +50,10 @@
               haskellPackges.xmonad-contrib
               haskellPackges.xmonad-extras
               haskellPackges.xmonad
+              haskellPackges.xmobar
           ];
       };
       windowManager.default = "xmonad";
-      displayManager = {
-        auto = {
-            enable = true;
-            user = "will";
-        };
-      };
     };
   };
 
@@ -107,8 +102,9 @@ alias dropbox-start="docker run -d --restart=always --name=dropbox \
     docker
     alacritty
     fzf
-    #synapse
-    #hexchat
+    # stack
+    # synapse
+    # hexchat
   ];
 
   fonts = {
