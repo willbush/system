@@ -72,7 +72,10 @@
     zsh = {
       enable = true;
       enableCompletion = true;
+      syntaxHighlighting.enable = true;
       interactiveShellInit = ''
+alias ls=exa
+alias vim=nvim
 alias dropbox="docker exec -it dropbox dropbox"
 alias dropbox-start="docker run -d --restart=always --name=dropbox \
   -v /home/will/Dropbox:/dbox/Dropbox \
@@ -82,7 +85,7 @@ alias dropbox-start="docker run -d --restart=always --name=dropbox \
 
       ohMyZsh = {
         enable = true;
-        plugins = ["git" "vi-mode"];
+        plugins = ["git" "vi-mode" "docker" "web-search"];
         theme = "agnoster";
       };
     };
@@ -91,28 +94,29 @@ alias dropbox-start="docker run -d --restart=always --name=dropbox \
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget
-    vim
     emacs
+    neovim
     firefox
+    keepassxc
+    wget
+    curl
     git
     ripgrep
     redshift
-    keepassxc
     docker
     alacritty
     fzf
-    # stack
-    # synapse
-    # hexchat
+    exa
+    fd
+    feh
   ];
 
   fonts = {
     enableFontDir = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
-      anonymousPro
       hack-font
+      anonymousPro
       corefonts
       dejavu_fonts
       font-droid
