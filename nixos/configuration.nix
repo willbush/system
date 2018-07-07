@@ -34,9 +34,6 @@
     # Enable CUPS to print documents.
     # printing.enable = true;
 
-    # Enable GeoClue, which redshift uses.
-    geoclue2.enable = true;
-
     xserver = {
       # Enable the X11 windowing system.
       enable = true;
@@ -54,6 +51,22 @@
           ];
       };
       windowManager.default = "xmonad";
+    };
+
+    compton = {
+      enable = true;
+      fade = true;
+      fadeDelta = 1;
+      inactiveOpacity = "0.75";
+      # activeOpacity = "0.95";
+    };
+
+    redshift = {
+      enable = true;
+      latitude = "33";
+      longitude = "-97";
+      temperature.day = 6500;
+      temperature.night = 2700;
     };
   };
 
@@ -98,17 +111,19 @@ alias dropbox-start="docker run -d --restart=always --name=dropbox \
     neovim
     firefox
     keepassxc
+    vlc
+    synapse
     wget
     curl
     git
     ripgrep
-    redshift
     docker
     alacritty
     fzf
     exa
     fd
     feh
+    unzip
   ];
 
   fonts = {
