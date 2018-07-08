@@ -112,7 +112,7 @@ alias dropbox-start="docker run -d --restart=always --name=dropbox \
     firefox
     keepassxc
     vlc
-    synapse
+    albert
     wget
     curl
     git
@@ -126,16 +126,10 @@ alias dropbox-start="docker run -d --restart=always --name=dropbox \
     feh
     htop
     unzip
+    gnupg
+    aspell
+    aspellDicts.en
   ];
-
-  systemd.user.services."synapse" = {
-    enable = true;
-    description = "launcher to start applications and find relevant files";
-    wantedBy = [ "default.target" ];
-    serviceConfig.Restart = "always";
-    serviceConfig.RestartSec = 2;
-    serviceConfig.ExecStart = "${pkgs.synapse}/bin/synapse --startup";
-  };
 
   fonts = {
     enableFontDir = true;
