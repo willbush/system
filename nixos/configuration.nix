@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -129,7 +125,35 @@ alias dropbox-start="docker run -d --restart=always --name=dropbox \
     gnupg
     aspell
     aspellDicts.en
+    nix-repl
+    stack
+    gnumake
+    gcc
+    binutils
+    ghc
+    cabal-install
+    haskellPackages.cabal-install
+    haskellPackages.hindent
+    haskellPackages.stylish-haskell
+    haskellPackages.hlint
+    haskellPackages.hoogle
   ];
+
+  # systemd.user.services."albert" = {
+  #   enable = true;
+  #   description = "A Desktop Agnostic Launcher";
+  #   wantedBy = [ "graphical-session.target" ];
+  #   partOf = [ "graphical-session.target" ];
+  #   environment = {
+  #     QT_PLUGIN_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtPluginPrefix;
+  #   };
+  #   serviceConfig = {
+  #     Restart = "always";
+  #     RestartSec = 2;
+  #     # Environment = "PATH=%h/.nix-profile/bin";
+  #     ExecStart = "${pkgs.albert}/bin/albert";
+  #   };
+  # };
 
   fonts = {
     enableFontDir = true;
