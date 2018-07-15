@@ -49,13 +49,14 @@
       windowManager.default = "xmonad";
     };
 
-    compton = {
-      enable = true;
-      fade = true;
-      fadeDelta = 1;
-      inactiveOpacity = "0.75";
-      # activeOpacity = "0.95";
-    };
+    # TODO learn how to control transparency per application
+    # compton = {
+    #   enable = true;
+    #   fade = true;
+    #   fadeDelta = 1;
+    #   inactiveOpacity = "0.75";
+    #   # activeOpacity = "0.95";
+    # };
 
     redshift = {
       enable = true;
@@ -82,19 +83,21 @@
       enable = true;
       enableCompletion = true;
       syntaxHighlighting.enable = true;
-      interactiveShellInit = ''
-alias ls=exa
-alias vim=nvim
-alias dropbox="docker exec -it dropbox dropbox"
-alias dropbox-start="docker run -d --restart=always --name=dropbox \
-  -v /home/will/Dropbox:/dbox/Dropbox \
-  -v /home/will/.dropbox:/dbox/.dropbox \
-  -e DBOX_UID=1000 -e DBOX_GID=100 janeczku/dropbox"
-'';
-
+      shellAliases = {
+        l  = "exa";
+        ll = "exa -l";
+        la = "exa -lah";
+        vim = "nvim";
+        dropbox = "docker exec -it dropbox dropbox";
+        docker-start = ''
+        docker run -d --restart=always --name=dropbox \
+          -v /home/will/Dropbox:/dbox/Dropbox \
+          -v /home/will/.dropbox:/dbox/.dropbox \
+          -e DBOX_UID=1000 -e DBOX_GID=100 janeczku/dropbox'';
+      };
       ohMyZsh = {
         enable = true;
-        plugins = ["git" "vi-mode" "docker" "web-search"];
+        plugins = ["vi-mode" "web-search"];
         theme = "agnoster";
       };
     };
@@ -139,6 +142,7 @@ alias dropbox-start="docker run -d --restart=always --name=dropbox \
     haskellPackages.hoogle
   ];
 
+  # TODO figure out how to set albert up as a service
   # systemd.user.services."albert" = {
   #   enable = true;
   #   description = "A Desktop Agnostic Launcher";
@@ -180,5 +184,5 @@ alias dropbox-start="docker run -d --restart=always --name=dropbox \
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "18.03"; # Did you read the comment?
+  system.nixos.stateVersion = "18.03"; # Did you read the comment?
 }
