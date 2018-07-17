@@ -129,13 +129,9 @@
     aspell
     aspellDicts.en
     nix-repl
-    stack
-    gnumake
-    gcc
-    binutils
-    ghc
-    cabal-install
+    haskellPackages.ghc
     haskellPackages.cabal-install
+    haskellPackages.stack
     haskellPackages.hindent
     haskellPackages.stylish-haskell
     haskellPackages.hlint
