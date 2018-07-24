@@ -31,6 +31,7 @@ noremap <leader>bd :vsc Window.CloseDocumentWindow<cr>
 " refactoring
 noremap <leader>rr :vsc Refactor.Rename<cr>
 noremap <leader>rm :vsc Refactor.ExtractMethod<cr>
+noremap <leader>rp :vsc Refactor.ReorderParameters<cr>
 
 " testing and debugging
 noremap <leader>tc :vsc TestExplorer.RunAllTestsInContext<cr>
