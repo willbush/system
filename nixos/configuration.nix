@@ -9,21 +9,22 @@
   # Set your time zone.
   time.timeZone = "America/Chicago";
 
-  # Use the GRUB 2 boot loader.
   boot = {
     cleanTmpDir = true; # cleans all files in /tmp during boot
-    loader.grub.enable = true;
-    loader.grub.version = 2;
-    # Define on which hard drive you want to install Grub.
-    loader.grub.device = "/dev/sda"; # or "nodev" for efi only
-    loader.grub.useOSProber = true; # autodetect installed OSes
+    loader.grub = {
+      enable = true;
+      version = 2;
+      # Define on which hard drive you want to install Grub.
+      device = "/dev/sda"; # or "nodev" for efi only
+      useOSProber = true; # autodetect installed OSes
+    };
   };
 
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos";
 
   # List services that you want to enable:
   services = {
@@ -47,6 +48,10 @@
           ];
       };
       windowManager.default = "xmonad";
+
+      displayManager.sessionCommands = ''
+        albert &
+      '';
     };
 
     # TODO learn how to control transparency per application
@@ -129,31 +134,12 @@
     aspell
     aspellDicts.en
     nix-repl
-    haskellPackages.ghc
-    haskellPackages.cabal-install
     haskellPackages.stack
     haskellPackages.hindent
     haskellPackages.stylish-haskell
     haskellPackages.hlint
     haskellPackages.hoogle
   ];
-
-  # TODO figure out how to set albert up as a service
-  # systemd.user.services."albert" = {
-  #   enable = true;
-  #   description = "A Desktop Agnostic Launcher";
-  #   wantedBy = [ "graphical-session.target" ];
-  #   partOf = [ "graphical-session.target" ];
-  #   environment = {
-  #     QT_PLUGIN_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtPluginPrefix;
-  #   };
-  #   serviceConfig = {
-  #     Restart = "always";
-  #     RestartSec = 2;
-  #     # Environment = "PATH=%h/.nix-profile/bin";
-  #     ExecStart = "${pkgs.albert}/bin/albert";
-  #   };
-  # };
 
   fonts = {
     enableFontDir = true;
