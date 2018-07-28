@@ -1,5 +1,6 @@
 set ignorecase
 set smartcase
+set autoindent
 
 :map <middlemouse> <nop>
 :imap <middlemouse> <nop>
@@ -13,18 +14,29 @@ noremap <leader>gi :vsc Edit.GoToImplementation<cr>
 noremap <leader>gr :vsc Edit.FindAllReferences<cr>
 noremap <leader>gp :vsc Edit.PeekDefinition<cr>
 
-" spacemacs style settings
-noremap <leader>wx :vsc Window.CloseDocumentWindow<cr>
+" close VS
+noremap <leader>qq :vsc File.Exit<cr>
+
+" close all buffers except the current
 noremap <leader>b<c-d> :vsc File.CloseAllButThis<cr>
+
+" save file(s)
+noremap <leader>fs :vsc File.SaveSelectedItems<cr>
+noremap <leader>fS :vsc File.SaveAll<cr>
+
+" two spacemacs ways of closing buffers
+noremap <leader>wx :vsc Window.CloseDocumentWindow<cr>
+noremap <leader>bd :vsc Window.CloseDocumentWindow<cr>
 
 " refactoring
 noremap <leader>rr :vsc Refactor.Rename<cr>
 noremap <leader>rm :vsc Refactor.ExtractMethod<cr>
+noremap <leader>rp :vsc Refactor.ReorderParameters<cr>
 
 " testing and debugging
 noremap <leader>tc :vsc TestExplorer.RunAllTestsInContext<cr>
 noremap <leader>ta :vsc TestExplorer.RunAllTests<cr>
-noremap <leader>td :vsc TestExplorer.DebugSelectedTests<cr>
+noremap <leader>td :vsc TestExplorer.DebugAllTestsInContext<cr>
 
 " jump between compilation errors
 noremap <leader>e :vsc View.NextError<cr>
