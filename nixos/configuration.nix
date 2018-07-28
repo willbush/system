@@ -88,6 +88,7 @@
       enable = true;
       enableCompletion = true;
       syntaxHighlighting.enable = true;
+      autosuggestions.enable = true;
       shellAliases = {
         l  = "exa";
         ll = "exa -l";
@@ -146,7 +147,8 @@
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       hack-font
-      anonymousPro
+      source-code-pro
+      powerline-fonts
       corefonts
       dejavu_fonts
       font-droid
@@ -154,8 +156,6 @@
       google-fonts
       inconsolata
       liberation_ttf
-      powerline-fonts
-      source-code-pro
       terminus_font
       ttf_bitstream_vera
       ubuntu_font_family
