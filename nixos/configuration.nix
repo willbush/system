@@ -38,30 +38,32 @@
       xkbOptions = "terminate:ctrl_alt_bksp, caps:swapescape";
 
       windowManager.xmonad = {
-          enable = true;
-          enableContribAndExtras = true;
-          extraPackages = haskellPackges: [
-              haskellPackges.xmonad-contrib
-              haskellPackges.xmonad-extras
-              haskellPackges.xmonad
-              haskellPackges.xmobar
-          ];
+        enable = true;
+        enableContribAndExtras = true;
+        extraPackages = haskellPackges: [
+          haskellPackges.xmonad-contrib
+          haskellPackges.xmonad-extras
+          haskellPackges.xmonad
+          haskellPackges.xmobar
+        ];
       };
       windowManager.default = "xmonad";
 
       displayManager.sessionCommands = ''
+        feh --bg-scale ~/Images/blood-moon.png &
         albert &
       '';
     };
 
-    # TODO learn how to control transparency per application
-    # compton = {
-    #   enable = true;
-    #   fade = true;
-    #   fadeDelta = 1;
-    #   inactiveOpacity = "0.75";
-    #   # activeOpacity = "0.95";
-    # };
+    compton = {
+      enable = true;
+      fade = true;
+      backend = "xrender";
+      fadeDelta = 1;
+      inactiveOpacity = "0.75";
+      activeOpacity = "0.90";
+      opacityRules = [ "99:name *= 'Firefox'" ];
+    };
 
     redshift = {
       enable = true;
