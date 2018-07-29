@@ -493,6 +493,9 @@ before packages are loaded."
   ;; set emacs-helm-ag use ripgrep: https://github.com/syohex/emacs-helm-ag
   (setq helm-ag-base-command "rg -vimgrep --no-heading")
 
+  ;; bind fzf to `SPC f z'
+  (spacemacs/set-leader-keys "fz" 'fzf)
+
   ;; custom haskell-mode key bindings
   (spacemacs/declare-prefix-for-mode 'haskell-mode
     "mt" "haskell/test")
