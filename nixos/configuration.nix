@@ -17,6 +17,7 @@
       # Define on which hard drive you want to install Grub.
       device = "/dev/sda"; # or "nodev" for efi only
       useOSProber = true; # autodetect installed OSes
+      memtest86.enable = true;
     };
   };
 
@@ -49,10 +50,14 @@
       };
       windowManager.default = "xmonad";
 
-      displayManager.sessionCommands = ''
-        feh --bg-scale ~/Images/blood-moon.png &
-        albert &
-      '';
+      displayManager = {
+        lightdm.enable = true;
+        sessionCommands = ''
+          feh --bg-scale ~/Images/blood-moon.png &
+          albert &
+        '';
+      };
+      desktopManager.xterm.enable = false;
     };
 
     compton = {
