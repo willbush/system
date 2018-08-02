@@ -132,6 +132,7 @@
     docker
     alacritty
     fzf
+    ranger
     exa
     tree
     fd
