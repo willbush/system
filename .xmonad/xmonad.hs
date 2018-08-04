@@ -11,4 +11,7 @@ main = do
     -- , layoutHook = avoidStruts  $ layoutHook defaultConfig
     , terminal = "alacritty"
     , modMask = mod4Mask -- Rebind Mod to the super key
+    , normalBorderColor  = "#444444"
+    , focusedBorderColor = "#999999"
+    , borderWidth        = 1
     }
