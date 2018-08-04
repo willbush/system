@@ -102,7 +102,7 @@
         la = "exa -lah";
         vim = "nvim";
         dropbox = "docker exec -it dropbox dropbox";
-        docker-start = ''
+        dropbox-start = ''
         docker run -d --restart=always --name=dropbox \
           -v /home/will/Dropbox:/dbox/Dropbox \
           -v /home/will/.dropbox:/dbox/.dropbox \
