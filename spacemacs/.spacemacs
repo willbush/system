@@ -47,6 +47,7 @@ This function should only modify configuration layer settings."
      emacs-lisp
      (haskell :variables
               haskell-completion-backend 'intero
+              haskell-enable-hindent t
               haskell-enable-hindent-style "johan-tibell"
               haskell-compile-cabal-build-command "stack build")
      (python :variables python-test-runner 'pytest)
