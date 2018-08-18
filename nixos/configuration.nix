@@ -143,11 +143,12 @@
     aspell
     aspellDicts.en
     nix-repl
-    haskellPackages.stack
+    haskellPackages.apply-refact
     haskellPackages.hindent
-    haskellPackages.stylish-haskell
     haskellPackages.hlint
     haskellPackages.hoogle
+    haskellPackages.stack
+    haskellPackages.stylish-haskell
   ];
 
   fonts = {
