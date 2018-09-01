@@ -492,6 +492,11 @@ before packages are loaded."
   ;; bind fzf to `SPC f z'
   (spacemacs/set-leader-keys "fz" 'fzf)
 
+  ;; Connect flycheck to dante
+  (add-hook 'dante-mode-hook
+            '(lambda () (flycheck-add-next-checker 'haskell-dante
+                                                   '(warning . haskell-hlint))))
+
   ;; custom haskell-mode key bindings
   (spacemacs/declare-prefix-for-mode 'haskell-mode
     "mt" "haskell/test")
