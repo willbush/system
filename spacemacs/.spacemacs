@@ -503,8 +503,6 @@ before packages are loaded."
     "e" 'hasky-stack-execute)
   (spacemacs/set-leader-keys-for-major-mode 'haskell-mode
     "p" 'hasky-stack-package-action)
-  (spacemacs/set-leader-keys-for-major-mode 'haskell-mode
-    "n" 'hasky-stack-new)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
