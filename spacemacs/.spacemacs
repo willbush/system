@@ -498,12 +498,30 @@ before packages are loaded."
             '(lambda () (flycheck-add-next-checker 'haskell-dante
                                                    '(warning . haskell-hlint))))
 
-  ;; setup hasky key bindings
+  ;; Setup Haskell mode bindings the way I want them.
   (spacemacs/set-leader-keys-for-major-mode 'haskell-mode
-    "e" 'hasky-stack-execute)
-  (spacemacs/set-leader-keys-for-major-mode 'haskell-mode
-    "p" 'hasky-stack-package-action)
+    "e" 'hasky-stack-execute
+    "p" 'hasky-stack-package-action
+    "rb" 'hindent-reformat-buffer
+    "rB" 'hlint-refactor-refactor-buffer
+    "rr" 'hindent-reformat-region
+    "rp" 'hlint-refactor-refactor-at-point)
   )
+
+(defun reload-dir-locals-for-all-buffer-in-this-directory ()
+  "Reload dir-locals for all buffers in the same directory as the current buffer."
+  (interactive)
+  (let ((dir default-directory))
+    (dolist (buffer (buffer-list))
+      (with-current-buffer buffer
+        (when (equal default-directory dir))
+        (reload-dir-locals-for-current-buffer)))))
+
+(defun reload-dir-locals-for-current-buffer ()
+  "Reload dir-locals for the current buffer."
+  (interactive)
+  (let ((enable-local-variables :all))
+    (hack-dir-local-variables-non-file-buffer)))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
