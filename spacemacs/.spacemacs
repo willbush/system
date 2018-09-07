@@ -40,19 +40,17 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
 
-     ;; mark up languages
-     markdown
-     html
      ;; languages
-     emacs-lisp
      (haskell :variables
               haskell-completion-backend 'dante
               haskell-enable-hindent t
               haskell-enable-hindent-style "johan-tibell"
               haskell-compile-cabal-build-command "stack build")
+     emacs-lisp
      (python :variables python-test-runner 'pytest)
+     html
+     markdown
      rust
-     csharp
      yaml
 
      ;; tools
@@ -62,7 +60,6 @@ This function should only modify configuration layer settings."
                       auto-completion-private-snippets-directory "~/system/spacemacs/snippets/")
      git
      helm
-     neotree
      ranger
      nixos
      (erc :variables
@@ -72,11 +69,11 @@ This function should only modify configuration layer settings."
                :ssl t)))
      org
      pdf
+     spell-checking
+     syntax-checking
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
-     spell-checking
-     syntax-checking
     )
 
    ;; List of additional packages that will be installed without being
