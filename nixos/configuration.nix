@@ -143,7 +143,6 @@
     aspell
     aspellDicts.en
     libreoffice
-    nix-repl
     haskellPackages.apply-refact
     haskellPackages.hindent
     haskellPackages.hlint
