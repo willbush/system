@@ -53,7 +53,7 @@
       displayManager = {
         lightdm.enable = true;
         sessionCommands = ''
-          feh --bg-scale ~/Images/blood-moon.png &
+          feh --bg-scale ~/Images/false-god.jpg &
           albert &
         '';
       };
