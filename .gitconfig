@@ -2,7 +2,7 @@
 	name = willbush
 	email = will.g.bush@gmail.com
 [credential]
-	helper = cache
+	helper = cache --timeout=3600
 [push]
 	default = simple
 [core]
