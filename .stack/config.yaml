@@ -10,7 +10,6 @@ templates:
   params:
    author-name: Will Bush
    author-email: will.g.bush@gmail.com
-   copyright: MIT
    github-username: willbush
 
 nix:
