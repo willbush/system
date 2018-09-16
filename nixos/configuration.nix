@@ -149,6 +149,9 @@
     haskellPackages.hoogle
     haskellPackages.stack
     haskellPackages.stylish-haskell
+    gcc
+    cargo
+    rustup
   ];
 
   fonts = {
