@@ -27,7 +27,6 @@
 
   networking.hostName = "nixos";
 
-  # List services that you want to enable:
   services = {
     # Enable CUPS to print documents.
     # printing.enable = true;
@@ -67,7 +66,7 @@
       fadeDelta = 1;
       inactiveOpacity = "0.75";
       activeOpacity = "0.90";
-      opacityRules = [ "99:name *= 'Firefox'" ];
+      opacityRules = [ "99:name *= 'Firefox'" "99:name *= 'VLC'"];
     };
 
     redshift = {
