@@ -22,11 +22,25 @@
 * Minor Settings
 
 #+BEGIN_SRC emacs-lisp
+  ;; removes gui elements
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+
+  ;; remove default splash screen
+  (setq inhibit-splash-screen t)
+
   ;; switches (yes or no) prompts to (y or n)
   (defalias 'yes-or-no-p 'y-or-n-p)
 
-  ;; Enable flashing mode-line on errors
-  (doom-themes-visual-bell-config)
+  ;; disable ring bell function
+  (setq ring-bell-function 'ignore)
+
+  ;; disable auto backup file creation
+  (setq make-backup-files nil)
+
+  ;; disable auto save
+  (setq auto-save-default nil)
 
   ;; enable prettify symbols when using GUI emacs
   (when window-system (global-prettify-symbols-mode t))
@@ -42,7 +56,7 @@
   (setq vc-follow-symlinks t)
 
   ;; keeps a faint highlight on the line of the point.
-  (setq global-hl-line-mode t)
+  (global-hl-line-mode t)
 #+END_SRC
 
 * Terminal
