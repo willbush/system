@@ -30,18 +30,39 @@
 
 (evil-leader/set-key
   "<SPC>" 'smex ;; M-x
-  "f" 'find-file
-  "j" 'avy-goto-char
-  "s" 'save-buffer
-  "b" 'ido-switch-buffer
-  "k" 'kill-buffer
-  "h" 'previous-buffer
-  "l" 'next-buffer
-  "q" 'close-all-buffers)
+  "j" 'avy-goto-char)
 
-(evil-leader/set-key "wd" 'delete-window)
-(evil-leader/set-key "wh" 'evil-window-left)
-(evil-leader/set-key "wl" 'evil-window-right)
+(which-key-declare-prefixes "SPC f" "file")
+(evil-leader/set-key
+  "ff" 'find-file)
+
+(which-key-declare-prefixes "SPC b" "buffer")
+(evil-leader/set-key
+  "bb" 'ido-switch-buffer
+  "bs" 'save-buffer
+  "bd" 'evil-delete-buffer
+  "bk" 'kill-buffer
+  "bh" 'previous-buffer
+  "bl" 'next-buffer
+  "bq" 'close-all-buffers)
+
+(which-key-declare-prefixes "SPC w" "window")
+(evil-leader/set-key
+  "wd" 'delete-window
+  "wh" 'evil-window-left
+  "wl" 'evil-window-right
+  "w/" 'split-window-horizontally
+  "w-" 'split-window-vertically
+  "wo" 'delete-other-windows)
+
+(which-key-declare-prefixes "SPC c" "comment")
+(evil-leader/set-key
+  "cr" 'comment-or-uncomment-region
+  "cl" 'comment-line)
+
+(which-key-declare-prefixes "SPC q" "quit")
+(evil-leader/set-key
+  "qq" 'save-buffers-kill-terminal)
 
 ;; Enables searching via * on a visual selection.
 (use-package evil-visualstar
@@ -66,7 +87,23 @@
   :ensure t
   :config (evil-exchange-cx-install))
 
-(use-package evil :ensure t :init (evil-mode t))
+(setq evil-want-C-u-scroll t)
+(use-package evil
+  :ensure t
+  :init (progn
+	  (evil-mode t)))
+
+(use-package evil
+  :ensure t
+  :init
+  (setq evil-search-module 'evil-search)
+  (setq evil-ex-complete-emacs-commands nil)
+  (setq evil-vsplit-window-right t)
+  (setq evil-split-window-below t)
+  (setq evil-shift-round nil)
+  (setq evil-want-C-u-scroll t)
+  :config
+  (evil-mode t))
 
 ;; MINOR SETTINGS:
 
@@ -79,9 +116,11 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (setq inhibit-splash-screen t
+      initial-scratch-message nil
       ring-bell-function 'ignore
       make-backup-files nil
-      auto-save-default nil)
+      auto-save-default nil
+      default-fill-column 80)
 
 ;; enable prettify symbols when using GUI emacs
 (when window-system (global-prettify-symbols-mode t))
