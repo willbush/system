@@ -1,22 +1,46 @@
+;; increase GC threshold in doom style
+(setq gc-cons-threshold 402653184
+      gc-cons-percentage 0.6)
+
+;; reset GC after startup
+(add-hook 'emacs-startup-hook
+	  (lambda () (setq gc-cons-threshold 16777216
+		      gc-cons-percentage 0.1)))
+
 (require 'package)
+
 (setq package-enable-at-startup nil)
 
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
 (package-initialize)
 
-;; ensure use-package is installed before anything else
-(unless (package-installed-p 'use-package)
-(package-refresh-contents)
-(package-install 'use-package))
+(add-hook 'after-init-hook
+	  (lambda () (message "init time: %s" (emacs-init-time))))
 
-(use-package doom-themes :ensure t)
+;; bootstrap use-package
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(use-package evil
+  :ensure t
+  :defer .1 ;; load evil after startup
+  :init
+  (setq evil-search-module 'evil-search)
+  (setq evil-ex-complete-emacs-commands nil)
+  (setq evil-vsplit-window-right t)
+  (setq evil-split-window-below t)
+  (setq evil-shift-round nil)
+  (setq evil-want-C-u-scroll t)
+  :config
+  (evil-mode))
 
 (use-package which-key
   :ensure t
   :init (which-key-mode))
 
-(use-package avy :ensure t)
+(use-package avy :ensure t :commands avy-goto-char)
 
 (use-package evil-leader
   :ensure t
@@ -66,44 +90,31 @@
 
 ;; Enables searching via * on a visual selection.
 (use-package evil-visualstar
+  :after evil
   :ensure t
   :init (global-evil-visualstar-mode))
 
 ;; Enables inc/dec of numbers!
-(use-package evil-numbers :ensure t)
+(use-package evil-numbers :after evil :ensure t)
+
 (global-set-key (kbd "C-c =") 'evil-numbers/inc-at-pt)
 (global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
 
 (use-package evil-surround
+  :after evil
   :ensure t
   :config
   (global-evil-surround-mode 1))
 
 (use-package evil-matchit
+  :after evil
   :ensure t
   :config (global-evil-matchit-mode 1))
 
 (use-package evil-exchange
+  :after evil
   :ensure t
   :config (evil-exchange-cx-install))
-
-(setq evil-want-C-u-scroll t)
-(use-package evil
-  :ensure t
-  :init (progn
-	  (evil-mode t)))
-
-(use-package evil
-  :ensure t
-  :init
-  (setq evil-search-module 'evil-search)
-  (setq evil-ex-complete-emacs-commands nil)
-  (setq evil-vsplit-window-right t)
-  (setq evil-split-window-below t)
-  (setq evil-shift-round nil)
-  (setq evil-want-C-u-scroll t)
-  :config
-  (evil-mode t))
 
 ;; MINOR SETTINGS:
 
@@ -177,7 +188,7 @@
   :init (smex-initialize)
   :bind ("M-x" . smex))
 
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+(use-package doom-themes :ensure t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
