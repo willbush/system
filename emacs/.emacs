@@ -5,8 +5,6 @@
 
 (package-initialize)
 
-;; PACKAGES:
-
 ;; ensure use-package is installed before anything else
 (unless (package-installed-p 'use-package)
 (package-refresh-contents)
@@ -17,17 +15,58 @@
 (use-package which-key
   :ensure t
   :init (which-key-mode))
+
+(use-package avy :ensure t)
+
+(use-package evil-leader
+  :ensure t
+  :init (global-evil-leader-mode))
+
+(evil-leader/set-leader "<SPC>")
+
+(defun close-all-buffers ()
+  (interactive)
+  (mapc 'kill-buffer (buffer-list)))
+
+(evil-leader/set-key
+  "<SPC>" 'smex ;; M-x
+  "f" 'find-file
+  "j" 'avy-goto-char
+  "s" 'save-buffer
+  "b" 'ido-switch-buffer
+  "k" 'kill-buffer
+  "h" 'previous-buffer
+  "l" 'next-buffer
+  "q" 'close-all-buffers)
+
+(evil-leader/set-key "wd" 'delete-window)
+(evil-leader/set-key "wh" 'evil-window-left)
+(evil-leader/set-key "wl" 'evil-window-right)
+
+;; Enables searching via * on a visual selection.
+(use-package evil-visualstar
+  :ensure t
+  :init (global-evil-visualstar-mode))
+
+;; Enables inc/dec of numbers!
+(use-package evil-numbers :ensure t)
+(global-set-key (kbd "C-c =") 'evil-numbers/inc-at-pt)
+(global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
+
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
+
+(use-package evil-matchit
+  :ensure t
+  :config (global-evil-matchit-mode 1))
+
+(use-package evil-exchange
+  :ensure t
+  :config (evil-exchange-cx-install))
+
 (use-package evil :ensure t :init (evil-mode t))
-
-(use-package ido-vertical-mode
-  :ensure t
-  :init (ido-vertical-mode 1)
-        (setq ido-vertical-define-keys 'C-n-and-C-p-only))
-
-(use-package smex
-  :ensure t
-  :init (smex-initialize)
-  :bind ("M-x" . smex))
 
 ;; MINOR SETTINGS:
 
@@ -66,7 +105,9 @@
 (interactive (list my-shell)))
 (ad-activate 'ansi-term)
 
-;; Org
+;; ORG
+
+(setq org-src-window-setup 'current-window)
 
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
@@ -83,7 +124,21 @@
       ido-everywhere t
       ido-create-new-buffer 'always
       ido-enable-tramp-completion t)
+
 (ido-mode 1)
+
+(use-package ido-vertical-mode
+  :ensure t
+  :init (ido-vertical-mode 1)
+	(setq ido-vertical-define-keys 'C-n-and-C-p-only))
+
+;; enables IDO when using M-x
+(use-package smex
+  :ensure t
+  :init (smex-initialize)
+  :bind ("M-x" . smex))
+
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -98,7 +153,7 @@
     ("1c082c9b84449e54af757bcae23617d11f563fc9f33a832a8a2813c4d7dfb652" "d1b4990bd599f5e2186c3f75769a2c5334063e9e541e37514942c27975700370" "cd736a63aa586be066d5a1f0e51179239fe70e16a9f18991f6f5d99732cabb32" "6b2636879127bf6124ce541b1b2824800afc49c6ccd65439d6eb987dbf200c36" "b54826e5d9978d59f9e0a169bbd4739dd927eead3ef65f56786621b53c031a7c" "4697a2d4afca3f5ed4fdf5f715e36a6cac5c6154e105f3596b44a4874ae52c45" "6d589ac0e52375d311afaa745205abb6ccb3b21f6ba037104d71111e7e76a3fc" "fe666e5ac37c2dfcf80074e88b9252c71a22b6f5d2f566df9a7aa4f9bea55ef8" "3a3de615f80a0e8706208f0a71bbcc7cc3816988f971b6d237223b6731f91605" "f0dc4ddca147f3c7b1c7397141b888562a48d9888f1595d69572db73be99a024" default)))
  '(package-selected-packages
    (quote
-    (smex ido-vertical-mode doom-themes use-package which-key evil-visual-mark-mode))))
+    (evil-exchange evil-matchit evil-surround evil-numbers evil-visualstar evil-leader avy smex ido-vertical-mode doom-themes use-package which-key evil-visual-mark-mode))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
