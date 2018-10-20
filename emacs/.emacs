@@ -54,14 +54,17 @@
 
 (evil-leader/set-key
   "<SPC>" 'smex ;; M-x
-  "j" 'avy-goto-char)
+  "j" 'avy-goto-char
+  "'" 'ansi-term)
 
 (which-key-declare-prefixes "SPC f" "file")
 (evil-leader/set-key
-  "ff" 'find-file)
+  "ff" 'find-file
+  "fs" 'save-buffer)
 
 (which-key-declare-prefixes "SPC b" "buffer")
 (evil-leader/set-key
+  "TAB" 'mode-line-other-buffer
   "bb" 'ido-switch-buffer
   "bs" 'save-buffer
   "bd" 'evil-delete-buffer
@@ -77,7 +80,8 @@
   "wl" 'evil-window-right
   "w/" 'split-window-horizontally
   "w-" 'split-window-vertically
-  "wo" 'delete-other-windows)
+  "wo" 'delete-other-windows
+  "wx" 'kill-buffer-and-window)
 
 (which-key-declare-prefixes "SPC c" "comment")
 (evil-leader/set-key
@@ -97,8 +101,12 @@
 ;; Enables inc/dec of numbers!
 (use-package evil-numbers :after evil :ensure t)
 
-(global-set-key (kbd "C-c =") 'evil-numbers/inc-at-pt)
-(global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
+;; Bind increment and decrement number at point.
+(global-set-key (kbd "M-=") 'evil-numbers/inc-at-pt)
+(global-set-key (kbd "M--") 'evil-numbers/dec-at-pt)
+;; Bind zoom in and out
+(global-set-key (kbd "C-=") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
 
 (use-package evil-surround
   :after evil
@@ -146,8 +154,15 @@
 ;; follows symlinks without prompt when set to t
 (setq vc-follow-symlinks t)
 
-;; TERMINAL:
+(setq electric-pair-pairs
+  '(
+    (?\( . ?\))
+    (?\[ . ?\])
+    (?\{ . ?\})
+   ))
+(electric-pair-mode t)
 
+;; TERMINAL:
 ;; keeps a faint highlight on the line of the point.
 (global-hl-line-mode t)
 (defvar my-shell "/run/current-system/sw/bin/zsh")
@@ -168,7 +183,6 @@
 (doom-themes-org-config)
 
 ;; IDO
-
 (setq ido-enable-flex-matching t
       ido-case-fold t
       ido-everywhere t
