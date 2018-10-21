@@ -197,17 +197,18 @@
       ido-create-new-buffer 'always
       ido-enable-tramp-completion t)
 
-(ido-mode 1)
+(add-hook 'after-init-hook (lambda () (ido-mode 1)))
 
 (use-package ido-vertical-mode
   :ensure t
-  :init (ido-vertical-mode 1)
-	(setq ido-vertical-define-keys 'C-n-and-C-p-only))
+  :hook (after-init . ido-vertical-mode)
+  :config
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only))
 
 ;; enables IDO when using M-x
 (use-package smex
   :ensure t
-  :init (smex-initialize)
+  :hook (after-init . smex-initialize)
   :bind ("M-x" . smex))
 
 (use-package doom-themes
