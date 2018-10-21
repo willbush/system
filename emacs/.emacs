@@ -1,4 +1,6 @@
-;; increase GC threshold in doom style
+;; -*- mode: emacs-lisp; lexical-binding: t -*-
+
+;; similar ot how doom does it increase GC threshold during init
 (setq gc-cons-threshold 402653184
       gc-cons-percentage 0.6)
 
@@ -15,9 +17,6 @@
 
 (package-initialize)
 
-(add-hook 'after-init-hook
-	  (lambda () (message "init time: %s" (emacs-init-time))))
-
 ;; bootstrap use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -25,72 +24,14 @@
 
 (use-package evil
   :ensure t
-  :defer .1 ;; load evil after startup
+  :hook (after-init . evil-mode)
   :init
-  (setq evil-search-module 'evil-search)
-  (setq evil-ex-complete-emacs-commands nil)
-  (setq evil-vsplit-window-right t)
-  (setq evil-split-window-below t)
-  (setq evil-shift-round nil)
-  (setq evil-want-C-u-scroll t)
-  :config
-  (evil-mode))
-
-(use-package which-key
-  :ensure t
-  :init (which-key-mode))
-
-(use-package avy :ensure t :commands avy-goto-char)
-
-(use-package evil-leader
-  :ensure t
-  :init (global-evil-leader-mode))
-
-(evil-leader/set-leader "<SPC>")
-
-(defun close-all-buffers ()
-  (interactive)
-  (mapc 'kill-buffer (buffer-list)))
-
-(evil-leader/set-key
-  "<SPC>" 'smex ;; M-x
-  "j" 'avy-goto-char
-  "'" 'ansi-term)
-
-(which-key-declare-prefixes "SPC f" "file")
-(evil-leader/set-key
-  "ff" 'find-file
-  "fs" 'save-buffer)
-
-(which-key-declare-prefixes "SPC b" "buffer")
-(evil-leader/set-key
-  "TAB" 'mode-line-other-buffer
-  "bb" 'ido-switch-buffer
-  "bs" 'save-buffer
-  "bd" 'evil-delete-buffer
-  "bk" 'kill-buffer
-  "bh" 'previous-buffer
-  "bl" 'next-buffer
-  "bq" 'close-all-buffers)
-
-(which-key-declare-prefixes "SPC w" "window")
-(evil-leader/set-key
-  "wd" 'delete-window
-  "wh" 'evil-window-left
-  "wl" 'evil-window-right
-  "w/" 'split-window-horizontally
-  "w-" 'split-window-vertically
-  "wo" 'delete-other-windows
-  "wx" 'kill-buffer-and-window)
-
-(which-key-declare-prefixes "SPC c" "comment")
-(evil-leader/set-key
-  "cr" 'comment-or-uncomment-region
-  "cl" 'comment-line)
-
-(which-key-declare-prefixes "SPC q" "quit")
-(evil-leader/set-key
-  "qq" 'save-buffers-kill-terminal)
+  (setq evil-search-module 'evil-search
+	evil-ex-complete-emacs-commands nil
+	evil-vsplit-window-right t
+	evil-split-window-below t
+	evil-shift-round nil
+	evil-want-C-u-scroll t))
 
 ;; Enables searching via * on a visual selection.
 (use-package evil-visualstar
@@ -98,12 +39,75 @@
   :ensure t
   :init (global-evil-visualstar-mode))
 
-;; Enables inc/dec of numbers!
-(use-package evil-numbers :after evil :ensure t)
+(use-package which-key
+  :ensure t
+  :hook (after-init . which-key-mode))
 
-;; Bind increment and decrement number at point.
-(global-set-key (kbd "M-=") 'evil-numbers/inc-at-pt)
-(global-set-key (kbd "M--") 'evil-numbers/dec-at-pt)
+(use-package avy :ensure t :commands avy-goto-char)
+
+(defun close-all-buffers ()
+  (interactive)
+  (mapc 'kill-buffer (buffer-list)))
+
+(use-package evil-leader
+  :ensure t
+  ;; after which key so I can keep its prefix declariations next to
+  ;; evil-leader declarations in this config block
+  :after which-key
+  :init (global-evil-leader-mode)
+  :config
+
+  (evil-leader/set-leader "<SPC>")
+
+  (evil-leader/set-key
+    "<SPC>" 'smex ;; M-x
+    "j" 'avy-goto-char
+    "'" 'ansi-term)
+
+  (which-key-declare-prefixes "SPC f" "file")
+  (evil-leader/set-key
+    "ff" 'find-file
+    "fs" 'save-buffer)
+
+  (which-key-declare-prefixes "SPC b" "buffer")
+  (evil-leader/set-key
+    "TAB" 'mode-line-other-buffer
+    "bb" 'ido-switch-buffer
+    "bs" 'save-buffer
+    "bd" 'evil-delete-buffer
+    "bk" 'kill-buffer
+    "bh" 'previous-buffer
+    "bl" 'next-buffer
+    "bq" 'close-all-buffers)
+
+  (which-key-declare-prefixes "SPC w" "window")
+  (evil-leader/set-key
+    "wd" 'delete-window
+    "wh" 'evil-window-left
+    "wl" 'evil-window-right
+    "w/" 'split-window-horizontally
+    "w-" 'split-window-vertically
+    "wo" 'delete-other-windows
+    "wx" 'kill-buffer-and-window)
+
+  (which-key-declare-prefixes "SPC c" "comment")
+  (evil-leader/set-key
+    "cr" 'comment-or-uncomment-region
+    "cl" 'comment-line)
+
+  (which-key-declare-prefixes "SPC q" "quit")
+  (evil-leader/set-key
+    "qq" 'save-buffers-kill-terminal))
+
+;; Enables inc/dec of numbers!
+(use-package evil-numbers
+  :after evil
+  :ensure t
+  :config
+  ;; Bind increment and decrement number at point.
+  (global-set-key (kbd "M-=") 'evil-numbers/inc-at-pt)
+  (global-set-key (kbd "M--") 'evil-numbers/dec-at-pt))
+
 ;; Bind zoom in and out
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
@@ -186,9 +190,6 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
 
-;; Corrects (and improves) org-mode's native fontification.
-(doom-themes-org-config)
-
 ;; IDO
 (setq ido-enable-flex-matching t
       ido-case-fold t
@@ -209,17 +210,16 @@
   :init (smex-initialize)
   :bind ("M-x" . smex))
 
-(use-package doom-themes :ensure t)
+(use-package doom-themes
+  :ensure t
+  :config
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
 
 ;; doom modeline requires M-x all-the-icons-install-fonts
 (use-package doom-modeline
   :ensure t
-  :defer t
   :hook (after-init . doom-modeline-init))
-
-;; (use-package doom-modeline
-;;   :ensure t
-;;   :config (doom-modeline-init))
 
 (use-package rainbow-delimiters
   :ensure t
@@ -227,15 +227,17 @@
 
 (use-package dashboard
   :ensure t
-  :defer t
   :hook (after-init . dashboard-setup-startup-hook)
   :config
+  (setq dashboard-banner-logo-title (format "init time: %s" (emacs-init-time)))
   (setq dashboard-startup-banner 'official)
   (setq dashboard-items '((recents  . 5))))
 
 (use-package company
   :ensure t
-  :hook (after-init . global-company-mode))
+  :hook (after-init . global-company-mode)
+  :config
+  (setq company-idle-delay 0.3))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
