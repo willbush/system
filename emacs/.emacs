@@ -22,8 +22,10 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+;; ensure everything is installed
+(setq use-package-always-ensure t)
+
 (use-package evil
-  :ensure t
   :hook (after-init . evil-mode)
   :init
   (setq evil-search-module 'evil-search
@@ -36,21 +38,30 @@
 ;; Enables searching via * on a visual selection.
 (use-package evil-visualstar
   :after evil
-  :ensure t
   :init (global-evil-visualstar-mode))
 
 (use-package which-key
-  :ensure t
   :hook (after-init . which-key-mode))
 
-(use-package avy :ensure t :commands avy-goto-char)
+(use-package avy :commands avy-goto-char)
 
 (defun close-all-buffers ()
   (interactive)
   (mapc 'kill-buffer (buffer-list)))
 
+(defun switch-to-dashboard ()
+  (interactive)
+  (switch-to-buffer "*dashboard*"))
+
+(defun switch-to-messages ()
+  (interactive)
+  (switch-to-buffer "*Messages*"))
+
+(defun switch-to-scratch ()
+  (interactive)
+  (switch-to-buffer "*scratch*"))
+
 (use-package evil-leader
-  :ensure t
   ;; after which key so I can keep its prefix declariations next to
   ;; evil-leader declarations in this config block
   :after which-key
@@ -76,8 +87,11 @@
     "bs" 'save-buffer
     "bd" 'evil-delete-buffer
     "bk" 'kill-buffer
-    "bh" 'previous-buffer
-    "bl" 'next-buffer
+    "bp" 'previous-buffer
+    "bn" 'next-buffer
+    "bh" 'switch-to-dashboard
+    "bm" 'switch-to-messages
+    "bs" 'switch-to-scratch
     "bq" 'close-all-buffers)
 
   (which-key-declare-prefixes "SPC w" "window")
@@ -102,7 +116,6 @@
 ;; Enables inc/dec of numbers!
 (use-package evil-numbers
   :after evil
-  :ensure t
   :config
   ;; Bind increment and decrement number at point.
   (global-set-key (kbd "M-=") 'evil-numbers/inc-at-pt)
@@ -114,18 +127,15 @@
 
 (use-package evil-surround
   :after evil
-  :ensure t
   :config
   (global-evil-surround-mode 1))
 
 (use-package evil-matchit
   :after evil
-  :ensure t
   :config (global-evil-matchit-mode 1))
 
 (use-package evil-exchange
   :after evil
-  :ensure t
   :config (evil-exchange-cx-install))
 
 ;; MINOR SETTINGS:
@@ -200,34 +210,28 @@
 (add-hook 'after-init-hook (lambda () (ido-mode 1)))
 
 (use-package ido-vertical-mode
-  :ensure t
   :hook (after-init . ido-vertical-mode)
   :config
   (setq ido-vertical-define-keys 'C-n-and-C-p-only))
 
 ;; enables IDO when using M-x
 (use-package smex
-  :ensure t
   :hook (after-init . smex-initialize)
   :bind ("M-x" . smex))
 
 (use-package doom-themes
-  :ensure t
   :config
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
 ;; doom modeline requires M-x all-the-icons-install-fonts
 (use-package doom-modeline
-  :ensure t
   :hook (after-init . doom-modeline-init))
 
 (use-package rainbow-delimiters
-  :ensure t
   :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package dashboard
-  :ensure t
   :hook (after-init . dashboard-setup-startup-hook)
   :config
   (setq dashboard-banner-logo-title (format "init time: %s" (emacs-init-time)))
@@ -235,7 +239,6 @@
   (setq dashboard-items '((recents  . 5))))
 
 (use-package company
-  :ensure t
   :hook (after-init . global-company-mode)
   :config
   (setq company-idle-delay 0.3))
