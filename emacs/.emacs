@@ -22,6 +22,8 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(require 'use-package)
+
 ;; ensure everything is installed
 (setq use-package-always-ensure t)
 
@@ -71,7 +73,7 @@
   (evil-leader/set-leader "<SPC>")
 
   (evil-leader/set-key
-    "<SPC>" 'smex ;; M-x
+    "<SPC>" 'execute-extended-command ;; M-x
     "j" 'avy-goto-char
     "'" 'ansi-term)
 
@@ -83,7 +85,7 @@
   (which-key-declare-prefixes "SPC b" "buffer")
   (evil-leader/set-key
     "TAB" 'mode-line-other-buffer
-    "bb" 'ido-switch-buffer
+    "bb" 'ivy-switch-buffer
     "bs" 'save-buffer
     "bd" 'evil-delete-buffer
     "bk" 'kill-buffer
@@ -137,6 +139,28 @@
 (use-package evil-exchange
   :after evil
   :config (evil-exchange-cx-install))
+
+;; IVY
+(use-package ivy
+  :hook (after-init . ivy-mode)
+  :config
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  (setq enable-recursive-minibuffers t)
+  (setq ivy-use-selectable-prompt t)
+  (setq ivy-display-style 'fancy)
+  (define-key ivy-minibuffer-map (kbd "C-c o") 'ivy-occur))
+
+(use-package counsel
+  :after ivy
+  :config
+  (setq counsel-git-cmd "rg --files")
+  (setq counsel-grep-base-command
+	"rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s %s")
+  (setq counsel-rg-base-command
+	"rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s ."))
+
+(use-package swiper :bind (("C-s" . swiper)))
 
 ;; MINOR SETTINGS:
 
@@ -192,32 +216,12 @@
 (ad-activate 'ansi-term)
 
 ;; ORG
-
 (setq org-src-window-setup 'current-window)
 
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
-
-;; IDO
-(setq ido-enable-flex-matching t
-      ido-case-fold t
-      ido-everywhere t
-      ido-create-new-buffer 'always
-      ido-enable-tramp-completion t)
-
-(add-hook 'after-init-hook (lambda () (ido-mode 1)))
-
-(use-package ido-vertical-mode
-  :hook (after-init . ido-vertical-mode)
-  :config
-  (setq ido-vertical-define-keys 'C-n-and-C-p-only))
-
-;; enables IDO when using M-x
-(use-package smex
-  :hook (after-init . smex-initialize)
-  :bind ("M-x" . smex))
 
 (use-package doom-themes
   :config
