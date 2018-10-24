@@ -14,6 +14,7 @@
 (setq package-enable-at-startup nil)
 
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+;;(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 
 (package-initialize)
 
@@ -38,7 +39,12 @@
 	evil-want-C-u-scroll t)
   :config
   ;; make mnemonic alias for how I want to bind it
-  (defalias 'my/evil-search-clear-highlight 'evil-ex-nohighlight))
+  (defalias 'my/evil-search-clear-highlight 'evil-ex-nohighlight)
+  ;; evil global key bindings
+  (global-set-key (kbd "C-S-h") 'evil-window-left)
+  (global-set-key (kbd "C-S-l") 'evil-window-right)
+  (global-set-key (kbd "C-S-j") 'evil-window-down)
+  (global-set-key (kbd "C-S-k") 'evil-window-up))
 
 ;; Enables searching via * on a visual selection.
 (use-package evil-visualstar
@@ -51,10 +57,12 @@
 (use-package avy :commands avy-goto-char)
 
 (defun my/close-all-buffers ()
+  "close all buffers"
   (interactive)
   (mapc 'kill-buffer (buffer-list)))
 
 (defun my/switch-to-dashboard ()
+  "Switch to *dashboard* (creates if needed)"
   (interactive)
   (let ((buffer "*dashboard*"))
     (when (not (get-buffer buffer))
@@ -62,12 +70,31 @@
     (switch-to-buffer buffer)))
 
 (defun my/switch-to-messages ()
+  "Switch to *Messages* buffer."
   (interactive)
   (switch-to-buffer "*Messages*"))
 
 (defun my/switch-to-scratch ()
+  "Switch to *scratch* buffer."
   (interactive)
   (switch-to-buffer "*scratch*"))
+
+(defun my/kill-this-buffer ()
+  "Kill the current buffer."
+  (interactive)
+  (if (window-minibuffer-p)
+      (abort-recursive-edit)
+    (kill-buffer)))
+
+(defun my/toggle-maximize-window ()
+  "Toggle between maximizing the window and restoring previous window setup."
+  (interactive)
+  (if (and (= 1 (length (window-list)))
+	   (assoc ?_ register-alist))
+      (jump-to-register ?_)
+    (progn
+      (window-configuration-to-register ?_)
+      (delete-other-windows))))
 
 (use-package evil-leader
   ;; after which key so I can keep its prefix declariations next to
@@ -82,18 +109,13 @@
     "<SPC>" 'counsel-M-x
     "'" 'ansi-term)
 
-  (which-key-declare-prefixes "SPC f" "file")
-  (evil-leader/set-key
-    "ff" 'counsel-find-file
-    "fs" 'save-buffer)
-
   (which-key-declare-prefixes "SPC b" "buffer")
   (evil-leader/set-key
     "TAB" 'mode-line-other-buffer
     "bb" 'ivy-switch-buffer
     "bs" 'save-buffer
-    "bd" 'evil-delete-buffer
-    "bk" 'kill-buffer
+    "bd" 'my/kill-this-buffer
+    "bk" 'kill-buffer ;; requests buffer to kill
     "bp" 'previous-buffer
     "bn" 'next-buffer
     "bh" 'my/switch-to-dashboard
@@ -101,19 +123,15 @@
     "bs" 'my/switch-to-scratch
     "bq" 'my/close-all-buffers)
 
-  (which-key-declare-prefixes "SPC w" "window")
+  (which-key-declare-prefixes "SPC c" "comment")
   (evil-leader/set-key
-    "wd" 'delete-window
-    "wh" 'evil-window-left
-    "wl" 'evil-window-right
-    "wj" 'evil-window-down
-    "wk" 'evil-window-up
-    "w/" 'split-window-horizontally
-    "w-" 'split-window-vertically
-    "wo" 'delete-other-windows
-    "wx" 'kill-buffer-and-window
-    "wba" 'balance-windows-area
-    "wbb" 'balance-windows)
+    "cr" 'comment-or-uncomment-region
+    "cl" 'comment-line)
+
+  (which-key-declare-prefixes "SPC f" "file")
+  (evil-leader/set-key
+    "ff" 'counsel-find-file
+    "fs" 'save-buffer)
 
   (which-key-declare-prefixes "SPC F" "frame")
   (evil-leader/set-key
@@ -122,17 +140,9 @@
     "Fo" 'other-frame
     "Fn" 'make-frame)
 
-  (which-key-declare-prefixes "SPC s" "search")
+  (which-key-declare-prefixes "SPC g" "git")
   (evil-leader/set-key
-    "ss" 'swiper
-    "sc" 'my/evil-search-clear-highlight
-    "sd" 'my/counsel-rg-directory)
-
-  (which-key-declare-prefixes "SPC j" "jump")
-  (evil-leader/set-key
-    "jj" 'avy-goto-char
-    "jf" 'find-function
-    "jv" 'find-variable)
+    "gs" 'magit-status)
 
   (which-key-declare-prefixes "SPC h" "help")
   (which-key-declare-prefixes "SPC hd" "describe")
@@ -153,10 +163,11 @@
     "hPr" 'profiler-report
     "hPw" 'profiler-report-write-profile)
 
-  (which-key-declare-prefixes "SPC c" "comment")
+  (which-key-declare-prefixes "SPC j" "jump")
   (evil-leader/set-key
-    "cr" 'comment-or-uncomment-region
-    "cl" 'comment-line)
+    "jj" 'avy-goto-char
+    "jf" 'find-function
+    "jv" 'find-variable)
 
   (which-key-declare-prefixes "SPC n" "narrow")
   (evil-leader/set-key
@@ -167,7 +178,39 @@
 
   (which-key-declare-prefixes "SPC q" "quit")
   (evil-leader/set-key
-    "qq" 'save-buffers-kill-terminal))
+    "qq" 'save-buffers-kill-terminal)
+
+  (which-key-declare-prefixes "SPC s" "search")
+  (evil-leader/set-key
+    "ss" 'swiper
+    "sc" 'my/evil-search-clear-highlight
+    "sd" 'my/counsel-rg-directory)
+
+  (which-key-declare-prefixes "SPC t" "toggle")
+  (evil-leader/set-key
+    "tt" 'display-time-mode
+    "tl" 'toggle-truncate-lines
+    "tn" 'linum-mode)
+
+  (which-key-declare-prefixes "SPC w" "window")
+  (evil-leader/set-key
+    "wd" 'delete-window
+    "wh" 'evil-window-left
+    "wl" 'evil-window-right
+    "wj" 'evil-window-down
+    "wk" 'evil-window-up
+    "wH" 'evil-window-move-far-left
+    "wL" 'evil-window-move-far-right
+    "wJ" 'evil-window-move-far-down
+    "wK" 'evil-window-move-far-up
+    "w/" 'split-window-horizontally
+    "w-" 'split-window-vertically
+    "wo" 'delete-other-windows
+    "wm" 'my/toggle-maximize-window
+    "wx" 'kill-buffer-and-window
+    "wba" 'balance-windows-area
+    "wbb" 'balance-windows)
+)
 
 ;; Enables inc/dec of numbers!
 (use-package evil-numbers
@@ -207,6 +250,7 @@
   :config
   ;; make mnemonic alias for how I want to bind it
   (defalias 'my/counsel-rg-directory 'counsel-rg)
+  (global-set-key (kbd "M-x") 'counsel-M-x)
   (setq counsel-git-cmd "rg --files"
 	counsel-grep-base-command
 	  "rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s %s"
@@ -214,6 +258,13 @@
 	  "rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s ."))
 
 (use-package swiper :bind (("C-s" . swiper)))
+
+;; Used by Ivy to sort commands by frequency.
+(use-package smex
+  :hook (after-init . smex-initialize)
+  :config
+  (global-set-key (kbd "M-X") 'smex-major-mode-commands))
+
 
 ;; MINOR SETTINGS:
 
@@ -301,6 +352,14 @@
   :config
   (setq company-idle-delay 0.3))
 
+(use-package magit
+  :defer t
+  :config
+  (setq magit-completing-read-function 'ivy-completing-read))
+
+;; for some reason using :requires (evil magit) prevents it from initializing
+(use-package evil-magit :after magit)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -316,6 +375,9 @@
  '(custom-enabled-themes (quote (doom-vibrant)))
  '(custom-safe-themes
    (quote
-    ("1c082c9b84449e54af757bcae23617d11f563fc9f33a832a8a2813c4d7dfb652" default))))
+    ("1c082c9b84449e54af757bcae23617d11f563fc9f33a832a8a2813c4d7dfb652" default)))
+ '(package-selected-packages
+   (quote
+    (evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
 
 (put 'narrow-to-region 'disabled nil)
