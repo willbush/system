@@ -56,7 +56,10 @@
 
 (defun my/switch-to-dashboard ()
   (interactive)
-  (switch-to-buffer "*dashboard*"))
+  (let ((buffer "*dashboard*"))
+    (when (not (get-buffer buffer))
+      (dashboard-insert-startupify-lists))
+    (switch-to-buffer buffer)))
 
 (defun my/switch-to-messages ()
   (interactive)
@@ -77,7 +80,6 @@
 
   (evil-leader/set-key
     "<SPC>" 'counsel-M-x
-    "j" 'avy-goto-char
     "'" 'ansi-term)
 
   (which-key-declare-prefixes "SPC f" "file")
@@ -104,10 +106,21 @@
     "wd" 'delete-window
     "wh" 'evil-window-left
     "wl" 'evil-window-right
+    "wj" 'evil-window-down
+    "wk" 'evil-window-up
     "w/" 'split-window-horizontally
     "w-" 'split-window-vertically
     "wo" 'delete-other-windows
-    "wx" 'kill-buffer-and-window)
+    "wx" 'kill-buffer-and-window
+    "wba" 'balance-windows-area
+    "wbb" 'balance-windows)
+
+  (which-key-declare-prefixes "SPC F" "frame")
+  (evil-leader/set-key
+    "Fd" 'delete-frame
+    "FD" 'delete-other-frames
+    "Fo" 'other-frame
+    "Fn" 'make-frame)
 
   (which-key-declare-prefixes "SPC s" "search")
   (evil-leader/set-key
@@ -115,19 +128,42 @@
     "sc" 'my/evil-search-clear-highlight
     "sd" 'my/counsel-rg-directory)
 
+  (which-key-declare-prefixes "SPC j" "jump")
+  (evil-leader/set-key
+    "jj" 'avy-goto-char
+    "jf" 'find-function
+    "jv" 'find-variable)
+
   (which-key-declare-prefixes "SPC h" "help")
   (which-key-declare-prefixes "SPC hd" "describe")
   (evil-leader/set-key
     "hi" 'info
     "hl" 'counsel-find-library
+    "hn"  'view-emacs-news
+    "hdb" 'counsel-descbinds
+    "hdc" 'describe-char
     "hdf" 'counsel-describe-function
+    "hdk" 'describe-key
+    "hdp" 'describe-package
     "hdv" 'counsel-describe-variable
-    "hds" 'counsel-info-lookup-symbol)
+    "hdt" 'describe-theme
+    "hds" 'counsel-info-lookup-symbol
+    "hPs" 'profiler-start
+    "hPk" 'profiler-stop
+    "hPr" 'profiler-report
+    "hPw" 'profiler-report-write-profile)
 
   (which-key-declare-prefixes "SPC c" "comment")
   (evil-leader/set-key
     "cr" 'comment-or-uncomment-region
     "cl" 'comment-line)
+
+  (which-key-declare-prefixes "SPC n" "narrow")
+  (evil-leader/set-key
+    "nr" 'narrow-to-region
+    "np" 'narrow-to-page
+    "nf" 'narrow-to-defun
+    "nw" 'widen)
 
   (which-key-declare-prefixes "SPC q" "quit")
   (evil-leader/set-key
@@ -234,6 +270,7 @@
 
 ;; ORG
 (setq org-src-window-setup 'current-window)
+(setq org-log-done 'time)
 
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
@@ -280,3 +317,5 @@
  '(custom-safe-themes
    (quote
     ("1c082c9b84449e54af757bcae23617d11f563fc9f33a832a8a2813c4d7dfb652" default))))
+
+(put 'narrow-to-region 'disabled nil)
