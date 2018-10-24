@@ -191,6 +191,7 @@
   (evil-leader/set-key
     "tt" 'display-time-mode
     "tl" 'toggle-truncate-lines
+    "tf" 'auto-fill-mode
     "tn" 'linum-mode)
 
   (which-key-declare-prefixes "SPC w" "window")
