@@ -67,7 +67,8 @@
   (let ((buffer "*dashboard*"))
     (when (not (get-buffer buffer))
       (dashboard-insert-startupify-lists))
-    (switch-to-buffer buffer)))
+    (switch-to-buffer buffer)
+    (dashboard-refresh-buffer)))
 
 (defun my/switch-to-messages ()
   "Switch to *Messages* buffer."
