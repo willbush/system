@@ -38,6 +38,10 @@
 	evil-shift-round nil
 	evil-want-C-u-scroll t)
   :config
+  ;; unbind evil-lookup
+  (eval-after-load "evil-maps"
+    (define-key evil-motion-state-map "\S-k" nil))
+
   ;; make mnemonic alias for how I want to bind it
   (defalias 'my/evil-search-clear-highlight 'evil-ex-nohighlight)
   ;; evil global key bindings
