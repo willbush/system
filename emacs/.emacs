@@ -46,6 +46,7 @@
   (global-set-key (kbd "C-S-j") 'evil-window-down)
   (global-set-key (kbd "C-S-k") 'evil-window-up))
 
+
 ;; Enables searching via * on a visual selection.
 (use-package evil-visualstar
   :after evil
@@ -361,6 +362,9 @@
 
 ;; for some reason using :requires (evil magit) prevents it from initializing
 (use-package evil-magit :after magit)
+
+(use-package csharp-mode
+  :mode("\\.cs\\'" . csharp-mode))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
