@@ -61,6 +61,13 @@
 
 (use-package avy :commands avy-goto-char)
 
+(defun my/open-shell ()
+  "Opens my prefered shell for the current operating system."
+  (interactive)
+  (if (eq system-type 'windows-nt)
+      (call-interactively 'eshell)
+    (call-interactively 'ansi-term)))
+
 (defun my/close-all-buffers ()
   "close all buffers"
   (interactive)
@@ -113,7 +120,7 @@
 
   (evil-leader/set-key
     "<SPC>" 'counsel-M-x
-    "'" 'ansi-term)
+    "'" 'my/open-shell)
 
   (which-key-declare-prefixes "SPC b" "buffer")
   (evil-leader/set-key
