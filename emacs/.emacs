@@ -374,6 +374,9 @@
   :config
   (setq magit-completing-read-function 'ivy-completing-read))
 
+(use-package deadgrep
+  :bind (("<f5>" . #'deadgrep)))
+
 ;; for some reason using :requires (evil magit) prevents it from initializing
 (use-package evil-magit :after magit)
 
@@ -398,6 +401,6 @@
     ("1c082c9b84449e54af757bcae23617d11f563fc9f33a832a8a2813c4d7dfb652" default)))
  '(package-selected-packages
    (quote
-    (evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
+    (deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
 
 (put 'narrow-to-region 'disabled nil)
