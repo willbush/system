@@ -49,7 +49,6 @@
   (global-set-key (kbd "C-S-j") 'evil-window-down)
   (global-set-key (kbd "C-S-k") 'evil-window-up))
 
-
 ;; Enables searching via * on a visual selection.
 (use-package evil-visualstar
   :after evil
@@ -162,6 +161,7 @@
     "hi" 'info
     "hl" 'counsel-find-library
     "hn"  'view-emacs-news
+    "hw"  'woman
     "hdb" 'counsel-descbinds
     "hdc" 'describe-char
     "hdf" 'counsel-describe-function
