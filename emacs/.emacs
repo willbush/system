@@ -167,6 +167,7 @@
     "hdc" 'describe-char
     "hdf" 'counsel-describe-function
     "hdk" 'describe-key
+    "hdm" 'describe-mode
     "hdp" 'describe-package
     "hdv" 'counsel-describe-variable
     "hdt" 'describe-theme
