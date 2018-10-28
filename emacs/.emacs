@@ -388,7 +388,10 @@
 (use-package evil-magit :after magit)
 
 (use-package csharp-mode
-  :mode("\\.cs\\'" . csharp-mode))
+  :mode "\\.cs\\'")
+
+(use-package nix-mode
+  :mode "\\.nix\\'")
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -408,6 +411,6 @@
     ("1c082c9b84449e54af757bcae23617d11f563fc9f33a832a8a2813c4d7dfb652" default)))
  '(package-selected-packages
    (quote
-    (deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
+    (nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
 
 (put 'narrow-to-region 'disabled nil)
