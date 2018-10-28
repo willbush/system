@@ -135,6 +135,7 @@
     exa
     tree
     fd
+    tokei
     feh
     htop
     unzip
