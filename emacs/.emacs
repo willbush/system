@@ -345,6 +345,13 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
 
+(add-hook 'org-mode-hook
+          '(lambda ()
+             (local-set-key "\M-k" 'org-move-subtree-up)
+             (local-set-key "\M-j" 'org-move-subtree-down)
+             (local-set-key "\M-h" 'org-do-promote)
+             (local-set-key "\M-l" 'org-do-demote)))
+
 (use-package doom-themes
   :config
   ;; Corrects (and improves) org-mode's native fontification.
