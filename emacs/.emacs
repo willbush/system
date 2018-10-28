@@ -14,7 +14,6 @@
 (setq package-enable-at-startup nil)
 
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-;;(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 
 (package-initialize)
 
@@ -294,6 +293,9 @@
 
 ;; switches (yes or no) prompts to (y or n)
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+;; prevent indention for inserting tabs
+(setq-default indent-tabs-mode nil)
 
 (setq inhibit-splash-screen t
       initial-scratch-message nil
