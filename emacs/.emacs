@@ -14,9 +14,9 @@
 ;; WARNING window-setup-hook is not called if emacs is ran with batch-mode
 (add-hook 'window-setup-hook
   (lambda ()
-    (setq gc-cons-threshold (car (get 'gc-cons-threshold 'standard-value))
-          gc-cons-percentage (car (get 'gc-cons-percentage 'standard-value)))
-    (setq file-name-handler-alist file-name-handler-alist-actual)) t)
+    (setq gc-cons-threshold 16777216
+          gc-cons-percentage 0.1)
+    (setq file-name-handler-alist file-name-handler-alist-actual)))
 
 (require 'package)
 
