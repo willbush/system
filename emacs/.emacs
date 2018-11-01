@@ -40,11 +40,11 @@
   :hook (after-init . evil-mode)
   :init
   (setq evil-search-module 'evil-search
-	evil-ex-complete-emacs-commands nil
-	evil-vsplit-window-right t
-	evil-split-window-below t
-	evil-shift-round nil
-	evil-want-C-u-scroll t)
+        evil-ex-complete-emacs-commands nil
+        evil-vsplit-window-right t
+        evil-split-window-below t
+        evil-shift-round nil
+        evil-want-C-u-scroll t)
   :config
   ;; unbind evil-lookup
   (eval-after-load "evil-maps"
@@ -227,10 +227,10 @@
   (defalias 'my/counsel-rg-directory 'counsel-rg)
   (global-set-key (kbd "M-x") 'counsel-M-x)
   (setq counsel-git-cmd "rg --files"
-	counsel-grep-base-command
-	  "rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s %s"
-	counsel-rg-base-command
-	  "rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s ."))
+        counsel-grep-base-command
+          "rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s %s"
+        counsel-rg-base-command
+          "rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s ."))
 
 (use-package swiper :bind (("C-s" . swiper)))
 
@@ -404,7 +404,7 @@
   "Toggle between maximizing the window and restoring previous window setup."
   (interactive)
   (if (and (= 1 (length (window-list)))
-	   (assoc ?_ register-alist))
+           (assoc ?_ register-alist))
       (jump-to-register ?_)
     (progn
       (window-configuration-to-register ?_)
