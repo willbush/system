@@ -320,8 +320,16 @@
 ;; Normally, scrolling past the bottom casues it to scroll down enough
 ;; so that the point is recentered. The documentation on the variable
 ;; states values above 100 behave the same, but I could not observe
-;; any difference for values greater than or equal to 1.
+;; any difference for values greater than or equal to 1. Also of note
+;; from testing I found that the constant redrawing of the screen to
+;; make the scrolling smooth utilizes ~20-30% CPU. However, this
+;; hardly affects me with how I move around.
 (setq scroll-conservatively 666)
+
+;; keeps a faint highlight on the line of the point.
+;; I sort of like this feature, but I found that every vertical
+;; movement casues emacs takes up ~15% CPU.
+(global-hl-line-mode -1)
 
 ;; follows symlinks without prompt when set to t
 (setq vc-follow-symlinks t)
@@ -338,8 +346,6 @@
 (setq evil-shift-width 2)
 
 ;; TERMINAL:
-;; keeps a faint highlight on the line of the point.
-(global-hl-line-mode t)
 (defvar my-shell "/run/current-system/sw/bin/zsh")
 (defadvice ansi-term (before force-bash)
 (interactive (list my-shell)))
