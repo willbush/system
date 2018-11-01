@@ -87,13 +87,13 @@
     "bb" 'ivy-switch-buffer
     "bs" 'save-buffer
     "bd" 'my/kill-this-buffer
+    "bD" 'my/kill-all-buffers
     "bk" 'kill-buffer ;; requests buffer to kill
     "bp" 'previous-buffer
     "bn" 'next-buffer
     "bh" 'my/switch-to-dashboard
     "bm" 'my/switch-to-messages
-    "bs" 'my/switch-to-scratch
-    "bq" 'my/close-all-buffers)
+    "bs" 'my/switch-to-scratch)
 
   (which-key-declare-prefixes "SPC c" "comment")
   (evil-leader/set-key
@@ -369,8 +369,8 @@
       (call-interactively 'eshell)
     (call-interactively 'ansi-term)))
 
-(defun my/close-all-buffers ()
-  "close all buffers"
+(defun my/kill-all-buffers ()
+  "kill all buffers"
   (interactive)
   (mapc 'kill-buffer (buffer-list)))
 
