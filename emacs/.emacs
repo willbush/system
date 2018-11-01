@@ -68,54 +68,6 @@
 
 (use-package avy :commands avy-goto-char)
 
-(defun my/open-shell ()
-  "Opens my prefered shell for the current operating system."
-  (interactive)
-  (if (eq system-type 'windows-nt)
-      (call-interactively 'eshell)
-    (call-interactively 'ansi-term)))
-
-(defun my/close-all-buffers ()
-  "close all buffers"
-  (interactive)
-  (mapc 'kill-buffer (buffer-list)))
-
-(defun my/switch-to-dashboard ()
-  "Switch to *dashboard* (creates if needed)"
-  (interactive)
-  (let ((buffer "*dashboard*"))
-    (when (not (get-buffer buffer))
-      (dashboard-insert-startupify-lists))
-    (switch-to-buffer buffer)
-    (dashboard-refresh-buffer)))
-
-(defun my/switch-to-messages ()
-  "Switch to *Messages* buffer."
-  (interactive)
-  (switch-to-buffer "*Messages*"))
-
-(defun my/switch-to-scratch ()
-  "Switch to *scratch* buffer."
-  (interactive)
-  (switch-to-buffer "*scratch*"))
-
-(defun my/kill-this-buffer ()
-  "Kill the current buffer."
-  (interactive)
-  (if (window-minibuffer-p)
-      (abort-recursive-edit)
-    (kill-buffer)))
-
-(defun my/toggle-maximize-window ()
-  "Toggle between maximizing the window and restoring previous window setup."
-  (interactive)
-  (if (and (= 1 (length (window-list)))
-	   (assoc ?_ register-alist))
-      (jump-to-register ?_)
-    (progn
-      (window-configuration-to-register ?_)
-      (delete-other-windows))))
-
 (use-package evil-leader
   ;; after which key so I can keep its prefix declariations next to
   ;; evil-leader declarations in this config block
@@ -407,6 +359,56 @@
 
 (use-package nix-mode
   :mode "\\.nix\\'")
+
+;; FUNCTIONS
+
+(defun my/open-shell ()
+  "Opens my prefered shell for the current operating system."
+  (interactive)
+  (if (eq system-type 'windows-nt)
+      (call-interactively 'eshell)
+    (call-interactively 'ansi-term)))
+
+(defun my/close-all-buffers ()
+  "close all buffers"
+  (interactive)
+  (mapc 'kill-buffer (buffer-list)))
+
+(defun my/switch-to-dashboard ()
+  "Switch to *dashboard* (creates if needed)"
+  (interactive)
+  (let ((buffer "*dashboard*"))
+    (when (not (get-buffer buffer))
+      (dashboard-insert-startupify-lists))
+    (switch-to-buffer buffer)
+    (dashboard-refresh-buffer)))
+
+(defun my/switch-to-messages ()
+  "Switch to *Messages* buffer."
+  (interactive)
+  (switch-to-buffer "*Messages*"))
+
+(defun my/switch-to-scratch ()
+  "Switch to *scratch* buffer."
+  (interactive)
+  (switch-to-buffer "*scratch*"))
+
+(defun my/kill-this-buffer ()
+  "Kill the current buffer."
+  (interactive)
+  (if (window-minibuffer-p)
+      (abort-recursive-edit)
+    (kill-buffer)))
+
+(defun my/toggle-maximize-window ()
+  "Toggle between maximizing the window and restoring previous window setup."
+  (interactive)
+  (if (and (= 1 (length (window-list)))
+	   (assoc ?_ register-alist))
+      (jump-to-register ?_)
+    (progn
+      (window-configuration-to-register ?_)
+      (delete-other-windows))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
