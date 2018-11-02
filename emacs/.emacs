@@ -158,7 +158,8 @@
   (evil-leader/set-key
     "ss" 'swiper
     "sc" 'my/evil-search-clear-highlight
-    "sd" 'my/counsel-rg-directory)
+    "sd" 'my/counsel-rg-directory
+    "sD" 'deadgrep)
 
   (which-key-declare-prefixes "SPC t" "toggle")
   (evil-leader/set-key
@@ -349,7 +350,7 @@
   (setq magit-completing-read-function 'ivy-completing-read))
 
 (use-package deadgrep
-  :bind (("<f5>" . #'deadgrep)))
+  :commands (deadgrep))
 
 ;; for some reason using :requires (evil magit) prevents it from initializing
 (use-package evil-magit :after magit)
