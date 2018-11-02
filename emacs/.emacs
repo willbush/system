@@ -68,6 +68,9 @@
 
 (use-package avy :commands avy-goto-char)
 
+(use-package winum
+  :hook (after-init . winum-mode))
+
 (use-package evil-leader
   ;; after which key so I can keep its prefix declariations next to
   ;; evil-leader declarations in this config block
@@ -79,6 +82,16 @@
 
   (evil-leader/set-key
     "<SPC>" 'counsel-M-x
+    "0" 'winum-select-window-0-or-10
+    "1" 'winum-select-window-1
+    "2" 'winum-select-window-2
+    "3" 'winum-select-window-3
+    "4" 'winum-select-window-4
+    "5" 'winum-select-window-5
+    "6" 'winum-select-window-6
+    "7" 'winum-select-window-7
+    "8" 'winum-select-window-8
+    "9" 'winum-select-window-9
     "'" 'my/open-shell)
 
   (which-key-declare-prefixes "SPC b" "buffer")
@@ -429,6 +442,6 @@
     ("1c082c9b84449e54af757bcae23617d11f563fc9f33a832a8a2813c4d7dfb652" default)))
  '(package-selected-packages
    (quote
-    (nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
+    (winum nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
 
 (put 'narrow-to-region 'disabled nil)
