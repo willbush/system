@@ -340,7 +340,9 @@
 
 ;; doom modeline requires M-x all-the-icons-install-fonts
 (use-package doom-modeline
-  :hook (after-init . doom-modeline-init))
+  :hook (after-init . doom-modeline-init)
+  ;; fix performance issue in Windows
+  :config (setq inhibit-compacting-font-caches t))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
