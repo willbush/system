@@ -152,7 +152,7 @@
     haskellPackages.hindent
     haskellPackages.hlint
     haskellPackages.hoogle
-    haskellPackages.stack
+    # haskellPackages.stack
     haskellPackages.stylish-haskell
     gcc
     cargo
@@ -183,5 +183,5 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "18.03"; # Did you read the comment?
+  system.stateVersion = "18.09"; # Did you read the comment?
 }
