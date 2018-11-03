@@ -82,7 +82,7 @@
 
   (evil-leader/set-key
     "<SPC>" 'counsel-M-x
-    "0" 'winum-select-window-0-or-10
+    "'" 'my/open-shell
     "1" 'winum-select-window-1
     "2" 'winum-select-window-2
     "3" 'winum-select-window-3
@@ -92,7 +92,7 @@
     "7" 'winum-select-window-7
     "8" 'winum-select-window-8
     "9" 'winum-select-window-9
-    "'" 'my/open-shell)
+    "?" 'counsel-descbinds)
 
   (which-key-declare-prefixes "SPC b" "buffer")
   (evil-leader/set-key
@@ -300,6 +300,9 @@
 ;; follows symlinks without prompt when set to t
 (setq vc-follow-symlinks t)
 
+;; fixes performance issue with doom-modeline in Windows
+(setq inhibit-compacting-font-caches t)
+
 (setq electric-pair-pairs
   '(
     (?\( . ?\))
@@ -340,9 +343,7 @@
 
 ;; doom modeline requires M-x all-the-icons-install-fonts
 (use-package doom-modeline
-  :hook (after-init . doom-modeline-init)
-  ;; fix performance issue in Windows
-  :config (setq inhibit-compacting-font-caches t))
+  :hook (after-init . doom-modeline-init))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
