@@ -122,8 +122,11 @@
   (evil-leader/set-key
     "Fd" 'delete-frame
     "FD" 'delete-other-frames
+    "Fi" 'iconify-frame
     "Fo" 'other-frame
-    "Fn" 'make-frame)
+    "Fn" 'make-frame
+    "Fm" 'toggle-frame-maximized
+    "Ff" 'toggle-frame-fullscreen)
 
   (which-key-declare-prefixes "SPC g" "git")
   (evil-leader/set-key
