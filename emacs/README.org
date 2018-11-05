@@ -1,0 +1,181 @@
+* Windows Emacs setup
+** Intro
+
+   The following is my own notes and commentary on Windows integration
+   and is meant as supplementary to [[https://www.emacswiki.org/emacs/EmacsMsWindowsIntegration][EmacsMsWindowsIntegration]].
+
+   Unfortunately, Windows does not have first class support in
+   Emacs. However, Emacs is very much a "build your own editor"
+   experience already so most Emacs users are up to some of the manual
+   steps involved.
+
+   There are several approaches to installing Emacs on Windows.
+
+   - using [[https://www.msys2.org/][msys2]]
+   - using GNU provided Windows build
+   - using [[https://www.cygwin.com/][cygwin]]
+   - using a Linux VM
+   - using WSL and Windows X server port
+
+   I have only ever tried using a GNU provided build and MSYS2 as
+   suggested on [[https://www.gnu.org/software/emacs/download.html#windows][gnu.org emacs windows download]] page. I currently use
+   MSYS2 to install because it uses [[https://wiki.archlinux.org/index.php/Pacman][pacman]] to install the native emacs
+   build. In addition, MSYS2 gives me a means to install other tools I
+   use.
+
+   The biggest downside so far to running Emacs natively for Windows is
+   there's a known performance issue with git in windows and as such
+   magit has noticeable delay. However, it doesn't seem clear to me the
+   other options really solve this. I would suspect that git (and
+   magit) would be snappier in WSL and a Linux VM. However, there might
+   be another set of trade-offs in this method of running Emacs.
+
+   One thing of note, that perhaps a lot of people are unaware of, is
+   WSL IO performance is not as good as just running Linux
+   natively. However, this may not be noticeable at all in Emacs. I
+   noticed this when testing Redis in WSL, Docker, and native
+   GNU/Linux. One can verify this with the benchmark tools that come
+   distributed with Redis. Docker largely out performs WSL despite
+   having running the container in a virtual environment and native
+   Linux beats both.
+
+   Another downside I've noticed is that, for whatever reason, initial
+   loading of org mode seems to take longer than in Linux. The delay is
+   slight and not a big deal, but it is noticeable.
+
+   Aside from these downsides everything else seems to work quite good
+   after some configuration.
+
+** Installing Emacs
+
+   Also see: [[https://www.gnu.org/software/emacs/download.html#windows][gnu.org emacs windows download]] page
+
+   1. Install [[https://www.msys2.org/][msys2]]
+
+   2. Open MSYS2 MinGW 64 bit terminal and run:
+
+      #+BEGIN_SRC shell
+      pacman -S mingw-w64-x86_64-emacs
+      #+END_SRC
+
+   3. Emacs should now be located =C:\msys64\mingw64\bin\=
+
+** Setup Emacs to run in daemon mode on startup.
+
+   See also: [[https://www.emacswiki.org/emacs/EmacsMsWindowsIntegration#toc7][Run Emacs server section of wiki]] and [[Wiki Remarks]] section
+   below.
+
+   1. Open File Explorer, type ~shell:startup~ in the address bar, and
+      press enter.
+
+   2. Create a bat script file, perhaps named ~StartEmacsServer.bat~,
+      with the following content:
+
+    #+BEGIN_SRC bat
+      del /Q %HOME%\.emacs.d\server\*
+      "C:\msys64\mingw64\bin\runemacs.exe" --daemon
+    #+END_SRC
+
+    The bat script above does two things:
+
+      - Deletes all old server info from the ~%HOME%\.emacs.d\server\~
+        folder with the quite flag to prevent prompting for delete
+        confirmation.
+
+      - Runs ~runemacs.exe~ with the --daemon flag to run as a daemon
+        in the background.
+
+   3. Edit the path to ~runemacs.exe~ if needed. Note if the path
+      contains spaces, it needs to be quoted.
+
+*** Troubleshooting Tips
+
+    - Use [[https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer][process explorer]] to check to see if the emacs daemon is
+      running. Press ~C-F~ and search for ~emacs~. If emacs daemon is
+      running, you should see a Process ~emacs.exe~ with Type ~DLL~
+      and Name whose value is the path to your ~emacs.exe~.
+
+    - If you quit emacs, this will also tell the daemon to
+      quit. Consider instead calling the ~delete-frame~ function
+      instead.
+
+*** Wiki Remarks
+
+    The emacs wiki [[https://www.emacswiki.org/emacs/EmacsMsWindowsIntegration][page]] on Windows integration and a section to setup
+    emacs as a server that automatically runs at start. It gives a
+    power shell script that I have had the following issues with:
+
+    1. Something about the bat file or first character it writes is
+       messed up because when I attempt to run it I get an error:
+       ~'■d' is not recognized as an internal or external
+       command~
+
+    2. It inserts ~del /Q %HOME%/.emacs.d/server/*~ with forward
+       slashes in the path, which doesn't work for me unless I change
+       them to backslashes.
+
+    3. It assumes the path you replace to ~runemacs.exe~ will not have
+       spaces.
+    
+** Create a shortcut
+
+   Also see: [[https://www.emacswiki.org/emacs/EmacsMsWindowsIntegration#toc2][Create a shortcut section on wiki]]
+
+   1. Right click and create a new shortcut, and enter the following as
+      the location:
+
+      #+BEGIN_SRC
+      C:\msys64\mingw64\bin\emacsclientw.exe -c -n -a C:\msys64\mingw64\bin\runemacs.exe
+      #+END_SRC
+
+      #+BEGIN_QUOTE
+      -c tells emacs to create a new frame instead of trying to use an
+         existing frame.
+
+      -n means no wait - don't wait for the server to return
+
+      -a EDITOR specifies to the emacsclientw.exe which editor to run
+         if emacs.exe is not running. An empty string starts a new
+         server if needed
+      #+END_QUOTE
+
+      Note to leverage the =emacsclientw= section of the above you
+      must run emacs as a daemon. However, it will use =runemacs= even
+      if you're not.
+
+   2. Right click on the short cut and select properties. Change the
+      "Start in" to something sensible like your home folder
+      "C:\User\username"
+      
+   3. Pin it to startup if desired. I noticed if pined to the task bar
+      it will create a duplicate icon on the task bar when launched so
+      I typically avoid this.
+
+** Global context menu
+
+   Also see: [[https://www.emacswiki.org/emacs/MsWindowsGlobalContextMenu][Global context menu section of wiki]]
+
+   I have included the registry file [[./emacs_explorer.reg]] with
+   appropriate paths in the same folder as this document.
+
+   This will allow right clicking on a file or directory and opening
+   it in Emacs. However, again it will not open in an existing
+   instance of Emacs unless you're running the daemon server.
+
+** Spell checking
+
+*** Aspell
+
+    1. Install using MSYS2:
+
+       #+BEGIN_SRC shell
+       pacman -S mingw64/mingw-w64-x86_64-aspell
+       pacman -S mingw64/mingw-w64-x86_64-aspell-en
+       #+END_SRC
+
+    2. make sure MSYS64 bin path (e.g. =C:\msys64\mingw64\bin=) is in
+       your ~Path~ environmental variable.
+
+    3. set =(setq ispell-program-name "aspell")= in your emacs config
+       and restart emacs. Restarting is likely necessary in order to
+       pick up new environmental variables.
