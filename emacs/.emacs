@@ -284,6 +284,7 @@
 
 ;; prevent indention for inserting tabs
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
 
 (setq inhibit-splash-screen t
       initial-scratch-message nil
