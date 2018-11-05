@@ -168,7 +168,8 @@
 
   (which-key-declare-prefixes "SPC q" "quit")
   (evil-leader/set-key
-    "qq" 'save-buffers-kill-terminal)
+    "qq" 'save-buffers-kill-terminal
+    "qQ" 'save-buffers-kill-emacs)
 
   (which-key-declare-prefixes "SPC s" "search")
   (evil-leader/set-key
