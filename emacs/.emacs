@@ -44,7 +44,9 @@
         evil-vsplit-window-right t
         evil-split-window-below t
         evil-shift-round nil
-        evil-want-C-u-scroll t)
+        evil-want-C-u-scroll t
+        ;; set to nil as required by evil-collection
+        evil-want-keybinding nil)
   :config
   ;; unbind evil-lookup
   (eval-after-load "evil-maps"
@@ -399,6 +401,11 @@
 (use-package nix-mode
   :mode "\\.nix\\'")
 
+(use-package evil-collection
+  :after evil
+  :custom (evil-collection-setup-minibuffer t)
+  :init (evil-collection-init))
+
 ;; FUNCTIONS
 
 (defun my/open-shell ()
@@ -467,6 +474,6 @@
     ("1c082c9b84449e54af757bcae23617d11f563fc9f33a832a8a2813c4d7dfb652" default)))
  '(package-selected-packages
    (quote
-    (flyspell-correct-ivy winum nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
+    (evil-collection flyspell-correct-ivy winum nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
 
 (put 'narrow-to-region 'disabled nil)
