@@ -177,6 +177,13 @@
     "sd" 'my/counsel-rg-directory
     "sD" 'deadgrep)
 
+  (which-key-declare-prefixes "SPC S" "spell-checking")
+  (evil-leader/set-key
+    "Sb" 'flyspell-buffer
+    "Sc" 'flyspell-correct-wrapper
+    "Sn" 'evil-next-flyspell-error
+    "Sp" 'evil-prev-flyspell-error)
+
   (which-key-declare-prefixes "SPC t" "toggle")
   (evil-leader/set-key
     "tt" 'display-time-mode
@@ -374,6 +381,14 @@
 ;; for some reason using :requires (evil magit) prevents it from initializing
 (use-package evil-magit :after magit)
 
+(use-package flyspell
+  :ensure nil ;; no reason to try to ensure because it's built in
+  :init (setq ispell-program-name "aspell")
+  :hook ((text-mode . flyspell-mode)
+         (prog-mode . flyspell-prog-mode)))
+
+(use-package flyspell-correct-ivy :after flyspell)
+
 (use-package csharp-mode
   :mode "\\.cs\\'")
 
@@ -448,6 +463,6 @@
     ("1c082c9b84449e54af757bcae23617d11f563fc9f33a832a8a2813c4d7dfb652" default)))
  '(package-selected-packages
    (quote
-    (winum nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
+    (flyspell-correct-ivy winum nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
 
 (put 'narrow-to-region 'disabled nil)
