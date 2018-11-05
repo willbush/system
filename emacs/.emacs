@@ -384,6 +384,9 @@
 (use-package flyspell
   :ensure nil ;; no reason to try to ensure because it's built in
   :init (setq ispell-program-name "aspell")
+  :config
+  ;; improve perf per wiki: https://www.emacswiki.org/emacs/FlySpell
+  (setq flyspell-issue-message-flag nil)
   :hook ((text-mode . flyspell-mode)
          (prog-mode . flyspell-prog-mode)))
 
