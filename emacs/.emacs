@@ -171,8 +171,7 @@
   (which-key-declare-prefixes "SPC q" "quit")
   (evil-leader/set-key
     "qq" 'save-buffers-kill-terminal
-    "qQ" 'save-buffers-kill-emacs
-    "qr" 'restart-emacs)
+    "qQ" 'save-buffers-kill-emacs)
 
   (which-key-declare-prefixes "SPC s" "search")
   (evil-leader/set-key
@@ -268,7 +267,6 @@
   :config
   (global-set-key (kbd "M-X") 'smex-major-mode-commands))
 
-(use-package restart-emacs :commands (restart-emacs))
 (use-package esup :commands (esup))
 
 ;; MINOR SETTINGS:
@@ -488,6 +486,6 @@
  '(evil-collection-setup-minibuffer t)
  '(package-selected-packages
    (quote
-    (restart-emacs esup evil-collection omnisharp flyspell-correct-ivy winum nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
+    (esup evil-collection omnisharp flyspell-correct-ivy winum nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
 
 (put 'narrow-to-region 'disabled nil)
