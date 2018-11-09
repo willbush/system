@@ -293,7 +293,8 @@
       ring-bell-function 'ignore
       make-backup-files nil
       auto-save-default nil
-      default-fill-column 80)
+      default-fill-column 80
+      help-window-select t)
 
 ;; enable prettify symbols when using GUI emacs
 (when window-system (global-prettify-symbols-mode t))
