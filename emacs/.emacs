@@ -70,8 +70,9 @@
 
 (use-package avy :commands avy-goto-char)
 
-(use-package winum
-  :hook (after-init . winum-mode))
+(use-package winum :hook (after-init . winum-mode))
+
+(use-package ibuffer :bind ("C-x C-b" . ibuffer))
 
 (use-package evil-leader
   ;; after which key so I can keep its prefix declariations next to
