@@ -184,7 +184,7 @@
   (which-key-declare-prefixes "SPC S" "spell-checking")
   (evil-leader/set-key
     "Sb" 'flyspell-buffer
-    "Sc" 'flyspell-correct-wrapper
+    "Sc" 'flyspell-correct-at-point
     "Sn" 'evil-next-flyspell-error
     "Sp" 'evil-prev-flyspell-error)
 
@@ -400,7 +400,28 @@
 (use-package flyspell-correct-ivy :after flyspell)
 
 (use-package csharp-mode
-  :mode "\\.cs\\'")
+  :mode "\\.cs\\'"
+  :config
+  (which-key-declare-prefixes-for-mode 'csharp-mode
+    "SPC m" "mode"
+    "SPC mr" "refactor"
+    "SPC mn" "navigate")
+  (evil-leader/set-key-for-mode 'csharp-mode
+    "me" 'omnisharp-solution-errors
+    "mo" 'omnisharp-show-overloads-at-point
+    "mi" 'omnisharp-find-implementations
+    "mg" 'omnisharp-go-to-definition
+    "mG" 'omnisharp-go-to-definition-other-window
+    "ms" 'omnisharp-stop-server
+    "mc" 'omnisharp-check-alive-status
+    "mR" 'omnisharp-reload-solution
+    "mrr" 'omnisharp-rename
+    "mra" 'omnisharp-run-code-action-refactoring
+    "mnr" 'omnisharp-navigate-to-region
+    "mnf" 'omnisharp-navigate-to-solution-file
+    "mnm" 'omnisharp-navigate-to-solution-member
+    "mt" 'omnisharp-unit-test-buffer
+    "mu" 'omnisharp-fix-usings))
 
 (use-package omnisharp
   :hook ((csharp-mode . omnisharp-mode)
