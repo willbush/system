@@ -178,8 +178,9 @@
   (evil-leader/set-key
     "ss" 'swiper
     "sc" 'my/evil-search-clear-highlight
-    "sd" 'my/counsel-rg-directory
-    "sD" 'deadgrep)
+    "sd" 'deadgrep
+    "sD" 'my/counsel-rg-directory
+    "sz" 'counsel-fzf)
 
   (which-key-declare-prefixes "SPC S" "spell-checking")
   (evil-leader/set-key
