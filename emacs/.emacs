@@ -439,7 +439,16 @@
 (use-package evil-collection
   :after evil
   :custom (evil-collection-setup-minibuffer t)
-  :init (evil-collection-init))
+  :config
+  (setq evil-collection-mode-list
+        '(calendar
+          dired
+          minibuffer
+          woman
+          man
+          ivy
+          deadgrep))
+  (evil-collection-init))
 
 ;; FUNCTIONS
 
@@ -510,6 +519,6 @@
  '(evil-collection-setup-minibuffer t)
  '(package-selected-packages
    (quote
-    (esup evil-collection omnisharp flyspell-correct-ivy winum nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
+    (esup omnisharp flyspell-correct-ivy winum nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
 
 (put 'narrow-to-region 'disabled nil)
