@@ -81,6 +81,11 @@
       temperature.day = 6500;
       temperature.night = 2700;
     };
+
+    emacs = {
+      enable = true;
+      defaultEditor = true;
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -123,7 +128,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    emacs
     neovim
     firefox
     keepassxc
