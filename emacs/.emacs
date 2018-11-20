@@ -345,10 +345,10 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
 
-(define-key org-mode-map (kbd "C-c C-S-t") 'my/org-todo-force-notes)
-
 (add-hook 'org-mode-hook
           '(lambda ()
+             (define-key org-mode-map (kbd "C-c C-S-t")
+               'my/org-todo-force-notes)
              (local-set-key "\M-k" 'org-move-subtree-up)
              (local-set-key "\M-j" 'org-move-subtree-down)
              (local-set-key "\M-h" 'org-do-promote)
