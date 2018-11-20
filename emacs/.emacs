@@ -339,10 +339,13 @@
 (ad-activate 'ansi-term)
 
 ;; ORG
+
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
+
+(define-key org-mode-map (kbd "C-c C-S-t") 'my/org-todo-force-notes)
 
 (add-hook 'org-mode-hook
           '(lambda ()
@@ -524,6 +527,14 @@
     (progn
       (window-configuration-to-register ?_)
       (delete-other-windows))))
+
+(defun my/org-todo-force-notes ()
+  "calls 'org-todo and makes it so that it will prompt for a note."
+  (interactive)
+  (let ((org-todo-log-states
+         (mapcar (lambda (state) (list state 'note 'time))
+                 (apply 'append org-todo-sets))))
+    (call-interactively 'org-todo)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
