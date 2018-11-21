@@ -194,7 +194,8 @@
     "tt" 'display-time-mode
     "tl" 'toggle-truncate-lines
     "tf" 'auto-fill-mode
-    "tn" 'linum-mode)
+    "tn" 'linum-mode
+    "tg" 'my/toggle-golden-ratio)
 
   (which-key-declare-prefixes "SPC w" "window")
   (evil-leader/set-key
@@ -479,6 +480,72 @@
           deadgrep))
   (evil-collection-init))
 
+(use-package golden-ratio
+  :defer t
+  :config
+  ;; extra golden ratio commands
+  (dolist (cs '(avy-pop-mark
+                evil-avy-goto-word-or-subword-1
+                evil-avy-goto-line
+                evil-window-delete
+                evil-window-split
+                evil-window-vsplit
+                evil-window-left
+                evil-window-right
+                evil-window-up
+                evil-window-down
+                evil-window-bottom-right
+                evil-window-top-left
+                evil-window-mru
+                evil-window-next
+                evil-window-prev
+                evil-window-new
+                evil-window-vnew
+                evil-window-rotate-upwards
+                evil-window-rotate-downwards
+                evil-window-move-very-top
+                evil-window-move-far-left
+                evil-window-move-far-right
+                evil-window-move-very-bottom
+                next-multiframe-window
+                previous-multiframe-window
+                winum-select-window-0-or-10
+                winum-select-window-1
+                winum-select-window-2
+                winum-select-window-3
+                winum-select-window-4
+                winum-select-window-5
+                winum-select-window-6
+                winum-select-window-7
+                winum-select-window-8
+                winum-select-window-9
+                windmove-left
+                windmove-right
+                windmove-up
+                windmove-down
+                quit-window))
+
+    (add-to-list 'golden-ratio-extra-commands cs))
+
+  ;; modes for golden-ratio to exclude
+  (dolist (ms '("bs-mode"
+                "calc-mode"
+                "ediff-mode"
+                "eshell-mode"
+                "dired-mode"
+                "gud-mode"
+                "gdb-locals-mode"
+                "gdb-registers-mode"
+                "gdb-breakpoints-mode"
+                "gdb-threads-mode"
+                "gdb-frames-mode"
+                "gdb-inferior-io-mode"
+                "gdb-disassembly-mode"
+                "gdb-memory-mode"
+                "speedbar-mode"))
+
+    (add-to-list 'golden-ratio-exclude-modes ms)))
+
 ;; FUNCTIONS
 
 (defun my/open-shell ()
@@ -522,12 +589,11 @@
 (defun my/toggle-maximize-window ()
   "Toggle between maximizing the window and restoring previous window setup."
   (interactive)
-  (if (and (= 1 (length (window-list)))
-           (assoc ?_ register-alist))
+  (if (and (= 1 (length (window-list))) (assoc ?_ register-alist))
       (jump-to-register ?_)
-    (progn
-      (window-configuration-to-register ?_)
-      (delete-other-windows))))
+    
+    (window-configuration-to-register ?_)
+    (delete-other-windows)))
 
 (defun my/org-todo-force-notes ()
   "calls 'org-todo and makes it so that it will prompt for a note."
@@ -537,12 +603,28 @@
                  (apply 'append org-todo-sets))))
     (call-interactively 'org-todo)))
 
+(defun my/toggle-golden-ratio ()
+  "Toggles golden ratio mode on and off"
+  (interactive)
+  (if (bound-and-true-p golden-ratio-mode)
+      (progn 
+        (golden-ratio-mode -1)
+        (balance-windows)
+        (message "Golden-Ratio mode disabled"))
+    
+    (golden-ratio-mode)
+    (golden-ratio)
+    (message "Golden-Ratio mode enabled")))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "simp" :family "Hack")))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box
+ nil :strike-through nil :overline nil :underline nil :slant
+ normal :weight normal :height 113 :width normal :foundry "simp"
+ :family "Hack")))))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -556,6 +638,10 @@
  '(evil-collection-setup-minibuffer t)
  '(package-selected-packages
    (quote
-    (esup omnisharp flyspell-correct-ivy winum nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
+    (golden-ratio esup omnisharp flyspell-correct-ivy winum
+    nix-mode deadgrep evil-magit magit smex which-key use-package
+    rainbow-delimiters evil-visualstar evil-surround evil-numbers
+    evil-matchit evil-leader evil-exchange doom-themes
+    doom-modeline dashboard counsel company avy))))
 
 (put 'narrow-to-region 'disabled nil)
