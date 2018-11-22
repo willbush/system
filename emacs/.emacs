@@ -199,7 +199,10 @@
 
   (which-key-declare-prefixes "SPC w" "window")
   (evil-leader/set-key
+    "wb" 'balance-windows
+    "wB" 'balance-windows-area
     "wd" 'delete-window
+    "wg" 'golden-ratio
     "wh" 'evil-window-left
     "wl" 'evil-window-right
     "wj" 'evil-window-down
@@ -212,9 +215,7 @@
     "w-" 'split-window-vertically
     "wo" 'delete-other-windows
     "wm" 'my/toggle-maximize-window
-    "wx" 'kill-buffer-and-window
-    "wba" 'balance-windows-area
-    "wbb" 'balance-windows)
+    "wx" 'kill-buffer-and-window)
 )
 
 ;; Enables inc/dec of numbers!
