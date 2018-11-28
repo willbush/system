@@ -334,6 +334,12 @@
 (setq default-tab-width 2)
 (setq evil-shift-width 2)
 
+(custom-set-variables
+ '(whitespace-style
+   '(face tabs spaces trailing space-before-tab
+          newline indentation empty space-after-tab
+          space-mark tab-mark)))
+
 ;; TERMINAL:
 (defvar my-shell "/run/current-system/sw/bin/zsh")
 (defadvice ansi-term (before force-bash)
@@ -593,7 +599,7 @@
   (interactive)
   (if (and (= 1 (length (window-list))) (assoc ?_ register-alist))
       (jump-to-register ?_)
-    
+
     (window-configuration-to-register ?_)
     (delete-other-windows)))
 
@@ -609,11 +615,11 @@
   "Toggles golden ratio mode on and off"
   (interactive)
   (if (bound-and-true-p golden-ratio-mode)
-      (progn 
+      (progn
         (golden-ratio-mode -1)
         (balance-windows)
         (message "Golden-Ratio mode disabled"))
-    
+
     (golden-ratio-mode)
     (golden-ratio)
     (message "Golden-Ratio mode enabled")))
