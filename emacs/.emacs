@@ -562,8 +562,7 @@
   :init
   (add-hook 'haskell-mode-hook
             (lambda ()
-              (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
-              (subword-mode 1))))
+              (setq-local flycheck-check-syntax-automatically '(save mode-enabled)))))
 
 (use-package dante
   :after haskell-mode
