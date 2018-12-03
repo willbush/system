@@ -431,6 +431,9 @@
 
 (use-package flyspell-correct-ivy :after flyspell)
 
+(use-package flycheck
+  :hook (haskell-mode . flycheck-mode))
+
 (use-package csharp-mode
   :mode "\\.cs\\'"
   :after which-key
@@ -548,6 +551,26 @@
 
     (add-to-list 'golden-ratio-exclude-modes ms)))
 
+(use-package haskell-mode
+  :mode ("\\.hs\\'" . haskell-mode)
+  :init
+  (add-hook 'haskell-mode-hook
+            (lambda ()
+              (setq-local flycheck-check-syntax-automatically '(save mode-enabled))
+              (subword-mode 1))))
+
+(use-package dante
+  :after haskell-mode
+  :commands 'dante-mode
+  :init
+  (add-hook 'haskell-mode-hook 'dante-mode)
+  (add-hook 'dante-mode-hook
+     '(lambda () (flycheck-add-next-checker 'haskell-dante
+                  '(warning . haskell-hlint)))))
+
+(use-package hindent
+  :hook (haskell-mode-hook . hindent-mode))
+
 ;; FUNCTIONS
 
 (defun my/open-shell ()
@@ -637,6 +660,6 @@
  '(evil-collection-setup-minibuffer t)
  '(package-selected-packages
    (quote
-    (golden-ratio esup omnisharp flyspell-correct-ivy winum nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
+    (hindent dante haskell-mode golden-ratio esup omnisharp flyspell-correct-ivy winum nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
 
 (put 'narrow-to-region 'disabled nil)
