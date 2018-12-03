@@ -152,11 +152,11 @@
     aspell
     aspellDicts.en
     libreoffice
+    stack
     haskellPackages.apply-refact
     haskellPackages.hindent
     haskellPackages.hlint
     haskellPackages.hoogle
-    # haskellPackages.stack
     haskellPackages.stylish-haskell
     gcc
     cargo
