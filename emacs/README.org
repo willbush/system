@@ -159,7 +159,8 @@
 
    Also see: [[https://www.emacswiki.org/emacs/EmacsMsWindowsIntegration#toc2][Create a shortcut section on wiki]]
 
-   1. Right click and create a new shortcut, and enter the following as
+   1. Right click in the folder (or Desktop) where you want the
+      shortcut and create a new shortcut, and enter the following as
       the location:
 
       If you want Emacs to connect to the daemon or if it's not
@@ -191,7 +192,7 @@
       "Start in" to something sensible like your home folder
       "C:\User\username"
 
-   3. Pin it to startup if desired. I noticed if pined to the task bar
+   3. Pin it to Start if desired. I noticed if pined to the task bar
       it will create a duplicate icon on the task bar when launched so
       I typically avoid this.
 
