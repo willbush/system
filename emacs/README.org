@@ -81,7 +81,8 @@
 
    3. Install Hack font: https://sourcefoundry.org/hack/
 
-   4. Clone this repository and make a symbolic link to the =.emacs= file.
+   4. Clone this repository and make a symbolic link to the =.emacs=
+      file or run the script that does it for you.
 
       Using a command prompt opened as Administrator (paths might differ):
 
