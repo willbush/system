@@ -227,3 +227,16 @@
     3. set =(setq ispell-program-name "aspell")= in your emacs config
        and restart emacs. Restarting is likely necessary in order to
        pick up new environmental variables.
+
+** Tips and Tricks
+
+*** Open file explorer or other program from dired
+
+    We can launch any program on a file by positioning the point on
+    the file and execute a shell command with =!= and enter the name
+    of the program. For example, to open file explorer to the current
+    dired folder put the point on =.= and execute a shell command with
+    =!= and enter =explorer=.
+
+
+
