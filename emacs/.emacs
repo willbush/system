@@ -334,11 +334,8 @@
 (setq default-tab-width 2)
 (setq evil-shift-width 2)
 
-(custom-set-variables
- '(whitespace-style
-   '(face tabs spaces trailing space-before-tab
-          newline indentation empty space-after-tab
-          space-mark tab-mark)))
+;; allow narrow to region
+(put 'narrow-to-region 'disabled nil)
 
 ;; TERMINAL:
 (defvar my-shell "/run/current-system/sw/bin/zsh")
@@ -665,6 +662,8 @@
  '(evil-collection-setup-minibuffer t)
  '(package-selected-packages
    (quote
-    (hindent dante haskell-mode golden-ratio esup omnisharp flyspell-correct-ivy winum nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy))))
+    (hindent dante haskell-mode golden-ratio esup omnisharp flyspell-correct-ivy winum nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy)))
+ '(whitespace-style
+   (quote
+    (face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark))))
 
-(put 'narrow-to-region 'disabled nil)
