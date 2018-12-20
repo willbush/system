@@ -1,3 +1,7 @@
-mklink C:\Users\Will\.emacs C:\Users\Will\system\emacs\.emacs
-mklink C:\Users\Will\.gitconfig C:\Users\Will\system\.gitconfig
-mklink C:\Users\Will\.vsvimrc C:\Users\Will\system\.vsvimrc
+SET scriptPath=%~dp0
+
+mklink %USERPROFILE%\.emacs %scriptPath%emacs\.emacs
+mklink %USERPROFILE%\.gitconfig %scriptPath%.gitconfig
+mklink %USERPROFILE%\.vsvimrc %scriptPath%.vsvimrc
+
+pause
