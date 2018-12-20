@@ -1,4 +1,4 @@
 * System Configuration
-  
+
   I am currently transitioning to NixOS. Eventually, this repository should
   house everything needed to build my system.
