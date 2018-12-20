@@ -9,7 +9,7 @@
    experience already so most Emacs users are up to some of the manual
    steps involved.
 
-   There are several approaches to installing Emacs on Windows.
+   There are several approaches to installing Emacs on Windows:
 
    - using [[https://www.msys2.org/][msys2]]
    - using GNU provided Windows build
@@ -48,17 +48,54 @@
 
 ** Installing Emacs
 
-   Also see: [[https://www.gnu.org/software/emacs/download.html#windows][gnu.org emacs windows download]] page
+   Install Emacs via msys2 as the [[https://www.gnu.org/software/emacs/download.html#windows][gnu.org emacs windows download]] page
+   say
 
-   1. Install [[https://www.msys2.org/][msys2]]
+*** Install MSYS2
 
-   2. Open MSYS2 MinGW 64 bit terminal and run:
+    1. Set up ~HOME~ environmental variable
+
+       By default, msys2 uses =c:/msys64/home= as the home directory.
+       If you want to instead it to use your =%USERPROFILE%=, then add
+       a user environmental variable of =HOME= set to
+       =%USERPROFILE%=.
+
+       I recommend doing this step first before installing as I had to
+       logout and log back in for Emacs to work correctly when setting
+       the environmental variable after the steps below.
+
+   2. Install [[https://www.msys2.org/][msys2]]
+   3. Run `pacman -Syuu`
+   4. Close the shell when it tells you to.
+   5. Run `pacman -Syu` to upgrade everything
+
+*** Use MSYS2 to Install Emacs
+
+   1. Open MSYS2 MinGW 64 bit terminal and run:
 
       #+BEGIN_SRC shell
       pacman -S mingw-w64-x86_64-emacs
       #+END_SRC
 
-   3. Emacs should now be located =C:\msys64\mingw64\bin\=
+   2. Emacs should now be located =C:\msys64\mingw64\bin\=
+
+   3. Install Hack font: https://sourcefoundry.org/hack/
+
+   4. Clone this repository and make a symbolic link to the =.emacs= file.
+
+      Using a command prompt opened as Administrator (paths might differ):
+
+      #+BEGIN_SRC shell
+      mklink C:\Users\Will\.emacs C:\Users\Will\system\emacs\.emacs
+      #+END_SRC
+
+   5. Run =runemacs.exe= and it should automatically download and
+      install all packages.
+
+   6. When Emacs is done installing packages =M-x
+      all-the-icons-install-fonts=. When prompted for a directory just
+      put them in the Downloads directory, and then manually right
+      click on each one and select ~Install~.
 
 ** Setup Emacs to run in daemon mode on startup.
 
@@ -116,7 +153,7 @@
 
     3. It assumes the path you replace to ~runemacs.exe~ will not have
        spaces.
-    
+
 ** Create a shortcut
 
    Also see: [[https://www.emacswiki.org/emacs/EmacsMsWindowsIntegration#toc2][Create a shortcut section on wiki]]
@@ -152,7 +189,7 @@
    2. Right click on the short cut and select properties. Change the
       "Start in" to something sensible like your home folder
       "C:\User\username"
-      
+
    3. Pin it to startup if desired. I noticed if pined to the task bar
       it will create a duplicate icon on the task bar when launched so
       I typically avoid this.
