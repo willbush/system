@@ -1,4 +1,4 @@
-SET scriptPath=%~dp0
+set scriptPath=%~dp0
 
 mklink %USERPROFILE%\.emacs %scriptPath%emacs\.emacs
 mklink %USERPROFILE%\.gitconfig %scriptPath%.gitconfig
