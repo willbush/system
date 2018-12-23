@@ -135,7 +135,6 @@
     albert
     wget
     curl
-    git
     ripgrep
     docker
     alacritty
