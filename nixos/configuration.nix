@@ -68,24 +68,6 @@
       desktopManager.xterm.enable = false;
     };
 
-    compton = {
-      enable = true;
-      fade = true;
-      backend = "xrender";
-      fadeDelta = 1;
-      inactiveOpacity = "0.75";
-      activeOpacity = "0.90";
-      opacityRules = [ "99:name *= 'Firefox'" "99:name *= 'VLC'"];
-    };
-
-    redshift = {
-      enable = true;
-      latitude = "33";
-      longitude = "-97";
-      temperature.day = 6500;
-      temperature.night = 2700;
-    };
-
     emacs = {
       enable = true;
       defaultEditor = true;
@@ -94,8 +76,7 @@
 
   virtualisation.docker.enable = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     alacritty
     neovim

@@ -55,6 +55,24 @@
     };
   };
 
+  services.compton = {
+    enable = true;
+    fade = true;
+    backend = "xrender";
+    fadeDelta = 1;
+    inactiveOpacity = "0.75";
+    activeOpacity = "0.90";
+    opacityRule = [ "99:name *= 'Firefox'" "99:name *= 'VLC'"];
+  };
+
+  services.redshift = {
+    enable = true;
+    latitude = "33";
+    longitude = "-97";
+    temperature.day = 6500;
+    temperature.night = 2700;
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
