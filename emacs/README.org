@@ -65,9 +65,9 @@
        the environmental variable after the steps below.
 
    2. Install [[https://www.msys2.org/][msys2]]
-   3. Run `pacman -Syuu`
+   3. Run `pacman -Syu`
    4. Close the shell when it tells you to.
-   5. Run `pacman -Syu` to upgrade everything
+   5. Run `pacman -Sy` to upgrade everything
 
 *** Use MSYS2 to Install Emacs
 
