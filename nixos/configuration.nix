@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./fonts.nix
+  ];
 
   # Allow unfree, which is required for some drivers.
   nixpkgs.config.allowUnfree = true;
@@ -57,7 +60,7 @@
       displayManager = {
         lightdm.enable = true;
         sessionCommands = ''
-          feh --bg-scale ~/Images/retro.jpg &
+          feh --bg-scale /home/will/Images/retro.jpg &
           albert &
         '';
       };
@@ -114,26 +117,6 @@
     htop
     unzip
   ];
-
-  fonts = {
-    enableFontDir = true;
-    enableGhostscriptFonts = true;
-    fonts = with pkgs; [
-      hack-font
-      source-code-pro
-      powerline-fonts
-      corefonts
-      dejavu_fonts
-      font-droid
-      freefont_ttf
-      google-fonts
-      inconsolata
-      liberation_ttf
-      terminus_font
-      ttf_bitstream_vera
-      ubuntu_font_family
-    ];
-  };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
