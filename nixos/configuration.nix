@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./fonts.nix
+    ./users.nix
   ];
 
   # Allow unfree, which is required for some drivers.
@@ -89,15 +90,6 @@
       enable = true;
       defaultEditor = true;
     };
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.extraUsers.will = {
-    isNormalUser = true;
-    home = "/home/will";
-    uid = 1000;
-    extraGroups = [ "wheel" "networkmanager" "docker"];
-    shell = pkgs.zsh;
   };
 
   virtualisation.docker.enable = true;
