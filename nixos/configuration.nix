@@ -57,7 +57,7 @@
       displayManager = {
         lightdm.enable = true;
         sessionCommands = ''
-          feh --bg-scale ~/Images/false-god.jpg &
+          feh --bg-scale ~/Images/retro.jpg &
           albert &
         '';
       };
@@ -128,38 +128,17 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    alacritty
     neovim
-    firefox
-    keepassxc
-    vlc
-    albert
     wget
     curl
     ripgrep
     docker
-    alacritty
-    fzf
-    ranger
     exa
     tree
     fd
-    tokei
-    feh
     htop
     unzip
-    gnupg
-    aspell
-    aspellDicts.en
-    libreoffice
-    stack
-    haskellPackages.apply-refact
-    haskellPackages.hindent
-    haskellPackages.hlint
-    haskellPackages.hoogle
-    haskellPackages.stylish-haskell
-    gcc
-    cargo
-    rustup
   ];
 
   fonts = {
