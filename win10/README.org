@@ -1,0 +1,28 @@
+* Windows Setup
+
+  Before installing Windows make sure the BIOS is set to UEFI only
+  otherwise it might not install an EFI partition, which is annoying
+  if you want to dual boot using UEFI.
+
+  The following is basically a checklist to remind myself of the
+  litany of things to do after a fresh install.
+
+  - update windows
+  - Get Firefox
+  - Get Dropbox
+  - Get KeepassXC
+  - Sync Firefox
+  - Install latest hardware drivers (e.g. graphics)
+  - Install printer
+  - Perhaps check for a bios update
+  - Use [[https://github.com/10se1ucgo/DisableWinTracking][DisableWinTracking]]
+  - Get https://gitforwindows.org/
+  - clone this repo and use =mklinks= and =bloatware-remover= scripts
+  - Get https://chocolatey.org/
+  - Get [[https://github.com/Wox-launcher/Wox][Wox]]
+  - Look over https://ninite.com/ for ideas of what to install
+  - When dual booting set Windows to use UTC time:
+
+    When dual booting into Linux Windows 10 has a known issue with the
+    time getting messed up. To fix it, apply the registry file in this
+    directory named: =RealTimeIsUniversal.reg=

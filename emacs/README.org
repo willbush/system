@@ -1,4 +1,4 @@
-* Windows Emacs setup
+* Windows Emacs Setup
 ** Intro
 
    The following is my own notes and commentary on Windows integration
