@@ -99,32 +99,6 @@
 
   virtualisation.docker.enable = true;
 
-  programs = {
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      syntaxHighlighting.enable = true;
-      autosuggestions.enable = true;
-      shellAliases = {
-        l  = "exa";
-        ll = "exa -l";
-        la = "exa -lah";
-        vim = "nvim";
-        dropbox = "docker exec -it dropbox dropbox";
-        dropbox-start = ''
-        docker run -d --restart=always --name=dropbox \
-          -v /home/will/Dropbox:/dbox/Dropbox \
-          -v /home/will/.dropbox:/dbox/.dropbox \
-          -e DBOX_UID=1000 -e DBOX_GID=100 janeczku/dropbox'';
-      };
-      ohMyZsh = {
-        enable = true;
-        plugins = ["vi-mode" "web-search"];
-        theme = "agnoster";
-      };
-    };
-  };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
