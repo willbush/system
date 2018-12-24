@@ -19,6 +19,7 @@
   - Get https://gitforwindows.org/
   - clone this repo and use =mklinks= and =bloatware-remover= scripts
   - Get https://chocolatey.org/
+  - Get [[https://github.com/Wox-launcher/Wox][Wox]]
   - Look over https://ninite.com/ for ideas of what to install
   - When dual booting set Windows to use UTC time:
 
