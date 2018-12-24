@@ -11,13 +11,11 @@
 
   boot = {
     cleanTmpDir = true; # cleans all files in /tmp during boot
-    loader.grub = {
-      enable = true;
-      version = 2;
-      # Define on which hard drive you want to install Grub.
-      device = "/dev/sda"; # or "nodev" for efi only
-      useOSProber = true; # autodetect installed OSes
-      memtest86.enable = true;
+
+    loader = {
+      # Use the systemd-boot EFI boot loader.
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
     };
     # I was fooling around with elasticsearch in docker and needed to
     # set this to get it to work. figured I would leave it after
@@ -41,6 +39,8 @@
       enable = true;
       layout = "us";
       xkbOptions = "terminate:ctrl_alt_bksp, caps:swapescape";
+
+      videoDrivers = [ "nvidiaBeta" ];
 
       windowManager.xmonad = {
         enable = true;
@@ -135,7 +135,6 @@
     albert
     wget
     curl
-    git
     ripgrep
     docker
     alacritty
