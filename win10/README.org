@@ -19,5 +19,5 @@
   - When dual booting set Windows to use UTC time:
 
     When dual booting into Linux Windows 10 has a known issue with the
-    time getting messed up. Apply the registry file in this directory
-    named to fix it: =RealTimeIsUniversal.reg=
+    time getting messed up. To fix it, apply the registry file in this
+    directory named: =RealTimeIsUniversal.reg=
