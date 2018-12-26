@@ -581,6 +581,8 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
+(use-package markdown-toc :defer t)
+
 ;; FUNCTIONS
 
 (defun my/open-shell ()
@@ -670,7 +672,7 @@
  '(evil-collection-setup-minibuffer t)
  '(package-selected-packages
    (quote
-    (markdown-mode hindent dante haskell-mode golden-ratio esup omnisharp flyspell-correct-ivy winum nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy)))
+    (markdown-toc markdown-mode hindent dante haskell-mode golden-ratio esup omnisharp flyspell-correct-ivy winum nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy)))
  '(whitespace-style
    (quote
     (face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark))))
