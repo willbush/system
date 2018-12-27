@@ -287,34 +287,34 @@
 ;; switches (yes or no) prompts to (y or n)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; prevent indention for inserting tabs
+;; prevent indention inserting tabs
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
+;; fill-paragraph uses fill-column for the width at which to break lines
+(setq-default fill-column 80)
 
 (setq inhibit-splash-screen t
       initial-scratch-message nil
       ring-bell-function 'ignore
       make-backup-files nil
       auto-save-default nil
-      default-fill-column 80
       help-window-select t)
 
 ;; enable prettify symbols when using GUI emacs
 (when window-system (global-prettify-symbols-mode t))
 
-;; changes default behavior of scrolling to bottom of screen.
-;; Normally, scrolling past the bottom casues it to scroll down enough
-;; so that the point is recentered. The documentation on the variable
-;; states values above 100 behave the same, but I could not observe
-;; any difference for values greater than or equal to 1. Also of note
-;; from testing I found that the constant redrawing of the screen to
-;; make the scrolling smooth utilizes ~20-30% CPU. However, this
-;; hardly affects me with how I move around.
+;; changes default behavior of scrolling to bottom of screen.  Normally,
+;; scrolling past the bottom casues it to scroll down enough so that the point
+;; is recentered. The documentation on the variable states values above 100
+;; behave the same, but I could not observe any difference for values greater
+;; than or equal to 1. Also of note from testing I found that the constant
+;; redrawing of the screen to make the scrolling smooth utilizes ~20-30%
+;; CPU. However, this hardly affects me with how I move around.
 (setq scroll-conservatively 666)
 
-;; keeps a faint highlight on the line of the point.
-;; I sort of like this feature, but I found that every vertical
-;; movement casues emacs takes up ~15% CPU.
+;; keeps a faint highlight on the line of the point.  I sort of like this
+;; feature, but I found that every vertical movement casues emacs takes up ~15%
+;; CPU.
 (global-hl-line-mode -1)
 
 ;; follows symlinks without prompt when set to t
