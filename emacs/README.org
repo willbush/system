@@ -110,7 +110,10 @@
       with the following content:
 
     #+BEGIN_SRC bat
-      del /Q %HOME%\.emacs.d\server\*
+      rem cd into home so emacs client will start in the home folder,
+      rem which is nice when using find-file
+      cd %HOME%
+      del /Q .emacs.d\server\*
       "C:\msys64\mingw64\bin\runemacs.exe" --daemon
     #+END_SRC
 
