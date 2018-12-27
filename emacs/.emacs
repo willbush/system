@@ -75,7 +75,7 @@
 (use-package ibuffer :bind ("C-x C-b" . ibuffer))
 
 (use-package evil-leader
-  ;; after which key so I can keep its prefix declariations next to
+  ;; after which key so I can keep its prefix declarations next to
   ;; evil-leader declarations in this config block
   :after which-key
   :init (global-evil-leader-mode)
@@ -304,16 +304,16 @@
 (when window-system (global-prettify-symbols-mode t))
 
 ;; changes default behavior of scrolling to bottom of screen.  Normally,
-;; scrolling past the bottom casues it to scroll down enough so that the point
-;; is recentered. The documentation on the variable states values above 100
+;; scrolling past the bottom causes it to scroll down enough so that the point
+;; is re-centered. The documentation on the variable states values above 100
 ;; behave the same, but I could not observe any difference for values greater
 ;; than or equal to 1. Also of note from testing I found that the constant
 ;; redrawing of the screen to make the scrolling smooth utilizes ~20-30%
 ;; CPU. However, this hardly affects me with how I move around.
 (setq scroll-conservatively 666)
 
-;; keeps a faint highlight on the line of the point.  I sort of like this
-;; feature, but I found that every vertical movement casues emacs takes up ~15%
+;; keeps a faint highlight on the line of the point. I sort of like this
+;; feature, but I found that every vertical movement causes emacs takes up ~15%
 ;; CPU.
 (global-hl-line-mode -1)
 
