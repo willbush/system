@@ -243,6 +243,12 @@
   :after evil
   :config (evil-exchange-cx-install))
 
+(use-package recentf
+  :config
+  (recentf-mode 1)
+  (setq recentf-max-menu-items 1000
+        recentf-max-saved-items 1000))
+
 ;; IVY
 (use-package ivy
   :hook (after-init . ivy-mode)
