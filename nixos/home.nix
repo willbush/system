@@ -3,6 +3,8 @@
 {
   # home packages that need no extra configuration
   home.packages = with pkgs; [
+    exa
+    htop
     firefox
     keepassxc
     vlc
@@ -24,6 +26,9 @@
     haskellPackages.hoogle
     haskellPackages.stylish-haskell
   ];
+
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
 
   programs.git = {
     enable = true;
@@ -72,7 +77,4 @@
     temperature.day = 6500;
     temperature.night = 2700;
   };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }
