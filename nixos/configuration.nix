@@ -36,10 +36,10 @@
 
   services = {
     # Enable CUPS to print documents.
-    # printing.enable = true;
+    printing.enable = true;
+    printing.drivers = [ pkgs.hll2390dw-cups ];
 
     xserver = {
-      # Enable the X11 windowing system.
       enable = true;
       layout = "us";
       xkbOptions = "terminate:ctrl_alt_bksp, caps:swapescape";
@@ -84,10 +84,8 @@
     curl
     ripgrep
     docker
-    exa
     tree
     fd
-    htop
     unzip
   ];
 
