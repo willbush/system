@@ -195,7 +195,8 @@
     "tl" 'toggle-truncate-lines
     "tf" 'auto-fill-mode
     "tn" 'linum-mode
-    "tg" 'my/toggle-golden-ratio)
+    "tg" 'my/toggle-golden-ratio
+    "ts" 'flyspell-mode)
 
   (which-key-declare-prefixes "SPC w" "window")
   (evil-leader/set-key
