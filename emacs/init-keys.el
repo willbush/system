@@ -148,4 +148,11 @@
     "wx" 'kill-buffer-and-window)
 )
 
+(defun my/open-shell ()
+  "Opens my prefered shell for the current operating system."
+  (interactive)
+  (if (eq system-type 'windows-nt)
+      (call-interactively 'eshell)
+    (call-interactively 'ansi-term)))
+
 (provide 'init-keys)
