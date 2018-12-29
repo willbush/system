@@ -68,4 +68,6 @@
           deadgrep))
   (evil-collection-init))
 
-(provide 'init-evil)
+(use-package avy :commands avy-goto-char)
+
+(provide 'init-editing)
