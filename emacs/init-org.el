@@ -43,4 +43,12 @@
       (concat "archive/"
               (format-time-string "%Y" (current-time)) "-%s_archive::"))
 
+(defun my/org-todo-force-notes ()
+  "calls 'org-todo and makes it so that it will prompt for a note."
+  (interactive)
+  (let ((org-todo-log-states
+         (mapcar (lambda (state) (list state 'note 'time))
+                 (apply 'append org-todo-sets))))
+    (call-interactively 'org-todo)))
+
 (provide 'init-org)

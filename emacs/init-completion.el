@@ -32,4 +32,9 @@
   (setq recentf-max-menu-items 1000
         recentf-max-saved-items 1000))
 
+(use-package company
+  :hook (after-init . global-company-mode)
+  :config
+  (setq company-idle-delay 0.3))
+
 (provide 'init-completion)
