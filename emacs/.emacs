@@ -577,6 +577,6 @@
 (add-to-list 'load-path "~/system/emacs/")
 
 (require 'funcs)
-(require 'haskell)
+(require 'init-haskell)
 
 (load "custom")
