@@ -1,4 +1,7 @@
+# black list everything in this folder
 /*
+
+# whitelist what I want
 !.gitignore
 !init.el
 !global-context.reg
