@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp; lexical-binding: t -*-
+;;; -*- lexical-binding: t; -*-
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
