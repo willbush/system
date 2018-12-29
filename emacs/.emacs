@@ -36,35 +36,6 @@
 ;; ensure everything is installed
 (setq use-package-always-ensure t)
 
-(use-package evil
-  :hook (after-init . evil-mode)
-  :init
-  (setq evil-search-module 'evil-search
-        evil-ex-complete-emacs-commands nil
-        evil-vsplit-window-right t
-        evil-split-window-below t
-        evil-shift-round nil
-        evil-want-C-u-scroll t
-        ;; set to nil as required by evil-collection
-        evil-want-keybinding nil)
-  :config
-  ;; unbind evil-lookup
-  (eval-after-load "evil-maps"
-    (define-key evil-motion-state-map "\S-k" nil))
-
-  ;; make mnemonic alias for how I want to bind it
-  (defalias 'my/evil-search-clear-highlight 'evil-ex-nohighlight)
-  ;; evil global key bindings
-  (global-set-key (kbd "C-S-h") 'evil-window-left)
-  (global-set-key (kbd "C-S-l") 'evil-window-right)
-  (global-set-key (kbd "C-S-j") 'evil-window-down)
-  (global-set-key (kbd "C-S-k") 'evil-window-up))
-
-;; Enables searching via * on a visual selection.
-(use-package evil-visualstar
-  :after evil
-  :init (global-evil-visualstar-mode))
-
 (use-package which-key
   :hook (after-init . which-key-mode))
 
@@ -218,31 +189,6 @@
     "wm" 'my/toggle-maximize-window
     "wx" 'kill-buffer-and-window)
 )
-
-;; Enables inc/dec of numbers!
-(use-package evil-numbers
-  :after evil
-  :config
-  ;; Bind increment and decrement number at point.
-  (global-set-key (kbd "M-=") 'evil-numbers/inc-at-pt)
-  (global-set-key (kbd "M--") 'evil-numbers/dec-at-pt))
-
-;; Bind zoom in and out
-(global-set-key (kbd "C-=") 'text-scale-increase)
-(global-set-key (kbd "C--") 'text-scale-decrease)
-
-(use-package evil-surround
-  :after evil
-  :config
-  (global-evil-surround-mode 1))
-
-(use-package evil-matchit
-  :after evil
-  :config (global-evil-matchit-mode 1))
-
-(use-package evil-exchange
-  :after evil
-  :config (evil-exchange-cx-install))
 
 (use-package recentf
   :config
@@ -444,40 +390,6 @@
 (use-package flycheck
   :hook (haskell-mode . flycheck-mode))
 
-(use-package csharp-mode
-  :mode "\\.cs\\'"
-  :after which-key
-  :config
-  (which-key-declare-prefixes-for-mode 'csharp-mode
-    "SPC m" "mode"
-    "SPC mr" "refactor"
-    "SPC mn" "navigate")
-  (evil-leader/set-key-for-mode 'csharp-mode
-    "me" 'omnisharp-solution-errors
-    "mo" 'omnisharp-show-overloads-at-point
-    "mi" 'omnisharp-find-implementations
-    "mg" 'omnisharp-go-to-definition
-    "mG" 'omnisharp-go-to-definition-other-window
-    "ms" 'omnisharp-stop-server
-    "mc" 'omnisharp-check-alive-status
-    "mR" 'omnisharp-reload-solution
-    "mrr" 'omnisharp-rename
-    "mra" 'omnisharp-run-code-action-refactoring
-    "mnr" 'omnisharp-navigate-to-region
-    "mnf" 'omnisharp-navigate-to-solution-file
-    "mnm" 'omnisharp-navigate-to-solution-member
-    "mt" 'omnisharp-unit-test-buffer
-    "mu" 'omnisharp-fix-usings))
-
-(use-package omnisharp
-  :hook ((csharp-mode . omnisharp-mode)
-         (before-save . omnisharp-code-format-entire-file))
-  :config
-  (setq omnisharp-debug t)
-  (add-hook 'omnisharp-mode-hook
-            (lambda()
-              (add-to-list (make-local-variable 'company-backends) '(company-omnisharp)))))
-
 (use-package nix-mode
   :mode "\\.nix\\'")
 
@@ -577,6 +489,8 @@
 (add-to-list 'load-path "~/system/emacs/")
 
 (require 'funcs)
+(require 'init-evil)
 (require 'init-haskell)
+(require 'init-csharp)
 
 (load "custom")
