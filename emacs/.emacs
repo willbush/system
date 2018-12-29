@@ -18,23 +18,18 @@
           gc-cons-percentage 0.1)
     (setq file-name-handler-alist file-name-handler-alist-actual)))
 
-(require 'package)
+(add-to-list 'load-path "~/system/emacs/")
 
-(setq package-enable-at-startup nil)
-
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-
-(package-initialize)
-
-;; bootstrap use-package
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-(require 'use-package)
-
-;; ensure everything is installed
-(setq use-package-always-ensure t)
+(require 'init-package)
+(require 'funcs)
+(require 'init-settings)
+(require 'init-evil)
+(require 'init-completion)
+(require 'init-org)
+(require 'init-nix)
+(require 'init-haskell)
+(require 'init-csharp)
+(require 'init-markdown)
 
 (use-package which-key
   :hook (after-init . which-key-mode))
@@ -190,157 +185,6 @@
     "wx" 'kill-buffer-and-window)
 )
 
-(use-package recentf
-  :config
-  (recentf-mode 1)
-  (setq recentf-max-menu-items 1000
-        recentf-max-saved-items 1000))
-
-;; IVY
-(use-package ivy
-  :hook (after-init . ivy-mode)
-  :config
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-display-style 'fancy))
-
-(use-package counsel
-  :after ivy
-  :bind (("C-c C-r" . ivy-resume))
-  :config
-  ;; make mnemonic alias for how I want to bind it
-  (defalias 'my/counsel-rg-directory 'counsel-rg)
-  (global-set-key (kbd "M-x") 'counsel-M-x)
-  (setq counsel-git-cmd "rg --files"
-        counsel-grep-base-command
-          "rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s %s"
-        counsel-rg-base-command
-          "rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s ."))
-
-(use-package swiper :bind (("C-s" . swiper)))
-
-;; Used by Ivy to sort commands by frequency.
-(use-package smex
-  :hook (after-init . smex-initialize)
-  :config
-  (global-set-key (kbd "M-X") 'smex-major-mode-commands))
-
-(use-package esup :commands (esup))
-
-;; MINOR SETTINGS:
-
-;; removes gui elements
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-
-;; show line and column number on mode line
-(line-number-mode 1)
-(column-number-mode 1)
-
-;; switches (yes or no) prompts to (y or n)
-(defalias 'yes-or-no-p 'y-or-n-p)
-
-;; prevent indention inserting tabs
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-;; fill-paragraph uses fill-column for the width at which to break lines
-(setq-default fill-column 80)
-
-(setq inhibit-splash-screen t
-      initial-scratch-message nil
-      ring-bell-function 'ignore
-      make-backup-files nil
-      auto-save-default nil
-      help-window-select t)
-
-;; enable prettify symbols when using GUI emacs
-(when window-system (global-prettify-symbols-mode t))
-
-;; changes default behavior of scrolling to bottom of screen.  Normally,
-;; scrolling past the bottom causes it to scroll down enough so that the point
-;; is re-centered. The documentation on the variable states values above 100
-;; behave the same, but I could not observe any difference for values greater
-;; than or equal to 1. Also of note from testing I found that the constant
-;; redrawing of the screen to make the scrolling smooth utilizes ~20-30%
-;; CPU. However, this hardly affects me with how I move around.
-(setq scroll-conservatively 666)
-
-;; keeps a faint highlight on the line of the point. I sort of like this
-;; feature, but I found that every vertical movement causes emacs takes up ~15%
-;; CPU.
-(global-hl-line-mode -1)
-
-;; follows symlinks without prompt when set to t
-(setq vc-follow-symlinks t)
-
-;; fixes performance issue with doom-modeline in Windows
-(setq inhibit-compacting-font-caches t)
-
-(setq electric-pair-pairs
-  '(
-    (?\( . ?\))
-    (?\[ . ?\])
-    (?\{ . ?\})
-   ))
-(electric-pair-mode t)
-
-(setq default-tab-width 2)
-(setq evil-shift-width 2)
-
-;; allow narrow to region
-(put 'narrow-to-region 'disabled nil)
-
-;; TERMINAL:
-(defvar my-shell "/run/current-system/sw/bin/zsh")
-(defadvice ansi-term (before force-bash)
-(interactive (list my-shell)))
-(ad-activate 'ansi-term)
-
-;; ORG
-
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-cb" 'org-switchb)
-
-(add-hook 'org-mode-hook
-          '(lambda ()
-             (setq show-trailing-whitespace t)
-             (define-key org-mode-map (kbd "C-c C-S-t")
-               'my/org-todo-force-notes)
-             (local-set-key "\M-k" 'org-move-subtree-up)
-             (local-set-key "\M-j" 'org-move-subtree-down)
-             (local-set-key "\M-h" 'org-do-promote)
-             (local-set-key "\M-l" 'org-do-demote)))
-
-(setq org-src-window-setup 'current-window
-      org-log-done 'time)
-
-(setq org-todo-keywords
-      '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELED(c)")))
-
-(setq org-agenda-files
-      '("~/Dropbox/org/personal/inbox.org"
-        "~/Dropbox/org/personal/tickler.org"))
-
-(setq org-capture-templates
-      '(("t" "Todo [inbox]" entry
-        (file+headline "~/Dropbox/org/personal/inbox.org" "Inbox Tasks")
-        "* TODO %i%?") ("T" "Tickler"
-        entry (file+headline "~/Dropbox/org/personal/tickler.org" "Tickler") "* %i%? \n %U")))
-
-(setq org-refile-targets
-      '(("~/Dropbox/org/personal/gtd.org" :level . 1)
-        ("~/Dropbox/org/personal/someday.org" :level . 1)
-        ("~/Dropbox/org/personal/tickler.org" :level . 1)))
-
-;; Puts archive files into a relative path to an archive folder with
-;; the year in the file name. See doc string for info on special
-;; format string syntax
-(setq org-archive-location
-      (concat "archive/"
-              (format-time-string "%Y" (current-time)) "-%s_archive::"))
-
 (use-package doom-themes
   :config
   ;; Corrects (and improves) org-mode's native fontification.
@@ -370,6 +214,10 @@
   :config
   (setq magit-completing-read-function 'ivy-completing-read))
 
+(use-package esup :commands (esup))
+
+(use-package swiper :bind (("C-s" . swiper)))
+
 (use-package deadgrep
   :commands (deadgrep))
 
@@ -389,23 +237,6 @@
 
 (use-package flycheck
   :hook (haskell-mode . flycheck-mode))
-
-(use-package nix-mode
-  :mode "\\.nix\\'")
-
-(use-package evil-collection
-  :after evil
-  :custom (evil-collection-setup-minibuffer t)
-  :config
-  (setq evil-collection-mode-list
-        '(calendar
-          dired
-          minibuffer
-          woman
-          man
-          ivy
-          deadgrep))
-  (evil-collection-init))
 
 (use-package golden-ratio
   :defer t
@@ -472,25 +303,5 @@
                 "speedbar-mode"))
 
     (add-to-list 'golden-ratio-exclude-modes ms)))
-
-(use-package markdown-mode
-  :ensure t
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown")
-  (add-hook 'markdown-mode-hook
-            '(lambda ()
-               (setq show-trailing-whitespace t))))
-
-(use-package markdown-toc :defer t)
-
-(add-to-list 'load-path "~/system/emacs/")
-
-(require 'funcs)
-(require 'init-evil)
-(require 'init-haskell)
-(require 'init-csharp)
 
 (load "custom")
