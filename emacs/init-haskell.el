@@ -19,4 +19,4 @@
 (use-package hindent
   :hook (haskell-mode-hook . hindent-mode))
 
-(provide 'haskell)
+(provide 'init-haskell)
