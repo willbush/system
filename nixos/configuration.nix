@@ -42,7 +42,7 @@
     xserver = {
       enable = true;
       layout = "us";
-      xkbOptions = "terminate:ctrl_alt_bksp, caps:swapescape";
+      xkbOptions = "caps:swapescape";
 
       videoDrivers = [ "nvidiaBeta" ];
 
