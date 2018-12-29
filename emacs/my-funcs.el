@@ -68,4 +68,4 @@
     (golden-ratio)
     (message "Golden-Ratio mode enabled")))
 
-(provide 'funcs)
+(provide 'my-funcs)
