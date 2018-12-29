@@ -54,4 +54,18 @@
   :after evil
   :config (evil-exchange-cx-install))
 
+(use-package evil-collection
+  :after evil
+  :custom (evil-collection-setup-minibuffer t)
+  :config
+  (setq evil-collection-mode-list
+        '(calendar
+          dired
+          minibuffer
+          woman
+          man
+          ivy
+          deadgrep))
+  (evil-collection-init))
+
 (provide 'init-evil)
