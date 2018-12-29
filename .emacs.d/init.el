@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp; lexical-binding: t -*-
+;; -*- lexical-binding: t -*-
 
 ;; Keep a ref to the actual file-name-handler
 (defvar file-name-handler-alist-actual file-name-handler-alist)
@@ -18,7 +18,9 @@
           gc-cons-percentage 0.1)
     (setq file-name-handler-alist file-name-handler-alist-actual)))
 
-(add-to-list 'load-path "~/system/emacs/")
+(defconst src-dir (expand-file-name "src/" user-emacs-directory))
+
+(add-to-list 'load-path src-dir)
 
 (require 'init-package)
 (require 'init-settings)
@@ -35,4 +37,5 @@
 (require 'init-misc-tools)
 (require 'init-themes)
 
-(load "custom")
+(setq custom-file (expand-file-name "custom.el" src-dir))
+(load custom-file)
