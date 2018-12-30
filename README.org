@@ -1,4 +1,31 @@
 * System Configuration
 
-  I am currently transitioning to NixOS. Eventually, this repository should
-  house everything needed to build my system.
+  Everything needed to build my NixOS system for play and Windows for work.
+
+** Folder Structure
+
+*** stow
+
+    I use =stow= for symbolic link management for configurations under the
+    =stow= directory.
+
+    I keep configurations here for things that I haven't yet migrated to nix or
+    can't because it needs to run in Windows and Linux (Windows is not supported
+    by nix). For example, Emacs is something I used in both Windows and Linux,
+    and I haven't yet tried setting it up in cygwin or WSL, yet where nix has a
+    hope of working.
+
+    Management with stow is easily done with:
+
+    #+BEGIN_SRC shell
+    stow -Rv . -t ~/
+    #+END_SRC
+
+*** nixos
+
+    For things that are only used in NixOS are kept here.
+
+*** win
+
+    For things that are only used in Windows are kept here. See its [[file:win/README.org][readme]] for
+    more information.
