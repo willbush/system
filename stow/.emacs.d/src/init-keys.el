@@ -43,7 +43,8 @@
   (which-key-declare-prefixes "SPC c" "comment")
   (evil-leader/set-key
     "cr" 'comment-or-uncomment-region
-    "cl" 'comment-line)
+    "cl" 'comment-line
+    "cp" 'poporg-dwim)
 
   (which-key-declare-prefixes "SPC f" "file")
   (evil-leader/set-key
