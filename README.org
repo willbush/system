@@ -12,8 +12,8 @@
     I keep configurations here for things that I haven't yet migrated to nix or
     can't because it needs to run in Windows and Linux (Windows is not supported
     by nix). For example, Emacs is something I used in both Windows and Linux,
-    and I haven't yet tried setting it up in cygwin or WSL, yet where nix has a
-    hope of working.
+    and I haven't yet tried setting it up in cygwin or WSL where nix has a hope
+    of working.
 
     Management with stow is easily done with:
 
