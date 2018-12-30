@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  home.stateVersion = "19.03";
+
   # home packages that need no extra configuration
   home.packages = with pkgs; [
     exa
@@ -20,11 +22,12 @@
     ranger
     gnupg
     stack
+    stow
     haskellPackages.apply-refact
     haskellPackages.hindent
     haskellPackages.hlint
     haskellPackages.hoogle
-    haskellPackages.stylish-haskell
+    # haskellPackages.stylish-haskell
   ];
 
   # Let Home Manager install and manage itself.
