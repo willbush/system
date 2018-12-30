@@ -43,6 +43,11 @@
       (concat "archive/"
               (format-time-string "%Y" (current-time)) "-%s_archive::"))
 
+;; Lets you pull text into an org buffer for editing. Useful for editing
+;; comments or doc strings in org mode.
+(use-package poporg
+  :commands 'poporg-dwim)
+
 (defun my/org-todo-force-notes ()
   "calls 'org-todo and makes it so that it will prompt for a note."
   (interactive)
