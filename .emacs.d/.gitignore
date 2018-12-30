@@ -1,4 +1,5 @@
-# black list everything in this folder
+# black list everything in this folder because emacs and
+# packages I use write all sorts of things into it.
 /*
 
 # whitelist what I want
