@@ -1,2 +1,9 @@
 # nix build output
 result
+
+# xmonad stuff
+*.o
+*.hi
+*.errors
+*.errors
+xmonad-*
