@@ -13,4 +13,8 @@
 (use-package flycheck
   :hook (haskell-mode . flycheck-mode))
 
+(add-hook 'prog-mode-hook
+          '(lambda ()
+             (setq show-trailing-whitespace t)))
+
 (provide 'init-prog-tools)
