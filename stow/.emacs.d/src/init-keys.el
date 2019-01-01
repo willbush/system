@@ -1,20 +1,26 @@
 ;;; -*- lexical-binding: t; -*-
 
+(defun my/open-shell ()
+  "Opens my prefered shell for the current operating system."
+  (interactive)
+  (if (eq system-type 'windows-nt)
+      (call-interactively 'eshell)
+    (call-interactively 'ansi-term)))
+
 (use-package which-key
   :config (which-key-mode 1))
 
 (use-package evil-leader
-  ;; after which key so I can keep its prefix declarations next to
-  ;; evil-leader declarations in this config block.
+  ;; After which key so I can keep its prefix declarations next to
+  ;; evil-leader declarations when initializing the keys.
+  ;; After evil because it requires evil.
   :after which-key
   :init
   ;; evil-collection will give a warning if the following setting is not set
   ;; before loading evil-leader, evil, and evil-collection.
   ;; see: https://github.com/emacs-evil/evil-collection/issues/215
   (setq evil-want-keybinding nil)
-  (global-evil-leader-mode)
   :config
-
   (evil-leader/set-leader "<SPC>")
 
   (evil-leader/set-key
@@ -181,19 +187,13 @@
     "SPC mn" "navigate")
 
   (evil-leader/set-key-for-mode 'haskell-mode
-     "e" 'hasky-stack-execute
-     "p" 'hasky-stack-package-action
-     "rb" 'hindent-reformat-buffer
-     "rB" 'hlint-refactor-refactor-buffer
-     "rr" 'hindent-reformat-region
-     "rp" 'hlint-refactor-refactor-at-point)
-  )
+    "e" 'hasky-stack-execute
+    "p" 'hasky-stack-package-action
+    "rb" 'hindent-reformat-buffer
+    "rB" 'hlint-refactor-refactor-buffer
+    "rr" 'hindent-reformat-region
+    "rp" 'hlint-refactor-refactor-at-point)
 
-(defun my/open-shell ()
-  "Opens my prefered shell for the current operating system."
-  (interactive)
-  (if (eq system-type 'windows-nt)
-      (call-interactively 'eshell)
-    (call-interactively 'ansi-term)))
+  (global-evil-leader-mode))
 
 (provide 'init-keys)
