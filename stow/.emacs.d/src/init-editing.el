@@ -29,7 +29,7 @@
   (evil-mode 1))
 
 (use-package evil-collection
-  :requires evil
+  :after evil
   :custom (evil-collection-setup-minibuffer t)
   :config
   (setq evil-collection-mode-list
