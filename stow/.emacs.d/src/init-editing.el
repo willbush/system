@@ -1,16 +1,18 @@
 ;;; -*- lexical-binding: t; -*-
 
 (use-package evil
-  :hook (after-init . evil-mode)
+  ;; according to evil-leader readme:
+  ;; Note: You should enable global-evil-leader-mode before you enable
+  ;; evil-mode, otherwise evil-leader won’t be enabled in initial
+  ;; buffers (*scratch*, *Messages*, …).
+  :after evil-leader
   :init
   (setq evil-search-module 'evil-search
         evil-ex-complete-emacs-commands nil
         evil-vsplit-window-right t
         evil-split-window-below t
         evil-shift-round nil
-        evil-want-C-u-scroll t
-        ;; set to nil as required by evil-collection
-        evil-want-keybinding nil)
+        evil-want-C-u-scroll t)
   :config
   ;; unbind evil-lookup
   (eval-after-load "evil-maps"
@@ -22,7 +24,23 @@
   (global-set-key (kbd "C-S-h") 'evil-window-left)
   (global-set-key (kbd "C-S-l") 'evil-window-right)
   (global-set-key (kbd "C-S-j") 'evil-window-down)
-  (global-set-key (kbd "C-S-k") 'evil-window-up))
+  (global-set-key (kbd "C-S-k") 'evil-window-up)
+
+  (evil-mode 1))
+
+(use-package evil-collection
+  :requires evil
+  :custom (evil-collection-setup-minibuffer t)
+  :config
+  (setq evil-collection-mode-list
+        '(calendar
+          dired
+          minibuffer
+          woman
+          man
+          ivy
+          deadgrep))
+  (evil-collection-init))
 
 ;; Enables searching via * on a visual selection.
 (use-package evil-visualstar
@@ -53,20 +71,6 @@
 (use-package evil-exchange
   :after evil
   :config (evil-exchange-cx-install))
-
-(use-package evil-collection
-  :after evil
-  :custom (evil-collection-setup-minibuffer t)
-  :config
-  (setq evil-collection-mode-list
-        '(calendar
-          dired
-          minibuffer
-          woman
-          man
-          ivy
-          deadgrep))
-  (evil-collection-init))
 
 (use-package avy :commands avy-goto-char)
 
