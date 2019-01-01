@@ -1,13 +1,18 @@
 ;;; -*- lexical-binding: t; -*-
 
 (use-package which-key
-  :hook (after-init . which-key-mode))
+  :config (which-key-mode 1))
 
 (use-package evil-leader
   ;; after which key so I can keep its prefix declarations next to
-  ;; evil-leader declarations in this config block
+  ;; evil-leader declarations in this config block.
   :after which-key
-  :init (global-evil-leader-mode)
+  :init
+  ;; evil-collection will give a warning if the following setting is not set
+  ;; before loading evil-leader, evil, and evil-collection.
+  ;; see: https://github.com/emacs-evil/evil-collection/issues/215
+  (setq evil-want-keybinding nil)
+  (global-evil-leader-mode)
   :config
 
   (evil-leader/set-leader "<SPC>")
@@ -147,7 +152,42 @@
     "wo" 'delete-other-windows
     "wm" 'my/toggle-maximize-window
     "wx" 'kill-buffer-and-window)
-)
+
+  (which-key-declare-prefixes-for-mode 'csharp-mode
+    "SPC m" "mode"
+    "SPC mr" "refactor"
+    "SPC mn" "navigate")
+
+  (evil-leader/set-key-for-mode 'csharp-mode
+    "me" 'omnisharp-solution-errors
+    "mo" 'omnisharp-show-overloads-at-point
+    "mi" 'omnisharp-find-implementations
+    "mg" 'omnisharp-go-to-definition
+    "mG" 'omnisharp-go-to-definition-other-window
+    "ms" 'omnisharp-stop-server
+    "mc" 'omnisharp-check-alive-status
+    "mR" 'omnisharp-reload-solution
+    "mrr" 'omnisharp-rename
+    "mra" 'omnisharp-run-code-action-refactoring
+    "mnr" 'omnisharp-navigate-to-region
+    "mnf" 'omnisharp-navigate-to-solution-file
+    "mnm" 'omnisharp-navigate-to-solution-member
+    "mt" 'omnisharp-unit-test-buffer
+    "mu" 'omnisharp-fix-usings)
+
+  (which-key-declare-prefixes-for-mode 'haskell-mode
+    "SPC m" "mode"
+    "SPC mr" "refactor"
+    "SPC mn" "navigate")
+
+  (evil-leader/set-key-for-mode 'haskell-mode
+     "e" 'hasky-stack-execute
+     "p" 'hasky-stack-package-action
+     "rb" 'hindent-reformat-buffer
+     "rB" 'hlint-refactor-refactor-buffer
+     "rr" 'hindent-reformat-region
+     "rp" 'hlint-refactor-refactor-at-point)
+  )
 
 (defun my/open-shell ()
   "Opens my prefered shell for the current operating system."
