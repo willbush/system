@@ -5,7 +5,26 @@
   :init
   (add-hook 'haskell-mode-hook
             (lambda ()
-              (setq-local flycheck-check-syntax-automatically '(save mode-enabled)))))
+              (setq-local flycheck-check-syntax-automatically '(save mode-enabled))))
+  :config
+  (general-def
+    :prefix "SPC m"
+    :states 'normal
+    :keymaps 'haskell-mode-map
+    "e" 'hasky-stack-execute
+    "p" 'hasky-stack-package-action
+    "i" 'dante-info
+    "r" '(:ignore t :which-key "refactor"))
+
+  (general-def
+    :prefix "SPC m r"
+    :states 'normal
+    :keymaps 'haskell-mode-map
+    ;; "B" 'hlint-refactor-refactor-buffer
+    ;; "p" 'hlint-refactor-refactor-at-point
+    "b" 'hindent-reformat-buffer
+    "r" 'hindent-reformat-region)
+  )
 
 (use-package dante
   :after haskell-mode
