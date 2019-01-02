@@ -10,192 +10,240 @@
 (use-package which-key
   :config (which-key-mode 1))
 
-(use-package evil-leader
-  ;; After which key so I can keep its prefix declarations next to
-  ;; evil-leader declarations when initializing the keys.
-  ;; After evil because it requires evil.
-  :after which-key
-  :init
-  ;; evil-collection will give a warning if the following setting is not set
-  ;; before loading evil-leader, evil, and evil-collection.
-  ;; see: https://github.com/emacs-evil/evil-collection/issues/215
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-leader/set-leader "<SPC>")
+(use-package general)
 
-  (evil-leader/set-key
-    "<SPC>" 'counsel-M-x
-    "'" 'my/open-shell
-    "1" 'winum-select-window-1
-    "2" 'winum-select-window-2
-    "3" 'winum-select-window-3
-    "4" 'winum-select-window-4
-    "5" 'winum-select-window-5
-    "6" 'winum-select-window-6
-    "7" 'winum-select-window-7
-    "8" 'winum-select-window-8
-    "9" 'winum-select-window-9
-    "?" 'counsel-descbinds)
+;; Global Bindings
+(general-def
+  ;; zoom in and out
+  "C-=" 'text-scale-increase
+  "C--" 'text-scale-decrease
+  ;; increment and decrement number at point.
+  "M-=" 'evil-numbers/inc-at-pt
+  "M--" 'evil-numbers/dec-at-pt)
 
-  (which-key-declare-prefixes "SPC b" "buffer")
-  (evil-leader/set-key
-    "TAB" 'mode-line-other-buffer
-    "bb" 'ivy-switch-buffer
-    "bs" 'save-buffer
-    "bd" 'my/kill-this-buffer
-    "bD" 'my/kill-all-buffers
-    "bk" 'kill-buffer ;; requests buffer to kill
-    "bp" 'previous-buffer
-    "bn" 'next-buffer
-    "bh" 'my/switch-to-dashboard
-    "bm" 'my/switch-to-messages
-    "bs" 'my/switch-to-scratch)
+(general-def
+  :prefix "SPC"
+  :keymaps 'normal
+  "SPC" 'counsel-M-x
+  "'" 'my/open-shell
+  "1" 'winum-select-window-1
+  "2" 'winum-select-window-2
+  "3" 'winum-select-window-3
+  "4" 'winum-select-window-4
+  "5" 'winum-select-window-5
+  "6" 'winum-select-window-6
+  "7" 'winum-select-window-7
+  "8" 'winum-select-window-8
+  "9" 'winum-select-window-9
+  "?" 'counsel-descbinds
+  "TAB" 'mode-line-other-buffer
+  "b" '(:ignore t :which-key "buffer")
+  "c" '(:ignore t :which-key "comment")
+  "f" '(:ignore t :which-key "file")
+  "F" '(:ignore t :which-key "frame")
+  "g" '(:ignore t :which-key "git")
+  "h" '(:ignore t :which-key "help")
+  "j" '(:ignore t :which-key "jump")
+  "m" '(:ignore t :which-key "mode")
+  "n" '(:ignore t :which-key "narrow")
+  "q" '(:ignore t :which-key "quit")
+  "s" '(:ignore t :which-key "search")
+  "S" '(:ignore t :which-key "spell-checking")
+  "t" '(:ignore t :which-key "toggle")
+  "w" '(:ignore t :which-key "window"))
 
-  (which-key-declare-prefixes "SPC c" "comment")
-  (evil-leader/set-key
-    "cr" 'comment-or-uncomment-region
-    "cl" 'comment-line
-    "cp" 'poporg-dwim)
+(general-def
+  :prefix "SPC b"
+  :keymaps 'normal
+  "b" 'ivy-switch-buffer
+  "s" 'save-buffer
+  "d" 'my/kill-this-buffer
+  "D" 'my/kill-all-buffers
+  "k" 'kill-buffer ;; requests buffer to kill
+  "p" 'previous-buffer
+  "n" 'next-buffer
+  "h" 'my/switch-to-dashboard
+  "m" 'my/switch-to-messages
+  "s" 'my/switch-to-scratch)
 
-  (which-key-declare-prefixes "SPC f" "file")
-  (evil-leader/set-key
-    "ff" 'counsel-find-file
-    "fs" 'save-buffer)
+(general-def
+  :prefix "SPC c"
+  :keymaps 'normal
+  "r" 'comment-or-uncomment-region
+  "l" 'comment-line
+  "p" 'poporg-dwim)
 
-  (which-key-declare-prefixes "SPC F" "frame")
-  (evil-leader/set-key
-    "Fd" 'delete-frame
-    "FD" 'delete-other-frames
-    "Fi" 'iconify-frame
-    "Fo" 'other-frame
-    "Fn" 'make-frame
-    "Fm" 'toggle-frame-maximized
-    "Ff" 'toggle-frame-fullscreen)
+(general-def
+  :prefix "SPC f"
+  :keymaps 'normal
+  "f" 'counsel-find-file
+  "s" 'save-buffer)
 
-  (which-key-declare-prefixes "SPC g" "git")
-  (evil-leader/set-key
-    "gs" 'magit-status)
+(general-def
+  :prefix "SPC F"
+  :keymaps 'normal
+  "d" 'delete-frame
+  "D" 'delete-other-frames
+  "i" 'iconify-frame
+  "o" 'other-frame
+  "n" 'make-frame
+  "m" 'toggle-frame-maximized)
 
-  (which-key-declare-prefixes "SPC h" "help")
-  (which-key-declare-prefixes "SPC hd" "describe")
-  (evil-leader/set-key
-    "hi" 'info
-    "hl" 'counsel-find-library
-    "hn"  'view-emacs-news
-    "hw"  'woman
-    "hdb" 'counsel-descbinds
-    "hdc" 'describe-char
-    "hdf" 'counsel-describe-function
-    "hdk" 'describe-key
-    "hdm" 'describe-mode
-    "hdp" 'describe-package
-    "hdv" 'counsel-describe-variable
-    "hdt" 'describe-theme
-    "hds" 'counsel-info-lookup-symbol
-    "hPs" 'profiler-start
-    "hPk" 'profiler-stop
-    "hPr" 'profiler-report
-    "hPw" 'profiler-report-write-profile)
+(general-def
+  :prefix "SPC g"
+  :keymaps 'normal
+  "s" 'magit-status)
 
-  (which-key-declare-prefixes "SPC j" "jump")
-  (evil-leader/set-key
-    "jj" 'avy-goto-char
-    "jf" 'find-function
-    "jv" 'find-variable)
+(general-def
+  :prefix "SPC h"
+  :keymaps 'normal
+  "i" 'info
+  "l" 'counsel-find-library
+  "n"  'view-emacs-news
+  "w"  'woman
+  "d" '(:ignore t :which-key "describe")
+  "P" '(:ignore t :which-key "profiler"))
 
-  (which-key-declare-prefixes "SPC n" "narrow")
-  (evil-leader/set-key
-    "nr" 'narrow-to-region
-    "np" 'narrow-to-page
-    "nf" 'narrow-to-defun
-    "nw" 'widen)
+(general-def
+  :prefix "SPC h d"
+  :keymaps 'normal
+  "b" 'counsel-descbinds
+  "c" 'describe-char
+  "f" 'counsel-describe-function
+  "k" 'describe-key
+  "m" 'describe-mode
+  "p" 'describe-package
+  "v" 'counsel-describe-variable
+  "t" 'describe-theme
+  "s" 'counsel-info-lookup-symbol)
 
-  (which-key-declare-prefixes "SPC q" "quit")
-  (evil-leader/set-key
-    "qq" 'save-buffers-kill-terminal
-    "qQ" 'save-buffers-kill-emacs)
+(general-def
+  :prefix "SPC h P"
+  :keymaps 'normal
+  "s" 'profiler-start
+  "k" 'profiler-stop
+  "r" 'profiler-report
+  "w" 'profiler-report-write-profile)
 
-  (which-key-declare-prefixes "SPC s" "search")
-  (evil-leader/set-key
-    "ss" 'swiper
-    "sc" 'my/evil-search-clear-highlight
-    "sd" 'deadgrep
-    "sD" 'my/counsel-rg-directory
-    "sz" 'counsel-fzf)
+(general-def
+  :prefix "SPC j"
+  :keymaps 'normal
+  "j" 'avy-goto-char
+  "f" 'find-function
+  "v" 'find-variable)
 
-  (which-key-declare-prefixes "SPC S" "spell-checking")
-  (evil-leader/set-key
-    "Sb" 'flyspell-buffer
-    "Sc" 'flyspell-correct-at-point
-    "Sn" 'evil-next-flyspell-error
-    "Sp" 'evil-prev-flyspell-error)
+(general-def
+  :prefix "SPC n"
+  :keymaps 'normal
+  "r" 'narrow-to-region
+  "p" 'narrow-to-page
+  "f" 'narrow-to-defun
+  "w" 'widen)
 
-  (which-key-declare-prefixes "SPC t" "toggle")
-  (evil-leader/set-key
-    "tt" 'display-time-mode
-    "tl" 'toggle-truncate-lines
-    "tf" 'auto-fill-mode
-    "tn" 'linum-mode
-    "tg" 'my/toggle-golden-ratio
-    "ts" 'flyspell-mode)
+(general-def
+  :prefix "SPC q"
+  :keymaps 'normal
+  "q" 'save-buffers-kill-terminal
+  "Q" 'save-buffers-kill-emacs)
 
-  (which-key-declare-prefixes "SPC w" "window")
-  (evil-leader/set-key
-    "wb" 'balance-windows
-    "wB" 'balance-windows-area
-    "wd" 'delete-window
-    "wg" 'golden-ratio
-    "wh" 'evil-window-left
-    "wl" 'evil-window-right
-    "wj" 'evil-window-down
-    "wk" 'evil-window-up
-    "wH" 'evil-window-move-far-left
-    "wL" 'evil-window-move-far-right
-    "wJ" 'evil-window-move-far-down
-    "wK" 'evil-window-move-far-up
-    "w/" 'split-window-horizontally
-    "w-" 'split-window-vertically
-    "wo" 'delete-other-windows
-    "wm" 'my/toggle-maximize-window
-    "wx" 'kill-buffer-and-window)
+(general-def
+  :prefix "SPC s"
+  :keymaps 'normal
+  "s" 'swiper
+  "c" 'my/evil-search-clear-highlight
+  "d" 'deadgrep
+  "D" 'my/counsel-rg-directory
+  "z" 'counsel-fzf)
 
-  (which-key-add-major-mode-key-based-replacements 'csharp-mode
-    "SPC m" "csharp mode"
-    "SPC mr" "refactor"
-    "SPC mn" "navigate")
+(general-def
+  :prefix "SPC S"
+  :keymaps 'normal
+  "b" 'flyspell-buffer
+  "c" 'flyspell-correct-at-point
+  "n" 'evil-next-flyspell-error
+  "p" 'evil-prev-flyspell-error)
 
-  (evil-leader/set-key-for-mode 'csharp-mode
-    "me" 'omnisharp-solution-errors
-    "mo" 'omnisharp-show-overloads-at-point
-    "mi" 'omnisharp-find-implementations
-    "mg" 'omnisharp-go-to-definition
-    "mG" 'omnisharp-go-to-definition-other-window
-    "ms" 'omnisharp-stop-server
-    "mc" 'omnisharp-check-alive-status
-    "mR" 'omnisharp-reload-solution
-    "mrr" 'omnisharp-rename
-    "mra" 'omnisharp-run-code-action-refactoring
-    "mnr" 'omnisharp-navigate-to-region
-    "mnf" 'omnisharp-navigate-to-solution-file
-    "mnm" 'omnisharp-navigate-to-solution-member
-    "mt" 'omnisharp-unit-test-buffer
-    "mu" 'omnisharp-fix-usings)
+(general-def
+  :prefix "SPC t"
+  :keymaps 'normal
+  "t" 'display-time-mode
+  "l" 'toggle-truncate-lines
+  "f" 'auto-fill-mode
+  "n" 'linum-mode
+  "g" 'my/toggle-golden-ratio
+  "s" 'flyspell-mode)
 
-  (which-key-add-major-mode-key-based-replacements 'haskell-mode
-    "," "haskell mode"
-    "SPC m" "haskell mode"
-    "SPC mr" "refactor")
+(general-def
+  :prefix "SPC w"
+  :keymaps 'normal
+  "b" 'balance-windows
+  "B" 'balance-windows-area
+  "d" 'delete-window
+  "g" 'golden-ratio
+  "h" 'evil-window-left
+  "l" 'evil-window-right
+  "j" 'evil-window-down
+  "k" 'evil-window-up
+  "H" 'evil-window-move-far-left
+  "L" 'evil-window-move-far-right
+  "J" 'evil-window-move-far-down
+  "K" 'evil-window-move-far-up
+  "/" 'split-window-horizontally
+  "-" 'split-window-vertically
+  "o" 'delete-other-windows
+  "m" 'my/toggle-maximize-window
+  "x" 'kill-buffer-and-window)
 
-  (evil-leader/set-key-for-mode 'haskell-mode
-    "me" 'hasky-stack-execute
-    "mp" 'hasky-stack-package-action
-    "mp" 'dante-info
-    "mrb" 'hindent-reformat-buffer
-    "mrr" 'hindent-reformat-region
-    ;; "mrB" 'hlint-refactor-refactor-buffer
-    ;; "mrp" 'hlint-refactor-refactor-at-point
-    )
+;; C# mode
+(general-def
+  :prefix "SPC m"
+  :states 'normal
+  :keymaps 'csharp-mode-map
+  "e" 'omnisharp-solution-errors
+  "o" 'omnisharp-show-overloads-at-point
+  "i" 'omnisharp-find-implementations
+  "g" 'omnisharp-go-to-definition
+  "G" 'omnisharp-go-to-definition-other-window
+  "s" 'omnisharp-stop-server
+  "c" 'omnisharp-check-alive-status
+  "R" 'omnisharp-reload-solution
+  "r" '(:ignore t :which-key "refactor")
+  "n" '(:ignore t :which-key "navigate")
+  "t" 'omnisharp-unit-test-buffer
+  "u" 'omnisharp-fix-usings)
 
-  (global-evil-leader-mode))
+(general-def
+  :prefix "SPC m r"
+  :states 'normal
+  :keymaps 'csharp-mode-map
+  "r" 'omnisharp-rename
+  "a" 'omnisharp-run-code-action-refactoring)
+
+(general-def
+  :prefix "SPC m n"
+  :states 'normal
+  :keymaps 'csharp-mode-map
+  "r" 'omnisharp-navigate-to-region
+  "f" 'omnisharp-navigate-to-solution-file
+  "m" 'omnisharp-navigate-to-solution-member)
+
+;; haskell mode
+(general-def
+  :prefix "SPC m"
+  :states 'normal
+  :keymaps 'haskell-mode-map
+  "e" 'hasky-stack-execute
+  "p" 'hasky-stack-package-action
+  "i" 'dante-info
+  "r" '(:ignore t :which-key "refactor"))
+
+(general-def
+  :prefix "SPC m r"
+  :states 'normal
+  :keymaps 'haskell-mode-map
+  ;; "B" 'hlint-refactor-refactor-buffer
+  ;; "p" 'hlint-refactor-refactor-at-point
+  "b" 'hindent-reformat-buffer
+  "r" 'hindent-reformat-region)
 
 (provide 'init-keys)
