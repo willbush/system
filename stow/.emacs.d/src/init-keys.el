@@ -23,7 +23,7 @@
 
 (general-def
   :prefix "SPC"
-  :keymaps 'normal
+  :keymaps '(normal visual)
   "SPC" 'counsel-M-x
   "'" 'my/open-shell
   "1" 'winum-select-window-1
@@ -53,7 +53,7 @@
 
 (general-def
   :prefix "SPC b"
-  :keymaps 'normal
+  :keymaps '(normal visual)
   "b" 'ivy-switch-buffer
   "s" 'save-buffer
   "d" 'my/kill-this-buffer
@@ -67,20 +67,20 @@
 
 (general-def
   :prefix "SPC c"
-  :keymaps 'normal
+  :keymaps '(normal visual)
   "r" 'comment-or-uncomment-region
   "l" 'comment-line
   "p" 'poporg-dwim)
 
 (general-def
   :prefix "SPC f"
-  :keymaps 'normal
+  :keymaps '(normal visual)
   "f" 'counsel-find-file
   "s" 'save-buffer)
 
 (general-def
   :prefix "SPC F"
-  :keymaps 'normal
+  :keymaps '(normal visual)
   "d" 'delete-frame
   "D" 'delete-other-frames
   "i" 'iconify-frame
@@ -90,12 +90,12 @@
 
 (general-def
   :prefix "SPC g"
-  :keymaps 'normal
+  :keymaps '(normal visual)
   "s" 'magit-status)
 
 (general-def
   :prefix "SPC h"
-  :keymaps 'normal
+  :keymaps '(normal visual)
   "i" 'info
   "l" 'counsel-find-library
   "n"  'view-emacs-news
@@ -105,7 +105,7 @@
 
 (general-def
   :prefix "SPC h d"
-  :keymaps 'normal
+  :keymaps '(normal visual)
   "b" 'counsel-descbinds
   "c" 'describe-char
   "f" 'counsel-describe-function
@@ -118,7 +118,7 @@
 
 (general-def
   :prefix "SPC h P"
-  :keymaps 'normal
+  :keymaps '(normal visual)
   "s" 'profiler-start
   "k" 'profiler-stop
   "r" 'profiler-report
@@ -126,14 +126,14 @@
 
 (general-def
   :prefix "SPC j"
-  :keymaps 'normal
+  :keymaps '(normal visual)
   "j" 'avy-goto-char
   "f" 'find-function
   "v" 'find-variable)
 
 (general-def
   :prefix "SPC n"
-  :keymaps 'normal
+  :keymaps '(normal visual)
   "r" 'narrow-to-region
   "p" 'narrow-to-page
   "f" 'narrow-to-defun
@@ -141,13 +141,13 @@
 
 (general-def
   :prefix "SPC q"
-  :keymaps 'normal
+  :keymaps '(normal visual)
   "q" 'save-buffers-kill-terminal
   "Q" 'save-buffers-kill-emacs)
 
 (general-def
   :prefix "SPC s"
-  :keymaps 'normal
+  :keymaps '(normal visual)
   "s" 'swiper
   "c" 'my/evil-search-clear-highlight
   "d" 'deadgrep
@@ -156,7 +156,7 @@
 
 (general-def
   :prefix "SPC S"
-  :keymaps 'normal
+  :keymaps '(normal visual)
   "b" 'flyspell-buffer
   "c" 'flyspell-correct-at-point
   "n" 'evil-next-flyspell-error
@@ -164,7 +164,7 @@
 
 (general-def
   :prefix "SPC t"
-  :keymaps 'normal
+  :keymaps '(normal visual)
   "t" 'display-time-mode
   "l" 'toggle-truncate-lines
   "f" 'auto-fill-mode
@@ -174,7 +174,7 @@
 
 (general-def
   :prefix "SPC w"
-  :keymaps 'normal
+  :keymaps '(normal visual)
   "b" 'balance-windows
   "B" 'balance-windows-area
   "d" 'delete-window
