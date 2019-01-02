@@ -159,8 +159,8 @@
     "wm" 'my/toggle-maximize-window
     "wx" 'kill-buffer-and-window)
 
-  (which-key-declare-prefixes-for-mode 'csharp-mode
-    "SPC m" "mode"
+  (which-key-add-major-mode-key-based-replacements 'csharp-mode
+    "SPC m" "csharp mode"
     "SPC mr" "refactor"
     "SPC mn" "navigate")
 
@@ -181,18 +181,20 @@
     "mt" 'omnisharp-unit-test-buffer
     "mu" 'omnisharp-fix-usings)
 
-  (which-key-declare-prefixes-for-mode 'haskell-mode
-    "SPC m" "mode"
-    "SPC mr" "refactor"
-    "SPC mn" "navigate")
+  (which-key-add-major-mode-key-based-replacements 'haskell-mode
+    "," "haskell mode"
+    "SPC m" "haskell mode"
+    "SPC mr" "refactor")
 
   (evil-leader/set-key-for-mode 'haskell-mode
-    "e" 'hasky-stack-execute
-    "p" 'hasky-stack-package-action
-    "rb" 'hindent-reformat-buffer
-    "rB" 'hlint-refactor-refactor-buffer
-    "rr" 'hindent-reformat-region
-    "rp" 'hlint-refactor-refactor-at-point)
+    "me" 'hasky-stack-execute
+    "mp" 'hasky-stack-package-action
+    "mp" 'dante-info
+    "mrb" 'hindent-reformat-buffer
+    "mrr" 'hindent-reformat-region
+    ;; "mrB" 'hlint-refactor-refactor-buffer
+    ;; "mrp" 'hlint-refactor-refactor-at-point
+    )
 
   (global-evil-leader-mode))
 
