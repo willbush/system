@@ -19,4 +19,9 @@
 (use-package hindent
   :hook (haskell-mode-hook . hindent-mode))
 
+(use-package hasky-stack
+  :commands (hasky-stack-execute
+             hasky-stack-package-action
+             hasky-stack-new))
+
 (provide 'init-haskell)
