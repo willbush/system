@@ -1,18 +1,17 @@
 ;;; -*- lexical-binding: t; -*-
 
 (use-package evil
-  ;; according to evil-leader readme:
-  ;; Note: You should enable global-evil-leader-mode before you enable
-  ;; evil-mode, otherwise evil-leader won’t be enabled in initial
-  ;; buffers (*scratch*, *Messages*, …).
-  :after evil-leader
   :init
   (setq evil-search-module 'evil-search
         evil-ex-complete-emacs-commands nil
         evil-vsplit-window-right t
         evil-split-window-below t
         evil-shift-round nil
-        evil-want-C-u-scroll t)
+        evil-want-C-u-scroll t
+        ;; evil-collection will give a warning if the following setting is not set
+        ;; before loading evil and evil-collection. Note that evil-leader loads evil
+        ;; see: https://github.com/emacs-evil/evil-collection/issues/215
+        evil-want-keybinding nil)
   :config
   ;; unbind evil-lookup
   (eval-after-load "evil-maps"
@@ -50,14 +49,7 @@
 ;; Enables inc/dec of numbers!
 (use-package evil-numbers
   :after evil
-  :config
-  ;; Bind increment and decrement number at point.
-  (global-set-key (kbd "M-=") 'evil-numbers/inc-at-pt)
-  (global-set-key (kbd "M--") 'evil-numbers/dec-at-pt))
-
-;; Bind zoom in and out
-(global-set-key (kbd "C-=") 'text-scale-increase)
-(global-set-key (kbd "C--") 'text-scale-decrease)
+  :commands (evil-numbers/inc-at-pt evil-numbers/dec-at-pt))
 
 (use-package evil-surround
   :after evil
