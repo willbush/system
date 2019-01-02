@@ -44,7 +44,6 @@
   "g" '(:ignore t :which-key "git")
   "h" '(:ignore t :which-key "help")
   "j" '(:ignore t :which-key "jump")
-  "m" '(:ignore t :which-key "mode")
   "n" '(:ignore t :which-key "narrow")
   "q" '(:ignore t :which-key "quit")
   "s" '(:ignore t :which-key "search")
