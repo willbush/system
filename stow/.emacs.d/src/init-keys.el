@@ -46,6 +46,7 @@
   "h" '(:ignore t :which-key "help")
   "j" '(:ignore t :which-key "jump")
   "n" '(:ignore t :which-key "narrow")
+  "p" 'projectile-command-map
   "q" '(:ignore t :which-key "quit")
   "s" '(:ignore t :which-key "search")
   "S" '(:ignore t :which-key "spell-checking")
