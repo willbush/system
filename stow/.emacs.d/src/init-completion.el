@@ -37,4 +37,12 @@
   :config
   (setq company-idle-delay 0.3))
 
+(use-package projectile
+  :config
+  (projectile-mode +1))
+
+(use-package counsel-projectile
+  :config
+  (counsel-projectile-mode))
+
 (provide 'init-completion)
