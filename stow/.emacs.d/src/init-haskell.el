@@ -8,7 +8,7 @@
               (setq-local flycheck-check-syntax-automatically '(save mode-enabled))))
   :config
   (general-def
-    :prefix "SPC m"
+    :prefix ","
     :states 'normal
     :keymaps 'haskell-mode-map
     "e" 'hasky-stack-execute
@@ -17,7 +17,7 @@
     "r" '(:ignore t :which-key "refactor"))
 
   (general-def
-    :prefix "SPC m r"
+    :prefix ", r"
     :states 'normal
     :keymaps 'haskell-mode-map
     ;; "B" 'hlint-refactor-refactor-buffer

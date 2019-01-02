@@ -5,7 +5,7 @@
   :config
 
   (general-def
-    :prefix "SPC m"
+    :prefix ","
     :states 'normal
     :keymaps 'csharp-mode-map
     "e" 'omnisharp-solution-errors
@@ -22,14 +22,14 @@
     "u" 'omnisharp-fix-usings)
 
   (general-def
-    :prefix "SPC m r"
+    :prefix ", r"
     :states 'normal
     :keymaps 'csharp-mode-map
     "r" 'omnisharp-rename
     "a" 'omnisharp-run-code-action-refactoring)
 
   (general-def
-    :prefix "SPC m n"
+    :prefix ", n"
     :states 'normal
     :keymaps 'csharp-mode-map
     "r" 'omnisharp-navigate-to-region
