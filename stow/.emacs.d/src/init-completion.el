@@ -38,7 +38,6 @@
   (setq company-idle-delay 0.3))
 
 (use-package projectile
-  :hook after-init
   :config
   (projectile-mode +1))
 
