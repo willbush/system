@@ -37,6 +37,10 @@
     enable = true;
     userName = "willbush";
     userEmail = "will.g.bush@gmail.com";
+    extraConfig = ''
+      [credential]
+      helper = cache --timeout=3600
+    '';
   };
 
   programs.zsh = {
