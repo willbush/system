@@ -19,6 +19,9 @@
 ;; fill-paragraph uses fill-column for the width at which to break lines
 (setq-default fill-column 80)
 
+;; set default line endings
+(setq-default buffer-file-coding-system 'utf-8-unix)
+
 (setq inhibit-splash-screen t
       initial-scratch-message nil
       ring-bell-function 'ignore
