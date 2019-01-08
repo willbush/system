@@ -1,10 +1,5 @@
 ;;; -*- lexical-binding: t; -*-
 
-;; removes gui elements
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-
 ;; show line and column number on mode line
 (line-number-mode 1)
 (column-number-mode 1)
