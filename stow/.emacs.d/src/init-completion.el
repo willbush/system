@@ -38,10 +38,12 @@
   (setq company-idle-delay 0.3))
 
 (use-package projectile
+  :hook after-init
   :config
   (projectile-mode +1))
 
 (use-package counsel-projectile
+  :after projectile
   :config
   (counsel-projectile-mode))
 
