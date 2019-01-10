@@ -33,12 +33,14 @@
   :config
   (setq evil-collection-mode-list
         '(calendar
+          compile
+          deadgrep
           dired
-          minibuffer
-          woman
-          man
+          help
           ivy
-          deadgrep))
+          man
+          minibuffer
+          woman))
   (evil-collection-init))
 
 ;; Enables searching via * on a visual selection.
