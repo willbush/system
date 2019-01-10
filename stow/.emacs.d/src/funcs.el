@@ -103,3 +103,5 @@ visual block/rectangle selection."
       (dashboard-insert-startupify-lists))
     (switch-to-buffer buffer)
     (dashboard-refresh-buffer)))
+
+(provide 'funcs)
