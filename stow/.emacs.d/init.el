@@ -24,6 +24,7 @@
 
 (require 'init-package)
 (require 'init-settings)
+(require 'funcs)
 (require 'init-keys)
 (require 'init-editing)
 (require 'init-completion)
