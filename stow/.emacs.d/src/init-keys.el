@@ -51,7 +51,8 @@
   "s" '(:ignore t :which-key "search")
   "S" '(:ignore t :which-key "spell-checking")
   "t" '(:ignore t :which-key "toggle")
-  "w" '(:ignore t :which-key "window"))
+  "w" '(:ignore t :which-key "window")
+  "x" '(:ignore t :which-key "text manipulation"))
 
 (general-def
   :prefix "SPC b"
@@ -209,5 +210,15 @@
   "o" 'delete-other-windows
   "m" 'my/toggle-maximize-window
   "x" 'kill-buffer-and-window)
+
+(general-def
+  :prefix "SPC x"
+  :states '(normal visual)
+  :keymaps 'override
+  "l" 'my/sort-lines
+  "L" 'my/sort-lines-reverse
+  "c" 'my/sort-lines-by-column
+  "C" 'my/sort-lines-by-column-reverse
+  "u" 'my/uniquify-lines)
 
 (provide 'init-keys)
