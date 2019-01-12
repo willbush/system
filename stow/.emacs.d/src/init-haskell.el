@@ -11,21 +11,30 @@
     :prefix ","
     :states '(normal visual)
     :keymaps 'haskell-mode-map
-    "e" 'hasky-stack-execute
-    "p" 'hasky-stack-package-action
+    "e" '(:ignore t :which-key "error")
+    "h" 'hasky-stack-execute
     "i" 'dante-info
+    "p" 'hasky-stack-package-action
     "r" '(:ignore t :which-key "refactor")
     "t" 'hasky-stack-test)
 
   (general-def
     :prefix ", r"
-    :states 'normal
+    :states '(normal visual)
     :keymaps 'haskell-mode-map
     ;; "B" 'hlint-refactor-refactor-buffer
     ;; "p" 'hlint-refactor-refactor-at-point
     "b" 'hindent-reformat-buffer
     "r" 'hindent-reformat-region)
-  )
+
+  (general-def
+    :prefix ", e"
+    :states '(normal visual)
+    :keymaps 'haskell-mode-map
+    "l" 'flycheck-list-errors
+    "c" 'flycheck-clear
+    "n" 'flycheck-next-error
+    "p" 'flycheck-previous-error))
 
 (use-package dante
   :after haskell-mode
