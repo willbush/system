@@ -37,6 +37,7 @@
           deadgrep
           dired
           help
+          info
           ivy
           man
           minibuffer
