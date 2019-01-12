@@ -9,7 +9,7 @@
   :config
   (general-def
     :prefix ","
-    :states 'normal
+    :states '(normal visual)
     :keymaps 'haskell-mode-map
     "e" 'hasky-stack-execute
     "p" 'hasky-stack-package-action
