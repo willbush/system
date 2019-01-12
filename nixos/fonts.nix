@@ -10,7 +10,6 @@
       powerline-fonts
       corefonts
       dejavu_fonts
-      font-droid
       freefont_ttf
       google-fonts
       inconsolata
