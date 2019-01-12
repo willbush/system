@@ -40,6 +40,7 @@
           ivy
           man
           minibuffer
+          (package-menu package)
           woman))
   (evil-collection-init))
 
