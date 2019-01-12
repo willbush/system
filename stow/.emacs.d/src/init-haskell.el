@@ -14,7 +14,8 @@
     "e" 'hasky-stack-execute
     "p" 'hasky-stack-package-action
     "i" 'dante-info
-    "r" '(:ignore t :which-key "refactor"))
+    "r" '(:ignore t :which-key "refactor")
+    "t" 'hasky-stack-test)
 
   (general-def
     :prefix ", r"
