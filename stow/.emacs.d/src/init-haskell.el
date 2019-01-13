@@ -5,7 +5,8 @@
   :init
   (add-hook 'haskell-mode-hook
             (lambda ()
-              (setq-local flycheck-check-syntax-automatically '(save mode-enabled))))
+              (setq-local flycheck-check-syntax-automatically
+                          '(save mode-enabled))))
   :config
   (general-def
     :prefix ","
@@ -16,7 +17,8 @@
     "i" 'dante-info
     "p" 'hasky-stack-package-action
     "r" '(:ignore t :which-key "refactor")
-    "t" 'hasky-stack-test)
+    "t" 'hasky-stack-test
+    "." 'dante-type-at)
 
   (general-def
     :prefix ", r"
@@ -25,7 +27,8 @@
     ;; "B" 'hlint-refactor-refactor-buffer
     ;; "p" 'hlint-refactor-refactor-at-point
     "b" 'hindent-reformat-buffer
-    "r" 'hindent-reformat-region)
+    "r" 'hindent-reformat-region
+    "f" 'attrap-attrap)
 
   (general-def
     :prefix ", e"
