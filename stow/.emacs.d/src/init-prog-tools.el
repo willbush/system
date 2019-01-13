@@ -17,4 +17,6 @@
           '(lambda ()
              (setq show-trailing-whitespace t)))
 
+(use-package attrap :commands 'attrap-attrap)
+
 (provide 'init-prog-tools)
