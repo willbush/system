@@ -12,13 +12,22 @@
     :prefix ","
     :states '(normal visual)
     :keymaps 'haskell-mode-map
+    "d" '(:ignore t :which-key "dante")
     "e" '(:ignore t :which-key "error")
-    "h" 'hasky-stack-execute
+    "s" 'hasky-stack-execute
     "i" 'dante-info
     "p" 'hasky-stack-package-action
     "r" '(:ignore t :which-key "refactor")
     "t" 'hasky-stack-test
     "." 'dante-type-at)
+
+  (general-def
+    :prefix ", d"
+    :states '(normal visual)
+    :keymaps 'haskell-mode-map
+    "e" 'dante-eval-block
+    "d" 'dante-diagnose
+    "r" 'dante-restart)
 
   (general-def
     :prefix ", r"
