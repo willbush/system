@@ -12,8 +12,8 @@
     :prefix ","
     :states '(normal visual)
     :keymaps 'haskell-mode-map
+    "c" '(:ignore t :which-key "check")
     "d" '(:ignore t :which-key "dante")
-    "e" '(:ignore t :which-key "error")
     "s" 'hasky-stack-execute
     "i" 'dante-info
     "p" 'hasky-stack-package-action
@@ -40,10 +40,11 @@
     "f" 'attrap-attrap)
 
   (general-def
-    :prefix ", e"
+    :prefix ", c"
     :states '(normal visual)
     :keymaps 'haskell-mode-map
     "l" 'flycheck-list-errors
+    "b" 'flycheck-buffer
     "c" 'flycheck-clear
     "n" 'flycheck-next-error
     "p" 'flycheck-previous-error))
