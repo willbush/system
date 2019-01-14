@@ -6,6 +6,7 @@
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       hack-font
+      iosevka
       source-code-pro
       powerline-fonts
       corefonts
