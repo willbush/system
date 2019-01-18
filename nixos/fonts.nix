@@ -6,11 +6,11 @@
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       hack-font
+      iosevka
       source-code-pro
       powerline-fonts
       corefonts
       dejavu_fonts
-      font-droid
       freefont_ttf
       google-fonts
       inconsolata
