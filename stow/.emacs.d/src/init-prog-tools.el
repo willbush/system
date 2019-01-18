@@ -10,6 +10,10 @@
 
 (use-package evil-magit :after magit)
 
+(use-package git-timemachine
+  ;; mode key bindings provided by evil-collection
+  :commands (git-timemachine))
+
 (use-package flycheck
   :hook (haskell-mode . flycheck-mode))
 

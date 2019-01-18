@@ -36,6 +36,7 @@
           compile
           deadgrep
           dired
+          git-timemachine
           help
           ivy
           man
