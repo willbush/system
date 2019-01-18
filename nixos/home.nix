@@ -27,7 +27,7 @@
     haskellPackages.hindent
     haskellPackages.hlint
     haskellPackages.hoogle
-    # haskellPackages.stylish-haskell
+    haskellPackages.stylish-haskell
   ];
 
   # Let Home Manager install and manage itself.

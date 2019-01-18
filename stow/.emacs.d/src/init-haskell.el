@@ -37,7 +37,8 @@
     ;; "p" 'hlint-refactor-refactor-at-point
     "b" 'hindent-reformat-buffer
     "r" 'hindent-reformat-region
-    "f" 'attrap-attrap)
+    "f" 'attrap-attrap
+    "s" 'haskell-mode-stylish-buffer)
 
   (general-def
     :prefix ", c"
