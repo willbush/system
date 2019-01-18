@@ -18,3 +18,4 @@ xmonad-*
 */.stack/setup-exe-src/
 */.stack/snapshots/
 */.stack/templates/
+*/.stack/global-project/
