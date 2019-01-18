@@ -99,7 +99,11 @@
   :prefix "SPC g"
   :states '(normal visual)
   :keymaps 'override
+  "c" 'magit-clone
+  "i" 'magit-gitignore-globally
+  "I" 'magit-init
   "s" 'magit-status
+  "m" 'magit-dispatch-popup
   "t" 'git-timemachine)
 
 (general-def
