@@ -99,7 +99,8 @@
   :prefix "SPC g"
   :states '(normal visual)
   :keymaps 'override
-  "s" 'magit-status)
+  "s" 'magit-status
+  "t" 'git-timemachine)
 
 (general-def
   :prefix "SPC h"
