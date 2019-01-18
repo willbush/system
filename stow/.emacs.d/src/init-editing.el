@@ -38,9 +38,11 @@
           dired
           git-timemachine
           help
+          info
           ivy
           man
           minibuffer
+          (package-menu package)
           woman))
   (evil-collection-init))
 

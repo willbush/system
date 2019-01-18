@@ -5,26 +5,49 @@
   :init
   (add-hook 'haskell-mode-hook
             (lambda ()
-              (setq-local flycheck-check-syntax-automatically '(save mode-enabled))))
+              (setq-local flycheck-check-syntax-automatically
+                          '(save mode-enabled))))
   :config
   (general-def
     :prefix ","
-    :states 'normal
+    :states '(normal visual)
     :keymaps 'haskell-mode-map
-    "e" 'hasky-stack-execute
-    "p" 'hasky-stack-package-action
+    "c" '(:ignore t :which-key "check")
+    "d" '(:ignore t :which-key "dante")
+    "s" 'hasky-stack-execute
     "i" 'dante-info
-    "r" '(:ignore t :which-key "refactor"))
+    "p" 'hasky-stack-package-action
+    "r" '(:ignore t :which-key "refactor")
+    "t" 'hasky-stack-test
+    "." 'dante-type-at)
+
+  (general-def
+    :prefix ", d"
+    :states '(normal visual)
+    :keymaps 'haskell-mode-map
+    "e" 'dante-eval-block
+    "d" 'dante-diagnose
+    "r" 'dante-restart)
 
   (general-def
     :prefix ", r"
-    :states 'normal
+    :states '(normal visual)
     :keymaps 'haskell-mode-map
     ;; "B" 'hlint-refactor-refactor-buffer
     ;; "p" 'hlint-refactor-refactor-at-point
     "b" 'hindent-reformat-buffer
-    "r" 'hindent-reformat-region)
-  )
+    "r" 'hindent-reformat-region
+    "f" 'attrap-attrap)
+
+  (general-def
+    :prefix ", c"
+    :states '(normal visual)
+    :keymaps 'haskell-mode-map
+    "l" 'flycheck-list-errors
+    "b" 'flycheck-buffer
+    "c" 'flycheck-clear
+    "n" 'flycheck-next-error
+    "p" 'flycheck-previous-error))
 
 (use-package dante
   :after haskell-mode
