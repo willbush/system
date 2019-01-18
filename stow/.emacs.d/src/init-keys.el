@@ -26,6 +26,7 @@
   :states '(normal visual)
   :keymaps 'override
   "SPC" 'counsel-M-x
+  "!" 'shell-command
   "'" 'my/open-shell
   "1" 'winum-select-window-1
   "2" 'winum-select-window-2
