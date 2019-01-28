@@ -13,7 +13,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (nix-sandbox git-timemachine attrap counsel-projectile general hasky-stack poporg poporg-dwim projectile treemacs-icons-dired markdown-toc markdown-mode hindent dante haskell-mode golden-ratio esup omnisharp flyspell-correct-ivy winum nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy)))
+    (company-nixos-options nix-sandbox git-timemachine attrap counsel-projectile general hasky-stack poporg poporg-dwim projectile treemacs-icons-dired markdown-toc markdown-mode hindent dante haskell-mode golden-ratio esup omnisharp flyspell-correct-ivy winum nix-mode deadgrep evil-magit magit smex which-key use-package rainbow-delimiters evil-visualstar evil-surround evil-numbers evil-matchit evil-leader evil-exchange doom-themes doom-modeline dashboard counsel company avy)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(whitespace-style
