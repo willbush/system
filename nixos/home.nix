@@ -21,8 +21,12 @@
     fzf
     ranger
     gnupg
-    stack
     stow
+    #haskell
+    cabal-install
+    cabal2nix
+    nix-prefetch-git
+    stack
     haskellPackages.apply-refact
     haskellPackages.hindent
     haskellPackages.hlint
