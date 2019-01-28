@@ -43,8 +43,9 @@
   :config
   (setq omnisharp-debug t)
   (add-hook 'omnisharp-mode-hook
-            (lambda()
-              (add-to-list (make-local-variable 'company-backends) '(company-omnisharp))))
+            (lambda ()
+              (add-to-list (make-local-variable 'company-backends)
+                           '(company-omnisharp))))
   )
 
 (provide 'init-csharp)
