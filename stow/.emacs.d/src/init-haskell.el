@@ -8,6 +8,14 @@
               (setq-local flycheck-check-syntax-automatically
                           '(save mode-enabled))))
   :config
+  ;; Configure haskell-mode to use cabal new-style builds
+  (setq haskell-process-type 'cabal-new-repl)
+
+  ;; Configure haskell-mode (haskell-cabal) to use Nix
+  ;; this depends on nix-sandbox
+  (setq haskell-process-wrapper-function
+        (lambda (args) (apply 'nix-shell-command (nix-current-sandbox) args)))
+
   (general-def
     :prefix ","
     :states '(normal visual)
@@ -56,8 +64,8 @@
   :init
   (add-hook 'haskell-mode-hook 'dante-mode)
   (add-hook 'dante-mode-hook
-     '(lambda () (flycheck-add-next-checker 'haskell-dante
-                  '(warning . haskell-hlint)))))
+            '(lambda () (flycheck-add-next-checker 'haskell-dante
+                                                   '(warning . haskell-hlint)))))
 
 (use-package hindent
   :hook (haskell-mode-hook . hindent-mode))
