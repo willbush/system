@@ -1,12 +1,5 @@
 ;;; -*- lexical-binding: t; -*-
 
-(defun my/open-shell ()
-  "Opens my prefered shell for the current operating system."
-  (interactive)
-  (if (eq system-type 'windows-nt)
-      (call-interactively 'eshell)
-    (call-interactively 'ansi-term)))
-
 (use-package which-key
   :config (which-key-mode 1))
 
