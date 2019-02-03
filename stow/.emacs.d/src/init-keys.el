@@ -60,7 +60,6 @@
   :states '(normal visual)
   :keymaps 'override
   "b" 'ivy-switch-buffer
-  "s" 'save-buffer
   "d" 'my/kill-this-buffer
   "D" 'my/kill-all-buffers
   "k" 'kill-buffer ;; requests buffer to kill
