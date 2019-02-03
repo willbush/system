@@ -8,6 +8,7 @@
     exa
     htop
     firefox
+    chromium
     keepassxc
     vlc
     albert
@@ -78,7 +79,11 @@
     fadeDelta = 1;
     inactiveOpacity = "0.75";
     activeOpacity = "0.90";
-    opacityRule = [ "99:name *= 'Firefox'" "99:name *= 'VLC'"];
+    opacityRule = [
+      "99:name *= 'Firefox'"
+      "99:name *= 'Chromium'"
+      "99:name *= 'VLC'"
+    ];
   };
 
   services.redshift = {
