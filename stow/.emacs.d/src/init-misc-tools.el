@@ -18,5 +18,11 @@
 
 (use-package flyspell-correct-ivy :after flyspell)
 
+;; A frontend for weather web service wttr.in
+(use-package wttrin
+  :commands 'wttrin
+  :config
+  (setq wttrin-default-cities '("Dallas")
+        wttrin-default-accept-language '("Accept-Language" . "en-US")))
 
 (provide 'init-misc-tools)

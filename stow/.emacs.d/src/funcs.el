@@ -104,4 +104,11 @@ visual block/rectangle selection."
     (switch-to-buffer buffer)
     (dashboard-refresh-buffer)))
 
+(defun my/open-shell ()
+  "Opens my prefered shell for the current operating system."
+  (interactive)
+  (if (eq system-type 'windows-nt)
+      (call-interactively 'eshell)
+    (call-interactively 'ansi-term)))
+
 (provide 'funcs)
