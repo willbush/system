@@ -137,7 +137,7 @@
   :prefix "SPC j"
   :states '(normal visual)
   :keymaps 'override
-  "j" 'avy-goto-char
+  "j" 'avy-goto-char-timer
   "f" 'find-function
   "v" 'find-variable)
 
