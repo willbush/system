@@ -33,6 +33,7 @@
 (require 'init-haskell)
 (require 'init-csharp)
 (require 'init-markdown)
+(require 'init-scripting)
 (require 'init-prog-tools)
 (require 'init-win-buffer-tools)
 (require 'init-misc-tools)
