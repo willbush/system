@@ -35,7 +35,8 @@
 (use-package company
   :hook (after-init . global-company-mode)
   :config
-  (setq company-idle-delay 0.3))
+  (setq company-idle-delay 0.2
+        company-minimum-prefix-length 1))
 
 (use-package projectile
   :config
@@ -45,5 +46,7 @@
   :after projectile
   :config
   (counsel-projectile-mode))
+
+(use-package hydra)
 
 (provide 'init-completion)

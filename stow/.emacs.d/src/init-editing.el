@@ -71,4 +71,12 @@
 
 (use-package avy :commands avy-goto-char)
 
+(use-package expand-region
+  :commands (er/expand-region er/contract-region)
+  :init
+  (defhydra hydra-expand-region ()
+     "region: "
+     ("k" er/expand-region "expand")
+     ("j" er/contract-region "contract")))
+
 (provide 'init-editing)

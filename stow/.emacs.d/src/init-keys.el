@@ -1,12 +1,5 @@
 ;;; -*- lexical-binding: t; -*-
 
-(defun my/open-shell ()
-  "Opens my prefered shell for the current operating system."
-  (interactive)
-  (if (eq system-type 'windows-nt)
-      (call-interactively 'eshell)
-    (call-interactively 'ansi-term)))
-
 (use-package which-key
   :config (which-key-mode 1))
 
@@ -20,6 +13,12 @@
   ;; increment and decrement number at point.
   "M-=" 'evil-numbers/inc-at-pt
   "M--" 'evil-numbers/dec-at-pt)
+
+;; pressing v again after going into visual mode will enter
+;; a hydra for expand-region usage
+(general-def
+  :states 'visual
+  "v" 'hydra-expand-region/body)
 
 (general-def
   :prefix "SPC"
@@ -39,6 +38,7 @@
   "9" 'winum-select-window-9
   "?" 'counsel-descbinds
   "TAB" 'mode-line-other-buffer
+  "a" '(:ignore t :which-key "apps")
   "b" '(:ignore t :which-key "buffer")
   "c" '(:ignore t :which-key "comment")
   "f" '(:ignore t :which-key "file")
@@ -56,11 +56,16 @@
   "x" '(:ignore t :which-key "text manipulation"))
 
 (general-def
+  :prefix "SPC a"
+  :states '(normal visual)
+  :keymaps 'override
+  "w" 'wttrin)
+
+(general-def
   :prefix "SPC b"
   :states '(normal visual)
   :keymaps 'override
   "b" 'ivy-switch-buffer
-  "s" 'save-buffer
   "d" 'my/kill-this-buffer
   "D" 'my/kill-all-buffers
   "k" 'kill-buffer ;; requests buffer to kill
@@ -145,7 +150,7 @@
   :prefix "SPC j"
   :states '(normal visual)
   :keymaps 'override
-  "j" 'avy-goto-char
+  "j" 'avy-goto-char-timer
   "f" 'find-function
   "v" 'find-variable)
 
