@@ -38,6 +38,7 @@
   "9" 'winum-select-window-9
   "?" 'counsel-descbinds
   "TAB" 'mode-line-other-buffer
+  "a" '(:ignore t :which-key "apps")
   "b" '(:ignore t :which-key "buffer")
   "c" '(:ignore t :which-key "comment")
   "f" '(:ignore t :which-key "file")
@@ -53,6 +54,12 @@
   "t" '(:ignore t :which-key "toggle")
   "w" '(:ignore t :which-key "window")
   "x" '(:ignore t :which-key "text manipulation"))
+
+(general-def
+  :prefix "SPC a"
+  :states '(normal visual)
+  :keymaps 'override
+  "w" 'wttrin)
 
 (general-def
   :prefix "SPC b"
