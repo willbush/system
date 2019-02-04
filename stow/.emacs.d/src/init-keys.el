@@ -14,6 +14,12 @@
   "M-=" 'evil-numbers/inc-at-pt
   "M--" 'evil-numbers/dec-at-pt)
 
+;; pressing v again after going into visual mode will enter
+;; a hydra for expand-region usage
+(general-def
+  :states 'visual
+  "v" 'hydra-expand-region/body)
+
 (general-def
   :prefix "SPC"
   :states '(normal visual)

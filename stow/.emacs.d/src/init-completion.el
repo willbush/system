@@ -46,4 +46,6 @@
   :config
   (counsel-projectile-mode))
 
+(use-package hydra)
+
 (provide 'init-completion)
