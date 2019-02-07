@@ -91,8 +91,8 @@ visual block/rectangle selection."
         (balance-windows)
         (message "Golden-Ratio mode disabled"))
 
-    (golden-ratio-mode)
-    (golden-ratio)
+    (golden-ratio-mode 1)
+    (golden-ratio 1)
     (message "Golden-Ratio mode enabled")))
 
 (defun my/toggle-visual-fill-column-line-mode ()
