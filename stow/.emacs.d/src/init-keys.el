@@ -198,7 +198,8 @@
   "f" 'auto-fill-mode
   "n" 'linum-mode
   "g" 'my/toggle-golden-ratio
-  "s" 'flyspell-mode)
+  "s" 'flyspell-mode
+  "v" 'my/toggle-visual-fill-column-line-mode)
 
 (general-def
   :prefix "SPC w"

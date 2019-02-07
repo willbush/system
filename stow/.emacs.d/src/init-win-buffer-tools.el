@@ -77,4 +77,7 @@
   (setq dashboard-startup-banner 'official)
   (setq dashboard-items '((recents  . 5))))
 
+(use-package visual-fill-column
+  :commands 'visual-fill-column-mode)
+
 (provide 'init-win-buffer-tools)
