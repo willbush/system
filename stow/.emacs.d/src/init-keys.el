@@ -199,7 +199,7 @@
   "n" 'linum-mode
   "g" 'my/toggle-golden-ratio
   "s" 'flyspell-mode
-  "v" 'my/toggle-visual-fill-column-line-mode)
+  "v" 'visual-fill-column-mode)
 
 (general-def
   :prefix "SPC w"
