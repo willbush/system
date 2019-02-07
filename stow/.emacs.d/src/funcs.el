@@ -95,19 +95,6 @@ visual block/rectangle selection."
     (golden-ratio 1)
     (message "Golden-Ratio mode enabled")))
 
-(defun my/toggle-visual-fill-column-line-mode ()
-  "Toggles visual-fill-column-mode and visual-line-mode"
-  (interactive)
-  (if (bound-and-true-p visual-fill-column-mode)
-      (progn
-        (visual-fill-column-mode -1)
-        (visual-line-mode -1)
-        (message "visual-fill-column-line-mode mode disabled"))
-
-    (visual-fill-column-mode 1)
-    (visual-line-mode 1)
-    (message "visual-fill-column-line-mode mode enabled")))
-
 (defun my/switch-to-dashboard ()
   "Switch to *dashboard* (creates if needed)"
   (interactive)
