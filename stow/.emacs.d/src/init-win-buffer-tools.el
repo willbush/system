@@ -78,7 +78,7 @@
   (setq dashboard-items '((recents  . 5))))
 
 (use-package visual-fill-column
-  :commands 'visual-fill-column-mode
-  :hook ('visual-fill-column-mode-hook #'visual-line-mode))
+  :config
+  (add-hook 'visual-fill-column-mode-hook #'visual-line-mode))
 
 (provide 'init-win-buffer-tools)
