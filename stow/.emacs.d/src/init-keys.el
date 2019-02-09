@@ -7,6 +7,7 @@
 
 ;; Global Bindings
 (general-def
+  "C-S-u" 'universal-argument
   ;; zoom in and out
   "C-=" 'text-scale-increase
   "C--" 'text-scale-decrease
