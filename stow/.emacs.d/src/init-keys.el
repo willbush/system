@@ -59,7 +59,17 @@
   :prefix "SPC a"
   :states '(normal visual)
   :keymaps 'override
-  "w" 'wttrin)
+  "w" 'wttrin
+  "p" '(:ignore t :which-key "profiler"))
+
+(general-def
+  :prefix "SPC a p"
+  :states '(normal visual)
+  :keymaps 'override
+  "s" 'profiler-start
+  "k" 'profiler-stop
+  "r" 'profiler-report
+  "w" 'profiler-report-write-profile)
 
 (general-def
   :prefix "SPC b"
@@ -120,8 +130,7 @@
   "l" 'counsel-find-library
   "n"  'view-emacs-news
   "w"  'woman
-  "d" '(:ignore t :which-key "describe")
-  "P" '(:ignore t :which-key "profiler"))
+  "d" '(:ignore t :which-key "describe"))
 
 (general-def
   :prefix "SPC h d"
@@ -136,15 +145,6 @@
   "v" 'counsel-describe-variable
   "t" 'describe-theme
   "s" 'counsel-info-lookup-symbol)
-
-(general-def
-  :prefix "SPC h P"
-  :states '(normal visual)
-  :keymaps 'override
-  "s" 'profiler-start
-  "k" 'profiler-stop
-  "r" 'profiler-report
-  "w" 'profiler-report-write-profile)
 
 (general-def
   :prefix "SPC j"
