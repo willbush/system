@@ -97,6 +97,7 @@
   :prefix "SPC f"
   :states '(normal visual)
   :keymaps 'override
+  "d" 'fd-dired
   "f" 'counsel-find-file
   "s" 'save-buffer)
 
