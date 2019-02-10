@@ -35,6 +35,7 @@
         '(calendar
           compile
           deadgrep
+          debug
           dired
           git-timemachine
           help
