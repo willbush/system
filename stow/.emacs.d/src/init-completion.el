@@ -52,6 +52,6 @@
 
 (use-package hydra)
 
-(use-package fd-dired :commands 'fd-dired)
+(use-package fd-dired :commands fd-dired)
 
 (provide 'init-completion)

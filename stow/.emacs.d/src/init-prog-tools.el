@@ -12,7 +12,7 @@
 
 (use-package git-timemachine
   ;; mode key bindings provided by evil-collection
-  :commands (git-timemachine))
+  :commands git-timemachine)
 
 (use-package flycheck
   :hook (haskell-mode . flycheck-mode))
@@ -21,6 +21,6 @@
           '(lambda ()
              (setq show-trailing-whitespace t)))
 
-(use-package attrap :commands 'attrap-attrap)
+(use-package attrap :commands attrap-attrap)
 
 (provide 'init-prog-tools)

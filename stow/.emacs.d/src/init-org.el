@@ -50,6 +50,6 @@
 ;; Lets you pull text into an org buffer for editing. Useful for editing
 ;; comments or doc strings in org mode.
 (use-package poporg
-  :commands 'poporg-dwim)
+  :commands poporg-dwim)
 
 (provide 'init-org)
