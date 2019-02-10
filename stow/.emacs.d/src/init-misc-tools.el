@@ -2,10 +2,9 @@
 
 (use-package swiper :bind (("C-s" . swiper)))
 
-(use-package deadgrep
-  :commands (deadgrep))
+(use-package deadgrep :commands deadgrep)
 
-(use-package esup :commands (esup))
+(use-package esup :commands esup)
 
 (use-package flyspell
   :ensure nil ;; no reason to try to ensure because it's built in
@@ -20,7 +19,7 @@
 
 ;; A frontend for weather web service wttr.in
 (use-package wttrin
-  :commands 'wttrin
+  :commands wttrin
   :config
   (setq wttrin-default-cities '("Dallas")
         wttrin-default-accept-language '("Accept-Language" . "en-US")))
