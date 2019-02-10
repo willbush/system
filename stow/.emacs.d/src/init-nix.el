@@ -17,6 +17,6 @@
              nix-executable-find))
 
 (use-package company-nixos-options
-  :commands 'company-nixos-options)
+  :commands company-nixos-options)
 
 (provide 'init-nix)
