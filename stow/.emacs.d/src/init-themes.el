@@ -7,7 +7,7 @@
 
 ;; doom modeline requires M-x all-the-icons-install-fonts
 (use-package doom-modeline
-  :hook (after-init . doom-modeline-init)
+  :hook (after-init . doom-modeline-mode)
   :config
   (setq doom-modeline-icon t
         doom-modeline-major-mode-color-icon t
