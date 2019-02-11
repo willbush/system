@@ -60,7 +60,7 @@
 
 (use-package dante
   :after haskell-mode
-  :commands 'dante-mode
+  :commands dante-mode
   :init
   (add-hook 'haskell-mode-hook 'dante-mode)
   (add-hook 'dante-mode-hook
