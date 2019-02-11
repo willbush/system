@@ -41,8 +41,7 @@
     :prefix ", r"
     :states '(normal visual)
     :keymaps 'haskell-mode-map
-    ;; "B" 'hlint-refactor-refactor-buffer
-    ;; "p" 'hlint-refactor-refactor-at-point
+    "p" 'hlint-refactor-refactor-at-point
     "b" 'hindent-reformat-buffer
     "r" 'hindent-reformat-region
     "f" 'attrap-attrap
@@ -74,5 +73,8 @@
   :commands (hasky-stack-execute
              hasky-stack-package-action
              hasky-stack-new))
+
+(use-package hlint-refactor
+  :commands (hlint-refactor-refactor-at-point))
 
 (provide 'init-haskell)
