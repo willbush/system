@@ -1,17 +1,21 @@
 ;;; -*- lexical-binding: t; -*-
 
+;; evil-collection will give a warning if the following setting is not set
+;; before loading evil and evil-collection. Note that evil-leader loads evil
+;; see: https://github.com/emacs-evil/evil-collection/issues/215 Also even if
+;; this is in the :init block it will still given the warning when lazy loading
+;; evil.
+(setq evil-want-keybinding nil)
+
 (use-package evil
+  :hook (after-init . evil-mode)
   :init
   (setq evil-search-module 'evil-search
         evil-ex-complete-emacs-commands nil
         evil-vsplit-window-right t
         evil-split-window-below t
         evil-shift-round nil
-        evil-want-C-u-scroll t
-        ;; evil-collection will give a warning if the following setting is not set
-        ;; before loading evil and evil-collection. Note that evil-leader loads evil
-        ;; see: https://github.com/emacs-evil/evil-collection/issues/215
-        evil-want-keybinding nil)
+        evil-want-C-u-scroll t)
   :config
   ;; unbind evil-lookup
   (eval-after-load "evil-maps"
@@ -23,9 +27,7 @@
   (global-set-key (kbd "C-S-h") 'evil-window-left)
   (global-set-key (kbd "C-S-l") 'evil-window-right)
   (global-set-key (kbd "C-S-j") 'evil-window-down)
-  (global-set-key (kbd "C-S-k") 'evil-window-up)
-
-  (evil-mode 1))
+  (global-set-key (kbd "C-S-k") 'evil-window-up))
 
 (use-package evil-collection
   :after evil
