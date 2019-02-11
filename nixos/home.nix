@@ -33,6 +33,7 @@
     haskellPackages.hlint
     haskellPackages.hoogle
     haskellPackages.stylish-haskell
+    haskellPackages.ghcid
   ];
 
   # Let Home Manager install and manage itself.
