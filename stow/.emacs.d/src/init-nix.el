@@ -3,10 +3,7 @@
 (use-package nix-mode
   :mode "\\.nix\\'"
   :config
-  (add-hook 'nix-mode-hook
-              (lambda ()
-                (add-to-list (make-local-variable 'company-backends)
-                             '(company-nixos-options)))))
+  (add-to-list 'company-backends 'company-nixos-options))
 
 (use-package nix-sandbox
   :commands (nix-shell-command
