@@ -4,6 +4,7 @@
   :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package magit
+  :pin melpa-stable
   :defer t
   :config
   (setq magit-completing-read-function 'ivy-completing-read))
