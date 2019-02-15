@@ -46,7 +46,8 @@
           man
           minibuffer
           (package-menu package)
-          woman))
+          woman
+          (term term ansi-term multi-term)))
   (evil-collection-init))
 
 ;; Enables searching via * on a visual selection.
