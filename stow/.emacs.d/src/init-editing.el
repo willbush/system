@@ -83,4 +83,7 @@
      ("k" er/expand-region "expand")
      ("j" er/contract-region "contract")))
 
+(use-package evil-tutor
+  :commands evil-tutor-start)
+
 (provide 'init-editing)
