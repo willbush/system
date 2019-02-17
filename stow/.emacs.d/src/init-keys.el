@@ -132,7 +132,8 @@
   "l" 'counsel-find-library
   "n"  'view-emacs-news
   "w"  'woman
-  "d" '(:ignore t :which-key "describe"))
+  "d" '(:ignore t :which-key "describe")
+  "t" 'evil-tutor-start)
 
 (general-def
   :prefix "SPC h d"
