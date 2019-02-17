@@ -60,6 +60,7 @@
   :prefix "SPC a"
   :states '(normal visual)
   :keymaps 'override
+  "r" 'ranger
   "w" 'wttrin
   "p" '(:ignore t :which-key "profiler"))
 
