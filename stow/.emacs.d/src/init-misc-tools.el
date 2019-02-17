@@ -24,4 +24,6 @@
   (setq wttrin-default-cities '("Dallas")
         wttrin-default-accept-language '("Accept-Language" . "en-US")))
 
+(use-package ranger :commands ranger)
+
 (provide 'init-misc-tools)
