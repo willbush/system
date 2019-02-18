@@ -197,12 +197,13 @@
   :prefix "SPC t"
   :states '(normal visual)
   :keymaps 'override
-  "t" 'display-time-mode
-  "l" 'toggle-truncate-lines
+  "c" 'fci-mode
   "f" 'auto-fill-mode
-  "n" 'linum-mode
   "g" 'my/toggle-golden-ratio
+  "l" 'toggle-truncate-lines
+  "n" 'linum-mode
   "s" 'flyspell-mode
+  "t" 'display-time-mode
   "v" 'visual-fill-column-mode)
 
 (general-def

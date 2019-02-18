@@ -23,4 +23,7 @@
 
 (use-package attrap :commands attrap-attrap)
 
+(use-package fill-column-indicator
+  :commands fci-mode)
+
 (provide 'init-prog-tools)
