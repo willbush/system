@@ -62,7 +62,8 @@
   :keymaps 'override
   "r" 'ranger
   "w" 'wttrin
-  "p" '(:ignore t :which-key "profiler"))
+  "p" '(:ignore t :which-key "profiler")
+  "u" 'disk-usage)
 
 (general-def
   :prefix "SPC a p"

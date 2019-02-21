@@ -26,4 +26,6 @@
 
 (use-package ranger :commands ranger)
 
+(use-package disk-usage :commands disk-usage)
+
 (provide 'init-misc-tools)
