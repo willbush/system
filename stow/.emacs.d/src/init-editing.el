@@ -39,6 +39,7 @@
           deadgrep
           debug
           dired
+          disk-usage
           git-timemachine
           help
           info
