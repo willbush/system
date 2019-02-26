@@ -1,7 +1,19 @@
 { config, pkgs, ... }:
 
+let nixos18_09 =
+  import (builtins.fetchTarball
+    https://github.com/NixOS/nixpkgs-channels/archive/nixos-18.09.tar.gz) { };
+in
 {
   home.stateVersion = "19.03";
+
+  nixpkgs.config = {
+    # Allow unfree, which is required for some drivers.
+    allowUnfree = true;
+    packageOverrides = pkgs: {
+      stable = nixos18_09;
+    };
+  };
 
   # home packages that need no extra configuration
   home.packages = with pkgs; [
@@ -23,7 +35,7 @@
     ranger
     gnupg
     stow
-    #haskell
+    # Haskell packages:
     cabal-install
     cabal2nix
     nix-prefetch-git
@@ -34,6 +46,7 @@
     haskellPackages.hlint
     haskellPackages.hoogle
     haskellPackages.stylish-haskell
+    stable.haskellPackages.brittany
   ];
 
   # Let Home Manager install and manage itself.
