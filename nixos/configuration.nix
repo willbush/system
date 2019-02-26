@@ -53,7 +53,6 @@
           haskellPackges.xmonad-contrib
           haskellPackges.xmonad-extras
           haskellPackges.xmonad
-          haskellPackges.xmobar
         ];
       };
       windowManager.default = "xmonad";
