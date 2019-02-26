@@ -8,8 +8,6 @@ in
   home.stateVersion = "19.03";
 
   nixpkgs.config = {
-    # Allow unfree, which is required for some drivers.
-    allowUnfree = true;
     packageOverrides = pkgs: {
       stable = nixos18_09;
     };
