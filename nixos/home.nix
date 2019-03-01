@@ -15,36 +15,36 @@ in
 
   # home packages that need no extra configuration
   home.packages = with pkgs; [
-    exa
-    htop
-    firefox
-    chromium
-    keepassxc
-    vlc
     albert
     aspell
     aspellDicts.en
-    libreoffice
-    gcc
-    rustup
-    tokei
+    chromium
+    exa
     feh
+    firefox
     fzf
-    ranger
+    gcc
     gnupg
+    htop
+    keepassxc
+    libreoffice
+    ranger
+    rustup
     stow
+    tokei
+    vlc
     # Haskell packages:
     cabal-install
     cabal2nix
-    nix-prefetch-git
-    stack
     haskellPackages.apply-refact
     haskellPackages.ghcid
     haskellPackages.hindent
     haskellPackages.hlint
     haskellPackages.hoogle
     haskellPackages.stylish-haskell
+    nix-prefetch-git
     stable.haskellPackages.brittany
+    stack
   ];
 
   # Let Home Manager install and manage itself.
