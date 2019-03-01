@@ -8,7 +8,6 @@ import System.IO
 main = do
   xmonad $ defaultConfig
     { manageHook = manageDocks <+> manageHook defaultConfig
-    -- , layoutHook = avoidStruts  $ layoutHook defaultConfig
     , terminal = "alacritty"
     , modMask = mod4Mask -- Rebind Mod to the super key
     , normalBorderColor  = "#444444"
