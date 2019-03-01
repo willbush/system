@@ -78,14 +78,14 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     alacritty
-    neovim
-    wget
     curl
-    ripgrep
     docker
-    tree
     fd
+    neovim
+    ripgrep
+    tree
     unzip
+    wget
   ];
 
   nix.binaryCaches = [ "https://cache.nixos.org/" "https://nixcache.reflex-frp.org" ];
