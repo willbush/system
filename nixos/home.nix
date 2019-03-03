@@ -38,11 +38,11 @@ in
     cabal2nix
     haskellPackages.apply-refact
     haskellPackages.ghcid
+    haskellPackages.hasktags
     haskellPackages.hindent
     haskellPackages.hlint
     haskellPackages.hoogle
     haskellPackages.stylish-haskell
-    haskellPackages.hasktags
     nix-prefetch-git
     stable.haskellPackages.brittany
     stack
