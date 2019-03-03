@@ -42,6 +42,7 @@ in
     haskellPackages.hlint
     haskellPackages.hoogle
     haskellPackages.stylish-haskell
+    haskellPackages.hasktags
     nix-prefetch-git
     stable.haskellPackages.brittany
     stack
