@@ -7,6 +7,10 @@
 ;; switches (yes or no) prompts to (y or n)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+;; When Emacs tags get regenerated I want it to reload them without prompting me
+;; y or n.
+(setq-default tags-revert-without-query 1)
+
 ;; prevent indention inserting tabs
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
