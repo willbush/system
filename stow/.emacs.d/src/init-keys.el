@@ -131,6 +131,7 @@
   :states '(normal visual)
   :keymaps 'override
   "i" 'info
+  "I" 'info-display-manual
   "l" 'counsel-find-library
   "n"  'view-emacs-news
   "w"  'woman
