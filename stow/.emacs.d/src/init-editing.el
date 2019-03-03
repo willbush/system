@@ -36,6 +36,7 @@
   (setq evil-collection-mode-list
         '(calendar
           compile
+          custom
           deadgrep
           debug
           dired
