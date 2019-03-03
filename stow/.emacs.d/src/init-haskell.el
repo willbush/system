@@ -11,6 +11,14 @@
   ;; Configure haskell-mode to use cabal new-style builds
   (setq haskell-process-type 'cabal-new-repl)
 
+  ;; I use `haskell-stylish' for the following:
+  ;; Aligns and sorts import statements
+  ;; Groups and wraps {-# LANGUAGE #-} pragmas
+  ;; Removes trailing whitespace
+  ;; Aligns branches in case and fields in records
+  (setq haskell-stylish-on-save t)
+  ;; Use `hasktags' to regenerate `etags' on save.
+  (setq haskell-tags-on-save t)
   ;; Configure haskell-mode (haskell-cabal) to use Nix
   ;; this depends on nix-sandbox
   (setq haskell-process-wrapper-function
@@ -70,7 +78,8 @@
   :hook (haskell-mode-hook . hindent-mode)
   :init
   (when (file-executable-p "~/.nix-profile/bin/brittany")
-    (setq hindent-style nil) (setq hindent-process-path "~/.nix-profile/bin/brittany")))
+    (setq hindent-style nil)
+    (setq hindent-process-path "~/.nix-profile/bin/brittany")))
 
 (use-package hasky-stack
   :commands (hasky-stack-execute
