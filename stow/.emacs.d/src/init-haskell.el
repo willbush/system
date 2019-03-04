@@ -65,10 +65,10 @@
     "b" 'haskell-compile ;; `haskell-compile-cabal-build-command' has to be setup correctly
     "c" '(:ignore t :which-key "check")
     "d" '(:ignore t :which-key "dante")
-    "s" 'hasky-stack-execute
     "i" 'dante-info
     "p" 'hasky-stack-package-action
     "r" '(:ignore t :which-key "refactor")
+    "s" 'hasky-stack-execute
     "t" 'hasky-stack-test
     "v" '(:ignore t :which-key "visit")
     "." 'dante-type-at)
