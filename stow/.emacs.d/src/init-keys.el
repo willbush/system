@@ -60,10 +60,11 @@
   :prefix "SPC a"
   :states '(normal visual)
   :keymaps 'override
-  "r" 'ranger
-  "w" 'wttrin
   "p" '(:ignore t :which-key "profiler")
-  "u" 'disk-usage)
+  "r" 'ranger
+  "s" 'speedbar
+  "u" 'disk-usage
+  "w" 'wttrin)
 
 (general-def
   :prefix "SPC a p"

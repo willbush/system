@@ -49,7 +49,8 @@
           minibuffer
           (package-menu package)
           woman
-          (term term ansi-term multi-term)))
+          (term term ansi-term multi-term)
+          speedbar))
   (evil-collection-init))
 
 ;; Enables searching via * on a visual selection.
