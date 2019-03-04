@@ -7,9 +7,29 @@
             (lambda ()
               (setq-local flycheck-check-syntax-automatically
                           '(save mode-enabled))))
+  ;; auto inserts `module Foo where' and a comment block for a new Foo.hs file.
+  (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
+
+  ;; This scan mode is needed to give support to imenu and anything that depends on imenu.
+  ;; It enables the use of which-func-mode and speedbar
+  (add-hook 'haskell-mode-hook 'haskell-decl-scan-mode)
+  ;; which func mode is just a nicety that shows the current function the point
+  ;; is in on the mode line.
+  (add-hook 'haskell-mode-hook 'which-func-mode)
+
   :config
+
+  ;; speedbar depends on imenu and by extension haskell-decl-scan-mode.
+  (eval-after-load "speedbar"
+    '(speedbar-add-supported-extension ".hs"))
+
   ;; Configure haskell-mode to use cabal new-style builds
   (setq haskell-process-type 'cabal-new-repl)
+
+  ;; Setup the build command for nix + cabal setups.
+  ;; This doesn't have much of a use when using ghcid.
+  (setq haskell-compile-cabal-build-command
+        "nix-shell --run 'cabal new-build --ghc-option=-ferror-spans'")
 
   ;; I use `haskell-stylish' for the following:
   ;; Aligns and sorts import statements
@@ -22,12 +42,27 @@
   ;; Configure haskell-mode (haskell-cabal) to use Nix
   ;; this depends on nix-sandbox
   (setq haskell-process-wrapper-function
-        (lambda (args) (apply 'nix-shell-command (nix-current-sandbox) args)))
+        (lambda (args)
+          (apply 'nix-shell-command (nix-current-sandbox) args)))
+
+  ;; rebind `evil-goto-definition' for Haskell mode.
+  (general-def
+    :prefix "g"
+    :states 'normal
+    :keymaps 'haskell-mode-map
+
+    ;; Haskell mode provides `haskell-mode-tag-find' which appears to wrap
+    ;; `xref-find-definitions', but I can't get `haskell-mode-tag-find' to work.
+    ;; In addition, `haskell-mode-jump-to-def-or-tag' is available and uses GHCi
+    ;; by default and falls back on tags. This works if I have a GHCi process
+    ;; loaded, but the fall back doesn't work.
+    "d" 'xref-find-definitions)
 
   (general-def
     :prefix ","
     :states '(normal visual)
     :keymaps 'haskell-mode-map
+    "b" 'haskell-compile ;; `haskell-compile-cabal-build-command' has to be setup correctly
     "c" '(:ignore t :which-key "check")
     "d" '(:ignore t :which-key "dante")
     "s" 'hasky-stack-execute
