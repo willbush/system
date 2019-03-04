@@ -70,6 +70,7 @@
     "p" 'hasky-stack-package-action
     "r" '(:ignore t :which-key "refactor")
     "t" 'hasky-stack-test
+    "v" '(:ignore t :which-key "visit")
     "." 'dante-type-at)
 
   (general-def
@@ -98,7 +99,14 @@
     "b" 'flycheck-buffer
     "c" 'flycheck-clear
     "n" 'flycheck-next-error
-    "p" 'flycheck-previous-error))
+    "p" 'flycheck-previous-error)
+
+  (general-def
+    :prefix ", v"
+    :states '(normal visual)
+    :keymaps 'haskell-mode-map
+    "c" 'haskell-cabal-visit-file
+    "o" 'my/haskell-cabal-visit-other-file))
 
 (use-package dante
   :after haskell-mode
@@ -123,5 +131,9 @@
 
 (use-package hlint-refactor
   :commands (hlint-refactor-refactor-at-point))
+
+(defun my/haskell-cabal-visit-other-file ()
+    "Opens the cabal file in another window."
+    (interactive) (haskell-cabal-visit-file t))
 
 (provide 'init-haskell)
