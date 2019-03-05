@@ -36,7 +36,7 @@
   (setq evil-collection-mode-list
         '(calendar
           (package-menu package)
-          (term term ansi-term multi-term))
+          (term term ansi-term multi-term)
           compile
           custom
           deadgrep
@@ -50,7 +50,7 @@
           man
           minibuffer
           speedbar
-          woman)
+          woman))
   (evil-collection-init))
 
 ;; Enables searching via * on a visual selection.
