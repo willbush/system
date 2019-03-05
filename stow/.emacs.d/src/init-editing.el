@@ -35,6 +35,8 @@
   :config
   (setq evil-collection-mode-list
         '(calendar
+          (package-menu package)
+          (term term ansi-term multi-term))
           compile
           custom
           deadgrep
@@ -47,10 +49,8 @@
           ivy
           man
           minibuffer
-          (package-menu package)
-          woman
-          (term term ansi-term multi-term)
-          speedbar))
+          speedbar
+          woman)
   (evil-collection-init))
 
 ;; Enables searching via * on a visual selection.
