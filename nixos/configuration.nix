@@ -81,6 +81,7 @@
     curl
     docker
     fd
+    libreoffice
     neovim
     ripgrep
     tree
