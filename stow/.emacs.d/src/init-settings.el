@@ -40,10 +40,10 @@
 ;; CPU. However, this hardly affects me with how I move around.
 (setq scroll-conservatively 666)
 
-;; keeps a faint highlight on the line of the point. I sort of like this
-;; feature, but I found that every vertical movement causes emacs takes up ~15%
-;; CPU.
-(global-hl-line-mode -1)
+;; keeps a faint highlight on the line of the point. Note I found there is a
+;; cost to this being on where every vertical movement causes emacs takes up
+;; ~15% CPU.
+(global-hl-line-mode 1)
 
 ;; follows symlinks without prompt when set to t
 (setq vc-follow-symlinks t)
