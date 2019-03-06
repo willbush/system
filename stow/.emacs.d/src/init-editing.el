@@ -49,7 +49,6 @@
           ivy
           man
           minibuffer
-          speedbar
           woman))
   (evil-collection-init))
 
