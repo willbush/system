@@ -15,6 +15,9 @@
   :hook ((text-mode . flyspell-mode)
          (prog-mode . flyspell-prog-mode)))
 
+(use-package define-word
+  :commands define-word-at-point)
+
 (use-package flyspell-correct-ivy :after flyspell)
 
 ;; A frontend for weather web service wttr.in

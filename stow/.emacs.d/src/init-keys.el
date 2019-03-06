@@ -235,6 +235,7 @@
   :prefix "SPC x"
   :states '(normal visual)
   :keymaps 'override
+  "d" 'define-word-at-point
   "l" 'my/sort-lines
   "L" 'my/sort-lines-reverse
   "c" 'my/sort-lines-by-column
