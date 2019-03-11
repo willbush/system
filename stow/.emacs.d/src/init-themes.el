@@ -1,14 +1,12 @@
 ;;; -*- lexical-binding: t; -*-
 
 (use-package doom-themes
-  :pin melpa-stable
   :config
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
 ;; doom modeline requires M-x all-the-icons-install-fonts
 (use-package doom-modeline
-  :pin melpa-stable
   :hook (after-init . doom-modeline-mode)
   :config
   (setq doom-modeline-icon t
