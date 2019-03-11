@@ -1,14 +1,12 @@
 ;;; -*- lexical-binding: t; -*-
 
 (use-package ivy
-  :pin melpa-stable
   :hook (after-init . ivy-mode)
   :config
   (setq ivy-use-virtual-buffers t)
   (setq ivy-display-style 'fancy))
 
 (use-package counsel
-  :pin melpa-stable
   :after ivy
   :bind (("C-c C-r" . ivy-resume))
   :config
@@ -23,21 +21,18 @@
 
 ;; Used by Ivy to sort commands by frequency.
 (use-package smex
-  :pin melpa-stable
   :hook (after-init . smex-initialize)
   :config
   (global-set-key (kbd "M-X") 'smex-major-mode-commands))
 
 ;; increasing recentf max items for better ivy-switch-buffer completion
 (use-package recentf
-  :pin melpa-stable
   :config
   (recentf-mode 1)
   (setq recentf-max-menu-items 1000
         recentf-max-saved-items 1000))
 
 (use-package company
-  :pin melpa-stable
   :hook (after-init . global-company-mode)
   :bind (:map company-active-map
          ("C-n" . company-select-next)
@@ -47,20 +42,16 @@
         company-minimum-prefix-length 2))
 
 (use-package projectile
-  :pin melpa-stable
   :config
   (projectile-mode +1))
 
 (use-package counsel-projectile
-  :pin melpa-stable
   :after projectile
   :config
   (counsel-projectile-mode))
 
-(use-package hydra
-  :pin melpa-stable)
+(use-package hydra)
 
-(use-package fd-dired :commands fd-dired
-  :pin melpa-stable)
+(use-package fd-dired :commands fd-dired)
 
 (provide 'init-completion)
