@@ -1,6 +1,7 @@
 ;;; -*- lexical-binding: t; -*-
 
 (use-package csharp-mode
+  :pin melpa-stable
   :mode "\\.cs\\'"
   :config
 
@@ -38,6 +39,7 @@
   )
 
 (use-package omnisharp
+  :pin melpa-stable
   :hook ((csharp-mode . omnisharp-mode)
          (before-save . omnisharp-code-format-entire-file))
   :config

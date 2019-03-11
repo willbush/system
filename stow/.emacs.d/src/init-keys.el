@@ -1,6 +1,7 @@
 ;;; -*- lexical-binding: t; -*-
 
 (use-package which-key
+  :pin melpa-stable
   :config (which-key-mode 1))
 
 (use-package general)
