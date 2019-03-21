@@ -61,6 +61,7 @@
   :states '(normal visual)
   :keymaps 'override
   "d" 'deer ;; minimal ranger dired
+  "D" 'deer-jump-other-window
   "p" '(:ignore t :which-key "profiler")
   "r" 'ranger
   "s" 'speedbar
@@ -104,7 +105,8 @@
   :keymaps 'override
   "d" 'fd-dired
   "f" 'counsel-find-file
-  "s" 'save-buffer)
+  "s" 'save-buffer
+  "z" 'counsel-fzf)
 
 (general-def
   :prefix "SPC F"
