@@ -60,6 +60,7 @@
   :prefix "SPC a"
   :states '(normal visual)
   :keymaps 'override
+  "d" 'deer ;; minimal ranger dired
   "p" '(:ignore t :which-key "profiler")
   "r" 'ranger
   "s" 'speedbar
