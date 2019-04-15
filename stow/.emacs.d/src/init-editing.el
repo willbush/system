@@ -43,6 +43,7 @@
           debug
           dired
           disk-usage
+          ediff
           git-timemachine
           help
           info
