@@ -87,7 +87,7 @@
       Using a command prompt opened as Administrator (paths might differ):
 
       #+BEGIN_SRC shell
-      mklink C:\Users\Will\.emacs C:\Users\Will\system\emacs\.emacs
+      mklink C:\Users\Will\.emacs.d C:\Users\Will\system\stow\.emacs.d
       #+END_SRC
 
    5. Run =runemacs.exe= and it should automatically download and
