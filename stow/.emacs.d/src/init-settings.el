@@ -29,9 +29,56 @@
 (setq inhibit-splash-screen t
       initial-scratch-message nil
       ring-bell-function 'ignore
-      make-backup-files nil
-      auto-save-default nil
       help-window-select t)
+
+;; Put all backups in one directory (Emacs auto makes this directory as needed)
+(setq backup-directory-alist `(("." . "~/.emacs.d/backups/")))
+
+(defconst my/auto-save-dir "~/.emacs.d/backups/auto-saves/")
+
+;; Put all auto-save files into one directory (will get an error on auto-save if
+;; this directory doesn't exist)
+(unless (file-exists-p my/auto-save-dir)
+  (make-directory my/auto-save-dir t))
+
+(setq auto-save-file-name-transforms
+  `((".*" ,my/auto-save-dir t)))
+
+;; backup / file related settings
+(setq make-backup-files t
+      ;; enable file backup even if the file is under source control
+      vc-make-backup-files t
+      ;; Always use copying to create backup files.
+      backup-by-copying t
+      ;; newest versions to keep when a new numbered backup is made
+      kept-new-versions 10
+      ;; oldest versions to keep when a new numbered backup is made
+      kept-old-versions 10
+      ;; use version numbers in backup files
+      version-control t
+      ;; delete excess backup files silently
+      delete-old-versions t
+      ;; file and directory deletions will move to trash instead of outright
+      ;; deletion.
+      delete-by-moving-to-trash t
+      auto-save-default t
+      ;; number of seconds idle time before auto-save (default: 30)
+      auto-save-timeout 20
+      ;; number of keystrokes between auto-saves (default: 300)
+      auto-save-interval 200)
+
+;; Disk space is cheap so lets make a back up on each save (ignores files over
+;; 5MB by default and remote files).
+(use-package backup-each-save
+  :commands backup-each-save
+  :init (add-hook 'after-save-hook 'backup-each-save)
+  :config
+  ;; Save all per-save backups in $TMPDIR/emacs$UID/. I have NixOS setup to
+  ;; delete /tmp on boot and Windows 10 needs to be configured to automatically
+  ;; clean its temp directory.
+  (setq backup-each-save-mirror-location
+        (expand-file-name
+         (format "emacs%d-per-save-backups/" (user-uid)) temporary-file-directory)))
 
 ;; enable prettify symbols when using GUI emacs
 (when window-system (global-prettify-symbols-mode t))
