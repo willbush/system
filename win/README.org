@@ -21,6 +21,7 @@
   - Get https://chocolatey.org/
   - Get [[https://github.com/Wox-launcher/Wox][Wox]]
   - Look over https://ninite.com/ for ideas of what to install
+  - Configure to automatically clean the temp folder (not enabled by default)
   - When dual booting set Windows to use UTC time:
 
     When dual booting into Linux Windows 10 has a known issue with the
