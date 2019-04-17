@@ -34,7 +34,9 @@
 ;; Put all backups in one directory (Emacs auto makes this directory as needed)
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups/")))
 
-(defconst my/auto-save-dir "~/.emacs.d/backups/auto-saves/")
+(defconst my/auto-save-dir
+  (expand-file-name
+   (format "emacs%d/backups/auto-saves/" (user-uid)) temporary-file-directory))
 
 ;; Put all auto-save files into one directory (will get an error on auto-save if
 ;; this directory doesn't exist)
@@ -66,19 +68,6 @@
       auto-save-timeout 20
       ;; number of keystrokes between auto-saves (default: 300)
       auto-save-interval 200)
-
-;; Disk space is cheap so lets make a back up on each save (ignores files over
-;; 5MB by default and remote files).
-(use-package backup-each-save
-  :commands backup-each-save
-  :init (add-hook 'after-save-hook 'backup-each-save)
-  :config
-  ;; Save all per-save backups in $TMPDIR/emacs$UID/. I have NixOS setup to
-  ;; delete /tmp on boot and Windows 10 needs to be configured to automatically
-  ;; clean its temp directory.
-  (setq backup-each-save-mirror-location
-        (expand-file-name
-         (format "emacs%d-per-save-backups/" (user-uid)) temporary-file-directory)))
 
 ;; enable prettify symbols when using GUI emacs
 (when window-system (global-prettify-symbols-mode t))
