@@ -9,6 +9,10 @@
 (line-number-mode 1)
 (column-number-mode 1)
 
+;; I don't want two spaces after my periods. This the affects behavior of
+;; `fill-paragraph' (among other things).
+(setq sentence-end-double-space nil)
+
 ;; switches (yes or no) prompts to (y or n)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
