@@ -31,4 +31,23 @@
 
 (use-package disk-usage :commands disk-usage)
 
+(use-package dired-narrow
+  :commands
+  (dired-narrow dired-narrow-regexp dired-narrow-fuzzy)
+
+  :init
+  (general-def
+    :prefix ","
+    :states '(normal visual)
+    :keymaps 'dired-mode-map
+    "n" '(:ignore t :which-key "narrow"))
+
+  (general-def
+    :prefix ", n"
+    :states '(normal visual)
+    :keymaps 'dired-mode-map
+    "n" 'dired-narrow
+    "f" 'dired-narrow-fuzzy
+    "r" 'dired-narrow-regexp))
+
 (provide 'init-misc-tools)
