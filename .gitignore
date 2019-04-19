@@ -1,21 +1,2 @@
 # nix build output
 result
-
-# xmonad stuff
-*.o
-*.hi
-*.errors
-*.errors
-xmonad-*
-
-# stack stuff
-*/.stack/build-plan-cache/*
-*/.stack/build-plan/
-*/.stack/indices/
-*/.stack/loaded-snapshot-cache/
-*/.stack/precompiled/
-*/.stack/setup-exe-cache/
-*/.stack/setup-exe-src/
-*/.stack/snapshots/
-*/.stack/templates/
-*/.stack/global-project/
