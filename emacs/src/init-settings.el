@@ -38,9 +38,7 @@
 ;; Put all backups in one directory (Emacs auto makes this directory as needed)
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups/")))
 
-(defconst my/auto-save-dir
-  (expand-file-name
-   (format "emacs%d/backups/auto-saves/" (user-uid)) temporary-file-directory))
+(defconst my/auto-save-dir "~/.emacs.d/backups/auto-saves/")
 
 ;; Put all auto-save files into one directory (will get an error on auto-save if
 ;; this directory doesn't exist)
