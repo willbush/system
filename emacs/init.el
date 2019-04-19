@@ -39,5 +39,13 @@
 (require 'init-misc-tools)
 (require 'init-themes)
 
-(setq custom-file (expand-file-name "custom.el" src-dir))
-(load custom-file)
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(if (file-exists-p custom-file)
+    (load custom-file)
+  (progn
+    (write-region "" nil custom-file)
+    ;; Using the custom-* functions after creating an empty custom file
+    ;; will cause the settings to get written to the file.
+    (custom-set-faces '(default ((t (:height 110 :family "Hack")))))))
+
+(load-theme 'doom-vibrant t)
