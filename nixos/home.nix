@@ -30,7 +30,6 @@ in
     libreoffice
     ranger
     rustup
-    stow
     tokei
     vlc
     # Haskell packages:
