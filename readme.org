@@ -4,28 +4,19 @@
 
 ** Folder Structure
 
-*** stow
+*** emacs
 
-    I use =stow= for symbolic link management for configurations under the
-    =stow= directory.
+    My emacs configuration code. See its [[file:emacs/readme.org][readme]] for more information.
 
-    I keep configurations here for things that I haven't yet migrated to nix or
-    can't because it needs to run in Windows and Linux (Windows is not supported
-    by nix). For example, Emacs is something I used in both Windows and Linux,
-    and I haven't yet tried setting it up in cygwin or WSL where nix has a hope
-    of working.
+*** config
 
-    Management with stow is easily done with:
-
-    #+BEGIN_SRC shell
-    stow -Rv . -t ~/
-    #+END_SRC
+    Miscellaneous config files that are symlinked and managed with [[https://github.com/rycee/home-manager][home manager]].
 
 *** nixos
 
-    For things that are only used in NixOS are kept here.
+    For Nix and NixOS related things.
 
 *** win
 
-    For things that are only used in Windows are kept here. See its [[file:win/README.org][readme]] for
+    For things that are only used in Windows are kept here. See its [[file:win/readme.org][readme]] for
     more information.
