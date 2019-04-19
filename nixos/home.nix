@@ -7,10 +7,30 @@ in
 {
   home.stateVersion = "19.03";
 
-  nixpkgs.config = {
-    packageOverrides = pkgs: {
-      stable = nixos18_09;
+  # nixpkgs.config = {
+  #   packageOverrides = pkgs: {
+  #     stable = nixos18_09;
+  #   };
+  # };
+
+  home.file = {
+    ".emacs.d" = {
+      source = ../emacs;
+      recursive = true;
+      # Since home-manager deploys my config and is immutable, I might as well
+      # byte compile everything deployed this way. From my profiling with `esup`
+      # I haven't been able to see much of any gain. The main advantage is an
+      # opportunity to see compiler warnings.
+      onChange = ''
+        emacs -Q --batch --eval '(byte-compile-file "~/.emacs.d/init.el")'
+        emacs -Q --load ~/.emacs.d/init.el --batch --eval '(byte-recompile-directory "~/.emacs.d/src/" 0 t)'
+      '';
     };
+
+    ".config".source = ../config;
+    ".config".recursive = true;
+    ".xmonad/xmonad.hs".source = ../xmonad/xmonad.hs;
+    ".stack/config.yaml".source = ../stack/config.yaml;
   };
 
   # home packages that need no extra configuration
@@ -43,7 +63,8 @@ in
     haskellPackages.hoogle
     haskellPackages.stylish-haskell
     nix-prefetch-git
-    stable.haskellPackages.brittany
+    # haskellPackages.brittany
+    # stable.haskellPackages.brittany
     stack
   ];
 
