@@ -18,9 +18,7 @@
           gc-cons-percentage 0.1)
     (setq file-name-handler-alist file-name-handler-alist-actual)))
 
-(defconst src-dir (expand-file-name "src/" user-emacs-directory))
-
-(add-to-list 'load-path src-dir)
+(add-to-list 'load-path (expand-file-name "src/" user-emacs-directory))
 
 (require 'init-package)
 (require 'init-settings)
@@ -42,10 +40,5 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (if (file-exists-p custom-file)
     (load custom-file)
-  (progn
-    (write-region "" nil custom-file)
-    ;; Using the custom-* functions after creating an empty custom file
-    ;; will cause the settings to get written to the file.
-    (custom-set-faces '(default ((t (:height 110 :family "Hack")))))))
-
-(load-theme 'doom-vibrant t)
+  ;; Create an empty custom file if it's not present.
+  (write-region "" nil custom-file))
