@@ -22,7 +22,7 @@ in
       # I haven't been able to see much of any gain. The main advantage is an
       # opportunity to see compiler warnings.
       onChange = ''
-        emacs -Q --batch --eval '(byte-compile-file "~/.emacs.d/init.el")'
+        emacs -Q --load ~/.emacs.d/init.el --batch --eval '(byte-compile-file "~/.emacs.d/init.el")'
         emacs -Q --load ~/.emacs.d/init.el --batch --eval '(byte-recompile-directory "~/.emacs.d/src/" 0 t)'
       '';
     };
