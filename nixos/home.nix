@@ -33,6 +33,28 @@ in
     ".stack/config.yaml".source = ../stack/config.yaml;
   };
 
+  xdg = {
+    enable = true;
+    # Home manager's emacs service doesn't provide a desktop entry for the emacs
+    # client. Note the %F on the `Exec=` line passes any file name string to
+    # tell emacs to open a file. I just use Albert to launch the emacs client so
+    # I don't every really need that.
+    dataFile."applications/emacsclient.desktop".text = ''
+      [Desktop Entry]
+      Name=Emacsclient
+      GenericName=Text Editor
+      Comment=Edit text
+      MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
+      Exec=emacsclient -c -a emacs %F
+      Icon=emacs
+      Type=Application
+      Terminal=false
+      Categories=Development;TextEditor;
+      StartupWMClass=Emacs
+      Keywords=Text;Editor;
+    '';
+  };
+
   xresources.properties = {
     # Set some Emacs GUI properties in the .Xresources file because they are
     # expensive to set during initialization in Emacs lisp. This saves about
