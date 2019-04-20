@@ -41,14 +41,18 @@
   (setq company-idle-delay 0.2
         company-minimum-prefix-length 2))
 
+(use-package counsel-projectile
+  ;; When this loads, projectile will also load. It would be nice if I could use
+  ;; `:commands projectile-command-map'. However, commands expects a function
+  ;; and not a key map. `:keymap' exists for this case, but I can't figure out
+  ;; how to bind it they way I want and where I want (not here). So just load
+  ;; after init.
+  :hook (after-init . counsel-projectile-mode))
+
 (use-package projectile
+  :defer t
   :config
   (projectile-mode +1))
-
-(use-package counsel-projectile
-  :after projectile
-  :config
-  (counsel-projectile-mode))
 
 (use-package hydra)
 
