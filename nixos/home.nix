@@ -44,6 +44,68 @@ in
     "Emacs.Font" = "Hack:size=16";
   };
 
+  services.emacs.enable = true;
+  programs.emacs = {
+    enable = true;
+    extraPackages = (epkgs: (with epkgs; [
+      attrap
+      avy
+      company
+      company-nixos-options
+      counsel
+      counsel-projectile
+      csharp-mode
+      dante
+      dashboard
+      deadgrep
+      define-word
+      dired-narrow
+      disk-usage
+      doom-modeline
+      doom-themes
+      esup
+      evil
+      evil-collection
+      evil-exchange
+      evil-magit
+      evil-matchit
+      evil-numbers
+      evil-surround
+      evil-tutor
+      evil-visualstar
+      expand-region
+      fd-dired
+      fill-column-indicator
+      flyspell-correct-ivy
+      general
+      git-timemachine
+      golden-ratio
+      haskell-mode
+      hasky-stack
+      hindent
+      hlint-refactor
+      hydra
+      ivy
+      magit
+      markdown-mode
+      markdown-toc
+      nix-mode
+      nix-sandbox
+      poporg
+      powershell
+      projectile
+      rainbow-delimiters
+      ranger
+      smex
+      use-package
+      visual-fill-column
+      which-key
+      winum
+      wttrin
+      yaml-mode
+    ]));
+  };
+
   # home packages that need no extra configuration
   home.packages = with pkgs; [
     albert

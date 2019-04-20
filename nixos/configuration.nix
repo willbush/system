@@ -66,11 +66,6 @@
       };
       desktopManager.xterm.enable = false;
     };
-
-    emacs = {
-      enable = true;
-      defaultEditor = true;
-    };
   };
 
   virtualisation.docker.enable = true;
