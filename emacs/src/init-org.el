@@ -17,7 +17,9 @@
              (local-set-key "\M-k" 'org-move-subtree-up)
              (local-set-key "\M-j" 'org-move-subtree-down)
              (local-set-key "\M-h" 'org-do-promote)
-             (local-set-key "\M-l" 'org-do-demote)))
+             (local-set-key "\M-l" 'org-do-demote)
+             (local-set-key "\C-j" 'org-forward-heading-same-level)
+             (local-set-key "\C-k" 'org-backward-heading-same-level)))
 
 (setq org-src-window-setup 'current-window
       org-log-done 'time)
