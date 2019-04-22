@@ -4,7 +4,7 @@
   :config
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
-  (load-theme 'doom-vibrant t))
+  (load-theme 'doom-Iosvkem t))
 
 ;; doom modeline requires M-x all-the-icons-install-fonts
 (use-package doom-modeline
