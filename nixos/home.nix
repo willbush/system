@@ -191,7 +191,8 @@ in
       docker run -d --restart=always --name=dropbox \
         -v /home/will/Dropbox:/dbox/Dropbox \
         -v /home/will/.dropbox:/dbox/.dropbox \
-        -e DBOX_UID=1000 -e DBOX_GID=100 janeczku/dropbox'';
+        -e DBOX_UID=1000 -e DBOX_GID=100 janeczku/dropbox
+      '';
     };
     oh-my-zsh = {
       enable = true;
@@ -205,13 +206,13 @@ in
     fade = true;
     backend = "xrender";
     fadeDelta = 1;
-    inactiveOpacity = "0.75";
-    activeOpacity = "0.90";
-    opacityRule = [
-      "99:name *= 'Firefox'"
-      "99:name *= 'Chromium'"
-      "99:name *= 'VLC'"
-    ];
+    # I only want transparency for a couple of applications.
+     opacityRule = [
+       "90:class_g ?= 'emacs' && focused"
+       "75:class_g ?= 'emacs' && !focused"
+       "90:class_g ?= 'alacritty' && focused"
+       "75:class_g ?= 'alacritty' && !focused"
+     ];
   };
 
   services.redshift = {
