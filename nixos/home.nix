@@ -31,6 +31,11 @@ in
     ".config".recursive = true;
     ".xmonad/xmonad.hs".source = ../xmonad/xmonad.hs;
     ".stack/config.yaml".source = ../stack/config.yaml;
+    ".aspell.conf".text = ''
+       master en_US
+       extra-dicts en-computers.rws
+       add-extra-dicts en_US-science.rws
+    '';
   };
 
   xdg = {
@@ -133,6 +138,8 @@ in
     albert
     aspell
     aspellDicts.en
+    aspellDicts.en-computers
+    aspellDicts.en-science
     chromium
     exa
     feh
