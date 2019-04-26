@@ -159,6 +159,7 @@ in
     cabal2nix
     haskellPackages.apply-refact
     haskellPackages.ghcid
+    haskellPackages.hakyll
     haskellPackages.hasktags
     haskellPackages.hindent
     haskellPackages.hlint
