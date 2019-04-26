@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
-let nixos18_09 =
-  import (builtins.fetchTarball
-    https://github.com/NixOS/nixpkgs-channels/archive/nixos-18.09.tar.gz) { };
+let home = builtins.getEnv "HOME";
+    nixos18_09 = import (builtins.fetchTarball
+      https://github.com/NixOS/nixpkgs-channels/archive/nixos-18.09.tar.gz) { };
 in
 {
   home.stateVersion = "19.03";
@@ -31,7 +31,10 @@ in
     ".config".recursive = true;
     ".xmonad/xmonad.hs".source = ../xmonad/xmonad.hs;
     ".stack/config.yaml".source = ../stack/config.yaml;
+    # Outside of NixOS the dictionary directory needs to be set.
+    # https://github.com/NixOS/nixpkgs/issues/4521
     ".aspell.conf".text = ''
+       dict-dir ${home}/.nix-profile/lib/aspell
        master en_US
        extra-dicts en-computers.rws
        add-extra-dicts en_US-science.rws
@@ -197,8 +200,8 @@ in
       dropbox = "docker exec -it dropbox dropbox";
       dropbox-start = ''
       docker run -d --restart=always --name=dropbox \
-        -v /home/will/Dropbox:/dbox/Dropbox \
-        -v /home/will/.dropbox:/dbox/.dropbox \
+        -v ${home}/Dropbox:/dbox/Dropbox \
+        -v ${home}/.dropbox:/dbox/.dropbox \
         -e DBOX_UID=1000 -e DBOX_GID=100 janeczku/dropbox
       '';
     };
