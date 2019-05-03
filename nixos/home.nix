@@ -208,7 +208,7 @@ in
     oh-my-zsh = {
       enable = true;
       plugins = ["vi-mode" "web-search"];
-      theme = "agnoster";
+      theme = "lambda";
     };
   };
 
