@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ./fonts.nix
     ./users.nix
+    ./pia/pia-nm.nix
   ];
 
   # Allow unfree, which is required for some drivers.
@@ -32,7 +33,28 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  networking.hostName = "nixos";
+  networking = {
+    hostName = "nixos";
+    networkmanager = {
+      enable = true;
+      pia-vpn.enable = true;
+      pia-vpn.usernameFile = "/etc/pia-vpn.username";
+      pia-vpn.passwordFile = "/etc/pia-vpn.password";
+      pia-vpn.serverList = [
+        "us-california"
+        "us-east"
+        "us-chicago"
+        "us-texas"
+        "us-seattle"
+        "us-west"
+        "us-siliconvalley"
+        "us-newyorkcity"
+        "us-lasvegas"
+        "us-houston"
+        "us-denver"
+      ];
+    };
+  };
 
   services = {
     # Enable CUPS to print documents.
