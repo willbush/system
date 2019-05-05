@@ -156,6 +156,7 @@ in
     ranger
     rustup
     tokei
+    transmission-gtk
     vlc
     # Haskell packages:
     cabal-install
