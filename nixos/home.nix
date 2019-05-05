@@ -1,17 +1,12 @@
 { config, pkgs, ... }:
 
 let home = builtins.getEnv "HOME";
-    nixos18_09 = import (builtins.fetchTarball
-      https://github.com/NixOS/nixpkgs-channels/archive/nixos-18.09.tar.gz) { };
 in
 {
   home.stateVersion = "19.03";
 
-  # nixpkgs.config = {
-  #   packageOverrides = pkgs: {
-  #     stable = nixos18_09;
-  #   };
-  # };
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
 
   home.file = {
     ".emacs.d" = {
@@ -170,13 +165,8 @@ in
     haskellPackages.hoogle
     haskellPackages.stylish-haskell
     nix-prefetch-git
-    # haskellPackages.brittany
-    # stable.haskellPackages.brittany
     stack
   ];
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 
   programs.git = {
     enable = true;
