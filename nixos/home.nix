@@ -148,7 +148,9 @@ in
     htop
     keepassxc
     libreoffice
+    openconnect
     ranger
+    remmina
     rustup
     tokei
     transmission-gtk
