@@ -21,6 +21,8 @@
              (local-set-key "\C-j" 'org-forward-heading-same-level)
              (local-set-key "\C-k" 'org-backward-heading-same-level)))
 
+(setq org-catch-invisible-edits 'show-and-error)
+
 (setq org-src-window-setup 'current-window
       org-log-done 'time)
 
