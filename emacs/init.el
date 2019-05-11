@@ -35,7 +35,7 @@
 (require 'init-prog-tools)
 (require 'init-win-buffer-tools)
 (require 'init-misc-tools)
-(require 'init-themes)
+(require 'init-visuals)
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (if (file-exists-p custom-file)
