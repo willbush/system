@@ -23,6 +23,8 @@
 
 (setq org-catch-invisible-edits 'show-and-error)
 
+(setq org-list-demote-modify-bullet '(("+" . "-") ("-" . "+") ("*" . "+")))
+
 (setq org-src-window-setup 'current-window
       org-log-done 'time)
 
