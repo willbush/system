@@ -114,6 +114,7 @@ in
       magit
       markdown-mode
       markdown-toc
+      nav-flash
       nix-mode
       nix-sandbox
       poporg

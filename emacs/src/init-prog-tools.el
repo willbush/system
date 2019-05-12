@@ -1,8 +1,5 @@
 ;;; -*- lexical-binding: t; -*-
 
-(use-package rainbow-delimiters
-  :hook (prog-mode . rainbow-delimiters-mode))
-
 (use-package ediff
   :config
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
@@ -26,8 +23,5 @@
              (setq show-trailing-whitespace t)))
 
 (use-package attrap :commands attrap-attrap)
-
-(use-package fill-column-indicator
-  :commands fci-mode)
 
 (provide 'init-prog-tools)
