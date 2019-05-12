@@ -88,6 +88,7 @@ in
       disk-usage
       doom-modeline
       doom-themes
+      direnv
       esup
       evil
       evil-collection
@@ -204,6 +205,11 @@ in
       plugins = ["vi-mode" "web-search"];
       theme = "lambda";
     };
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   services.compton = {
