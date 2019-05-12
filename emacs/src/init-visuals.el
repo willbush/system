@@ -49,4 +49,65 @@
 (use-package fill-column-indicator
   :commands fci-mode)
 
+(use-package nav-flash
+  :commands nav-flash-show
+  :preface
+
+  (defun my/maybe-nav-flash (&rest _)
+    "Performs the `nav-flash-show' in current window when in the correct context."
+    (unless (or (minibufferp) (derived-mode-p 'term-mode))
+      (nav-flash-show)
+      ;; only show in the current window
+      (overlay-put compilation-highlight-overlay 'window (selected-window))))
+
+  :hook ((bookmark-after-jump
+          focus-in ;; A hook that fires when an Emacs frame gains focus.
+          counsel-grep-post-action
+          imenu-after-jump
+          evil-jumps-post-jump
+          xref-after-jump
+          org-follow-link
+          xref-after-return) . my/maybe-nav-flash)
+
+  :init
+
+  ;; Seems I could just add advice to set-buffer to remove some of these, but it
+  ;; didn't work for me.
+  (advice-add #'ivy-switch-buffer :after #'my/maybe-nav-flash)
+  (advice-add #'next-buffer :after #'my/maybe-nav-flash)
+  (advice-add #'previous-buffer :after #'my/maybe-nav-flash)
+  (advice-add #'switch-to-buffer :after #'my/maybe-nav-flash)
+  (advice-add #'other-window :after #'my/maybe-nav-flash)
+  (advice-add #'recenter :after #'my/maybe-nav-flash)
+  ;; `winum--switch-to-window' is called by the `winum-select-window-*' functions
+  (advice-add #'winum--switch-to-window :after #'my/maybe-nav-flash)
+
+  ;; `avy'
+  (advice-add #'evil-avy-goto-char-timer :after #'my/maybe-nav-flash)
+
+  ;; `saveplace'
+  (advice-add #'save-place-find-file-hook :after #'my/maybe-nav-flash)
+
+  ;; `evil'
+  (advice-add #'evil-scroll-up :after #'my/maybe-nav-flash)
+  (advice-add #'evil-scroll-down :after #'my/maybe-nav-flash)
+
+  ;; This covers gg and G along with jumping to specific line numbers.
+  (advice-add #'evil-goto-line :after #'my/maybe-nav-flash)
+
+  (advice-add #'evil-window-top :after #'my/maybe-nav-flash)
+  (advice-add #'evil-window-middle :after #'my/maybe-nav-flash)
+  (advice-add #'evil-window-bottom :after #'my/maybe-nav-flash)
+
+  ;; At first seems we could just hook into `window-configuration-change-hook'
+  ;; instead of all these, but it causes it to flash on a different line than
+  ;; the cursor for some unknown reason.
+  (advice-add #'evil-window-move-far-left :after #'my/maybe-nav-flash)
+  (advice-add #'evil-window-move-far-right :after #'my/maybe-nav-flash)
+  (advice-add #'evil-window-move-very-top :after #'my/maybe-nav-flash)
+  (advice-add #'evil-window-move-very-bottom :after #'my/maybe-nav-flash)
+
+  ;; `evil-window-right' etc. uses `windmove'
+  (advice-add #'windmove-do-window-select :after #'my/maybe-nav-flash))
+
 (provide 'init-visuals)
