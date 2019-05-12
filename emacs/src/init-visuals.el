@@ -33,7 +33,7 @@
   :config
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
-  (load-theme 'doom-Iosvkem t))
+  (load-theme 'doom-one t))
 
 ;; doom modeline requires M-x all-the-icons-install-fonts
 (use-package doom-modeline
@@ -42,6 +42,14 @@
   (setq doom-modeline-icon t
         doom-modeline-major-mode-color-icon t
         doom-modeline-buffer-file-name-style 'truncate-upto-root))
+
+;; Highlight matching parentheses
+(use-package paren
+  :ensure nil
+  :hook (after-init . show-paren-mode)
+  :config
+  (setq show-paren-when-point-inside-paren t
+        show-paren-when-point-in-periphery t))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
