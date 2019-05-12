@@ -1,23 +1,5 @@
 ;;; -*- lexical-binding: t; -*-
 
-;; In Linux I set these using .Xresources file because it saves about half a
-;; second on startup time compared to setting these here.
-(when (eq system-type 'windows-nt)
-  ;; disable GUI elements.
-  (menu-bar-mode -1)
-  (tool-bar-mode -1)
-  (scroll-bar-mode -1)
-  ;; set default font
-  (set-face-attribute 'default nil
-                      :family "Hack"
-                      :height 110
-                      :weight 'normal
-                      :width 'normal))
-
-;; show line and column number on mode line
-(line-number-mode 1)
-(column-number-mode 1)
-
 ;; I don't want two spaces after my periods. This the affects behavior of
 ;; `fill-paragraph' (among other things).
 (setq sentence-end-double-space nil)
@@ -80,9 +62,6 @@
       ;; number of keystrokes between auto-saves (default: 300)
       auto-save-interval 200)
 
-;; enable prettify symbols when using GUI emacs
-(when window-system (global-prettify-symbols-mode t))
-
 ;; changes default behavior of scrolling to bottom of screen.  Normally,
 ;; scrolling past the bottom causes it to scroll down enough so that the point
 ;; is re-centered. The documentation on the variable states values above 100
@@ -102,14 +81,6 @@
 
 ;; fixes performance issue with doom-modeline in Windows
 (setq inhibit-compacting-font-caches t)
-
-(setq electric-pair-pairs
-  '(
-    (?\( . ?\))
-    (?\[ . ?\])
-    (?\{ . ?\})
-   ))
-(electric-pair-mode t)
 
 (setq default-tab-width 2)
 (setq evil-shift-width 2)
