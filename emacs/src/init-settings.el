@@ -14,6 +14,8 @@
 ;; prevent indention inserting tabs
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
+;; truncate lines by default
+(setq-default truncate-lines t)
 
 ;; fill-paragraph uses fill-column for the width at which to break lines
 (setq-default fill-column 80)
