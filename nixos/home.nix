@@ -147,7 +147,6 @@ in
     fzf
     gcc
     gnupg
-    htop
     keepassxc
     libreoffice
     openconnect
@@ -204,6 +203,14 @@ in
       enable = true;
       plugins = ["vi-mode" "web-search"];
       theme = "lambda";
+    };
+  };
+
+  programs.htop = {
+    enable = true;
+    meters = {
+      left = [ "AllCPUs" "Memory" "Swap" "Battery" ];
+      right = [ "Tasks" "LoadAverage" "Uptime" ];
     };
   };
 
