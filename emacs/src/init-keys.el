@@ -226,8 +226,8 @@
   "k" 'evil-window-up
   "H" 'evil-window-move-far-left
   "L" 'evil-window-move-far-right
-  "J" 'evil-window-move-far-down
-  "K" 'evil-window-move-far-up
+  "J" 'evil-window-move-very-bottom
+  "K" 'evil-window-move-very-top
   "/" 'split-window-horizontally
   "-" 'split-window-vertically
   "o" 'delete-other-windows

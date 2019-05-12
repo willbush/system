@@ -38,6 +38,7 @@
           (package-menu package)
           (term term ansi-term multi-term)
           compile
+          cus-theme
           custom
           deadgrep
           debug
