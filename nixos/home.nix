@@ -85,10 +85,10 @@ in
       deadgrep
       define-word
       dired-narrow
+      direnv
       disk-usage
       doom-modeline
       doom-themes
-      direnv
       esup
       evil
       evil-collection
@@ -118,6 +118,7 @@ in
       nav-flash
       nix-mode
       nix-sandbox
+      org-re-reveal
       poporg
       powershell
       projectile
@@ -140,6 +141,8 @@ in
     aspellDicts.en
     aspellDicts.en-computers
     aspellDicts.en-science
+    cabal-install
+    cabal2nix
     chromium
     exa
     feh
@@ -147,18 +150,6 @@ in
     fzf
     gcc
     gnupg
-    keepassxc
-    libreoffice
-    openconnect
-    ranger
-    remmina
-    rustup
-    tokei
-    transmission-gtk
-    vlc
-    # Haskell packages:
-    cabal-install
-    cabal2nix
     haskellPackages.apply-refact
     haskellPackages.ghcid
     haskellPackages.hakyll
@@ -167,8 +158,17 @@ in
     haskellPackages.hlint
     haskellPackages.hoogle
     haskellPackages.stylish-haskell
+    keepassxc
+    libreoffice
     nix-prefetch-git
+    openconnect
+    ranger
+    remmina
+    rustup
     stack
+    tokei
+    transmission-gtk
+    vlc
   ];
 
   programs.git = {
