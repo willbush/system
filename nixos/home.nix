@@ -147,6 +147,7 @@ in
     cabal-install
     cabal2nix
     chromium
+    dotnet-sdk
     exa
     feh
     firefox
