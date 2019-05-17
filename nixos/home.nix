@@ -72,6 +72,8 @@ in
   services.emacs.enable = true;
   programs.emacs = {
     enable = true;
+    # Compile with imagemagick support so I can resize images.
+    package = pkgs.emacs.override { inherit (pkgs) imagemagick; };
     extraPackages = (epkgs: (with epkgs; [
       attrap
       avy
