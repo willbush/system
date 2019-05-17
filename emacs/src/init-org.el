@@ -21,6 +21,11 @@
              (local-set-key "\C-j" 'org-forward-heading-same-level)
              (local-set-key "\C-k" 'org-backward-heading-same-level)))
 
+;; Allows me to set the width of an inline image.
+;; #+ATTR_ORG: :width 100
+;; [[~/images/example.jpg]]
+(setq org-image-actual-width nil)
+
 (setq org-catch-invisible-edits 'show-and-error)
 
 (setq org-list-demote-modify-bullet '(("+" . "-") ("-" . "+") ("*" . "+")))
