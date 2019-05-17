@@ -138,6 +138,7 @@ in
 
   # home packages that need no extra configuration
   home.packages = with pkgs; [
+    # haskellPackages.hakyll
     albert
     aspell
     aspellDicts.en
@@ -154,7 +155,6 @@ in
     gnupg
     haskellPackages.apply-refact
     haskellPackages.ghcid
-    haskellPackages.hakyll
     haskellPackages.hasktags
     haskellPackages.hindent
     haskellPackages.hlint
