@@ -88,11 +88,6 @@
       };
       desktopManager.xterm.enable = false;
     };
-
-    rabbitmq = {
-      enable = true;
-      plugins = [ "rabbitmq_management" ];
-    };
   };
 
   virtualisation.docker.enable = true;
