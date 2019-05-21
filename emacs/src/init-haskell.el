@@ -66,10 +66,7 @@
     "c" '(:ignore t :which-key "check")
     "d" '(:ignore t :which-key "dante")
     "i" 'dante-info
-    "p" 'hasky-stack-package-action
     "r" '(:ignore t :which-key "refactor")
-    "s" 'hasky-stack-execute
-    "t" 'hasky-stack-test
     "v" '(:ignore t :which-key "visit")
     "." 'dante-type-at)
 
@@ -123,11 +120,6 @@
   (when (file-executable-p "~/.nix-profile/bin/brittany")
     (setq hindent-style nil)
     (setq hindent-process-path "~/.nix-profile/bin/brittany")))
-
-(use-package hasky-stack
-  :commands (hasky-stack-execute
-             hasky-stack-package-action
-             hasky-stack-new))
 
 (use-package hlint-refactor
   :commands (hlint-refactor-refactor-at-point))
