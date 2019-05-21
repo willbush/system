@@ -25,7 +25,6 @@ in
     ".config".source = ../config;
     ".config".recursive = true;
     ".xmonad/xmonad.hs".source = ../xmonad/xmonad.hs;
-    ".stack/config.yaml".source = ../stack/config.yaml;
     # Outside of NixOS the dictionary directory needs to be set.
     # https://github.com/NixOS/nixpkgs/issues/4521
     ".aspell.conf".text = ''
@@ -109,7 +108,6 @@ in
       git-timemachine
       golden-ratio
       haskell-mode
-      hasky-stack
       hindent
       hlint-refactor
       hydra
@@ -147,13 +145,13 @@ in
     cabal-install
     cabal2nix
     chromium
-    gnome3.simple-scan
     dotnet-sdk
     exa
     feh
     firefox
     fzf
     gcc
+    gnome3.simple-scan
     gnupg
     haskellPackages.apply-refact
     haskellPackages.ghcid
