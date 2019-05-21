@@ -147,6 +147,7 @@ in
     cabal-install
     cabal2nix
     chromium
+    gnome3.simple-scan
     dotnet-sdk
     exa
     feh
