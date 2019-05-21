@@ -31,7 +31,20 @@
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware = {
+    pulseaudio.enable = true;
+    sane.enable = true;
+    sane.brscan4 = {
+      enable = true;
+      netDevices = {
+        office-printer = {
+          model = "HL-2380DW";
+          ip = "192.168.1.166";
+        };
+      };
+    };
+  };
+
 
   networking = {
     hostName = "nixos";
