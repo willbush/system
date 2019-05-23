@@ -26,9 +26,6 @@
    ))
 (electric-pair-mode t)
 
-;; enable prettify symbols when using GUI emacs
-(when window-system (global-prettify-symbols-mode t))
-
 (use-package doom-themes
   :config
   ;; Corrects (and improves) org-mode's native fontification.
