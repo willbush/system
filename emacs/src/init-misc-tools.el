@@ -63,4 +63,7 @@
     "u" 'direnv-update-environment
     "U" 'direnv-update-directory-environment))
 
+(use-package pdf-tools
+  :mode (("\\.pdf\\'" . pdf-view-mode)))
+
 (provide 'init-misc-tools)
