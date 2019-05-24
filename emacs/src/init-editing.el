@@ -51,6 +51,7 @@
           ivy
           man
           minibuffer
+          (pdf pdf-view)
           woman))
   (evil-collection-init))
 
