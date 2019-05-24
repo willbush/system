@@ -123,6 +123,7 @@ in
       nix-mode
       nix-sandbox
       org-re-reveal
+      pdf-tools
       poporg
       powershell
       projectile
