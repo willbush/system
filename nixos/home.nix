@@ -8,6 +8,10 @@ in
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  home.sessionVariables =  {
+     EDITOR = "emacsclient --create-frame --alternate-editor emacs";
+  };
+
   home.file = {
     ".emacs.d" = {
       source = ../emacs;
