@@ -226,6 +226,12 @@ in
     enableZshIntegration = true;
   };
 
+  programs.ssh = {
+    enable = true;
+    serverAliveInterval = 60;
+    matchBlocks."github.com".identityFile = "~/.ssh/id_rsa_01";
+  };
+
   services.compton = {
     enable = true;
     fade = true;
@@ -238,12 +244,6 @@ in
        "90:class_g ?= 'alacritty' && focused"
        "75:class_g ?= 'alacritty' && !focused"
      ];
-  };
-
-  programs.ssh = {
-    enable = true;
-    serverAliveInterval = 60;
-    matchBlocks."github.com".identityFile = "~/.ssh/id_rsa_01";
   };
 
   services.redshift = {
