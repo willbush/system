@@ -1,7 +1,5 @@
 ;;; -*- lexical-binding: t; -*-
 
-(use-package nix-mode :mode "\\.nix\\'")
-
 (use-package nix-sandbox
   :commands (nix-shell-command
              nix-shell
@@ -11,9 +9,11 @@
              nix-executable-find
              nix-find-sandbox))
 
-(use-package nix-update
-  :commands nix-update-fetch
-  :init
+(use-package nix-update :commands nix-update-fetch)
+
+(use-package nix-mode
+  :mode "\\.nix\\'"
+  :config
   (general-def
     :prefix ","
     :states '(normal visual)
