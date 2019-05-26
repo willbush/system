@@ -11,4 +11,13 @@
              nix-executable-find
              nix-find-sandbox))
 
+(use-package nix-update
+  :commands nix-update-fetch
+  :init
+  (general-def
+    :prefix ","
+    :states '(normal visual)
+    :keymaps 'nix-mode-map
+    "u" 'nix-update-fetch))
+
 (provide 'init-nix)
