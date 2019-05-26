@@ -129,6 +129,7 @@ in
       nav-flash
       nix-mode
       nix-sandbox
+      nix-update
       org-re-reveal
       pdf-tools
       poporg
