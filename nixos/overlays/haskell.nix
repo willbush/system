@@ -16,6 +16,7 @@ in {
                 repo   = "brittany";
                 rev    = "6c187da8f8166d595f36d6aaf419370283b3d1e9";
                 sha256 = "0nmnxprbwws3w1sh63p80qj09rkrgn9888g7iim5p8611qyhdgky";
+                # date = 2018-11-30T22:13:02+01:00;
                 }) {});
 
             multistate = doJailbreak (overrideCabal super.multistate (attrs: { broken = false; }));
