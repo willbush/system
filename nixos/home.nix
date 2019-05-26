@@ -8,6 +8,13 @@ in
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  nixpkgs.overlays =
+      let path = ./overlays; in with builtins;
+      map (n: import (path + ("/" + n)))
+          (filter (n: match ".*\\.nix" n != null ||
+                      pathExists (path + ("/" + n + "/default.nix")))
+                  (attrNames (readDir path)));
+
   home.sessionVariables =  {
      EDITOR = "emacsclient --create-frame --alternate-editor emacs";
   };
@@ -159,6 +166,7 @@ in
     gnome3.simple-scan
     gnupg
     haskellPackages.apply-refact
+    haskellPackages.brittany # marked broken but fixed with an overlay
     haskellPackages.ghcid
     haskellPackages.hasktags
     haskellPackages.hindent
