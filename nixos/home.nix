@@ -164,6 +164,7 @@ in
     firefox
     fzf
     gcc
+    gimp
     gnome3.simple-scan
     gnupg
     haskellPackages.apply-refact
