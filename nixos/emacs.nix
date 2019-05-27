@@ -1,7 +1,5 @@
-{ homeDir, pkgs, ... }:
+{ pkgs, ... }:
 
-let homeDir = builtins.getEnv "HOME";
-in
 {
   services.emacs.enable = true;
   programs.emacs = {
