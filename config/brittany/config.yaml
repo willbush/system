@@ -57,7 +57,6 @@ conf_layout:
   lconfig_reformatModulePreamble: true
 
   # Possible values:
-
   # - AltChooserSimpleQuick :: always choose last alternative. leads to tons of
   #   sparsely filled lines.
   #
