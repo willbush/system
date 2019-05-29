@@ -126,8 +126,18 @@ in
 
   programs.ssh = {
     enable = true;
-    serverAliveInterval = 60;
-    matchBlocks."github.com".identityFile = "~/.ssh/id_rsa_01";
+    serverAliveInterval = 30;
+    extraConfig = ''
+      IdentitiesOnly yes
+      AddKeysToAgent yes
+      UseKeychain yes
+    '';
+
+    matchBlocks."github" = {
+      hostname = "github.com";
+      identityFile = "~/.ssh/id_rsa_github";
+      identitiesOnly = true;
+    };
   };
 
   services.compton = {
