@@ -37,19 +37,19 @@
       '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELED(c)")))
 
 (setq org-agenda-files
-      '("~/Dropbox/org/personal/inbox.org"
-        "~/Dropbox/org/personal/tickler.org"))
+      '("~/org/personal/inbox.org"
+        "~/org/personal/tickler.org"))
 
 (setq org-capture-templates
       '(("t" "Todo [inbox]" entry
-        (file+headline "~/Dropbox/org/personal/inbox.org" "Inbox Tasks")
+        (file+headline "~/org/personal/inbox.org" "Inbox Tasks")
         "* TODO %i%?") ("T" "Tickler"
-        entry (file+headline "~/Dropbox/org/personal/tickler.org" "Tickler") "* %i%? \n %U")))
+        entry (file+headline "~/org/personal/tickler.org" "Tickler") "* %i%? \n %U")))
 
 (setq org-refile-targets
-      '(("~/Dropbox/org/personal/gtd.org" :level . 1)
-        ("~/Dropbox/org/personal/someday.org" :level . 1)
-        ("~/Dropbox/org/personal/tickler.org" :level . 1)))
+      '(("~/org/personal/gtd.org" :level . 1)
+        ("~/org/personal/someday.org" :level . 1)
+        ("~/org/personal/tickler.org" :level . 1)))
 
 ;; Puts archive files into a relative path to an archive folder with
 ;; the year in the file name. See doc string for info on special
