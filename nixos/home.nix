@@ -130,7 +130,6 @@ in
     extraConfig = ''
       IdentitiesOnly yes
       AddKeysToAgent yes
-      UseKeychain yes
     '';
 
     matchBlocks."github" = {
