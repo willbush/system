@@ -127,15 +127,10 @@ in
   programs.ssh = {
     enable = true;
     serverAliveInterval = 30;
-    extraConfig = ''
-      IdentitiesOnly yes
-      AddKeysToAgent yes
-    '';
 
     matchBlocks."github" = {
       hostname = "github.com";
       identityFile = "~/.ssh/id_rsa_github";
-      identitiesOnly = true;
     };
   };
 
