@@ -153,6 +153,6 @@ in
     latitude = "33";
     longitude = "-97";
     temperature.day = 6500;
-    temperature.night = 2700;
+    temperature.night = 2200;
   };
 }
