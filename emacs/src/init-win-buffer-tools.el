@@ -73,7 +73,7 @@
 (use-package dashboard
   :hook (after-init . dashboard-setup-startup-hook)
   :config
-  (setq dashboard-banner-logo-title (format "init time: %s" (emacs-init-time)))
+  (setq dashboard-banner-logo-title nil)
   (setq dashboard-startup-banner 'official)
   (setq dashboard-items '((recents  . 5))))
 
