@@ -17,6 +17,11 @@
     maxJobs = 16; # should be 1 per CPU logical core
     binaryCaches = [ "https://cache.nixos.org/" "https://nixcache.reflex-frp.org" ];
     binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
+    gc = {
+      automatic = true;
+      dates = "23:00";
+      options = "--delete-older-than 30d";
+    };
   };
 
   # Set your time zone.
