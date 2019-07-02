@@ -11,6 +11,14 @@
   # Allow unfree, which is required for some drivers.
   nixpkgs.config.allowUnfree = true;
 
+  nix = {
+    useSandbox = true;
+    autoOptimiseStore = true;
+    maxJobs = 16; # should be 1 per CPU logical core
+    binaryCaches = [ "https://cache.nixos.org/" "https://nixcache.reflex-frp.org" ];
+    binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
+  };
+
   # Set your time zone.
   time.timeZone = "America/Chicago";
 
@@ -119,9 +127,6 @@
   ];
 
   programs.ssh.startAgent = true;
-
-  nix.binaryCaches = [ "https://cache.nixos.org/" "https://nixcache.reflex-frp.org" ];
-  nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
 
   system.stateVersion = "19.03";
 }
