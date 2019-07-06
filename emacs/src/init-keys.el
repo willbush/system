@@ -106,6 +106,7 @@
   "d" 'fd-dired
   "f" 'counsel-find-file
   "s" 'save-buffer
+  "y" 'my/yank-and-show-buffer-full-path
   "z" 'counsel-fzf)
 
 (general-def
