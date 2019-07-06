@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 let homeDir = builtins.getEnv "HOME";
+    planck = pkgs.callPackage ./keyboard-firmware/planck {};
 in
 {
   imports = [
@@ -41,6 +42,7 @@ in
 
   # home packages that need no extra configuration
   home.packages = with pkgs; [
+    # haskellPackages.brittany # marked broken but fixed with an overlay
     # haskellPackages.hakyll
     albert
     aspell
@@ -60,7 +62,6 @@ in
     gnome3.simple-scan
     gnupg
     haskellPackages.apply-refact
-    haskellPackages.brittany # marked broken but fixed with an overlay
     haskellPackages.ghcid
     haskellPackages.hasktags
     haskellPackages.hindent
@@ -71,6 +72,7 @@ in
     libreoffice
     nix-prefetch-git
     openconnect
+    planck
     ranger
     remmina
     rustup
