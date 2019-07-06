@@ -73,6 +73,16 @@ visual block/rectangle selection."
       (abort-recursive-edit)
     (kill-buffer)))
 
+;; http://camdez.com/blog/2013/11/14/emacs-show-buffer-file-name/
+(defun my/yank-and-show-buffer-full-path ()
+  "Yank (i.e. copy) and show the full path to the current file in the minibuffer."
+  (interactive)
+  ;; list-buffers-directory is the variable set in dired buffers
+  (let ((file-name (or (buffer-file-name) list-buffers-directory)))
+    (if file-name
+        (message (kill-new file-name))
+      (error "Buffer not visiting a file"))))
+
 (defun my/toggle-maximize-window ()
   "Toggle between maximizing the window and restoring previous window setup."
   (interactive)
