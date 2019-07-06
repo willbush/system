@@ -22,6 +22,12 @@ let
 
     echo "Flashing..."
 
+    # Flashing is typically done using make in the qmk_firmware source directory.
+    # The make file (qmk_firmware/tmk_core/chibios.mk) has rules that call the
+    # dfu-util. I just wrapped the command with echo to see the arguments it was
+    # passing to dfu-util and did "make planck/rev6:willbush:dfu-util" to kick
+    # off the typical make build and flash command.
+
     ${dfu-util}/bin/dfu-util -d 0483:df11 -a 0 -s 0x08000000:leave -D $1/planck_rev6_willbush.bin -v
   '';
 in stdenv.mkDerivation rec {
@@ -47,7 +53,6 @@ in stdenv.mkDerivation rec {
   prePatch = ''
     mkdir -pv keyboards/planck/keymaps/willbush
     cp -rv ${./keymap}/* keyboards/planck/keymaps/willbush
-    echo $PWD
   '';
 
   buildPhase = "make planck/rev6:willbush";
@@ -55,6 +60,7 @@ in stdenv.mkDerivation rec {
   installPhase = ''
     mkdir -p $out/bin
     cp .build/planck_rev6_willbush.bin $out/
+    # Wrap the script in order to pass the out path to it.
     makeWrapper ${flash-planck} $out/bin/flash-planck --add-flags $out
   '';
 }
