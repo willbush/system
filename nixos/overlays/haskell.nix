@@ -14,9 +14,9 @@ in {
               (pkgs.fetchFromGitHub {
                 owner  = "lspitzner";
                 repo   = "brittany";
-                rev    = "6c187da8f8166d595f36d6aaf419370283b3d1e9";
-                sha256 = "0nmnxprbwws3w1sh63p80qj09rkrgn9888g7iim5p8611qyhdgky";
-                # date = 2018-11-30T22:13:02+01:00;
+                rev    = "988d5b435390f2391583b09e79304814c35dfd2b";
+                sha256 = "0j6zkz9pbs7hkjdlrwl4cisnyd4r1fjbxffx41cz5azri79ff0gl";
+                # date = 2019-06-23T19:31:05-05:00;
                 }) {});
 
             multistate = doJailbreak (overrideCabal super.multistate (attrs: { broken = false; }));
