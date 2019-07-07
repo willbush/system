@@ -9,6 +9,7 @@ enum planck_layers {
   _LOWER,
   _RAISE,
   _HYPER,
+  _HYPERSPACE,
   _NUMPAD,
   _PLOVER,
   _ADJUST
@@ -25,6 +26,7 @@ enum planck_keycodes {
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define HYPER MO(_HYPER)
+#define HYPERSPACE MO(_HYPERSPACE)
 #define NUMPAD MO(_NUMPAD)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -58,6 +60,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
   ),
+  [_HYPERSPACE] = LAYOUT_planck_grid(
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+  ),
   [_NUMPAD] = LAYOUT_planck_grid(
     _______, _______, _______, _______, _______, _______, _______, KC_7,    KC_8,    KC_9,    _______, _______,
     _______, _______, _______, _______, _______, _______, _______, KC_4,    KC_5,    KC_6,    _______, _______,
@@ -84,7 +92,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #endif
 
 uint32_t layer_state_set_user(uint32_t state) {
-  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+  state = update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+  state = update_tri_layer_state(state, _LOWER, _HYPER, _HYPERSPACE);
+  return state;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -128,6 +138,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         layer_off(_LOWER);
         layer_off(_NUMPAD);
         layer_off(_HYPER);
+        layer_off(_HYPERSPACE);
         layer_off(_ADJUST);
         layer_on(_PLOVER);
         if (!eeconfig_is_enabled()) {
