@@ -264,24 +264,27 @@
   | rev   | reverse           |
   | scrn  | screen            |
   | subst | substitute        |
+  | tgl   | toggle            |
 
 ** Vanilla Evil on Qwerty
 
 *** Left half
 
-  | state   | col 0 | col 1        | col 2       | col 3           | col 4          | col 5           |
-  |---------+-------+--------------+-------------+-----------------+----------------+-----------------|
-  | default | Tab   | q rec macro  | w next word | e end word      | r replace char | t till          |
-  | shift   |       | Q ex mode    | W next WORD | E end WORD      | R replace mode | T back till     |
-  |---------+-------+--------------+-------------+-----------------+----------------+-----------------|
-  | default | Esc/C | a append     | s subst     | d del           | f find         | g extra cmds    |
-  | shift   |       | A append eol | S subst ln  | D del to eol    | F back find    | G eof / goto ln |
-  |---------+-------+--------------+-------------+-----------------+----------------+-----------------|
-  | default | Shift | z extra cmds | x del char  | c change        | v visual mode  | b prev word     |
-  | shift   |       | Z quit       | X Bksp      | C change to eol | V visual lines | B prev WORD     |
-  |---------+-------+--------------+-------------+-----------------+----------------+-----------------|
-  | default | Ctrl  | NUM          | GUI         | Alt             | Lower          | Hyper           |
-  |---------+-------+--------------+-------------+-----------------+----------------+-----------------|
+  | state   | col 0      | col 1        | col 2        | col 3           | col 4          | col 5           |
+  |---------+------------+--------------+--------------+-----------------+----------------+-----------------|
+  | default | Tab        | q rec macro  | w next word  | e end word      | r replace char | t till          |
+  | shift   |            | Q ex mode    | W next WORD  | E end WORD      | R replace mode | T back till     |
+  | raise   | ` goto mk  | 1            | 2            | 3               | 4              | 5               |
+  | lower   | ~ tgl case | ! ex filter  | @ play macro | # prev id       | $ eol          | % goto match    |
+  |---------+------------+--------------+--------------+-----------------+----------------+-----------------|
+  | default | Esc/C      | a append     | s subst      | d del           | f find         | g extra cmds    |
+  | shift   |            | A append eol | S subst ln   | D del to eol    | F back find    | G eof / goto ln |
+  |---------+------------+--------------+--------------+-----------------+----------------+-----------------|
+  | default | Shift      | z extra cmds | x del char   | c change        | v visual mode  | b prev word     |
+  | shift   |            | Z quit       | X Bksp       | C change to eol | V visual lines | B prev WORD     |
+  |---------+------------+--------------+--------------+-----------------+----------------+-----------------|
+  | default | Ctrl       | NUM          | GUI          | Alt             | Lower          | Hyper           |
+  |---------+------------+--------------+--------------+-----------------+----------------+-----------------|
 
 *** Right half
 
@@ -304,32 +307,36 @@
 
 *** Left half
 
-  | state   | col 0 | col 1        | col 2          | col 3           | col 4           | col 5           |
-  |---------+-------+--------------+----------------+-----------------+-----------------+-----------------|
-  | default | Tab   | q rec macro  | w next word    | f find          | p paste after   | b prev word     |
-  | shift   |       | Q ex mode    | W next WORD    | F back find     | P paster before | B prev WORD     |
-  |---------+-------+--------------+----------------+-----------------+-----------------+-----------------|
-  | default | Esc/C | a append     | r replace char | s subst         | t till          | g extra cmds    |
-  | shift   |       | A append eol | R replace mode | S subst ln      | T back till     | G eof / goto ln |
-  |---------+-------+--------------+----------------+-----------------+-----------------+-----------------|
-  | default | Shift | z extra cmds | x del char     | c change        | d del           | v visual mode   |
-  | shift   |       | Z quit       | X Bksp         | C change to eol | D del to eol    | V visual lines  |
-  |---------+-------+--------------+----------------+-----------------+-----------------+-----------------|
-  | default | Ctrl  | NUM          | GUI            | Alt             | Lower           | Hyper           |
-  |---------+-------+--------------+----------------+-----------------+-----------------+-----------------|
+  | state   | col 0      | col 1        | col 2          | col 3           | col 4           | col 5           |
+  |---------+------------+--------------+----------------+-----------------+-----------------+-----------------|
+  | default | Tab        | q rec macro  | w next word    | f find          | p paste after   | b prev word     |
+  | shift   |            | Q ex mode    | W next WORD    | F back find     | P paster before | B prev WORD     |
+  | raise   | ` goto mk  | 1            | 2              | 3               | 4               | 5               |
+  | lower   | ~ tgl case | ! ex filter  | @ play macro   | # prev id       | $ eol           | % goto match    |
+  |---------+------------+--------------+----------------+-----------------+-----------------+-----------------|
+  | default | Esc/C      | a append     | r replace char | s subst         | t till          | g extra cmds    |
+  | shift   |            | A append eol | R replace mode | S subst ln      | T back till     | G eof / goto ln |
+  |---------+------------+--------------+----------------+-----------------+-----------------+-----------------|
+  | default | Shift      | z extra cmds | x del char     | c change        | d del           | v visual mode   |
+  | shift   |            | Z quit       | X Bksp         | C change to eol | D del to eol    | V visual lines  |
+  |---------+------------+--------------+----------------+-----------------+-----------------+-----------------|
+  | default | Ctrl       | NUM          | GUI            | Alt             | Lower           | Hyper           |
+  |---------+------------+--------------+----------------+-----------------+-----------------+-----------------|
 
 *** Right half
 
-  | layer   | col 6      | col 7         | col 8       | col 9         | col 10        | col 11        |
-  |---------+------------+---------------+-------------+---------------+---------------+---------------|
-  | default | j down     | l right       | u undo      | y yank        | ; repeat      | Bksp          |
-  | shift   | J join ln  | L scrn bottom | U undo line | Y tank ln     | : ex cmd line |               |
-  |---------+------------+---------------+-------------+---------------+---------------+---------------|
-  | default | m set mk   | n next        | e end word  | i insert mode | o open below  | ' goto mk bol |
-  | shift   | M scrn mid | N prev        | E end WORD  | i insert bol  | O open above  | " reg spec    |
-  |---------+------------+---------------+-------------+---------------+---------------+---------------|
-  | default | k up       | h left        | ,           | .             | / find        | RET/S         |
-  | shift   | K help     | H scrn top    | < un-indent | > indent      | ? rev find    |               |
-  |---------+------------+---------------+-------------+---------------+---------------+---------------|
-  | default | SPC        | Raise         | Left        | Down          | Up            | Right         |
-  |---------+------------+---------------+-------------+---------------+---------------+---------------|
+  | layer   | col 6      | col 7         | col 8       | col 9            | col 10         | col 11        |
+  |---------+------------+---------------+-------------+------------------+----------------+---------------|
+  | default | j down     | l right       | u undo      | y yank           | ; repeat       | Bksp          |
+  | shift   | J join ln  | L scrn bottom | U undo line | Y tank ln        | : ex cmd line  |               |
+  | raise   | 6          | 7             | 8           | 9                | 0              |               |
+  | lower   | ^ soft bol | & repeat :s   | * next id   | ( begin sentence | ) end sentence |               |
+  |---------+------------+---------------+-------------+------------------+----------------+---------------|
+  | default | m set mk   | n next        | e end word  | i insert mode    | o open below   | ' goto mk bol |
+  | shift   | M scrn mid | N prev        | E end WORD  | i insert bol     | O open above   | " reg spec    |
+  |---------+------------+---------------+-------------+------------------+----------------+---------------|
+  | default | k up       | h left        | ,           | .                | / find         | RET/S         |
+  | shift   | K help     | H scrn top    | < un-indent | > indent         | ? rev find     |               |
+  |---------+------------+---------------+-------------+------------------+----------------+---------------|
+  | default | SPC        | Raise         | Left        | Down             | Up             | Right         |
+  |---------+------------+---------------+-------------+------------------+----------------+---------------|
