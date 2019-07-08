@@ -224,73 +224,112 @@
   fix. However, I personally don't have a problem investing the time to get over
   the learning curve for the sake of bindings that make more sense to me.
 
-** Key aliases used below
 
- | Alias | Meaning           |
- |-------+-------------------|
- | C     | Ctrl              |
- | GUI   | Win / Super key   |
- | NUM   | NUMPAD            |
- | RET   | Return            |
- | S     | Shift             |
- | SPC   | Space             |
- | bol   | beginning of line |
- | del   | delete            |
- | eof   | end of file       |
- | eol   | end of line       |
- | ln    | line              |
- | rec   | record            |
- | subst | substitute        |
+** How to read the tables below:
 
+   I'm using [[http://www.viemu.com/vi-vim-cheat-sheet.gif][this cheat sheet]] to fill in the default bindings for vim in an org
+   table. The table below isn't meant to be a cheat sheet as many of the key are
+   more nuanced than the description might lead one to believe. I'm overlaying
+   the bindings onto my keymap for my Planck keyboard so I can easily ponder how
+   to rearrange keys.
+
+ - The table is split in half for the sake of not having to scroll horizontally.
+
+ - The left most column named ~state~ describes modified states (i.e. holding
+   Shift, Ctrl etc.), keyboard layers, and Vim modes.
+
+ - I use =x/y= to denote a key that does x when tapped and y when held. For
+   example, =RET/S= performs return when tapped and shift when held.
+
+ - Unfortunately, the table doesn't render well from org to Github markdown so
+   you may want to view it as raw text.
+
+
+  | Alias | Meaning           |
+  |-------+-------------------|
+  | #     | A number (0-9)    |
+  | C     | Ctrl              |
+  | GUI   | Win / Super key   |
+  | NUM   | NUMPAD            |
+  | RET   | Return            |
+  | S     | Shift             |
+  | SPC   | Space             |
+  | bol   | beginning of line |
+  | del   | delete            |
+  | eof   | end of file       |
+  | eol   | end of line       |
+  | ln    | line              |
+  | mk    | mark              |
+  | rec   | record            |
+  | rev   | reverse           |
+  | scrn  | screen            |
+  | subst | substitute        |
 
 ** Vanilla Evil on Qwerty
 
-   I'm using [[http://www.viemu.com/vi-vim-cheat-sheet.gif][this cheat sheet]] to fill in the default bindings for vim in an org
-   table. I'm overlaying the bindings onto my keymap for my Planck keyboard so I
-   can easily ponder how to rearrange keys.
-
-   How to read the table:
-
-   - Unfortunately, the table doesn't render well from org to Github markdown so
-     you may want to view it as raw text.
-   - The table is split in half for the sake of not having to scroll horizontally.
-   - The left most column named ~state~ describes modified states (i.e. holding
-     Shift, Ctrl etc.), keyboard layers, and Vim modes.
-
 *** Left half
 
-  | state   | col 0 | col 1        | col 2       | col 3        | col 4          | col 5       |
-  |---------+-------+--------------+-------------+--------------+----------------+-------------|
-  | default | Tab   | q rec macro  | w next word | e end word   | r replace char | t till      |
-  | shift   |       | Q ex mode    | W next WORD | E end WORD   | R replace mode | T back till |
-  | prefix  |       |              |             |              |                |             |
-  |---------+-------+--------------+-------------+--------------+----------------+-------------|
-  | default | Esc/C | a append     | s subst     | d del        | f find         | g extra     |
-  | shift   |       | A append eol | S subst ln  | D del to eol | F back find    | G eof       |
-  | prefix  |       |              |             |              |                | G goto ln   |
-  |---------+-------+--------------+-------------+--------------+----------------+-------------|
-  | default | Shift | z            | x           | c            | v              | b           |
-  | shift   |       |              |             |              |                |             |
-  | prefix  |       |              |             |              |                |             |
-  |---------+-------+--------------+-------------+--------------+----------------+-------------|
-  | default | Ctrl  | NUM          | GUI         | Alt          | Lower          | Hyper       |
-  | shift   |       |              |             |              |                |             |
-  | prefix  |       |              |             |              |                |             |
-  |---------+-------+--------------+-------------+--------------+----------------+-------------|
+  | state   | col 0 | col 1        | col 2       | col 3           | col 4          | col 5           |
+  |---------+-------+--------------+-------------+-----------------+----------------+-----------------|
+  | default | Tab   | q rec macro  | w next word | e end word      | r replace char | t till          |
+  | shift   |       | Q ex mode    | W next WORD | E end WORD      | R replace mode | T back till     |
+  |---------+-------+--------------+-------------+-----------------+----------------+-----------------|
+  | default | Esc/C | a append     | s subst     | d del           | f find         | g extra cmds    |
+  | shift   |       | A append eol | S subst ln  | D del to eol    | F back find    | G eof / goto ln |
+  |---------+-------+--------------+-------------+-----------------+----------------+-----------------|
+  | default | Shift | z extra cmds | x del char  | c change        | v visual mode  | b prev word     |
+  | shift   |       | Z quit       | X Bksp      | C change to eol | V visual lines | B prev WORD     |
+  |---------+-------+--------------+-------------+-----------------+----------------+-----------------|
+  | default | Ctrl  | NUM          | GUI         | Alt             | Lower          | Hyper           |
+  |---------+-------+--------------+-------------+-----------------+----------------+-----------------|
 
 *** Right half
 
-  | layer   | col 6     | col 7       | col 8         | col 9        | col 10          | col 11 |
-  |---------+-----------+-------------+---------------+--------------+-----------------+--------|
-  | default | y yank    | u undo      | i insert mode | o open below | p paste after   | Bksp   |
-  | shift   | Y tank ln | U undo line | i insert bol  | O open above | P paster before |        |
-  |---------+-----------+-------------+---------------+--------------+-----------------+--------|
-  | default | h         | j           | k             | l            | ;               | " reg  |
-  | shift   |           |             |               |              |                 |        |
-  |---------+-----------+-------------+---------------+--------------+-----------------+--------|
-  | default | n         | m           | ,             | .            | /               | RET/S  |
-  | shift   |           |             |               |              |                 |        |
-  |---------+-----------+-------------+---------------+--------------+-----------------+--------|
-  | default | SPC       | Raise       | Left          | Down         | Up              | Right  |
-  | shift   |           |             |               |              |                 |        |
-  |---------+-----------+-------------+---------------+--------------+-----------------+--------|
+  | layer   | col 6      | col 7       | col 8         | col 9         | col 10          | col 11        |
+  |---------+------------+-------------+---------------+---------------+-----------------+---------------|
+  | default | y yank     | u undo      | i insert mode | o open below  | p paste after   | Bksp          |
+  | shift   | Y tank ln  | U undo line | i insert bol  | O open above  | P paster before |               |
+  |---------+------------+-------------+---------------+---------------+-----------------+---------------|
+  | default | h left     | j down      | k up          | l right       | ; repeat        | ' goto mk bol |
+  | shift   | H scrn top | J join ln   | K help        | L scrn bottom | : ex cmd line   | " reg spec    |
+  |---------+------------+-------------+---------------+---------------+-----------------+---------------|
+  | default | n next     | m set mk    | ,             | .             | / find          | RET/S         |
+  | shift   | N prev     | M scrn mid  | < un-indent   | > indent      | ? rev find      |               |
+  |---------+------------+-------------+---------------+---------------+-----------------+---------------|
+  | default | SPC        | Raise       | Left          | Down          | Up              | Right         |
+  |---------+------------+-------------+---------------+---------------+-----------------+---------------|
+
+
+** Vanilla Evil on ortho-linear Colemak-DH
+
+*** Left half
+
+  | state   | col 0 | col 1        | col 2          | col 3           | col 4           | col 5           |
+  |---------+-------+--------------+----------------+-----------------+-----------------+-----------------|
+  | default | Tab   | q rec macro  | w next word    | f find          | p paste after   | b prev word     |
+  | shift   |       | Q ex mode    | W next WORD    | F back find     | P paster before | B prev WORD     |
+  |---------+-------+--------------+----------------+-----------------+-----------------+-----------------|
+  | default | Esc/C | a append     | r replace char | s subst         | t till          | g extra cmds    |
+  | shift   |       | A append eol | R replace mode | S subst ln      | T back till     | G eof / goto ln |
+  |---------+-------+--------------+----------------+-----------------+-----------------+-----------------|
+  | default | Shift | z extra cmds | x del char     | c change        | d del           | v visual mode   |
+  | shift   |       | Z quit       | X Bksp         | C change to eol | D del to eol    | V visual lines  |
+  |---------+-------+--------------+----------------+-----------------+-----------------+-----------------|
+  | default | Ctrl  | NUM          | GUI            | Alt             | Lower           | Hyper           |
+  |---------+-------+--------------+----------------+-----------------+-----------------+-----------------|
+
+*** Right half
+
+  | layer   | col 6      | col 7         | col 8       | col 9         | col 10        | col 11        |
+  |---------+------------+---------------+-------------+---------------+---------------+---------------|
+  | default | j down     | l right       | u undo      | y yank        | ; repeat      | Bksp          |
+  | shift   | J join ln  | L scrn bottom | U undo line | Y tank ln     | : ex cmd line |               |
+  |---------+------------+---------------+-------------+---------------+---------------+---------------|
+  | default | m set mk   | n next        | e end word  | i insert mode | o open below  | ' goto mk bol |
+  | shift   | M scrn mid | N prev        | E end WORD  | i insert bol  | O open above  | " reg spec    |
+  |---------+------------+---------------+-------------+---------------+---------------+---------------|
+  | default | k up       | h left        | ,           | .             | / find        | RET/S         |
+  | shift   | K help     | H scrn top    | < un-indent | > indent      | ? rev find    |               |
+  |---------+------------+---------------+-------------+---------------+---------------+---------------|
+  | default | SPC        | Raise         | Left        | Down          | Up            | Right         |
+  |---------+------------+---------------+-------------+---------------+---------------+---------------|
