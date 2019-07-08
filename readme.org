@@ -179,3 +179,116 @@
  |---+--------+--------+--------+--------+--------+--------+--------+--------+--------+---+-----|
  |   |        |        |        |        |        |        |        |        |        |   |     |
  |---+--------+--------+--------+--------+--------+--------+--------+--------+--------+---+-----|
+
+
+* Hacking Evil (VIM) keybindings
+
+  Switching to Colemak keyboard layout has caused me to want to customize the
+  evil key bindings from their defaults. The main motivator is the spread out
+  positions of h, j, k, and l keys.
+
+  Most people who use vim with Colemak either get used to the new positions of
+  things or use something like an [[https://colemakmods.github.io/ergonomic-mods/extend.html][extend layer]] to layer movement keys over the
+  positions of said movement keys. The argument is that you shouldn't be using
+  those keys much anyways because there are better approaches to movement. In
+  addition, using a keyboard layer makes this movement available to all
+  applications outside of editors and IDEs that provide vim emulation.
+
+  I find this argument unsatisfactory. I already use most of the better methods
+  of movement, yet my usage of j and k remains quite high despite using ={=,
+  ={=, =(=, =)=, =C-u=, =C-d=, and avy quite a lot. The letters h and l for
+  horizontal movement I have almost completely replaced with f/F (find) and t/T
+  (till) along with w, b, and e. However, there are situations where I'm off by
+  one character and need to hit them.
+
+  Turns out needing to up or down short distances is a common task, and a lot of
+  the time I'm just perusing with no specific target or editing goal in mind. In
+  addition, these keys often provide the semantic equivalent of movement key
+  bindings in various packages that are not concerned with editing text.
+
+  I haven't actually measured this, but I suspect the frequency of my usage of j
+  and k is quite high. This is why I find the common solutions to VIM + Colemak
+  unsatisfactory. The same drive to optimize things (and perhaps shave some
+  Yaks) and learn Colemak is the same one that makes me want to fix this.
+
+  Personally, I see the main downside to customizing Evil mode is the need to
+  replicate the custom keybindings in anything else where I want to use it's Vim
+  emulation. I think the Emacs package Tramp solves the issue with needing to
+  ssh into a machine. And even without that, I typically have a user profile I
+  could easily add a configuration file to.
+
+  So now the question is how far do I take the customization. Even doing the
+  minimal changes to get my Colemak Mod-DH (ortho-linear version) keys (m, n, e,
+  i) swapped with h, j, k, and l will incur all the cons I mentioned above, so
+  why not go all the way? Learning curve might be one reason to do a minimal
+  fix. However, I personally don't have a problem investing the time to get over
+  the learning curve for the sake of bindings that make more sense to me.
+
+** Key aliases used below
+
+ | Alias | Meaning           |
+ |-------+-------------------|
+ | C     | Ctrl              |
+ | GUI   | Win / Super key   |
+ | NUM   | NUMPAD            |
+ | RET   | Return            |
+ | S     | Shift             |
+ | SPC   | Space             |
+ | bol   | beginning of line |
+ | del   | delete            |
+ | eof   | end of file       |
+ | eol   | end of line       |
+ | ln    | line              |
+ | rec   | record            |
+ | subst | substitute        |
+
+
+** Vanilla Evil on Qwerty
+
+   I'm using [[http://www.viemu.com/vi-vim-cheat-sheet.gif][this cheat sheet]] to fill in the default bindings for vim in an org
+   table. I'm overlaying the bindings onto my keymap for my Planck keyboard so I
+   can easily ponder how to rearrange keys.
+
+   How to read the table:
+
+   - The table is split in half for the sake of not having to scroll horizontally.
+   - The left most column named ~state~ describes modified states (i.e. holding
+     Shift, Ctrl etc.), keyboard layers, and Vim modes.
+
+*** Left half
+
+  | state   | col 0 | col 1        | col 2       | col 3        | col 4          | col 5       |
+  |---------+-------+--------------+-------------+--------------+----------------+-------------|
+  | default | Tab   | q rec macro  | w next word | e end word   | r replace char | t till      |
+  | shift   |       | Q ex mode    | W next WORD | E end WORD   | R replace mode | T back till |
+  | prefix  |       |              |             |              |                |             |
+  |---------+-------+--------------+-------------+--------------+----------------+-------------|
+  | default | Esc/C | a append     | s subst     | d del        | f find         | g extra     |
+  | shift   |       | A append eol | S subst ln  | D del to eol | F back find    | G eof       |
+  | prefix  |       |              |             |              |                | G goto ln   |
+  |---------+-------+--------------+-------------+--------------+----------------+-------------|
+  | default | Shift | z            | x           | c            | v              | b           |
+  | shift   |       |              |             |              |                |             |
+  | prefix  |       |              |             |              |                |             |
+  |---------+-------+--------------+-------------+--------------+----------------+-------------|
+  | default | Ctrl  | NUM          | GUI         | Alt          | Lower          | Hyper       |
+  | shift   |       |              |             |              |                |             |
+  | prefix  |       |              |             |              |                |             |
+  |---------+-------+--------------+-------------+--------------+----------------+-------------|
+
+*** Right half
+
+  | layer   | col 6     | col 7       | col 8         | col 9        | col 10          | col 11 |
+  |---------+-----------+-------------+---------------+--------------+-----------------+--------|
+  | default | y yank    | u undo      | i insert mode | o open below | p paste after   | Bksp   |
+  | shift   | Y tank ln | U undo line | i insert bol  | O open above | P paster before |        |
+  |---------+-----------+-------------+---------------+--------------+-----------------+--------|
+  | default | h         | j           | k             | l            | ;               | " reg  |
+  | shift   |           |             |               |              |                 |        |
+  |---------+-----------+-------------+---------------+--------------+-----------------+--------|
+  | default | n         | m           | ,             | .            | /               | RET/S  |
+  | shift   |           |             |               |              |                 |        |
+  |---------+-----------+-------------+---------------+--------------+-----------------+--------|
+  | default | SPC       | Raise       | Left          | Down         | Up              | Right  |
+  | shift   |           |             |               |              |                 |        |
+  |---------+-----------+-------------+---------------+--------------+-----------------+--------|
