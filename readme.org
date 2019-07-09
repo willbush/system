@@ -81,11 +81,11 @@
 
  | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- | `     | 1     | 2     | 3     | 4     | 5     | 6     | 7     | 8     | 9     | 0     | Bksp  |
+ | `     |     1 |     2 |     3 |     4 |     5 |     6 | 7     | 8     | 9     | 0     | Bksp  |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- | Del   | F1    | F2    | F3    | F4    | F5    | F6    | -     | =     | [     | ]     | \     |
+ | Del   |       |       |       |       |       |       | -     | =     | [     | ]     | \     |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       | F7    | F8    | F9    | F10   | F11   | F12   |       |       | Pg Up | Pg Dn |       |
+ |       |       |       |       |       |       |       |       |       | Pg Up | Pg Dn |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  |       |       |       |       |       |       |       |       |       |       |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
@@ -97,9 +97,9 @@
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  | ~     | !     | @     | #     | $     | %     | ^     | &     | *     | (     | )     | Bksp  |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- | Del   | F1    | F2    | F3    | F4    | F5    | F6    | _     | +     | {     | }     |       |
+ | Del   |       |       |       |       |       |       | _     | +     | {     | }     |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       | F7    | F8    | F9    | F10   | F11   | F12   |       |       | Home  | End   |       |
+ |       |       |       |       |       |       |       |       |       | Home  | End   |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  |       |       |       |       |       |       |       |       |       |       |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
@@ -133,7 +133,7 @@
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
 
 
-** NumPad
+** Func
 
    I just bind the normal key code for numbers instead of the number pad variant
    of it because I only use it for entering numbers and I never want to deal
@@ -141,11 +141,11 @@
 
  | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       |       |       |       |       |       |       |     7 |     8 |     9 |       |       |
+ |       | F1    | F2    | F3    | F4    |       |       |     7 |     8 |     9 |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       |       |       |       |       |       |       |     4 |     5 |     6 |       |       |
+ |       | F5    | F6    | F7    | F8    |       |       |     4 |     5 |     6 |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       |       |       |       |       |       |       |     1 |     2 |     3 |       |       |
+ |       | F9    | F10   | F11   | F12   |       |       |     1 |     2 |     3 |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  |       |       |       |       |       |       |       |     0 |       |     . |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
@@ -291,7 +291,7 @@
   | layer   | col 6      | col 7       | col 8         | col 9         | col 10          | col 11        |
   |---------+------------+-------------+---------------+---------------+-----------------+---------------|
   | default | y yank     | u undo      | i insert mode | o open below  | p paste after   | Bksp          |
-  | shift   | Y tank ln  | U undo line | i insert bol  | O open above  | P paster before |               |
+  | shift   | Y tank ln  | U undo line | I insert bol  | O open above  | P paster before |               |
   |---------+------------+-------------+---------------+---------------+-----------------+---------------|
   | default | h left     | j down      | k up          | l right       | ; repeat        | ' goto mk bol |
   | shift   | H scrn top | J join ln   | K help        | L scrn bottom | : ex cmd line   | " reg spec    |
@@ -333,7 +333,69 @@
   | lower   | ^ soft bol | & repeat :s   | * next id   | ( begin sentence | ) end sentence |               |
   |---------+------------+---------------+-------------+------------------+----------------+---------------|
   | default | m set mk   | n next        | e end word  | i insert mode    | o open below   | ' goto mk bol |
-  | shift   | M scrn mid | N prev        | E end WORD  | i insert bol     | O open above   | " reg spec    |
+  | shift   | M scrn mid | N prev        | E end WORD  | I insert bol     | O open above   | " reg spec    |
+  |---------+------------+---------------+-------------+------------------+----------------+---------------|
+  | default | k up       | h left        | ,           | .                | / find         | RET/S         |
+  | shift   | K help     | H scrn top    | < un-indent | > indent         | ? rev find     |               |
+  |---------+------------+---------------+-------------+------------------+----------------+---------------|
+  | default | SPC        | Raise         | Left        | Down             | Up             | Right         |
+  |---------+------------+---------------+-------------+------------------+----------------+---------------|
+
+** Custom Evil on ortho-linear Colemak-DH
+
+*** Swapped key functionality
+
+  | before          | after         |
+  |-----------------+---------------|
+  | $ eol           | I eol         |
+  | 0 hard bol      | M hard bol    |
+  | C-R redo        | U redo        |
+  | C-d scroll down | N scroll down |
+  | C-u  scroll up  | E scroll up   |
+  | E end WORD      | L end WORD    |
+  | H scrn top      |               |
+  | I insert bol    | S insert bol  |
+  | L scrn low      |               |
+  | M scrn mid      |               |
+  | N prev          | K prev        |
+  | e end word      | L end word    |
+  | h left          | m left        |
+  | i insert mode   | s insert mode |
+  | j down          | n down        |
+  | k up            | e up          |
+  | l right         | i right       |
+  | m set mk        | 0 set mk      |
+  | n next          | k next        |
+
+*** Left half
+
+  | state   | col 0      | col 1        | col 2          | col 3           | col 4           | col 5           |
+  |---------+------------+--------------+----------------+-----------------+-----------------+-----------------|
+  | default | Tab        | q rec macro  | w next word    | f find          | p paste after   | b prev word     |
+  | shift   |            | Q ex mode    | W next WORD    | F back find     | P paster before | B prev WORD     |
+  | raise   | ` goto mk  | 1            | 2              | 3               | 4               | 5               |
+  | lower   | ~ tgl case | ! ex filter  | @ play macro   | # prev id       | $ eol           | % goto match    |
+  |---------+------------+--------------+----------------+-----------------+-----------------+-----------------|
+  | default | Esc/C      | a append     | r replace char | s subst         | t till          | g extra cmds    |
+  | shift   |            | A append eol | R replace mode | S subst ln      | T back till     | G eof / goto ln |
+  |---------+------------+--------------+----------------+-----------------+-----------------+-----------------|
+  | default | Shift      | z extra cmds | x del char     | c change        | d del           | v visual mode   |
+  | shift   |            | Z quit       | X Bksp         | C change to eol | D del to eol    | V visual lines  |
+  |---------+------------+--------------+----------------+-----------------+-----------------+-----------------|
+  | default | Ctrl       | NUM          | GUI            | Alt             | Lower           | Hyper           |
+  |---------+------------+--------------+----------------+-----------------+-----------------+-----------------|
+
+*** Right half
+
+  | layer   | col 6      | col 7         | col 8       | col 9            | col 10         | col 11        |
+  |---------+------------+---------------+-------------+------------------+----------------+---------------|
+  | default | j down     | l right       | u undo      | y yank           | ; repeat       | Bksp          |
+  | shift   | J join ln  | L scrn bottom | U undo line | Y tank ln        | : ex cmd line  |               |
+  | raise   | 6          | 7             | 8           | 9                | 0 hard bol     |               |
+  | lower   | ^ soft bol | & repeat :s   | * next id   | ( begin sentence | ) end sentence |               |
+  |---------+------------+---------------+-------------+------------------+----------------+---------------|
+  | default | m set mk   | n next        | e end word  | i insert mode    | o open below   | ' goto mk bol |
+  | shift   | M scrn mid | N prev        | E end WORD  | I insert bol     | O open above   | " reg spec    |
   |---------+------------+---------------+-------------+------------------+----------------+---------------|
   | default | k up       | h left        | ,           | .                | / find         | RET/S         |
   | shift   | K help     | H scrn top    | < un-indent | > indent         | ? rev find     |               |
