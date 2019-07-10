@@ -21,6 +21,7 @@
     For things that are only used in Windows are kept here. See its [[file:win/readme.org][readme]] for
     more information.
 
+
 * Keyboard Firmware - Planck layout
 
   The [[https://olkb.com/planck][Planck]] keyboard uses [[https://github.com/qmk/qmk_firmware/][qmk_firmware]] and I have my keymap code In the
@@ -53,7 +54,7 @@
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  | Shift | z     | x     | c     | v     | b     | n     | m     | ,     | .     | /     | RET/S |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- | Ctrl  | NUM   | GUI   | Alt   | Lower | Hyper | SPC   | Raise | Left  | Down  | Up    | Right |
+ | Ctrl  | NUM   | GUI   | Alt   | Lower | Hyper | SPC   | Raise | Alt   | GUI   |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
 
 
@@ -73,7 +74,7 @@
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  | Shift | z     | x     | c     | d     | v     | k     | h     | ,     | .     | /     | RET/S |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- | Ctrl  | NUM   | GUI   | Alt   | Lower | Hyper | SPC   | Raise | Left  | Down  | Up    | Right |
+ | Ctrl  | NUM   | GUI   | Alt   | Lower | Hyper | SPC   | Raise | Alt   | GUI   |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
 
 
