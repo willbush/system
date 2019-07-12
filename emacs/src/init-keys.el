@@ -62,6 +62,7 @@
   :keymaps 'override
   "d" 'deer ;; minimal ranger dired
   "D" 'deer-jump-other-window
+  "f" 'elfeed
   "p" '(:ignore t :which-key "profiler")
   "r" 'ranger
   "s" 'speedbar

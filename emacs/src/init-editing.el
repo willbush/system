@@ -45,6 +45,7 @@
           dired
           disk-usage
           ediff
+          elfeed
           git-timemachine
           help
           info
