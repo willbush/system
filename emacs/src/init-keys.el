@@ -209,7 +209,7 @@
   "f" 'auto-fill-mode
   "g" 'my/toggle-golden-ratio
   "l" 'toggle-truncate-lines
-  "n" 'linum-mode
+  "n" 'display-line-numbers-mode
   "s" 'flyspell-mode
   "t" 'display-time-mode
   "v" 'visual-fill-column-mode)
