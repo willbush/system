@@ -29,6 +29,7 @@
 
   boot = {
     cleanTmpDir = true; # cleans all files in /tmp during boot
+    initrd.checkJournalingFS = true; # run fsck for journal file system
 
     loader = {
       # Use the systemd-boot EFI boot loader.
