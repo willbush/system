@@ -115,9 +115,18 @@
    - Symbols on home row is great for programming and Vim/Evil
    - Positions motivated by Evil symbol keys
 
-     I decided to mirror h, j, k, l (Qwerty) style of Evil movement on the left
-     hand with the same fingers since there are many things bound to symbols
-     that have the notion of back/forward and up/down.
+     I decided to mirror ~h~, ~j~, ~k~, ~l~ (Qwerty) style of Evil movement on
+     the left hand with the same fingers since there are many things bound to
+     symbols that have the notion of back/forward and up/down.
+
+     Actually, the up and down positions on the left hand are mirrors of the
+     right hand, but the left and right positions or spatially correct. It feels
+     natural to me for the index finger to make things go down and the middle
+     finger to make things go up. I used to hate these positions when I first
+     started learning Vim because they weren't as natural as the ~w~, ~a~, ~s~,
+     ~d~ keys. However, horizontal movement using ~h~ and ~l~ should be rare, if
+     you're doing it right, and with that in mind down and up on the index and
+     middle finger makes a lot of sense.
 
      + ~(~ and ~)~ which does back / forward a sentence in Evil bound to left /
        right positions on left hand.
