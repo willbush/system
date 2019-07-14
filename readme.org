@@ -143,8 +143,8 @@
        ~Del~ to be moved below backspace, which make key combinations involving
        ~Del~ easier to hit.
 
-     + ~~~ and ~`~ moved down to home row. I mostly only used these with editing
-       markdown and org files. The ~~~ key toggles case in evil, but I tend to
+     + =~= and ~`~ moved down to home row. I mostly only used these with editing
+       markdown and org files. The =~= key toggles case in evil, but I tend to
        use ~u~ and ~U~ to do that in visual state. The ~`~ goes to a mark, which
        is useful and I'm happy with it's location.
 
