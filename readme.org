@@ -112,29 +112,29 @@
    option to hold either layer for whatever is most comfortable. I have changed
    most of the positions of symbols. The following explains why:
 
-   - Symbols on home row is great for programming and vim/evil
-   - Positions motivated by evil symbol keys
+   - Symbols on home row is great for programming and Vim/Evil
+   - Positions motivated by Evil symbol keys
 
-     I decided to mirror h, j, k, l (Qwerty) style of evil movement on the left
+     I decided to mirror h, j, k, l (Qwerty) style of Evil movement on the left
      hand with the same fingers since there are many things bound to symbols
      that have the notion of back/forward and up/down.
 
-     + ~(~ and ~)~ which does back / forward a sentence in evil bound to left /
+     + ~(~ and ~)~ which does back / forward a sentence in Evil bound to left /
        right positions on left hand.
 
-     + ~{~ and ~}~ which does back / forward a paragraph in evil bound to left /
+     + ~{~ and ~}~ which does back / forward a paragraph in Evil bound to left /
        right positions on right hand.
 
-     + ~[~ and ~]~ which does back / forward a section in evil bound to left /
+     + ~[~ and ~]~ which does back / forward a section in Evil bound to left /
        right positions on left hand.
 
-     + ~^~ and ~$~ which does a soft beginning of line / end of line in evil
+     + ~^~ and ~$~ which does a soft beginning of line / end of line in Evil
        bound to left / right positions on left hand.
 
      + ~+~ and ~-~ which are often associated with increasing and decreasing are
        bound to the up and down positions on the left hand.
 
-     + ~*~ and ~#~ which does a word search forward / back in evil bound to down
+     + ~*~ and ~#~ which does a word search forward / back in Evil bound to down
        and up positions on the right hand. I used that location because I'm out
        of left and right positions to use and searching forward/back often jumps
        down/up, which is close enough mentally for me.
@@ -144,22 +144,22 @@
        ~Del~ easier to hit.
 
      + =~= and ~`~ moved down to home row. I mostly only used these with editing
-       markdown and org files. The =~= key toggles case in evil, but I tend to
+       markdown and org files. The =~= key toggles case in Evil, but I tend to
        use ~u~ and ~U~ to do that in visual state. The ~`~ goes to a mark, which
        is useful and I'm happy with it's location.
 
-     + ~@~ remains close to ~q~, where both are involved with using evil macro
+     + ~@~ remains close to ~q~, where both are involved with using Evil macro
        functionally.
 
      + ~!~ remains in same column, but now on a home key.
 
-     + ~_~ and ~=~ both have functionality in evil I'm aware of, but never use.
+     + ~_~ and ~=~ both have functionality in Evil I'm aware of, but never use.
        Primary reason for ~=~ location is because of it's high use for
        assignment and equality comparison in programming languages. Also both of
        these keys are kept on the same physical key as their ~-~ and ~+~
        counterparts.
 
-     + ~&~ repeats a substitute command in evil, but I never use it. I might
+     + ~&~ repeats a substitute command in Evil, but I never use it. I might
        rebind this to ~evil-use-register~, which is typically on the quotation
        mark, because it's quite annoying to hold shift to hit it and then a
        layer to hit a number.
@@ -239,18 +239,18 @@
  |---+--------+--------+--------+--------+--------+--------+--------+--------+--------+---+---|
 
 
-* Hacking Evil (VIM) keybindings
+* Hacking Evil keybindings
 
   Switching to Colemak keyboard layout has caused me to want to customize the
-  evil key bindings from their defaults. The main motivator is the spread out
-  positions of h, j, k, and l keys.
+  Evil/Vim key bindings from their defaults. The main motivator is the spread
+  out positions of h, j, k, and l keys.
 
-  Most people who use vim with Colemak either get used to the new positions of
+  Most people who use Evil with Colemak either get used to the new positions of
   things or use something like an [[https://colemakmods.github.io/ergonomic-mods/extend.html][extend layer]] to layer movement keys over the
   positions of said movement keys. The argument is that you shouldn't be using
   those keys much anyways because there are better approaches to movement. In
   addition, using a keyboard layer makes this movement available to all
-  applications outside of editors and IDEs that provide vim emulation.
+  applications outside of editors and IDEs that provide Evil emulation.
 
   I find this argument unsatisfactory. I already use most of the better methods
   of movement, yet my usage of j and k remains quite high despite using ~{~,
@@ -265,11 +265,11 @@
   bindings in various packages that are not concerned with editing text.
 
   I haven't actually measured this, but I suspect the frequency of my usage of j
-  and k is quite high. This is why I find the common solutions to VIM + Colemak
+  and k is quite high. This is why I find the common solutions to Evil + Colemak
   unsatisfactory. The same drive to optimize things (and perhaps shave some
   Yaks) and learn Colemak is the same one that makes me want to fix this.
 
-  Personally, I see the main downside to customizing Evil mode is the need to
+  Personally, I see the main downside to customizing Evil is the need to
   replicate the custom keybindings in anything else where I want to use it's Vim
   emulation. I think the Emacs package Tramp solves the issue with needing to
   ssh into a machine. And even without that, I typically have a user profile I
@@ -285,7 +285,7 @@
 
 ** How to read the tables below:
 
-   I'm using [[http://www.viemu.com/vi-vim-cheat-sheet.gif][this cheat sheet]] to fill in the default bindings for vim in an org
+   I'm using [[http://www.viemu.com/vi-vim-cheat-sheet.gif][this cheat sheet]] to fill in the default bindings for Evil in an org
    table. The table below isn't meant to be a cheat sheet as many of the key are
    more nuanced than the description might lead one to believe. I'm overlaying
    the bindings onto my keymap for my Planck keyboard so I can easily ponder how
@@ -294,7 +294,7 @@
  - The table is split in half for the sake of not having to scroll horizontally.
 
  - The left most column named ~state~ describes modified states (i.e. holding
-   Shift, Ctrl etc.), keyboard layers, and Vim modes.
+   Shift, Ctrl etc.), keyboard layers, and Evil states.
 
  - I use ~x/y~ to denote a key that does x when tapped and y when held. For
    example, ~RET/S~ performs return when tapped and shift when held.
