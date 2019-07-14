@@ -38,9 +38,10 @@
  | SPC   | Space           |
  | RET   | Return          |
  | GUI   | Win / Super key |
+ | vert  | pipe character  |
 
- I use =x/y= to denote a key that does x when tapped and y when held. For
- example, =RET/S= performs return when tapped and shift when held.
+ I use ~x/y~ to denote a key that does x when tapped and y when held. For
+ example, ~RET/S~ performs return when tapped and shift when held.
 
 
 ** Qwerty
@@ -77,21 +78,104 @@
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
 
 
-** Func
-
-   I just bind the normal key code for numbers instead of the number pad variant
-   of it because I only use it for entering numbers and I never want to deal
-   with number lock.
+** Lower
 
  | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       | F1    | F2    | F3    | F4    |       |       |       |       |       |       |       |
+ |       | 1     | 2     | 3     | 4     | 5     | 6     | 7     | 8     | 9     | 0     | Bksp  |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       | F5    | F6    | F7    | F8    |       |       |       |       |       |       |       |
- |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       | F9    | F10   | F11   | F12   |       |       |       |       |       |       |       |
+ | ~     | @     | (     | -     | +     | )     | {     | *     | #     | }     | \vert | Del   |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  |       |       |       |       |       |       |       |       |       |       |       |       |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+ |       |       |       |       |       |       |       |       |       |       |       |       |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+
+
+** Raise
+
+ | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+ |       | 1     | 2     | 3     | 4     | 5     | 6     | 7     | 8     | 9     | 0     | Bksp  |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+ | `     | !     | [     | _     | =     | ]     | ^     | %     | &     | $     | \     | Del   |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+ |       |       |       |       |       |       |       |       |       |       |       |       |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+ |       |       |       |       |       |       |       |       |       |       |       |       |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+
+
+** Lower and Raise Commentary
+
+   Number keys are present on both lower and raise layers to provide me the
+   option to hold either layer for whatever is most comfortable. I have changed
+   most of the positions of symbols. The following explains why:
+
+   - Symbols on home row is great for programming and vim/evil
+   - Positions motivated by evil symbol keys
+
+     I decided to mirror h, j, k, l (Qwerty) style of evil movement on the left
+     hand with the same fingers since there are many things bound to symbols
+     that have the notion of back/forward and up/down.
+
+     + ~(~ and ~)~ which does back / forward a sentence in evil bound to left /
+       right positions on left hand.
+
+     + ~{~ and ~}~ which does back / forward a paragraph in evil bound to left /
+       right positions on right hand.
+
+     + ~[~ and ~]~ which does back / forward a section in evil bound to left /
+       right positions on left hand.
+
+     + ~^~ and ~$~ which does a soft beginning of line / end of line in evil
+       bound to left / right positions on left hand.
+
+     + ~+~ and ~-~ which are often associated with increasing and decreasing are
+       bound to the up and down positions on the left hand.
+
+     + ~*~ and ~#~ which does a word search forward / back in evil bound to down
+       and up positions on the right hand. I used that location because I'm out
+       of left and right positions to use and searching forward/back often jumps
+       down/up, which is close enough mentally for me.
+
+     + ~|~ and ~\~ moved over a column to put it on the home keys. This allows
+       ~Del~ to be moved below backspace, which make key combinations involving
+       ~Del~ easier to hit.
+
+     + ~~~ and ~`~ moved down to home row. I mostly only used these with editing
+       markdown and org files. The ~~~ key toggles case in evil, but I tend to
+       use ~u~ and ~U~ to do that in visual state. The ~`~ goes to a mark, which
+       is useful and I'm happy with it's location.
+
+     + ~@~ remains close to ~q~, where both are involved with using evil macro
+       functionally.
+
+     + ~!~ remains in same column, but now on a home key.
+
+     + ~_~ and ~=~ both have functionality in evil I'm aware of, but never use.
+       Primary reason for ~=~ location is because of it's high use for
+       assignment and equality comparison in programming languages. Also both of
+       these keys are kept on the same physical key as their ~-~ and ~+~
+       counterparts.
+
+     + ~&~ repeats a substitute command in evil, but I never use it. I might
+       rebind this to ~evil-use-register~, which is typically on the quotation
+       mark, because it's quite annoying to hold shift to hit it and then a
+       layer to hit a number.
+
+
+** Hyper
+
+ | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+ |       |       |       |       |       |       |       |     7 |     8 |     9 |       |       |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+ |       |       |       |       |       |       |       |     4 |     5 |     6 |       |       |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+ |       |       |       |       |       |       |       |     1 |     2 |     3 |       |       |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+ |       |       |       |       |       |       |       |     0 |       |     . |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
 
 
@@ -109,43 +193,19 @@
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
 
 
-** Lower
+** Funk
+
+   I just bind the normal key code for numbers instead of the number pad variant
+   of it because I only use it for entering numbers and I never want to deal
+   with number lock.
 
  | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- | ~     | !     | @     | #     | $     | %     | ^     | &     | *     | (     | )     | Bksp  |
+ | F1    | F2    | F3    | F4    |       |       |       |       |       |       |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- | Del   |       |       |       |       |       |       | _     | +     | {     | }     |       |
+ | F5    | F6    | F7    | F8    |       |       |       |       |       |       |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       |       |       |       |       |       |       |       |       | Home  | End   |       |
- |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       |       |       |       |       |       |       |       |       |       |       |       |
- |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
-
-
-** Hyper
-
- | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== |
- |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       |       |       |       |       |       |       |     7 |     8 |     9 |       |       |
- |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       |       |       |       |       |       |       |     4 |     5 |     6 |       |       |
- |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       |       |       |       |       |       |       |     1 |     2 |     3 |       |       |
- |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       |       |       |       |       |       |       |     0 |       |     . |       |       |
- |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
-
-
-** Raise
-
- | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== |
- |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- | `     |     1 |     2 |     3 |     4 |     5 |     6 | 7     | 8     | 9     | 0     | Bksp  |
- |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- | Del   |       |       |       |       |       |       | -     | =     | [     | ]     | \     |
- |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       |       |       |       |       |       |       |       |       | Pg Up | Pg Dn |       |
+ | F9    | F10   | F11   | F12   |       |       |       |       |       |       |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  |       |       |       |       |       |       |       |       |       |       |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
@@ -171,8 +231,6 @@
 
  | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- | #     | #     | #     | #     | #     | #     | #     | #     | #     | #     | #     | #     |
- |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  |       | s     | t     | p     | h     | *     | *     | f     | p     | l     | t     | d     |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  |       | s     | k     | w     | r     | *     | *     | r     | b     | g     | s     | z     |
@@ -183,16 +241,16 @@
 
 ** Adjust (Lower + Raise)
 
- |   | ====== | ====== | ====== | ====== | ====== | ====== | ====== | ====== | ====== |   |     |
- |---+--------+--------+--------+--------+--------+--------+--------+--------+--------+---+-----|
- |   | Reset  |        |        |        |        |        |        |        |        |   | Del |
- |---+--------+--------+--------+--------+--------+--------+--------+--------+--------+---+-----|
- |   |        |        | Aud on | Audoff | AGnorm | AGswap | Qwerty | Colemk | Plover |   |     |
- |---+--------+--------+--------+--------+--------+--------+--------+--------+--------+---+-----|
- |   | Voice- | Voice+ | Mus on | Musoff | MIDIon | MIDIof |        |        |        |   |     |
- |---+--------+--------+--------+--------+--------+--------+--------+--------+--------+---+-----|
- |   |        |        |        |        |        |        |        |        |        |   |     |
- |---+--------+--------+--------+--------+--------+--------+--------+--------+--------+---+-----|
+ |   | ====== | ====== | ====== | ====== | ====== | ====== | ====== | ====== | ====== |   |   |
+ |---+--------+--------+--------+--------+--------+--------+--------+--------+--------+---+---|
+ |   | Reset  |        |        |        |        |        |        |        |        |   |   |
+ |---+--------+--------+--------+--------+--------+--------+--------+--------+--------+---+---|
+ |   |        |        | Aud on | Audoff | AGnorm | AGswap | Qwerty | Colemk | Plover |   |   |
+ |---+--------+--------+--------+--------+--------+--------+--------+--------+--------+---+---|
+ |   | Voice- | Voice+ | Mus on | Musoff | MIDIon | MIDIof |        |        |        |   |   |
+ |---+--------+--------+--------+--------+--------+--------+--------+--------+--------+---+---|
+ |   |        |        |        |        |        |        |        |        |        |   |   |
+ |---+--------+--------+--------+--------+--------+--------+--------+--------+--------+---+---|
 
 
 * Hacking Evil (VIM) keybindings
@@ -209,8 +267,8 @@
   applications outside of editors and IDEs that provide vim emulation.
 
   I find this argument unsatisfactory. I already use most of the better methods
-  of movement, yet my usage of j and k remains quite high despite using ={=,
-  ={=, =(=, =)=, =C-u=, =C-d=, and avy quite a lot. The letters h and l for
+  of movement, yet my usage of j and k remains quite high despite using ~{~,
+  ~}~, ~(~, ~)~, ~C-u~, ~C-d~, and avy quite a lot. The letters h and l for
   horizontal movement I have almost completely replaced with f/F (find) and t/T
   (till) along with w, b, and e. However, there are situations where I'm off by
   one character and need to hit them.
@@ -252,8 +310,8 @@
  - The left most column named ~state~ describes modified states (i.e. holding
    Shift, Ctrl etc.), keyboard layers, and Vim modes.
 
- - I use =x/y= to denote a key that does x when tapped and y when held. For
-   example, =RET/S= performs return when tapped and shift when held.
+ - I use ~x/y~ to denote a key that does x when tapped and y when held. For
+   example, ~RET/S~ performs return when tapped and shift when held.
 
  - Unfortunately, the table doesn't render well from org to Github markdown so
    you may want to view it as raw text.
