@@ -6,7 +6,7 @@ extern keymap_config_t keymap_config;
 enum planck_layers {
   _QWERTY,
   _COLEMAK,
-  _FUNK,
+  _NUM,
   _SUPER,
   _LOWER,
   _RAISE,
@@ -29,7 +29,7 @@ enum planck_keycodes {
 #define RAISE MO(_RAISE)
 #define HYPER MO(_HYPER)
 #define HYPERSPACE MO(_HYPERSPACE)
-#define FUNK MO(_FUNK)
+#define NUM MO(_NUM)
 
 #define CTL_ESC LCTL_T(KC_ESC)
 #define SFT_ENT RSFT_T(KC_ENT)
@@ -41,23 +41,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, SFT_ENT,
-    KC_LCTL, FUNK,    SUPER,   KC_LALT, LOWER,   HYPER,   KC_SPC,  RAISE,   KC_RALT, KC_RGUI, _______, _______
+    KC_LCTL, NUM,    SUPER,   KC_LALT, LOWER,   HYPER,   KC_SPC,  RAISE,   KC_RALT, KC_RGUI, _______, _______
   ),
   [_COLEMAK] = LAYOUT_planck_grid(
     KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC,
     CTL_ESC, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,    KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, SFT_ENT,
-    KC_LCTL, FUNK,    SUPER,   KC_LALT, LOWER,   HYPER,   KC_SPC,  RAISE,   KC_RALT, KC_RGUI, _______, _______
+    KC_LCTL, NUM,    SUPER,   KC_LALT, LOWER,   HYPER,   KC_SPC,  RAISE,   KC_RALT, KC_RGUI, _______, _______
   ),
-  [_FUNK] = LAYOUT_planck_grid(
-    _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_F5,   KC_F6,   KC_F7,   KC_F8,   _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+  [_NUM] = LAYOUT_planck_grid(
+    _______, _______, _______, _______, _______, _______, _______, KC_7,    KC_8,    KC_9,   _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, KC_4,    KC_5,    KC_6,   _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, KC_1,    KC_2,    KC_3,   _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, KC_0,    XXXXXXX, KC_DOT, _______, _______
   ),
   [_SUPER] = LAYOUT_planck_grid(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
   ),
@@ -68,14 +68,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
   ),
   [_HYPER] = LAYOUT_planck_grid(
-    _______, _______, _______, _______, _______, _______, _______, KC_7,    KC_8,    KC_9,   _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, KC_4,    KC_5,    KC_6,   _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, KC_1,    KC_2,    KC_3,   _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, KC_0,    XXXXXXX, KC_DOT, _______, _______
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
   ),
   [_RAISE] = LAYOUT_planck_grid(
-    KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
-    KC_DEL,  _______, _______, _______, _______, _______, _______, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    KC_DEL,  KC_GRV,  _______, _______, _______, _______, KC_GRV,  KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PGUP, KC_PGDN, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
   ),
@@ -150,7 +150,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         layer_off(_SUPER);
         layer_off(_RAISE);
         layer_off(_LOWER);
-        layer_off(_FUNK);
+        layer_off(_NUM);
         layer_off(_HYPER);
         layer_off(_HYPERSPACE);
         layer_off(_ADJUST);
@@ -264,7 +264,7 @@ bool music_mask_user(uint16_t keycode) {
     case RAISE:
     case LOWER:
     case HYPER:
-    case FUNK:
+    case NUM:
       return false;
     default:
       return true;
