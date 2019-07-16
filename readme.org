@@ -70,7 +70,7 @@
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  | Tab   | q     | w     | f     | p     | b     | j     | l     | u     | y     | ;     | Bksp  |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- | Esc/C | a     | r     | s     | t     | g     | m     | n     | e     | i     | o     | "     |
+ | Esc/C | a     | r     | s     | t     | g     | m     | n     | e     | i     | o     | '     |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  | Shift | z     | x     | c     | d     | v     | k     | h     | ,     | .     | /     | RET/S |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
@@ -84,7 +84,7 @@
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  |       | 1     | 2     | 3     | 4     | 5     | 6     | 7     | 8     | 9     | 0     |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- | ~     | @     | (     | +     | -     | )     | {     | *     | #     | }     | \vert | Del   |
+ |       | ~     | (     | !     | =     | )     | {     | %     | &     | }     | \vert | Del   |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  |       |       |       |       |       |       |       |       |       |       |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
@@ -98,9 +98,9 @@
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  |       | 1     | 2     | 3     | 4     | 5     | 6     | 7     | 8     | 9     | 0     |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- | `     | !     | [     | =     | _     | ]     | ^     | %     | &     | $     | \     | Del   |
+ |       | `     | [     | +     | -     | ]     | ^     | *     | #     | $     | \     | Del   |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       |       |       |       |       |       |       |       |       |       |       |       |
+ |       |       |       |       | _     |       |       | @     |       |       |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  |       |       |       |       |       |       |       |       |       |       |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
@@ -109,11 +109,23 @@
 ** Lower and Raise Commentary
 
    Number keys are present on both lower and raise layers to provide me the
-   option to hold either layer for whatever is most comfortable. I have changed
-   most of the positions of symbols. The following explains why:
+   option to hold either layer for whatever is most comfortable.
+
+   I have changed most of the positions of symbols. The following explains why:
 
    - Symbols on home row is great for programming and Vim/Evil
-   - Positions motivated by Evil symbol keys
+
+   - Positions in part motivated by higher frequency use being on the Lower
+     layer since it is easier to delimit the symbol with spaces. I do not
+     need to let go of the layer key to enter spaces when that layer key is on
+     my left hand.
+
+   - Symbols often used together kept on the same layer to avoid layer
+     alternating.
+
+   - Avoid covering ~Esc/C~ key so I have easy access to the ~Ctrl~ key.
+
+   - Positions motivated by Evil symbol keys:
 
      I decided to mirror ~h~, ~j~, ~k~, ~l~ (Qwerty) style of Evil movement on
      the left hand with the same fingers since there are many things bound to
@@ -148,25 +160,31 @@
        of left and right positions to use and searching forward/back often jumps
        down/up, which is close enough mentally for me.
 
+     + ~!~ and ~=~ moved to home keys since their often used together and often
+       used for negation.
+
      + ~|~ and ~\~ moved over a column to put it on the home keys. This allows
        ~Del~ to be moved below backspace, which make key combinations involving
        ~Del~ easier to hit.
 
-     + =~= and ~`~ moved down to home row. I mostly only used these with editing
+     + =~= and ~`~ moved onto home keys. I mostly only used these with editing
        markdown and org files. The =~= key toggles case in Evil, but I tend to
        use ~u~ and ~U~ to do that in visual state. The ~`~ goes to a mark, which
        is useful and I'm happy with it's location.
 
-     + ~@~ remains close to ~q~, where both are involved with using Evil macro
-       functionally.
+     + ~@~ moved under right hand index finger. I often use this key along with
+       ~q~ because both are involved with using Evil macros, which I use a lot.
+       I initially thought to leave it close to ~q~, but double tapping ~@~ to
+       replay the previous macro with my pinky finger would get old fast.
 
-     + ~!~ remains in same column, but now on a home key.
+     + ~_~ has functionality in Evil I'm aware of, but never use. I only use it
+       heavily when programming in Rust due to the typical snake case style. The
+       primary reasoning behind it's location is to being close to ~-~ makes it
+       easier to remember where it's at since they are visually similar.
 
-     + ~_~ and ~=~ both have functionality in Evil I'm aware of, but never use.
-       Primary reason for ~=~ location is because of it's high use for
-       assignment and equality comparison in programming languages. Also both of
-       these keys are kept on the same physical key as their ~-~ and ~+~
-       counterparts.
+     + ~%~ jumps to a matching symbol such as a parenthesis or braces. I put it
+       on the down position key despite it's behavior not exactly matching that.
+       However, it's close enough for me.
 
      + ~&~ repeats a substitute command in Evil, but I never use it. I might
        rebind this to ~evil-use-register~, which is typically on the quotation
