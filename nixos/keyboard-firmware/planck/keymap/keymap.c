@@ -27,7 +27,7 @@ enum planck_keycodes {
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define HYPER MO(_HYPER)
-#define NUM MO(_NUM)
+#define NUM   TT(_NUM)
 
 #define CTL_ESC LCTL_T(KC_ESC)
 #define SFT_ENT RSFT_T(KC_ENT)
