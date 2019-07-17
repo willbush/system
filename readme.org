@@ -127,7 +127,7 @@
 
    - Both raise and lower duplicate the ~<~ and ~>~ keys for easy access since
      these are often used in combination with other symbols. I still have these
-     available via shift ~.~, and ~,~ in the normal positions.
+     available in the normal positions.
 
    - Positions motivated by Evil symbol keys:
 
