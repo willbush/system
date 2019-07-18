@@ -334,13 +334,11 @@
 
   | Alias | Meaning           |
   |-------+-------------------|
-  | #     | A number (0-9)    |
   | C     | Ctrl              |
   | GUI   | Win / Super key   |
   | M     | Alt / Meta        |
   | RET   | Return            |
   | S     | Shift             |
-  | SPC   | Space             |
   | bol   | beginning of line |
   | del   | delete            |
   | eof   | end of file       |
