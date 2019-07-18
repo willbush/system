@@ -388,29 +388,19 @@
 
 **** Row 0
 
-  | state   | col 0 | col 1       | col 2       | col 3       | col 4          | col 5       |
-  |---------+-------+-------------+-------------+-------------+----------------+-------------|
-  | default | Tab   | q rec macro | w next word | f find      | p paste after  | b prev word |
-  | shift   |       | Q ex mode   | W next WORD | F back find | P paste before | B prev WORD |
-  |---------+-------+-------------+-------------+-------------+----------------+-------------|
-
-**** Row 1
-
-  | state   | col 0 | col 1        | col 2      | col 3         | col 4       | col 5           |
-  |---------+-------+--------------+------------+---------------+-------------+-----------------|
-  | default | Esc/C | a append     | r rpl char | s insert mode | t till      | g extra cmds    |
-  | shift   |       | A append eol | R rpl mode | S insert bol  | T back till | G eof / goto ln |
-  | lower   |       | ~            | (          | !             | =           | )               |
-  | raise   |       | ` goto mk    | [          | +             | -           | ]               |
-  |---------+-------+--------------+------------+---------------+-------------+-----------------|
-
-**** Row 2
-
-  | state   | col 0 | col 1        | col 2      | col 3           | col 4        | col 5       |
-  |---------+-------+--------------+------------+-----------------+--------------+-------------|
-  | default | Shift | z extra cmds | x del char | c change        | d del        | v vis mode  |
-  | shift   |       | Z quit       | X Bksp     | C change to eol | D del to eol | V vis lines |
-  |---------+-------+--------------+------------+-----------------+--------------+-------------|
+  | state   | col 0 | col 1        | col 2       | col 3           | col 4          | col 5           |
+  |---------+-------+--------------+-------------+-----------------+----------------+-----------------|
+  | default | Tab   | q rec macro  | w next word | f find          | p paste after  | b prev word     |
+  | shift   |       | Q ex mode    | W next WORD | F back find     | P paste before | B prev WORD     |
+  | ======= | ===== | ============ | =========== | =============== | ============== | =============== |
+  | default | Esc/C | a append     | r rpl char  | s insert mode   | t till         | g extra cmds    |
+  | shift   |       | A append eol | R rpl mode  | S insert bol    | T back till    | G eof / goto ln |
+  | lower   |       | ~            | (           | !               | =              | )               |
+  | raise   |       | ` goto mk    | [           | +               | -              | ]               |
+  | ======= | ===== | ============ | =========== | =============== | ============== | =============== |
+  | default | Shift | z extra cmds | x del char  | c change        | d del          | v vis mode      |
+  | shift   |       | Z quit       | X Bksp      | C change to eol | D del to eol   | V vis lines     |
+  |---------+-------+--------------+-------------+-----------------+----------------+-----------------|
 
 *** Right half
 
