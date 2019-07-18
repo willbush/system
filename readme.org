@@ -286,9 +286,8 @@
   I find this argument unsatisfactory. I already use most of the better methods
   of movement, yet my usage of ~j~ and ~k~ remains quite high despite using ~{~,
   ~}~, ~(~, ~)~, ~C-u~, ~C-d~, and avy quite a lot. The letters ~h~ and ~l~ for
-  horizontal movement I have almost completely replaced with ~f/F~ (find) and
-  ~t/T~ (till) along with ~w~, ~b~, and ~e~. However, there are situations where
-  I'm off by one character and need to hit them.
+  horizontal movement I use less frequently due to my usage of ~f/F~ (find) and
+  ~t/T~ (till) along with ~w~, ~b~, and ~e~.
 
   Turns out needing to up or down short distances is a common task, and a lot of
   the time I'm just perusing with no specific target or editing goal in mind. In
