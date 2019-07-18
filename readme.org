@@ -322,7 +322,7 @@
    the bindings onto my keymap for my Planck keyboard so I can easily ponder how
    to rearrange keys.
 
- - The table is split in half and heavy use of aliases for the sake of not
+ - The table is split in half and heavily uses aliases for the sake of not
    having to scroll horizontally.
 
  - The left most column named ~state~ describes modified states (i.e. holding
