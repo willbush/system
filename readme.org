@@ -330,9 +330,6 @@
  - I use ~x/y~ to denote a key that does x when tapped and y when held. For
    example, ~RET/S~ performs return when tapped and shift when held.
 
- - Unfortunately, the table doesn't render well from org to Github markdown so
-   you may want to view it as raw text.
-
 
   | Alias | Meaning           |
   |-------+-------------------|
