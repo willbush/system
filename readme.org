@@ -322,15 +322,14 @@
    the bindings onto my keymap for my Planck keyboard so I can easily ponder how
    to rearrange keys.
 
- - The table is split in half for the sake of not having to scroll horizontally.
+ - The table is split in half and heavy use of aliases for the sake of not
+   having to scroll horizontally.
 
  - The left most column named ~state~ describes modified states (i.e. holding
    Shift, Ctrl etc.), keyboard layers, and Evil states.
 
  - I use ~x/y~ to denote a key that does x when tapped and y when held. For
    example, ~RET/S~ performs return when tapped and shift when held.
-
-   Aliases are used to keep from having tables that scroll horizontally:
 
   | Alias | Meaning           |
   |-------+-------------------|
