@@ -355,42 +355,6 @@
   | subst | substitute        |
   | tgl   | toggle            |
 
-** Vanilla Evil on Qwerty
-
-*** Left half
-
-  | state   | col 0      | col 1        | col 2        | col 3           | col 4          | col 5           |
-  |---------+------------+--------------+--------------+-----------------+----------------+-----------------|
-  | default | Tab        | q rec macro  | w next word  | e end word      | r replace char | t till          |
-  | shift   |            | Q ex mode    | W next WORD  | E end WORD      | R replace mode | T back till     |
-  | raise   | ` goto mk  | 1            | 2            | 3               | 4              | 5               |
-  | lower   | ~ tgl case | ! ex filter  | @ play macro | # prev id       | $ eol          | % goto match    |
-  |---------+------------+--------------+--------------+-----------------+----------------+-----------------|
-  | default | Esc/C      | a append     | s subst      | d del           | f find         | g extra cmds    |
-  | shift   |            | A append eol | S subst ln   | D del to eol    | F back find    | G eof / goto ln |
-  |---------+------------+--------------+--------------+-----------------+----------------+-----------------|
-  | default | Shift      | z extra cmds | x del char   | c change        | v visual mode  | b prev word     |
-  | shift   |            | Z quit       | X Bksp       | C change to eol | V visual lines | B prev WORD     |
-  |---------+------------+--------------+--------------+-----------------+----------------+-----------------|
-  | default | Ctrl       | Funk         | Super        | Alt             | Lower          | Hyper           |
-  |---------+------------+--------------+--------------+-----------------+----------------+-----------------|
-
-*** Right half
-
-  | layer   | col 6      | col 7       | col 8         | col 9         | col 10          | col 11        |
-  |---------+------------+-------------+---------------+---------------+-----------------+---------------|
-  | default | y yank     | u undo      | i insert mode | o open below  | p paste after   | Bksp          |
-  | shift   | Y tank ln  | U undo line | I insert bol  | O open above  | P paster before |               |
-  |---------+------------+-------------+---------------+---------------+-----------------+---------------|
-  | default | h left     | j down      | k up          | l right       | ; repeat        | ' goto mk bol |
-  | shift   | H scrn top | J join ln   | K help        | L scrn bottom | : ex cmd line   | " reg spec    |
-  |---------+------------+-------------+---------------+---------------+-----------------+---------------|
-  | default | n next     | m set mk    | ,             | .             | / find          | RET/S         |
-  | shift   | N prev     | M scrn mid  | < un-indent   | > indent      | ? rev find      |               |
-  |---------+------------+-------------+---------------+---------------+-----------------+---------------|
-  | default | SPC        | Raise       | Left          | Down          | Up              | Right         |
-  |---------+------------+-------------+---------------+---------------+-----------------+---------------|
-
 
 ** Vanilla Evil on ortho-linear Colemak-DH
 
