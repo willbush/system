@@ -361,8 +361,6 @@
 
 *** Left half
 
-**** Row 0
-
   | state   | col 0 | col 1        | col 2        | col 3           | col 4          | col 5        |
   |---------+-------+--------------+--------------+-----------------+----------------+--------------|
   | default | Tab   | q rec macro  | w next word  | f find          | p paste after  | b prev word  |
