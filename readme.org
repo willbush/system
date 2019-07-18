@@ -385,7 +385,7 @@
   | ======= | ==========   | ============= | ===========   | =========    | ============= | =====  |
   | default | m left       | n down        | e up          | i right      | o open below  | '      |
   | shift   | M hard bol   | N scroll down | E scroll up   | I eol        | O open above  | "      |
-  | Alt     | scrn mid     | scrn bot      | scrn top      |              |               |        |
+  | Alt     | M-m scrn mid | M-n scrn bot  | M-e scrn top  |              |               |        |
   | raise   |              | @ play macro  |               |              |               |        |
   | ======= | ==========   | ============= | ===========   | =========    | ============= | =====  |
   | default | k set mk     | h next        | , rev t/T/f/F | . repeat cmd | / find        | RET/S  |
