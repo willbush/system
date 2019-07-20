@@ -393,7 +393,7 @@
   |---------+--------------+---------------+---------------+--------------+---------------+--------|
 
 
-*** Swapped key functionality
+*** Evil functionality keys before / after
 
   | functionality | before | after |
   |---------------+--------+-------|
