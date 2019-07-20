@@ -100,7 +100,7 @@
         evil-ex-complete-emacs-commands nil
         evil-vsplit-window-right t
         evil-split-window-below t
-        evil-shift-round ni
+        evil-shift-round nil
         evil-want-C-u-scroll t)
   :config
   ;; unbind evil-lookup
