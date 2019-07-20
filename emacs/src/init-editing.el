@@ -1,5 +1,91 @@
 ;;; -*- lexical-binding: t; -*-
 
+;; For an in-depth discussion about why I'm rebinding Evil keys see the readme.
+(defun my/enable-custom-evil-keys ()
+  "Sets up my custom evil key bindings for Colemak-DH keyboard layout"
+  (interactive)
+
+  (setq evil-want-C-u-scroll nil
+        evil-want-C-d-scroll nil)
+
+  ;;These unbound keys likely have their functionality mapped onto another key
+  (general-unbind '(normal visual motion)
+    "C-u"
+    "C-d"
+    "C-r")
+
+  (general-def
+    :states 'normal
+    "&" 'evil-use-register
+    "U" 'undo-tree-redo
+    "k" 'evil-set-marker)
+
+  (general-def
+    :states '(normal visual)
+    "s" 'evil-insert
+    "S" 'evil-insert-line)
+
+  (general-def
+    :states 'motion
+    ;; These in Colemak-DH as what h, j, k, l keys are in Qwerty.
+    "m" 'evil-backward-char
+    "n" 'evil-next-line
+    "e" 'evil-previous-line
+    "i" 'evil-forward-char
+    "M" 'evil-beginning-of-line ;; `0' remains bound to a similar function
+    "N" 'evil-scroll-down
+    "E" 'evil-scroll-up
+    "I" 'evil-end-of-line ;; `$' remains bound to this function
+
+    "M-e" 'evil-window-top
+    "M-m" 'evil-window-middle
+    "M-n" 'evil-window-bottom
+
+    "h" 'evil-ex-search-next
+    "H" 'evil-ex-search-previous
+    "j" 'evil-goto-mark
+    "l" 'evil-forward-word-end
+    "L" 'evil-forward-WORD-end))
+
+(defun my/enable-vanilla-evil-keys ()
+  "Reset evil bindings back to default Qwerty."
+  (interactive)
+
+  (setq evil-want-C-u-scroll t
+        evil-want-C-d-scroll t)
+
+  (general-def
+    :states 'normal
+    "C-r" 'undo-tree-redo
+    "\"" 'evil-use-register
+    "m" 'evil-set-marker)
+
+  (general-def
+    :states '(normal visual)
+    "i" 'evil-insert
+    "I" 'evil-insert-line)
+
+  (general-def
+    :states 'motion
+    "h" 'evil-backward-char
+    "j" 'evil-next-line
+    "k" 'evil-previous-line
+    "l" 'evil-forward-char
+
+    "C-u" 'evil-scroll-up
+    "C-d" 'evil-scroll-down
+
+    "H" 'evil-window-top
+    "M" 'evil-window-middle
+    "L" 'evil-window-bottom
+
+    "n" 'evil-ex-search-next
+    "N" 'evil-ex-search-previous
+
+    "`" 'evil-goto-mark
+    "e" 'evil-forward-word-end
+    "E" 'evil-forward-WORD-end))
+
 ;; evil-collection will give a warning if the following setting is not set
 ;; before loading evil and evil-collection. Note that evil-leader loads evil
 ;; see: https://github.com/emacs-evil/evil-collection/issues/215 Also even if
@@ -14,7 +100,7 @@
         evil-ex-complete-emacs-commands nil
         evil-vsplit-window-right t
         evil-split-window-below t
-        evil-shift-round nil
+        evil-shift-round ni
         evil-want-C-u-scroll t)
   :config
   ;; unbind evil-lookup
