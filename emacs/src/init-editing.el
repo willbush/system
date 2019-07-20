@@ -8,11 +8,34 @@
   (setq evil-want-C-u-scroll nil
         evil-want-C-d-scroll nil)
 
-  ;;These unbound keys likely have their functionality mapped onto another key
+  ;; Nuke the site from orbit. It's the only way to be sure.
   (general-unbind '(normal visual motion)
-    "C-u"
+    "&"
     "C-d"
-    "C-r")
+    "C-r"
+    "C-u"
+    "E"
+    "H"
+    "I"
+    "L"
+    "M"
+    "M-e"
+    "M-i"
+    "M-n"
+    "N"
+    "S"
+    "U"
+    "\""
+    "`"
+    "e"
+    "h"
+    "i"
+    "j"
+    "k"
+    "l"
+    "m"
+    "n"
+    "s")
 
   (general-def
     :states 'normal
@@ -38,7 +61,7 @@
     "I" 'evil-end-of-line ;; `$' remains bound to this function
 
     "M-e" 'evil-window-top
-    "M-m" 'evil-window-middle
+    "M-i" 'evil-window-middle
     "M-n" 'evil-window-bottom
 
     "h" 'evil-ex-search-next
@@ -53,6 +76,35 @@
 
   (setq evil-want-C-u-scroll t
         evil-want-C-d-scroll t)
+
+  ;; Nuke the site from orbit. It's the only way to be sure.
+  (general-unbind '(normal visual motion)
+    "&"
+    "C-d"
+    "C-r"
+    "C-u"
+    "E"
+    "H"
+    "I"
+    "L"
+    "M"
+    "M-e"
+    "M-i"
+    "M-n"
+    "N"
+    "S"
+    "U"
+    "\""
+    "`"
+    "e"
+    "h"
+    "i"
+    "j"
+    "k"
+    "l"
+    "m"
+    "n"
+    "s")
 
   (general-def
     :states 'normal
