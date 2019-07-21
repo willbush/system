@@ -413,8 +413,8 @@
       However, when I'm moving to a location horizontally with an intention I
       typically use find/till and ~;~ to repeat.
 
-    - I really ought to make use of ~,~ more to reverse a f/t/F/T search, but I
-      haven't made a habit out of it.
+    - I really ought to make use of reverse f/t/F/T search, but I haven't made a
+      habit out of it.
 
 ** Custom Evil on ortho-linear Colemak-DH
 
