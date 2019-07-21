@@ -422,7 +422,7 @@
 
 *** Evil functionality keys before / after
 
-    Attributes (Attr column) shown in the table below. Note that absence of
+    Attributes (Attr column) shown in the table below. Note that absence of an
     attribute indicates no change. Also note that I'm comparing how things were
     in Qwerty with defaults to how they are with my custom key map in
     Colemak-DH:
