@@ -467,9 +467,10 @@
 
      I just couldn't help but remap this on to the home keys because I use it
      all the time and definitely more than I use the replace functionality. In
-     addition, notice the finger rolling action from ~r~ to ~f~ / ~t~ to
-     visual/range select till some character. If I left it where it was it would
-     have been in a worse position compared to Qwerty, but now it's better.
+     addition, notice the finger rolling action from ~r~ to ~s~ / ~t~ (in
+     Colemak) to visual/range select till some character. If I left it where it
+     was it would have been in a worse position compared to Qwerty, but now it's
+     better.
 
 
 *** Left half
