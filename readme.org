@@ -471,7 +471,7 @@
   | replace mode | R      | V     | revise mode  | -    |                                             |
   | next         | n      | h     | ?            | +n   | easier to reach but not mnemonic            |
   | prev         | N      | H     | ?            | +n   |                                             |
-  | redo         | C-R    | U     |              | +cn  | makes much more sense and easier to do      |
+  | redo         | C-r    | U     |              | +cn  | makes much more sense and easier to do      |
   | scrn mid     | M      | M-i   |              | +Mn  | M-i > M-m due to home key finger rolling    |
   | scrn low     | L      | M-n   |              | +Mn  |                                             |
   | scrn top     | H      | M-e   |              | +Mn  |                                             |
