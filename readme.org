@@ -317,10 +317,10 @@
 ** How to read the tables below:
 
    I'm using [[http://www.viemu.com/vi-vim-cheat-sheet.gif][this cheat sheet]] to fill in the default bindings for Evil in an org
-   table. The table below isn't meant to be a cheat sheet as many of the key are
-   more nuanced than the description might lead one to believe. I'm overlaying
-   the bindings onto my keymap for my Planck keyboard so I can easily ponder how
-   to rearrange keys.
+   table. The tables below aren't meant to be a cheat sheet as many of the key
+   are more nuanced than the description might lead one to believe. I'm
+   overlaying the bindings onto my keymap for my Planck keyboard so I can easily
+   ponder how to rearrange keys.
 
  - The table is split in half and heavily uses aliases for the sake of not
    having to scroll horizontally.
