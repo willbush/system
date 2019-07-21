@@ -388,7 +388,7 @@
  | d del           | @ play macro | : ex cmd line   | [ prev sect   | s subst char |
  | r rpl char      |              | ^ soft bol      | ] next sect   | S subst line |
  | x del char      |              | " reg spec      |               | ` goto mk    |
- | c change        |              |                 |               |              |
+ | c change        |              |                 |               | X Backspace  |
  | D del to eol    |              |                 |               |              |
  | C change to eol |              |                 |               |              |
 
