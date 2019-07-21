@@ -379,7 +379,7 @@
  | 4               | 3            | 2               | 1             | 0            |
  |-----------------+--------------+-----------------+---------------+--------------|
  | * next id       | / find       | C-u scroll up   | W next WORD   | ~ tgl case   |
- | n next          | ? rev find   | C-d scroll down | E end WORD    | ! ext filter |
+ | n next          | ? rev find   | C-d scroll down | E end WORD    | ! shell cmd  |
  | N prev          | { begin para | J join ln       | B prev WORD   | Q ex mode    |
  | # prev id       | } end para   | , rev t/T/f/F   | ( begin sent  | \vert bol    |
  | % goto match    | > indent     | H scrn top      | ) end sent    | z extra cmds |
@@ -394,9 +394,11 @@
 
 *** Things of note:
 
-    - I never use substitute and it's on a home key
+    - I never use substitute and it's on a home key. I don't even think that's a
+      bad habit. I just think substitute is largely has it's use-cases covered
+      by more flexible commands.
 
-    - I hardly use marks, but perhaps that is in part a bad habit.
+    - I hardly use marks, but that's more of a bad habit that I can improve.
 
     - I think my frequency of usage largely depends on what I'm doing. I read a
       lot more than I write so I do a lot of navigating.
@@ -416,68 +418,93 @@
 
 ** Custom Evil on ortho-linear Colemak-DH
 
+   One thing that seams really apparent to me after going over an iteration of
+   binding custom keys for Colemak is that many of the positions of keys got
+   worse. Vim key bindings are truly designed with Qwerty in mind. Let's fix
+   that.
+
+*** Evil functionality keys before / after
+
+  | functionality | before | after | new mnemonic | Commentary                                    |
+  |---------------+--------+-------+--------------+-----------------------------------------------|
+  | subst line    | S      |       |              | unbound because not used/useful               |
+  | substitute    | s      |       |              | unbound because not used/useful               |
+  | undo line     | U      |       |              | unbound because not used/useful               |
+  | left          | h      | m     |              | same position movement keys as Qwerty         |
+  | down          | j      | n     |              |                                               |
+  | up            | k      | e     |              |                                               |
+  | right         | l      | i     |              |                                               |
+  | end WORD      | E      | F     | far WORD     | foot and forward are other possible mnemonics |
+  | end word      | e      | f     | far word     |                                               |
+  | find          | f      | s     | search       | right next to till :)                         |
+  | rev find      | F      | S     | rev search   |                                               |
+  | eol           | $      | I     |              | motion synergy                                |
+  | hard bol      | 0      | M     |              | motion synergy                                |
+  | insert mode   | i      | l     | ?            | looks like 'i' if you squint                  |
+  | insert bol    | I      | L     |              | looks like 'i' if you squint harder           |
+  | visual mode   | v      | r     | range        | see note below                                |
+  | visual lines  | V      | R     | range lines  |                                               |
+  | replace       | r      | v     | revise       | convert is another possible mnemonic          |
+  | replace mode  | R      | V     | revise mode  |                                               |
+  | next          | n      | h     | ?            | easier to reach but not mnemonic              |
+  | prev          | N      | H     | ?            |                                               |
+  | redo          | C-R    | U     |              | makes much more sense and easier to do        |
+  | scrn mid      | M      | M-i   |              | M-i > M-m due to home key finger rolling      |
+  | scrn low      | L      | M-n   |              | motion synergy                                |
+  | scrn top      | H      | M-e   |              | motion synergy                                |
+  | scroll down   | C-d    | N     |              | motion synergy                                |
+  | scroll up     | C-u    | E     |              | motion synergy                                |
+  | set mk        | m      | k     |              | mnemonic is still mark for me                 |
+  | join lines    | J      | C-j   |              | slightly easier with Esc/C on caps lock key   |
+  | goto mk       | `      | j     | jump         | easier to reach and now mnemonic              |
+  | goto mk ln    | '      | J     | jump to line | same key as j now, which makes sense to me    |
+  | repeat        | ;      | '     |              | bring back down to home row due to high use   |
+  | reg spec      | "      | &     |              | Easier for my personal keyboard layout        |
+  | rev repeat    | ,      | "     |              | rev repeat on same key as repeat now          |
+  | play macro    | @      | ,     |              | play macro on much easier key to hit          |
+
+**** Visual Mode key remap
+
+     I just couldn't help but remap this on to the home keys because I use it
+     all the time and definitely more than I use the replace functionality. In
+     addition, notice the finger rolling action from ~r~ to ~f~ / ~t~ to
+     visual/range select till some character. If I left it where it was it would
+     have been in a worse position compared to Qwerty, but now it's better.
+
+
 *** Left half
 
-  | state   | col 0 | col 1        | col 2        | col 3           | col 4          | col 5        |
-  |---------+-------+--------------+--------------+-----------------+----------------+--------------|
-  | default | Tab   | q rec macro  | w next word  | f find          | p paste after  | b prev word  |
-  | shift   |       | Q ex mode    | W next WORD  | F back find     | P paste before | B prev WORD  |
-  | ======= | ===== | ============ | ===========  | =============== | ============== | ============ |
-  | default | Esc/C | a append     | r rpl char   | s insert mode   | t till         | g extra cmds |
-  | shift   |       | A append eol | R rpl mode   | S insert bol    | T back till    | G eof        |
-  | lower   |       | ~ tgl case   | ( begin sent | ! ext filter    | =              | ) end sent   |
-  | raise   |       | `            | [ prev sect  | +               | -              | ] next sect  |
-  | ======= | ===== | ============ | ===========  | =============== | ============== | ============ |
-  | default | Shift | z extra cmds | x del char   | c change        | d del          | v vis mode   |
-  | shift   |       | Z quit       | X Bksp       | C change to eol | D del to eol   | V vis lines  |
-  |---------+-------+--------------+--------------+-----------------+----------------+--------------|
+  | state   | col 0 | col 1        | col 2         | col 3           | col 4          | col 5         |
+  |---------+-------+--------------+---------------+-----------------+----------------+---------------|
+  | default | Tab   | q rec macro  | w next word   | f far word      | p paste after  | b prev word   |
+  | shift   |       | Q ex mode    | W next WORD   | F far WORD      | P paste before | B prev WORD   |
+  | ======= | ===== | ============ | ===========   | =============== | ============== | ============  |
+  | default | Esc/C | a append     | r range mode  | s search        | t till         | g extra cmds  |
+  | shift   |       | A append eol | R range lines | S rev search    | T back till    | G eof         |
+  | lower   |       | ~ tgl case   | ( begin sent  | ! shell cmd     | =              | ) end sent    |
+  | raise   |       | `            | [ prev sect   | +               | -              | ] next sect   |
+  | ======= | ===== | ============ | ===========   | =============== | ============== | ============  |
+  | default | Shift | z extra cmds | x del char    | c change        | d del          | v revise      |
+  | shift   |       | Z quit       | X Bksp        | C change to eol | D del to eol   | V revise mode |
+  |---------+-------+--------------+---------------+-----------------+----------------+---------------|
 
 
 *** Right half
 
 
-  | layer   | col 6        | col 7         | col 8         | col 9        | col 10        | col 11 |
-  |---------+--------------+---------------+---------------+--------------+---------------+--------|
-  | default | j jump to mk | l end word    | u undo        | y yank       | ; repeat      | Bksp   |
-  | shift   | J join ln    | L end WORD    | U redo        | Y yank ln    | : ex cmd line |        |
-  | lower   | { begin para | % goto match  | & reg spec    | } end para   | \vert bol     | Del    |
-  | raise   | ^ soft bol   | * next id     | # prev id     | $ eol        | \             | Del    |
-  | ======= | ==========   | ============= | ===========   | =========    | ============= | =====  |
-  | default | m left       | n down        | e up          | i right      | o open below  | '      |
-  | shift   | M hard bol   | N scroll down | E scroll up   | I eol        | O open above  | "      |
-  | Alt     | M-m scrn mid | M-n scrn bot  | M-e scrn top  |              |               |        |
-  | raise   |              | @ play macro  |               |              |               |        |
-  | ======= | ==========   | ============= | ===========   | =========    | ============= | =====  |
-  | default | k set mk     | h next        | , rev t/T/f/F | . repeat cmd | / find        | RET/S  |
-  | shift   | K            | H prev        | < un-indent   | > indent     | ? rev find    |        |
-  |---------+--------------+---------------+---------------+--------------+---------------+--------|
-
-
-*** Evil functionality keys before / after
-
-  | functionality | before | after |
-  |---------------+--------+-------|
-  | end WORD      | E      | L     |
-  | end word      | e      | l     |
-  | eol           | $      | I     |
-  | hard bol      | 0      | M     |
-  | insert bol    | I      | S     |
-  | insert mode   | i      | s     |
-  | next          | n      | h     |
-  | prev          | N      | H     |
-  | redo          | C-R    | U     |
-  | scrn mid      | M      | M-m   |
-  | scrn low      | L      | M-n   |
-  | scrn top      | H      | M-e   |
-  | scroll down   | C-d    | N     |
-  | scroll up     | C-u    | E     |
-  | set mk        | m      | k     |
-  | jump to mk    | `      | j     |
-  | subst line    | S      |       |
-  | substitute    | s      |       |
-  | undo line     | U      |       |
-  | left          | h      | m     |
-  | down          | j      | n     |
-  | up            | k      | e     |
-  | right         | l      | i     |
-  | reg spec      | "      | &     |
+  | layer   | col 6        | col 7         | col 8        | col 9        | col 10        | col 11       |
+  |---------+--------------+---------------+--------------+--------------+---------------+--------------|
+  | default | j jump to mk | l insert mode | u undo       | y yank       | ;             | Bksp         |
+  | shift   | J jump mk ln | L insert bol  | U redo       | Y yank ln    | : ex cmd line |              |
+  | Ctrl    | C-j join ln  |               |              |              |               |              |
+  | ======= | ==========   | ============= | ===========  | =========    | ============= | =====        |
+  | default | m left       | n down        | e up         | i right      | o open below  | ' repeat     |
+  | shift   | M hard bol   | N scroll down | E scroll up  | I eol        | O open above  | " rev repeat |
+  | Alt     |              | M-n scrn bot  | M-e scrn top | M-i scrn mid |               |              |
+  | lower   | { begin para | % goto match  | & reg spec   | } end para   | \vert bol     | Del          |
+  | raise   | ^ soft bol   | * next id     | # prev id    | $ eol        | \             | Del          |
+  | ======= | ==========   | ============= | ===========  | =========    | ============= | =====        |
+  | default | k set mk     | h next        | , play macro | . repeat cmd | / find        | RET/S        |
+  | shift   | K            | H prev        | < un-indent  | > indent     | ? rev find    |              |
+  | raise   |              | @             |              |              |               |              |
+  |---------+--------------+---------------+--------------+--------------+---------------+--------------|
