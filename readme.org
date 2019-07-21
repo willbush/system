@@ -354,6 +354,66 @@
   | tgl   | toggle            |
   | vis   | visual            |
 
+** A rough estimation of frequency
+
+   The following table columns are numbered from high to low frequency of use
+   where zero represents things I practically never use. This is my very rough
+   estimation, which is not based on any gathered data at all.
+
+ | 7             | 6              | 5                |
+ |---------------+----------------+------------------|
+ | j down        | p paste after  | ; repeat t/T/f/F |
+ | k up          | P paste before | . repeat cmd     |
+ | i insert mode | f find         | $ eol            |
+ | a append      | t till         | 0 hard bol       |
+ | Esc           | F back find    | h left           |
+ | u undo        | T back till    | l right          |
+ | C-r redo      | w next word    | I insert bol     |
+ | o open below  | e end word     | A append eol     |
+ | O open above  | b prev word    |                  |
+ | v vis mode    |                |                  |
+ | V vis lines   |                |                  |
+ | y yank        |                |                  |
+ | Y yank ln     |                |                  |
+
+ | 4               | 3            | 2               | 1             | 0            |
+ |-----------------+--------------+-----------------+---------------+--------------|
+ | * next id       | / find       | C-u scroll up   | W next WORD   | ~ tgl case   |
+ | n next          | ? rev find   | C-d scroll down | E end WORD    | ! ext filter |
+ | N prev          | { begin para | J join ln       | B prev WORD   | Q ex mode    |
+ | # prev id       | } end para   | , rev t/T/f/F   | ( begin sent  | \vert bol    |
+ | % goto match    | > indent     | H scrn top      | ) end sent    | z extra cmds |
+ | G eof           | < un-indent  | M scrn mid      | m set mk      | Z quit       |
+ | g extra cmds    | q rec macro  | L scrn bot      | ' goto mk bol | R rpl mode   |
+ | d del           | @ play macro | : ex cmd line   | [ prev sect   | s subst char |
+ | r rpl char      |              | ^ soft bol      | ] next sect   | S subst line |
+ | x del char      |              | " reg spec      |               | ` goto mk    |
+ | c change        |              |                 |               |              |
+ | D del to eol    |              |                 |               |              |
+ | C change to eol |              |                 |               |              |
+
+*** Things of note:
+
+    - I never use substitute and it's on a home key
+
+    - I hardly use marks, but perhaps that is in part a bad habit.
+
+    - I think my frequency of usage largely depends on what I'm doing. I read a
+      lot more than I write so I do a lot of navigating.
+
+    - I use begin/end paragraph a lot more when looking at source code because
+      it behaves more predictably than say in an org mode file where it might
+      jump several pages past tables. Ideally I want to replace my usage of this
+      with something more predictable.
+
+    - In practice, I think I hardly ever use the next/end/prev ~WORD~ motions.
+      These motions are all about skipping over symbols to get somewhere faster.
+      However, when I'm moving to a location horizontally with an intention I
+      typically use find/till and ~;~ to repeat.
+
+    - I really ought to make use of ~,~ more to reverse a f/t/F/T search, but I
+      haven't made a habit out of it.
+
 ** Custom Evil on ortho-linear Colemak-DH
 
 *** Left half
