@@ -310,14 +310,14 @@
   ~n~, ~e~, ~i~) swapped with ~h~, ~j~, ~k~, and ~l~ will incur all the cons I
   mentioned above, so why not go all the way? Learning curve might be one reason
   to do a minimal fix. However, I personally don't have a problem investing the
-  time to get over the learning curve for the sake of bindings that make more
-  sense to me.
+  time to get over the learning curve for the sake of ergonomic bindings that
+  make more sense.
 
 
 ** How to read the tables below:
 
-   I'm using [[http://www.viemu.com/vi-vim-cheat-sheet.gif][this cheat sheet]] to fill in the default bindings for Evil in an org
-   table. The tables below aren't meant to be a cheat sheet as many of the key
+   I'm using [[http://www.viemu.com/vi-vim-cheat-sheet.gif][this cheat sheet]] to fill in the default bindings for Evil in org
+   tables. The tables below aren't meant to be a cheat sheet as many of the key
    are more nuanced than the description might lead one to believe. I'm
    overlaying the bindings onto my keymap for my Planck keyboard so I can easily
    ponder how to rearrange keys.
@@ -395,8 +395,8 @@
 *** Things of note:
 
     - I never use substitute and it's on a home key. I don't even think that's a
-      bad habit. I just think substitute is largely has it's use-cases covered
-      by more flexible commands.
+      bad habit. I just think substitute is largely has its use-cases covered by
+      more flexible commands.
 
     - I hardly use marks, but that's more of a bad habit that I can improve.
 
@@ -413,9 +413,6 @@
       However, when I'm moving to a location horizontally with an intention I
       typically use find/till and ~;~ to repeat.
 
-    - I really ought to make use of reverse f/t/F/T search, but I haven't made a
-      habit out of it.
-
 ** Custom Evil on ortho-linear Colemak-DH
 
    One thing that seams really apparent to me after going over an iteration of
@@ -425,43 +422,69 @@
 
 *** Evil functionality keys before / after
 
-  | functionality | before | after | new mnemonic | Commentary                                    |
-  |---------------+--------+-------+--------------+-----------------------------------------------|
-  | subst line    | S      |       |              | unbound because not used/useful               |
-  | substitute    | s      |       |              | unbound because not used/useful               |
-  | undo line     | U      |       |              | unbound because not used/useful               |
-  | left          | h      | m     |              | same position movement keys as Qwerty         |
-  | down          | j      | n     |              |                                               |
-  | up            | k      | e     |              |                                               |
-  | right         | l      | i     |              |                                               |
-  | end WORD      | E      | F     | far WORD     | foot and forward are other possible mnemonics |
-  | end word      | e      | f     | far word     |                                               |
-  | find          | f      | s     | search       | right next to till :)                         |
-  | rev find      | F      | S     | rev search   |                                               |
-  | eol           | $      | I     |              | motion synergy                                |
-  | hard bol      | 0      | M     |              | motion synergy                                |
-  | insert mode   | i      | l     | ?            | looks like 'i' if you squint                  |
-  | insert bol    | I      | L     |              | looks like 'i' if you squint harder           |
-  | visual mode   | v      | r     | range        | see note below                                |
-  | visual lines  | V      | R     | range lines  |                                               |
-  | replace       | r      | v     | revise       | convert is another possible mnemonic          |
-  | replace mode  | R      | V     | revise mode  |                                               |
-  | next          | n      | h     | ?            | easier to reach but not mnemonic              |
-  | prev          | N      | H     | ?            |                                               |
-  | redo          | C-R    | U     |              | makes much more sense and easier to do        |
-  | scrn mid      | M      | M-i   |              | M-i > M-m due to home key finger rolling      |
-  | scrn low      | L      | M-n   |              | motion synergy                                |
-  | scrn top      | H      | M-e   |              | motion synergy                                |
-  | scroll down   | C-d    | N     |              | motion synergy                                |
-  | scroll up     | C-u    | E     |              | motion synergy                                |
-  | set mk        | m      | k     |              | mnemonic is still mark for me                 |
-  | join lines    | J      | C-j   |              | slightly easier with Esc/C on caps lock key   |
-  | goto mk       | `      | j     | jump         | easier to reach and now mnemonic              |
-  | goto mk ln    | '      | J     | jump to line | same key as j now, which makes sense to me    |
-  | repeat        | ;      | '     |              | bring back down to home row due to high use   |
-  | reg spec      | "      | &     |              | Easier for my personal keyboard layout        |
-  | rev repeat    | ,      | "     |              | rev repeat on same key as repeat now          |
-  | play macro    | @      | ,     |              | play macro on much easier key to hit          |
+    Attributes (Attr column) shown in the table below. Note that absence of
+    attribute indicates no change. Also note that I'm comparing how things were
+    in Qwerty with defaults to how they are with my custom key map in
+    Colemak-DH:
+
+    - ~s~ :: A keybinding that remains in the same location for Colemak-DH as it
+             was in Qwerty. Note table only shows swapped keys so many other
+             keys remain in the same location not shown below.
+
+    - ~+~ / ~-~ :: A keybinding moved to a better / worse location.
+
+    - ~M~ / ~m~ :: indicates a gain of motion synergy with positions of movement keys.
+
+    - ~N~ / ~n~ :: indicates a key moved to a more/less mnemonic position.
+
+    - ~c~ :: indicates a key combined with another key of similar functionality.
+
+    - ~P~ / ~p~ :: indicates a key with a gain/loss in proximity to a key of
+                   similar functionality.
+
+    - ~x~ :: indicates a key unbound because it's not used and deemed not
+             useful.
+
+    - ~d~ :: indicates a key binding duplicated to another key and the old
+             binding remains intact.
+
+  | function     | before | after | new mnemonic | Attr | Commentary                                  |
+  |--------------+--------+-------+--------------+------+---------------------------------------------|
+  | substitute   | s      |       |              | x    |                                             |
+  | subst line   | S      |       |              | x    |                                             |
+  | undo line    | U      |       |              | x    |                                             |
+  | left         | h      | m     |              | s    |                                             |
+  | down         | j      | n     |              | s    |                                             |
+  | up           | k      | e     |              | s    |                                             |
+  | right        | l      | i     |              | s    |                                             |
+  | end WORD     | E      | F     | far WORD     | s    | foot/forward are other possible mnemonics   |
+  | end word     | e      | f     | far word     | s    |                                             |
+  | find         | f      | s     | search       | P    | right next to till :)                       |
+  | rev find     | F      | S     | rev search   | P    |                                             |
+  | eol          | $      | I     |              | +Md  |                                             |
+  | hard bol     | 0      | M     |              | +Md  |                                             |
+  | insert mode  | i      | l     | ?            | +n   | looks like 'i' if you squint                |
+  | insert bol   | I      | L     |              | +n   | looks like 'i' if you squint harder         |
+  | visual mode  | v      | r     | range        | +    | see note below                              |
+  | visual lines | V      | R     | range lines  | +    |                                             |
+  | replace      | r      | v     | revise       | -    | convert is another possible mnemonic        |
+  | replace mode | R      | V     | revise mode  | -    |                                             |
+  | next         | n      | h     | ?            | +n   | easier to reach but not mnemonic            |
+  | prev         | N      | H     | ?            | +n   |                                             |
+  | redo         | C-R    | U     |              | +cn  | makes much more sense and easier to do      |
+  | scrn mid     | M      | M-i   |              | +Mn  | M-i > M-m due to home key finger rolling    |
+  | scrn low     | L      | M-n   |              | +Mn  |                                             |
+  | scrn top     | H      | M-e   |              | +Mn  |                                             |
+  | scroll down  | C-d    | N     |              | +Mn  |                                             |
+  | scroll up    | C-u    | E     |              | +Mn  |                                             |
+  | set mk       | m      | k     |              | -n   | mnemonic is still mark for me               |
+  | join lines   | J      | C-j   |              |      | slightly easier with Esc/C on caps lock key |
+  | goto mk      | `      | j     | jump         | +Nc  | easier to reach and now mnemonic            |
+  | goto mk ln   | '      | J     | jump to line | -Nc  | same key as j now, which makes sense to me  |
+  | repeat       | ;      | '     |              | -    | bring back down to home row due to high use |
+  | reg spec     | "      | &     |              | +    | Easier for my personal keyboard layout      |
+  | rev repeat   | ,      | "     |              | -c   | rev repeat on same key as repeat now        |
+  | play macro   | @      | ,     |              | +P   | play macro on much easier key to hit        |
 
 **** Visual Mode key remap
 
