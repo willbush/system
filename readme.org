@@ -379,7 +379,7 @@
   | layer   | col 6        | col 7         | col 8         | col 9        | col 10        | col 11 |
   |---------+--------------+---------------+---------------+--------------+---------------+--------|
   | default | j jump to mk | l end word    | u undo        | y yank       | ; repeat      | Bksp   |
-  | shift   | J join ln    | L end WORD    | U redo        | Y tank ln    | : ex cmd line |        |
+  | shift   | J join ln    | L end WORD    | U redo        | Y yank ln    | : ex cmd line |        |
   | lower   | { begin para | % goto match  | & reg spec    | } end para   | \vert bol     | Del    |
   | raise   | ^ soft bol   | * next id     | # prev id     | $ eol        | \             | Del    |
   | ======= | ==========   | ============= | ===========   | =========    | ============= | =====  |
