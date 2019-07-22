@@ -9,44 +9,78 @@
         evil-want-C-d-scroll nil)
 
   ;; Nuke the site from orbit. It's the only way to be sure.
-  (general-unbind '(normal visual motion)
+  ;;
+  ;; Unbind all keys before rebinding them except for the `i' insert mode key,
+  ;; which needs to be swapped to get the inner bindings in visual mode
+  ;; automatically setup correctly. Some of these keys I don't rebind.
+  (general-unbind 'normal
     "&"
-    "C-d"
+    "@"
     "C-r"
+    "J"
+    "S"
+    "\""
+    "g &"
+    "g ,"
+    "g ;"
+    "g F"
+    "g i"
+    "m"
+    "r"
+    "s")
+
+  (general-unbind 'motion
+    "'"
+    ","
+    ";"
+    "C-d"
     "C-u"
+    "C-v"
+    "C-w"
     "E"
+    "F"
     "H"
-    "I"
     "L"
     "M"
-    "M-e"
-    "M-i"
-    "M-n"
     "N"
-    "S"
-    "U"
-    "\""
+    "V"
     "`"
     "e"
+    "f"
+    "g E"
+    "g N"
+    "g e"
+    "g j"
+    "g k"
+    "g n"
+    "g v"
     "h"
-    "i"
     "j"
     "k"
     "l"
-    "m"
     "n"
-    "s")
+    "v"
+    "z H"
+    "z L"
+    "z h"
+    "z l")
+
+  ;; visual state R key is not useful or behaves like vim.
+  (general-unbind '(normal visual) "R")
+
+  ;; swap insert mode, which will handle remapping all the visual inner
+  ;; bindings.
+  (general-swap-key nil '(normal visual) "i" "l")
+  (general-swap-key nil '(normal visual) "I" "L")
 
   (general-def
     :states 'normal
     "&" 'evil-use-register
     "U" 'undo-tree-redo
-    "k" 'evil-set-marker)
-
-  (general-def
-    :states '(normal visual)
-    "s" 'evil-insert
-    "S" 'evil-insert-line)
+    "k" 'evil-set-marker
+    "g l" 'evil-insert-resume
+    "v" 'evil-replace
+    "V" 'evil-replace-state)
 
   (general-def
     :states 'motion
@@ -67,76 +101,23 @@
     "h" 'evil-ex-search-next
     "H" 'evil-ex-search-previous
     "j" 'evil-goto-mark
-    "l" 'evil-forward-word-end
-    "L" 'evil-forward-WORD-end))
+    "f" 'evil-forward-word-end
+    "F" 'evil-forward-WORD-end
+    "s" 'evil-find-char
+    "S" 'evil-find-char-backward
 
-(defun my/enable-vanilla-evil-keys ()
-  "Reset evil bindings back to default Qwerty."
-  (interactive)
+    "r" 'evil-visual-char
+    "R" 'evil-visual-line
+    "C-r" 'evil-visual-block
+    "g r" 'evil-visual-restore
 
-  (setq evil-want-C-u-scroll t
-        evil-want-C-d-scroll t)
+    "C-j" 'evil-join
+    "j" 'evil-goto-mark
+    "J" 'evil-goto-mark-line
 
-  ;; Nuke the site from orbit. It's the only way to be sure.
-  (general-unbind '(normal visual motion)
-    "&"
-    "C-d"
-    "C-r"
-    "C-u"
-    "E"
-    "H"
-    "I"
-    "L"
-    "M"
-    "M-e"
-    "M-i"
-    "M-n"
-    "N"
-    "S"
-    "U"
-    "\""
-    "`"
-    "e"
-    "h"
-    "i"
-    "j"
-    "k"
-    "l"
-    "m"
-    "n"
-    "s")
-
-  (general-def
-    :states 'normal
-    "C-r" 'undo-tree-redo
-    "\"" 'evil-use-register
-    "m" 'evil-set-marker)
-
-  (general-def
-    :states '(normal visual)
-    "i" 'evil-insert
-    "I" 'evil-insert-line)
-
-  (general-def
-    :states 'motion
-    "h" 'evil-backward-char
-    "j" 'evil-next-line
-    "k" 'evil-previous-line
-    "l" 'evil-forward-char
-
-    "C-u" 'evil-scroll-up
-    "C-d" 'evil-scroll-down
-
-    "H" 'evil-window-top
-    "M" 'evil-window-middle
-    "L" 'evil-window-bottom
-
-    "n" 'evil-ex-search-next
-    "N" 'evil-ex-search-previous
-
-    "`" 'evil-goto-mark
-    "e" 'evil-forward-word-end
-    "E" 'evil-forward-WORD-end))
+    "'" 'evil-repeat-find-char
+    "\"" 'evil-repeat-find-char-reverse
+    "," 'evil-execute-macro))
 
 ;; evil-collection will give a warning if the following setting is not set
 ;; before loading evil and evil-collection. Note that evil-leader loads evil
