@@ -139,6 +139,6 @@ visual block/rectangle selection."
     (princ (format "%s\n\n" keymap))
     (princ (substitute-command-keys (format "\\{%s}" keymap)))
     (with-current-buffer standard-output ;; temp buffer
-      (setq help-xref-stack-item (list #'my-describe-keymap keymap)))))
+      (setq help-xref-stack-item (list #'my/describe-keymap keymap)))))
 
 (provide 'funcs)
