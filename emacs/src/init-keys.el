@@ -152,6 +152,7 @@
   "c" 'describe-char
   "f" 'counsel-describe-function
   "k" 'describe-key
+  "K" 'my/describe-keymap
   "m" 'describe-mode
   "p" 'describe-package
   "v" 'counsel-describe-variable

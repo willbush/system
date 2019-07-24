@@ -1,5 +1,136 @@
 ;;; -*- lexical-binding: t; -*-
 
+;; For an in-depth discussion about why I'm rebinding Evil keys see the readme.
+(defun my/enable-custom-evil-keys ()
+  "Sets up my custom evil key bindings for Colemak-DH keyboard layout"
+  (interactive)
+
+  (setq evil-want-C-u-scroll nil
+        evil-want-C-d-scroll nil)
+
+  ;; Nuke the site from orbit. It's the only way to be sure.
+  ;;
+  ;; Unbind all keys before rebinding them except for the `i' insert mode key,
+  ;; which needs to be swapped to get the inner bindings in visual mode
+  ;; automatically setup correctly. Some of these keys I don't rebind.
+  (general-unbind 'normal
+    "&"
+    "@"
+    "C-r"
+    "J"
+    "R"
+    "S"
+    "\""
+    "g &"
+    "g ,"
+    "g ;"
+    "g F"
+    "g f"
+    "g i"
+    "m"
+    "r"
+    "s"
+    "z O"
+    "z a"
+    "z c"
+    "z m"
+    "z o"
+    "z r")
+
+
+  (general-unbind 'motion
+    "'"
+    ","
+    ";"
+    "C-d"
+    "C-u"
+    "C-v"
+    "C-w"
+    "E"
+    "F"
+    "H"
+    "L"
+    "M"
+    "N"
+    "V"
+    "`"
+    "e"
+    "f"
+    "g E"
+    "g N"
+    "g e"
+    "g j"
+    "g k"
+    "g n"
+    "g v"
+    "h"
+    "j"
+    "k"
+    "l"
+    "n"
+    "v"
+    "z H"
+    "z L"
+    "z h"
+    "z l")
+
+  ;; visual state R key is not that useful.
+  (general-unbind '(normal visual) "R")
+
+  ;; swap insert mode, which will handle remapping all the visual inner
+  ;; bindings.
+  (general-swap-key nil '(normal visual) "i" "l")
+  (general-swap-key nil '(normal visual) "I" "L")
+
+  (general-def
+    :states 'normal
+    "&" 'evil-use-register
+    "U" 'undo-tree-redo
+    "V" 'evil-replace-state
+    "g '" 'goto-last-change-reverse
+    "g S" 'evil-find-file-at-point-with-line
+    "g \"" 'goto-last-change
+    "g l" 'evil-insert-resume
+    "g s" 'find-file-at-point
+    "k" 'evil-set-marker
+    "v" 'evil-replace)
+
+  (general-def
+    :states 'motion
+    "'" 'evil-repeat-find-char
+    "," 'evil-execute-macro
+    "C-j" 'evil-join
+    "C-r" 'evil-visual-block
+    "E" 'evil-scroll-up
+    "F" 'evil-forward-WORD-end
+    "H" 'evil-ex-search-previous
+    "I" 'evil-end-of-line ;; `$' remains bound to this function
+    "J" 'evil-goto-mark-line
+    "M" 'evil-beginning-of-line ;; `0' remains bound to a similar function
+    "M-e" 'evil-window-top
+    "M-i" 'evil-window-middle
+    "M-n" 'evil-window-bottom
+    "N" 'evil-scroll-down
+    "R" 'evil-visual-line
+    "S" 'evil-find-char-backward
+    "\"" 'evil-repeat-find-char-reverse
+    "e" 'evil-previous-line
+    "f" 'evil-forward-word-end
+    "g F" 'evil-backward-WORD-end
+    "g f" 'evil-backward-word-end
+    "g r" 'evil-visual-restore
+    "h" 'evil-ex-search-next
+    "i" 'evil-forward-char
+    "j" 'evil-goto-mark
+    "m" 'evil-backward-char
+    "n" 'evil-next-line
+    "r" 'evil-visual-char
+    "s" 'evil-find-char
+    "z I" 'evil-scroll-right
+    "z M" 'evil-scroll-left
+    "z i" 'evil-scroll-column-right
+    "z m" 'evil-scroll-column-left))
+
 ;; evil-collection will give a warning if the following setting is not set
 ;; before loading evil and evil-collection. Note that evil-leader loads evil
 ;; see: https://github.com/emacs-evil/evil-collection/issues/215 Also even if
