@@ -33,7 +33,10 @@
 
     loader = {
       # Use the systemd-boot EFI boot loader.
-      systemd-boot.enable = true;
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 100;
+      };
       efi.canTouchEfiVariables = true;
     };
     # I was fooling around with elasticsearch in docker and needed to
