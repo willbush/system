@@ -518,7 +518,7 @@
   | state   | col 0 | col 1        | col 2         | col 3           | col 4          | col 5         |
   |---------+-------+--------------+---------------+-----------------+----------------+---------------|
   | default | Tab   | q rec macro  | w next word   | f far word      | p paste after  | b prev word   |
-  | shift   |       | Q ex mode    | W next WORD   | F far WORD      | P paste before | B prev WORD   |
+  | shift   |       | Q            | W next WORD   | F far WORD      | P paste before | B prev WORD   |
   | ======= | ===== | ============ | ===========   | =============== | ============== | ============  |
   | default | Esc/C | a append     | r range mode  | s search        | t till         | g extra cmds  |
   | shift   |       | A append eol | R range lines | S rev search    | T back till    | G eof         |
@@ -533,22 +533,22 @@
 *** Right half
 
 
-  | layer   | col 6        | col 7         | col 8        | col 9        | col 10        | col 11       |
-  |---------+--------------+---------------+--------------+--------------+---------------+--------------|
-  | default | j jump to mk | l insert mode | u undo       | y yank       | ;             | Bksp         |
-  | shift   | J jump mk ln | L insert bol  | U redo       | Y yank ln    | : ex cmd line |              |
-  | Ctrl    | C-j join ln  |               |              |              |               |              |
-  | ======= | ==========   | ============= | ===========  | =========    | ============= | =====        |
-  | default | m left       | n down        | e up         | i right      | o open below  | ' repeat     |
-  | shift   | M hard bol   | N scroll down | E scroll up  | I eol        | O open above  | " rev repeat |
-  | Alt     |              | M-n scrn bot  | M-e scrn top | M-i scrn mid |               |              |
-  | lower   | { begin para | % goto match  | & reg spec   | } end para   | \vert bol     | Del          |
-  | raise   | ^ soft bol   | * next id     | # prev id    | $ eol        | \             | Del          |
-  | ======= | ==========   | ============= | ===========  | =========    | ============= | =====        |
-  | default | k set mk     | h next        | , play macro | . repeat cmd | / find        | RET/S        |
-  | shift   | K            | H prev        | < un-indent  | > indent     | ? rev find    |              |
-  | raise   |              | @             |              |              |               |              |
-  |---------+--------------+---------------+--------------+--------------+---------------+--------------|
+  | state   | col 6        | col 7         | col 8        | col 9        | col 10         | col 11       |
+  |---------+--------------+---------------+--------------+--------------+----------------+--------------|
+  | default | j jump to mk | l insert mode | u undo       | y yank       | ;              | Bksp         |
+  | shift   | J jump mk ln | L insert bol  | U redo       | Y yank ln    | : ex cmd line  |              |
+  | Ctrl    | C-j join ln  |               |              |              |                |              |
+  | ======= | ==========   | ============= | ===========  | =========    | =============  | =====        |
+  | default | m left       | n down        | e up         | i right      | o open below   | ' repeat     |
+  | shift   | M hard bol   | N scroll down | E scroll up  | I eol        | O open above   | " rev repeat |
+  | Alt     |              | M-n scrn bot  | M-e scrn top | M-i scrn mid |                |              |
+  | lower   | { begin para | % goto match  | & reg spec   | } end para   | \vert goto col | Del          |
+  | raise   | ^ soft bol   | * next id     | # prev id    | $ eol        | \              | Del          |
+  | ======= | ==========   | ============= | ===========  | =========    | =============  | =====        |
+  | default | k set mk     | h next        | , play macro | . repeat cmd | / find         | RET/S        |
+  | shift   | K            | H prev        | < un-indent  | > indent     | ? rev find     |              |
+  | raise   |              | @             |              |              |                |              |
+  |---------+--------------+---------------+--------------+--------------+----------------+--------------|
 
 ** Setting the custom evil bindings in Emacs
 

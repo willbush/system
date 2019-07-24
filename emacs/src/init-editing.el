@@ -65,7 +65,7 @@
     "z h"
     "z l")
 
-  ;; visual state R key is not useful or behaves like vim.
+  ;; visual state R key is not that useful.
   (general-unbind '(normal visual) "R")
 
   ;; swap insert mode, which will handle remapping all the visual inner
