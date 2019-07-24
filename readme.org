@@ -448,60 +448,68 @@
     - ~d~ :: indicates a key binding duplicated to another key and the old
              binding remains intact.
 
-  | function         | before | after | new mnemonic  | Attr | Commentary                                  |
-  |------------------+--------+-------+---------------+------+---------------------------------------------|
-  | substitute       | s      |       |               | x    |                                             |
-  | subst line       | S      |       |               | x    |                                             |
-  | repeat subst     | &      |       |               | x    |                                             |
-  | rpt gbl subst    | g &    |       |               | x    |                                             |
-  | up               | g k    |       |               | x    | Why does this even exist?                   |
-  | down             | g j    |       |               | x    |                                             |
-  | next match       | g n    |       |               | x    | Why not just press n?                       |
-  | prev match       | g N    |       |               | x    | Why not just press N?                       |
-  | window movements | C-w *  |       |               | x    | 48 C-w * bindings I don't use               |
-  | left             | h      | m     |               | s    |                                             |
-  | down             | j      | n     |               | s    |                                             |
-  | up               | k      | e     |               | s    |                                             |
-  | right            | l      | i     |               | s    |                                             |
-  | scroll col left  | z h    | z m   |               | s    |                                             |
-  | scroll left      | z H    | z M   |               | s    |                                             |
-  | scroll col right | z l    | z i   |               | s    |                                             |
-  | scroll right     | z L    | z I   |               | s    |                                             |
-  | end WORD         | E      | F     | far WORD      | s    | foot/forward are other possible mnemonics   |
-  | end WORD         | g E    | g F   | far WORD rev  | s    | foot/forward are other possible mnemonics   |
-  | end word         | e      | f     | far word      | s    |                                             |
-  | end word         | g e    | g f   | far word rev  | s    |                                             |
-  | find             | f      | s     | search        | P    | right next to till :)                       |
-  | rev find         | F      | S     | rev search    | P    |                                             |
-  | eol              | $      | I     |               | +Md  |                                             |
-  | hard bol         | 0      | M     |               | +Md  |                                             |
-  | insert mode      | i      | l     | ?             | +n   | looks like 'i' if you squint                |
-  | insert bol       | I      | L     |               | +n   | looks like 'i' if you squint harder         |
-  | insert resume    | g i    | g l   |               | +n   |                                             |
-  | visual mode      | v      | r     | range         | +    | see note below                              |
-  | visual lines     | V      | R     | range lines   | +    |                                             |
-  | visual block     | C-v    | C-r   | range block   | +    |                                             |
-  | visual restore   | g v    | g r   | range restore | +    |                                             |
-  | replace          | r      | v     | revise        | -    | convert is another possible mnemonic        |
-  | replace mode     | R      | V     | revise mode   | -    |                                             |
-  | next             | n      | h     | ?             | +n   | easier to reach but not mnemonic            |
-  | prev             | N      | H     | ?             | +n   |                                             |
-  | redo             | C-r    | U     |               | +cn  | makes much more sense and easier to do      |
-  | scrn mid         | M      | M-i   |               | +Mn  | M-i > M-m due to home key finger rolling    |
-  | scrn low         | L      | M-n   |               | +Mn  |                                             |
-  | scrn top         | H      | M-e   |               | +Mn  |                                             |
-  | scroll down      | C-d    | N     |               | +Mn  |                                             |
-  | scroll up        | C-u    | E     |               | +Mn  |                                             |
-  | set mk           | m      | k     |               | -n   | mnemonic is still mark for me               |
-  | join lines       | J      | C-j   |               |      | slightly easier with Esc/C on caps lock key |
-  | goto mk          | `      | j     | jump          | +Nc  | easier to reach and now mnemonic            |
-  | goto mk ln       | '      | J     | jump to line  | -Nc  | same key as j now, which makes sense to me  |
-  | repeat           | ;      | '     |               | -    | bring back down to home row due to high use |
-  | rev repeat       | ,      | "     |               | -c   | rev repeat on same key as repeat now        |
-  | last change      | g ;    | g '   |               | -c   |                                             |
-  | last change rev  | g ,    | g "   |               | -c   |                                             |
-  | reg spec         | "      | &     |               | +    | Easier for my personal keyboard layout      |
-  | play macro       | @      | ,     |               | +P   | play macro on much easier key to hit        |
+  | function          | before | after | new mnemonic      | Attr | Commentary                                  |
+  |-------------------+--------+-------+-------------------+------+---------------------------------------------|
+  | substitute        | s      |       |                   | x    |                                             |
+  | subst line        | S      |       |                   | x    |                                             |
+  | repeat subst      | &      |       |                   | x    |                                             |
+  | rpt gbl subst     | g &    |       |                   | x    |                                             |
+  | up                | g k    |       |                   | x    | Why does this even exist?                   |
+  | down              | g j    |       |                   | x    |                                             |
+  | next match        | g n    |       |                   | x    | Why not just press n?                       |
+  | prev match        | g N    |       |                   | x    | Why not just press N?                       |
+  | window movements  | C-w *  |       |                   | x    | 48 C-w * bindings I don't use               |
+  | open fold rec     | z O    |       |                   | x    | I don't use these fold bindings             |
+  | toggle fold       | z a    |       |                   | x    |                                             |
+  | close fold        | z c    |       |                   | x    |                                             |
+  | close folds       | z m    |       |                   | x    | going to map something else to this key     |
+  | open fold         | z o    |       |                   | x    |                                             |
+  | open folds        | z r    |       |                   | x    |                                             |
+  | left              | h      | m     |                   | s    |                                             |
+  | down              | j      | n     |                   | s    |                                             |
+  | up                | k      | e     |                   | s    |                                             |
+  | right             | l      | i     |                   | s    |                                             |
+  | scroll col left   | z h    | z m   |                   | s    |                                             |
+  | scroll left       | z H    | z M   |                   | s    |                                             |
+  | scroll col right  | z l    | z i   |                   | s    |                                             |
+  | scroll right      | z L    | z I   |                   | s    |                                             |
+  | find file at pt   | g f    | g s   | search file at pt | -    | need to free up `g f'                       |
+  | find file.. w/ ln | g F    | g S   | search file.. etc | -    | need to free up `g F'                       |
+  | end WORD          | E      | F     | far WORD          | s    | foot/forward are other possible mnemonics   |
+  | end WORD          | g E    | g F   | far WORD rev      | s    | foot/forward are other possible mnemonics   |
+  | end word          | e      | f     | far word          | s    |                                             |
+  | end word          | g e    | g f   | far word rev      | s    |                                             |
+  | find              | f      | s     | search            | P    | right next to till :)                       |
+  | rev find          | F      | S     | rev search        | P    |                                             |
+  | eol               | $      | I     |                   | +Md  |                                             |
+  | hard bol          | 0      | M     |                   | +Md  |                                             |
+  | insert mode       | i      | l     | ?                 | +n   | looks like 'i' if you squint                |
+  | insert bol        | I      | L     |                   | +n   | looks like 'i' if you squint harder         |
+  | insert resume     | g i    | g l   |                   | +n   |                                             |
+  | visual mode       | v      | r     | range             | +    | see note below                              |
+  | visual lines      | V      | R     | range lines       | +    |                                             |
+  | visual block      | C-v    | C-r   | range block       | +    |                                             |
+  | visual restore    | g v    | g r   | range restore     | +    |                                             |
+  | replace           | r      | v     | revise            | -    | convert is another possible mnemonic        |
+  | replace mode      | R      | V     | revise mode       | -    |                                             |
+  | next              | n      | h     | ?                 | +n   | easier to reach but not mnemonic            |
+  | prev              | N      | H     | ?                 | +n   |                                             |
+  | redo              | C-r    | U     |                   | +cn  | makes much more sense and easier to do      |
+  | scrn mid          | M      | M-i   |                   | +Mn  | M-i > M-m due to home key finger rolling    |
+  | scrn low          | L      | M-n   |                   | +Mn  |                                             |
+  | scrn top          | H      | M-e   |                   | +Mn  |                                             |
+  | scroll down       | C-d    | N     |                   | +Mn  |                                             |
+  | scroll up         | C-u    | E     |                   | +Mn  |                                             |
+  | set mk            | m      | k     |                   | -n   | mnemonic is still mark for me               |
+  | join lines        | J      | C-j   |                   |      | slightly easier with Esc/C on caps lock key |
+  | goto mk           | `      | j     | jump              | +Nc  | easier to reach and now mnemonic            |
+  | goto mk ln        | '      | J     | jump to line      | -Nc  | same key as j now, which makes sense to me  |
+  | repeat            | ;      | '     |                   | -    | bring back down to home row due to high use |
+  | rev repeat        | ,      | "     |                   | -c   | rev repeat on same key as repeat now        |
+  | last change       | g ;    | g '   |                   | -c   |                                             |
+  | last change rev   | g ,    | g "   |                   | -c   |                                             |
+  | reg spec          | "      | &     |                   | +    | Easier for my personal keyboard layout      |
+  | play macro        | @      | ,     |                   | +P   | play macro on much easier key to hit        |
 
 **** Visual Mode key remap
 
