@@ -18,16 +18,25 @@
     "@"
     "C-r"
     "J"
+    "R"
     "S"
     "\""
     "g &"
     "g ,"
     "g ;"
     "g F"
+    "g f"
     "g i"
     "m"
     "r"
-    "s")
+    "s"
+    "z O"
+    "z a"
+    "z c"
+    "z m"
+    "z o"
+    "z r")
+
 
   (general-unbind 'motion
     "'"
@@ -77,47 +86,50 @@
     :states 'normal
     "&" 'evil-use-register
     "U" 'undo-tree-redo
-    "k" 'evil-set-marker
+    "V" 'evil-replace-state
+    "g '" 'goto-last-change-reverse
+    "g S" 'evil-find-file-at-point-with-line
+    "g \"" 'goto-last-change
     "g l" 'evil-insert-resume
-    "v" 'evil-replace
-    "V" 'evil-replace-state)
+    "g s" 'find-file-at-point
+    "k" 'evil-set-marker
+    "v" 'evil-replace)
 
   (general-def
     :states 'motion
-    ;; These in Colemak-DH as what h, j, k, l keys are in Qwerty.
-    "m" 'evil-backward-char
-    "n" 'evil-next-line
-    "e" 'evil-previous-line
-    "i" 'evil-forward-char
-    "M" 'evil-beginning-of-line ;; `0' remains bound to a similar function
-    "N" 'evil-scroll-down
+    "'" 'evil-repeat-find-char
+    "," 'evil-execute-macro
+    "C-j" 'evil-join
+    "C-r" 'evil-visual-block
     "E" 'evil-scroll-up
+    "F" 'evil-forward-WORD-end
+    "H" 'evil-ex-search-previous
     "I" 'evil-end-of-line ;; `$' remains bound to this function
-
+    "J" 'evil-goto-mark-line
+    "M" 'evil-beginning-of-line ;; `0' remains bound to a similar function
     "M-e" 'evil-window-top
     "M-i" 'evil-window-middle
     "M-n" 'evil-window-bottom
-
-    "h" 'evil-ex-search-next
-    "H" 'evil-ex-search-previous
-    "j" 'evil-goto-mark
-    "f" 'evil-forward-word-end
-    "F" 'evil-forward-WORD-end
-    "s" 'evil-find-char
-    "S" 'evil-find-char-backward
-
-    "r" 'evil-visual-char
+    "N" 'evil-scroll-down
     "R" 'evil-visual-line
-    "C-r" 'evil-visual-block
-    "g r" 'evil-visual-restore
-
-    "C-j" 'evil-join
-    "j" 'evil-goto-mark
-    "J" 'evil-goto-mark-line
-
-    "'" 'evil-repeat-find-char
+    "S" 'evil-find-char-backward
     "\"" 'evil-repeat-find-char-reverse
-    "," 'evil-execute-macro))
+    "e" 'evil-previous-line
+    "f" 'evil-forward-word-end
+    "g F" 'evil-backward-WORD-end
+    "g f" 'evil-backward-word-end
+    "g r" 'evil-visual-restore
+    "h" 'evil-ex-search-next
+    "i" 'evil-forward-char
+    "j" 'evil-goto-mark
+    "m" 'evil-backward-char
+    "n" 'evil-next-line
+    "r" 'evil-visual-char
+    "s" 'evil-find-char
+    "z I" 'evil-scroll-right
+    "z M" 'evil-scroll-left
+    "z i" 'evil-scroll-column-right
+    "z m" 'evil-scroll-column-left))
 
 ;; evil-collection will give a warning if the following setting is not set
 ;; before loading evil and evil-collection. Note that evil-leader loads evil
