@@ -149,6 +149,7 @@
   :states '(normal visual)
   :keymaps 'override
   "b" 'counsel-descbinds
+  "B" 'evil-collection-describe-bindings
   "c" 'describe-char
   "f" 'counsel-describe-function
   "k" 'describe-key
