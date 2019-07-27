@@ -20,22 +20,25 @@
 
 (add-to-list 'load-path (expand-file-name "src/" user-emacs-directory))
 
-(require 'init-package)
-(require 'init-settings)
-(require 'funcs)
-(require 'init-keys)
-(require 'init-editing)
-(require 'init-completion)
-(require 'init-org)
-(require 'init-nix)
-(require 'init-haskell)
-(require 'init-csharp)
-(require 'init-markdown)
-(require 'init-scripting)
-(require 'init-prog-tools)
-(require 'init-win-buffer-tools)
-(require 'init-misc-tools)
-(require 'init-visuals)
+(setq files-to-load
+  (list "init-package"
+    "init-settings"
+    "init-editing"
+    "init-completion"
+    "init-org"
+    "init-nix"
+    "init-haskell"
+    "init-csharp"
+    "init-markdown"
+    "init-scripting"
+    "init-prog-tools"
+    "init-win-buffer-tools"
+    "init-misc-tools"
+    "init-visuals"
+    "funcs"
+    "init-keys"))
+
+(mapc 'load files-to-load)
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (if (file-exists-p custom-file)
