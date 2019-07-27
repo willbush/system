@@ -10,6 +10,7 @@
             '(lambda ()
                (setq show-trailing-whitespace t))))
 
-(use-package markdown-toc :defer t)
+(use-package markdown-toc
+  :after markdown-mode)
 
 (provide 'init-markdown)
