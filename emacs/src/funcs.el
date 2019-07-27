@@ -1,5 +1,8 @@
 ;;; -*- lexical-binding: t; -*-
 
+;; silence warning
+(declare-function evil-visual-state-p "evil-states")
+
 ;; text manipulation related functions:
 
 (defun my/sort-lines-by-column (&optional reverse)
