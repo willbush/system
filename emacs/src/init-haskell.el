@@ -3,6 +3,7 @@
 (use-package haskell-mode
   :mode "\\.hs\\'"
   :functions speedbar-add-supported-extension
+  :defines flycheck-check-syntax-automatically
   :init
   (add-hook 'haskell-mode-hook
             (lambda ()
