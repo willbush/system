@@ -1,14 +1,5 @@
 ;;; -*- lexical-binding: t; -*-
 
-(defun my/org-todo-force-notes ()
-  "calls 'org-todo and makes it so that it will prompt for a note."
-  (interactive)
-  (let ((org-todo-log-states
-         (mapcar (lambda (state) (list state 'note 'time))
-                 (apply 'append org-todo-sets))))
-    (call-interactively 'org-todo)))
-
-
 (add-hook 'org-mode-hook
           '(lambda ()
              (setq show-trailing-whitespace t)
