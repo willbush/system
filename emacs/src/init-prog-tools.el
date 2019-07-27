@@ -5,7 +5,12 @@
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 
 (use-package magit
-  :defer t
+  :commands
+  (magit-clone
+   magit-gitignore-globally
+   magit-init
+   magit-status
+   magit-dispatch-popup)
   :config
   (setq magit-completing-read-function 'ivy-completing-read))
 
