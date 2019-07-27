@@ -10,7 +10,7 @@
    magit-gitignore-globally
    magit-init
    magit-status
-   magit-dispatch-popup)
+   magit-dispatch)
   :config
   (setq magit-completing-read-function 'ivy-completing-read))
 
