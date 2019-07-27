@@ -113,7 +113,6 @@
   :hook (haskell-mode-hook . hindent-mode)
   :init
   (when (file-executable-p "~/.nix-profile/bin/brittany")
-    (setq hindent-style nil)
     (setq hindent-process-path "~/.nix-profile/bin/brittany")))
 
 (use-package hlint-refactor
