@@ -1,5 +1,7 @@
 ;;; -*- lexical-binding: t; -*-
 
+(setq package-enable-at-startup nil)
+
 (if (eq system-type 'windows-nt)
     (progn
       (require 'package)
@@ -11,7 +13,6 @@
       (add-to-list 'package-archives
                    '("gnu" . "https://elpa.gnu.org/packages/"))
 
-      (setq packages-enable-at-startup nil)
       (package-initialize)
 
       ;; bootstrap use-package with package.el
@@ -25,7 +26,6 @@
   ;; When on Linux I use use home-manager to install packages.
   (eval-when-compile
     (require 'package)
-    (setq packages-enable-at-startup nil)
     (setq package-archives nil)
     (package-initialize)))
 
