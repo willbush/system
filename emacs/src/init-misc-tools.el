@@ -66,11 +66,4 @@
 (use-package pdf-tools
   :mode (("\\.pdf\\'" . pdf-view-mode)))
 
-(use-package elfeed
-  :commands elfeed
-  :config
-  (setq elfeed-feeds
-        '("http://nullprogram.com/feed/"
-          "http://planet.emacsen.org/atom.xml")))
-
 (provide 'init-misc-tools)
