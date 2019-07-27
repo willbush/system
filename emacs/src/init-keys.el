@@ -129,7 +129,7 @@
   "i" 'magit-gitignore-globally
   "I" 'magit-init
   "s" 'magit-status
-  "m" 'magit-dispatch-popup
+  "m" 'magit-dispatch
   "t" 'git-timemachine)
 
 (general-def
