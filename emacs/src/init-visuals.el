@@ -55,6 +55,7 @@
   :commands fci-mode)
 
 (use-package nav-flash
+  :functions (winum--switch-to-window)
   :commands nav-flash-show
   :preface
 
@@ -89,9 +90,6 @@
 
   ;; `avy'
   (advice-add #'evil-avy-goto-char-timer :after #'my/maybe-nav-flash)
-
-  ;; `saveplace'
-  (advice-add #'save-place-find-file-hook :after #'my/maybe-nav-flash)
 
   ;; `evil'
   (advice-add #'evil-scroll-up :after #'my/maybe-nav-flash)
