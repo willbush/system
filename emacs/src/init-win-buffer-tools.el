@@ -71,11 +71,17 @@
     (add-to-list 'golden-ratio-exclude-modes ms)))
 
 (use-package dashboard
-  :hook (after-init . dashboard-setup-startup-hook)
-  :config
-  (setq dashboard-banner-logo-title nil)
-  (setq dashboard-startup-banner 'official)
-  (setq dashboard-items '((recents  . 5))))
+ :init
+ (setq initial-buffer-choice
+       (lambda ()
+         (or (get-buffer "*dashboard*") (get-buffer "*scratch*"))))
+ :config
+ (setq dashboard-banner-logo-title nil
+       dashboard-set-heading-icons t
+       dashboard-set-file-icons t
+       dashboard-items '((recents  . 5)
+                          (projects . 5)))
+ (dashboard-setup-startup-hook))
 
 (use-package visual-fill-column
   :config
