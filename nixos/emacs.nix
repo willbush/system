@@ -78,6 +78,8 @@
       # I haven't been able to see much of any gain. The main advantage is an
       # opportunity to see compiler warnings.
       onChange = ''
+        rm ~/.emacs.d/init.elc -fv # force flag to ignore the file when it doesn't exist
+        rm ~/.emacs.d/src/*.elc -fv
         emacs -Q --load ~/.emacs.d/init.el --batch --eval '(byte-compile-file "~/.emacs.d/init.el")'
         emacs -Q --load ~/.emacs.d/init.el --batch --eval '(byte-recompile-directory "~/.emacs.d/src/" 0 t)'
       '';
