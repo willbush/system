@@ -31,4 +31,9 @@
 
 (require 'use-package)
 
+;; Setting this variable reduces warnings with compiling my config.
+;; see https://github.com/jwiegley/use-package/issues/590
+(eval-when-compile
+  (setq use-package-expand-minimally t))
+
 (provide 'init-package)
