@@ -5,7 +5,7 @@
 (use-package winum :hook (after-init . winum-mode))
 
 (use-package golden-ratio
-  :defer t
+  :commands (golden-ratio golden-ratio-mode)
   :config
   ;; extra golden ratio commands
   (dolist (cs '(avy-pop-mark
