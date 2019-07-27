@@ -20,23 +20,29 @@
 
 (add-to-list 'load-path (expand-file-name "src/" user-emacs-directory))
 
+;; order matters in the initialization process.
 (setq files-to-load
-  (list "init-package"
-    "init-settings"
-    "init-editing"
-    "init-completion"
-    "init-org"
-    "init-nix"
-    "init-haskell"
-    "init-csharp"
-    "init-markdown"
-    "init-scripting"
-    "init-prog-tools"
-    "init-win-buffer-tools"
-    "init-misc-tools"
-    "init-visuals"
-    "funcs"
-    "init-keys"))
+      (list
+       ;; setup package management before everything
+       "init-package"
+       ;; Put key binding package high on the list so other files can also bind
+       ;; keys. The key binding package allows bindings keys before the
+       ;; functions they're bound to are defined.
+       "init-keys"
+       "init-settings"
+       "init-editing"
+       "init-completion"
+       "init-org"
+       "init-nix"
+       "init-haskell"
+       "init-csharp"
+       "init-markdown"
+       "init-scripting"
+       "init-prog-tools"
+       "init-win-buffer-tools"
+       "init-misc-tools"
+       "init-visuals"
+       "funcs"))
 
 (mapc 'load files-to-load)
 
