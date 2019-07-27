@@ -190,7 +190,7 @@
 ;; Enables searching via * on a visual selection.
 (use-package evil-visualstar
   :after evil
-  :init (global-evil-visualstar-mode))
+  :config (global-evil-visualstar-mode))
 
 ;; Enables inc/dec of numbers!
 (use-package evil-numbers
