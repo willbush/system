@@ -27,6 +27,7 @@
 
 ;; increasing recentf max items for better ivy-switch-buffer completion
 (use-package recentf
+  :functions recentf-mode
   :config
   (recentf-mode 1)
   (setq recentf-max-menu-items 1000
@@ -50,7 +51,7 @@
   :hook (after-init . counsel-projectile-mode))
 
 (use-package projectile
-  :defer t
+  :commands projectile-mode
   :config
   (projectile-mode +1))
 
