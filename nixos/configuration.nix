@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 
+let
+  unstableTarball =
+    fetchTarball
+      https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -8,8 +13,16 @@
     ./pia/pia-nm.nix
   ];
 
-  # Allow unfree, which is required for some drivers.
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    # Allow unfree, which is required for some drivers.
+    allowUnfree = true;
+
+    packageOverrides = pkgs: {
+      unstable = import unstableTarball {
+        config = config.nixpkgs.config;
+      };
+    };
+  };
 
   nix = {
     useSandbox = true;
@@ -61,7 +74,6 @@
       };
     };
   };
-
 
   networking = {
     hostName = "nixos";
@@ -122,7 +134,7 @@
   virtualisation.docker.enable = true;
 
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs.unstable; [
     alacritty
     curl
     docker
