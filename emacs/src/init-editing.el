@@ -231,8 +231,8 @@
                    "n" "j"
                    "e" "k"
                    "i" "l"
-                   "C-n" "C-j"
-                   "C-e" "C-k")))
+                   (kbd "C-n") (kbd "C-j")
+                   (kbd "C-e") (kbd "C-k"))))
 
     ;; re-initialize all evil collection keybindings
     (evil-collection-init))
