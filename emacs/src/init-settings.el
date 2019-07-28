@@ -85,7 +85,7 @@
 ;; follows symlinks without prompt when set to t
 (setq vc-follow-symlinks t)
 
-;; fixes performance issue with doom-modeline in Windows
+;; fixes many performance issue in Windows
 (setq inhibit-compacting-font-caches t)
 
 (setq default-tab-width 2)
