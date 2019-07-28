@@ -59,7 +59,7 @@ in
     fzf
     gcc
     gimp
-    gnome3.simple-scan
+    simple-scan
     gnupg
     haskellPackages.apply-refact
     haskellPackages.ghcid
