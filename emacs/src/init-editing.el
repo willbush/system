@@ -78,7 +78,8 @@
 (use-package evil-exchange
   :commands evil-exchange-cx-install)
 
-(use-package avy :commands avy-goto-char)
+(use-package avy
+  :commands (avy-goto-char avy-goto-char-timer))
 
 (use-package expand-region
   :commands (er/expand-region er/contract-region)
