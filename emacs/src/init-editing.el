@@ -223,7 +223,26 @@
     "z i" 'evil-scroll-column-right
     "z m" 'evil-scroll-column-left)
 
+  (general-def "C-u" 'universal-argument)
+
+  (general-def
+    :prefix "SPC w"
+    :states '(normal visual)
+    :keymaps 'override
+    "E" 'evil-window-move-very-top
+    "I" 'evil-window-move-far-right
+    "M" 'evil-window-move-far-left
+    "N" 'evil-window-move-very-bottom
+    "e" 'evil-window-up
+    "i" 'evil-window-right
+    "k" 'kill-buffer-and-window
+    "m" 'evil-window-left
+    "n" 'evil-window-down
+    "x" 'my/toggle-maximize-window)
+
     ;; called after evil-collection makes its keybindings
+    ;; https://github.com/emacs-evil/evil-collection#guidelines
+    ;; Think I'm going to translate keys as I need them.
     (add-hook 'evil-collection-setup-hook
               '(lambda (_mode mode-keymaps &rest _rest)
                  (evil-collection-translate-key 'normal mode-keymaps
