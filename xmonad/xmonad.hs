@@ -15,18 +15,10 @@ main =
     , borderWidth        = 1
     }
   where
+    -- | Unbind keys I don't use.
     delkeys :: XConfig l -> [(KeyMask, KeySym)]
     delkeys XConfig {modMask = modm} =
-      -- | keys I'm going to rebind:
-      [ (modm,               xK_j)
-      , (modm,               xK_k)
-      , (modm,               xK_h)
-      , (modm,               xK_l)
-      , (modm .|. shiftMask, xK_j)
-      , (modm .|. shiftMask, xK_k)
-      , (modm .|. shiftMask, xK_m)
-      -- | keys I don't use.
-      , (modm,               xK_w)
+      [ (modm,               xK_w)
       , (modm,               xK_e)
       , (modm,               xK_r)
       , (modm,               xK_p)
@@ -40,10 +32,10 @@ main =
     addkeys :: XConfig l -> [((KeyMask, KeySym), X ())]
     addkeys conf@(XConfig {modMask = modm}) =
       [ ((modm,               xK_n), windows W.focusDown)
-      , ((modm .|. shiftMask, xK_n), windows W.swapDown)
       , ((modm,               xK_e), windows W.focusUp)
-      , ((modm .|. shiftMask, xK_e), windows W.swapUp)
       , ((modm,               xK_m), sendMessage Shrink)
       , ((modm,               xK_i), sendMessage Expand)
+      , ((modm .|. shiftMask, xK_n), windows W.swapDown)
+      , ((modm .|. shiftMask, xK_e), windows W.swapUp)
       , ((modm .|. shiftMask, xK_m), windows W.focusMaster)
       ]
