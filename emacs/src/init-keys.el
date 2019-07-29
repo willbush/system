@@ -97,8 +97,8 @@
   :states '(normal visual)
   :keymaps 'override
   "l" 'comment-line
-  "p" 'poporg-dwim)
-  "r" 'comment-or-uncomment-region
+  "p" 'poporg-dwim
+  "r" 'comment-or-uncomment-region)
 
 (general-def
   :prefix "SPC f"
@@ -117,9 +117,9 @@
   "D" 'delete-other-frames
   "d" 'delete-frame
   "i" 'iconify-frame
-  "m" 'toggle-frame-maximized)
+  "m" 'toggle-frame-maximized
   "n" 'make-frame
-  "o" 'other-frame
+  "o" 'other-frame)
 
 (general-def
   :prefix "SPC g"
