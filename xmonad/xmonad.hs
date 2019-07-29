@@ -17,9 +17,10 @@ main =
     -- | add left hand Colemak-DH home keys and keys above the home keys as
     -- workspaces. This is very useful for 48 key keyboards like the Planck
     -- which has number keys accessible via a layer (modifier).
-    , workspaces = map show [1..9] ++ [ "q", "w", "f", "p", "b",
-                                        "a", "r", "s", "t", "g"
-                                      ]
+    , workspaces =
+        [ "q", "w", "f", "p", "b",
+          "a", "r", "s", "t", "g"
+        ]
     }
   where
     delkeys :: XConfig l -> [(KeyMask, KeySym)]
@@ -54,9 +55,9 @@ main =
       ]
 
     workspaceKeys :: [KeySym]
-    workspaceKeys = [xK_1 .. xK_9] ++ [xK_q, xK_w, xK_f, xK_p, xK_b,
-                                       xK_a, xK_r, xK_s, xK_t, xK_g
-                                      ]
+    workspaceKeys = [ xK_q, xK_w, xK_f, xK_p, xK_b,
+                      xK_a, xK_r, xK_s, xK_t, xK_g
+                    ]
 
     addkeys :: XConfig l -> [((KeyMask, KeySym), X ())]
     addkeys conf@(XConfig {modMask = modm}) =
