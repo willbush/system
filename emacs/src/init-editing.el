@@ -14,155 +14,26 @@
         evil-ex-complete-emacs-commands nil
         evil-vsplit-window-right t
         evil-split-window-below t
-        evil-shift-round nil
-        evil-want-C-u-scroll t)
+        evil-shiftround nil
+        evil-want-C-d-scroll nil
+        evil-want-C-u-scroll nil
+        evil-want-C-i-jump nil)
   :config
-  ;; unbind evil-lookup
-  (eval-after-load "evil-maps"
-    (define-key evil-motion-state-map "\S-k" nil))
-
-  ;; evil global key bindings
-  (global-set-key (kbd "C-S-h") 'evil-window-left)
-  (global-set-key (kbd "C-S-l") 'evil-window-right)
-  (global-set-key (kbd "C-S-j") 'evil-window-down)
-  (global-set-key (kbd "C-S-k") 'evil-window-up)
-
-  (global-evil-visualstar-mode)
-  (global-evil-surround-mode 1)
-  (global-evil-matchit-mode 1)
-  (evil-exchange-cx-install)
-  (evil-collection-init))
-
-(use-package evil-collection
-  :commands evil-collection-init
-  :custom (evil-collection-setup-minibuffer t)
-  :init
-  (setq evil-collection-mode-list
-        '(calendar
-          (package-menu package)
-          (term term ansi-term multi-term)
-          compile
-          cus-theme
-          custom
-          deadgrep
-          debug
-          dired
-          disk-usage
-          ediff
-          elfeed
-          git-timemachine
-          help
-          info
-          ivy
-          man
-          minibuffer
-          (pdf pdf-view)
-          woman)))
-
-;; Enables searching via * on a visual selection.
-(use-package evil-visualstar
-  :commands global-evil-visualstar-mode)
-
-;; Enables inc/dec of numbers!
-(use-package evil-numbers
-  :commands (evil-numbers/inc-at-pt evil-numbers/dec-at-pt))
-
-(use-package evil-surround
-  :commands global-evil-surround-mode)
-
-(use-package evil-matchit
-  :commands global-evil-matchit-mode)
-
-(use-package evil-exchange
-  :commands evil-exchange-cx-install)
-
-(use-package avy
-  :commands (avy-goto-char avy-goto-char-timer))
-
-(use-package expand-region
-  :commands (er/expand-region er/contract-region)
-  :init
-  (defhydra hydra-expand-region ()
-     "region: "
-     ("k" er/expand-region "expand")
-     ("j" er/contract-region "contract")))
-
-(use-package evil-tutor
-  :commands evil-tutor-start)
-
-;; For an in-depth discussion about why I'm rebinding Evil keys see the readme.
-(defun my/enable-custom-evil-keys ()
-  "Sets up my custom evil key bindings for Colemak-DH keyboard layout"
-  (interactive)
-
-  (setq evil-want-C-u-scroll nil
-        evil-want-C-d-scroll nil)
-
+  ;; The following sets up my custom evil key bindings for Colemak-DH keyboard
+  ;; layout. For my in-depth thoughts on the new key mappings see the readme.
+  ;;
   ;; Nuke the site from orbit. It's the only way to be sure.
   ;;
-  ;; Unbind all keys before rebinding them except for the `i' insert mode key,
-  ;; which needs to be swapped to get the inner bindings in visual mode
-  ;; automatically setup correctly. Some of these keys I don't rebind.
+  ;; Unbind all keys I either don't want or want to rebind. However, the `i'
+  ;; insert mode key gets special treatment because it needs to be swapped to
+  ;; get the inner bindings in visual mode automatically setup correctly.
   (general-unbind 'normal
-    "&"
-    "@"
-    "C-r"
-    "J"
-    "R"
-    "S"
-    "\""
-    "g &"
-    "g ,"
-    "g ;"
-    "g F"
-    "g f"
-    "g i"
-    "m"
-    "r"
-    "s"
-    "z O"
-    "z a"
-    "z c"
-    "z m"
-    "z o"
-    "z r")
-
-
+    "&" "@" "C-r" "J" "R" "S" "\"" "g &" "g ," "g ;" "g F" "g f" "g i" "m"
+    "r" "s" "z O" "z a" "z c" "z m" "z o" "z r")
   (general-unbind 'motion
-    "'"
-    ","
-    ";"
-    "C-d"
-    "C-u"
-    "C-v"
-    "C-w"
-    "E"
-    "F"
-    "H"
-    "L"
-    "M"
-    "N"
-    "V"
-    "`"
-    "e"
-    "f"
-    "g E"
-    "g N"
-    "g e"
-    "g j"
-    "g k"
-    "g n"
-    "g v"
-    "h"
-    "j"
-    "k"
-    "l"
-    "n"
-    "v"
-    "z H"
-    "z L"
-    "z h"
-    "z l")
+    "'" "," ";" "C-d" "C-u" "C-v" "C-w" "S-k" "E" "F" "H" "L" "M" "N" "V" "`" "e"
+    "f" "g E" "g N" "g e" "g j" "g k" "g n" "g v" "h" "j" "k" "l" "n" "v"
+    "z H" "z L" "z h" "z l")
 
   ;; visual state R key is not that useful.
   (general-unbind '(normal visual) "R")
@@ -221,22 +92,37 @@
     "z i" 'evil-scroll-column-right
     "z m" 'evil-scroll-column-left)
 
-  (general-def "C-u" 'universal-argument)
+  (global-evil-visualstar-mode)
+  (global-evil-surround-mode 1)
+  (global-evil-matchit-mode 1)
+  (evil-exchange-cx-install)
+  (evil-collection-init))
 
-  (general-def
-    :prefix "SPC w"
-    :states '(normal visual)
-    :keymaps 'override
-    "E" 'evil-window-move-very-top
-    "I" 'evil-window-move-far-right
-    "M" 'evil-window-move-far-left
-    "N" 'evil-window-move-very-bottom
-    "e" 'evil-window-up
-    "i" 'evil-window-right
-    "k" 'kill-buffer-and-window
-    "m" 'evil-window-left
-    "n" 'evil-window-down
-    "x" 'my/toggle-maximize-window)
+(use-package evil-collection
+  :commands evil-collection-init
+  :custom (evil-collection-setup-minibuffer t)
+  :init
+  (setq evil-collection-mode-list
+        '(calendar
+          (package-menu package)
+          (term term ansi-term multi-term)
+          compile
+          cus-theme
+          custom
+          deadgrep
+          debug
+          dired
+          disk-usage
+          ediff
+          elfeed
+          git-timemachine
+          help
+          info
+          ivy
+          man
+          minibuffer
+          (pdf pdf-view)
+          woman))
 
     ;; called after evil-collection makes its keybindings
     ;; https://github.com/emacs-evil/evil-collection#guidelines
@@ -249,9 +135,37 @@
                    "e" "k"
                    "i" "l"
                    (kbd "C-n") (kbd "C-j")
-                   (kbd "C-e") (kbd "C-k"))))
+                   (kbd "C-e") (kbd "C-k")))))
 
-    ;; re-initialize all evil collection keybindings
-    (evil-collection-init))
+;; Enables searching via * on a visual selection.
+(use-package evil-visualstar
+  :commands global-evil-visualstar-mode)
+
+;; Enables inc/dec of numbers!
+(use-package evil-numbers
+  :commands (evil-numbers/inc-at-pt evil-numbers/dec-at-pt))
+
+(use-package evil-surround
+  :commands global-evil-surround-mode)
+
+(use-package evil-matchit
+  :commands global-evil-matchit-mode)
+
+(use-package evil-exchange
+  :commands evil-exchange-cx-install)
+
+(use-package avy
+  :commands (avy-goto-char avy-goto-char-timer))
+
+(use-package expand-region
+  :commands (er/expand-region er/contract-region)
+  :init
+  (defhydra hydra-expand-region ()
+     "region: "
+     ("e" er/expand-region "expand")
+     ("n" er/contract-region "contract")))
+
+(use-package evil-tutor
+  :commands evil-tutor-start)
 
 (provide 'init-editing)
