@@ -7,12 +7,11 @@
 
 ;; Global Bindings
 (general-def
-  "C-S-u" 'universal-argument
   ;; zoom in and out
-  "C-=" 'text-scale-increase
+  "C-+" 'text-scale-increase
   "C--" 'text-scale-decrease
   ;; increment and decrement number at point.
-  "M-=" 'evil-numbers/inc-at-pt
+  "M-+" 'evil-numbers/inc-at-pt
   "M--" 'evil-numbers/dec-at-pt)
 
 ;; pressing v again after going into visual mode will enter
@@ -223,20 +222,20 @@
   "-" 'split-window-vertically
   "/" 'split-window-horizontally
   "B" 'balance-windows-area
-  "H" 'evil-window-move-far-left
-  "J" 'evil-window-move-very-bottom
-  "K" 'evil-window-move-very-top
-  "L" 'evil-window-move-far-right
+  "E" 'evil-window-move-very-top
+  "I" 'evil-window-move-far-right
+  "M" 'evil-window-move-far-left
+  "N" 'evil-window-move-very-bottom
   "b" 'balance-windows
   "d" 'delete-window
+  "e" 'evil-window-up
   "g" 'golden-ratio
-  "h" 'evil-window-left
-  "j" 'evil-window-down
-  "k" 'evil-window-up
-  "l" 'evil-window-right
-  "m" 'my/toggle-maximize-window
+  "i" 'evil-window-right
+  "k" 'kill-buffer-and-window
+  "m" 'evil-window-left
+  "n" 'evil-window-down
   "o" 'delete-other-windows
-  "x" 'kill-buffer-and-window)
+  "x" 'my/toggle-maximize-window)
 
 (general-def
   :prefix "SPC x"
