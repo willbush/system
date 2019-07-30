@@ -189,7 +189,7 @@
   :states '(normal visual)
   :keymaps 'override
   "D" 'my/counsel-rg-directory
-  "c" 'my/evil-search-clear-highlight
+  "c" 'evil-ex-nohighlight ;; mnemonic is search clear
   "d" 'deadgrep
   "s" 'swiper
   "z" 'counsel-fzf)

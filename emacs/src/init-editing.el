@@ -21,8 +21,6 @@
   (eval-after-load "evil-maps"
     (define-key evil-motion-state-map "\S-k" nil))
 
-  ;; make mnemonic alias for how I want to bind it
-  (defalias 'my/evil-search-clear-highlight 'evil-ex-nohighlight)
   ;; evil global key bindings
   (global-set-key (kbd "C-S-h") 'evil-window-left)
   (global-set-key (kbd "C-S-l") 'evil-window-right)
