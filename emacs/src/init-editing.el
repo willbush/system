@@ -28,7 +28,7 @@
   ;; insert mode key gets special treatment because it needs to be swapped to
   ;; get the inner bindings in visual mode automatically setup correctly.
   (general-unbind 'normal
-    "&" "@" "C-r" "J" "R" "S" "\"" "g &" "g ," "g ;" "g F" "g f" "g i" "m"
+    "&" "C-r" "J" "R" "S" "\"" "g &" "g ," "g ;" "g F" "g f" "g i" "m"
     "r" "s" "z O" "z a" "z c" "z m" "z o" "z r")
   (general-unbind 'motion
     "'" "," ";" "C-d" "C-u" "C-v" "C-w" "S-k" "E" "F" "H" "L" "M" "N" "V" "`" "e"
@@ -60,7 +60,6 @@
   (general-def
     :states 'motion
     "'" 'evil-repeat-find-char
-    "," 'evil-execute-macro
     "C-j" 'evil-join
     "C-r" 'evil-visual-block
     "E" 'evil-scroll-up
