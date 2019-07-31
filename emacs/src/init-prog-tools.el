@@ -14,7 +14,23 @@
   :config
   (setq magit-completing-read-function 'ivy-completing-read))
 
-(use-package evil-magit :after magit)
+(use-package evil-magit
+  :after magit
+  :config
+
+  (general-unbind
+    :states '(normal visual)
+    :keymaps 'magit-mode-map
+    "C-w")
+
+  ;; swap basic up/down keys for Colemak-DH
+  (general-swap-key '(normal visual) 'magit-mode-map
+    "C-j" "C-n"
+    "C-k" "C-e"
+    "g j" "g n"
+    "g k" "g e"
+    "j" "n"
+    "k" "e"))
 
 (use-package git-timemachine
   ;; mode key bindings provided by evil-collection
