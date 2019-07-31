@@ -40,8 +40,9 @@
 
   ;; swap insert mode, which will handle remapping all the visual inner
   ;; bindings.
-  (general-swap-key nil '(normal visual) "i" "l")
-  (general-swap-key nil '(normal visual) "I" "L")
+  (general-swap-key nil '(normal visual)
+    "i" "l"
+    "I" "L")
 
   (general-def
     :states 'normal
