@@ -29,6 +29,9 @@
        ;; keys. The key binding package allows bindings keys before the
        ;; functions they're bound to are defined.
        "init-keys"
+       ;; The order after this point shouldn't matter except perhaps funcs.
+       ;; which comes last. The functions file utilizes functions from packages
+       ;; that should have auto loads created before hand to avoid warnings.
        "init-settings"
        "init-editing"
        "init-prog-tools"
