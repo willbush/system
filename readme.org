@@ -477,11 +477,10 @@
   | goto mk           | `      | j     | jump              | +Nc  | easier to reach and now mnemonic            |
   | goto mk ln        | '      | J     | jump to line      | -Nc  | same key as j now, which makes sense to me  |
   | repeat            | ;      | '     |                   | -    | bring back down to home row due to high use |
-  | rev repeat        | ,      | "     |                   | -c   | rev repeat on same key as repeat now        |
+  | rev repeat        | ,      | "     |                   | -c   | , can be used as another leader key         |
   | last change       | g ;    | g '   |                   | -c   |                                             |
   | last change rev   | g ,    | g "   |                   | -c   |                                             |
   | reg spec          | "      | &     |                   | +    | Easier for my personal keyboard layout      |
-  | play macro        | @      | ,     |                   | +P   | play macro on much easier key to hit        |
 
 **** Visual Mode key remap
 
@@ -525,12 +524,14 @@
   | lower   | { begin para | % goto match  | & reg spec   | } end para   | \vert goto col | Del          |
   | raise   | ^ soft bol   | * next id     | # prev id    | $ eol        | \              | Del          |
   | ======= | ==========   | ============= | ===========  | =========    | =============  | =====        |
-  | default | k set mk     | h next        | , play macro | . repeat cmd | / find         | RET/S        |
+  | default | k set mk     | h next        | ,            | . repeat cmd | / find         | RET/S        |
   | shift   | K            | H prev        | < un-indent  | > indent     | ? rev find     |              |
-  | raise   |              | @             |              |              |                |              |
+  | raise   |              | @ play macro  |              |              |                |              |
   |---------+--------------+---------------+--------------+--------------+----------------+--------------|
 
-** Setting the custom evil bindings in Emacs
+** Useful functions for rebinding
+
+   Here is something I threw together to pretty print and diff the keymaps:
 
   #+begin_src emacs-lisp
   (defun my/keymaps-to-temp-buffer (keymaps buffer-name)
