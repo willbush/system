@@ -7,6 +7,10 @@
 
 ;; Global Bindings
 (general-def
+  ;; move `C-p' to `C-e' since Colemak `e' is on the Qwerty `k' key position.
+  ;; The `C-n' already has `n' on the `j' position. I'm not too concerned about
+  ;; rebinding `move-end-of-line' since I use evil mode.
+  "C-e" 'previous-line
   ;; zoom in and out
   "C-+" 'text-scale-increase
   "C--" 'text-scale-decrease
@@ -14,11 +18,11 @@
   "M-+" 'evil-numbers/inc-at-pt
   "M--" 'evil-numbers/dec-at-pt)
 
-;; pressing v again after going into visual mode will enter
-;; a hydra for expand-region usage
+;; pressing r again after going into range mode (visual mode) will enter a hydra
+;; for expand-region usage
 (general-def
   :states 'visual
-  "v" 'hydra-expand-region/body)
+  "r" 'hydra-expand-region/body)
 
 (general-def
   :prefix "SPC"
@@ -44,12 +48,13 @@
   "b" '(:ignore t :which-key "buffer")
   "c" '(:ignore t :which-key "comment")
   "f" '(:ignore t :which-key "file")
-  "g" '(:ignore t :which-key "git")
+  "g" '(:ignore t :which-key "go")
   "h" '(:ignore t :which-key "help")
-  "j" '(:ignore t :which-key "jump")
-  "n" '(:ignore t :which-key "narrow")
+  "m" '(:ignore t :which-key "magit")
+  "n" '(:ignore t :which-key "nimble")
   "p" 'projectile-command-map
   "q" '(:ignore t :which-key "quit")
+  "r" '(:ignore t :which-key "rapid")
   "s" '(:ignore t :which-key "search")
   "t" '(:ignore t :which-key "toggle")
   "w" '(:ignore t :which-key "window")
@@ -87,9 +92,19 @@
   "h" 'my/switch-to-dashboard
   "k" 'kill-buffer ;; requests buffer to kill
   "m" 'my/switch-to-messages
-  "n" 'next-buffer
-  "p" 'previous-buffer
-  "s" 'my/switch-to-scratch)
+  "s" 'my/switch-to-scratch
+  "n" '(:ignore t :which-key "narrow"))
+
+;; I hardly use these functions so it doesn't bother me that they are a little
+;; buried, but mnemonic.
+(general-def
+  :prefix "SPC b n"
+  :states '(normal visual)
+  :keymaps 'override
+  "f" 'narrow-to-defun
+  "p" 'narrow-to-page
+  "r" 'narrow-to-region
+  "w" 'widen)
 
 (general-def
   :prefix "SPC c"
@@ -124,11 +139,19 @@
   :prefix "SPC g"
   :states '(normal visual)
   :keymaps 'override
+  "f" 'find-function
+  "g" 'avy-goto-char-timer
+  "v" 'find-variable)
+
+(general-def
+  :prefix "SPC m"
+  :states '(normal visual)
+  :keymaps 'override
   "I" 'magit-init
   "c" 'magit-clone
+  "d" 'magit-dispatch
   "i" 'magit-gitignore-globally
-  "m" 'magit-dispatch
-  "s" 'magit-status
+  "m" 'magit-status
   "t" 'git-timemachine)
 
 (general-def
@@ -159,22 +182,13 @@
   "t" 'describe-theme
   "v" 'counsel-describe-variable)
 
-(general-def
-  :prefix "SPC j"
-  :states '(normal visual)
-  :keymaps 'override
-  "f" 'find-function
-  "j" 'avy-goto-char-timer
-  "v" 'find-variable)
-
+;; Nimble keys emphasize easy access due to high usage (n is on the right index
+;; finger in Colemak) over mnemonics.
 (general-def
   :prefix "SPC n"
   :states '(normal visual)
   :keymaps 'override
-  "f" 'narrow-to-defun
-  "p" 'narrow-to-page
-  "r" 'narrow-to-region
-  "w" 'widen)
+  "n" 'ivy-switch-buffer)
 
 (general-def
   :prefix "SPC q"
@@ -182,6 +196,13 @@
   :keymaps 'override
   "Q" 'save-buffers-kill-emacs
   "q" 'save-buffers-kill-terminal)
+
+;; Rapid keys emphasize easy access due to high usage over mnemonics.
+(general-def
+  :prefix "SPC r"
+  :states '(normal visual)
+  :keymaps 'override
+  "s" 'save-buffer)
 
 (general-def
   :prefix "SPC s"
