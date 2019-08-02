@@ -173,27 +173,27 @@
 
      + =~= and ~`~ moved onto home keys. I mostly only used these with editing
        markdown and org files. The =~= key toggles case in Evil, but I tend to
-       use ~u~ and ~U~ to do that in visual state. The ~`~ goes to a mark, which
-       is useful and I'm happy with it's location.
+       use ~u~ and ~U~ to do that in visual state. The ~`~ goes to a mark in
+       Evil, but I rebind that to a better key.
 
      + ~@~ moved under right hand index finger. I often use this key along with
        ~q~ because both are involved with using Evil macros, which I use a lot.
        I initially thought to leave it close to ~q~, but double tapping ~@~ to
        replay the previous macro with my pinky finger would get old fast.
 
-     + ~_~ has functionality in Evil I'm aware of, but never use. I only use it
-       heavily when programming in Rust due to the typical snake case style. The
-       primary reasoning behind it's location is to being close to ~-~ makes it
-       easier to remember where it's at since they are visually similar.
+     + ~_~ has functionality in Evil I'm aware of, but never use. I only use the
+       key heavily when programming in Rust due to the typical snake case style.
+       The primary reasoning behind it's location is to being close to ~-~ makes
+       it easier to remember where it's at since they are visually similar.
 
      + ~%~ jumps to a matching symbol such as a parenthesis or braces. I put it
        on the down position key despite it's behavior not exactly matching that.
        However, it's close enough for me.
 
-     + ~&~ repeats a substitute command in Evil, but I never use it. I might
-       rebind this to ~evil-use-register~, which is typically on the quotation
-       mark, because it's quite annoying to hold shift to hit it and then a
-       layer to hit a number.
+     + ~&~ repeats a substitute command in Evil, but I never use it. I rebind
+       this to ~evil-use-register~, which is typically on the quotation mark,
+       because it's quite annoying to hold shift to hit it and then a layer to
+       hit a number.
 
 
 ** Hyper
