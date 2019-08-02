@@ -129,14 +129,12 @@
     ;; Think I'm going to translate keys as I need them.
     (add-hook 'evil-collection-setup-hook
               '(lambda (_mode mode-keymaps &rest _rest)
-                 (evil-collection-translate-key 'normal mode-keymaps
+                 (evil-collection-swap-key 'normal mode-keymaps
                    "m" "h" ;; left
                    "n" "j" ;; down
                    "e" "k" ;; up
                    "i" "l" ;; right
-                   "l" "i" ;; insert
                    "r" "v" ;; range (old name visual)
-                   "v" "r" ;; revise (old name replace)
                    (kbd "C-n") (kbd "C-j")
                    (kbd "C-e") (kbd "C-k")))))
 
