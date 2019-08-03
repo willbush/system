@@ -3,12 +3,12 @@
 (add-hook 'org-mode-hook
           '(lambda ()
              (setq show-trailing-whitespace t)
-             (local-set-key "\M-k" 'org-move-subtree-up)
-             (local-set-key "\M-j" 'org-move-subtree-down)
-             (local-set-key "\M-h" 'org-do-promote)
-             (local-set-key "\M-l" 'org-do-demote)
-             (local-set-key "\C-j" 'org-forward-heading-same-level)
-             (local-set-key "\C-k" 'org-backward-heading-same-level)))
+             (local-set-key "\M-n" 'org-move-subtree-down)
+             (local-set-key "\M-e" 'org-move-subtree-up)
+             (local-set-key "\M-m" 'org-do-promote)
+             (local-set-key "\M-i" 'org-do-demote)
+             (local-set-key "\C-n" 'org-forward-heading-same-level)
+             (local-set-key "\C-e" 'org-backward-heading-same-level)))
 
 ;; Allows me to set the width of an inline image.
 ;; #+ATTR_ORG: :width 100
