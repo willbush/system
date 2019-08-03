@@ -3,8 +3,6 @@
 (add-hook 'org-mode-hook
           '(lambda ()
              (setq show-trailing-whitespace t)
-             (define-key org-mode-map (kbd "C-c C-S-t")
-               'my/org-todo-force-notes)
              (local-set-key "\M-k" 'org-move-subtree-up)
              (local-set-key "\M-j" 'org-move-subtree-down)
              (local-set-key "\M-h" 'org-do-promote)
