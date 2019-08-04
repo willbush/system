@@ -169,4 +169,6 @@ in
     temperature.day = 6500;
     temperature.night = 2200;
   };
+
+  services.syncthing.enable = true;
 }
