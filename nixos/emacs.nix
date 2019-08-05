@@ -62,6 +62,7 @@
       ranger
       smex
       use-package
+      vimrc-mode
       visual-fill-column
       which-key
       winum
