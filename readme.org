@@ -411,7 +411,7 @@
 
   | function          | before | after | new mnemonic      | Attr | Commentary                                  |
   |-------------------+--------+-------+-------------------+------+---------------------------------------------|
-  | substitute        | s      |       |                   | x    | I don't use this and its on the home row    |
+  | substitute        | s      |       |                   | x    | I don't use this and its on a home key      |
   | subst line        | S      |       |                   | x    | related to substitute                       |
   | repeat subst      | &      |       |                   | x    | related to substitute                       |
   | rpt gbl subst     | g &    |       |                   | x    | related to substitute                       |
