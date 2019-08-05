@@ -8,6 +8,7 @@
   :mode ("\\.yaml\\'" . yaml-mode))
 
 (use-package vimrc-mode
-  :mode ("\\.vim\\(rc\\)?\\'" . vimrc-mode))
+  :mode (("\\.vim\\(rc\\)?\\'" . vimrc-mode)
+         ("\\vimrc\\'" . vimrc-mode)))
 
 (provide 'init-scripting)
