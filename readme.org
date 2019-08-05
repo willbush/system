@@ -290,6 +290,7 @@
  - I use ~x/y~ to denote a key that does x when tapped and y when held. For
    example, ~RET/S~ performs return when tapped and shift when held.
 
+
   | Alias | Meaning           |
   |-------+-------------------|
   | C     | Ctrl              |
