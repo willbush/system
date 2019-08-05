@@ -21,7 +21,6 @@
     For things that are only used in Windows are kept here. See its [[file:win/readme.org][readme]] for
     more information.
 
-
 * Keyboard Firmware - Planck layout
 
   The [[https://olkb.com/planck][Planck]] keyboard uses [[https://github.com/qmk/qmk_firmware/][qmk_firmware]] and I have my keymap code In the
@@ -32,17 +31,16 @@
 
  | Alias | Meaning         |
  |-------+-----------------|
- | ===== | column spacer   |
  | C     | Ctrl            |
  | S     | Shift           |
  | SPC   | Space           |
  | RET   | Return          |
  | GUI   | Win / Super key |
  | vert  | pipe character  |
+ | ===== | column spacer   |
 
  I use ~x/y~ to denote a key that does x when tapped and y when held. For
  example, ~RET/S~ performs return when tapped and shift when held.
-
 
 ** Qwerty
 
@@ -56,7 +54,6 @@
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  | Ctrl  | Num   | Super | Alt   | Lower | Hyper | SPC   | Raise | Alt   | GUI   |       | Ctrl  |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
-
 
 ** Colemak Mod-DH
 
@@ -77,7 +74,6 @@
  | Ctrl  | Num   | Super | Alt   | Lower | Hyper | SPC   | Raise | Alt   | GUI   |       | Ctrl  |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
 
-
 ** Lower
 
  | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== |
@@ -91,7 +87,6 @@
  |       |       |       |       |       |       |       |       |       |       |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
 
-
 ** Raise
 
  | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== |
@@ -104,7 +99,6 @@
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  |       |       |       |       |       |       |       |       |       |       |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
-
 
 ** Lower and Raise Commentary
 
@@ -195,7 +189,6 @@
        because it's quite annoying to hold shift to hit it and then a layer to
        hit a number.
 
-
 ** Hyper
 
  | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== |
@@ -208,7 +201,6 @@
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  |       |       |       |       |       |       |       |       |       |       |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
-
 
 ** Num
 
@@ -227,7 +219,6 @@
  |       |       |       |       |       |       |       |     0 |       |     . |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
 
-
 ** Adjust (Lower + Raise)
 
  |   | ====== | ====== | ====== | ====== | ====== | ====== | ====== | ====== | ====== |   |   |
@@ -241,30 +232,32 @@
  |   |        |        |        |        |        |        |        |        |        |   |   |
  |---+--------+--------+--------+--------+--------+--------+--------+--------+--------+---+---|
 
-
 * Hacking Evil keybindings
 
   Switching to Colemak keyboard layout has caused me to want to customize the
   Evil/Vim key bindings from their defaults. The main motivator is the spread
   out positions of ~h~, ~j~, ~k~, and ~l~ keys.
 
-  Most people who use Evil with Colemak either get used to the new positions of
-  things or use something like an [[https://colemakmods.github.io/ergonomic-mods/extend.html][extend layer]] to layer movement keys over the
-  positions of said movement keys. The argument is that you shouldn't be using
-  those keys much anyways because there are better approaches to movement. In
-  addition, using a keyboard layer makes this movement available to all
+  Most people who use Vim/Evil with Colemak either get used to the new positions
+  of things or use something like an [[https://colemakmods.github.io/ergonomic-mods/extend.html][extend layer]] to layer movement keys over
+  the positions of said movement keys. The argument is that you shouldn't be
+  using those keys much anyways because there are better approaches to movement.
+  In addition, using a keyboard layer makes these movement available to all
   applications outside of editors and IDEs that provide Evil emulation.
 
-  I find this argument unsatisfactory. I already use most of the better methods
-  of movement, yet my usage of ~j~ and ~k~ remains quite high despite using ~{~,
-  ~}~, ~(~, ~)~, ~C-u~, ~C-d~, and avy quite a lot. The letters ~h~ and ~l~ for
-  horizontal movement I use less frequently due to my usage of ~f/F~ (find) and
-  ~t/T~ (till) along with ~w~, ~b~, and ~e~.
+  I find these arguments unsatisfactory. I already use most of the better
+  methods of movement, yet my usage of ~j~ and ~k~ remains quite high despite
+  using ~{~, ~}~, ~(~, ~)~, ~C-u~, ~C-d~, and avy quite a lot. The letters ~h~
+  and ~l~ for horizontal movement I use less frequently due to my usage of ~f/F~
+  (find) and ~t/T~ (till) along with ~w~, ~b~, and ~e~. In addition, we can both
+  rebind the motion keys and use a layer for Vim like arrow key movement in
+  other applications.
 
-  Turns out needing to up or down short distances is a common task, and a lot of
-  the time I'm just perusing with no specific target or editing goal in mind. In
-  addition, these keys often provide the semantic equivalent of movement key
-  bindings in various packages that are not concerned with editing text.
+  In my experience needing to up or down short distances is a common task, and a
+  lot of the time I'm just perusing with no specific target or editing goal in
+  mind. In addition, these keys often provide the semantic equivalent of
+  movement key bindings in various Emacs packages that are not concerned with
+  editing text.
 
   I haven't actually measured this, but I suspect the frequency of my usage of
   ~j~ and ~k~ is quite high. This is why I find the common solutions to Evil +
@@ -285,17 +278,11 @@
   time to get over the learning curve for the sake of ergonomic bindings that
   make more sense.
 
-
 ** How to read the tables below:
 
-   I'm using [[http://www.viemu.com/vi-vim-cheat-sheet.gif][this cheat sheet]] to fill in the default bindings for Evil in org
-   tables. The tables below aren't meant to be a cheat sheet as many of the key
-   are more nuanced than the description might lead one to believe. I'm
-   overlaying the bindings onto my keymap for my Planck keyboard so I can easily
-   ponder how to rearrange keys.
-
- - The table is split in half and heavily uses aliases for the sake of not
-   having to scroll horizontally.
+ - The tables below heavily uses aliases for the sake of not having to scroll
+   horizontally when viewing this in the browser (at least on my resolution
+   screen).
 
  - The left most column named ~state~ describes modified states (i.e. holding
    Shift, Ctrl etc.), keyboard layers, and Evil states.
@@ -394,10 +381,11 @@
 
 *** Evil functionality keys before / after
 
-    Attributes (Attr column) shown in the table below. Note that absence of an
-    attribute indicates no change. Also note that I'm comparing how things were
-    in Qwerty with defaults to how they are with my custom key map in
-    Colemak-DH:
+    The attributes (Attr column) shown in the table below:
+
+    Note that absence of an attribute indicates no change. Also note that I'm
+    comparing how things were in Qwerty with defaults to how they are with my
+    custom key map in Colemak-DH based on my subjective opinion.
 
     - ~s~ :: A keybinding that remains in the same location for Colemak-DH as it
              was in Qwerty. Note table only shows swapped keys so many other
@@ -422,11 +410,11 @@
 
   | function          | before | after | new mnemonic      | Attr | Commentary                                  |
   |-------------------+--------+-------+-------------------+------+---------------------------------------------|
-  | substitute        | s      |       |                   | x    |                                             |
-  | subst line        | S      |       |                   | x    |                                             |
-  | repeat subst      | &      |       |                   | x    |                                             |
-  | rpt gbl subst     | g &    |       |                   | x    |                                             |
-  | up                | g k    |       |                   | x    | Why does this even exist?                   |
+  | substitute        | s      |       |                   | x    | I don't use this and its on the home row    |
+  | subst line        | S      |       |                   | x    | related to substitute                       |
+  | repeat subst      | &      |       |                   | x    | related to substitute                       |
+  | rpt gbl subst     | g &    |       |                   | x    | related to substitute                       |
+  | up                | g k    |       |                   | x    | Why does these even exist?                  |
   | down              | g j    |       |                   | x    |                                             |
   | next match        | g n    |       |                   | x    | Why not just press n?                       |
   | prev match        | g N    |       |                   | x    | Why not just press N?                       |
@@ -473,7 +461,7 @@
   | scroll down       | C-d    | N     |                   | +Mn  |                                             |
   | scroll up         | C-u    | E     |                   | +Mn  |                                             |
   | set mk            | m      | k     |                   | -n   | mnemonic is still mark for me               |
-  | join lines        | J      | C-j   |                   |      | slightly easier with Esc/C on caps lock key |
+  | join lines        | J      | C-j   |                   | -    | 'j' is harder to reach on Colemak           |
   | goto mk           | `      | j     | jump              | +Nc  | easier to reach and now mnemonic            |
   | goto mk ln        | '      | J     | jump to line      | -Nc  | same key as j now, which makes sense to me  |
   | repeat            | ;      | '     |                   | -    | bring back down to home row due to high use |
@@ -484,15 +472,19 @@
 
 **** Visual Mode key remap
 
-     I just couldn't help but remap this on to the home keys because I use it
-     all the time and definitely more than I use the replace functionality. In
-     addition, notice the finger rolling action from ~r~ to ~s~ / ~t~ (in
-     Colemak) to visual/range select till some character. If I left it where it
-     was it would have been in a worse position compared to Qwerty, but now it's
-     better.
-
+     I just couldn't help but remap the visual mode key on to the home keys
+     because I use it all the time. I definitely use it more than I use the
+     replace functionality. In addition, notice the finger rolling action from
+     ~r~ to ~s~ / ~t~ (in Colemak) to visual/range select till some character.
+     If I left it where it was it would have been in a worse position compared
+     to Qwerty, but now it's better.
 
 *** Left half
+
+    [[http://www.viemu.com/vi-vim-cheat-sheet.gif][This cheat sheet]] is an influence to these tables. However, this is not as
+    easy to read since it's text based and split in half. Note that many of the
+    key are more nuanced than the description might lead one to believe. I also
+    overlay the key-map for my Planck keyboard.
 
   | state   | col 0 | col 1        | col 2         | col 3           | col 4          | col 5         |
   |---------+-------+--------------+---------------+-----------------+----------------+---------------|
@@ -508,9 +500,7 @@
   | shift   |       | Z quit       | X Bksp        | C change to eol | D del to eol   | V revise mode |
   |---------+-------+--------------+---------------+-----------------+----------------+---------------|
 
-
 *** Right half
-
 
   | state   | col 6        | col 7         | col 8        | col 9        | col 10         | col 11       |
   |---------+--------------+---------------+--------------+--------------+----------------+--------------|
