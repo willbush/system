@@ -4,6 +4,10 @@ nnoremap n j|xnoremap n j|onoremap n j
 nnoremap e k|xnoremap e k|onoremap e k
 nnoremap i l|xnoremap i l|onoremap i l
 
+" f/F = far word/WORD
+nnoremap f e|xnoremap f e|onoremap f e
+nnoremap F E|xnoremap F E|onoremap F E
+
 " insert mode / insert beginning of line
 nnoremap l i
 nnoremap L I
@@ -44,9 +48,12 @@ nnoremap k m
 nnoremap j `|onoremap j `
 nnoremap J '|onoremap J '
 
-" use register on a easier key for my personal keyboard layout
-" nnoremap & \"|onoremap & \"|
+" repeat find char
+nnoremap ' ;|xnoremap ' ;|onoremap ' ;
+" rev repeat find char
+nnoremap " ,|xnoremap " ,|onoremap " ,
 
-" f/F = far word/WORD
-nnoremap f e|xnoremap f e|onoremap f e
-nnoremap F E|xnoremap F E|onoremap F E
+" Use register on a easier key for my personal keyboard layout.
+" The insanity that is vim script uses '"' for comments... sometimes.
+" After a map command it doesn't need to be escaped.
+nnoremap & "|xnoremap & "| onoremap & "
