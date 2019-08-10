@@ -7,10 +7,6 @@
 
 ;; Global Bindings
 (general-def
-  ;; move `C-p' to `C-e' since Colemak `e' is on the Qwerty `k' key position.
-  ;; The `C-n' already has `n' on the `j' position. I'm not too concerned about
-  ;; rebinding `move-end-of-line' since I use evil mode.
-  "C-e" 'previous-line
   ;; zoom in and out
   "C-+" 'text-scale-increase
   "C--" 'text-scale-decrease
