@@ -459,8 +459,8 @@
   | scrn mid          | M      | M-i   |                   | +Mn  | M-i > M-m due to home key finger rolling    |
   | scrn low          | L      | M-n   |                   | +Mn  |                                             |
   | scrn top          | H      | M-e   |                   | +Mn  |                                             |
-  | scroll down       | C-d    | N     |                   | +Mn  |                                             |
-  | scroll up         | C-u    | E     |                   | +Mn  |                                             |
+  | scroll down       | C-d    | C-S-n |                   | -Mn  | see note below for rationale                |
+  | scroll up         | C-u    | C-S-e |                   | -Mn  | see note below for rationale                |
   | set mk            | m      | k     |                   | -n   | mnemonic is still mark for me               |
   | join lines        | J      | C-j   |                   | -    | 'j' is harder to reach on Colemak           |
   | goto mk           | `      | j     | jump              | +Nc  | easier to reach and now mnemonic            |
@@ -479,6 +479,17 @@
      ~r~ to ~s~ / ~t~ (in Colemak) to visual/range select till some character.
      If I left it where it was it would have been in a worse position compared
      to Qwerty, but now it's better.
+
+**** Scroll up and down
+
+     I originally rebound scroll up/down keys to ~N~ and ~E~. However, I instead
+     decided to bind those keys to a custom evil motion that's equivalent to
+     prefixing normal ~n~ and ~e~ movements with 10. This gives me a way to move
+     up and down at a similar speed to forward/backward paragraph, but much more
+     reliably. I bind scroll up/down to ~C-S-e~ and ~C-S-n~ respectively because
+     it allows hold Control and Shift to move vertically quickly and release one
+     modifier key to reduce speed. The ~C-n~ and ~C-e~ keys are also options,
+     and are available.
 
 *** Left half
 
@@ -503,22 +514,23 @@
 
 *** Right half
 
-  | state   | col 6        | col 7         | col 8        | col 9        | col 10         | col 11       |
-  |---------+--------------+---------------+--------------+--------------+----------------+--------------|
-  | default | j jump to mk | l insert mode | u undo       | y yank       | ;              | Bksp         |
-  | shift   | J jump mk ln | L insert bol  | U redo       | Y yank ln    | : ex cmd line  |              |
-  | Ctrl    | C-j join ln  |               |              |              |                |              |
-  | ======= | ==========   | ============= | ===========  | =========    | =============  | =====        |
-  | default | m left       | n down        | e up         | i right      | o open below   | ' repeat     |
-  | shift   | M hard bol   | N scroll down | E scroll up  | I eol        | O open above   | " rev repeat |
-  | Alt     |              | M-n scrn bot  | M-e scrn top | M-i scrn mid |                |              |
-  | lower   | { begin para | % goto match  | & reg spec   | } end para   | \vert goto col | Del          |
-  | raise   | ^ soft bol   | * next id     | # prev id    | $ eol        | \              | Del          |
-  | ======= | ==========   | ============= | ===========  | =========    | =============  | =====        |
-  | default | k set mk     | h next        | ,            | . repeat cmd | / find         | RET/S        |
-  | shift   | K            | H prev        | < un-indent  | > indent     | ? rev find     |              |
-  | raise   |              | @ play macro  |              |              |                |              |
-  |---------+--------------+---------------+--------------+--------------+----------------+--------------|
+  | state   | col 6        | col 7         | col 8       | col 9        | col 10         | col 11       |
+  |---------+--------------+---------------+-------------+--------------+----------------+--------------|
+  | default | j jump to mk | l insert mode | u undo      | y yank       | ;              | Bksp         |
+  | shift   | J jump mk ln | L insert bol  | U redo      | Y yank ln    | : ex cmd line  |              |
+  | Ctrl    | C-j join ln  |               |             |              |                |              |
+  | ======= | ==========   | ============= | =========== | =========    | =============  | =====        |
+  | default | m left       | n down        | e up        | i right      | o open below   | ' repeat     |
+  | shift   | M hard bol   | N 10 down     | E 10 up     | I eol        | O open above   | " rev repeat |
+  | Alt     |              | n scrn bot    | e scrn top  | scrn mid     |                |              |
+  | C-S     |              | n scroll down | e scroll up |              |                |              |
+  | lower   | { begin para | % goto match  | & reg spec  | } end para   | \vert goto col | Del          |
+  | raise   | ^ soft bol   | * next id     | # prev id   | $ eol        | \              | Del          |
+  | ======= | ==========   | ============= | =========== | =========    | =============  | =====        |
+  | default | k set mk     | h next        | ,           | . repeat cmd | / find         | RET/S        |
+  | shift   | K            | H prev        | < un-indent | > indent     | ? rev find     |              |
+  | raise   |              | @ play macro  |             |              |                |              |
+  |---------+--------------+---------------+-------------+--------------+----------------+--------------|
 
 ** Useful functions for rebinding
 
