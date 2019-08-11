@@ -68,14 +68,15 @@
       ;; number of keystrokes between auto-saves (default: 300)
       auto-save-interval 200)
 
-;; changes default behavior of scrolling to bottom of screen.  Normally,
-;; scrolling past the bottom causes it to scroll down enough so that the point
-;; is re-centered. The documentation on the variable states values above 100
-;; behave the same, but I could not observe any difference for values greater
-;; than or equal to 1. Also of note from testing I found that the constant
-;; redrawing of the screen to make the scrolling smooth utilizes ~20-30%
-;; CPU. However, this hardly affects me with how I move around.
-(setq scroll-conservatively 666)
+;; scrolling settings
+(setq
+  scroll-conservatively 1000
+  scroll-margin 4
+  scroll-step 1
+  mouse-wheel-scroll-amount '(6 ((shift) . 1))
+  mouse-wheel-progressive-speed nil
+  fast-but-imprecise-scrolling t
+  jit-lock-defer-time 0)
 
 ;; keeps a faint highlight on the line of the point. Note I found there is a
 ;; cost to this being on where every vertical movement causes emacs takes up
