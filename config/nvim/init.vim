@@ -36,8 +36,10 @@ nnoremap M 0|xnoremap M 0|onoremap M 0
 nnoremap I $|xnoremap I $|onoremap I $
 
 " scroll down / up
-nnoremap E <C-U>|xnoremap E <C-U>|onoremap E <C-U>
-nnoremap N <C-D>|xnoremap N <C-D>|onoremap N <C-D>
+nnoremap N 10j|xnoremap N 10j|onoremap N 10j
+nnoremap E 10k|xnoremap E 10k|onoremap E 10k
+nnoremap <C-S-n> <C-D>|xnoremap <C-S-n> <C-D>|onoremap <C-S-n> <C-D>
+nnoremap <C-S-e> <C-U>|xnoremap <C-S-e> <C-U>|onoremap <C-S-e> <C-U>
 
 " join lines
 nnoremap <C-J> J
