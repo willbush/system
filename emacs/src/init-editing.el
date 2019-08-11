@@ -19,6 +19,24 @@
         evil-want-C-u-scroll nil
         evil-want-C-i-jump nil)
   :config
+
+  ;; Silence warning (:functions use-package property doesn't work for me for
+  ;; some reason).
+  (declare-function evil-line-move "evil-common")
+  (declare-function evil-set-command-properties "evil-common")
+
+  (evil-define-motion my/evil-next-line-10 (count)
+    "Move the cursor COUNT * 10 lines down."
+    :type line
+    (let (line-move-visual)
+      (evil-line-move (* 10 (or count 1)))))
+
+  (evil-define-motion my/evil-previous-line-10 (count)
+    "Move the cursor COUNT * 10 lines up."
+    :type line
+    (let (line-move-visual)
+      (evil-line-move (- (* 10 (or count 1))))))
+
   ;; The following sets up my custom evil key bindings for Colemak-DH keyboard
   ;; layout. For my in-depth thoughts on the new key mappings see the readme.
   ;;
@@ -60,9 +78,11 @@
   (general-def
     :states 'motion
     "'" 'evil-repeat-find-char
+    "C-S-e" 'evil-scroll-up
+    "C-S-n" 'evil-scroll-down
     "C-j" 'evil-join
     "C-r" 'evil-visual-block
-    "E" 'evil-scroll-up
+    "E" 'my/evil-previous-line-10
     "F" 'evil-forward-WORD-end
     "H" 'evil-ex-search-previous
     "I" 'evil-end-of-line ;; `$' remains bound to this function
@@ -71,7 +91,7 @@
     "M-e" 'evil-window-top
     "M-i" 'evil-window-middle
     "M-n" 'evil-window-bottom
-    "N" 'evil-scroll-down
+    "N" 'my/evil-next-line-10
     "R" 'evil-visual-line
     "S" 'evil-find-char-backward
     "\"" 'evil-repeat-find-char-reverse
