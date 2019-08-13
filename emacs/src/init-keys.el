@@ -38,16 +38,18 @@
   "?" 'counsel-descbinds
   "SPC" 'counsel-M-x
   "TAB" 'mode-line-other-buffer
+  ;; Not using 'b' as a prefix because it's too hard to reach on Colemak-DH and
+  ;; too widely used.
+  "." '(:ignore t :which-key "buffer")
   "F" '(:ignore t :which-key "frame")
   "S" '(:ignore t :which-key "spell-checking")
   "a" '(:ignore t :which-key "apps")
-  "b" '(:ignore t :which-key "buffer")
   "c" '(:ignore t :which-key "comment")
   "f" '(:ignore t :which-key "file")
   "g" '(:ignore t :which-key "go")
   "h" '(:ignore t :which-key "help")
   "m" '(:ignore t :which-key "magit")
-  "n" '(:ignore t :which-key "nimble")
+  "n" '(:ignore t :which-key "narrow")
   "p" 'projectile-command-map
   "q" '(:ignore t :which-key "quit")
   "r" '(:ignore t :which-key "rapid")
@@ -79,22 +81,19 @@
   "w" 'profiler-report-write-profile)
 
 (general-def
-  :prefix "SPC b"
+  :prefix "SPC ."
   :states '(normal visual)
   :keymaps 'override
+  "." 'ivy-switch-buffer
   "D" 'my/kill-all-buffers
-  "b" 'ivy-switch-buffer
   "d" 'my/kill-this-buffer
   "h" 'my/switch-to-dashboard
   "k" 'kill-buffer ;; requests buffer to kill
   "m" 'my/switch-to-messages
-  "s" 'my/switch-to-scratch
-  "n" '(:ignore t :which-key "narrow"))
+  "s" 'my/switch-to-scratch)
 
-;; I hardly use these functions so it doesn't bother me that they are a little
-;; buried, but mnemonic.
 (general-def
-  :prefix "SPC b n"
+  :prefix "SPC n"
   :states '(normal visual)
   :keymaps 'override
   "f" 'narrow-to-defun
@@ -177,14 +176,6 @@
   "s" 'counsel-info-lookup-symbol
   "t" 'describe-theme
   "v" 'counsel-describe-variable)
-
-;; Nimble keys emphasize easy access due to high usage (n is on the right index
-;; finger in Colemak) over mnemonics.
-(general-def
-  :prefix "SPC n"
-  :states '(normal visual)
-  :keymaps 'override
-  "n" 'ivy-switch-buffer)
 
 (general-def
   :prefix "SPC q"
