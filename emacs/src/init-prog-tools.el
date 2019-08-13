@@ -23,14 +23,15 @@
     :keymaps 'magit-mode-map
     "C-w")
 
-  ;; swap basic up/down keys for Colemak-DH
   (general-swap-key '(normal visual) 'magit-mode-map
     "C-j" "C-n"
     "C-k" "C-e"
     "g j" "g n"
     "g k" "g e"
     "j" "n"
-    "k" "e"))
+    "k" "e"
+    "v" "r"
+    "V" "R"))
 
 (use-package git-timemachine
   ;; mode key bindings provided by evil-collection
