@@ -71,7 +71,6 @@ in
     fzf
     gcc
     gimp
-    simple-scan
     gnupg
     haskellPackages.apply-refact
     haskellPackages.ghcid
@@ -88,9 +87,11 @@ in
     ranger
     remmina
     rustup
+    simple-scan
     stack
     tokei
     transmission-gtk
+    unar
     vlc
   ];
 
