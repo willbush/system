@@ -18,15 +18,17 @@ noremap <leader>gp :vsc Edit.PeekDefinition<cr>
 noremap <leader>qq :vsc File.Exit<cr>
 
 " close all buffers except the current
-noremap <leader>b<c-d> :vsc File.CloseAllButThis<cr>
+noremap <leader>.D :vsc File.CloseAllButThis<cr>
 
 " save file(s)
 noremap <leader>fs :vsc File.SaveSelectedItems<cr>
 noremap <leader>fS :vsc File.SaveAll<cr>
+noremap <leader>rs :vsc File.SaveSelectedItems<cr>
+noremap <leader>rS :vsc File.SaveAll<cr>
 
-" two spacemacs ways of closing buffers
-noremap <leader>wx :vsc Window.CloseDocumentWindow<cr>
-noremap <leader>bd :vsc Window.CloseDocumentWindow<cr>
+" closing buffers
+noremap <leader>wk :vsc Window.CloseDocumentWindow<cr>
+noremap <leader>.d :vsc Window.CloseDocumentWindow<cr>
 
 " refactoring
 noremap <leader>rr :vsc Refactor.Rename<cr>
@@ -114,12 +116,19 @@ xnoremap I $
 onoremap I $
 
 " scroll down / up
-nnoremap E <C-U>
-xnoremap E <C-U>
-onoremap E <C-U>
-nnoremap N <C-D>
-xnoremap N <C-D>
-onoremap N <C-D>
+nnoremap N 10j
+xnoremap N 10j
+onoremap N 10j
+nnoremap E 10k
+xnoremap E 10k
+onoremap E 10k
+" These keys must be unbound in VS for these to work
+nnoremap <C-S-n> <C-D>
+xnoremap <C-S-n> <C-D>
+onoremap <C-S-n> <C-D>
+nnoremap <C-S-e> <C-U>
+xnoremap <C-S-e> <C-U>
+onoremap <C-S-e> <C-U>
 
 " join lines
 nnoremap <C-J> J
