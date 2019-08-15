@@ -40,10 +40,10 @@
   "TAB" 'mode-line-other-buffer
   ;; Not using 'b' as a prefix because it's too hard to reach on Colemak-DH and
   ;; too widely used.
-  "." '(:ignore t :which-key "buffer")
   "F" '(:ignore t :which-key "frame")
   "S" '(:ignore t :which-key "spell-checking")
   "a" '(:ignore t :which-key "apps")
+  "b" '(:ignore t :which-key "buffer")
   "c" '(:ignore t :which-key "comment")
   "f" '(:ignore t :which-key "file")
   "g" '(:ignore t :which-key "go")
@@ -81,10 +81,10 @@
   "w" 'profiler-report-write-profile)
 
 (general-def
-  :prefix "SPC ."
+  :prefix "SPC b"
   :states '(normal visual)
   :keymaps 'override
-  "." 'ivy-switch-buffer
+  "b" 'ivy-switch-buffer
   "D" 'my/kill-all-buffers
   "d" 'my/kill-this-buffer
   "h" 'my/switch-to-dashboard

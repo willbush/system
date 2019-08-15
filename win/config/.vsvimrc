@@ -18,7 +18,7 @@ noremap <leader>gp :vsc Edit.PeekDefinition<cr>
 noremap <leader>qq :vsc File.Exit<cr>
 
 " close all buffers except the current
-noremap <leader>.D :vsc File.CloseAllButThis<cr>
+noremap <leader>bD :vsc File.CloseAllButThis<cr>
 
 " save file(s)
 noremap <leader>fs :vsc File.SaveSelectedItems<cr>
@@ -28,7 +28,7 @@ noremap <leader>rS :vsc File.SaveAll<cr>
 
 " closing buffers
 noremap <leader>wk :vsc Window.CloseDocumentWindow<cr>
-noremap <leader>.d :vsc Window.CloseDocumentWindow<cr>
+noremap <leader>bd :vsc Window.CloseDocumentWindow<cr>
 
 " refactoring
 noremap <leader>rr :vsc Refactor.Rename<cr>
