@@ -87,7 +87,7 @@
  |       |       |       |       |       |       |       |       |       |       |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
 
-** Raise
+** Hyper
 
  | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
@@ -100,19 +100,35 @@
  |       |       |       |       |       |       |       |       |       |       |       |       |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
 
-** Lower and Raise Commentary
+** Raise
 
-   Number keys are present on both lower and raise layers to provide me the
-   option to hold either layer for whatever is most comfortable.
+ | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+ |       | 1     | 2     | 3     | 4     | 5     | 6     | 7     | 8     | 9     | 0     |       |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+ |       | F11   | Home  | PgUp  | PgDn  | End   | Left  | Down  | Up    | Right | F12   | Del   |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+ |       | F1    | F2    | F3    | F4    | F5    | F6    | F7    | F8    | F9    | F10   |       |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+ |       |       |       |       |       |       |       |       |       |       |       |       |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
+
+** Lower, Hyper, and Raise Commentary
+
+   After some trial and error I found that I like symbols on layers that I
+   activate with my left hand because I often need to delimit them with spaces.
+   I hit the space key with my right thumb, and it's much easier to delimit
+   things with spaces when that thumb is not having to alternate between holding
+   a layer and inserting spaces.
+
+   Number keys are present on all three layers for easy access. Often symbols
+   are accompanied by numbers and its annoying to have to switch layers to hit
+   them. In addition the raise layer also has numbers mainly for hitting with my
+   left hand without having to hold the layer key down with the same hand.
 
    I have changed most of the positions of symbols. The following explains why:
 
    - Symbols on home row is great for programming and Vim/Evil
-
-   - Positions in part motivated by higher frequency use being on the Lower
-     layer since it is easier to delimit the symbol with spaces. I do not
-     need to let go of the layer key to enter spaces when that layer key is on
-     my left hand.
 
    - Symbols often used together kept on the same layer to avoid layer
      alternating.
@@ -188,19 +204,6 @@
        this to ~evil-use-register~, which is typically on the quotation mark,
        because it's quite annoying to hold shift to hit it and then a layer to
        hit a number.
-
-** Hyper
-
- | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== |
- |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       | F1    | F2    | F3    | F4    | F5    | F6    | F7    | F8    | F9    | F10   |       |
- |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       |       | Home  | PgUp  | PgDn  | End   | Left  | Down  | Up    | Right | F11   |       |
- |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       |       |       |       |       |       |       |       |       |       | F12   |       |
- |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- |       |       |       |       |       |       |       |       |       |       |       |       |
- |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
 
 ** Num
 
