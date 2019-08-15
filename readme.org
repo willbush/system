@@ -123,8 +123,8 @@
 
    Number keys are present on all three layers for easy access. Often symbols
    are accompanied by numbers and its annoying to have to switch layers to hit
-   them. In addition the raise layer also has numbers mainly for hitting with my
-   left hand without having to hold the layer key down with the same hand.
+   them. In addition, the raise layer also has numbers mainly for hitting with
+   my left hand without having to hold the layer key down with the same hand.
 
    I have changed most of the positions of symbols. The following explains why:
 
