@@ -256,9 +256,9 @@
   rebind the motion keys and use a layer for Vim like arrow key movement in
   other applications.
 
-  In my experience needing to up or down short distances is a common task, and a
-  lot of the time I'm just perusing with no specific target or editing goal in
-  mind. In addition, these keys often provide the semantic equivalent of
+  In my experience needing to go up or down short distances is a common task,
+  and a lot of the time I'm just perusing with no specific target or editing
+  goal in mind. In addition, these keys often provide the semantic equivalent of
   movement key bindings in various Emacs packages that are not concerned with
   editing text.
 
