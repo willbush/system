@@ -62,6 +62,22 @@ argument sorts in reverse order."
   (interactive)
   (switch-to-buffer "*scratch*"))
 
+(defun my/switch-to-dashboard ()
+  "Switch to *dashboard* (creates if needed)"
+  (interactive)
+  (let ((buffer "*dashboard*"))
+    (when (not (get-buffer buffer))
+      (dashboard-insert-startupify-lists))
+    (switch-to-buffer buffer)
+    (dashboard-refresh-buffer)))
+
+(defun my/kill-all-buffers-then-switch-to-dashboard ()
+  "Kills all buffers then switches to *dashboard* (creates if needed)"
+  (interactive)
+  (progn
+    (my/kill-all-buffers)
+    (my/switch-to-dashboard)))
+
 (defun my/kill-this-buffer ()
   "Kill the current buffer."
   (interactive)
@@ -100,15 +116,6 @@ argument sorts in reverse order."
     (golden-ratio-mode 1)
     (golden-ratio 1)
     (message "Golden-Ratio mode enabled")))
-
-(defun my/switch-to-dashboard ()
-  "Switch to *dashboard* (creates if needed)"
-  (interactive)
-  (let ((buffer "*dashboard*"))
-    (when (not (get-buffer buffer))
-      (dashboard-insert-startupify-lists))
-    (switch-to-buffer buffer)
-    (dashboard-refresh-buffer)))
 
 (defun my/open-shell ()
   "Opens my prefered shell for the current operating system."

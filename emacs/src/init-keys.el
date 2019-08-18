@@ -88,6 +88,7 @@
   "D" 'my/kill-all-buffers
   "d" 'my/kill-this-buffer
   "h" 'my/switch-to-dashboard
+  "H" 'my/kill-all-buffers-then-switch-to-dashboard
   "k" 'kill-buffer ;; requests buffer to kill
   "m" 'my/switch-to-messages
   "s" 'my/switch-to-scratch)
