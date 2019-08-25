@@ -5,6 +5,7 @@
   :functions speedbar-add-supported-extension
   :defines flycheck-check-syntax-automatically
   :init
+
   (add-hook 'haskell-mode-hook
             (lambda ()
               (setq-local flycheck-check-syntax-automatically
@@ -20,6 +21,10 @@
   (add-hook 'haskell-mode-hook 'which-func-mode)
 
   :config
+
+  ;; Fixes various void-function errors like the following:
+  ;; eldoc error: (void-function haskell-doc-current-info)
+  (require 'haskell-doc)
 
   ;; speedbar depends on imenu and by extension haskell-decl-scan-mode.
   (eval-after-load "speedbar"
