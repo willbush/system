@@ -47,8 +47,6 @@ in
 
   # home packages that need no extra configuration
   home.packages = with pkgs.unstable; [
-    # haskellPackages.brittany # marked broken but fixed with an overlay
-    # haskellPackages.hakyll
     albert
     aspell
     aspellDicts.en
@@ -66,6 +64,7 @@ in
     gimp
     gnupg
     haskellPackages.apply-refact
+    haskellPackages.brittany
     haskellPackages.ghcid
     haskellPackages.hasktags
     haskellPackages.hindent
