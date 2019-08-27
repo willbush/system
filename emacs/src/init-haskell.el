@@ -117,7 +117,7 @@
                                                    '(warning . haskell-hlint)))))
 
 (use-package hindent
-  :hook (haskell-mode-hook . hindent-mode)
+  :hook (haskell-mode . hindent-mode)
   :init
   (when (file-executable-p "~/.nix-profile/bin/brittany")
     (setq hindent-process-path "~/.nix-profile/bin/brittany")))
