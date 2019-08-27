@@ -138,6 +138,7 @@ in
     alacritty
     curl
     docker
+    docker-compose
     fd
     neovim
     ripgrep
