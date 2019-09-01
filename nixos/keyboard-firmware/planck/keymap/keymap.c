@@ -66,10 +66,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______, KC_0,    XXXXXXX, KC_DOT, _______, _______
   ),
   [_ADJUST] = LAYOUT_planck_grid(
-    _______, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,  RGB_VAI, RGB_VAD, _______,
-    _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK,  _______, _______, _______,
-    _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  TERM_ON, TERM_OFF, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______
+    _______, RESET,   DEBUG,   _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, MU_MOD,  AU_ON,   AU_OFF,  _______, _______, QWERTY,  COLEMAK, _______, _______, _______,
+    _______, _______, _______, MU_ON,   MU_OFF,  _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
   )
 };
 
@@ -95,60 +95,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
-bool muse_mode = false;
-uint8_t last_muse_note = 0;
-uint16_t muse_counter = 0;
-uint8_t muse_offset = 70;
-uint16_t muse_tempo = 50;
-
-void encoder_update(bool clockwise) {
-  if (muse_mode) {
-    if (IS_LAYER_ON(_RAISE)) {
-      if (clockwise) {
-        muse_offset++;
-      } else {
-        muse_offset--;
-      }
-    } else {
-      if (clockwise) {
-        muse_tempo+=1;
-      } else {
-        muse_tempo-=1;
-      }
-    }
-  } else {
-    if (clockwise) {
-      #ifdef MOUSEKEY_ENABLE
-        tap_code(KC_MS_WH_DOWN);
-      #else
-        tap_code(KC_PGDN);
-      #endif
-    } else {
-      #ifdef MOUSEKEY_ENABLE
-        tap_code(KC_MS_WH_UP);
-      #else
-        tap_code(KC_PGUP);
-      #endif
-    }
-  }
-}
-
-void matrix_scan_user(void) {
-  #ifdef AUDIO_ENABLE
-    if (muse_mode) {
-      if (muse_counter == 0) {
-        uint8_t muse_note = muse_offset + SCALE[muse_clock_pulse()];
-        if (muse_note != last_muse_note) {
-          stop_note(compute_freq_for_midi_note(last_muse_note));
-          play_note(compute_freq_for_midi_note(muse_note), 0xF);
-          last_muse_note = muse_note;
-        }
-      }
-      muse_counter = (muse_counter + 1) % muse_tempo;
-    }
-  #endif
-}
-
+/* https://docs.qmk.fm/#/feature_audio?id=music-mask */
 bool music_mask_user(uint16_t keycode) {
   switch (keycode) {
     case RAISE:
