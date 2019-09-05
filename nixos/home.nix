@@ -159,7 +159,7 @@ in
     latitude = "33";
     longitude = "-97";
     temperature.day = 6500;
-    temperature.night = 2200;
+    temperature.night = 1800;
   };
 
   services.syncthing.enable = true;
