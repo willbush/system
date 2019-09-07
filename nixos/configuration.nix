@@ -1,10 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  unstableTarball =
-    fetchTarball
-      https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
-in
 {
   imports = [
     ./hardware-configuration.nix
@@ -16,12 +11,6 @@ in
   nixpkgs.config = {
     # Allow unfree, which is required for some drivers.
     allowUnfree = true;
-
-    packageOverrides = pkgs: {
-      unstable = import unstableTarball {
-        config = config.nixpkgs.config;
-      };
-    };
   };
 
   nix = {
@@ -59,7 +48,6 @@ in
     kernel.sysctl."vm.max_map_count" = 262144;
   };
 
-  # Enable sound.
   sound.enable = true;
   hardware = {
     pulseaudio.enable = true;
@@ -134,7 +122,7 @@ in
   virtualisation.docker.enable = true;
 
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs.unstable; [
+  environment.systemPackages = with pkgs; [
     alacritty
     curl
     docker

@@ -3,9 +3,6 @@
 let
   homeDir = builtins.getEnv "HOME";
   planck = pkgs.callPackage ./keyboard-firmware/planck {};
-  unstableTarball =
-    fetchTarball
-      https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
 in
 {
   imports = [
@@ -16,14 +13,6 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  nixpkgs.config = {
-    packageOverrides = pkgs: {
-      unstable = import unstableTarball {
-        config = config.nixpkgs.config;
-      };
-    };
-  };
 
   home.sessionVariables =  {
      EDITOR = "emacsclient --create-frame --alternate-editor emacs";
@@ -46,7 +35,7 @@ in
   xdg.enable = true;
 
   # home packages that need no extra configuration
-  home.packages = with pkgs.unstable; [
+  home.packages = with pkgs; [
     albert
     aspell
     aspellDicts.en
