@@ -50,13 +50,25 @@
    to the home row with the 'k' just below it. The reasoning is that 'm' is much
    more frequently used in English and easier to reach.
 
+   In addition, I swapped the ',' and the 'y'. After typing a while on this
+   layout and getting my average speed close to where it was before switching, I
+   realize the thing I hate most about the layout is typing the words "you're",
+   "your", and "you". The word "you" et al. is one of the most common words in
+   English and is insanely hard to type in the standard Colemak positions.
+
+   You can enter this layout in the [[https://colemakmods.github.io/mod-dh/analyze.html][keyboard layout analyzer]] and see this is an
+   improvement in score on Colemak Mod-DH due to swapping the same-finger
+   bigrams 'e,' with the 'ey' which occurs about half as often. Typing the word
+   "you" et al. is still not amazing, but it's much easier than before and with
+   a minimal change from Colemak Mod-DH.
+
  | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- | Tab   | q     | w     | f     | p     | b     | j     | l     | u     | y     | ;     | Bksp  |
+ | Tab   | q     | w     | f     | p     | b     | j     | l     | u     | ,     | ;     | Bksp  |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  | Esc/C | a     | r     | s     | t     | g     | m     | n     | e     | i     | o     | '     |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
- | Shift | z     | x     | c     | d     | v     | k     | h     | ,     | .     | /     | RET/S |
+ | Shift | z     | x     | c     | d     | v     | k     | h     | y     | .     | /     | RET/S |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
  | Ctrl  | Num   | Super | Alt   | Lower | Hyper | SPC   | Raise | Alt   | GUI   |       | Ctrl  |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
@@ -519,8 +531,8 @@
 
   | state   | col 6        | col 7         | col 8       | col 9        | col 10         | col 11       |
   |---------+--------------+---------------+-------------+--------------+----------------+--------------|
-  | default | j jump to mk | l insert mode | u undo      | y yank       | ;              | Bksp         |
-  | shift   | J jump mk ln | L insert bol  | U redo      | Y yank ln    | : ex cmd line  |              |
+  | default | j jump to mk | l insert mode | u undo      | ,            | ;              | Bksp         |
+  | shift   | J jump mk ln | L insert bol  | U redo      | < un-indent  | : ex cmd line  |              |
   | Ctrl    | C-j join ln  |               |             |              |                |              |
   | ======= | ==========   | ============= | =========== | =========    | =============  | =====        |
   | default | m left       | n down        | e up        | i right      | o open below   | ' repeat     |
@@ -530,8 +542,8 @@
   | lower   | { begin para | % goto match  | & reg spec  | } end para   | \vert goto col | Del          |
   | raise   | ^ soft bol   | * next id     | # prev id   | $ eol        | \              | Del          |
   | ======= | ==========   | ============= | =========== | =========    | =============  | =====        |
-  | default | k set mk     | h next        | ,           | . repeat cmd | / find         | RET/S        |
-  | shift   | K            | H prev        | < un-indent | > indent     | ? rev find     |              |
+  | default | k set mk     | h next        | y yank      | . repeat cmd | / find         | RET/S        |
+  | shift   | K            | H prev        | Y yank ln   | > indent     | ? rev find     |              |
   | raise   |              | @ play macro  |             |              |                |              |
   |---------+--------------+---------------+-------------+--------------+----------------+--------------|
 
