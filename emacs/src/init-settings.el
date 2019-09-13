@@ -101,4 +101,8 @@
 (interactive (list my-shell)))
 (ad-activate 'ansi-term)
 
+;; tramp:
+(when (eq system-type 'windows-nt)
+    (setq tramp-default-method "plink"))
+
 (provide 'init-settings)
