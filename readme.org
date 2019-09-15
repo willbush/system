@@ -50,7 +50,7 @@
    to the home row with the ~k~ just below it. The reasoning is that ~m~ is much
    more frequently used in English and easier to reach.
 
-   In addition, I swapped the ~,~ and the ~y~. After typing a while on this
+   In addition, I swapped the =,= and the ~y~. After typing a while on this
    layout and getting my average speed close to where it was before switching, I
    realize the thing I hate most about the layout is typing the words "you're",
    "your", and "you". The word "you" et al. is one of the most common words in
@@ -58,7 +58,7 @@
 
    You can enter this layout in the [[https://colemakmods.github.io/mod-dh/analyze.html][keyboard layout analyzer]] and see this is an
    improvement in score on Colemak Mod-DH due to swapping the same-finger
-   bigrams ~e,~ with the ~ey~ which occurs about half as often. Typing the word
+   bigrams =e,= with the ~ey~ which occurs about half as often. Typing the word
    "you" et al. is still not amazing, but it's much easier than before and with
    a minimal change from Colemak Mod-DH.
 
