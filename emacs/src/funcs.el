@@ -144,4 +144,9 @@ argument sorts in reverse order."
     (with-current-buffer standard-output ;; temp buffer
       (setq help-xref-stack-item (list #'my/describe-keymap keymap)))))
 
+(defun my/revert-buffer-no-confirm ()
+    "Revert buffer without confirmation."
+    (interactive)
+    (revert-buffer :ignore-auto :noconfirm))
+
 (provide 'funcs)
