@@ -91,6 +91,7 @@
   "H" 'my/kill-all-buffers-then-switch-to-dashboard
   "k" 'kill-buffer ;; requests buffer to kill
   "m" 'my/switch-to-messages
+  "r" 'my/revert-buffer-no-confirm
   "s" 'my/switch-to-scratch)
 
 (general-def
