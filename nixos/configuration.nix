@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
-
+let
+  all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -17,8 +19,15 @@
     useSandbox = true;
     autoOptimiseStore = true;
     maxJobs = 16; # should be 1 per CPU logical core
-    binaryCaches = [ "https://cache.nixos.org/" "https://nixcache.reflex-frp.org" ];
-    binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
+    binaryCaches = [
+      "https://all-hies.cachix.org"
+      "https://cache.nixos.org/"
+      "https://nixcache.reflex-frp.org"
+    ];
+    binaryCachePublicKeys = [
+      "all-hies.cachix.org-1:JjrzAOEUsD9ZMt8fdFbzo3jNAyEWlPAwdVuHw4RD43k="
+      "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
+    ];
     gc = {
       automatic = true;
       dates = "23:00";
@@ -133,6 +142,10 @@
     tree
     unzip
     wget
+    # Install stable HIE for GHC versions 8.6.5 if available and fall back to unstable otherwise
+    (all-hies.unstableFallback.selection { selector = p: { inherit (p) ghc865; }; })
+    # Install unstable HIE for GHC versions 8.6.5
+    (all-hies.unstable.selection { selector = p: { inherit (p) ghc865; }; })
   ];
 
   programs.ssh.startAgent = true;
