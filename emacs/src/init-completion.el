@@ -39,8 +39,13 @@
          ("C-n" . company-select-next)
          ("C-p" . company-select-previous))
   :config
-  (setq company-idle-delay 0.2
-        company-minimum-prefix-length 1))
+  (setq company-idle-delay 0
+        company-minimum-prefix-length 1
+        company-show-numbers t))
+
+(use-package company-tabnine
+  :config
+  (add-to-list 'company-backends #'company-tabnine))
 
 (use-package counsel-projectile
   ;; When this loads, projectile will also load. It would be nice if I could use
