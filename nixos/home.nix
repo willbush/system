@@ -3,6 +3,9 @@
 let
   homeDir = builtins.getEnv "HOME";
   planck = pkgs.callPackage ./keyboard-firmware/planck {};
+  nixos19_03 =
+    import (builtins.fetchTarball
+      https://github.com/NixOS/nixpkgs-channels/archive/nixos-19.03.tar.gz) { };
 in
 {
   imports = [
@@ -10,6 +13,12 @@ in
   ];
 
   home.stateVersion = "19.03";
+
+  nixpkgs.config = {
+    packageOverrides = pkgs: {
+      stable = nixos19_03;
+    };
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -42,7 +51,6 @@ in
     aspellDicts.en-computers
     aspellDicts.en-science
     cabal-install
-    cabal2nix
     chromium
     dotnet-sdk
     exa
@@ -69,6 +77,7 @@ in
     remmina
     rustup
     simple-scan
+    stable.cabal2nix
     stack
     tokei
     transmission-gtk
