@@ -51,6 +51,7 @@ in
     aspellDicts.en-computers
     aspellDicts.en-science
     cabal-install
+    cachix
     chromium
     dotnet-sdk
     exa
@@ -58,6 +59,7 @@ in
     firefox
     fzf
     gcc
+    ghc
     gimp
     gnupg
     haskellPackages.apply-refact
