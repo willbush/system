@@ -11,6 +11,7 @@
       avy
       company
       company-nixos-options
+      company-tabnine
       counsel
       counsel-projectile
       csharp-mode
