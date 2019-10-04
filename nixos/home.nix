@@ -53,6 +53,7 @@ in
     cabal-install
     cachix
     chromium
+    docker-compose
     dotnet-sdk
     exa
     feh
