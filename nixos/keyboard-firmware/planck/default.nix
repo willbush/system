@@ -1,12 +1,5 @@
-{ dfu-programmer
-, dfu-util
-, fetchFromGitHub
-, gcc-arm-embedded-8
-, makeWrapper
-, python3
-, stdenv
-, writeScript
-}:
+{ dfu-programmer, dfu-util, fetchFromGitHub, gcc-arm-embedded-8, makeWrapper
+, python3, stdenv, writeScript }:
 
 let
   flash-planck = writeScript "flash-planck" ''
@@ -42,13 +35,8 @@ in stdenv.mkDerivation rec {
     fetchSubmodules = true;
   };
 
-  buildInputs = [
-    dfu-programmer
-    dfu-util
-    gcc-arm-embedded-8
-    python3
-    makeWrapper
-  ];
+  buildInputs =
+    [ dfu-programmer dfu-util gcc-arm-embedded-8 python3 makeWrapper ];
 
   prePatch = ''
     mkdir -pv keyboards/planck/keymaps/willbush
