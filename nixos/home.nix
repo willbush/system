@@ -2,29 +2,21 @@
 
 let
   homeDir = builtins.getEnv "HOME";
-  planck = pkgs.callPackage ./keyboard-firmware/planck {};
-  nixos19_03 =
-    import (builtins.fetchTarball
-      https://github.com/NixOS/nixpkgs-channels/archive/nixos-19.03.tar.gz) { };
-in
-{
-  imports = [
-    ./emacs.nix
-  ];
+  planck = pkgs.callPackage ./keyboard-firmware/planck { };
+  nixos19_03 = import (builtins.fetchTarball
+    "https://github.com/NixOS/nixpkgs-channels/archive/nixos-19.03.tar.gz") { };
+in {
+  imports = [ ./emacs.nix ];
 
   home.stateVersion = "19.03";
 
-  nixpkgs.config = {
-    packageOverrides = pkgs: {
-      stable = nixos19_03;
-    };
-  };
+  nixpkgs.config = { packageOverrides = pkgs: { stable = nixos19_03; }; };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.sessionVariables =  {
-     EDITOR = "emacsclient --create-frame --alternate-editor emacs";
+  home.sessionVariables = {
+    EDITOR = "emacsclient --create-frame --alternate-editor emacs";
   };
 
   home.file = {
@@ -34,10 +26,10 @@ in
     # Outside of NixOS the dictionary directory needs to be set.
     # https://github.com/NixOS/nixpkgs/issues/4521
     ".aspell.conf".text = ''
-       dict-dir ${homeDir}/.nix-profile/lib/aspell
-       master en_US
-       extra-dicts en-computers.rws
-       add-extra-dicts en_US-science.rws
+      dict-dir ${homeDir}/.nix-profile/lib/aspell
+      master en_US
+      extra-dicts en-computers.rws
+      add-extra-dicts en_US-science.rws
     '';
   };
 
@@ -102,16 +94,16 @@ in
     enableCompletion = true;
     enableAutosuggestions = true;
     shellAliases = {
-      l  = "exa";
+      l = "exa";
       ll = "exa -l";
       la = "exa -lah";
       vim = "nvim";
       dropbox = "docker exec -it dropbox dropbox";
       dropbox-start = ''
-      docker run -d --restart=always --name=dropbox \
-        -v ${homeDir}/Dropbox:/dbox/Dropbox \
-        -v ${homeDir}/.dropbox:/dbox/.dropbox \
-        -e DBOX_UID=1000 -e DBOX_GID=100 janeczku/dropbox
+        docker run -d --restart=always --name=dropbox \
+          -v ${homeDir}/Dropbox:/dbox/Dropbox \
+          -v ${homeDir}/.dropbox:/dbox/.dropbox \
+          -e DBOX_UID=1000 -e DBOX_GID=100 janeczku/dropbox
       '';
     };
     oh-my-zsh = {
@@ -149,12 +141,12 @@ in
     backend = "xrender";
     fadeDelta = 1;
     # I only want transparency for a couple of applications.
-     opacityRule = [
-       "90:class_g ?= 'emacs' && focused"
-       "75:class_g ?= 'emacs' && !focused"
-       "90:class_g ?= 'alacritty' && focused"
-       "75:class_g ?= 'alacritty' && !focused"
-     ];
+    opacityRule = [
+      "90:class_g ?= 'emacs' && focused"
+      "75:class_g ?= 'emacs' && !focused"
+      "90:class_g ?= 'alacritty' && focused"
+      "75:class_g ?= 'alacritty' && !focused"
+    ];
   };
 
   services.redshift = {

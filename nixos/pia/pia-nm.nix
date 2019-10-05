@@ -20,43 +20,43 @@ let
   #
   # See https://www.privateinternetaccess.com/installer/pia-nm.sh for available
   # options.
-  template = { id, uuid, remote }:
-    ''
-      [connection]
-      id=${id}
-      uuid=${uuid}
-      type=vpn
-      autoconnect=false
+  template = { id, uuid, remote }: ''
+    [connection]
+    id=${id}
+    uuid=${uuid}
+    type=vpn
+    autoconnect=false
 
-      [vpn]
-      service-type=org.freedesktop.NetworkManager.openvpn
-      username=${if cfg.username != "" then cfg.username else "@USERNAME@"}
-      comp-lzo=no
-      remote=${remote}
-      cipher=AES-256-CBC
-      auth=SHA256
-      connection-type=password
-      password-flags=${if cfg.password != "" || cfg.passwordFile != null then "0" else "1"}
-      port=1197
-      proto-tcp=no
-      ca=${piaCertificateFile}
+    [vpn]
+    service-type=org.freedesktop.NetworkManager.openvpn
+    username=${if cfg.username != "" then cfg.username else "@USERNAME@"}
+    comp-lzo=no
+    remote=${remote}
+    cipher=AES-256-CBC
+    auth=SHA256
+    connection-type=password
+    password-flags=${
+      if cfg.password != "" || cfg.passwordFile != null then "0" else "1"
+    }
+    port=1197
+    proto-tcp=no
+    ca=${piaCertificateFile}
 
-      [ipv4]
-      method=auto
-      ${optionalString (cfg.password != "" || cfg.passwordFile != null) ''
+    [ipv4]
+    method=auto
+    ${optionalString (cfg.password != "" || cfg.passwordFile != null) ''
 
       [vpn-secrets]
       password=${if cfg.password != "" then cfg.password else "@PASSWORD@"}
-      ''}
-    '';
+    ''}
+  '';
 
   toSubdomain = server: removeSuffix ".privateinternetaccess.com" server;
 
   filteredServers =
     builtins.filter (x: elem (toSubdomain x.remote) cfg.serverList) allServers;
 
-  allServerSubdomains =
-    map (x: toSubdomain x.remote) allServers;
+  allServerSubdomains = map (x: toSubdomain x.remote) allServers;
 
   serverEntryToEtcFilename = serverEntry:
     let n = toSubdomain serverEntry.remote;
@@ -64,21 +64,18 @@ let
 
   serverEntryToEtcFile = serverEntry:
 
-    { "${serverEntryToEtcFilename serverEntry}" =
-        { text = template { inherit (serverEntry) id uuid remote; };
-          # NetworkManager refuses to load world readable files
-          mode = "0600";
-        };
+    {
+      "${serverEntryToEtcFilename serverEntry}" = {
+        text = template { inherit (serverEntry) id uuid remote; };
+        # NetworkManager refuses to load world readable files
+        mode = "0600";
+      };
     };
 
-  etcFiles =
-    fold
-      (x: acc: recursiveUpdate (serverEntryToEtcFile x) acc)
-      {}
-      filteredServers;
+  etcFiles = fold (x: acc: recursiveUpdate (serverEntryToEtcFile x) acc) { }
+    filteredServers;
 
-in
-{
+in {
   options.networking.networkmanager.pia-vpn = {
 
     enable = mkOption {
@@ -90,7 +87,8 @@ in
 
         To make NetworkManager update its UI after using this module to
         add/remove connections, you either have to run `sudo nmcli connection
-        reload` or reboot. ''; };
+        reload` or reboot. '';
+    };
 
     username = mkOption {
       type = types.str;
@@ -165,58 +163,65 @@ in
   config = mkIf cfg.enable {
 
     assertions = [
-      { assertion = cfg.username != "" || cfg.usernameFile != null;
+      {
+        assertion = cfg.username != "" || cfg.usernameFile != null;
         message = ''
           Either networking.networkmanager.pia-vpn.username or ..usernameFile
           must be set.
         '';
       }
-      { assertion = (cfg.username != "") == (cfg.usernameFile == null);
+      {
+        assertion = (cfg.username != "") == (cfg.usernameFile == null);
         message = ''
           Only one of networking.networkmanager.pia-vpn.username and
           ..usernameFile can be set.
         '';
       }
       { # Password can be unset, NetworkManager will use OS keyring.
-        assertion = if cfg.password != "" then (cfg.passwordFile == null) else true;
+        assertion =
+          if cfg.password != "" then (cfg.passwordFile == null) else true;
         message = ''
           Only one of networking.networkmanager.pia-vpn.password and
           ..passwordFile can be set.
         '';
       }
-      { assertion = (length cfg.serverList) > 0;
+      {
+        assertion = (length cfg.serverList) > 0;
         message = ''
           The option networking.networkmanager.pia-vpn.serverList is empty, no
           VPN connections can be made.
         '';
       }
-      { assertion = all (x: elem x allServerSubdomains) cfg.serverList;
-        message =
-          let
-            badElements = builtins.filter (x: !(elem x allServerSubdomains)) cfg.serverList;
-          in
-          ''
-            The option networking.networkmanager.pia-vpn.serverList
-            contains one or more bad elements:
-            ${builtins.toString badElements}
+      {
+        assertion = all (x: elem x allServerSubdomains) cfg.serverList;
+        message = let
+          badElements =
+            builtins.filter (x: !(elem x allServerSubdomains)) cfg.serverList;
+        in ''
+          The option networking.networkmanager.pia-vpn.serverList
+          contains one or more bad elements:
+          ${builtins.toString badElements}
 
-            Allowed elements:
-            ${builtins.toString allServerSubdomains}
-          '';
+          Allowed elements:
+          ${builtins.toString allServerSubdomains}
+        '';
       }
     ];
 
     environment.etc = etcFiles;
 
     system.activationScripts.pia-nm-usernameFile =
-      mkIf (cfg.usernameFile != null) (stringAfter [ "etc" "specialfs" "var" ]
-      ''
+      mkIf (cfg.usernameFile != null)
+      (stringAfter [ "etc" "specialfs" "var" ] ''
         if [ -f "${cfg.usernameFile}" ]; then
           loadingMsg="<6>loading networking.networkmanager.pia-vpn.usernameFile from ${cfg.usernameFile}"
           ${pkgs.systemd}/bin/systemd-cat -t nixos echo loadingMsg
-          ${concatMapStringsSep "\n"
-            (f: "${pkgs.gnused}/bin/sed -ie \"s/@USERNAME@/$(< ${cfg.usernameFile})/\" ${f}")
-            (map (s: "/etc/${serverEntryToEtcFilename s}") filteredServers)}
+          ${
+            concatMapStringsSep "\n" (f:
+              ''
+                ${pkgs.gnused}/bin/sed -ie "s/@USERNAME@/$(< ${cfg.usernameFile})/" ${f}'')
+            (map (s: "/etc/${serverEntryToEtcFilename s}") filteredServers)
+          }
         else
             msg="WARNING: networking.networkmanager.pia-vpn.usernameFile (${cfg.usernameFile}) does not exist."
             echo "$msg"
@@ -225,14 +230,17 @@ in
       '');
 
     system.activationScripts.pia-nm-passwordFile =
-      mkIf (cfg.passwordFile != null) (stringAfter [ "etc" "specialfs" "var" ]
-      ''
+      mkIf (cfg.passwordFile != null)
+      (stringAfter [ "etc" "specialfs" "var" ] ''
         if [ -f "${cfg.passwordFile}" ]; then
           loadingMsg="<6>loading networking.networkmanager.pia-vpn.passwordFile from ${cfg.passwordFile}"
           ${pkgs.systemd}/bin/systemd-cat -t nixos echo loadingMsg
-          ${concatMapStringsSep "\n"
-            (f: "${pkgs.gnused}/bin/sed -ie \"s/@PASSWORD@/$(< ${cfg.passwordFile})/\" ${f}")
-            (map (s: "/etc/${serverEntryToEtcFilename s}") filteredServers)}
+          ${
+            concatMapStringsSep "\n" (f:
+              ''
+                ${pkgs.gnused}/bin/sed -ie "s/@PASSWORD@/$(< ${cfg.passwordFile})/" ${f}'')
+            (map (s: "/etc/${serverEntryToEtcFilename s}") filteredServers)
+          }
         else
             msg="WARNING: networking.networkmanager.pia-vpn.passwordFile (${cfg.passwordFile}) does not exist."
             echo "$msg"
@@ -240,5 +248,4 @@ in
         fi
       '');
   };
-
 }

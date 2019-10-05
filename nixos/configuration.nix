@@ -1,14 +1,11 @@
 { config, pkgs, ... }:
 let
-  all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
-in
-{
-  imports = [
-    ./hardware-configuration.nix
-    ./fonts.nix
-    ./users.nix
-    ./pia/pia-nm.nix
-  ];
+  all-hies =
+    import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master")
+    { };
+in {
+  imports =
+    [ ./hardware-configuration.nix ./fonts.nix ./users.nix ./pia/pia-nm.nix ];
 
   nixpkgs.config = {
     # Allow unfree, which is required for some drivers.
@@ -143,7 +140,9 @@ in
     unzip
     wget
     # Install stable HIE for GHC versions 8.6.5 if available and fall back to unstable otherwise
-    (all-hies.unstableFallback.selection { selector = p: { inherit (p) ghc865; }; })
+    (all-hies.unstableFallback.selection {
+      selector = p: { inherit (p) ghc865; };
+    })
     # Install unstable HIE for GHC versions 8.6.5
     (all-hies.unstable.selection { selector = p: { inherit (p) ghc865; }; })
   ];
