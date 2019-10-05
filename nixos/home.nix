@@ -66,6 +66,7 @@ in
     haskellPackages.apply-refact
     haskellPackages.brittany
     haskellPackages.ghcid
+    haskellPackages.hakyll
     haskellPackages.hasktags
     haskellPackages.hindent
     haskellPackages.hlint
@@ -74,6 +75,7 @@ in
     keepassxc
     libreoffice
     nix-prefetch-git
+    nixfmt
     openconnect
     planck
     ranger
