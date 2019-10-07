@@ -20,10 +20,12 @@ in {
       "https://all-hies.cachix.org"
       "https://cache.nixos.org/"
       "https://nixcache.reflex-frp.org"
+      "https://willbush.cachix.org"
     ];
     binaryCachePublicKeys = [
       "all-hies.cachix.org-1:JjrzAOEUsD9ZMt8fdFbzo3jNAyEWlPAwdVuHw4RD43k="
       "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
+      "willbush.cachix.org-1:PuQjKarzPYTnxgEzKUoTDQ+aN0SImhO8NMZ0CamKBL4="
     ];
     gc = {
       automatic = true;
