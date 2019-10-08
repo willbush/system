@@ -45,6 +45,7 @@ in {
     cabal-install
     cachix
     chromium
+    dnsutils
     docker-compose
     dotnet-sdk
     exa
