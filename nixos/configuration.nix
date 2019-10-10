@@ -151,5 +151,5 @@ in {
 
   programs.ssh.startAgent = true;
 
-  system.stateVersion = "19.03";
+  system.stateVersion = "19.09";
 }

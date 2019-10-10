@@ -3,14 +3,14 @@
 let
   homeDir = builtins.getEnv "HOME";
   planck = pkgs.callPackage ./keyboard-firmware/planck { };
-  nixos19_03 = import (builtins.fetchTarball
-    "https://github.com/NixOS/nixpkgs-channels/archive/nixos-19.03.tar.gz") { };
+  nixos19_09 = import (builtins.fetchTarball
+    "https://github.com/NixOS/nixpkgs-channels/archive/nixos-19.09.tar.gz") { };
 in {
   imports = [ ./emacs.nix ];
 
-  home.stateVersion = "19.03";
+  home.stateVersion = "19.09";
 
-  nixpkgs.config = { packageOverrides = pkgs: { stable = nixos19_03; }; };
+  nixpkgs.config = { packageOverrides = pkgs: { stable = nixos19_09; }; };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
