@@ -102,6 +102,9 @@
 (ad-activate 'ansi-term)
 
 ;; tramp:
+
+(setq password-cache-expiry nil)
+
 (if (eq system-type 'windows-nt)
     (setq tramp-default-method "plink")
   (setq tramp-default-method "ssh"))
