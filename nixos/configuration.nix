@@ -42,10 +42,19 @@ in {
     initrd.checkJournalingFS = true; # run fsck for journal file system
 
     loader = {
+      # Timeout (in seconds) until loader boots the default menu item.
+      timeout = 1;
       # Use the systemd-boot EFI boot loader.
       systemd-boot = {
         enable = true;
+        # Limit number of configurations to keep /boot partition from filling
+        # up.
         configurationLimit = 20;
+        memtest86.enable = true;
+        # Fixes a security hole in place for the sake of backwards
+        # compatibility. See description in:
+        # nixpkgs/nixos/modules/system/boot/loader/systemd-boot/systemd-boot.nix
+        editor = false;
       };
       efi.canTouchEfiVariables = true;
     };
