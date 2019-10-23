@@ -44,6 +44,7 @@ in {
     aspellDicts.en-science
     cabal-install
     cachix
+    calibre
     chromium
     dnsutils
     docker-compose
