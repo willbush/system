@@ -49,7 +49,7 @@ in {
         enable = true;
         # Limit number of configurations to keep /boot partition from filling
         # up.
-        configurationLimit = 20;
+        configurationLimit = 10;
         memtest86.enable = true;
         # Fixes a security hole in place for the sake of backwards
         # compatibility. See description in:
