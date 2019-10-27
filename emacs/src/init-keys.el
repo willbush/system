@@ -210,7 +210,8 @@
   "b" 'flyspell-buffer
   "c" 'flyspell-correct-at-point
   "n" 'evil-next-flyspell-error
-  "p" 'evil-prev-flyspell-error)
+  "p" 'evil-prev-flyspell-error
+  "r" 'flyspell-region)
 
 (general-def
   :prefix "SPC t"
