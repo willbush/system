@@ -46,4 +46,7 @@
 
 (use-package attrap :commands attrap-attrap)
 
+(use-package aggressive-indent
+  :hook (prog-mode . aggressive-indent-mode))
+
 (provide 'init-prog-tools)
