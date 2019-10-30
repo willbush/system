@@ -1,13 +1,14 @@
-import XMonad
-import XMonad.Hooks.ManageDocks (manageDocks)
-import qualified System.Exit as X
-import qualified XMonad.StackSet as W
-import qualified XMonad.Util.CustomKeys as C
+import           XMonad
+import           Data.Default                   ( def )
+import           XMonad.Hooks.ManageDocks       ( manageDocks )
+import qualified System.Exit                   as X
+import qualified XMonad.StackSet               as W
+import qualified XMonad.Util.CustomKeys        as C
 
 main :: IO ()
 main =
-  xmonad $ defaultConfig
-    { manageHook = manageDocks <+> manageHook defaultConfig
+  xmonad $ def
+    { manageHook = manageDocks <+> manageHook def
     , terminal = "alacritty"
     , modMask = mod4Mask -- Rebind Mod to the super key
     , keys = C.customKeys delkeys addkeys
