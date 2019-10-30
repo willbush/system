@@ -8,6 +8,7 @@
     package = pkgs.emacs.override { inherit (pkgs) imagemagick; };
     extraPackages = (epkgs:
       (with epkgs; [
+        aggressive-indent
         attrap
         avy
         company
