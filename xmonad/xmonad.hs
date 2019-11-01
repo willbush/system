@@ -2,6 +2,7 @@ import           XMonad
 import           Data.Default                   ( def )
 import           XMonad.Hooks.ManageDocks       ( manageDocks )
 import qualified System.Exit                   as X
+import           XMonad.Hooks.SetWMName         ( setWMName )
 import qualified XMonad.StackSet               as W
 import qualified XMonad.Util.CustomKeys        as C
 
@@ -9,6 +10,7 @@ main :: IO ()
 main =
   xmonad $ def
     { manageHook = manageDocks <+> manageHook def
+    , startupHook = setWMName "LG3D" -- Needed for Java GUI to work
     , terminal = "alacritty"
     , modMask = mod4Mask -- Rebind Mod to the super key
     , keys = C.customKeys delkeys addkeys
