@@ -148,7 +148,6 @@ in {
     neovim
     ripgrep
     tree
-    unzip
     wget
     # Install stable HIE for GHC versions 8.6.5 if available and fall back to unstable otherwise
     (all-hies.unstableFallback.selection {
