@@ -135,7 +135,7 @@
   :commands (er/expand-region er/contract-region)
   :init
   (defhydra hydra-expand-region ()
-     "region: "
+     "region"
      ("e" er/expand-region "expand")
      ("n" er/contract-region "contract")))
 
