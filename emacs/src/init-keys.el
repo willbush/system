@@ -20,6 +20,25 @@
   :states 'visual
   "r" 'hydra-expand-region/body)
 
+;; dired key bindings
+(general-def
+  :states 'normal
+  :keymaps 'dired-mode-map
+  ;; remove evil mode shadows
+  "i" nil ;; was 'dired-toggle-read-only
+  "m" nil ;; was 'dired-mark
+  "j" nil ;; was 'dired-next-line
+  "^" nil ;; was 'dired-up-directory
+  "r" nil ;; was 'dired-do-redisplay
+  "R" nil ;; was 'dired-do-rename
+  ;; rebind things better to my custom evil keys
+  "l" 'dired-toggle-read-only
+  "k" 'dired-mark
+  "n" 'dired-next-line
+  "e" 'dired-previous-line
+  "C-e" 'dired-up-directory
+  "v" 'dired-do-rename)
+
 (general-def
   :prefix "SPC"
   :states '(normal visual)
