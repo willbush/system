@@ -266,36 +266,6 @@
 ;; evil.
 (setq evil-want-keybinding nil)
 
-;; A collection of evil key bindings for various modes
-(use-package evil-collection
-  :commands evil-collection-init
-  :custom (evil-collection-setup-minibuffer t)
-  :init
-  (setq evil-collection-mode-list
-        '(calendar
-          (package-menu package)
-          (term term ansi-term multi-term)
-          compile
-          cus-theme
-          custom
-          deadgrep
-          debug
-          dired
-          disk-usage
-          elfeed
-          git-timemachine
-          help
-          info
-          ivy
-          man
-          minibuffer
-          (pdf pdf-view)
-          woman))
-
-  ;; called after evil-collection makes its keybindings
-  ;; https://github.com/emacs-evil/evil-collection#key-translation
-  (add-hook 'evil-collection-setup-hook #'my/custom-evil-collection-bindings))
-
 (defun my/custom-evil-collection-bindings (mode mode-keymaps &rest _rest)
   (cond ((eq mode 'dired)
          ;; dired key bindings
@@ -328,5 +298,35 @@
              "r" "v" ;; range (old name visual)
              (kbd "C-n") (kbd "C-j")
              (kbd "C-e") (kbd "C-k")))))
+
+;; A collection of evil key bindings for various modes
+(use-package evil-collection
+  :commands evil-collection-init
+  :custom (evil-collection-setup-minibuffer t)
+  :init
+  (setq evil-collection-mode-list
+        '(calendar
+          (package-menu package)
+          (term term ansi-term multi-term)
+          compile
+          cus-theme
+          custom
+          deadgrep
+          debug
+          dired
+          disk-usage
+          elfeed
+          git-timemachine
+          help
+          info
+          ivy
+          man
+          minibuffer
+          (pdf pdf-view)
+          woman))
+
+  ;; called after evil-collection makes its keybindings
+  ;; https://github.com/emacs-evil/evil-collection#key-translation
+  (add-hook 'evil-collection-setup-hook #'my/custom-evil-collection-bindings))
 
 (provide 'init-keys)
