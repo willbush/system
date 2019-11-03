@@ -34,8 +34,70 @@
     "V" "R"))
 
 (use-package git-timemachine
-  ;; mode key bindings provided by evil-collection
-  :commands git-timemachine)
+  :commands git-timemachine
+  :config
+  ;; Silence warnings
+  (declare-function git-timemachine-show-next-revision "git-timemachine")
+  (declare-function git-timemachine-show-next-revision "git-timemachine")
+  (declare-function git-timemachine-show-previous-revision "git-timemachine")
+  (declare-function git-timemachine-show-revision-fuzzy "git-timemachine")
+  (declare-function git-timemachine-show-commit "git-timemachine")
+  (declare-function git-timemachine-show-current-revision "git-timemachine")
+  (declare-function git-timemachine-show-latest-revision-in-branch "git-timemachine")
+  (declare-function git-timemachine-show-nth-revision "git-timemachine")
+  (declare-function git-timemachine-blame "git-timemachine")
+  (declare-function git-timemachine-kill-abbreviated-revision "git-timemachine")
+  (declare-function git-timemachine-kill-revision "git-timemachine")
+  (declare-function git-timemachine-switch-branch "git-timemachine")
+  (declare-function git-timemachine-quit "git-timemachine")
+
+  (defhydra hydra-git-timemachine (:hint nil)
+    "
+git-timemachine-mode:
+
+  _C-n_ next revision      _gc_ show commit                     _gb_ blame
+  _C-p_ previous revision  _gr_ show current revision           _gy_ yank abbreviated revision
+  _C-f_ fuzzy search       _gl_ show latest revision in branch  _gY_ yank full revision
+  _q_ quit                 _gn_ show nth revision               _gs_ switch branch
+
+"
+    ("C-n" git-timemachine-show-next-revision)
+    ("C-p" git-timemachine-show-previous-revision)
+    ("C-f" git-timemachine-show-revision-fuzzy)
+
+    ("gc" git-timemachine-show-commit :color blue)
+    ("gr" git-timemachine-show-current-revision)
+    ("gl" git-timemachine-show-latest-revision-in-branch)
+    ("gn" git-timemachine-show-nth-revision)
+
+    ("gb" git-timemachine-blame)
+    ("gy" git-timemachine-kill-abbreviated-revision)
+    ("gY" git-timemachine-kill-revision)
+    ("gs" git-timemachine-switch-branch)
+
+    ("q" git-timemachine-quit "quit" :color blue))
+
+  (general-def
+    :definer 'minor-mode
+    :states 'normal
+    :keymaps 'git-timemachine-mode
+    "?" 'hydra-git-timemachine/body
+
+    "C-n" 'git-timemachine-show-next-revision
+    "C-p" 'git-timemachine-show-previous-revision
+    "C-f" 'git-timemachine-show-revision-fuzzy
+
+    "gc" 'git-timemachine-show-commit
+    "gr" 'git-timemachine-show-current-revision
+    "gl" 'git-timemachine-show-latest-revision-in-branch
+    "gn" 'git-timemachine-show-nth-revision
+
+    "gb" 'git-timemachine-blame
+    "gy" 'git-timemachine-kill-abbreviated-revision
+    "gY" 'git-timemachine-kill-revision
+    "gs" 'git-timemachine-switch-branch
+
+    "q" 'git-timemachine-quit))
 
 (use-package flycheck
   :hook (haskell-mode . flycheck-mode))

@@ -316,7 +316,6 @@
           dired
           disk-usage
           elfeed
-          git-timemachine
           help
           info
           ivy
