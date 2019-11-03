@@ -20,25 +20,6 @@
   :states 'visual
   "r" 'hydra-expand-region/body)
 
-;; dired key bindings
-(general-def
-  :states 'normal
-  :keymaps 'dired-mode-map
-  ;; remove evil mode shadows
-  "i" nil ;; was 'dired-toggle-read-only
-  "m" nil ;; was 'dired-mark
-  "j" nil ;; was 'dired-next-line
-  "^" nil ;; was 'dired-up-directory
-  "r" nil ;; was 'dired-do-redisplay
-  "R" nil ;; was 'dired-do-rename
-  ;; rebind things better to my custom evil keys
-  "l" 'dired-toggle-read-only
-  "k" 'dired-mark
-  "n" 'dired-next-line
-  "e" 'dired-previous-line
-  "C-e" 'dired-up-directory
-  "v" 'dired-do-rename)
-
 (general-def
   :prefix "SPC"
   :states '(normal visual)
@@ -277,5 +258,56 @@
   "d" 'define-word-at-point
   "l" 'my/sort-lines
   "u" 'my/uniquify-lines)
+
+;; A collection of evil key bindings for various modes
+(use-package evil-collection
+  :commands evil-collection-init
+  :custom (evil-collection-setup-minibuffer t)
+  :init
+  (setq evil-collection-mode-list
+        '(calendar
+          (package-menu package)
+          (term term ansi-term multi-term)
+          compile
+          cus-theme
+          custom
+          deadgrep
+          debug
+          dired
+          disk-usage
+          ediff
+          elfeed
+          git-timemachine
+          help
+          info
+          ivy
+          man
+          minibuffer
+          (pdf pdf-view)
+          woman))
+
+    ;; called after evil-collection makes its keybindings
+    ;; https://github.com/emacs-evil/evil-collection#key-translation
+    (add-hook 'evil-collection-setup-hook
+              '(lambda (mode mode-keymaps &rest _rest)
+                 (if (eq mode 'dired)
+                     ;; dired key bindings
+                     (general-def
+                       :states 'normal
+                       :keymaps 'dired-mode-map
+                       ;; remove evil mode shadows
+                       "i" nil ;; was 'dired-toggle-read-only
+                       "m" nil ;; was 'dired-mark
+                       "j" nil ;; was 'dired-next-line
+                       "^" nil ;; was 'dired-up-directory
+                       "r" nil ;; was 'dired-do-redisplay
+                       "R" nil ;; was 'dired-do-rename
+                       ;; rebind things better to my custom evil keys
+                       "l" 'dired-toggle-read-only
+                       "k" 'dired-mark
+                       "n" 'dired-next-line
+                       "e" 'dired-previous-line
+                       "C-e" 'dired-up-directory
+                       "v" 'dired-do-rename)))))
 
 (provide 'init-keys)

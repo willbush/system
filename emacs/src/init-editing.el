@@ -118,32 +118,6 @@
   (evil-exchange-cx-install)
   (evil-collection-init))
 
-(use-package evil-collection
-  :commands evil-collection-init
-  :custom (evil-collection-setup-minibuffer t)
-  :init
-  (setq evil-collection-mode-list
-        '(calendar
-          (package-menu package)
-          (term term ansi-term multi-term)
-          compile
-          cus-theme
-          custom
-          deadgrep
-          debug
-          dired
-          disk-usage
-          ediff
-          elfeed
-          git-timemachine
-          help
-          info
-          ivy
-          man
-          minibuffer
-          (pdf pdf-view)
-          woman)))
-
 ;; Enables searching via * on a visual selection.
 (use-package evil-visualstar
   :commands global-evil-visualstar-mode)
