@@ -83,7 +83,9 @@ in {
     tokei
     transmission-gtk
     unar
+    unzip
     vlc
+    zip
   ];
 
   programs.git = {
