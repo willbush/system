@@ -1,12 +1,5 @@
 ;;; -*- lexical-binding: t; -*-
 
-;; evil-collection will give a warning if the following setting is not set
-;; before loading evil and evil-collection. Note that evil-leader loads evil
-;; see: https://github.com/emacs-evil/evil-collection/issues/215 Also even if
-;; this is in the :init block it will still given the warning when lazy loading
-;; evil.
-(setq evil-want-keybinding nil)
-
 (use-package evil
   :hook (after-init . evil-mode)
   :init
