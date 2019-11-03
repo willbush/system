@@ -142,22 +142,7 @@
           man
           minibuffer
           (pdf pdf-view)
-          woman))
-
-    ;; called after evil-collection makes its keybindings
-    ;; https://github.com/emacs-evil/evil-collection#guidelines
-    ;; Think I'm going to translate keys as I need them.
-    (add-hook 'evil-collection-setup-hook
-              '(lambda (mode mode-keymaps &rest _rest)
-                 (if (not (eq mode 'dired))
-                    (evil-collection-swap-key 'normal mode-keymaps
-                      "m" "h" ;; left
-                      "n" "j" ;; down
-                      "e" "k" ;; up
-                      "i" "l" ;; right
-                      "r" "v" ;; range (old name visual)
-                      (kbd "C-n") (kbd "C-j")
-                      (kbd "C-e") (kbd "C-k"))))))
+          woman)))
 
 ;; Enables searching via * on a visual selection.
 (use-package evil-visualstar
