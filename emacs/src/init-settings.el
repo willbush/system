@@ -102,11 +102,16 @@
 (ad-activate 'ansi-term)
 
 ;; tramp:
-
 (setq password-cache-expiry nil)
 
 (if (eq system-type 'windows-nt)
     (setq tramp-default-method "plink")
   (setq tramp-default-method "ssh"))
+
+;; css:
+(use-package css-mode
+  :ensure nil ;; no reason to try to ensure because it's built in
+  :config
+  (setq-default css-indent-offset 2))
 
 (provide 'init-settings)
