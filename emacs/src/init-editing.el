@@ -1,5 +1,36 @@
 ;;; -*- lexical-binding: t; -*-
 
+;; Enables searching via * on a visual selection.
+(use-package evil-visualstar
+  :commands global-evil-visualstar-mode)
+
+;; Enables inc/dec of numbers!
+(use-package evil-numbers
+  :commands (evil-numbers/inc-at-pt evil-numbers/dec-at-pt))
+
+(use-package evil-surround
+  :commands global-evil-surround-mode)
+
+(use-package evil-matchit
+  :commands global-evil-matchit-mode)
+
+(use-package evil-exchange
+  :commands evil-exchange-cx-install)
+
+(use-package avy
+  :commands (avy-goto-char avy-goto-char-timer))
+
+(use-package expand-region
+  :commands (er/expand-region er/contract-region)
+  :init
+  (defhydra hydra-expand-region ()
+     "region"
+     ("e" er/expand-region "expand")
+     ("n" er/contract-region "contract")))
+
+(use-package evil-tutor
+  :commands evil-tutor-start)
+
 (use-package evil
   :hook (after-init . evil-mode)
   :init
@@ -110,36 +141,5 @@
   (global-evil-matchit-mode 1)
   (evil-exchange-cx-install)
   (evil-collection-init))
-
-;; Enables searching via * on a visual selection.
-(use-package evil-visualstar
-  :commands global-evil-visualstar-mode)
-
-;; Enables inc/dec of numbers!
-(use-package evil-numbers
-  :commands (evil-numbers/inc-at-pt evil-numbers/dec-at-pt))
-
-(use-package evil-surround
-  :commands global-evil-surround-mode)
-
-(use-package evil-matchit
-  :commands global-evil-matchit-mode)
-
-(use-package evil-exchange
-  :commands evil-exchange-cx-install)
-
-(use-package avy
-  :commands (avy-goto-char avy-goto-char-timer))
-
-(use-package expand-region
-  :commands (er/expand-region er/contract-region)
-  :init
-  (defhydra hydra-expand-region ()
-     "region"
-     ("e" er/expand-region "expand")
-     ("n" er/contract-region "contract")))
-
-(use-package evil-tutor
-  :commands evil-tutor-start)
 
 (provide 'init-editing)
