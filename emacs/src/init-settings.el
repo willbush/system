@@ -108,10 +108,8 @@
     (setq tramp-default-method "plink")
   (setq tramp-default-method "ssh"))
 
-;; css:
-(use-package css-mode
-  :ensure nil ;; no reason to try to ensure because it's built in
-  :config
-  (setq-default css-indent-offset 2))
+;; CSS / JavaScript indention level
+(setq-default css-indent-offset 2)
+(setq-default js-indent-level 2)
 
 (provide 'init-settings)
