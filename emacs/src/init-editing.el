@@ -73,9 +73,9 @@
     "&" "C-r" "J" "R" "S" "\"" "g &" "g ," "g ;" "g F" "g f" "g i" "m"
     "r" "s" "z O" "z a" "z c" "z m" "z o" "z r")
   (general-unbind 'motion
-    "'" "," ";" "C-d" "C-u" "C-v" "C-w" "S-k" "E" "F" "H" "L" "M" "N" "V" "`" "e"
-    "f" "g E" "g N" "g e" "g j" "g k" "g n" "g v" "h" "j" "k" "l" "n" "v"
-    "z H" "z L" "z h" "z l")
+    "'" "," "/" ";" "C-d" "C-u" "C-v" "C-w" "E" "F" "H" "L" "M" "N"
+    "S-k" "V" "`" "e" "f" "g E" "g N" "g e" "g j" "g k" "g n" "g v"
+    "h" "j" "k" "l" "n" "v" "z H" "z L" "z h" "z l")
 
   ;; visual state R key is not that useful.
   (general-unbind '(normal visual) "R")
@@ -102,6 +102,13 @@
   (general-def
     :states 'motion
     "'" 'evil-repeat-find-char
+    ;; Far as I understand one of the side effects of using `evil-search-module
+    ;; 'evil-search' is "/" in the motion map being set to
+    ;; 'evil-ex-search-forward. Despite using `evil-search' I was running into a
+    ;; weird issue in Windows where it would be set to `evil-search-forward'
+    ;; which would break `evil-ex-search-next' and `evil-ex-search-previous'. So
+    ;; I'm setting it here explicitly.
+    "/" 'evil-ex-search-forward
     "C-S-e" 'evil-scroll-up
     "C-S-n" 'evil-scroll-down
     "C-j" 'evil-join
