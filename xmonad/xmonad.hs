@@ -17,7 +17,7 @@ main =
     , normalBorderColor = "#444444"
     , focusedBorderColor = "#999999"
     , borderWidth = 1
-    -- | add left hand Colemak-DH home keys and keys above the home keys as
+    -- | add left hand Colemak-DHm home keys and keys above the home keys as
     -- workspaces. This is very useful for 48 key keyboards like the Planck
     -- which has number keys accessible via a layer (modifier).
     , workspaces =
@@ -64,7 +64,7 @@ main =
 
     addkeys :: XConfig l -> [((KeyMask, KeySym), X ())]
     addkeys conf@(XConfig {modMask = modm}) =
-      -- | Rebind h, j, k, l keys to Colemak-DH keys m, n, e, i in the same
+      -- | Rebind h, j, k, l keys to Colemak-DHm keys m, n, e, i in the same
       -- positions.
       [ ((modm,               xK_n), windows W.focusDown)
       , ((modm,               xK_e), windows W.focusUp)

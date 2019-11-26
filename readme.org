@@ -42,7 +42,7 @@
  I use ~x/y~ to denote a key that does x when tapped and y when held. For
  example, ~RET/S~ performs return when tapped and shift when held.
 
-** Colemak Mod-DH
+** Colemak Mod-DHm
 
    https://colemakmods.github.io/mod-dh/
 
@@ -60,7 +60,7 @@
    improvement in score on Colemak Mod-DH due to swapping the same-finger
    bigrams ~e,~ with the ~ey~ which occurs about half as often. Typing the word
    "you" et al. is still not amazing, but it's much easier than before and with
-   a minimal change from Colemak Mod-DH.
+   a minimal change from Colemak Mod-DHm.
 
  | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
@@ -286,7 +286,7 @@
   could easily add a configuration file to.
 
   So now the question is how far do I take the customization. Even doing the
-  minimal changes to get my Colemak Mod-DH (ortho-linear version) keys (~m~,
+  minimal changes to get my Colemak Mod-DHm (ortho-linear version) keys (~m~,
   ~n~, ~e~, ~i~) swapped with ~h~, ~j~, ~k~, and ~l~ will incur all the cons I
   mentioned above, so why not go all the way? Learning curve might be one reason
   to do a minimal fix. However, I personally don't have a problem investing the
@@ -388,7 +388,7 @@
       However, when I'm moving to a location horizontally with an intention I
       typically use find/till and ~;~ to repeat.
 
-** Custom Evil on ortho-linear Colemak-DH
+** Custom Evil on ortho-linear Colemak-DHm
 
    One thing that seams really apparent to me after going over an iteration of
    binding custom keys for Colemak is that many of the positions of keys got
@@ -401,9 +401,9 @@
 
     Note that absence of an attribute indicates no change. Also note that I'm
     comparing how things were in Qwerty with defaults to how they are with my
-    custom key map in Colemak-DH based on my subjective opinion.
+    custom key map in Colemak-DHm based on my subjective opinion.
 
-    - ~s~ :: A keybinding that remains in the same location for Colemak-DH as it
+    - ~s~ :: A keybinding that remains in the same location for Colemak-DHm as it
              was in Qwerty. Note table only shows swapped keys so many other
              keys remain in the same location not shown below.
 

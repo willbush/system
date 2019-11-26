@@ -61,7 +61,7 @@
     (let (line-move-visual)
       (evil-line-move (- (* 10 (or count 1))))))
 
-  ;; The following sets up my custom evil key bindings for Colemak-DH keyboard
+  ;; The following sets up my custom evil key bindings for Colemak-DHm keyboard
   ;; layout. For my in-depth thoughts on the new key mappings see the readme.
   ;;
   ;; Nuke the site from orbit. It's the only way to be sure.
