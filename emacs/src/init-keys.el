@@ -38,7 +38,7 @@
   "?" 'counsel-descbinds
   "SPC" 'counsel-M-x
   "TAB" 'mode-line-other-buffer
-  ;; Not using 'b' as a prefix because it's too hard to reach on Colemak-DH and
+  ;; Not using 'b' as a prefix because it's too hard to reach on Colemak-DHm and
   ;; too widely used.
   "F" '(:ignore t :which-key "frame")
   "S" '(:ignore t :which-key "spell-checking")
