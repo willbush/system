@@ -104,13 +104,6 @@ in {
       ll = "exa -l";
       la = "exa -lah";
       vim = "nvim";
-      dropbox = "docker exec -it dropbox dropbox";
-      dropbox-start = ''
-        docker run -d --restart=always --name=dropbox \
-          -v ${homeDir}/Dropbox:/dbox/Dropbox \
-          -v ${homeDir}/.dropbox:/dbox/.dropbox \
-          -e DBOX_UID=1000 -e DBOX_GID=100 janeczku/dropbox
-      '';
     };
     oh-my-zsh = {
       enable = true;
