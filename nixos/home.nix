@@ -114,7 +114,7 @@ in {
   programs.htop = {
     enable = true;
     meters = {
-      left = [ "AllCPUs" "Memory" "Swap" "Battery" ];
+      left = [ "AllCPUs" "Memory" "Swap" ];
       right = [ "Tasks" "LoadAverage" "Uptime" ];
     };
   };
