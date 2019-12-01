@@ -9,7 +9,7 @@
 
   - update windows
   - Get Firefox
-  - Get Dropbox
+  - Get Syncthing
   - Get KeepassXC
   - Sync Firefox
   - Install latest hardware drivers (e.g. graphics)
