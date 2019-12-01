@@ -4,13 +4,8 @@ let
     import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master")
     { };
 in {
-  imports = [
-    ./hardware-configuration.nix
-    ./fonts.nix
-    ./users.nix
-    ./pia/pia-nm.nix
-    ./dropbox.nix
-  ];
+  imports =
+    [ ./hardware-configuration.nix ./fonts.nix ./users.nix ./pia/pia-nm.nix ];
 
   nixpkgs.config = {
     # Allow unfree, which is required for some drivers.
