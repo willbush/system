@@ -80,6 +80,7 @@ in {
     simple-scan
     stable.cabal2nix
     stack
+    syncthing-cli # provides stcli
     tokei
     transmission-gtk
     unar
