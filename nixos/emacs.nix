@@ -8,6 +8,7 @@
     package = pkgs.emacs.override { inherit (pkgs) imagemagick; };
     extraPackages = (epkgs:
       (with epkgs; [
+        adaptive-wrap
         aggressive-indent
         attrap
         avy
