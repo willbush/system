@@ -117,6 +117,20 @@ argument sorts in reverse order."
     (golden-ratio 1)
     (message "Golden-Ratio mode enabled")))
 
+;; depends on https://elpa.gnu.org/packages/adaptive-wrap.html
+(defun my/toggle-adaptive-visual-fill-column ()
+  "Toggles visual-fill-column-mode and adaptive-wrap-prefix-mode on or off"
+  (interactive)
+  (if (bound-and-true-p visual-fill-column-mode)
+      (progn
+        (visual-fill-column-mode -1)
+        (adaptive-wrap-prefix-mode -1)
+        (message "visual-fill-column and adaptive-wrap-prefix mode disabled"))
+
+    (visual-fill-column-mode 1)
+    (adaptive-wrap-prefix-mode 1)
+    (message "visual-fill-column and adaptive-wrap-prefix mode enabled")))
+
 (defun my/open-shell ()
   "Opens my prefered shell for the current operating system."
   (interactive)

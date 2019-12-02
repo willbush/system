@@ -151,4 +151,7 @@
   (evil-exchange-cx-install)
   (evil-collection-init))
 
+(use-package adaptive-wrap
+  :commands adaptive-wrap-prefix-mode)
+
 (provide 'init-editing)
