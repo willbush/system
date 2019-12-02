@@ -224,7 +224,7 @@
   "n" 'display-line-numbers-mode
   "s" 'flyspell-mode
   "t" 'display-time-mode
-  "v" 'visual-fill-column-mode)
+  "v" 'my/toggle-adaptive-visual-fill-column)
 
 (general-def
   :prefix "SPC w"
