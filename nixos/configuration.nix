@@ -128,7 +128,7 @@ in {
       displayManager = {
         lightdm.enable = true;
         sessionCommands = ''
-          feh --bg-scale /home/will/Images/retro.jpg &
+          feh --bg-scale /home/will/images/retro.jpg
           albert &
         '';
       };
