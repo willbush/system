@@ -35,7 +35,6 @@ in {
 
   xdg.enable = true;
 
-  # home packages that need no extra configuration
   home.packages = with pkgs; [
     albert
     aspell
