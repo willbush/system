@@ -65,7 +65,6 @@
       (overlay-put compilation-highlight-overlay 'window (selected-window))))
 
   :hook ((bookmark-after-jump
-          focus-in ;; A hook that fires when an Emacs frame gains focus.
           counsel-grep-post-action
           imenu-after-jump
           evil-jumps-post-jump
@@ -74,6 +73,9 @@
           xref-after-return) . my/maybe-nav-flash)
 
   :init
+
+  ;; This used to be done using the focus-in-hook, but it was deprecated.
+  (add-function :after after-focus-change-function #'my/maybe-nav-flash)
 
   ;; Seems I could just add advice to set-buffer to remove some of these, but it
   ;; didn't work for me.

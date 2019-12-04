@@ -5,10 +5,6 @@
 (if (eq system-type 'windows-nt)
     (progn
 
-      ;; fixes an issue loading packages:
-      ;; https://www.reddit.com/r/emacs/comments/cdf48c/failed_to_download_gnu_archive/
-      (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
-
       (require 'package)
 
       (add-to-list 'package-archives
