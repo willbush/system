@@ -83,6 +83,12 @@
 ;; ~15% CPU.
 (global-hl-line-mode 1)
 
+;; Avoid performance issues in files with very long lines. Note that
+;; global-so-long-mode may cause esup to error when it visits a .elc file with
+;; long lines.
+(use-package so-long
+  :hook (after-init . global-so-long-mode))
+
 ;; follows symlinks without prompt when set to t
 (setq vc-follow-symlinks t)
 
