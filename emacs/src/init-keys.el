@@ -222,6 +222,7 @@
   "f" 'auto-fill-mode
   "g" 'my/toggle-golden-ratio
   "l" 'toggle-truncate-lines
+  "m" 'counsel-major ;; switches major mode
   "n" 'display-line-numbers-mode
   "s" 'flyspell-mode
   "t" 'display-time-mode
