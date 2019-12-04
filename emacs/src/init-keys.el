@@ -200,6 +200,7 @@
   "D" 'my/counsel-rg-directory
   "c" 'evil-ex-nohighlight ;; mnemonic is search clear
   "d" 'deadgrep
+  "g" 'counsel-git-grep
   "s" 'swiper
   "z" 'counsel-fzf)
 
