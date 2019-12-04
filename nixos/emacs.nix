@@ -1,11 +1,20 @@
-{ pkgs, ... }:
+{ pkgs, fetchFromGitHub, ... }:
 
-{
+let
+  rev = "b0b447d0cbc30a62d26373841c555dd1cd69c80a";
+  emacs-overlay = import (builtins.fetchTarball {
+    url =
+      "https://github.com/nix-community/emacs-overlay/archive/${rev}.tar.gz";
+  });
+in {
+
+  nixpkgs.overlays = [ emacs-overlay ];
+
   services.emacs.enable = true;
   programs.emacs = {
     enable = true;
     # Compile with imagemagick support so I can resize images.
-    package = pkgs.emacs.override { inherit (pkgs) imagemagick; };
+    package = pkgs.emacsGit.override { inherit (pkgs) imagemagick; };
     extraPackages = (epkgs:
       (with epkgs; [
         adaptive-wrap
