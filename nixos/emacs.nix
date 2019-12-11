@@ -59,6 +59,8 @@ in {
         hlint-refactor
         hydra
         ivy
+        lsp-mode
+        lsp-ui
         magit
         markdown-mode
         markdown-toc
@@ -73,6 +75,7 @@ in {
         projectile
         rainbow-delimiters
         ranger
+        rustic
         smex
         use-package
         vimrc-mode

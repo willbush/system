@@ -41,6 +41,7 @@
        "init-org"
        "init-nix"
        "init-haskell"
+       "init-rust"
        "init-csharp"
        "init-markdown"
        "init-scripting"
