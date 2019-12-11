@@ -111,6 +111,7 @@ git-timemachine-mode:
 (use-package aggressive-indent
   :hook ((css-mode
           elisp-mode
+          rustic-mode
           java-mode) . aggressive-indent-mode))
 
 (use-package lsp-mode
