@@ -113,4 +113,12 @@ git-timemachine-mode:
           elisp-mode
           java-mode) . aggressive-indent-mode))
 
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :hook (rustic-mode . lsp-deferred))
+
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :hook (lsp-mode . lsp-ui-mode))
+
 (provide 'init-prog-tools)
