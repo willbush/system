@@ -19,11 +19,15 @@ in {
     binaryCaches = [
       "https://all-hies.cachix.org"
       "https://cache.nixos.org/"
+      "https://hercules-ci.cachix.org"
+      "https://nix-tools.cachix.org"
       "https://nixcache.reflex-frp.org"
       "https://willbush.cachix.org"
     ];
     binaryCachePublicKeys = [
       "all-hies.cachix.org-1:JjrzAOEUsD9ZMt8fdFbzo3jNAyEWlPAwdVuHw4RD43k="
+      "hercules-ci.cachix.org-1:ZZeDl9Va+xe9j+KqdzoBZMFJHVQ42Uu/c/1/KMC5Lw0="
+      "nix-tools.cachix.org-1:ebBEBZLogLxcCvipq2MTvuHlP7ZRdkazFSQsbs0Px1A="
       "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
       "willbush.cachix.org-1:PuQjKarzPYTnxgEzKUoTDQ+aN0SImhO8NMZ0CamKBL4="
     ];
