@@ -127,9 +127,9 @@ in {
           haskellPackges.xmonad
         ];
       };
-      windowManager.default = "xmonad";
 
       displayManager = {
+        defaultSession = "none+xmonad";
         lightdm.enable = true;
         sessionCommands = ''
           feh --bg-scale /home/will/images/retro.jpg
