@@ -1,7 +1,7 @@
 { pkgs, fetchFromGitHub, ... }:
 
 let
-  rev = "b0b447d0cbc30a62d26373841c555dd1cd69c80a";
+  rev = "ba37c07faa16afaf3669111d558175d264f3216e";
   emacs-overlay = import (builtins.fetchTarball {
     url =
       "https://github.com/nix-community/emacs-overlay/archive/${rev}.tar.gz";
