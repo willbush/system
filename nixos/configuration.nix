@@ -144,7 +144,6 @@ in {
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    alacritty
     curl
     docker
     docker-compose
