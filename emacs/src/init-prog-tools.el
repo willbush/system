@@ -1,8 +1,6 @@
 ;;; -*- lexical-binding: t; -*-
 
-(use-package ediff
-  :config
-  (setq ediff-window-setup-function 'ediff-setup-windows-plain))
+(use-package ediff)
 
 (use-package magit
   :commands
