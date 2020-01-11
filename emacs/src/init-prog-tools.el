@@ -121,10 +121,10 @@ git-timemachine-mode:
   :hook (lsp-mode . lsp-ui-mode))
 
 (use-package git-gutter
-  :hook (markdown-mode
+  :hook ((markdown-mode
          org-mode
          prog-mode
-         conf-mode)
+         conf-mode) . git-gutter-mode)
   :config
   ;; Silence warnings
   (declare-function git-gutter:next-hunk "git-gutter")
