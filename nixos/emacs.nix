@@ -52,6 +52,8 @@ in {
         fill-column-indicator
         flyspell-correct-ivy
         general
+        git-gutter
+        git-gutter-fringe
         git-timemachine
         golden-ratio
         haskell-mode
