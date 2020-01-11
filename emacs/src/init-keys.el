@@ -159,7 +159,9 @@
   :keymaps 'override
   "a" 'org-agenda
   "c" 'org-capture
-  "r" 'org-refile)
+  "r" 'org-refile
+  "s" 'org-store-link
+  "t" 'org-toggle-link-display)
 
 (general-def
   :prefix "SPC h"
