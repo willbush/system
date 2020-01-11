@@ -10,7 +10,10 @@ in {
 
   home.stateVersion = "19.09";
 
-  nixpkgs.config = { packageOverrides = pkgs: { stable = nixos19_09; }; };
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs: { stable = nixos19_09; };
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -49,7 +52,7 @@ in {
     dotnet-sdk
     exa
     feh
-    firefox
+    firefox-beta-bin
     fzf
     gcc
     ghc
