@@ -89,6 +89,7 @@
   (general-def
     :states 'normal
     "&" 'evil-use-register
+    "C-i" 'evil-jump-forward
     "U" 'undo-tree-redo
     "V" 'evil-replace-state
     "g '" 'goto-last-change-reverse
