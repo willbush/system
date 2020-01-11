@@ -50,6 +50,7 @@
   "h" '(:ignore t :which-key "help")
   "m" '(:ignore t :which-key "magit")
   "n" '(:ignore t :which-key "narrow")
+  "o" '(:ignore t :which-key "org")
   "p" 'projectile-command-map
   "q" '(:ignore t :which-key "quit")
   "r" '(:ignore t :which-key "rapid")
@@ -93,15 +94,6 @@
   "m" 'my/switch-to-messages
   "r" 'my/revert-buffer-no-confirm
   "s" 'my/switch-to-scratch)
-
-(general-def
-  :prefix "SPC n"
-  :states '(normal visual)
-  :keymaps 'override
-  "f" 'narrow-to-defun
-  "p" 'narrow-to-page
-  "r" 'narrow-to-region
-  "w" 'widen)
 
 (general-def
   :prefix "SPC c"
@@ -151,6 +143,23 @@
   "m" 'magit-status
   "t" 'git-timemachine
   "g" 'hydra-git-gutter/body)
+
+(general-def
+  :prefix "SPC n"
+  :states '(normal visual)
+  :keymaps 'override
+  "f" 'narrow-to-defun
+  "p" 'narrow-to-page
+  "r" 'narrow-to-region
+  "w" 'widen)
+
+(general-def
+  :prefix "SPC o"
+  :states '(normal visual)
+  :keymaps 'override
+  "a" 'org-agenda
+  "c" 'org-capture
+  "r" 'org-refile)
 
 (general-def
   :prefix "SPC h"
