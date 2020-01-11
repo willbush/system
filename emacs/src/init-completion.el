@@ -58,7 +58,10 @@
 (use-package projectile
   :commands projectile-mode
   :config
-  (projectile-mode +1))
+  (projectile-mode +1)
+  ;; The default uses Emacs Lisp in Windows, which way too slow for large
+  ;; projects.
+  (setq projectile-indexing-method 'alien))
 
 (use-package hydra)
 
