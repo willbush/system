@@ -149,7 +149,8 @@
   "d" 'magit-dispatch
   "i" 'magit-gitignore-globally
   "m" 'magit-status
-  "t" 'git-timemachine)
+  "t" 'git-timemachine
+  "g" 'hydra-git-gutter/body)
 
 (general-def
   :prefix "SPC h"
