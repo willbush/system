@@ -96,7 +96,7 @@ in {
     settings = {
       colors = {
         # Using the default primary background and foreground colors because I
-        # like the dark black transparency.
+        # like the dark black with transparency.
         normal = {
           black = "0x1e2127";
           red = "0xe06c75";
