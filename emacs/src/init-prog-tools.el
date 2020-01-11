@@ -120,4 +120,56 @@ git-timemachine-mode:
   :commands lsp-ui-mode
   :hook (lsp-mode . lsp-ui-mode))
 
+(use-package git-gutter
+  :hook (markdown-mode
+         org-mode
+         prog-mode
+         conf-mode)
+  :config
+  ;; Silence warnings
+  (declare-function git-gutter:next-hunk "git-gutter")
+  (declare-function git-gutter:previous-hunk "git-gutter")
+  (declare-function git-gutter:stage-hunk "git-gutter")
+  (declare-function git-gutter:revert-hunk "git-gutter")
+  (declare-function git-gutter:popup-hunk "git-gutter")
+
+  (defhydra hydra-git-gutter
+    (:body-pre (git-gutter-mode 1) :hint nil)
+   "
+ Git gutter:
+   _n_: next hunk        _s_tage hunk     _q_uit
+   _e_: previous hunk    _r_evert hunk    _Q_uit and deactivate git-gutter
+   ^ ^                   _p_opup hunk
+   _f_: first hunk
+   _l_: last hunk
+ "
+ ("n" git-gutter:next-hunk)
+ ("e" git-gutter:previous-hunk)
+ ("f" (progn (goto-char (point-min))
+             (git-gutter:next-hunk 1)))
+ ("l" (progn (goto-char (point-min))
+             (git-gutter:previous-hunk 1)))
+ ("s" git-gutter:stage-hunk)
+ ("r" git-gutter:revert-hunk)
+ ("p" git-gutter:popup-hunk)
+ ("q" nil :color blue)
+ ("Q" (git-gutter-mode -1) :color blue)))
+
+(use-package git-gutter-fringe
+  :after git-gutter
+  :config
+  ;; subtle diff indicators in the fringe places the git gutter outside the
+  ;; margins.
+  (setq-default fringes-outside-margins t)
+  ;; thin fringe bitmaps
+  (define-fringe-bitmap 'git-gutter-fr:added
+    [192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192]
+    nil nil 'center)
+  (define-fringe-bitmap 'git-gutter-fr:modified
+    [192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192 192]
+    nil nil 'center)
+  (define-fringe-bitmap 'git-gutter-fr:deleted
+    [0 0 0 0 0 0 0 0 0 0 0 0 0 128 192 224 240 248]
+    nil nil 'center))
+
 (provide 'init-prog-tools)
