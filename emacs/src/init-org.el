@@ -34,15 +34,15 @@
         "~/org/personal/tickler.org"))
 
 (setq org-capture-templates
-      '(("t" "Todo [inbox]" entry
+      '(("i" "Todo [inbox]" entry
         (file+headline "~/org/personal/inbox.org" "Inbox Tasks")
-        "* TODO %i%?") ("T" "Tickler"
-        entry (file+headline "~/org/personal/tickler.org" "Tickler") "* %i%? \n %U")))
+        "* TODO %i%?") ("t" "Tickler"
+        entry (file+headline "~/org/personal/tickler.org" "Tickler") "* TODO %i%? \n %U")))
 
 (setq org-refile-targets
-      '(("~/org/personal/gtd.org" :level . 1)
+      '(("~/org/personal/gtd.org" :maxlevel . 3)
         ("~/org/personal/someday.org" :level . 1)
-        ("~/org/personal/tickler.org" :level . 1)))
+        ("~/org/personal/tickler.org" :maxlevel . 2)))
 
 ;; Puts archive files into a relative path to an archive folder with
 ;; the year in the file name. See doc string for info on special
