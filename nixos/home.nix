@@ -42,7 +42,6 @@ in {
     aspellDicts.en-computers
     aspellDicts.en-science
     cabal-install
-    cachix
     calibre
     chromium
     dnsutils
@@ -78,11 +77,12 @@ in {
     rustup
     simple-scan
     stable.cabal2nix
+    stable.cachix
+    stable.unar
     stack
     syncthing-cli # provides stcli
     tokei
     transmission-gtk
-    unar
     unzip
     vlc
     zip
