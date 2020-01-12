@@ -159,6 +159,7 @@
   :keymaps 'override
   "a" 'org-agenda
   "c" 'org-capture
+  "i" 'org-indent-mode
   "r" 'org-refile
   "s" 'org-store-link
   "t" 'org-toggle-link-display)
