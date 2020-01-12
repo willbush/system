@@ -19,6 +19,7 @@ in {
       (with epkgs; [
         adaptive-wrap
         aggressive-indent
+        all-the-icons-ivy
         attrap
         avy
         company
