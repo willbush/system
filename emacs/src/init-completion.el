@@ -6,6 +6,11 @@
   (setq ivy-use-virtual-buffers t)
   (setq ivy-display-style 'fancy))
 
+(use-package all-the-icons-ivy
+  :after ivy
+  :config
+  (all-the-icons-ivy-setup))
+
 (use-package counsel
   :after ivy
   :bind (("C-c C-r" . ivy-resume))
