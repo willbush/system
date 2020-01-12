@@ -31,8 +31,15 @@
 
 (setq org-agenda-files
       '("~/org/work/tasks.org"
+        "~/org/work/someday.org"
+        "~/org/work/tickler.org"
+
         "~/org/play/tasks.org"
+        "~/org/play/someday.org"
+        "~/org/play/tickler.org"
+
         "~/org/rest/tasks.org"
+        "~/org/rest/someday.org"
         "~/org/rest/tickler.org"))
 
 (setq org-capture-templates
@@ -60,12 +67,11 @@
         ("rT" "Tickler [rest]"
          entry (file+headline "~/org/tasks/tickler.org" "Tickler") "* TODO %i%? \n %U")))
 
-(setq org-refile-targets
-      '(("~/org/work/tasks.org" :maxlevel . 3)
-        ("~/org/play/tasks.org" :maxlevel . 3)
-        ("~/org/rest/tasks.org" :maxlevel . 3)
-        ("~/org/rest/someday.org" :level . 1)
-        ("~/org/rest/tickler.org" :maxlevel . 2)))
+(setq org-refile-targets '((nil :maxlevel . 3)
+                           (org-agenda-files :maxlevel . 3)))
+
+(setq org-outline-path-complete-in-steps nil) ; Refile in a single go
+(setq org-refile-use-outline-path t) ; Show full paths for refiling
 
 ;; Puts archive files into a relative path to an archive folder with
 ;; the year in the file name. See doc string for info on special
