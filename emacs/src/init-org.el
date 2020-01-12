@@ -30,19 +30,42 @@
       '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELED(c)")))
 
 (setq org-agenda-files
-      '("~/org/personal/inbox.org"
-        "~/org/personal/tickler.org"))
+      '("~/org/work/tasks.org"
+        "~/org/play/tasks.org"
+        "~/org/rest/tasks.org"
+        "~/org/rest/tickler.org"))
 
 (setq org-capture-templates
-      '(("i" "Todo [inbox]" entry
-        (file+headline "~/org/personal/inbox.org" "Inbox Tasks")
-        "* TODO %i%?") ("t" "Tickler"
-        entry (file+headline "~/org/personal/tickler.org" "Tickler") "* TODO %i%? \n %U")))
+      '(("w" "work project")
+        ("wt" "Tasks [work]"
+         entry (file+headline "~/org/work/tasks.org" "Tasks") "* TODO %i%?")
+        ("ws" "Someday [work]"
+         entry (file+headline "~/org/work/someday.org" "Someday") "* TODO %i%?")
+        ("wT" "Tickler [work]"
+         entry (file+headline "~/org/work/tickler.org" "Tickler") "* TODO %i%? \n %U")
+
+        ("p" "play project")
+        ("pt" "Tasks [play]"
+         entry (file+headline "~/org/play/tasks.org" "Tasks") "* TODO %i%?")
+        ("ps" "Someday [play]"
+         entry (file+headline "~/org/play/someday.org" "Someday") "* TODO %i%?")
+        ("pT" "Tickler [play]"
+         entry (file+headline "~/org/play/tickler.org" "Tickler") "* TODO %i%? \n %U")
+
+        ("r" "rest project")
+        ("rt" "Tasks [rest]"
+         entry (file+headline "~/org/rest/tasks.org" "Tasks") "* TODO %i%?")
+        ("rs" "Someday [rest]"
+         entry (file+headline "~/org/rest/someday.org" "Someday") "* TODO %i%?")
+        ("rT" "Tickler [rest]"
+         entry (file+headline "~/org/tasks/tickler.org" "Tickler") "* TODO %i%? \n %U")))
 
 (setq org-refile-targets
-      '(("~/org/personal/gtd.org" :maxlevel . 3)
-        ("~/org/personal/someday.org" :level . 1)
-        ("~/org/personal/tickler.org" :maxlevel . 2)))
+      '(("~/org/work/tasks.org" :maxlevel . 3)
+        ("~/org/play/tasks.org" :maxlevel . 3)
+        ("~/org/rest/tasks.org" :maxlevel . 3)
+        ("~/org/rest/someday.org" :level . 1)
+        ("~/org/rest/tickler.org" :maxlevel . 2)))
 
 ;; Puts archive files into a relative path to an archive folder with
 ;; the year in the file name. See doc string for info on special
@@ -53,7 +76,6 @@
 
 ;; Lets you pull text into an org buffer for editing. Useful for editing
 ;; comments or doc strings in org mode.
-(use-package poporg
-  :commands poporg-dwim)
+(use-package poporg :commands poporg-dwim)
 
 (provide 'init-org)
