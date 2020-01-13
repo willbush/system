@@ -29,6 +29,10 @@
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELED(c)")))
 
+(setq org-agenda-span 30
+      org-agenda-start-on-weekday nil
+      org-agenda-start-day "-3d")
+
 (setq org-agenda-files
       '("~/org/work/tasks.org"
         "~/org/work/someday.org"
