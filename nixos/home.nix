@@ -48,6 +48,7 @@ in {
     calibre
     chromium
     dnsutils
+    gnome3.gnome-screenshot
     docker-compose
     dotnet-sdk
     exa
