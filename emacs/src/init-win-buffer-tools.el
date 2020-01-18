@@ -56,7 +56,6 @@
                 "calc-mode"
                 "ediff-mode"
                 "eshell-mode"
-                "dired-mode"
                 "gud-mode"
                 "gdb-locals-mode"
                 "gdb-registers-mode"
