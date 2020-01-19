@@ -32,6 +32,9 @@
 ;; dired attempts to guess the default target for copy/rename etc.
 (setq-default dired-dwim-target t)
 
+;; ‘always’ means to copy recursively without asking.
+(setq-default dired-recursive-copies 'always)
+
 ;; Put all backups in one directory (Emacs auto makes this directory as needed)
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups/")))
 
