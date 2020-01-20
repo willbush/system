@@ -33,18 +33,7 @@
       org-agenda-start-on-weekday nil
       org-agenda-start-day "-3d")
 
-(setq org-agenda-files
-      '("~/org/work/tasks.org"
-        "~/org/work/someday.org"
-        "~/org/work/tickler.org"
-
-        "~/org/play/tasks.org"
-        "~/org/play/someday.org"
-        "~/org/play/tickler.org"
-
-        "~/org/rest/tasks.org"
-        "~/org/rest/someday.org"
-        "~/org/rest/tickler.org"))
+(setq org-agenda-files '("~/org"))
 
 (setq org-capture-templates
       '(("w" "work project")
