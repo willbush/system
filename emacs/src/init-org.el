@@ -1,9 +1,5 @@
 ;;; -*- lexical-binding: t; -*-
 
-(add-hook 'org-mode-hook
-          '(lambda ()
-             (setq show-trailing-whitespace t)))
-
 (general-def
   :states 'normal
   :keymaps 'org-mode-map
@@ -13,6 +9,10 @@
   "M-i" 'org-do-demote
   "C-n" 'org-forward-heading-same-level
   "C-e" 'org-backward-heading-same-level)
+
+(add-hook 'org-mode-hook
+          '(lambda ()
+            (setq show-trailing-whitespace t)))
 
 ;; Allows me to set the width of an inline image.
 ;; #+ATTR_ORG: :width 100
@@ -33,53 +33,44 @@
       org-agenda-start-on-weekday nil
       org-agenda-start-day "-3d")
 
-(setq org-agenda-files '("~/org"))
+;; Set my agenda files to includes all my  org files that are not hidden,; auto-save, or backups.
+(setq org-agenda-files
+      (directory-files-recursively
+        "~/org"
+        ;; ^ match beginning of string
+        ;; [^.#] do not match . or # characters
+        ;; .* match anything
+        ;; \\.org\\' match .org literally at the end of the string
+        "^[^.#].*\\.org\\'"
+        nil
+        ;; A predicate that signals to `directory-files-recursively' whether to
+        ;; recursively search a directory or not.
+        (lambda (dir)
+          (let ((name (file-name-nondirectory dir)))
+            (not (or
+                  ;; These are the directories I want to exclude:
+                  (string= ".git" name)
+                  (string= "archive" name)
+                  (string= "docs" name)))))))
 
 (setq org-capture-templates
       '(("w" "work project")
-        ("wt" "Tasks [work]"
-         entry
-         (file+headline "~/org/work/tasks.org" "Tasks [Work Project]")
-         "* TODO %i%?")
-        ("ws" "Someday [work]"
-         entry
-         (file+headline "~/org/work/someday.org" "Someday [Work Project]")
-         "* TODO %i%?")
-        ("wT" "Tickler [work]"
-         entry
-         (file+headline "~/org/work/tickler.org" "Tickler [Work Project]")
-         "* TODO %i%? \n %U")
+        ("wt" "Tasks [work]" entry (file+headline "~/org/work/tasks.org" "Tasks [Work Project]") "* TODO %i%?")
+        ("ws" "Someday [work]" entry (file+headline "~/org/work/someday.org" "Someday [Work Project]") "* TODO %i%?")
+        ("wT" "Tickler [work]" entry (file+headline "~/org/work/tickler.org" "Tickler [Work Project]") "* TODO %i%? \n %U")
 
         ("p" "play project")
-        ("pt" "Tasks [play]"
-         entry
-         (file+headline "~/org/play/tasks.org" "Tasks [Play Project]")
-         "* TODO %i%?")
-        ("ps" "Someday [play]"
-         entry
-         (file+headline "~/org/play/someday.org" "Someday [Play Project]")
-         "* TODO %i%?")
-        ("pT" "Tickler [play]"
-         entry
-         (file+headline "~/org/play/tickler.org" "Tickler [Play Project]")
-         "* TODO %i%? \n %U")
+        ("pt" "Tasks [play]" entry (file+headline "~/org/play/tasks.org" "Tasks [Play Project]") "* TODO %i%?")
+        ("ps" "Someday [play]" entry (file+headline "~/org/play/someday.org" "Someday [Play Project]") "* TODO %i%?")
+        ("pT" "Tickler [play]" entry (file+headline "~/org/play/tickler.org" "Tickler [Play Project]") "* TODO %i%? \n %U")
 
         ("r" "rest project")
-        ("rt" "Tasks [rest]"
-         entry
-         (file+headline "~/org/rest/tasks.org" "Tasks [Rest Project]")
-         "* TODO %i%?")
-        ("rs" "Someday [rest]"
-         entry
-         (file+headline "~/org/rest/someday.org" "Someday [Rest Project]")
-         "* TODO %i%?")
-        ("rT" "Tickler [rest]"
-         entry
-         (file+headline "~/org/tasks/tickler.org" "Tickler [Rest Project]")
-         "* TODO %i%? \n %U")))
+        ("rt" "Tasks [rest]" entry (file+headline "~/org/rest/tasks.org" "Tasks [Rest Project]") "* TODO %i%?")
+        ("rs" "Someday [rest]" entry (file+headline "~/org/rest/someday.org" "Someday [Rest Project]") "* TODO %i%?")
+        ("rT" "Tickler [rest]" entry (file+headline "~/org/tasks/tickler.org" "Tickler [Rest Project]") "* TODO %i%? \n %U")))
 
 (setq org-refile-targets '((nil :maxlevel . 3)
-                           (org-agenda-files :maxlevel . 3)))
+                          (org-agenda-files :maxlevel . 3)))
 
 (setq org-outline-path-complete-in-steps nil) ; Refile in a single go
 (setq org-refile-use-outline-path t) ; Show full paths for refiling
