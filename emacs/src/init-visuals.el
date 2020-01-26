@@ -28,7 +28,7 @@
 
 (use-package doom-themes
   :config
-  (load-theme 'doom-one t))
+  (load-theme 'doom-outrun-electric t))
 
 ;; doom modeline requires M-x all-the-icons-install-fonts
 (use-package doom-modeline
