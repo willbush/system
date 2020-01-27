@@ -7,7 +7,7 @@
 (use-package esup :commands esup)
 
 (use-package flyspell
-  :ensure nil ;; no reason to try to ensure because it's built in
+  :ensure nil ;; Flyspell is included in Emacs.
   :init (setq ispell-program-name "aspell")
   :config
   ;; improve perf per wiki: https://www.emacswiki.org/emacs/FlySpell
