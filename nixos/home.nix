@@ -71,7 +71,7 @@ in {
     haskellPackages.hlint
     haskellPackages.hoogle
     haskellPackages.hpack
-    haskellPackages.stylish-haskell
+    stable.haskellPackages.stylish-haskell
     jdk12
     jetbrains.idea-community
     keepassxc
