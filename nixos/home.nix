@@ -51,7 +51,6 @@ in {
     calibre
     chromium
     dnsutils
-    gnome3.gnome-screenshot
     docker-compose
     dotnet-sdk
     exa
@@ -61,6 +60,7 @@ in {
     gcc
     ghc
     gimp
+    gnome3.gnome-screenshot
     gnupg
     haskellPackages.apply-refact
     haskellPackages.brittany
@@ -71,7 +71,6 @@ in {
     haskellPackages.hlint
     haskellPackages.hoogle
     haskellPackages.hpack
-    stable.haskellPackages.stylish-haskell
     jdk12
     jetbrains.idea-community
     keepassxc
@@ -86,6 +85,7 @@ in {
     simple-scan
     stable.cabal2nix
     stable.cachix
+    stable.haskellPackages.stylish-haskell
     stable.unar
     stack
     syncthing-cli # provides stcli
@@ -93,6 +93,7 @@ in {
     transmission-gtk
     unzip
     vlc
+    yacreader
     zip
   ];
 
