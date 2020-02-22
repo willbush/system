@@ -78,6 +78,7 @@ in {
     libreoffice
     nix-prefetch-git
     nixfmt
+    okular
     openconnect
     planck
     ranger
