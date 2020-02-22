@@ -53,6 +53,7 @@ in {
     dnsutils
     docker-compose
     dotnet-sdk
+    du-dust
     exa
     feh
     firefox-beta-bin
@@ -146,6 +147,7 @@ in {
       ll = "exa -l";
       la = "exa -lah";
       vim = "nvim";
+      du = "dust";
     };
     oh-my-zsh = {
       enable = true;
