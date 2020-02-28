@@ -81,6 +81,7 @@ in {
     okular
     openconnect
     planck
+    python38Packages.glances
     ranger
     remmina
     rustup
