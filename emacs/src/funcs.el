@@ -65,11 +65,9 @@ argument sorts in reverse order."
 (defun my/switch-to-dashboard ()
   "Switch to *dashboard* (creates if needed)"
   (interactive)
-  (let ((buffer "*dashboard*"))
-    (when (not (get-buffer buffer))
-      (dashboard-insert-startupify-lists))
-    (switch-to-buffer buffer)
-    (dashboard-refresh-buffer)))
+  (when (not (get-buffer dashboard-buffer-name))
+    (generate-new-buffer dashboard-buffer-name))
+  (dashboard-refresh-buffer))
 
 (defun my/kill-all-buffers-then-switch-to-dashboard ()
   "Kills all buffers then switches to *dashboard* (creates if needed)"
