@@ -1,4 +1,4 @@
-{ dfu-programmer, dfu-util, fetchFromGitHub, gcc-arm-embedded-8, makeWrapper
+{ dfu-programmer, dfu-util, gcc-arm-embedded-8, makeWrapper
 , python3, stdenv, writeScript }:
 
 let
