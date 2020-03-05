@@ -48,6 +48,8 @@ in {
     # needed when using cabal-install outside of a nix-shell
     binutils
     cabal-install
+    cabal2nix
+    cachix
     calibre
     chromium
     dnsutils
@@ -61,6 +63,7 @@ in {
     gcc
     ghc
     gimp
+    glances
     gnome3.gnome-screenshot
     gnupg
     haskellPackages.apply-refact
@@ -68,32 +71,28 @@ in {
     haskellPackages.ghcid
     haskellPackages.hakyll
     haskellPackages.hasktags
-    haskellPackages.hindent
     haskellPackages.hlint
     haskellPackages.hoogle
     haskellPackages.hpack
+    haskellPackages.stylish-haskell
     jdk12
     jetbrains.idea-community
     keepassxc
     libreoffice
     nix-prefetch-git
-    nixfmt
     okular
     openconnect
     planck
-    python38Packages.glances
     ranger
     remmina
     rustup
     simple-scan
-    stable.cabal2nix
-    stable.cachix
-    stable.haskellPackages.stylish-haskell
-    stable.unar
-    stack
+    stable.nixfmt
+    stable.stack
     syncthing-cli # provides stcli
     tokei
     transmission-gtk
+    unar
     unzip
     vlc
     yacreader
