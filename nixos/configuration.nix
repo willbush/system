@@ -152,12 +152,15 @@ in {
     ripgrep
     tree
     wget
+    (import (builtins.fetchTarball
+      "https://github.com/hercules-ci/ghcide-nix/tarball/master")
+      { }).ghcide-ghc865
     # Install stable HIE for GHC versions 8.6.5 if available and fall back to unstable otherwise
     (all-hies.unstableFallback.selection {
       selector = p: { inherit (p) ghc865; };
     })
     # Install unstable HIE for GHC versions 8.6.5
-    (all-hies.unstable.selection { selector = p: { inherit (p) ghc865; }; })
+    # (all-hies.unstable.selection { selector = p: { inherit (p) ghc865; }; })
   ];
 
   programs.ssh.startAgent = true;

@@ -54,10 +54,10 @@ in {
         git-timemachine
         golden-ratio
         haskell-mode
-        hindent
         hlint-refactor
         hydra
         ivy
+        lsp-haskell
         lsp-mode
         lsp-ui
         magit
@@ -83,6 +83,7 @@ in {
         winum
         wttrin
         yaml-mode
+        yasnippet
       ]));
   };
 
