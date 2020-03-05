@@ -2,9 +2,9 @@
 
 let
   homeDir = builtins.getEnv "HOME";
+  sources = import ./nix/sources.nix;
   planck = pkgs.callPackage ./keyboard-firmware/planck { };
-  nixos19_09 = import (builtins.fetchTarball
-    "https://github.com/NixOS/nixpkgs-channels/archive/nixos-19.09.tar.gz") { };
+  nixos19_09 = import sources."nixpkgs-19.09" { };
 in {
   imports = [ ./emacs.nix ];
 

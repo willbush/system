@@ -2,6 +2,7 @@
 , python3, stdenv, writeScript }:
 
 let
+  sources = import ../../nix/sources.nix;
   flash-planck = writeScript "flash-planck" ''
     #!/usr/bin/env bash
 
@@ -26,14 +27,7 @@ let
 in stdenv.mkDerivation rec {
   name = "planck-rev6-firmware";
 
-  src = fetchFromGitHub {
-    owner = "qmk";
-    repo = "qmk_firmware";
-    rev = "85041ff05bf0e5f4ff4535caf6e638491a5614c8";
-    sha256 = "0lg73jiyp67fvz4lgis1khp64klrydk4vys0c8c77x2nyw2nagx3";
-    # date = 2020-02-27T12:03:30-08:00;
-    fetchSubmodules = true;
-  };
+  src = sources."qmk_firmware";
 
   buildInputs =
     [ dfu-programmer dfu-util gcc-arm-embedded-8 python3 makeWrapper ];
