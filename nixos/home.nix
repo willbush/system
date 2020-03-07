@@ -198,7 +198,7 @@ in {
     latitude = "33";
     longitude = "-97";
     temperature.day = 6500;
-    temperature.night = 1800;
+    temperature.night = 2000;
   };
 
   services.syncthing.enable = true;
