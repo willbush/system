@@ -118,7 +118,19 @@ git-timemachine-mode:
 
 (use-package lsp-ui
   :commands lsp-ui-mode
-  :hook (lsp-mode . lsp-ui-mode))
+  :hook (lsp-mode . lsp-ui-mode)
+  :config
+  ;; Setup the keybindings for `lsp-ui-imenu'. Note that evil-collection
+  ;; provides evil bindings for this, but I want mine diff enough that I am just
+  ;; doing it myself here.
+  (general-def
+    :states 'normal
+    :keymaps 'lsp-ui-imenu-mode-map
+    "RET" 'lsp-ui-imenu--view
+    "m" 'lsp-ui-imenu--prev-kind
+    "i" 'lsp-ui-imenu--next-kind
+    "gd" 'lsp-ui-imenu--visit
+    "q" 'lsp-ui-imenu--kill))
 
 (use-package git-gutter
   :hook ((markdown-mode
