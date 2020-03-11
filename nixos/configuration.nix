@@ -151,7 +151,6 @@ in {
     ripgrep
     tree
     wget
-    # Install unstable HIE for GHC versions 8.6.5
     (all-hies.unstable.selection { selector = p: { inherit (p) ghc882; }; })
   ];
 
