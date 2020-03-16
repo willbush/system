@@ -1,8 +1,7 @@
-{ dfu-programmer, dfu-util, gcc-arm-embedded-8, makeWrapper
+{ fetchFromGitHub, dfu-programmer, dfu-util, gcc-arm-embedded-8, makeWrapper
 , python3, stdenv, writeScript }:
 
 let
-  sources = import ../../nix/sources.nix;
   flash-planck = writeScript "flash-planck" ''
     #!/usr/bin/env bash
 
@@ -27,7 +26,14 @@ let
 in stdenv.mkDerivation rec {
   name = "planck-rev6-firmware";
 
-  src = sources."qmk_firmware";
+  src = fetchFromGitHub {
+    owner = "qmk";
+    repo = "qmk_firmware";
+    rev = "2a31fbf9a6970ed425c2331f25fb7f92648ffcf1";
+    sha256 = "0kjqa69skys26nlmx2av34phwf0rqa2gphqah2631p7wjaqbny59";
+    # date = 2020-03-15T21:46:48-07:00;
+    fetchSubmodules = true;
+  };
 
   buildInputs =
     [ dfu-programmer dfu-util gcc-arm-embedded-8 python3 makeWrapper ];
