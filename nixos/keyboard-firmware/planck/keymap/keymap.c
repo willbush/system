@@ -6,6 +6,7 @@ extern keymap_config_t keymap_config;
 enum planck_layers {
   _COLEMAK,
   _QWERTY,
+  _GAMING,
   _NUM,
   _LOWER,
   _RAISE,
@@ -16,6 +17,7 @@ enum planck_layers {
 enum planck_keycodes {
   COLEMAK = SAFE_RANGE,
   QWERTY,
+  GAMING,
 };
 
 #define LOWER MO(_LOWER)
@@ -40,6 +42,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, SFT_ENT,
     KC_LCTL, NUM,     KC_LGUI, KC_LALT, LOWER,   HYPER,   KC_SPC,  RAISE,   KC_RALT, KC_RGUI, _______, KC_RCTL
+  ),
+  [_GAMING] = LAYOUT_planck_grid(
+    KC_7,    KC_3,    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_BSPC,
+    KC_6,    KC_2,    CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_QUOT,
+    KC_5,    KC_1,    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, SFT_ENT,
+    KC_4,    KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_SPC,  KC_F5,   KC_RALT, KC_RGUI, QWERTY,  COLEMAK
   ),
   [_LOWER] = LAYOUT_planck_grid(
     _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
@@ -67,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_ADJUST] = LAYOUT_planck_grid(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, MU_MOD,  AU_ON,   AU_OFF,  _______, _______, QWERTY,  COLEMAK, _______, _______, _______,
+    _______, _______, MU_MOD,  AU_ON,   AU_OFF,  _______, _______, QWERTY,  COLEMAK, GAMING,  _______, _______,
     _______, _______, _______, MU_ON,   MU_OFF,  _______, _______, _______, _______, _______, DEBUG,   _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RESET,   _______
   )
@@ -88,6 +96,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case COLEMAK:
       if (record->event.pressed) {
         set_single_persistent_default_layer(_COLEMAK);
+      }
+      return false;
+      break;
+    case GAMING:
+      if (record->event.pressed) {
+        set_single_persistent_default_layer(_GAMING);
       }
       return false;
       break;
