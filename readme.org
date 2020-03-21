@@ -86,6 +86,27 @@
  | Ctrl  | Num   | Super | Alt   | Lower | Hyper | SPC   | Raise | Alt   | GUI   |       | Ctrl  |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------|
 
+** Gaming
+
+   Idea behind this key-map is to make up for the lack of easy-to-access number
+   keys by shifting the Qwerty layout over to the right closer to the middle.
+   The ~a~, ~s~, ~d~, and ~w~ keys are used for movement (as usual). So my left
+   hand is closer to the middle of the keyboard. The Qwerty layout is used to
+   minimize the number of re-bindings needed in a game for it to have a decent
+   key-map. However, Downside here though is I can't type words in this layout.
+   I would need to switch to Colemak first.
+
+ | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | =====  | =====  |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+--------|
+ |     7 |     3 | Tab   | q     | w     | e     | r     | t     | y     | u     | i      | Bksp   |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+--------|
+ |     6 |     2 | Esc/C | a     | s     | d     | f     | g     | h     | j     | k      | '      |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+--------|
+ |     5 |     1 | Shift | z     | x     | c     | v     | b     | n     | m     | ,      | RET/S  |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+--------|
+ |     4 |     ` | F1    | F2    | F3    | F4    | SPC   | F5    | Alt   | GUI   | Qwerty | Colemk |
+ |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+--------|
+
 ** Lower
 
  | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== |
@@ -216,6 +237,7 @@
        this to ~evil-use-register~, which is typically on the quotation mark,
        because it's quite annoying to hold shift to hit it and then a layer to
        hit a number.
+
 
 ** Num
 
