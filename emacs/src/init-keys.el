@@ -157,11 +157,12 @@
   :prefix "SPC o"
   :states '(normal visual)
   :keymaps 'override
+  "S" 'org-store-link
   "a" 'org-agenda
   "c" 'org-capture
   "i" 'org-indent-mode
   "r" 'org-refile
-  "s" 'org-store-link
+  "s" 'org-save-all-org-buffers
   "t" 'org-toggle-link-display)
 
 (general-def
