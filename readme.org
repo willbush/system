@@ -89,12 +89,11 @@
 ** Gaming
 
    Idea behind this key-map is to make up for the lack of easy-to-access number
-   keys by shifting the Qwerty layout over to the right closer to the middle.
-   The ~a~, ~s~, ~d~, and ~w~ keys are used for movement (as usual). So my left
-   hand is closer to the middle of the keyboard. The Qwerty layout is used to
-   minimize the number of re-bindings needed in a game for it to have a decent
-   key-map. However, Downside here though is I can't type words in this layout.
-   I would need to switch to Colemak first.
+   keys by shifting the Qwerty layout over to the right so my hand is closer to
+   the middle. The ~a~, ~s~, ~d~, and ~w~ keys are used for movement (as usual).
+   The Qwerty layout is used to minimize the number of re-bindings needed in a
+   game for it to have a decent key-map. However, Downside here though is I
+   can't type words in this layout. I would need to switch to Colemak first.
 
  | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | ===== | =====  | =====  |
  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+--------+--------|
