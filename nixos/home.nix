@@ -179,7 +179,7 @@ in {
     };
   };
 
-  services.compton = {
+  services.picom = {
     enable = true;
     fade = true;
     backend = "xrender";
