@@ -44,6 +44,7 @@ in {
         expand-region
         fd-dired
         fill-column-indicator
+        flycheck
         flyspell-correct-ivy
         format-all
         general
