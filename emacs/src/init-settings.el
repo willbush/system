@@ -13,7 +13,9 @@
 
 ;; prevent indention inserting tabs
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
+(setq-default tab-width 2)
+(setq evil-shift-width 2)
+
 ;; truncate lines by default
 (setq-default truncate-lines t)
 
@@ -97,9 +99,6 @@
 
 ;; fixes many performance issue in Windows
 (setq inhibit-compacting-font-caches t)
-
-(setq default-tab-width 2)
-(setq evil-shift-width 2)
 
 ;; allow narrow to region
 (put 'narrow-to-region 'disabled nil)
