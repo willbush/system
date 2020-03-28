@@ -15,7 +15,6 @@ in {
         adaptive-wrap
         aggressive-indent
         all-the-icons-ivy
-        attrap
         avy
         company
         company-nixos-options
@@ -23,7 +22,6 @@ in {
         counsel
         counsel-projectile
         csharp-mode
-        dante
         dashboard
         deadgrep
         define-word
@@ -47,6 +45,7 @@ in {
         fd-dired
         fill-column-indicator
         flyspell-correct-ivy
+        format-all
         general
         git-gutter
         git-gutter-fringe
