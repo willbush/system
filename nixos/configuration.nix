@@ -2,6 +2,7 @@
 let
   sources = import ./nix/sources.nix;
   all-hies = import sources."all-hies" { };
+  ghcide-nix = import sources."ghcide-nix" { };
 in {
   imports =
     [ ./hardware-configuration.nix ./fonts.nix ./users.nix ./pia/pia-nm.nix ];
@@ -18,14 +19,18 @@ in {
     binaryCaches = [
       "https://all-hies.cachix.org"
       "https://cache.nixos.org/"
+      "https://ghcide-nix.cachix.org"
       "https://hercules-ci.cachix.org"
+      "https://iohk.cachix.org"
       "https://nix-tools.cachix.org"
       "https://nixcache.reflex-frp.org"
       "https://willbush.cachix.org"
     ];
     binaryCachePublicKeys = [
       "all-hies.cachix.org-1:JjrzAOEUsD9ZMt8fdFbzo3jNAyEWlPAwdVuHw4RD43k="
+      "ghcide-nix.cachix.org-1:ibAY5FD+XWLzbLr8fxK6n8fL9zZe7jS+gYeyxyWYK5c="
       "hercules-ci.cachix.org-1:ZZeDl9Va+xe9j+KqdzoBZMFJHVQ42Uu/c/1/KMC5Lw0="
+      "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo="
       "nix-tools.cachix.org-1:ebBEBZLogLxcCvipq2MTvuHlP7ZRdkazFSQsbs0Px1A="
       "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
       "willbush.cachix.org-1:PuQjKarzPYTnxgEzKUoTDQ+aN0SImhO8NMZ0CamKBL4="
@@ -151,7 +156,8 @@ in {
     ripgrep
     tree
     wget
-    (all-hies.unstable.selection { selector = p: { inherit (p) ghc882; }; })
+    ghcide-nix.ghcide-ghc865
+    (all-hies.unstable.selection { selector = p: { inherit (p) ghc865 ghc882; }; })
   ];
 
   programs.ssh.startAgent = true;

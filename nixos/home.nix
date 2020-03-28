@@ -66,7 +66,7 @@ in {
     glances
     gnome3.gnome-screenshot
     gnupg
-    haskellPackages.apply-refact
+    haskellPackages.apply-refact # used by hlint-refactor
     haskellPackages.brittany
     haskellPackages.ghcid
     haskellPackages.hakyll
@@ -74,7 +74,6 @@ in {
     haskellPackages.hlint
     haskellPackages.hoogle
     haskellPackages.hpack
-    haskellPackages.stylish-haskell
     keepassxc
     libreoffice
     nix-prefetch-git

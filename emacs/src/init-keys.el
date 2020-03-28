@@ -323,6 +323,7 @@
   (setq evil-collection-mode-list
         '(calendar
           (package-menu package)
+          (pdf pdf-view)
           (term term ansi-term multi-term)
           compile
           cus-theme
@@ -337,7 +338,6 @@
           ivy
           man
           minibuffer
-          (pdf pdf-view)
           woman))
 
   ;; called after evil-collection makes its keybindings

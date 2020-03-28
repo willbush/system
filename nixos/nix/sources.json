@@ -17,10 +17,22 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "71797045f5f00ae95154794e83766e1ddbeed9bc",
-        "sha256": "07qyr6lwx2b950gks9yka0qxn634basbqknqjj0hhdqnjyyiny4z",
+        "rev": "8032572a24200b55638db5fec6d6260206355fdb",
+        "sha256": "1qwdq16qik9za9n8amxavgh50403wim4xirpmqpaqdl5rsza8v5q",
         "type": "tarball",
-        "url": "https://github.com/nix-community/emacs-overlay/archive/71797045f5f00ae95154794e83766e1ddbeed9bc.tar.gz",
+        "url": "https://github.com/nix-community/emacs-overlay/archive/8032572a24200b55638db5fec6d6260206355fdb.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "ghcide-nix": {
+        "branch": "master",
+        "description": "Nix installation for ghcide",
+        "homepage": "https://github.com/digital-asset/ghcide",
+        "owner": "cachix",
+        "repo": "ghcide-nix",
+        "rev": "f940ec611cc6914693874ee5e024eba921cab19e",
+        "sha256": "0vri0rivdzjvxrh6lzlwwkh8kzxsn82jp1c2w5rqzhp87y6g2k8z",
+        "type": "tarball",
+        "url": "https://github.com/cachix/ghcide-nix/archive/f940ec611cc6914693874ee5e024eba921cab19e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs-19.09": {
@@ -29,10 +41,10 @@
         "homepage": "https://github.com/NixOS/nixpkgs",
         "owner": "nixos",
         "repo": "nixpkgs-channels",
-        "rev": "3b9b10e49bec1c96e9cc105615cf4d0c28038909",
-        "sha256": "04r4i9859r2kxamdw7dxmi2fgc9vq9akfva9lqsayxk98v0yv29y",
+        "rev": "bf7c0f0461e047bec108a5c5d5d1b144289a65ba",
+        "sha256": "01dsh9932x6xcba2p0xg4n563b85i3p7s2sakj7yf2ws8pgmwhq9",
         "type": "tarball",
-        "url": "https://github.com/nixos/nixpkgs-channels/archive/3b9b10e49bec1c96e9cc105615cf4d0c28038909.tar.gz",
+        "url": "https://github.com/nixos/nixpkgs-channels/archive/bf7c0f0461e047bec108a5c5d5d1b144289a65ba.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
