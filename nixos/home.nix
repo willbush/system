@@ -75,8 +75,6 @@ in {
     haskellPackages.hoogle
     haskellPackages.hpack
     haskellPackages.stylish-haskell
-    jdk12
-    jetbrains.idea-community
     keepassxc
     libreoffice
     nix-prefetch-git
