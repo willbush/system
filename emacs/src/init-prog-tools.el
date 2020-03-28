@@ -98,13 +98,14 @@ git-timemachine-mode:
     "q" 'git-timemachine-quit))
 
 (use-package flycheck
-  :hook (haskell-mode . flycheck-mode))
+  :commands flycheck-add-next-checker
+  :hook (lsp-mode . flycheck-mode))
 
 (add-hook 'prog-mode-hook
           '(lambda ()
              (setq show-trailing-whitespace t)))
 
-(use-package attrap :commands attrap-attrap)
+(use-package format-all :commands (format-all-buffer))
 
 (use-package aggressive-indent
   :hook ((css-mode
@@ -114,23 +115,56 @@ git-timemachine-mode:
 
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
-  :hook (rustic-mode . lsp-deferred))
+  :hook ((rustic-mode
+          haskell-mode) . lsp-deferred)
+  :config
+
+  ;; Ghcide doesn't have the hlint plugin enabled. Haskell language server will,
+  ;; but it's not ready to use (as far as I can tell). So I'm chaining
+  ;; haskell-hlint to the lsp flycheck checker. My concern was that it would be
+  ;; enabled in other lsp enabled modes such as rustic-mode. However, it seems
+  ;; flycheck doesn't enable hlint there because it's only enabled for
+  ;; haskell-mode. One can see that with `M-x flycheck-describe-checker
+  ;; haskell-hlint'
+  (flycheck-add-next-checker 'lsp '(warning . haskell-hlint))
+
+  (general-def
+    :states 'normal
+    :keymaps 'lsp-browser-mode-map
+    "?" 'describe-mode
+    "q" 'quit-window))
 
 (use-package lsp-ui
   :commands lsp-ui-mode
   :hook (lsp-mode . lsp-ui-mode)
   :config
+  ;; The position of the popup documentation on hover. I don't like this
+  ;; obstructing my view of the code.
+  (setq lsp-ui-doc-position 'bottom
+        lsp-ui-doc-border "purple4"
+        lsp-ui-flycheck-list-position 'right)
+
   ;; Setup the keybindings for `lsp-ui-imenu'. Note that evil-collection
   ;; provides evil bindings for this, but I want mine diff enough that I am just
   ;; doing it myself here.
   (general-def
     :states 'normal
     :keymaps 'lsp-ui-imenu-mode-map
+    "?" 'describe-mode
     "RET" 'lsp-ui-imenu--view
-    "m" 'lsp-ui-imenu--prev-kind
-    "i" 'lsp-ui-imenu--next-kind
     "gd" 'lsp-ui-imenu--visit
-    "q" 'lsp-ui-imenu--kill))
+    "i" 'lsp-ui-imenu--next-kind
+    "m" 'lsp-ui-imenu--prev-kind
+    "q" 'lsp-ui-imenu--kill)
+
+  ;; Setup the keybindings for `lsp-ui-flycheck-list-mode'.
+  (general-def
+    :states 'normal
+    :keymaps 'lsp-ui-flycheck-list-mode-map
+    "?" 'describe-mode
+    "RET" 'lsp-ui-flycheck-list--view
+    "gd" 'lsp-ui-flycheck-list--visit
+    "q" 'lsp-ui-flycheck-list--quit))
 
 (use-package git-gutter
   :hook ((markdown-mode
