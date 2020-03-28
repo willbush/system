@@ -104,12 +104,6 @@
 ;; allow narrow to region
 (put 'narrow-to-region 'disabled nil)
 
-;; terminal:
-(defvar my-shell "/run/current-system/sw/bin/zsh")
-(defadvice ansi-term (before force-bash)
-(interactive (list my-shell)))
-(ad-activate 'ansi-term)
-
 ;; tramp:
 (setq password-cache-expiry nil)
 

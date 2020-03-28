@@ -134,7 +134,7 @@ argument sorts in reverse order."
   (interactive)
   (if (eq system-type 'windows-nt)
       (call-interactively 'eshell)
-    (call-interactively 'ansi-term)))
+    (ansi-term "zsh")))
 
 ;; MISC functions:
 
