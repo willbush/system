@@ -1,16 +1,4 @@
 {
-    "all-hies": {
-        "branch": "master",
-        "description": "Cached Haskell IDE Engine Nix builds for all GHC versions",
-        "homepage": "",
-        "owner": "infinisil",
-        "repo": "all-hies",
-        "rev": "4b6aab017cdf96a90641dc287437685675d598da",
-        "sha256": "0ap12mbzk97zmxk42fk8vqacyvpxk29r2wrnjqpx4m2w9g7gfdya",
-        "type": "tarball",
-        "url": "https://github.com/infinisil/all-hies/archive/4b6aab017cdf96a90641dc287437685675d598da.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
     "emacs-overlay": {
         "branch": "master",
         "description": "Bleeding edge emacs overlay [maintainer=@adisbladis] ",
