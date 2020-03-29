@@ -90,6 +90,8 @@
     :keymaps 'haskell-mode-map
     "d" 'lsp-find-definition
     "i" 'lsp-find-implementation
+    "n" 'lsp-ui-find-next-reference ;; not working yet
+    "p" 'lsp-ui-find-prev-reference ;; not working yet
     "r" 'lsp-find-references
     "t" 'lsp-find-type-definition)
 
@@ -97,9 +99,9 @@
     :prefix ", p"
     :states '(normal visual)
     :keymaps 'haskell-mode-map
+    "d" 'lsp-ui-peek-find-definitions
     "i" 'lsp-ui-peek-find-implementation
-    "r" 'lsp-ui-peek-find-references
-    "d" 'lsp-ui-peek-find-definitions)
+    "r" 'lsp-ui-peek-find-references)
 
   (general-def
     :prefix ", r"
