@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 let
   sources = import ./nix/sources.nix;
-  all-hies = import sources."all-hies" { };
   ghcide-nix = import sources."ghcide-nix" { };
 in {
   imports =
@@ -17,7 +16,6 @@ in {
     autoOptimiseStore = true;
     maxJobs = 16; # should be 1 per CPU logical core
     binaryCaches = [
-      "https://all-hies.cachix.org"
       "https://cache.nixos.org/"
       "https://ghcide-nix.cachix.org"
       "https://hercules-ci.cachix.org"
@@ -27,7 +25,6 @@ in {
       "https://willbush.cachix.org"
     ];
     binaryCachePublicKeys = [
-      "all-hies.cachix.org-1:JjrzAOEUsD9ZMt8fdFbzo3jNAyEWlPAwdVuHw4RD43k="
       "ghcide-nix.cachix.org-1:ibAY5FD+XWLzbLr8fxK6n8fL9zZe7jS+gYeyxyWYK5c="
       "hercules-ci.cachix.org-1:ZZeDl9Va+xe9j+KqdzoBZMFJHVQ42Uu/c/1/KMC5Lw0="
       "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo="
@@ -157,7 +154,6 @@ in {
     tree
     wget
     ghcide-nix.ghcide-ghc865
-    (all-hies.unstable.selection { selector = p: { inherit (p) ghc865 ghc882; }; })
   ];
 
   programs.ssh.startAgent = true;
