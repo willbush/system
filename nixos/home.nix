@@ -61,7 +61,6 @@ in {
     firefox-beta-bin
     fzf
     gcc
-    ghc
     gimp
     glances
     gnome3.gnome-screenshot
@@ -77,6 +76,7 @@ in {
     keepassxc
     libreoffice
     nix-prefetch-git
+    nixfmt
     okular
     openconnect
     planck
@@ -84,8 +84,6 @@ in {
     remmina
     rustup
     simple-scan
-    stable.nixfmt
-    stable.stack
     syncthing-cli # provides stcli
     tokei
     transmission-gtk
