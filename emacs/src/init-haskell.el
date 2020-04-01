@@ -152,10 +152,15 @@
 
   (setq lsp-haskell-process-wrapper-function
         (lambda (argv)
-             (append
-             (append (list "nix-shell" "-I" "." "--command" )
-                     (list (mapconcat 'identity argv " ")))
-             (list (concat (lsp-haskell--get-root) "shell.nix"))))))
+          (let ((shell-path (concat (lsp-haskell--get-root) "shell.nix"))
+                (default-path (concat (lsp-haskell--get-root) "default.nix"))
+                (nix-shell-cmd (append (list "nix-shell" "-I" "." "--command")
+                                       (list (mapconcat 'identity argv " ")))))
+            (cond ((file-exists-p shell-path)
+                   (append nix-shell-cmd (list shell-path)))
+                  ((file-exists-p default-path)
+                   (append nix-shell-cmd (list default-path)))
+                  (t argv))))))
 
 (use-package hlint-refactor
   :commands (hlint-refactor-refactor-at-point))
