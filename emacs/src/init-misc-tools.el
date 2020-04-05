@@ -50,18 +50,9 @@
     "f" 'dired-narrow-fuzzy
     "r" 'dired-narrow-regexp))
 
+;; lorri makes this as a global minor-mode tolerable.
 (use-package direnv
-  ;; I rather enable this mode manually when I want it
-  :commands direnv-mode
-  :config
-
-  (general-def
-    :prefix ","
-    :keymaps 'dired-mode-map ;; only want these keys available in dired mode
-    :states '(normal visual)
-    "e" 'direnv-edit
-    "u" 'direnv-update-environment
-    "U" 'direnv-update-directory-environment))
+  :hook (after-init . direnv-mode))
 
 (use-package pdf-tools
   :mode (("\\.pdf\\'" . pdf-view-mode)))
