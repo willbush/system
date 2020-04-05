@@ -148,19 +148,7 @@
   (declare-function lsp-haskell--get-root "lsp-haskell")
 
   (setq lsp-haskell-process-path-hie "ghcide"
-        lsp-haskell-process-args-hie '())
-
-  (setq lsp-haskell-process-wrapper-function
-        (lambda (argv)
-          (let ((shell-path (concat (lsp-haskell--get-root) "shell.nix"))
-                (default-path (concat (lsp-haskell--get-root) "default.nix"))
-                (nix-shell-cmd (append (list "nix-shell" "-I" "." "--command")
-                                       (list (mapconcat 'identity argv " ")))))
-            (cond ((file-exists-p shell-path)
-                   (append nix-shell-cmd (list shell-path)))
-                  ((file-exists-p default-path)
-                   (append nix-shell-cmd (list default-path)))
-                  (t argv))))))
+        lsp-haskell-process-args-hie '()))
 
 (use-package hlint-refactor
   :commands (hlint-refactor-refactor-at-point))
