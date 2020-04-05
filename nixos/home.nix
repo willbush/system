@@ -197,4 +197,5 @@ in {
   };
 
   services.syncthing.enable = true;
+  services.lorri.enable = true;
 }
