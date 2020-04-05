@@ -65,12 +65,22 @@
   :keymaps 'override
   "D" 'deer-jump-other-window
   "d" 'deer ;; minimal ranger dired
+  "e" '(:ignore t :which-key "direnv")
   "f" 'elfeed
   "p" '(:ignore t :which-key "profiler")
   "r" 'ranger
   "s" 'speedbar
   "u" 'disk-usage
   "w" 'wttrin)
+
+(general-def
+  :prefix "SPC a e"
+  :states '(normal visual)
+  :keymaps 'override
+  "a" 'direnv-allow
+  "m" 'direnv-mode
+  "U" 'direnv-update-directory-environment
+  "u" 'direnv-update-environment)
 
 (general-def
   :prefix "SPC a p"
