@@ -18,8 +18,9 @@
 (use-package evil-matchit
   :commands global-evil-matchit-mode)
 
+;; see https://github.com/Dewdrops/evil-exchange
 (use-package evil-exchange
-  :commands evil-exchange-cx-install)
+  :commands evil-exchange-install)
 
 (use-package avy
   :commands (avy-goto-char avy-goto-char-timer))
@@ -75,6 +76,7 @@
   ;; get the inner bindings in visual mode automatically setup correctly.
   (general-unbind 'normal
     "&" "C-r" "J" "R" "S" "\"" "g &" "g ," "g ;" "g F" "g f" "g i" "m"
+    "g x" ;; Unbind explicitly despite `evil-exchange-install' stomping on this.
     "r" "s" "z O" "z a" "z c" "z m" "z o" "z r")
   (general-unbind 'motion
     "'" "," "/" "?" ";" "C-d" "C-u" "C-v" "C-w" "E" "F" "H" "L" "M" "N"
@@ -100,6 +102,7 @@
     "g S" 'evil-find-file-at-point-with-line
     "g \"" 'goto-last-change
     "g l" 'evil-insert-resume
+    "g o" 'browse-url-at-point
     "g s" 'find-file-at-point
     "k" 'evil-set-marker
     "v" 'evil-replace)
@@ -153,7 +156,10 @@
   (global-evil-visualstar-mode)
   (global-evil-surround-mode 1)
   (global-evil-matchit-mode 1)
-  (evil-exchange-cx-install)
+  ;; binds `evil-exchange' to "g x" and `evil-exchange-cancel' to "g X". Note
+  ;; this will stomp on "g x" key binding which is `browse-url-at-point' by
+  ;; default. I rebind this above.
+  (evil-exchange-install)
   (evil-collection-init))
 
 (use-package adaptive-wrap
