@@ -117,8 +117,8 @@
     ;; where it would be set to `evil-search-forward' which would break
     ;; `evil-ex-search-next' and `evil-ex-search-previous'. So I'm setting it
     ;; here explicitly.
-    "/" 'evil-ex-search-forward
-    "?" 'evil-ex-search-backward
+    "/" 'swiper
+    "?" 'swiper-backward
     "C-S-e" 'evil-scroll-up
     "C-S-n" 'evil-scroll-down
     "C-j" 'evil-join

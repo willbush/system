@@ -218,7 +218,7 @@
   "c" 'evil-ex-nohighlight ;; mnemonic is search clear
   "d" 'deadgrep
   "g" 'counsel-git-grep
-  "s" 'swiper
+  "s" 'swiper-multi
   "z" 'counsel-fzf)
 
 (general-def
