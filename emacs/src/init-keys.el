@@ -17,7 +17,7 @@
 ;; pressing r again after going into range mode (visual mode) will enter a hydra
 ;; for expand-region usage
 (general-def
-  :states 'visual
+  :keymaps 'evil-visual-state-map
   "r" 'hydra-expand-region/body)
 
 (general-def
@@ -186,6 +186,7 @@
   "b" 'counsel-descbinds
   "c" 'describe-char
   "f" 'counsel-describe-function
+  "g" 'general-describe-keybindings
   "k" 'describe-key
   "m" 'describe-mode
   "p" 'describe-package
