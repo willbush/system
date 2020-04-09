@@ -8,9 +8,13 @@
 (use-package evil-numbers
   :commands (evil-numbers/inc-at-pt evil-numbers/dec-at-pt))
 
+;; See tutorials:
+;; https://github.com/emacs-evil/evil-surround
+;; https://github.com/tpope/vim-surround
 (use-package evil-surround
   :commands global-evil-surround-mode)
 
+;; Use % to jump to matching tags (no learning curve!)
 (use-package evil-matchit
   :commands global-evil-matchit-mode)
 
