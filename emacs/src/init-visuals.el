@@ -53,7 +53,6 @@
   :commands fci-mode)
 
 (use-package nav-flash
-  :functions (winum--switch-to-window)
   :commands nav-flash-show
   :preface
 
@@ -85,8 +84,6 @@
   (advice-add #'switch-to-buffer :after #'my/maybe-nav-flash)
   (advice-add #'other-window :after #'my/maybe-nav-flash)
   (advice-add #'recenter :after #'my/maybe-nav-flash)
-  ;; `winum--switch-to-window' is called by the `winum-select-window-*' functions
-  (advice-add #'winum--switch-to-window :after #'my/maybe-nav-flash)
 
   ;; `avy'
   (advice-add #'evil-avy-goto-char-timer :after #'my/maybe-nav-flash)
