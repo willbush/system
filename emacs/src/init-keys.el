@@ -86,11 +86,13 @@
   :prefix "SPC b"
   :states '(normal visual)
   :keymaps 'override
-  "b" 'ivy-switch-buffer
   "D" 'my/kill-all-buffers
+  "H" 'my/kill-all-buffers-then-switch-to-dashboard
+  "I" 'ibuffer
+  "b" 'ivy-switch-buffer
   "d" 'my/kill-this-buffer
   "h" 'my/switch-to-dashboard
-  "H" 'my/kill-all-buffers-then-switch-to-dashboard
+  "i" 'counsel-ibuffer
   "k" 'kill-buffer ;; requests buffer to kill
   "m" 'my/switch-to-messages
   "r" 'my/revert-buffer-no-confirm
