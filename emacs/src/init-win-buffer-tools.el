@@ -1,7 +1,5 @@
 ;;; -*- lexical-binding: t; -*-
 
-(use-package ibuffer :bind ("C-x C-b" . ibuffer))
-
 (use-package golden-ratio
   :commands (golden-ratio golden-ratio-mode)
   :config
