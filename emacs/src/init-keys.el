@@ -101,7 +101,6 @@
   :states '(normal visual)
   :keymaps 'override
   "l" 'comment-line
-  "p" 'poporg-dwim
   "r" 'comment-or-uncomment-region)
 
 (general-def
