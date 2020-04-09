@@ -1,6 +1,12 @@
 ;;; -*- lexical-binding: t; -*-
 
-(use-package swiper :bind (("C-s" . swiper)))
+(use-package swiper
+  :commands
+  (swiper
+   swiper-backward
+   swiper-multi)
+  :config
+  (setq swiper-goto-start-of-match t))
 
 (use-package deadgrep :commands deadgrep)
 
