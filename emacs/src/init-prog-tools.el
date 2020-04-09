@@ -119,6 +119,9 @@ git-timemachine-mode:
           haskell-mode) . lsp-deferred)
   :config
 
+  ;; I don't want lsp to prompt me to restart it when I close its buffer.
+  (setq lsp-restart 'ignore)
+
   ;; Ghcide doesn't have the hlint plugin enabled. Haskell language server will,
   ;; but it's not ready to use (as far as I can tell). So I'm chaining
   ;; haskell-hlint to the lsp flycheck checker. My concern was that it would be
