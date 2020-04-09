@@ -55,6 +55,7 @@
   :states '(normal visual)
   :keymaps 'override
   "D" 'deer-jump-other-window
+  "E" 'esup
   "d" 'deer ;; minimal ranger dired
   "e" '(:ignore t :which-key "direnv")
   "f" 'elfeed
