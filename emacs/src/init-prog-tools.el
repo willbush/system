@@ -1,7 +1,5 @@
 ;;; -*- lexical-binding: t; -*-
 
-(use-package ediff)
-
 (use-package magit
   :commands
   (magit-clone
