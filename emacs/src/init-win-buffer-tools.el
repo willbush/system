@@ -2,8 +2,6 @@
 
 (use-package ibuffer :bind ("C-x C-b" . ibuffer))
 
-(use-package winum :hook (after-init . winum-mode))
-
 (use-package golden-ratio
   :commands (golden-ratio golden-ratio-mode)
   :config
@@ -33,16 +31,6 @@
                 evil-window-move-very-bottom
                 next-multiframe-window
                 previous-multiframe-window
-                winum-select-window-0-or-10
-                winum-select-window-1
-                winum-select-window-2
-                winum-select-window-3
-                winum-select-window-4
-                winum-select-window-5
-                winum-select-window-6
-                winum-select-window-7
-                winum-select-window-8
-                winum-select-window-9
                 windmove-left
                 windmove-right
                 windmove-up

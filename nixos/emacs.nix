@@ -79,7 +79,6 @@ in {
         vimrc-mode
         visual-fill-column
         which-key
-        winum
         wttrin
         yaml-mode
         yasnippet
