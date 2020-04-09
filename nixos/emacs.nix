@@ -47,6 +47,7 @@ in {
         flycheck
         flyspell-correct-ivy
         format-all
+        gcmh
         general
         git-gutter
         git-gutter-fringe
@@ -107,17 +108,6 @@ in {
         emacs -Q -nw -l ~/.emacs.d/init.el -batch -f batch-byte-compile ~/.emacs.d/init.el ~/.emacs.d/src/*.el
       '';
     };
-  };
-
-  xresources.properties = {
-    # Set some Emacs GUI properties in the .Xresources file because they are
-    # expensive to set during initialization in Emacs lisp. This saves about
-    # half a second on startup time. See the following link for more options:
-    # https://www.gnu.org/software/emacs/manual/html_node/emacs/Fonts.html#Fonts
-    "Emacs.menuBar" = false;
-    "Emacs.toolBar" = false;
-    "Emacs.verticalScrollBars" = false;
-    "Emacs.Font" = "Hack:size=16";
   };
 
   # Home manager's emacs service doesn't provide a desktop entry for the emacs

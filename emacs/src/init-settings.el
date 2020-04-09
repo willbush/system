@@ -114,4 +114,14 @@
 (setq-default css-indent-offset 2)
 (setq-default js-indent-level 2)
 
+;; Adopt Doom's sneaky garbage collection strategy of waiting until idle time to
+;; collect; staving off the collector while the user is working.
+(use-package gcmh
+  :hook (after-init . gcmh-mode)
+  :commands gcmh-idle-garbage-collect
+  :config
+  (setq gcmh-idle-delay 10
+        gcmh-high-cons-threshold 16777216)
+  (add-function :after after-focus-change-function #'gcmh-idle-garbage-collect))
+
 (provide 'init-settings)
