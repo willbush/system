@@ -88,12 +88,12 @@
 
   ;; swap insert mode, which will handle remapping all the visual inner
   ;; bindings.
-  (general-swap-key nil '(normal visual)
+  (general-swap-key nil '(evil-normal-state-map evil-visual-state-map)
     "i" "l"
     "I" "L")
 
   (general-def
-    :states 'normal
+    :keymaps 'evil-normal-state-map
     "&" 'evil-use-register
     "C-i" 'evil-jump-forward
     "U" 'undo-tree-redo
@@ -108,7 +108,7 @@
     "v" 'evil-replace)
 
   (general-def
-    :states 'motion
+    :keymaps 'evil-motion-state-map
     "'" 'evil-repeat-find-char
     ;; Far as I understand one of the side effects of using `evil-search-module
     ;; 'evil-search' is "/" and "?" in the motion map being set to
