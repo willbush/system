@@ -24,7 +24,13 @@
 (use-package define-word
   :commands define-word-at-point)
 
-(use-package flyspell-correct-ivy :after flyspell)
+(use-package flyspell-correct-ivy
+  :commands
+  (flyspell-correct-wrapper
+   flyspell-correct-next
+   flyspell-correct-previous)
+  :init
+  (setq flyspell-correct-interface #'flyspell-correct-ivy))
 
 ;; A frontend for weather web service wttr.in
 (use-package wttrin

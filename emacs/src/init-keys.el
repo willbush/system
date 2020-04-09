@@ -227,9 +227,9 @@
   :states '(normal visual)
   :keymaps 'override
   "b" 'flyspell-buffer
-  "c" 'flyspell-correct-at-point
-  "n" 'evil-next-flyspell-error
-  "p" 'evil-prev-flyspell-error
+  "c" 'flyspell-correct-wrapper
+  "n" 'flyspell-correct-next
+  "p" 'flyspell-correct-previous
   "r" 'flyspell-region)
 
 (general-def
