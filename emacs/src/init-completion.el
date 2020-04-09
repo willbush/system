@@ -25,10 +25,7 @@
           "rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s ."))
 
 ;; Used by Ivy to sort commands by frequency.
-(use-package smex
-  :hook (after-init . smex-initialize)
-  :config
-  (global-set-key (kbd "M-X") 'smex-major-mode-commands))
+(use-package smex :hook (after-init . smex-initialize))
 
 ;; increasing recentf max items for better ivy-switch-buffer completion
 (use-package recentf
