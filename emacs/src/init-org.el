@@ -80,7 +80,7 @@
                             (org-agenda-files :maxlevel . 3)))
 
   (setq org-outline-path-complete-in-steps nil) ; Refile in a single go
-  (setq org-refile-use-outline-path t) ; Show full paths for refiling
+  (setq org-refile-use-outline-path t) ;; Show full paths for refiling
 
   ;; Puts archive files into a relative path to an archive folder with
   ;; the year in the file name. See doc string for info on special
@@ -88,9 +88,5 @@
   (setq org-archive-location
         (concat "archive/"
                 (format-time-string "%Y" (current-time)) "-%s_archive::")))
-
-;; Lets you pull text into an org buffer for editing. Useful for editing
-;; comments or doc strings in org mode.
-(use-package poporg :commands poporg-dwim)
 
 (provide 'init-org)
