@@ -195,6 +195,7 @@
   "p" 'describe-package
   "s" 'counsel-info-lookup-symbol
   "t" 'describe-theme
+  "u" 'counsel-unicode-char
   "v" 'counsel-describe-variable)
 
 (general-def
