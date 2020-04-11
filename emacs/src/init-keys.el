@@ -139,13 +139,15 @@
   :prefix "SPC m"
   :states '(normal visual)
   :keymaps 'override
+  "G" 'hydra-git-gutter/body
   "I" 'magit-init
   "c" 'magit-clone
   "d" 'magit-dispatch
+  "g" 'counsel-git-grep
   "i" 'magit-gitignore-globally
+  "l" 'counsel-git-log
   "m" 'magit-status
-  "t" 'git-timemachine
-  "g" 'hydra-git-gutter/body)
+  "t" 'git-timemachine)
 
 (general-def
   :prefix "SPC n"
@@ -219,7 +221,6 @@
   "D" 'my/counsel-rg-directory
   "c" 'evil-ex-nohighlight ;; mnemonic is search clear
   "d" 'deadgrep
-  "g" 'counsel-git-grep
   "s" 'swiper-multi
   "z" 'counsel-fzf)
 
