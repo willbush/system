@@ -212,6 +212,7 @@
   :prefix "SPC r"
   :states '(normal visual)
   :keymaps 'override
+  "l" 'counsel-load-theme
   "s" 'save-buffer)
 
 (general-def
@@ -221,6 +222,8 @@
   "D" 'my/counsel-rg-directory
   "c" 'evil-ex-nohighlight ;; mnemonic is search clear
   "d" 'deadgrep
+  "o" 'counsel-outline
+  "r" 'counsel-rg
   "s" 'swiper-multi
   "z" 'counsel-fzf)
 
