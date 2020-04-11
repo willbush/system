@@ -149,11 +149,12 @@ in {
     docker
     docker-compose
     fd
+    feh
+    ghcide-nix.ghcide-ghc865
     neovim
     ripgrep
     tree
     wget
-    ghcide-nix.ghcide-ghc865
   ];
 
   programs.ssh.startAgent = true;
