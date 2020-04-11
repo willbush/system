@@ -55,7 +55,23 @@
   ;; and not a key map. `:keymap' exists for this case, but I can't figure out
   ;; how to bind it they way I want and where I want (not here). So just load
   ;; after init.
-  :hook (after-init . counsel-projectile-mode))
+  :hook (after-init . counsel-projectile-mode)
+  :config
+
+  ;; This can also be accomplished by invoking
+  ;; `counsel-projectile-switch-project' then `M-o D', but I want to make it
+  ;; easier.
+  (defun my/counsel-projectile-switch-project-dired ()
+    "Switches to a projectile project's root in dired mode."
+    (interactive)
+    (counsel-projectile-switch-project "D"))
+
+  ;; rebind `evil-goto-definition' for Haskell mode.
+  (general-def
+    :keymaps 'projectile-command-map
+    "P" 'my/counsel-projectile-switch-project-dired
+    ;; Was bound to P. Rebind it.
+    "Z" 'projectile-test-project))
 
 (use-package projectile
   :commands projectile-mode
