@@ -3,8 +3,10 @@
 ;; silence warning
 (declare-function evil-visual-state-p "evil-states")
 
-;; text manipulation related functions:
+;;
+;;; Text manipulation related functions:
 
+;;;###autoload
 (defun my/sort-lines-by-column (&optional reverse)
   "Sort lines by the selected column.
 A non-nil argument sorts in reverse order."
@@ -14,11 +16,13 @@ A non-nil argument sorts in reverse order."
          (end (if region-active (region-end) (point-max))))
     (sort-columns reverse beg end)))
 
+;;;###autoload
 (defun my/sort-lines-by-column-reverse ()
   "Sort lines by the selected column in reverse order."
   (interactive)
   (my/sort-lines-by-column -1))
 
+;;;###autoload
 (defun my/sort-lines (&optional reverse)
   "Sort lines in a region or the current buffer. A non-nil
 argument sorts in reverse order."
@@ -28,11 +32,13 @@ argument sorts in reverse order."
          (end (if region-active (region-end) (point-max))))
     (sort-lines reverse beg end)))
 
+;;;###autoload
 (defun my/sort-lines-reverse ()
   "Sort lines in reverse order, in a region or the current buffer."
   (interactive)
   (my/sort-lines -1))
 
+;;;###autoload
 (defun my/uniquify-lines ()
   "Remove duplicate adjacent lines in a region or the current buffer"
   (interactive)
@@ -47,21 +53,25 @@ argument sorts in reverse order."
 
 ;; window / buffer related functions:
 
+;;;###autoload
 (defun my/kill-all-buffers ()
   "kill all buffers"
   (interactive)
   (mapc 'kill-buffer (buffer-list)))
 
+;;;###autoload
 (defun my/switch-to-messages ()
   "Switch to *Messages* buffer."
   (interactive)
   (switch-to-buffer "*Messages*"))
 
+;;;###autoload
 (defun my/switch-to-scratch ()
   "Switch to *scratch* buffer."
   (interactive)
   (switch-to-buffer "*scratch*"))
 
+;;;###autoload
 (defun my/switch-to-dashboard ()
   "Switch to *dashboard* (creates if needed)"
   (interactive)
@@ -69,6 +79,7 @@ argument sorts in reverse order."
     (generate-new-buffer dashboard-buffer-name))
   (dashboard-refresh-buffer))
 
+;;;###autoload
 (defun my/kill-all-buffers-then-switch-to-dashboard ()
   "Kills all buffers then switches to *dashboard* (creates if needed)"
   (interactive)
@@ -76,6 +87,7 @@ argument sorts in reverse order."
     (my/kill-all-buffers)
     (my/switch-to-dashboard)))
 
+;;;###autoload
 (defun my/kill-this-buffer ()
   "Kill the current buffer."
   (interactive)
@@ -84,6 +96,7 @@ argument sorts in reverse order."
     (kill-buffer)))
 
 ;; http://camdez.com/blog/2013/11/14/emacs-show-buffer-file-name/
+;;;###autoload
 (defun my/yank-and-show-buffer-full-path ()
   "Yank (i.e. copy) and show the full path to the current file in the minibuffer."
   (interactive)
@@ -93,6 +106,7 @@ argument sorts in reverse order."
         (message (kill-new file-name))
       (error "Buffer not visiting a file"))))
 
+;;;###autoload
 (defun my/toggle-maximize-window ()
   "Toggle between maximizing the window and restoring previous window setup."
   (interactive)
@@ -102,6 +116,7 @@ argument sorts in reverse order."
     (window-configuration-to-register ?_)
     (delete-other-windows)))
 
+;;;###autoload
 (defun my/toggle-golden-ratio ()
   "Toggles golden ratio mode on and off"
   (interactive)
@@ -116,6 +131,7 @@ argument sorts in reverse order."
     (message "Golden-Ratio mode enabled")))
 
 ;; depends on https://elpa.gnu.org/packages/adaptive-wrap.html
+;;;###autoload
 (defun my/toggle-adaptive-visual-fill-column ()
   "Toggles visual-fill-column-mode and adaptive-wrap-prefix-mode on or off"
   (interactive)
@@ -129,6 +145,7 @@ argument sorts in reverse order."
     (adaptive-wrap-prefix-mode 1)
     (message "visual-fill-column and adaptive-wrap-prefix mode enabled")))
 
+;;;###autoload
 (defun my/open-shell ()
   "Opens my prefered shell for the current operating system."
   (interactive)
@@ -136,9 +153,11 @@ argument sorts in reverse order."
       (call-interactively 'eshell)
     (ansi-term "zsh")))
 
-;; MISC functions:
+;;
+;;; MISC functions:
 
 ;; https://stackoverflow.com/questions/3480173/show-keys-in-emacs-keymap-value
+;;;###autoload
 (defun my/describe-keymap (keymap)
   "Describe a keymap."
   (interactive
@@ -156,6 +175,7 @@ argument sorts in reverse order."
     (with-current-buffer standard-output ;; temp buffer
       (setq help-xref-stack-item (list #'my/describe-keymap keymap)))))
 
+;;;###autoload
 (defun my/revert-buffer-no-confirm ()
     "Revert buffer without confirmation."
     (interactive)
