@@ -20,269 +20,168 @@
   :keymaps 'evil-visual-state-map
   "r" 'hydra-expand-region/body)
 
+;; Leader key bindings
 (general-def
   :prefix "SPC"
-  :states '(normal visual)
+  :non-normal-prefix "M-SPC"
+  :states '(normal visual emacs)
   :keymaps 'override
+  "TAB" 'mode-line-other-buffer
   "!" 'shell-command
   "'" 'my/open-shell
   "?" 'counsel-descbinds
+  "F" '(:ignore t :wk "frame")
+  "FD" 'delete-other-frames
+  "Fd" 'delete-frame
+  "Fi" 'iconify-frame
+  "Fm" 'toggle-frame-maximized
+  "Fn" 'make-frame
+  "Fo" 'other-frame
+  "S" '(:ignore t :wk "spell-checking")
   "SPC" 'counsel-M-x
-  "TAB" 'mode-line-other-buffer
-  ;; Not using 'b' as a prefix because it's too hard to reach on Colemak-DHm and
-  ;; too widely used.
-  "F" '(:ignore t :which-key "frame")
-  "S" '(:ignore t :which-key "spell-checking")
-  "a" '(:ignore t :which-key "apps")
-  "b" '(:ignore t :which-key "buffer")
-  "c" '(:ignore t :which-key "comment")
-  "f" '(:ignore t :which-key "file")
-  "g" '(:ignore t :which-key "go")
-  "h" '(:ignore t :which-key "help")
-  "m" '(:ignore t :which-key "magit")
-  "n" '(:ignore t :which-key "narrow")
-  "o" '(:ignore t :which-key "org")
+  "Sb" 'flyspell-buffer
+  "Sc" 'flyspell-correct-wrapper
+  "Sn" 'flyspell-correct-next
+  "Sp" 'flyspell-correct-previous
+  "Sr" 'flyspell-region
+  "a" '(:ignore t :wk "apps")
+  "aD" 'deer-jump-other-window
+  "aE" 'esup
+  "ad" 'deer ;; minimal ranger dired
+  "ae" '(:ignore t :wk "direnv")
+  "aeU" 'direnv-update-directory-environment
+  "aea" 'direnv-allow
+  "aem" 'direnv-mode
+  "aeu" 'direnv-update-environment
+  "af" 'elfeed
+  "ap" '(:ignore t :wk "profiler")
+  "apk" 'profiler-stop
+  "apr" 'profiler-report
+  "aps" 'profiler-start
+  "apw" 'profiler-report-write-profile
+  "ar" 'ranger
+  "as" 'speedbar
+  "au" 'disk-usage
+  "aw" 'wttrin
+  "b" '(:ignore t :wk "buffer")
+  "bD" 'my/kill-all-buffers
+  "bH" 'my/kill-all-buffers-then-switch-to-dashboard
+  "bI" 'ibuffer
+  "bb" 'ivy-switch-buffer
+  "bd" 'my/kill-this-buffer
+  "bh" 'my/switch-to-dashboard
+  "bi" 'counsel-ibuffer
+  "bk" 'kill-buffer ;; requests buffer to kill
+  "bm" 'my/switch-to-messages
+  "br" 'my/revert-buffer-no-confirm
+  "bs" 'my/switch-to-scratch
+  "c" '(:ignore t :wk "comment")
+  "cl" 'comment-line
+  "cr" 'comment-or-uncomment-region
+  "f" '(:ignore t :wk "file")
+  "fd" 'fd-dired
+  "ff" 'counsel-find-file
+  "fs" 'save-buffer
+  "fy" 'my/yank-and-show-buffer-full-path
+  "fz" 'counsel-fzf
+  "g" '(:ignore t :wk "go")
+  "gf" 'find-function
+  "gg" 'avy-goto-char-timer
+  "gv" 'find-variable
+  "h" '(:ignore t :wk "help")
+  "hI" 'info-display-manual
+  "hd" '(:ignore t :wk "describe")
+  "hdB" 'evil-collection-describe-bindings
+  "hdK" 'my/describe-keymap
+  "hdb" 'counsel-descbinds
+  "hdc" 'describe-char
+  "hdf" 'counsel-describe-function
+  "hdg" 'general-describe-keybindings
+  "hdk" 'describe-key
+  "hdm" 'describe-mode
+  "hdp" 'describe-package
+  "hds" 'counsel-info-lookup-symbol
+  "hdt" 'describe-theme
+  "hdu" 'counsel-unicode-char
+  "hdv" 'counsel-describe-variable
+  "hi" 'info
+  "hl" 'counsel-find-library
+  "hn"  'view-emacs-news
+  "ht" 'evil-tutor-start
+  "hw"  'woman
+  "m" '(:ignore t :wk "magit")
+  "mG" 'hydra-git-gutter/body
+  "mI" 'magit-init
+  "mc" 'magit-clone
+  "md" 'magit-dispatch
+  "mg" 'counsel-git-grep
+  "mi" 'magit-gitignore-globally
+  "ml" 'counsel-git-log
+  "mm" 'magit-status
+  "mt" 'git-timemachine
+  "n" '(:ignore t :wk "narrow")
+  "nf" 'narrow-to-defun
+  "np" 'narrow-to-page
+  "nr" 'narrow-to-region
+  "nw" 'widen
+  "o" '(:ignore t :wk "org")
+  "oS" 'org-store-link
+  "oa" 'org-agenda
+  "oc" 'org-capture
+  "oi" 'org-indent-mode
+  "or" 'org-refile
+  "os" 'org-save-all-org-buffers
+  "ot" 'org-toggle-link-display
   "p" 'projectile-command-map
-  "q" '(:ignore t :which-key "quit")
-  "r" '(:ignore t :which-key "rapid")
-  "s" '(:ignore t :which-key "search")
-  "t" '(:ignore t :which-key "toggle")
-  "w" '(:ignore t :which-key "window")
-  "x" '(:ignore t :which-key "text manipulation"))
-
-(general-def
-  :prefix "SPC a"
-  :states '(normal visual)
-  :keymaps 'override
-  "D" 'deer-jump-other-window
-  "E" 'esup
-  "d" 'deer ;; minimal ranger dired
-  "e" '(:ignore t :which-key "direnv")
-  "f" 'elfeed
-  "p" '(:ignore t :which-key "profiler")
-  "r" 'ranger
-  "s" 'speedbar
-  "u" 'disk-usage
-  "w" 'wttrin)
-
-(general-def
-  :prefix "SPC a e"
-  :states '(normal visual)
-  :keymaps 'override
-  "a" 'direnv-allow
-  "m" 'direnv-mode
-  "U" 'direnv-update-directory-environment
-  "u" 'direnv-update-environment)
-
-(general-def
-  :prefix "SPC a p"
-  :states '(normal visual)
-  :keymaps 'override
-  "k" 'profiler-stop
-  "r" 'profiler-report
-  "s" 'profiler-start
-  "w" 'profiler-report-write-profile)
-
-(general-def
-  :prefix "SPC b"
-  :states '(normal visual)
-  :keymaps 'override
-  "D" 'my/kill-all-buffers
-  "H" 'my/kill-all-buffers-then-switch-to-dashboard
-  "I" 'ibuffer
-  "b" 'ivy-switch-buffer
-  "d" 'my/kill-this-buffer
-  "h" 'my/switch-to-dashboard
-  "i" 'counsel-ibuffer
-  "k" 'kill-buffer ;; requests buffer to kill
-  "m" 'my/switch-to-messages
-  "r" 'my/revert-buffer-no-confirm
-  "s" 'my/switch-to-scratch)
-
-(general-def
-  :prefix "SPC c"
-  :states '(normal visual)
-  :keymaps 'override
-  "l" 'comment-line
-  "r" 'comment-or-uncomment-region)
-
-(general-def
-  :prefix "SPC f"
-  :states '(normal visual)
-  :keymaps 'override
-  "d" 'fd-dired
-  "f" 'counsel-find-file
-  "s" 'save-buffer
-  "y" 'my/yank-and-show-buffer-full-path
-  "z" 'counsel-fzf)
-
-(general-def
-  :prefix "SPC F"
-  :states '(normal visual)
-  :keymaps 'override
-  "D" 'delete-other-frames
-  "d" 'delete-frame
-  "i" 'iconify-frame
-  "m" 'toggle-frame-maximized
-  "n" 'make-frame
-  "o" 'other-frame)
-
-(general-def
-  :prefix "SPC g"
-  :states '(normal visual)
-  :keymaps 'override
-  "f" 'find-function
-  "g" 'avy-goto-char-timer
-  "v" 'find-variable)
-
-(general-def
-  :prefix "SPC m"
-  :states '(normal visual)
-  :keymaps 'override
-  "G" 'hydra-git-gutter/body
-  "I" 'magit-init
-  "c" 'magit-clone
-  "d" 'magit-dispatch
-  "g" 'counsel-git-grep
-  "i" 'magit-gitignore-globally
-  "l" 'counsel-git-log
-  "m" 'magit-status
-  "t" 'git-timemachine)
-
-(general-def
-  :prefix "SPC n"
-  :states '(normal visual)
-  :keymaps 'override
-  "f" 'narrow-to-defun
-  "p" 'narrow-to-page
-  "r" 'narrow-to-region
-  "w" 'widen)
-
-(general-def
-  :prefix "SPC o"
-  :states '(normal visual)
-  :keymaps 'override
-  "S" 'org-store-link
-  "a" 'org-agenda
-  "c" 'org-capture
-  "i" 'org-indent-mode
-  "r" 'org-refile
-  "s" 'org-save-all-org-buffers
-  "t" 'org-toggle-link-display)
-
-(general-def
-  :prefix "SPC h"
-  :states '(normal visual)
-  :keymaps 'override
-  "I" 'info-display-manual
-  "d" '(:ignore t :which-key "describe")
-  "i" 'info
-  "l" 'counsel-find-library
-  "n"  'view-emacs-news
-  "t" 'evil-tutor-start
-  "w"  'woman)
-
-(general-def
-  :prefix "SPC h d"
-  :states '(normal visual)
-  :keymaps 'override
-  "B" 'evil-collection-describe-bindings
-  "K" 'my/describe-keymap
-  "b" 'counsel-descbinds
-  "c" 'describe-char
-  "f" 'counsel-describe-function
-  "g" 'general-describe-keybindings
-  "k" 'describe-key
-  "m" 'describe-mode
-  "p" 'describe-package
-  "s" 'counsel-info-lookup-symbol
-  "t" 'describe-theme
-  "u" 'counsel-unicode-char
-  "v" 'counsel-describe-variable)
-
-(general-def
-  :prefix "SPC q"
-  :states '(normal visual)
-  :keymaps 'override
-  "Q" 'save-buffers-kill-emacs
-  "q" 'save-buffers-kill-terminal)
-
-;; Rapid keys emphasize easy access due to high usage over mnemonics.
-(general-def
-  :prefix "SPC r"
-  :states '(normal visual)
-  :keymaps 'override
-  "l" 'counsel-load-theme
-  "s" 'save-buffer)
-
-(general-def
-  :prefix "SPC s"
-  :states '(normal visual)
-  :keymaps 'override
-  "D" 'my/counsel-rg-directory
-  "c" 'evil-ex-nohighlight ;; mnemonic is search clear
-  "d" 'deadgrep
-  "o" 'counsel-outline
-  "r" 'counsel-rg
-  "s" 'swiper-multi
-  "z" 'counsel-fzf)
-
-(general-def
-  :prefix "SPC S"
-  :states '(normal visual)
-  :keymaps 'override
-  "b" 'flyspell-buffer
-  "c" 'flyspell-correct-wrapper
-  "n" 'flyspell-correct-next
-  "p" 'flyspell-correct-previous
-  "r" 'flyspell-region)
-
-(general-def
-  :prefix "SPC t"
-  :states '(normal visual)
-  :keymaps 'override
-  "c" 'fci-mode
-  "f" 'auto-fill-mode
-  "g" 'my/toggle-golden-ratio
-  "l" 'toggle-truncate-lines
-  "m" 'counsel-major ;; switches major mode
-  "n" 'display-line-numbers-mode
-  "s" 'flyspell-mode
-  "t" 'display-time-mode
-  "v" 'my/toggle-adaptive-visual-fill-column)
-
-(general-def
-  :prefix "SPC w"
-  :states '(normal visual)
-  :keymaps 'override
-  "-" 'split-window-vertically
-  "/" 'split-window-horizontally
-  "B" 'balance-windows-area
-  "E" 'evil-window-move-very-top
-  "I" 'evil-window-move-far-right
-  "M" 'evil-window-move-far-left
-  "N" 'evil-window-move-very-bottom
-  "b" 'balance-windows
-  "d" 'delete-window
-  "e" 'evil-window-up
-  "g" 'golden-ratio
-  "i" 'evil-window-right
-  "k" 'kill-buffer-and-window
-  "m" 'evil-window-left
-  "n" 'evil-window-down
-  "o" 'delete-other-windows
-  "x" 'my/toggle-maximize-window)
-
-(general-def
-  :prefix "SPC x"
-  :states '(normal visual)
-  :keymaps 'override
-  "C" 'my/sort-lines-by-column-reverse
-  "L" 'my/sort-lines-reverse
-  "c" 'my/sort-lines-by-column
-  "d" 'define-word-at-point
-  "l" 'my/sort-lines
-  "u" 'my/uniquify-lines)
+  "q" '(:ignore t :wk "quit")
+  "qQ" 'save-buffers-kill-emacs
+  "qq" 'save-buffers-kill-terminal
+  "r" '(:ignore t :wk "rapid") ;; emphasize easy access over mnemonics
+  "rl" 'counsel-load-theme
+  "rs" 'save-buffer
+  "s" '(:ignore t :wk "search")
+  "sD" 'my/counsel-rg-directory
+  "sc" 'evil-ex-nohighlight ;; mnemonic is search clear
+  "sd" 'deadgrep
+  "so" 'counsel-outline
+  "sr" 'counsel-rg
+  "ss" 'swiper-multi
+  "sz" 'counsel-fzf
+  "t" '(:ignore t :wk "toggle")
+  "tc" 'fci-mode
+  "tf" 'auto-fill-mode
+  "tg" 'my/toggle-golden-ratio
+  "tl" 'toggle-truncate-lines
+  "tm" 'counsel-major ;; switches major mode
+  "tn" 'display-line-numbers-mode
+  "ts" 'flyspell-mode
+  "tt" 'display-time-mode
+  "tv" 'my/toggle-adaptive-visual-fill-column
+  "w" '(:ignore t :wk "window")
+  "w-" 'split-window-vertically
+  "w/" 'split-window-horizontally
+  "wB" 'balance-windows-area
+  "wE" 'evil-window-move-very-top
+  "wI" 'evil-window-move-far-right
+  "wM" 'evil-window-move-far-left
+  "wN" 'evil-window-move-very-bottom
+  "wb" 'balance-windows
+  "wd" 'delete-window
+  "we" 'evil-window-up
+  "wg" 'golden-ratio
+  "wi" 'evil-window-right
+  "wk" 'kill-buffer-and-window
+  "wm" 'evil-window-left
+  "wn" 'evil-window-down
+  "wo" 'delete-other-windows
+  "wx" 'my/toggle-maximize-window
+  "x" '(:ignore t :wk "text manipulation")
+  "xC" 'my/sort-lines-by-column-reverse
+  "xL" 'my/sort-lines-reverse
+  "xc" 'my/sort-lines-by-column
+  "xd" 'define-word-at-point
+  "xl" 'my/sort-lines
+  "xu" 'my/uniquify-lines)
 
 ;; evil-collection will give a warning if the following setting is not set
 ;; before loading evil and evil-collection. Note that evil-leader loads evil
