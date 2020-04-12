@@ -57,7 +57,6 @@ in {
     dotnet-sdk
     du-dust
     exa
-    feh
     firefox-beta-bin
     fzf
     gcc
@@ -75,6 +74,7 @@ in {
     haskellPackages.hpack
     keepassxc
     libreoffice
+    neofetch
     nix-prefetch-git
     nixfmt
     okular
