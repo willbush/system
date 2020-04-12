@@ -28,10 +28,17 @@
 (use-package expand-region
   :commands (er/expand-region er/contract-region)
   :init
+
   (defhydra hydra-expand-region ()
      "region"
      ("e" er/expand-region "expand")
-     ("n" er/contract-region "contract")))
+     ("n" er/contract-region "contract"))
+
+  ;; pressing r again after going into range mode (visual mode) will enter a
+  ;; hydra for expand-region usage
+  (general-def
+    :keymaps 'evil-visual-state-map
+    "r" 'hydra-expand-region/body))
 
 (use-package evil-tutor
   :commands evil-tutor-start)
