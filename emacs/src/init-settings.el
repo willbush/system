@@ -106,7 +106,7 @@
 ;; tramp:
 (setq password-cache-expiry nil)
 
-(if (eq system-type 'windows-nt)
+(if IS-WINDOWS
     (setq tramp-default-method "plink")
   (setq tramp-default-method "ssh"))
 

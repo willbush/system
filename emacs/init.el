@@ -21,6 +21,10 @@
 
 (add-to-list 'load-path (expand-file-name "src/" user-emacs-directory))
 
+;; I only use and test this configuration on Linux and Windows, so this being
+;; false implies the system is Linux.
+(defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
+
 ;; order matters in the initialization process.
 (setq files-to-load
       (list

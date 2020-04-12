@@ -1,10 +1,9 @@
 ;;; -*- lexical-binding: t; -*-
 
-(setq package-enable-at-startup nil)
-
-(if (eq system-type 'windows-nt)
-    (progn
-
+;; When on Windows I use `package.el' to install packages. Otherwise, I I'm on
+;; Linux and use an external tool called home-manager.
+(when IS-WINDOWS
+  (progn
       (require 'package)
 
       (add-to-list 'package-archives
@@ -22,19 +21,10 @@
         (package-install 'use-package))
 
       ;; ensure everything is installed
-      (setq use-package-always-ensure t))
+      (setq use-package-always-ensure t)))
 
-  ;; When on Linux I use use home-manager to install packages.
-  (eval-when-compile
-    (require 'package)
-    (setq package-archives nil)
-    (package-initialize)))
-
+;; Despite the `use-package' README suggesting that this be wrapped in an
+;; `eval-when-compile', that causes issues for me when I byte compile my config.
 (require 'use-package)
-
-;; Setting this variable reduces warnings with compiling my config.
-;; see https://github.com/jwiegley/use-package/issues/590
-(eval-when-compile
-  (setq use-package-expand-minimally t))
 
 (provide 'init-package)

@@ -132,7 +132,7 @@ argument sorts in reverse order."
 (defun my/open-shell ()
   "Opens my prefered shell for the current operating system."
   (interactive)
-  (if (eq system-type 'windows-nt)
+  (if IS-WINDOWS
       (call-interactively 'eshell)
     (ansi-term "zsh")))
 
