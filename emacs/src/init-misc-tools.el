@@ -39,7 +39,24 @@
   (setq wttrin-default-cities '("Dallas")
         wttrin-default-accept-language '("Accept-Language" . "en-US")))
 
-(use-package ranger :commands ranger)
+(use-package ranger
+  :commands
+  (ranger
+   deer
+   deer-jump-other-window)
+  :config
+  ;; swap out Qwerty to Colemak-DHm
+  (general-swap-key nil '(ranger-mode-map ranger-normal-mode-map)
+    "C-j" "C-n"
+    "C-k" "C-e"
+    "H" "M"
+    "J" "N"
+    "K" "E"
+    "L" "I"
+    "h" "m"
+    "j" "n"
+    "k" "e"
+    "l" "i"))
 
 (use-package disk-usage :commands disk-usage)
 
