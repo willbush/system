@@ -55,29 +55,10 @@
 
     (add-to-list 'golden-ratio-exclude-modes ms)))
 
-(use-package dashboard
-  :init
-  (setq initial-buffer-choice
-       (lambda ()
-         (or (get-buffer "*dashboard*") (get-buffer "*scratch*"))))
-  :config
-  (setq dashboard-banner-logo-title nil
-       dashboard-set-heading-icons t
-       dashboard-set-file-icons t
-       dashboard-items '((recents  . 5)
-                          (projects . 5)))
-  ;; This is the default icon, but it doesn't always show up when running Emacs
-  ;; as a daemon. So I set it explicitly here to fix the issue.
-  (setq dashboard-footer-icon
-    #("" 0 1
-      (rear-nonsticky t display
-                      (raise -0.06)
-                      font-lock-face #1=(:family "file-icons" :height 1.32 :inherit font-lock-keyword-face)
-                      face #1#)))
- (dashboard-setup-startup-hook))
+(use-package adaptive-wrap
+  :commands adaptive-wrap-prefix-mode)
 
 (use-package visual-fill-column
-  :config
-  (add-hook 'visual-fill-column-mode-hook #'visual-line-mode))
+  :commands visual-fill-column-mode)
 
 (provide 'init-win-buffer-tools)

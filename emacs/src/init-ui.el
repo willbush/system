@@ -1,33 +1,25 @@
 ;;; -*- lexical-binding: t; -*-
+;; Also see `early-init-file' because it sets UI elements early.
 
-;; show line and column number on mode line
-(line-number-mode 1)
-(column-number-mode 1)
+;; Less visual noise
+(setq inhibit-startup-message t
+      inhibit-default-init t
+      ;; Avoid pulling in many packages by starting the scratch buffer in
+      ;; `fundamental-mode', rather than, say, `org-mode' or `text-mode'.
+      initial-major-mode 'fundamental-mode
+      initial-scratch-message nil
+      ring-bell-function 'ignore)
 
-(setq electric-pair-pairs
-  '(
-    (?\( . ?\))
-    (?\[ . ?\])
-    (?\{ . ?\})
-   ))
-(electric-pair-mode t)
-
-(use-package doom-themes
-  :config
-  (load-theme 'doom-outrun-electric t))
-
-;; doom modeline requires M-x all-the-icons-install-fonts
-(use-package doom-modeline
-  :hook (after-init . doom-modeline-mode)
-  :config
-  (setq doom-modeline-icon t
-        doom-modeline-major-mode-color-icon t
-        doom-modeline-buffer-file-name-style 'truncate-upto-root))
+;; Get rid of "For information about GNU Emacs..." message at startup, unless
+;; we're in a daemon session, where it'll say "Starting Emacs daemon." instead,
+;; which isn't so bad.
+(unless (daemonp)
+  (advice-add #'display-startup-echo-area-message :override #'ignore))
 
 ;; Highlight matching parentheses
 (use-package paren
   :ensure nil
-  :hook (after-init . show-paren-mode)
+  :hook (prog-mode . show-paren-mode)
   :config
   (setq show-paren-when-point-inside-paren t
         show-paren-when-point-in-periphery t))

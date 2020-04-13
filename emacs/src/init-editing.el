@@ -1,5 +1,14 @@
 ;;; -*- lexical-binding: t; -*-
 
+(setq electric-pair-pairs
+  '(
+    (?\( . ?\))
+    (?\[ . ?\])
+    (?\{ . ?\})
+   ))
+
+(electric-pair-mode t)
+
 ;; Avoid performance issues in files with very long lines. Note that
 ;; global-so-long-mode may cause esup to error when it visits a .elc file with
 ;; long lines.
@@ -50,7 +59,7 @@
   :commands evil-tutor-start)
 
 (use-package evil
-  :hook (after-init . evil-mode)
+  :defer 0.01 ;; Prevents `evil-mode' from blocking Emacs during startup.
   :init
   (setq evil-search-module 'evil-search
         evil-ex-complete-emacs-commands nil
@@ -166,6 +175,7 @@
     "z i" 'evil-scroll-column-right
     "z m" 'evil-scroll-column-left)
 
+  (evil-mode)
   (global-evil-visualstar-mode)
   (global-evil-surround-mode 1)
   (global-evil-matchit-mode 1)
@@ -173,9 +183,7 @@
   ;; this will stomp on "g x" key binding which is `browse-url-at-point' by
   ;; default. I rebind this above.
   (evil-exchange-install)
-  (evil-collection-init))
-
-(use-package adaptive-wrap
-  :commands adaptive-wrap-prefix-mode)
+  ;; (evil-collection-init)
+  )
 
 (provide 'init-editing)
