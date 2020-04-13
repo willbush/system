@@ -75,7 +75,6 @@ in {
         rainbow-delimiters
         ranger
         rustic
-        smex
         use-package
         vimrc-mode
         visual-fill-column
