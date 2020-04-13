@@ -153,6 +153,7 @@
 (use-package hlint-refactor
   :commands (hlint-refactor-refactor-at-point))
 
+;;;###autoload
 (defun my/brittany-format-region (start end)
   "Uses Brittany to format a region of Haskell code."
   (interactive "r")

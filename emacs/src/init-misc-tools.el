@@ -12,14 +12,24 @@
 
 (use-package esup :commands esup)
 
+;; Adopt Doom's sneaky garbage collection strategy of waiting until idle time to
+;; collect; staving off the collector while the user is working.
+(use-package gcmh
+  :hook (after-init . gcmh-mode)
+  :commands gcmh-idle-garbage-collect
+  :config
+  (setq gcmh-idle-delay 10
+        gcmh-high-cons-threshold 16777216)
+  (add-function :after after-focus-change-function #'gcmh-idle-garbage-collect))
+
 (use-package flyspell
   :ensure nil ;; Flyspell is included in Emacs.
+  :hook ((text-mode . flyspell-mode)
+         (prog-mode . flyspell-prog-mode))
   :init (setq ispell-program-name "aspell")
   :config
   ;; improve perf per wiki: https://www.emacswiki.org/emacs/FlySpell
-  (setq flyspell-issue-message-flag nil)
-  :hook ((text-mode . flyspell-mode)
-         (prog-mode . flyspell-prog-mode)))
+  (setq flyspell-issue-message-flag nil))
 
 (use-package define-word
   :commands define-word-at-point)
