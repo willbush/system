@@ -96,4 +96,4 @@
   ;; `evil-window-right' etc. uses `windmove'
   (advice-add #'windmove-do-window-select :after #'my/maybe-nav-flash))
 
-(provide 'init-visuals)
+(provide 'init-ui)
