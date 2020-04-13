@@ -1,5 +1,11 @@
 ;;; -*- lexical-binding: t; -*-
 
+;; Avoid performance issues in files with very long lines. Note that
+;; global-so-long-mode may cause esup to error when it visits a .elc file with
+;; long lines.
+(use-package so-long
+  :hook (after-init . global-so-long-mode))
+
 ;; Enables searching via * on a visual selection.
 (use-package evil-visualstar
   :commands global-evil-visualstar-mode)
