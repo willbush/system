@@ -52,7 +52,7 @@
        "init-scripting"
        "init-win-buffer-tools"
        "init-misc-tools"
-       "init-visuals"
+       "init-ui"
        "funcs"))
 
 (mapc 'load files-to-load)
