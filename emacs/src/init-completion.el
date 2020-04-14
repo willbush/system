@@ -1,13 +1,31 @@
 ;;; -*- lexical-binding: t; -*-
 
-;; increasing recentf max items for better ivy-switch-buffer completion
+;; Keep track of recently opened files
 (use-package recentf
-  :functions recentf-mode
-  :init
-  (setq recentf-max-menu-items 1000
-        recentf-max-saved-items 1000)
+  :ensure nil ;; is included in Emacs.
   :config
-  (recentf-mode 1))
+  (defun my/recent-file-truename (file)
+    (if (or (file-remote-p file nil t)
+            (not (file-remote-p file)))
+        (file-truename file)
+      file))
+
+  (setq recentf-filename-handlers
+        '(substring-no-properties ;; strip out lingering text properties
+          my/recent-file-truename ;; resolve symlinks of local files
+          abbreviate-file-name)   ;; replace $HOME with ~
+        recentf-save-file (expand-file-name "recentf" user-emacs-directory)
+        recentf-auto-cleanup 'never
+        recentf-max-menu-items 0
+        recentf-max-saved-items 1000)
+
+  (add-hook 'dired-mode-hook
+            '(lambda ()
+              (recentf-add-file default-directory)))
+
+  (when IS-INTERACTIVE
+    (add-hook 'kill-emacs-hook #'recentf-cleanup)
+    (recentf-mode 1)))
 
 (use-package hydra)
 
