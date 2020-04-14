@@ -121,16 +121,17 @@
 (use-package evil
   :defer 0.1 ;; Prevents `evil-mode' from blocking Emacs during startup.
   :init
-  (setq evil-search-module 'evil-search
-        evil-ex-complete-emacs-commands nil
+  (setq-default evil-shift-width 2)
+
+  (setq evil-ex-complete-emacs-commands nil
         evil-vsplit-window-right t
         evil-split-window-below t
         evil-shiftround nil
-	      evil-shift-width 2
         evil-want-C-d-scroll nil
         evil-want-C-u-scroll nil
         evil-want-C-i-jump nil)
   :config
+  (evil-select-search-module 'evil-search-module 'evil-search)
 
   ;; Silence warning (:functions use-package property doesn't work for me for
   ;; some reason).
