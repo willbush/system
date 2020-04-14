@@ -1,5 +1,9 @@
 ;;; -*- lexical-binding: t; -*-
 
+
+;;
+;;; Editing Variables
+
 (setq electric-pair-pairs
   '(
     (?\( . ?\))
@@ -9,9 +13,65 @@
 
 (electric-pair-mode t)
 
+;; I don't want two spaces after my periods. This the affects behavior
+;; of `fill-paragraph' (among other things).
+(setq sentence-end-double-space nil)
+
+;; prevent indention inserting tabs
+(setq-default indent-tabs-mode nil
+              tab-width 2)
+
+;; fill-paragraph uses fill-column for the width at which to break lines
+(setq-default fill-column 80)
+
+;; Continue wrapped words at white-space, rather than in the middle of
+;; a word.
+(setq-default word-wrap t)
+
+;; ...but don't do any wrapping by default. It's expensive. Enable
+;; `visual-line-mode' if you want soft line-wrapping. `auto-fill-mode'
+;; for hard line-wrapping.
+(setq-default truncate-lines t)
+
+;; If enabled (and `truncate-lines' was disabled), soft wrapping no
+;; longer occurs when that window is less than
+;; `truncate-partial-width-windows' characters wide. We don't need
+;; this, and it's extra work for Emacs otherwise, so off it goes.
+(setq truncate-partial-width-windows nil)
+
+;; The POSIX standard defines a line is "a sequence of zero or more
+;; non-newline characters followed by a terminating newline", so files
+;; should end in a newline. Windows doesn't respect this (because it's
+;; Windows), but we should, since programmers' tools tend to be POSIX
+;; compliant.
+(setq require-final-newline t)
+
+;; Default to hard line-wrapping in text modes. Hard wrapping is more
+;; performant, and Emacs makes it trivially easy to reflow text with
+;; `fill-paragraph' and `evil-fill'.
+(add-hook 'text-mode-hook #'auto-fill-mode)
+
+;; Cull duplicates in the kill ring to reduce bloat and make the kill
+;; ring easier to peruse (with `counsel-yank-pop').
+(setq kill-do-not-save-duplicates t)
+
+;; Allow UTF or composed text from the clipboard, even in the terminal
+;; or on non-X systems (like Windows or macOS), where only `STRING' is
+;; used.
+(setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
+
+;;
+;;; Extra file extensions to support
+
+(push '("/LICENSE\\'" . text-mode) auto-mode-alist)
+(push '("\\.log\\'" . text-mode) auto-mode-alist)
+
+;;
+;;; Packages
+
 ;; Avoid performance issues in files with very long lines. Note that
-;; global-so-long-mode may cause esup to error when it visits a .elc file with
-;; long lines.
+;; global-so-long-mode may cause esup to error when it visits a .elc
+;; file with long lines.
 (use-package so-long
   :hook (after-init . global-so-long-mode))
 
@@ -59,13 +119,14 @@
   :commands evil-tutor-start)
 
 (use-package evil
-  :defer 0.01 ;; Prevents `evil-mode' from blocking Emacs during startup.
+  :defer 0.1 ;; Prevents `evil-mode' from blocking Emacs during startup.
   :init
   (setq evil-search-module 'evil-search
         evil-ex-complete-emacs-commands nil
         evil-vsplit-window-right t
         evil-split-window-below t
         evil-shiftround nil
+	      evil-shift-width 2
         evil-want-C-d-scroll nil
         evil-want-C-u-scroll nil
         evil-want-C-i-jump nil)
@@ -183,7 +244,6 @@
   ;; this will stomp on "g x" key binding which is `browse-url-at-point' by
   ;; default. I rebind this above.
   (evil-exchange-install)
-  ;; (evil-collection-init)
-  )
+  (evil-collection-init))
 
 (provide 'init-editing)
