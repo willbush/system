@@ -41,6 +41,9 @@
   :config
   (all-the-icons-ivy-setup))
 
+;; Used by Ivy to sort commands by frequency.
+(use-package smex :hook (after-init . smex-initialize))
+
 (use-package counsel
   :after ivy
   :config
