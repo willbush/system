@@ -119,7 +119,7 @@
   :commands evil-tutor-start)
 
 (use-package evil
-  :defer 0.1 ;; Prevents `evil-mode' from blocking Emacs during startup.
+  :hook (after-init . evil-mode)
   :init
   (setq-default evil-shift-width 2)
 
@@ -237,7 +237,6 @@
     "z i" 'evil-scroll-column-right
     "z m" 'evil-scroll-column-left)
 
-  (evil-mode)
   (global-evil-visualstar-mode)
   (global-evil-surround-mode 1)
   (global-evil-matchit-mode 1)
