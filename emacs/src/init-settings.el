@@ -68,7 +68,8 @@
 
 ;; keeps a faint highlight on the line of the point. Note I found there is a
 ;; cost to this being on where every vertical movement causes emacs takes up
-;; ~15% CPU.
+;; ~15% CPU. Edit: after changing some performance related settings, this is now
+;; closer to ~8 CPU. I find it worth having.
 (global-hl-line-mode 1)
 
 ;; follows symlinks without prompt when set to t
