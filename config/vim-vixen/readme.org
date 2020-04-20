@@ -1,0 +1,24 @@
+* Vim Vixen Config
+
+  I just backup my config here for the Firefox extension [[https://github.com/ueokande/vim-vixen][vim-vixen]]. I change the
+  default settings because I use a non-standard vim key bindings that I came up
+  with for Colemak-DHm.
+
+  I configure keymaps in the add-on’s preferences by navigating to
+  ~about:addons~, selecting “Extensions”, and pasting in the backed up config.
+
+  [[https://support.mozilla.org/en-US/products/firefox/sync][Firefox Sync]] keeps the config synced between devices automatically.
+
+
+** Config Notes
+
+   I delete key bindings I don't think I'll ever use.
+
+   Some of the key bindings I would use it they were dependable, but instead opt
+   for the default key bindings. One example, is switching and deleting tabs.
+   There are several places where vim-vixen just doesn't work due to API
+   limitations.
+
+   see:
+
+   https://github.com/ueokande/vim-vixen/issues/172
