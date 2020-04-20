@@ -119,7 +119,7 @@
   :commands evil-tutor-start)
 
 (use-package evil
-  :demand t
+  :demand t ;; demand due to general perf issues mentioned on `init-keys.el'
   :hook (after-init . evil-mode)
   :init
   (setq-default evil-shift-width 2)
