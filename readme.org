@@ -8,13 +8,14 @@
 
     My emacs configuration code. See its [[file:emacs/readme.org][readme]] for more information.
 
-*** config
-
-    Miscellaneous config files that are symlinked and managed with [[https://github.com/rycee/home-manager][home manager]].
-
 *** nixos
 
     For Nix and NixOS related things.
+
+**** nixos/config
+
+     Config files used in NixOS that are symlinked to ~/.config/~ and managed
+     with [[https://github.com/rycee/home-manager][home manager]].
 
 *** win
 
