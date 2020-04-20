@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t -*-
+;;; -*- lexical-binding: t -*-
 
 ;; A big contributor to startup times is garbage collection. We up the gc
 ;; threshold to temporarily prevent it from running, then reset it later using a
@@ -26,20 +26,11 @@
       (list
        "init-settings"
        "init-package"
+       ;; Put key binding packages high on the list so other files can also bind
+       ;; keys and define hydras.
+       "init-key-packages"
        "init-ui"
-
-       ;; Put key binding package high on the list so other files can also bind
-       ;; keys. The key binding package allows bindings keys before the
-       ;; functions they're bound to are defined.
-       "init-keys"
-
-       ;; This should also be high on the list because hydra is initialized here
-       ;; and packages below use hydras
        "init-completion"
-
-       ;; The order after this point shouldn't matter except perhaps funcs.
-       ;; which comes last. The functions file utilizes functions from packages
-       ;; that should have auto loads created before hand to avoid warnings.
        "init-editing"
        "init-prog-tools"
        "init-org"
@@ -51,4 +42,7 @@
        "init-scripting"
        "init-win-buffer-tools"
        "init-misc-tools"
-       "funcs"))
+       "funcs"
+       ;; This should come after evil due to performance issues see:
+       ;; https://github.com/noctuid/general.el/issues/180
+       "init-keys"))
