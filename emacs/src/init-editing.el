@@ -119,6 +119,7 @@
   :commands evil-tutor-start)
 
 (use-package evil
+  :demand t
   :hook (after-init . evil-mode)
   :init
   (setq-default evil-shift-width 2)

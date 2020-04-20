@@ -27,8 +27,6 @@
     (add-hook 'kill-emacs-hook #'recentf-cleanup)
     (recentf-mode 1)))
 
-(use-package hydra)
-
 (use-package ivy
   :defer 0.1
   :config
