@@ -23,7 +23,7 @@ in {
   };
 
   home.file = {
-    ".config".source = ../config;
+    ".config".source = ./config;
     ".config".recursive = true;
     ".xmonad/xmonad.hs".source = ../xmonad/xmonad.hs;
     # Outside of NixOS the dictionary directory needs to be set.
