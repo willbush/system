@@ -79,6 +79,7 @@ in {
     nixfmt
     okular
     openconnect
+    pavucontrol
     planck
     ranger
     remmina
