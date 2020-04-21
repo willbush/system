@@ -64,8 +64,8 @@ in {
     glances
     gnome3.gnome-screenshot
     gnupg
-    haskellPackages.apply-refact # used by hlint-refactor
-    haskellPackages.brittany
+    stable.haskellPackages.apply-refact # used by hlint-refactor
+    stable.haskellPackages.brittany
     haskellPackages.ghcid
     haskellPackages.hakyll
     haskellPackages.hasktags
