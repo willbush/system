@@ -68,6 +68,7 @@
   "bD" 'my/kill-all-buffers
   "bH" 'my/kill-all-buffers-then-switch-to-dashboard
   "bI" 'ibuffer
+  "bO" 'my/kill-other-windows-buffers
   "bb" 'ivy-switch-buffer
   "bd" 'my/kill-this-buffer
   "bh" 'my/switch-to-dashboard
