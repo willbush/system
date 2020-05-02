@@ -51,6 +51,18 @@ argument sorts in reverse order."
         (while (re-search-forward "^\\(.*\n\\)\\1+" end t)
           (replace-match "\\1"))))))
 
+;;;###autoload
+(defun my/dos2unix ()
+  "Convert the current buffer to a Unix file encoding."
+  (interactive)
+  (set-buffer-file-coding-system 'utf-8-unix nil))
+
+;;;###autoload
+(defun my/unix2dos ()
+  "Convert the current buffer to a DOS file encoding."
+  (interactive)
+  (set-buffer-file-coding-system 'utf-8-dos nil))
+
 ;; window / buffer related functions:
 
 ;;;###autoload
