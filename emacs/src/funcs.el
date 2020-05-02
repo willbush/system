@@ -196,6 +196,7 @@ Compare them on count first,and in case of tie sort them alphabetically."
       (abort-recursive-edit)
     (kill-buffer)))
 
+;;;###autoload
 (defun my/kill-other-windows-buffers ()
   "Kill all other windows and buffers"
   (interactive)
