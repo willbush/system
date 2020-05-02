@@ -183,6 +183,7 @@
   "xL" 'my/sort-lines-reverse
   "xR" 'my/randomize-words
   "xU" 'my/dos2unix
+  "xa" 'my/analyze-word-count
   "xc" 'my/sort-lines-by-column
   "xd" 'define-word-at-point
   "xl" 'my/sort-lines
