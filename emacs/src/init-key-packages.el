@@ -70,7 +70,6 @@
           compile
           cus-theme
           custom
-          deadgrep
           debug
           dired
           disk-usage
