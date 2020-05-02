@@ -107,6 +107,13 @@ argument sorts in reverse order."
       (abort-recursive-edit)
     (kill-buffer)))
 
+(defun my/kill-other-windows-buffers ()
+  "Kill all other windows and buffers"
+  (interactive)
+  (progn
+    (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
+    (delete-other-windows)))
+
 ;; http://camdez.com/blog/2013/11/14/emacs-show-buffer-file-name/
 ;;;###autoload
 (defun my/yank-and-show-buffer-full-path ()
@@ -122,7 +129,8 @@ argument sorts in reverse order."
 (defun my/toggle-maximize-window ()
   "Toggle between maximizing the window and restoring previous window setup."
   (interactive)
-  (if (and (= 1 (length (window-list))) (assoc ?_ register-alist))
+  (if (and (= 1 (length (window-list)))
+           (assoc ?_ register-alist))
       (jump-to-register ?_)
 
     (window-configuration-to-register ?_)
