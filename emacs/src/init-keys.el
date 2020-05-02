@@ -182,6 +182,8 @@
   "xc" 'my/sort-lines-by-column
   "xd" 'define-word-at-point
   "xl" 'my/sort-lines
-  "xu" 'my/uniquify-lines)
+  "xu" 'my/uniquify-lines
+  "xU" 'my/dos2unix
+  "xD" 'my/unix2dos)
 
 (provide 'init-keys)
