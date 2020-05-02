@@ -1,5 +1,7 @@
 ;;; -*- lexical-binding: t; -*-
 
+(require 'cl-lib)
+
 ;; silence warning
 (declare-function evil-visual-state-p "evil-states")
 
@@ -95,6 +97,48 @@ argument sorts in reverse order."
            (mapcar 'cdr
                    (sort (mapcar (lambda (x) (cons (random) (concat x "\n"))) lines)
                          (lambda (a b) (< (car a) (car b))))))))
+
+;; from http://www.emacswiki.org/emacs/WordCount
+;;;###autoload
+(defun my/analyze-word-count (start end)
+  "Count how many times each word is used in the region.
+Punctuation is ignored."
+  (interactive "r")
+  (let (words
+        alist_words_compare
+        (formatted "")
+        (overview (call-interactively 'count-words)))
+    (save-excursion
+      (goto-char start)
+      (while (re-search-forward "\\w+" end t)
+        (let* ((word (intern (match-string 0)))
+               (cell (assq word words)))
+          (if cell
+              (setcdr cell (1+ (cdr cell)))
+            (setq words (cons (cons word 1) words))))))
+    (defun alist_words_compare (a b)
+      "Compare elements from an associative list of words count.
+Compare them on count first,and in case of tie sort them alphabetically."
+      (let ((a_key (car a))
+            (a_val (cdr a))
+            (b_key (car b))
+            (b_val (cdr b)))
+        (if (eq a_val b_val)
+            (string-lessp a_key b_key)
+          (> a_val b_val))))
+    (setq words (cl-sort words 'alist_words_compare))
+    (while words
+      (let* ((word (pop words))
+             (name (car word))
+             (count (cdr word)))
+        (setq formatted (concat formatted (format "[%s: %d], " name count)))))
+    (when (interactive-p)
+      (if (> (length formatted) 2)
+          (message (format "%s\nWord count: %s"
+                           overview
+                           (substring formatted 0 -2)))
+        (message "No words.")))
+    words))
 
 ;;;###autoload
 (defun my/dos2unix ()
