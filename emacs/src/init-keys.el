@@ -179,12 +179,14 @@
   "wx" 'my/toggle-maximize-window
   "x" '(:ignore t :wk "text manipulation")
   "xC" 'my/sort-lines-by-column-reverse
+  "xD" 'my/unix2dos
   "xL" 'my/sort-lines-reverse
+  "xR" 'my/randomize-words
+  "xU" 'my/dos2unix
   "xc" 'my/sort-lines-by-column
   "xd" 'define-word-at-point
   "xl" 'my/sort-lines
-  "xu" 'my/uniquify-lines
-  "xU" 'my/dos2unix
-  "xD" 'my/unix2dos)
+  "xr" 'my/randomize-lines
+  "xu" 'my/uniquify-lines)
 
 (provide 'init-keys)
