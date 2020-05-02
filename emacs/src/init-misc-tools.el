@@ -8,7 +8,27 @@
   :config
   (setq swiper-goto-start-of-match t))
 
-(use-package deadgrep :commands deadgrep)
+(use-package deadgrep
+  :commands deadgrep
+  :config
+  (general-def
+    :states 'normal
+    :keymaps 'deadgrep-mode-map
+    "RET" 'deadgrep-visit-result
+    "S-RET" 'deadgrep-visit-result-other-window
+    "go" 'deadgrep-visit-result-other-window
+    "gr" 'deadgrep-restart
+    "C-n" 'deadgrep-forward
+    "C-e" 'deadgrep-backward
+    "TAB" 'deadgrep-toggle-file-results
+    "l" 'deadgrep-edit-mode ;; similar to how dired works
+    "q" 'quit-window)
+
+  (general-def
+    :states 'normal
+    :keymaps 'deadgrep-edit-mode-map
+    "RET" 'deadgrep-visit-result
+    "<escape>" 'deadgrep-mode))
 
 (use-package esup :commands esup)
 
