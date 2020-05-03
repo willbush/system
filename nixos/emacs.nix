@@ -103,9 +103,10 @@ in {
         rm ~/.emacs.d/src/*.elc -fv
 
         # This will incorrectly report warnings if .elc files exists before
-        # running this. I did test that this is still correctly reporting warnings when
-        # the .elc files are removed.
-        emacs -q -nw -l ~/.emacs.d/init.el -batch -f batch-byte-compile ~/.emacs.d/*init.el ~/.emacs.d/src/*.el
+        # running this. I did test that this is still correctly reporting
+        # warnings when the .elc files are removed.
+        emacs -Q -l ~/.emacs.d/early-init.el -l ~/.emacs.d/init.el \
+          -batch -f batch-byte-compile ~/.emacs.d/*init.el ~/.emacs.d/src/*.el
       '';
     };
   };
