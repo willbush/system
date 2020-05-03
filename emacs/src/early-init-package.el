@@ -27,8 +27,7 @@
   ;; ensure everything is installed
   (setq use-package-always-ensure t))
 
-;; Despite the `use-package' README suggesting that this be wrapped in an
-;; `eval-when-compile', that causes issues for me when I byte compile my config.
-(require 'use-package)
+(eval-when-compile
+  (require 'use-package))
 
 (provide 'early-init-package)
