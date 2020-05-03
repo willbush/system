@@ -17,7 +17,6 @@ in {
         all-the-icons-ivy
         avy
         company
-        company-nixos-options
         company-tabnine
         counsel
         counsel-projectile
@@ -67,9 +66,7 @@ in {
         nix-mode
         nix-sandbox
         nix-update
-        org-re-reveal
         pdf-tools
-        poporg
         powershell
         projectile
         rainbow-delimiters
