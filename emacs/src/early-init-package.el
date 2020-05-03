@@ -8,7 +8,8 @@
 ;; When on Windows I use `package.el' to install packages. Otherwise, I I'm on
 ;; Linux and use an external tool called home-manager.
 (when IS-WINDOWS
-  (require 'package)
+  (eval-when-compile
+    (require 'package))
 
   (add-to-list 'package-archives
                '("melpa" . "https://melpa.org/packages/"))
