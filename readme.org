@@ -22,6 +22,10 @@
     For things that are only used in Windows are kept here. See its [[file:win/readme.org][readme]] for
     more information.
 
+*** config
+
+    Miscellaneous configuration files.
+
 * Keyboard Firmware - Planck layout
 
   The [[https://olkb.com/planck][Planck]] keyboard uses [[https://github.com/qmk/qmk_firmware/][qmk_firmware]] and I have my keymap code In the
