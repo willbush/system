@@ -127,7 +127,9 @@ git-timemachine-mode:
   ;; flycheck doesn't enable hlint there because it's only enabled for
   ;; haskell-mode. One can see that with `M-x flycheck-describe-checker
   ;; haskell-hlint'
-  (flycheck-add-next-checker 'lsp '(warning . haskell-hlint))
+  (add-hook 'lsp-after-initialize-hook
+            (lambda ()
+              (flycheck-add-next-checker 'lsp-ui '(warning . haskell-hlint))))
 
   (general-def
     :states 'normal

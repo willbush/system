@@ -1,13 +1,15 @@
 ;;; -*- lexical-binding: t; -*-
 
+;;
+;;; Global Constants
+
+(defconst IS-MAC     (eq system-type 'darwin))
+(defconst IS-LINUX   (eq system-type 'gnu/linux))
+(defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
+(defconst IS-INTERACTIVE (not noninteractive))
+
 ;; Defer garbage collection further back in the startup process
 (setq gc-cons-threshold most-positive-fixnum)
-
-;; In Emacs 27+, package initialization occurs before `user-init-file' is
-;; loaded, but after `early-init-file'. Nix handles package initialization, so
-;; we must prevent Emacs from doing it early!
-(setq package-enable-at-startup nil)
-(advice-add #'package--ensure-init-file :override #'ignore)
 
 ;; Prevent the glimpse of un-styled Emacs by disabling these UI elements early.
 (push '(menu-bar-lines . 0) default-frame-alist)
@@ -30,3 +32,45 @@
 ;; in this file and can conflict with later config (particularly where the
 ;; cursor color is concerned).
 (advice-add #'x-apply-session-resources :override #'ignore)
+
+(add-to-list 'load-path (expand-file-name "src/" user-emacs-directory))
+
+(require 'early-init-package)
+
+;; Set `doom-themes' early to prevent non-stylized UI flash.
+(use-package doom-themes
+  :config
+  ;; Apply `doom-theme'
+  (load-theme 'doom-outrun-electric t))
+
+;; Set `doom-modeline' early to prevent non-stylized UI flash.
+;; Note: `doom-modeline' requires M-x all-the-icons-install-fonts.
+(use-package doom-modeline
+  :config
+  (setq doom-modeline-icon t
+        doom-modeline-major-mode-color-icon t
+        doom-modeline-buffer-file-name-style 'truncate-upto-root)
+  (doom-modeline-mode 1)
+  (size-indication-mode 1)
+  (column-number-mode 1))
+
+(use-package dashboard
+  :init
+  (setq initial-buffer-choice
+       (lambda ()
+         (or (get-buffer "*dashboard*") (get-buffer "*scratch*"))))
+  :config
+  (setq dashboard-banner-logo-title nil
+       dashboard-set-heading-icons t
+       dashboard-set-file-icons t
+       dashboard-items '((recents  . 5)
+                          (projects . 5)))
+  ;; This is the default icon, but it doesn't always show up when running Emacs
+  ;; as a daemon. So I set it explicitly here to fix the issue.
+  (setq dashboard-footer-icon
+    #("" 0 1
+      (rear-nonsticky t display
+                      (raise -0.06)
+                      font-lock-face #1=(:family "file-icons" :height 1.32 :inherit font-lock-keyword-face)
+                      face #1#)))
+ (dashboard-setup-startup-hook))
