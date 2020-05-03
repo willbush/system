@@ -98,14 +98,13 @@ argument sorts in reverse order."
                    (sort (mapcar (lambda (x) (cons (random) (concat x "\n"))) lines)
                          (lambda (a b) (< (car a) (car b))))))))
 
-;; from http://www.emacswiki.org/emacs/WordCount
+;; from Spacemacs which took from http://www.emacswiki.org/emacs/WordCount
 ;;;###autoload
 (defun my/analyze-word-count (start end)
   "Count how many times each word is used in the region.
 Punctuation is ignored."
   (interactive "r")
   (let (words
-        alist_words_compare
         (formatted "")
         (overview (call-interactively 'count-words)))
     (save-excursion
@@ -132,7 +131,7 @@ Compare them on count first,and in case of tie sort them alphabetically."
              (name (car word))
              (count (cdr word)))
         (setq formatted (concat formatted (format "[%s: %d], " name count)))))
-    (when (interactive-p)
+    (when (called-interactively-p 'interactive)
       (if (> (length formatted) 2)
           (message (format "%s\nWord count: %s"
                            overview

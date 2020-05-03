@@ -8,6 +8,10 @@
 (use-package which-key
   :defer 0.1
   :init
+  ;; Silence warning (:defer causes byte compile warnings)
+  (declare-function which-key-prefix-then-key-order "which-key")
+  (declare-function which-key-mode "which-key")
+
   (setq which-key-sort-order #'which-key-prefix-then-key-order
         which-key-sort-uppercase-first nil
         which-key-add-column-padding 1

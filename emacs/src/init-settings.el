@@ -196,11 +196,6 @@
 ;; been determined, but we inhibit it there anyway.
 (setq inhibit-compacting-font-caches t)
 
-;; Performance on Windows is considerably worse than elsewhere, especially if
-;; WSL is involved. We'll need everything we can get.
-(when IS-WINDOWS
-  (setq w32-get-true-file-attributes nil)) ; slightly faster IO
-
 ;; Remove command line options that aren't relevant to our current OS; means
 ;; slightly less to process at startup.
 (unless IS-MAC   (setq command-line-ns-option-alist nil))
