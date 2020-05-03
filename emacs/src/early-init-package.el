@@ -31,4 +31,4 @@
 ;; `eval-when-compile', that causes issues for me when I byte compile my config.
 (require 'use-package)
 
-(provide 'init-package)
+(provide 'early-init-package)
