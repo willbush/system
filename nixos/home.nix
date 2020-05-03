@@ -58,7 +58,6 @@ in {
     du-dust
     exa
     firefox-beta-bin
-    fzf
     gcc
     gimp
     glances
@@ -132,6 +131,13 @@ in {
     enable = true;
     userName = "willbush";
     userEmail = "will.g.bush@gmail.com";
+  };
+
+  programs.fzf = {
+    enable = true;
+    # defaults to true, but I want to make it explicit because installing fzf
+    # this way is different than putting it in the home.packages list.
+    enableZshIntegration = true;
   };
 
   programs.zsh = {
