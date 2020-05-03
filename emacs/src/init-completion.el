@@ -30,6 +30,9 @@
 (use-package ivy
   :defer 0.1
   :config
+  ;; Silence warning (:defer causes byte compile warnings)
+  (declare-function ivy-mode "ivy")
+
   (setq ivy-use-virtual-buffers t)
   (setq ivy-display-style 'fancy)
   (ivy-mode 1))
@@ -37,6 +40,8 @@
 (use-package all-the-icons-ivy
   :after ivy
   :config
+  ;; Silence warning (ivy's :defer causes byte compile warnings)
+  (declare-function all-the-icons-ivy-setup "all-the-icons-ivy-setup")
   (all-the-icons-ivy-setup))
 
 ;; Used by Ivy to sort commands by frequency.
@@ -45,6 +50,9 @@
 (use-package counsel
   :after ivy
   :config
+  ;; Silence warning (ivy's :defer causes byte compile warnings)
+  (declare-function counsel-mode "counsel")
+
   (setq counsel-git-cmd "rg --files"
         counsel-grep-base-command
           "rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s %s"
@@ -56,6 +64,9 @@
 (use-package company
   :defer 0.1
   :config
+  ;; Silence warning (:defer causes byte compile warnings)
+  (declare-function global-company-mode "company")
+
   (setq company-idle-delay 0
         company-minimum-prefix-length 1
         company-show-numbers t)
@@ -65,11 +76,18 @@
 (use-package company-tabnine
   :after company
   :config
+  ;; Silence warning (company's :defer causes byte compile warnings)
+  (declare-function company-tabnine "company-tabnine")
+
   (add-to-list 'company-backends #'company-tabnine))
 
 (use-package counsel-projectile
   :defer 0.1
   :config
+  ;; Silence warning (:defer causes byte compile warnings)
+  (declare-function counsel-projectile-switch-project "counsel-projectile")
+  (declare-function counsel-projectile-mode "counsel-projectile")
+
   ;; This can also be accomplished by invoking
   ;; `counsel-projectile-switch-project' then `M-o D', but I want to make it
   ;; easier.

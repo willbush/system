@@ -60,6 +60,7 @@
    flyspell-correct-next
    flyspell-correct-previous)
   :init
+  (declare-function flyspell-correct-ivy "flyspell-correct-ivy")
   (setq flyspell-correct-interface #'flyspell-correct-ivy))
 
 ;; A frontend for weather web service wttr.in
