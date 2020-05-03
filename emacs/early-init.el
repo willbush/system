@@ -35,7 +35,7 @@
 
 (add-to-list 'load-path (expand-file-name "src/" user-emacs-directory))
 
-(require 'init-package)
+(require 'early-init-package)
 
 ;; Set `doom-themes' early to prevent non-stylized UI flash.
 (use-package doom-themes
