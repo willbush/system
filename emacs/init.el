@@ -19,13 +19,10 @@
           gc-cons-percentage 0.1
           file-name-handler-alist default-file-name-handler-alist)))
 
-(add-to-list 'load-path (expand-file-name "src/" user-emacs-directory))
-
 ;; order matters in the initialization process.
 (mapc 'load
       (list
        "init-settings"
-       "init-package"
        ;; Put key binding packages high on the list so other files can also bind
        ;; keys and define hydras.
        "init-key-packages"

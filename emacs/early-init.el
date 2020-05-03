@@ -1,12 +1,15 @@
 ;;; -*- lexical-binding: t; -*-
 
+;;
+;;; Global Constants
+
+(defconst IS-MAC     (eq system-type 'darwin))
+(defconst IS-LINUX   (eq system-type 'gnu/linux))
+(defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
+(defconst IS-INTERACTIVE (not noninteractive))
+
 ;; Defer garbage collection further back in the startup process
 (setq gc-cons-threshold most-positive-fixnum)
-
-;; In Emacs 27+, package initialization occurs before `user-init-file' is
-;; loaded, but after `early-init-file'. Nix handles package initialization, so
-;; we must prevent Emacs from doing it early!
-(setq package-enable-at-startup nil)
 
 ;; Prevent the glimpse of un-styled Emacs by disabling these UI elements early.
 (push '(menu-bar-lines . 0) default-frame-alist)
@@ -30,7 +33,9 @@
 ;; cursor color is concerned).
 (advice-add #'x-apply-session-resources :override #'ignore)
 
-(require 'use-package)
+(add-to-list 'load-path (expand-file-name "src/" user-emacs-directory))
+
+(require 'init-package)
 
 ;; Set `doom-themes' early to prevent non-stylized UI flash.
 (use-package doom-themes
