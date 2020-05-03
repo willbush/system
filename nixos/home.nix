@@ -23,7 +23,7 @@ in {
   };
 
   home.file = {
-    ".config".source = ../config;
+    ".config".source = ./config;
     ".config".recursive = true;
     ".xmonad/xmonad.hs".source = ../xmonad/xmonad.hs;
     # Outside of NixOS the dictionary directory needs to be set.
@@ -58,14 +58,13 @@ in {
     du-dust
     exa
     firefox-beta-bin
-    fzf
     gcc
     gimp
     glances
     gnome3.gnome-screenshot
     gnupg
-    haskellPackages.apply-refact # used by hlint-refactor
-    haskellPackages.brittany
+    stable.haskellPackages.apply-refact # used by hlint-refactor
+    stable.haskellPackages.brittany
     haskellPackages.ghcid
     haskellPackages.hakyll
     haskellPackages.hasktags
@@ -79,6 +78,7 @@ in {
     nixfmt
     okular
     openconnect
+    pavucontrol
     planck
     ranger
     remmina
@@ -131,6 +131,13 @@ in {
     enable = true;
     userName = "willbush";
     userEmail = "will.g.bush@gmail.com";
+  };
+
+  programs.fzf = {
+    enable = true;
+    # This defaults to true, but I want to make it explicit because installing
+    # fzf this way is different than putting it in the home.packages list.
+    enableZshIntegration = true;
   };
 
   programs.zsh = {

@@ -1,12 +1,8 @@
 ;;; -*- lexical-binding: t; -*-
 
-(use-package which-key
-  :config (which-key-mode 1))
-
-(use-package general)
-
 ;; Global Bindings
 (general-def
+  "M-x" 'counsel-M-x
   ;; zoom in and out
   "C-+" 'text-scale-increase
   "C--" 'text-scale-decrease
@@ -20,7 +16,12 @@
   :keymaps 'evil-visual-state-map
   "r" 'hydra-expand-region/body)
 
-;; Leader key bindings
+;;
+;;; Leader key bindings
+
+;; This should come after evil due to performance issues see:
+;; https://github.com/noctuid/general.el/issues/180. Note that simply wrapping
+;; this in a `evil-after-load-hook' doesn't work.
 (general-def
   :prefix "SPC"
   :non-normal-prefix "M-SPC"
@@ -67,6 +68,7 @@
   "bD" 'my/kill-all-buffers
   "bH" 'my/kill-all-buffers-then-switch-to-dashboard
   "bI" 'ibuffer
+  "bO" 'my/kill-other-windows-buffers
   "bb" 'ivy-switch-buffer
   "bd" 'my/kill-this-buffer
   "bh" 'my/switch-to-dashboard
@@ -140,7 +142,7 @@
   "rl" 'counsel-load-theme
   "rs" 'save-buffer
   "s" '(:ignore t :wk "search")
-  "sD" 'my/counsel-rg-directory
+  "sD" '(counsel-rg :wk "counsel-rg-directory")
   "sc" 'evil-ex-nohighlight ;; mnemonic is search clear
   "sd" 'deadgrep
   "so" 'counsel-outline
@@ -177,79 +179,15 @@
   "wx" 'my/toggle-maximize-window
   "x" '(:ignore t :wk "text manipulation")
   "xC" 'my/sort-lines-by-column-reverse
+  "xD" 'my/unix2dos
   "xL" 'my/sort-lines-reverse
+  "xR" 'my/randomize-words
+  "xU" 'my/dos2unix
+  "xa" 'my/analyze-word-count
   "xc" 'my/sort-lines-by-column
   "xd" 'define-word-at-point
   "xl" 'my/sort-lines
+  "xr" 'my/randomize-lines
   "xu" 'my/uniquify-lines)
-
-;; evil-collection will give a warning if the following setting is not set
-;; before loading evil and evil-collection. Note that evil-leader loads evil
-;; see: https://github.com/emacs-evil/evil-collection/issues/215 Also even if
-;; this is in the :init block it will still given the warning when lazy loading
-;; evil.
-(setq evil-want-keybinding nil)
-
-(defun my/custom-evil-collection-bindings (mode mode-keymaps &rest _rest)
-  (cond ((eq mode 'dired)
-         ;; dired key bindings
-         (general-def
-           :states 'normal
-           :keymaps 'dired-mode-map
-           ;; remove evil mode shadows
-           "i" nil ;; was 'dired-toggle-read-only
-           "m" nil ;; was 'dired-mark
-           "j" nil ;; was 'dired-next-line
-           "^" nil ;; was 'dired-up-directory
-           "r" nil ;; was 'dired-do-redisplay
-           "R" nil ;; was 'dired-do-rename
-           ;; rebind things better to my custom evil keys
-           "l" 'dired-toggle-read-only
-           "k" 'dired-mark
-           "n" 'dired-next-line
-           "e" 'dired-previous-line
-           "C-e" 'dired-up-directory
-           "v" 'dired-do-rename))
-        ;; default case make some blind key swaps for my custom evil keys.
-        ;;
-        ;; Note this does not work for `ediff-mode' because evil-collection
-        ;; doesn't apply key bindings until after `ediff-startup-hook'.
-        (t (evil-collection-swap-key 'normal mode-keymaps
-             "m" "h" ;; left
-             "n" "j" ;; down
-             "e" "k" ;; up
-             "i" "l" ;; right
-             "r" "v" ;; range (old name visual)
-             (kbd "C-n") (kbd "C-j")
-             (kbd "C-e") (kbd "C-k")))))
-
-;; A collection of evil key bindings for various modes
-(use-package evil-collection
-  :commands evil-collection-init
-  :custom (evil-collection-setup-minibuffer t)
-  :init
-  (setq evil-collection-mode-list
-        '(calendar
-          (package-menu package)
-          (pdf pdf-view)
-          (term term ansi-term multi-term)
-          compile
-          cus-theme
-          custom
-          deadgrep
-          debug
-          dired
-          disk-usage
-          elfeed
-          help
-          info
-          ivy
-          man
-          minibuffer
-          woman))
-
-  ;; called after evil-collection makes its keybindings
-  ;; https://github.com/emacs-evil/evil-collection#key-translation
-  (add-hook 'evil-collection-setup-hook #'my/custom-evil-collection-bindings))
 
 (provide 'init-keys)
