@@ -2,17 +2,9 @@
 ;; Most settings here are taken from or at least inspired by Doom Emacs.
 
 ;;
-;;; Global Constants
-
-(defconst IS-MAC     (eq system-type 'darwin))
-(defconst IS-LINUX   (eq system-type 'gnu/linux))
-(defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
-(defconst IS-BSD     (or IS-MAC (eq system-type 'berkeley-unix)))
-(defconst IS-INTERACTIVE (not noninteractive))
-(defconst MIN-EMACS-VERSION "27")
-
-;;
 ;;; Support Validation
+
+(defconst MIN-EMACS-VERSION "27")
 
 (when (version< emacs-version MIN-EMACS-VERSION)
   (error "Detected Emacs %s. This config supports Emacs %s and higher."
