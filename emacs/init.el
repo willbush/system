@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t -*-
+;;; -*- lexical-binding: t -*-
 
 ;; A big contributor to startup times is garbage collection. We up the gc
 ;; threshold to temporarily prevent it from running, then reset it later using a
@@ -15,32 +15,19 @@
 ;; Reset file-name-handler-alist after initialization
 (add-hook 'emacs-startup-hook
   (lambda ()
-    (setq gc-cons-threshold 16777216
+    (setq gc-cons-threshold 16777216 ;; ~16Mb
           gc-cons-percentage 0.1
           file-name-handler-alist default-file-name-handler-alist)))
 
-(add-to-list 'load-path (expand-file-name "src/" user-emacs-directory))
-
-;; I only use and test this configuration on Linux and Windows, so this being
-;; false implies the system is Linux.
-(defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
-
 ;; order matters in the initialization process.
-(setq files-to-load
+(mapc 'load
       (list
-       ;; setup package management before everything
-       "init-package"
-       ;; Put key binding package high on the list so other files can also bind
-       ;; keys. The key binding package allows bindings keys before the
-       ;; functions they're bound to are defined.
-       "init-keys"
-       ;; This should also be high on the list because hydra is initialized here
-       ;; and packages below use hydras
-       "init-completion"
-       ;; The order after this point shouldn't matter except perhaps funcs.
-       ;; which comes last. The functions file utilizes functions from packages
-       ;; that should have auto loads created before hand to avoid warnings.
        "init-settings"
+       ;; Put key binding packages high on the list so other files can also bind
+       ;; keys and define hydras.
+       "init-key-packages"
+       "init-ui"
+       "init-completion"
        "init-editing"
        "init-prog-tools"
        "init-org"
@@ -52,13 +39,7 @@
        "init-scripting"
        "init-win-buffer-tools"
        "init-misc-tools"
-       "init-ui"
-       "funcs"))
-
-(mapc 'load files-to-load)
-
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(if (file-exists-p custom-file)
-    (load custom-file)
-  ;; Create an empty custom file if it's not present.
-  (write-region "" nil custom-file))
+       "funcs"
+       ;; This should come after evil due to performance issues see:
+       ;; https://github.com/noctuid/general.el/issues/180
+       "init-keys"))

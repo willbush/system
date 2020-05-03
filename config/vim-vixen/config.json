@@ -1,0 +1,66 @@
+{
+  "keymaps": {
+    ":": { "type": "command.show" },
+    "o": { "type": "command.show.open", "alter": false },
+    "O": { "type": "command.show.open", "alter": true },
+    "t": { "type": "command.show.tabopen", "alter": false },
+    "T": { "type": "command.show.tabopen", "alter": true },
+    "w": { "type": "command.show.winopen", "alter": false },
+    "W": { "type": "command.show.winopen", "alter": true },
+    "b": { "type": "command.show.buffer" },
+    "a": { "type": "command.show.addbookmark", "alter": true },
+    "e": { "type": "scroll.vertically", "count": -1 },
+    "n": { "type": "scroll.vertically", "count": 1 },
+    "m": { "type": "scroll.horizonally", "count": -1 },
+    "i": { "type": "scroll.horizonally", "count": 1 },
+    "E": { "type": "scroll.pages", "count": -0.5 },
+    "N": { "type": "scroll.pages", "count": 0.5 },
+    "gg": { "type": "scroll.top" },
+    "G": { "type": "scroll.bottom" },
+    "$": { "type": "scroll.end" },
+    "u": { "type": "tabs.reopen" },
+    "r": { "type": "tabs.reload", "cache": false },
+    "R": { "type": "tabs.reload", "cache": true },
+    "zp": { "type": "tabs.pin.toggle" },
+    "zd": { "type": "tabs.duplicate" },
+    "zi": { "type": "zoom.in" },
+    "zo": { "type": "zoom.out" },
+    "zz": { "type": "zoom.neutral" },
+    "f": { "type": "follow.start", "newTab": false },
+    "F": { "type": "follow.start", "newTab": true, "background": false },
+    "k": { "type": "mark.set.prefix" },
+    "j": { "type": "mark.jump.prefix" },
+    "M": { "type": "navigate.history.prev" },
+    "I": { "type": "navigate.history.next" },
+    "[[": { "type": "navigate.link.prev" },
+    "]]": { "type": "navigate.link.next" },
+    "gu": { "type": "navigate.parent" },
+    "gU": { "type": "navigate.root" },
+    "gi": { "type": "focus.input" },
+    "gs": { "type": "page.source" },
+    "gh": { "type": "page.home" },
+    "gH": { "type": "page.home", "newTab": true },
+    "y": { "type": "urls.yank" },
+    "p": { "type": "urls.paste", "newTab": false },
+    "P": { "type": "urls.paste", "newTab": true },
+    "/": { "type": "find.start" },
+    "h": { "type": "find.next" },
+    "H": { "type": "find.prev" },
+    ".": { "type": "repeat.last" },
+    "<S-Esc>": { "type": "addon.toggle.enabled" }
+  },
+  "search": {
+    "default": "duckduckgo",
+    "engines": {
+      "duckduckgo": "https://duckduckgo.com/?q={}",
+      "google": "https://google.com/search?q={}"
+    }
+  },
+  "properties": {
+    "hintchars": "abcdefghijklmnopqrstuvwxyz",
+    "smoothscroll": true,
+    "complete": "sbh"
+  },
+  "blacklist": [
+  ]
+}

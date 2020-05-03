@@ -1,60 +1,92 @@
 ;;; -*- lexical-binding: t; -*-
 
-(use-package ivy
-  :hook (after-init . ivy-mode)
+;; Keep track of recently opened files
+(use-package recentf
+  :ensure nil ;; is included in Emacs.
   :config
+  (defun my/recent-file-truename (file)
+    (if (or (file-remote-p file nil t)
+            (not (file-remote-p file)))
+        (file-truename file)
+      file))
+
+  (setq recentf-filename-handlers
+        '(substring-no-properties ;; strip out lingering text properties
+          my/recent-file-truename ;; resolve symlinks of local files
+          abbreviate-file-name)   ;; replace $HOME with ~
+        recentf-save-file (expand-file-name "recentf" user-emacs-directory)
+        recentf-auto-cleanup 'never
+        recentf-max-menu-items 0
+        recentf-max-saved-items 1000)
+
+  (add-hook 'dired-mode-hook
+            '(lambda ()
+              (recentf-add-file default-directory)))
+
+  (when IS-INTERACTIVE
+    (add-hook 'kill-emacs-hook #'recentf-cleanup)
+    (recentf-mode 1)))
+
+(use-package ivy
+  :defer 0.1
+  :config
+  ;; Silence warning (:defer causes byte compile warnings)
+  (declare-function ivy-mode "ivy")
+
   (setq ivy-use-virtual-buffers t)
-  (setq ivy-display-style 'fancy))
+  (setq ivy-display-style 'fancy)
+  (ivy-mode 1))
 
 (use-package all-the-icons-ivy
   :after ivy
   :config
+  ;; Silence warning (ivy's :defer causes byte compile warnings)
+  (declare-function all-the-icons-ivy-setup "all-the-icons-ivy-setup")
   (all-the-icons-ivy-setup))
+
+;; Used by Ivy to sort commands by frequency.
+(use-package smex :hook (after-init . smex-initialize))
 
 (use-package counsel
   :after ivy
-  :bind (("C-c C-r" . ivy-resume))
   :config
-  ;; make mnemonic alias for how I want to bind it
-  (defalias 'my/counsel-rg-directory 'counsel-rg)
-  (global-set-key (kbd "M-x") 'counsel-M-x)
+  ;; Silence warning (ivy's :defer causes byte compile warnings)
+  (declare-function counsel-mode "counsel")
+
   (setq counsel-git-cmd "rg --files"
         counsel-grep-base-command
           "rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s %s"
         counsel-rg-base-command
-          "rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s ."))
+        "rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s .")
 
-
-;; increasing recentf max items for better ivy-switch-buffer completion
-(use-package recentf
-  :functions recentf-mode
-  :config
-  (recentf-mode 1)
-  (setq recentf-max-menu-items 1000
-        recentf-max-saved-items 1000))
+  (counsel-mode 1))
 
 (use-package company
-  :hook (after-init . global-company-mode)
-  :bind (:map company-active-map
-         ("C-n" . company-select-next)
-         ("C-p" . company-select-previous))
+  :defer 0.1
   :config
+  ;; Silence warning (:defer causes byte compile warnings)
+  (declare-function global-company-mode "company")
+
   (setq company-idle-delay 0
         company-minimum-prefix-length 1
-        company-show-numbers t))
+        company-show-numbers t)
+
+  (global-company-mode 1))
 
 (use-package company-tabnine
+  :after company
   :config
+  ;; Silence warning (company's :defer causes byte compile warnings)
+  (declare-function company-tabnine "company-tabnine")
+
   (add-to-list 'company-backends #'company-tabnine))
 
 (use-package counsel-projectile
-  ;; When this loads, projectile will also load. It would be nice if I could use
-  ;; `:commands projectile-command-map'. However, commands expects a function
-  ;; and not a key map. `:keymap' exists for this case, but I can't figure out
-  ;; how to bind it they way I want and where I want (not here). So just load
-  ;; after init.
-  :hook (after-init . counsel-projectile-mode)
+  :defer 0.1
   :config
+  ;; Silence warning (:defer causes byte compile warnings)
+  (declare-function counsel-projectile-switch-project "counsel-projectile")
+  (declare-function counsel-projectile-mode "counsel-projectile")
 
   ;; This can also be accomplished by invoking
   ;; `counsel-projectile-switch-project' then `M-o D', but I want to make it
@@ -64,22 +96,22 @@
     (interactive)
     (counsel-projectile-switch-project "D"))
 
-  ;; rebind `evil-goto-definition' for Haskell mode.
   (general-def
     :keymaps 'projectile-command-map
     "P" 'my/counsel-projectile-switch-project-dired
     ;; Was bound to P. Rebind it.
-    "Z" 'projectile-test-project))
+    "Z" 'projectile-test-project)
+
+  ;; `counsel-projectile-mode' enables `projectile-mode'
+  (counsel-projectile-mode 1))
 
 (use-package projectile
   :commands projectile-mode
   :config
-  (projectile-mode +1)
   ;; The default uses Emacs Lisp in Windows, which way too slow for large
   ;; projects.
-  (setq projectile-indexing-method 'alien))
-
-(use-package hydra)
+  (setq projectile-indexing-method 'alien
+        projectile-completion-system 'ivy))
 
 (use-package fd-dired :commands fd-dired)
 
