@@ -135,8 +135,8 @@ in {
 
   programs.fzf = {
     enable = true;
-    # defaults to true, but I want to make it explicit because installing fzf
-    # this way is different than putting it in the home.packages list.
+    # This defaults to true, but I want to make it explicit because installing
+    # fzf this way is different than putting it in the home.packages list.
     enableZshIntegration = true;
   };
 
