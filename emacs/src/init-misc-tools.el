@@ -149,4 +149,21 @@
     "[[" 'WoMan-previous-manpage
     "gr" 'woman-reformat-last-file))
 
+(use-package cus-edit
+  :ensure nil ;; included in Emacs.
+  :after evil
+  :config
+  (evil-set-initial-state 'Custom-mode 'normal)
+  (general-def
+    :states 'normal
+    :keymaps 'custom-mode-map
+    "<delete>" 'scroll-down-command
+    "RET" 'Custom-newline
+    "<tab>" 'widget-forward
+    "<backtab>" 'widget-backward
+    "S-<tab>" 'widget-backward
+    "C-e" 'Custom-goto-parent
+    "C-o" 'Custom-goto-parent
+    "q" 'Custom-buffer-done))
+
 (provide 'init-misc-tools)
