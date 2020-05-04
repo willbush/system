@@ -105,4 +105,16 @@
         '("http://nullprogram.com/feed/"
           "http://planet.emacsen.org/atom.xml")))
 
+(use-package woman
+  :ensure nil ;; included in Emacs.
+  :after evil
+  :config
+  (evil-set-initial-state 'woman-mode 'normal)
+  (general-def
+    :states 'normal
+    :keymaps 'woman-mode-map
+    "]]" 'WoMan-next-manpage
+    "[[" 'WoMan-previous-manpage
+    "gr" 'woman-reformat-last-file))
+
 (provide 'init-misc-tools)
