@@ -47,7 +47,6 @@
           help
           info
           ivy
-          man
           minibuffer))
 
   (defun my/custom-evil-collection-bindings (_mode mode-keymaps &rest _rest)
