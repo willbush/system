@@ -62,6 +62,7 @@
   "ar" 'ranger
   "as" 'speedbar
   "au" 'disk-usage
+  "aU" 'disk-usage-by-types
   "aw" 'wttrin
   "b" '(:ignore t :wk "buffer")
   "bD" 'my/kill-all-buffers
