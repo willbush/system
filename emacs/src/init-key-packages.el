@@ -42,7 +42,6 @@
           cus-theme
           custom
           debug
-          dired
           disk-usage
           elfeed
           help
@@ -52,38 +51,15 @@
           minibuffer
           woman))
 
-  (defun my/custom-evil-collection-bindings (mode mode-keymaps &rest _rest)
-    (cond ((eq mode 'dired)
-           ;; dired key bindings
-           (general-def
-             :states 'normal
-             :keymaps 'dired-mode-map
-             ;; remove evil mode shadows
-             "i" nil ;; was 'dired-toggle-read-only
-             "m" nil ;; was 'dired-mark
-             "j" nil ;; was 'dired-next-line
-             "^" nil ;; was 'dired-up-directory
-             "r" nil ;; was 'dired-do-redisplay
-             "R" nil ;; was 'dired-do-rename
-             ;; rebind things better to my custom evil keys
-             "l" 'dired-toggle-read-only
-             "k" 'dired-mark
-             "n" 'dired-next-line
-             "e" 'dired-previous-line
-             "C-e" 'dired-up-directory
-             "v" 'dired-do-rename))
-          ;; default case make some blind key swaps for my custom evil keys.
-          ;;
-          ;; Note this does not work for `ediff-mode' because evil-collection
-          ;; doesn't apply key bindings until after `ediff-startup-hook'.
-          (t (evil-collection-swap-key 'normal mode-keymaps
-               "m" "h" ;; left
-               "n" "j" ;; down
-               "e" "k" ;; up
-               "i" "l" ;; right
-               "r" "v" ;; range (old name visual)
-               (kbd "C-n") (kbd "C-j")
-               (kbd "C-e") (kbd "C-k")))))
+  (defun my/custom-evil-collection-bindings (_mode mode-keymaps &rest _rest)
+    (evil-collection-swap-key 'normal mode-keymaps
+      "m" "h" ;; left
+      "n" "j" ;; down
+      "e" "k" ;; up
+      "i" "l" ;; right
+      "r" "v" ;; range (old name visual)
+      (kbd "C-n") (kbd "C-j")
+      (kbd "C-e") (kbd "C-k")))
 
   ;; called after evil-collection makes its keybindings
   ;; https://github.com/emacs-evil/evil-collection#key-translation
