@@ -40,7 +40,6 @@
           (term term ansi-term multi-term)
           compile
           cus-theme
-          custom
           debug
           help
           info
