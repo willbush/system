@@ -89,7 +89,46 @@
     "k" "e"
     "l" "i"))
 
-(use-package disk-usage :commands disk-usage)
+(use-package disk-usage
+  :commands (disk-usage disk-usage-by-types)
+  :config
+  (evil-collection-inhibit-insert-state 'disk-usage-mode-map)
+  (evil-collection-inhibit-insert-state 'disk-usage-by-types-mode-map)
+
+  (general-def
+    :states 'normal
+    :keymaps 'disk-usage-mode-map
+    "A" 'disk-usage-remove-filters
+    "C-e" 'disk-usage-up
+    "S" 'tabulated-list-sort
+    "a" 'disk-usage-add-filters ;; hit tab to see the completion list.
+    "d" 'disk-usage-dired-at-point
+    "gr" 'revert-buffer
+    "k" 'disk-usage-mark
+    "q" 'quit-window
+    "u" 'disk-usage-unmark
+    "x" 'disk-usage-delete-marked-files)
+
+  (general-def
+    :states 'normal
+    :keymaps 'disk-usage-by-types-mode-map
+    "A" 'disk-usage-remove-filters
+    "RET" 'disk-usage-files
+    "S" 'tabulated-list-sort
+    "a" 'disk-usage-add-filters ;; hit tab to see the completion list.
+    "gr" 'revert-buffer
+    "q" 'quit-window
+    "zh" 'disk-usage-toggle-human-readable)
+
+  (general-def
+    :prefix ","
+    :states 'normal
+    :keymaps '(disk-usage-mode-map disk-usage-by-types-mode-map)
+    "R" 'disk-usage-reset-cache
+    "t" '(:ignore t :which-key "toggle")
+    "tf" 'disk-usage-toggle-full-path
+    "th" 'disk-usage-toggle-human-readable
+    "tr" 'disk-usage-toggle-recursive))
 
 ;; lorri makes this as a global minor-mode tolerable.
 (use-package direnv
