@@ -38,13 +38,6 @@
 ;; y or n.
 (setq-default tags-revert-without-query 1)
 
-;; dired settings
-;; dired attempts to guess the default target for copy/rename etc.
-(setq-default dired-dwim-target t)
-
-;; ‘always’ means to copy recursively without asking.
-(setq-default dired-recursive-copies 'always)
-
 ;; When opening help such as `describe-variable', I want the point to
 ;; be focused on the help buffer so I can quickly exit it.
 (setq help-window-select t)
