@@ -54,7 +54,6 @@
   "aea" 'direnv-allow
   "aem" 'direnv-mode
   "aeu" 'direnv-update-environment
-  "af" 'elfeed
   "ap" '(:ignore t :wk "profiler")
   "apk" 'profiler-stop
   "apr" 'profiler-report

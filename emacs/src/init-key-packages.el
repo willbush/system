@@ -43,7 +43,6 @@
           custom
           debug
           disk-usage
-          elfeed
           help
           info
           ivy

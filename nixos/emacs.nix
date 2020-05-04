@@ -29,7 +29,6 @@ in {
         disk-usage
         doom-modeline
         doom-themes
-        elfeed
         esup
         evil
         evil-collection
