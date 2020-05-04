@@ -48,8 +48,7 @@
           info
           ivy
           man
-          minibuffer
-          woman))
+          minibuffer))
 
   (defun my/custom-evil-collection-bindings (_mode mode-keymaps &rest _rest)
     (evil-collection-swap-key 'normal mode-keymaps
