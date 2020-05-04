@@ -52,6 +52,7 @@ in {
         git-timemachine
         golden-ratio
         haskell-mode
+        helpful
         hlint-refactor
         hydra
         ivy

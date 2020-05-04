@@ -92,25 +92,28 @@
   "gv" 'find-variable
   "h" '(:ignore t :wk "help")
   "hI" 'info-display-manual
-  "hd" '(:ignore t :wk "describe")
-  "hdB" 'evil-collection-describe-bindings
-  "hdK" 'my/describe-keymap
-  "hdb" 'counsel-descbinds
-  "hdc" 'describe-char
-  "hdf" 'counsel-describe-function
-  "hdg" 'general-describe-keybindings
-  "hdk" 'describe-key
-  "hdm" 'describe-mode
-  "hdp" 'describe-package
-  "hds" 'counsel-info-lookup-symbol
-  "hdt" 'describe-theme
-  "hdu" 'counsel-unicode-char
-  "hdv" 'counsel-describe-variable
   "hi" 'info
   "hl" 'counsel-find-library
   "hn"  'view-emacs-news
   "ht" 'evil-tutor-start
   "hw"  'woman
+  "hd" '(:ignore t :wk "describe")
+  "hdB" 'evil-collection-describe-bindings
+  "hdK" 'my/describe-keymap
+  "hdM" 'helpful-macro
+  "hdP" 'describe-package
+  "hdS" 'counsel-info-lookup-symbol
+  "hdb" 'counsel-descbinds
+  "hdc" 'describe-char
+  "hdf" 'counsel-describe-function
+  "hdg" 'general-describe-keybindings
+  "hdk" 'helpful-key
+  "hdm" 'describe-mode
+  "hdp" 'helpful-at-point
+  "hds" 'helpful-symbol
+  "hdt" 'describe-theme
+  "hdu" 'counsel-unicode-char
+  "hdv" 'counsel-describe-variable
   "m" '(:ignore t :wk "magit")
   "mG" 'hydra-git-gutter/body
   "mI" 'magit-init
