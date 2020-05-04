@@ -77,7 +77,7 @@ git-timemachine-mode:
     :definer 'minor-mode
     :states 'normal
     :keymaps 'git-timemachine-mode
-    "?" 'hydra-git-timemachine/body
+    "," 'hydra-git-timemachine/body
 
     "C-n" 'git-timemachine-show-next-revision
     "C-p" 'git-timemachine-show-previous-revision
