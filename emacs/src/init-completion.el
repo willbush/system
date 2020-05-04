@@ -53,6 +53,9 @@
   ;; Silence warning (ivy's :defer causes byte compile warnings)
   (declare-function counsel-mode "counsel")
 
+  (setq counsel-describe-function-function #'helpful-callable
+        counsel-describe-variable-function #'helpful-variable)
+
   (setq counsel-git-cmd "rg --files"
         counsel-grep-base-command
           "rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s %s"

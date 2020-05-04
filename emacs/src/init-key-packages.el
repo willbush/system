@@ -41,7 +41,6 @@
           compile
           cus-theme
           debug
-          help
           info
           ivy
           minibuffer))
