@@ -42,7 +42,6 @@
           cus-theme
           custom
           debug
-          disk-usage
           help
           info
           ivy
