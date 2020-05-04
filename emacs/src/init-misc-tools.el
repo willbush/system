@@ -157,7 +157,6 @@
   (general-def
     :states 'normal
     :keymaps 'custom-mode-map
-    "<delete>" 'scroll-down-command
     "RET" 'Custom-newline
     "<tab>" 'widget-forward
     "<backtab>" 'widget-backward
@@ -165,5 +164,49 @@
     "C-e" 'Custom-goto-parent
     "C-o" 'Custom-goto-parent
     "q" 'Custom-buffer-done))
+
+;; Despite using helpful, I might find myself in help-mode so I'm going to keep
+;; these settings.
+(use-package help-mode
+  :ensure nil ;; included in Emacs.
+  :after evil
+  :config
+  (evil-set-initial-state 'help-mode 'normal)
+  (evil-collection-inhibit-insert-state 'help-mode-map)
+
+  (general-def
+    :states 'normal
+    :keymaps 'help-mode-map
+    "<backtab>" 'backward-button
+    "<tab>" 'forward-button
+    "C-i" 'help-go-forward
+    "C-o" 'help-go-back
+    "RET" 'help-follow
+    "gr" 'revert-buffer
+    "q" 'quit-window))
+
+;; A better *help* buffer.
+(use-package helpful
+  :commands
+  (helpful-callable
+   helpful-command
+   helpful-variable
+   helpful-key
+   helpful-symbol
+   helpful-at-point)
+
+  :init
+  ;; Note counsel settings take care of "C-h f" and "C-h v"
+  (global-set-key (kbd "C-h k") #'helpful-key)
+
+  :config
+  (evil-collection-inhibit-insert-state 'helpful-mode-map)
+  (general-def
+    :states 'normal
+    :keymaps 'helpful-mode-map
+    "<backtab>" 'backward-button
+    "<tab>" 'forward-button
+    "gr" 'helpful-update
+    "q" 'quit-window))
 
 (provide 'init-misc-tools)
