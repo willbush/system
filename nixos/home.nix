@@ -156,6 +156,10 @@ in {
       enable = true;
       theme = "lambda";
     };
+    history = {
+      path = "${config.xdg.dataHome}/zsh/zsh_history";
+      extended = false; # Whether to insert timestamps
+    };
   };
 
   programs.htop = {
