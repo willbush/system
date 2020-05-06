@@ -8,7 +8,7 @@ let
 in {
   imports = [ ./emacs.nix ];
 
-  home.stateVersion = "19.09";
+  home.stateVersion = "20.09";
 
   nixpkgs.config = {
     allowUnfree = true;
