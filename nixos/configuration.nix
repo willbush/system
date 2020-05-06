@@ -170,9 +170,9 @@ in {
       h = "repeat-search";
       H = "reverse-search";
       "^H" = "help"; # This syntax means C-h
-      k =  "set-mark";
-      K =  "set-mark-bottom";
-      j =  "goto-mark";
+      k = "set-mark";
+      K = "set-mark-bottom";
+      j = "goto-mark";
     };
   };
 
