@@ -83,6 +83,7 @@ in {
     ranger
     remmina
     rustup
+    shutter
     simple-scan
     syncthing-cli # provides stcli
     tokei
