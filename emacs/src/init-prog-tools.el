@@ -134,7 +134,6 @@ git-timemachine-mode:
   (general-def
     :states 'normal
     :keymaps 'lsp-browser-mode-map
-    "?" 'describe-mode
     "q" 'quit-window))
 
 (use-package lsp-ui
@@ -153,7 +152,6 @@ git-timemachine-mode:
   (general-def
     :states 'normal
     :keymaps 'lsp-ui-imenu-mode-map
-    "?" 'describe-mode
     "RET" 'lsp-ui-imenu--view
     "gd" 'lsp-ui-imenu--visit
     "i" 'lsp-ui-imenu--next-kind
@@ -164,7 +162,6 @@ git-timemachine-mode:
   (general-def
     :states 'normal
     :keymaps 'lsp-ui-flycheck-list-mode-map
-    "?" 'describe-mode
     "RET" 'lsp-ui-flycheck-list--view
     "gd" 'lsp-ui-flycheck-list--visit
     "q" 'lsp-ui-flycheck-list--quit))
