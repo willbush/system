@@ -38,7 +38,6 @@
           (package-menu package)
           (pdf pdf-view)
           (term term ansi-term multi-term)
-          compile
           cus-theme
           info
           ivy
