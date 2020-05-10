@@ -40,7 +40,6 @@
           (term term ansi-term multi-term)
           compile
           cus-theme
-          debug
           info
           ivy
           minibuffer))
