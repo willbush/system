@@ -248,4 +248,25 @@ git-timemachine-mode:
     "r" 'debugger-return-value
     "t" 'debugger-step-through))
 
+(use-package compile
+  :ensure nil ;; debugger-mode is included in Emacs.
+  :config
+  (evil-set-initial-state 'compilation-mode 'normal)
+
+  (general-def
+    :states 'normal
+    :keymaps 'compilation-mode-map
+    "RET" 'compile-goto-error)
+
+  (general-def
+    :prefix ","
+    :states 'normal
+    :keymaps 'compilation-mode-map
+    "N" 'compilation-next-file
+    "P" 'compilation-previous-file
+    "d" 'compilation-display-error
+    "n" 'compilation-next-error
+    "p" 'compilation-previous-error
+    "r" 'recompile))
+
 (provide 'init-prog-tools)
