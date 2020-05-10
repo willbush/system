@@ -218,4 +218,34 @@ git-timemachine-mode:
     [0 0 0 0 0 0 0 0 0 0 0 0 0 128 192 224 240 248]
     nil nil 'center))
 
+(use-package debug
+  :ensure nil ;; debugger-mode is included in Emacs.
+  :config
+  (evil-set-initial-state 'debugger-mode 'normal)
+
+  (general-def
+    :states 'normal
+    :keymaps 'debugger-mode-map
+    "<backtab>" 'backward-button
+    "<tab>" 'forward-button
+    "RET" 'backtrace-help-follow-symbol
+    "q" 'quit-window)
+
+  (general-def
+    :prefix ","
+    :states 'normal
+    :keymaps 'debugger-mode-map
+    "C" 'debugger-frame-clear
+    "R" 'debugger-record-expression
+    "E" 'debugger-reenable
+    "c" 'debugger-continue
+    "e" 'debugger-eval-expression
+    "f" 'debugger-frame
+    "j" 'debugger-jump
+    "l" 'debugger-list-functions
+    "l" 'debugger-toggle-locals
+    "q" 'debugger-quit
+    "r" 'debugger-return-value
+    "t" 'debugger-step-through))
+
 (provide 'init-prog-tools)
