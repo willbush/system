@@ -123,7 +123,7 @@
     :prefix ","
     :states 'normal
     :keymaps 'dired-mode-map
-    "n" '(:ignore t :which-key "narrow")
+    "n" '(:ignore t :which-key "dired-narrow")
     "nn" 'dired-narrow
     "nf" 'dired-narrow-fuzzy
     "nr" 'dired-narrow-regexp))

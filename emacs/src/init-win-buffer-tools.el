@@ -1,5 +1,29 @@
 ;;; -*- lexical-binding: t; -*-
 
+(use-package edwina
+  :hook (after-init . edwina-mode)
+  :config
+  (setq display-buffer-base-action '(display-buffer-below-selected))
+
+  (general-def
+    :states '(normal visual emacs)
+    :keymaps 'override
+    ;; Xmonad style keybindings
+    "M-," 'edwina-inc-nmaster
+    "M-." 'edwina-dec-nmaster
+    ;; I can't bind this to M-S-RET unfortunately.
+    "M-c" 'edwina-clone-window
+    "M-C" 'edwina-delete-window
+    "M-N" 'edwina-swap-next-window
+    "M-E" 'edwina-swap-previous-window
+    "M-n" 'edwina-select-next-window
+    "M-e" 'edwina-select-previous-window
+    "M-i" 'edwina-inc-mfact
+    "M-m" 'edwina-dec-mfact
+    ;; I can't bind this to M-S-SPC unfortunately.
+    "M-a" 'edwina-arrange
+    "M-RET" 'edwina-zoom))
+
 (use-package golden-ratio
   :commands (golden-ratio golden-ratio-mode)
   :config

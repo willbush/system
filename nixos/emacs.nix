@@ -20,6 +20,7 @@ in {
         company-tabnine
         counsel
         counsel-projectile
+        edwina
         csharp-mode
         dashboard
         deadgrep
