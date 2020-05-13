@@ -63,8 +63,6 @@ in {
     glances
     gnome3.gnome-screenshot
     gnupg
-    stable.haskellPackages.apply-refact # used by hlint-refactor
-    stable.haskellPackages.brittany
     haskellPackages.ghcid
     haskellPackages.hakyll
     haskellPackages.hasktags
@@ -85,12 +83,17 @@ in {
     rustup
     shutter
     simple-scan
+    slack
+    stable.haskellPackages.apply-refact # used by hlint-refactor
+    stable.haskellPackages.brittany
     syncthing-cli # provides stcli
+    teams
     tokei
     transmission-gtk
     unar
     unzip
     vlc
+    xdotool
     yacreader
     zip
   ];
