@@ -165,7 +165,7 @@
     "r" "s" "z O" "z a" "z c" "z m" "z o" "z r")
   (general-unbind 'motion
     "'" "," "/" "?" ";" "C-d" "C-u" "C-v" "C-w" "E" "F" "H" "L" "M" "N"
-    "S-k" "V" "`" "e" "f" "g E" "g N" "g e" "g j" "g k" "g n" "g v"
+    "S-k" "V" "`" "e" "f" "g E" "g N" "g e" "g j" "g k" "g m" "g n" "g v"
     "h" "j" "k" "l" "n" "v" "z H" "z L" "z h" "z l")
 
   ;; visual state R key is not that useful.
@@ -214,9 +214,6 @@
     "I" 'evil-end-of-line ;; `$' remains bound to this function
     "J" 'evil-goto-mark-line
     "M" 'evil-beginning-of-line ;; `0' remains bound to a similar function
-    "M-e" 'evil-window-top
-    "M-i" 'evil-window-middle
-    "M-n" 'evil-window-bottom
     "N" 'my/evil-next-line-10
     "R" 'evil-visual-line
     "S" 'evil-find-char-backward
@@ -226,6 +223,9 @@
     "g F" 'evil-backward-WORD-end
     "g f" 'evil-backward-word-end
     "g r" 'evil-visual-restore
+    "g e" 'evil-window-top
+    "g m" 'evil-window-middle
+    "g n" 'evil-window-bottom
     "h" 'evil-ex-search-next
     "i" 'evil-forward-char
     "j" 'evil-goto-mark

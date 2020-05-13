@@ -12,14 +12,13 @@
               (setq show-trailing-whitespace t)))
 
   (general-def
+    :prefix ","
     :states 'normal
     :keymaps 'org-mode-map
-    "M-n" 'org-move-subtree-down
-    "M-e" 'org-move-subtree-up
-    "M-m" 'org-do-promote
-    "M-i" 'org-do-demote
-    "C-n" 'org-forward-heading-same-level
-    "C-e" 'org-backward-heading-same-level)
+    "n" 'org-move-subtree-down
+    "e" 'org-move-subtree-up
+    "m" 'org-do-promote
+    "i" 'org-do-demote)
 
   ;; Allows me to set the width of an inline image.
   ;; #+ATTR_ORG: :width 100

@@ -85,6 +85,10 @@
   (advice-add #'evil-window-move-very-top :after #'my/maybe-nav-flash)
   (advice-add #'evil-window-move-very-bottom :after #'my/maybe-nav-flash)
 
+  ;; edwina window movement
+  (advice-add #'edwina-select-next-window :after #'my/maybe-nav-flash)
+  (advice-add #'edwina-select-previous-window :after #'my/maybe-nav-flash)
+
   ;; `evil-window-right' etc. uses `windmove'
   (advice-add #'windmove-do-window-select :after #'my/maybe-nav-flash))
 

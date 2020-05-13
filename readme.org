@@ -450,6 +450,7 @@
     - ~d~ :: indicates a key binding duplicated to another key and the old
              binding remains intact.
 
+g m             evil-middle-of-visual-line
   | function          | before | after | new mnemonic      | Attr | Commentary                                  |
   |-------------------+--------+-------+-------------------+------+---------------------------------------------|
   | substitute        | s      |       |                   | x    | I don't use this and its on a home key      |
@@ -460,6 +461,7 @@
   | down              | g j    |       |                   | x    |                                             |
   | next match        | g n    |       |                   | x    | Why not just press n?                       |
   | prev match        | g N    |       |                   | x    | Why not just press N?                       |
+  | mid visual line   | g m    |       |                   | x    | can't imagine I would ever want this        |
   | window movements  | C-w *  |       |                   | x    | 48 C-w * bindings I don't use               |
   | open fold rec     | z O    |       |                   | x    | I don't use these fold bindings             |
   | toggle fold       | z a    |       |                   | x    |                                             |
@@ -497,9 +499,9 @@
   | next              | n      | h     | ?                 | +n   | easier to reach but not mnemonic            |
   | prev              | N      | H     | ?                 | +n   |                                             |
   | redo              | C-r    | U     |                   | +cn  | makes much more sense and easier to do      |
-  | scrn mid          | M      | M-i   |                   | +Mn  | M-i > M-m due to home key finger rolling    |
-  | scrn low          | L      | M-n   |                   | +Mn  |                                             |
-  | scrn top          | H      | M-e   |                   | +Mn  |                                             |
+  | scrn top          | H      | g e   |                   | +Mn  |                                             |
+  | scrn mid          | M      | g m   |                   | +M   |                                             |
+  | scrn low          | L      | g n   |                   | +Mn  |                                             |
   | scroll down       | C-d    | C-S-n |                   | -Mn  | see note below for rationale                |
   | scroll up         | C-u    | C-S-e |                   | -Mn  | see note below for rationale                |
   | set mk            | m      | k     |                   | -n   | mnemonic is still mark for me               |
