@@ -38,6 +38,18 @@ in {
 
   xdg.enable = true;
 
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Adwaita";
+      package = pkgs.gnome3.adwaita-icon-theme;
+    };
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome3.gnome_themes_standard;
+    };
+  };
+
   home.packages = with pkgs; [
     albert
     aspell
@@ -69,6 +81,7 @@ in {
     haskellPackages.hlint
     haskellPackages.hoogle
     haskellPackages.hpack
+    hicolor-icon-theme # fall back icon theme
     keepassxc
     libreoffice
     neofetch

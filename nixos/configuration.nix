@@ -158,6 +158,9 @@ in {
   ];
 
   programs.ssh.startAgent = true;
+  # needed for gnome / gtk themes
+  programs.dconf.enable = true;
+  programs.qt5ct.enable = true;
 
   programs.less = {
     enable = true;
