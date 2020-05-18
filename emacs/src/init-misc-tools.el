@@ -130,9 +130,10 @@
     "th" 'disk-usage-toggle-human-readable
     "tr" 'disk-usage-toggle-recursive))
 
-;; lorri makes this as a global minor-mode tolerable.
-(use-package direnv
-  :hook (after-init . direnv-mode))
+(unless IS-WINDOWS
+  ;; lorri makes this as a global minor-mode tolerable.
+  (use-package direnv
+    :hook (after-init . direnv-mode)))
 
 (use-package pdf-tools
   :mode (("\\.pdf\\'" . pdf-view-mode)))
