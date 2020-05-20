@@ -56,7 +56,7 @@
 
 (use-package flyspell-correct-ivy
   :commands
-  (flyspell-correct-wrapper
+  (flyspell-correct-at-point
    flyspell-correct-next
    flyspell-correct-previous)
   :init
