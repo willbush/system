@@ -41,7 +41,7 @@
   "S" '(:ignore t :wk "spell-checking")
   "SPC" 'counsel-M-x
   "Sb" 'flyspell-buffer
-  "Sc" 'flyspell-correct-wrapper
+  "Sc" 'flyspell-correct-at-point
   "Sn" 'flyspell-correct-next
   "Sp" 'flyspell-correct-previous
   "Sr" 'flyspell-region
