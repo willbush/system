@@ -56,9 +56,7 @@
 
 (use-package dashboard
   :init
-  (setq initial-buffer-choice
-       (lambda ()
-         (or (get-buffer "*dashboard*") (get-buffer "*scratch*"))))
+  (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
   :config
   (setq dashboard-banner-logo-title nil
         dashboard-set-heading-icons t
