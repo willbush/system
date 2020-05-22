@@ -9,6 +9,10 @@
 ;; ‘always’ means to copy recursively without asking.
 (setq-default dired-recursive-copies 'always)
 
+;; better dired sorting defaults
+;; https://www.emacswiki.org/emacs/DiredSorting
+(setq dired-listing-switches "-lah  --group-directories-first")
+
 ;;
 ;;; Dired Keybindings
 
