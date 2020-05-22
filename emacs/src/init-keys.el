@@ -65,6 +65,7 @@
   "aU" 'disk-usage-by-types
   "aw" 'wttrin
   "b" '(:ignore t :wk "buffer")
+  "bB" 'bury-buffer
   "bD" 'my/kill-all-buffers
   "bH" 'my/kill-all-buffers-then-switch-to-dashboard
   "bI" 'ibuffer
