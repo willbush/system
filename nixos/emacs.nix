@@ -20,16 +20,17 @@ in {
         company-tabnine
         counsel
         counsel-projectile
-        edwina
         csharp-mode
         dashboard
         deadgrep
         define-word
         dired-narrow
+        diredfl
         direnv
         disk-usage
         doom-modeline
         doom-themes
+        edwina
         esup
         evil
         evil-collection
