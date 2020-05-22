@@ -134,4 +134,25 @@
 
 (use-package diredfl
   :hook (dired-mode . diredfl-mode))
+
+(use-package all-the-icons-dired
+  :hook (dired-mode . all-the-icons-dired-mode)
+  :config
+  ;; Consider removing the following code when this issue is fixed:
+  ;; https://github.com/jtbm37/all-the-icons-dired/issues/18
+  (defvar-local +wdired-icons-enabled nil)
+  (defun +wdired-before-start-advice ()
+    "Execute when switching from `dired' to `wdired'."
+    (setq +wdired-icons-enabled
+          (if (bound-and-true-p all-the-icons-dired-mode)
+              1 0))
+    (when (bound-and-true-p all-the-icons-dired-mode)
+      (all-the-icons-dired-mode 0)))
+  (defun +wdired-after-finish-advice ()
+    "Execute when switching from `wdired' to `dired'"
+    (when (boundp 'all-the-icons-dired-mode)
+      (all-the-icons-dired-mode +wdired-icons-enabled)))
+  (advice-add 'wdired-change-to-wdired-mode :before #'+wdired-before-start-advice)
+  (advice-add 'wdired-change-to-dired-mode :after #'+wdired-after-finish-advice))
+
 (provide 'init-dired)
