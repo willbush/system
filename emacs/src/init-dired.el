@@ -128,4 +128,6 @@
     "nf" 'dired-narrow-fuzzy
     "nr" 'dired-narrow-regexp))
 
+(use-package diredfl
+  :hook (dired-mode . diredfl-mode))
 (provide 'init-dired)
