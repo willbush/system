@@ -61,9 +61,9 @@
          (or (get-buffer "*dashboard*") (get-buffer "*scratch*"))))
   :config
   (setq dashboard-banner-logo-title nil
-       dashboard-set-heading-icons t
-       dashboard-set-file-icons t
-       dashboard-items '((recents  . 5)
+        dashboard-set-heading-icons t
+        dashboard-set-file-icons t
+        dashboard-items '((recents  . 5)
                           (projects . 5)))
   ;; This is the default icon, but it doesn't always show up when running Emacs
   ;; as a daemon. So I set it explicitly here to fix the issue.
