@@ -58,7 +58,8 @@
   :init
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
   :config
-  (setq dashboard-banner-logo-title nil
+  (setq dashboard-startup-banner 3
+        dashboard-banner-logo-title nil
         dashboard-set-heading-icons t
         dashboard-set-file-icons t
         dashboard-items '((recents  . 5)
