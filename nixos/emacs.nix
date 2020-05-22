@@ -14,6 +14,7 @@ in {
       (with epkgs; [
         adaptive-wrap
         aggressive-indent
+        all-the-icons-dired
         all-the-icons-ivy
         avy
         company
