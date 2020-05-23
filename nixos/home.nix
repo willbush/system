@@ -97,8 +97,8 @@ in {
     shutter
     simple-scan
     slack
-    stable.haskellPackages.apply-refact # used by hlint-refactor
-    stable.haskellPackages.brittany
+    haskellPackages.apply-refact # used by hlint-refactor
+    haskellPackages.brittany
     syncthing-cli # provides stcli
     teams
     tokei
