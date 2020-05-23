@@ -129,7 +129,7 @@ git-timemachine-mode:
   ;; haskell-hlint'
   (add-hook 'lsp-after-initialize-hook
             (lambda ()
-              (flycheck-add-next-checker 'lsp-ui '(warning . haskell-hlint))))
+              (flycheck-add-next-checker 'lsp '(warning . haskell-hlint))))
 
   (general-def
     :states 'normal
