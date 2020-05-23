@@ -3,8 +3,6 @@
 (use-package edwina
   :hook (after-init . edwina-mode)
   :config
-  (setq display-buffer-base-action '(display-buffer-below-selected))
-
   (general-def
     :states '(normal visual emacs)
     :keymaps 'override
