@@ -11,18 +11,6 @@
         "url": "https://github.com/nix-community/emacs-overlay/archive/0feda8b31b52f3ea008555dfe79dba3989d3e585.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "ghcide-nix": {
-        "branch": "master",
-        "description": "Nix installation for ghcide",
-        "homepage": "https://github.com/digital-asset/ghcide",
-        "owner": "cachix",
-        "repo": "ghcide-nix",
-        "rev": "f940ec611cc6914693874ee5e024eba921cab19e",
-        "sha256": "0vri0rivdzjvxrh6lzlwwkh8kzxsn82jp1c2w5rqzhp87y6g2k8z",
-        "type": "tarball",
-        "url": "https://github.com/cachix/ghcide-nix/archive/f940ec611cc6914693874ee5e024eba921cab19e.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
     "nixpkgs-20.03": {
         "branch": "release-20.03",
         "description": "A read-only mirror of NixOS/nixpkgs tracking the released channels. Send issues and PRs to",

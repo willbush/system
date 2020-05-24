@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 let
   sources = import ./nix/sources.nix;
-  ghcide-nix = import sources."ghcide-nix" { };
 in {
   imports =
     [ ./hardware-configuration.nix ./fonts.nix ./users.nix ./pia/pia-nm.nix ];
@@ -17,7 +16,6 @@ in {
     maxJobs = 16; # should be 1 per CPU logical core
     binaryCaches = [
       "https://cache.nixos.org/"
-      "https://ghcide-nix.cachix.org"
       "https://hercules-ci.cachix.org"
       "https://iohk.cachix.org"
       "https://nix-tools.cachix.org"
@@ -25,7 +23,6 @@ in {
       "https://willbush.cachix.org"
     ];
     binaryCachePublicKeys = [
-      "ghcide-nix.cachix.org-1:ibAY5FD+XWLzbLr8fxK6n8fL9zZe7jS+gYeyxyWYK5c="
       "hercules-ci.cachix.org-1:ZZeDl9Va+xe9j+KqdzoBZMFJHVQ42Uu/c/1/KMC5Lw0="
       "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo="
       "nix-tools.cachix.org-1:ebBEBZLogLxcCvipq2MTvuHlP7ZRdkazFSQsbs0Px1A="
@@ -150,7 +147,6 @@ in {
     docker-compose
     fd
     feh
-    ghcide-nix.ghcide-ghc865
     neovim
     ripgrep
     tree
