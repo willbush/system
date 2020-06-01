@@ -9,6 +9,8 @@ in {
   imports = [ ./emacs.nix ];
 
   home.stateVersion = "20.09";
+  home.username = "will";
+  home.homeDirectory = "/home/will";
 
   nixpkgs.config = {
     allowUnfree = true;
