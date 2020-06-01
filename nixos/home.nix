@@ -87,6 +87,7 @@ in {
     keepassxc
     libreoffice
     neofetch
+    niv
     nix-prefetch-git
     nixfmt
     okular
