@@ -13,7 +13,6 @@ in {
   nix = {
     useSandbox = true;
     autoOptimiseStore = true;
-    maxJobs = 16; # should be 1 per CPU logical core
     binaryCaches = [
       "https://cache.nixos.org/"
       "https://hercules-ci.cachix.org"
