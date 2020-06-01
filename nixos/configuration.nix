@@ -39,6 +39,9 @@ in {
   time.timeZone = "America/Chicago";
 
   boot = {
+    # required for libvirtd
+    kernelModules = [ "kvm-amd" "kvm-intel" ];
+
     cleanTmpDir = true; # cleans all files in /tmp during boot
     initrd.checkJournalingFS = true; # run fsck for journal file system
 
@@ -137,7 +140,10 @@ in {
     };
   };
 
-  virtualisation.docker.enable = true;
+  virtualisation = {
+    docker.enable = true;
+    libvirtd.enable = true;
+  };
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
