@@ -108,6 +108,7 @@ in {
     transmission-gtk
     unar
     unzip
+    virt-manager
     vlc
     xdotool
     yacreader
