@@ -40,6 +40,7 @@ in {
         evil-matchit
         evil-numbers
         evil-surround
+        evil-traces
         evil-tutor
         evil-visualstar
         expand-region
