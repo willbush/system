@@ -1,5 +1,8 @@
 ;;; -*- lexical-binding: t; -*-
 
+;; Defer garbage collection further back in the startup process
+(setq gc-cons-threshold most-positive-fixnum)
+
 ;;
 ;;; Global Constants
 
@@ -8,8 +11,9 @@
 (defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
 (defconst IS-INTERACTIVE (not noninteractive))
 
-;; Defer garbage collection further back in the startup process
-(setq gc-cons-threshold most-positive-fixnum)
+;; Work around to a crippling performance issue I reported affecting Emacs 28
+;; after cario was made the default: https://debbugs.gnu.org/db/40/40733.html
+(add-to-list 'face-ignored-fonts "Adobe Blank")
 
 ;; Prevent the glimpse of un-styled Emacs by disabling these UI elements early.
 (push '(menu-bar-lines . 0) default-frame-alist)
