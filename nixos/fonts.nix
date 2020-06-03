@@ -2,13 +2,10 @@
 
 {
   fonts = {
-    enableFontDir = true;
-    enableGhostscriptFonts = true;
     fonts = with pkgs; [
       corefonts
       dejavu_fonts
       emacs-all-the-icons-fonts
-      google-fonts
       hack-font
       inconsolata
       iosevka
