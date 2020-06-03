@@ -77,10 +77,10 @@ in {
     glances
     gnome3.gnome-screenshot
     gnupg
+    haskellPackages.brittany
     haskellPackages.ghcid
     haskellPackages.hakyll
     haskellPackages.hasktags
-    haskellPackages.hlint
     haskellPackages.hoogle
     haskellPackages.hpack
     hicolor-icon-theme # fall back icon theme
@@ -100,8 +100,6 @@ in {
     shutter
     simple-scan
     slack
-    haskellPackages.apply-refact # used by hlint-refactor
-    haskellPackages.brittany
     syncthing-cli # provides stcli
     teams
     tokei
