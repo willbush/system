@@ -56,7 +56,6 @@ in {
         golden-ratio
         haskell-mode
         helpful
-        hlint-refactor
         hydra
         ivy
         lsp-haskell

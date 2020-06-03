@@ -120,17 +120,6 @@ git-timemachine-mode:
   ;; I don't want lsp to prompt me to restart it when I close its buffer.
   (setq lsp-restart 'ignore)
 
-  ;; Ghcide doesn't have the hlint plugin enabled. Haskell language server will,
-  ;; but it's not ready to use (as far as I can tell). So I'm chaining
-  ;; haskell-hlint to the lsp flycheck checker. My concern was that it would be
-  ;; enabled in other lsp enabled modes such as rustic-mode. However, it seems
-  ;; flycheck doesn't enable hlint there because it's only enabled for
-  ;; haskell-mode. One can see that with `M-x flycheck-describe-checker
-  ;; haskell-hlint'
-  (add-hook 'lsp-after-initialize-hook
-            (lambda ()
-              (flycheck-add-next-checker 'lsp '(warning . haskell-hlint))))
-
   (general-def
     :states 'normal
     :keymaps 'lsp-browser-mode-map

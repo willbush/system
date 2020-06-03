@@ -118,7 +118,6 @@
     "b" 'format-all-buffer ;; uses Brittany without lsp
     "f" 'lsp-format-region ;; Works in HIE, but not Ghcide yet.
     "o" 'lsp-organize-imports
-    "p" 'hlint-refactor-refactor-at-point ;; Ghcide doesn't support code actions for hlint yet.
     "r" 'my/brittany-format-region)
 
   (general-def
@@ -154,9 +153,6 @@
 
   (setq lsp-haskell-process-path-hie "ghcide"
         lsp-haskell-process-args-hie '()))
-
-(use-package hlint-refactor
-  :commands (hlint-refactor-refactor-at-point))
 
 ;;;###autoload
 (defun my/brittany-format-region (start end)
