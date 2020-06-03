@@ -97,6 +97,11 @@
 (use-package evil-exchange
   :commands evil-exchange-install)
 
+(use-package evil-traces
+  :after evil-ex
+  :config
+  (evil-traces-mode))
+
 (use-package avy
   :commands (avy-goto-char avy-goto-char-timer))
 
