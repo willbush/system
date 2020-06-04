@@ -127,6 +127,7 @@
     :prefix ","
     :states 'normal
     :keymaps 'dired-mode-map
+    :major-modes t
     "n" '(:ignore t :which-key "dired-narrow")
     "nn" 'dired-narrow
     "nf" 'dired-narrow-fuzzy
