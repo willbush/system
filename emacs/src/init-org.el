@@ -15,6 +15,7 @@
     :prefix ","
     :states 'normal
     :keymaps 'org-mode-map
+    :major-modes t
     "n" 'org-move-subtree-down
     "e" 'org-move-subtree-up
     "m" 'org-do-promote
