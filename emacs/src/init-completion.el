@@ -97,7 +97,13 @@
   (defun my/counsel-projectile-switch-project-dired ()
     "Switches to a projectile project's root in dired mode."
     (interactive)
-    (counsel-projectile-switch-project "D"))
+    ;; Work around to current issue:
+    ;; https://github.com/ericdanan/counsel-projectile/issues/160
+    ;;
+    ;; TODO: replace with `(counsel-projectile-switch-project "D")' once issue is
+    ;; fixed. Note, passing an empty string for the project causes it to prompt
+    ;; for a project.
+    (counsel-projectile-switch-project-action-dired ""))
 
   (general-def
     :keymaps 'projectile-command-map
