@@ -79,10 +79,8 @@ in {
     gnupg
     haskellPackages.brittany
     haskellPackages.ghcid
-    haskellPackages.hakyll
     haskellPackages.hasktags
     haskellPackages.hoogle
-    haskellPackages.hpack
     hicolor-icon-theme # fall back icon theme
     keepassxc
     libreoffice
