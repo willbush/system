@@ -48,6 +48,7 @@ in {
         evil-traces
         evil-tutor
         evil-visualstar
+        exec-path-from-shell
         expand-region
         fd-dired
         fill-column-indicator
