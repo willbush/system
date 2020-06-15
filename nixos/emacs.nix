@@ -5,7 +5,12 @@ in {
 
   nixpkgs.overlays = [ emacs-overlay ];
 
-  services.emacs.enable = true;
+  services.emacs = {
+    enable = true;
+    client.enable = true;
+    socketActivation.enable = true;
+  };
+
   programs.emacs = {
     enable = true;
     # Compile with imagemagick support so I can resize images.
@@ -110,23 +115,4 @@ in {
       '';
     };
   };
-
-  # Home manager's emacs service doesn't provide a desktop entry for the emacs
-  # client. Note the %F on the `Exec=` line passes any file name string to tell
-  # emacs to open a file. I just use Albert to launch the emacs client so I
-  # don't every really need that.
-  xdg.dataFile."applications/emacsclient.desktop".text = ''
-    [Desktop Entry]
-    Name=Emacsclient
-    GenericName=Text Editor
-    Comment=Edit text
-    MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
-    Exec=emacsclient -c -a emacs %F
-    Icon=emacs
-    Type=Application
-    Terminal=false
-    Categories=Development;TextEditor;
-    StartupWMClass=Emacs
-    Keywords=Text;Editor;
-  '';
 }
