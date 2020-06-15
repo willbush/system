@@ -93,6 +93,7 @@ in {
     okular
     openconnect
     pavucontrol
+    peek
     planck
     ranger
     remmina
