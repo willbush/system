@@ -17,7 +17,7 @@
 ;; of `fill-paragraph' (among other things).
 (setq sentence-end-double-space nil)
 
-;; prevent indention inserting tabs
+;; Prevent indention inserting tabs by default.
 (setq-default indent-tabs-mode nil
               tab-width 2)
 
