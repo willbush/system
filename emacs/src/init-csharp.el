@@ -2,8 +2,19 @@
 
 (use-package csharp-mode
   :mode "\\.cs\\'"
-  :config
+  :init
+  (add-hook 'csharp-mode-hook
+            '(lambda ()
+               (setq indent-tabs-mode t
+                     c-syntactic-indentation t
+                     fill-column 100
+                     truncate-lines t
+                     tab-width 4
+                     evil-shift-width 4
+                     c-basic-offset 4)
+               (c-set-offset 'substatement-open 0)))
 
+  :config
   (general-def
     :prefix ","
     :states 'normal
@@ -37,15 +48,15 @@
     "m" 'omnisharp-navigate-to-solution-member)
   )
 
-;; (use-package omnisharp
-;;   :hook ((csharp-mode . omnisharp-mode)
-;;          (before-save . omnisharp-code-format-entire-file))
-;;   :config
-;;   (setq omnisharp-debug t)
-;;   (add-hook 'omnisharp-mode-hook
-;;             (lambda ()
-;;               (add-to-list (make-local-variable 'company-backends)
-;;                            '(company-omnisharp))))
-;;   )
+(use-package omnisharp
+  :hook ((csharp-mode . omnisharp-mode)
+         ;; (before-save . omnisharp-code-format-entire-file)
+         )
+  :config
+  (setq omnisharp-debug t)
+
+  (eval-after-load
+    'company
+    '(add-to-list 'company-backends 'company-omnisharp)))
 
 (provide 'init-csharp)

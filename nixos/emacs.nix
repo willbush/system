@@ -74,6 +74,7 @@ in {
         nix-mode
         nix-sandbox
         nix-update
+        omnisharp
         pdf-tools
         powershell
         projectile
