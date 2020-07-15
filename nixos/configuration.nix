@@ -47,7 +47,7 @@ in {
 
     loader = {
       # Timeout (in seconds) until loader boots the default menu item.
-      timeout = 1;
+      timeout = 2;
       # Use the systemd-boot EFI boot loader.
       systemd-boot = {
         enable = true;
