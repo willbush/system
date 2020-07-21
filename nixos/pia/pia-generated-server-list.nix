@@ -2,211 +2,267 @@
 
 [
   { id = "PIA - US California";
-    uuid = "c8aee76f-d78c-4bf7-a43a-ee0151cf225c";
+    uuid = "24b8bd23-8202-447a-99e6-5ee625fe3aa2";
     remote = "us-california.privateinternetaccess.com";
   }
   { id = "PIA - US East";
-    uuid = "a93302c4-fcc8-454e-a9b7-7e65c15bd8e7";
+    uuid = "0972e17c-a716-4f1e-96a0-f981ad010b76";
     remote = "us-east.privateinternetaccess.com";
   }
   { id = "PIA - US Chicago";
-    uuid = "bf33af6b-640c-4e92-9b0a-9006681915e0";
+    uuid = "630a0508-f3c2-4b37-8edc-3aabffe00f5f";
     remote = "us-chicago.privateinternetaccess.com";
   }
-  { id = "PIA - US Texas";
-    uuid = "c9bef1c5-be88-4083-9cea-9c8988c6493f";
-    remote = "us-texas.privateinternetaccess.com";
+  { id = "PIA - US Dallas";
+    uuid = "f2c3b998-acc5-4bcb-8359-87b6b0251a75";
+    remote = "us-dal.privateinternetaccess.com";
   }
   { id = "PIA - US Florida";
-    uuid = "21f7efc2-5946-42bd-a2ff-d9a87d9cac97";
+    uuid = "ecba004e-597c-4926-a6c6-eccfdcc9a364";
     remote = "us-florida.privateinternetaccess.com";
   }
   { id = "PIA - US Seattle";
-    uuid = "ac906c0c-b5e4-45e9-98cc-74f9d6c9b685";
-    remote = "us-seattle.privateinternetaccess.com";
+    uuid = "9f7e5205-19fd-4433-8ae9-fd223893e117";
+    remote = "us-sea.privateinternetaccess.com";
   }
   { id = "PIA - US West";
-    uuid = "fe9b98c7-bd63-475f-a221-d61460564ee1";
+    uuid = "7405be57-c635-45cc-ab7a-ef2341563a77";
     remote = "us-west.privateinternetaccess.com";
   }
   { id = "PIA - US Silicon Valley";
-    uuid = "d8b8ce87-dfc4-4d61-8bc6-d8396c4f6be6";
+    uuid = "9ebb7f79-3ffe-406b-9bec-40897a3f4fb6";
     remote = "us-siliconvalley.privateinternetaccess.com";
   }
   { id = "PIA - US New York City";
-    uuid = "2e0d681c-961e-4ff0-869b-3b29a068e974";
-    remote = "us-newyorkcity.privateinternetaccess.com";
+    uuid = "a6a4b961-18e1-43fc-a72b-fb43ba37f00e";
+    remote = "us-nyc.privateinternetaccess.com";
   }
   { id = "PIA - US Washington DC";
-    uuid = "daa31bea-b28d-431f-bde9-7f61ceed9be5";
+    uuid = "ea1245fa-31ab-4636-a71f-29f97de46233";
     remote = "us-washingtondc.privateinternetaccess.com";
   }
   { id = "PIA - US Atlanta";
-    uuid = "d82d7fad-61e8-4335-9eb0-d2cb58fc8051";
+    uuid = "8b299956-87d3-4d52-9e20-db1ea7feaff5";
     remote = "us-atlanta.privateinternetaccess.com";
   }
   { id = "PIA - US Las Vegas";
-    uuid = "ba040063-4b25-4c02-83ba-96718aee8a33";
+    uuid = "bd08452e-236a-40cb-8168-b481990cbf25";
     remote = "us-lasvegas.privateinternetaccess.com";
   }
   { id = "PIA - US Houston";
-    uuid = "4860614c-2ef6-4cf7-b665-8c96be08c991";
+    uuid = "bde7bb95-2cb0-4891-a27a-ef9f9c59bbba";
     remote = "us-houston.privateinternetaccess.com";
   }
   { id = "PIA - US Denver";
-    uuid = "ddf2de0c-c95b-464d-9d3e-81682ba8cced";
+    uuid = "79d53b04-9086-448b-a6fe-3bdf40058dcf";
     remote = "us-denver.privateinternetaccess.com";
   }
   { id = "PIA - UK London";
-    uuid = "6f349bf1-2a72-4b9c-b7b7-99e2061a232d";
+    uuid = "c17baf8a-6ceb-4b47-8762-4db9e6c2eee4";
     remote = "uk-london.privateinternetaccess.com";
   }
   { id = "PIA - UK Southampton";
-    uuid = "d7cb98a4-f279-4c5e-ab09-37afe4403a9e";
+    uuid = "3dffe018-8922-4701-b37f-c8e87db6db8a";
     remote = "uk-southampton.privateinternetaccess.com";
   }
   { id = "PIA - UK Manchester";
-    uuid = "cedcca71-dc5a-4cbb-b659-8032b8fe2f87";
+    uuid = "04aecb91-0e06-4981-930a-be403f5ebfc2";
     remote = "uk-manchester.privateinternetaccess.com";
   }
+  { id = "PIA - CA Ontario";
+    uuid = "aead86bd-060d-42a9-b480-25635dbe2ffd";
+    remote = "ca-ontario.privateinternetaccess.com";
+  }
   { id = "PIA - CA Toronto";
-    uuid = "9cf00d37-c225-4c68-89f7-2f7eaff12454";
+    uuid = "480be008-d25d-400c-b254-5690a4049954";
     remote = "ca-toronto.privateinternetaccess.com";
   }
   { id = "PIA - CA Montreal";
-    uuid = "78bcd0d8-2a6b-46b5-9659-13a7c4d9bf19";
+    uuid = "4bee2c05-9999-4da9-a5bb-14b0859606b6";
     remote = "ca-montreal.privateinternetaccess.com";
   }
   { id = "PIA - CA Vancouver";
-    uuid = "b04b1737-f230-4c21-862b-912caf5e9ddd";
+    uuid = "26950ebf-2375-40e1-9469-6d045a65cf4f";
     remote = "ca-vancouver.privateinternetaccess.com";
   }
   { id = "PIA - AU Sydney";
-    uuid = "0d98a6d3-e2f9-479a-b392-e1d93221cec3";
+    uuid = "0212e29b-7e96-42b5-a0fe-8e25db56c9a4";
     remote = "au-sydney.privateinternetaccess.com";
   }
   { id = "PIA - AU Melbourne";
-    uuid = "ada100c2-971a-4fd3-a5fa-3edac924cf01";
+    uuid = "82541464-d68c-4ead-ab95-de0c7a3e0696";
     remote = "au-melbourne.privateinternetaccess.com";
   }
   { id = "PIA - AU Perth";
-    uuid = "324f3c73-f0f2-4275-9618-b28eb3ab59bc";
+    uuid = "570b48ea-1657-478e-90cb-6202c024d10b";
     remote = "au-perth.privateinternetaccess.com";
   }
   { id = "PIA - DE Berlin";
-    uuid = "9283cce6-944f-4a87-9c5f-4cabf2388fa4";
+    uuid = "cdd3be6f-38c5-4058-8701-60f875600cb1";
     remote = "de-berlin.privateinternetaccess.com";
   }
   { id = "PIA - DE Frankfurt";
-    uuid = "e0967d3d-9c98-403d-82d5-83e3580c1d65";
+    uuid = "335dbd0b-4a27-4c2e-ac34-3141817aa70c";
     remote = "de-frankfurt.privateinternetaccess.com";
   }
   { id = "PIA - New Zealand";
-    uuid = "db7bd426-34fa-454b-89ae-f0736d5007b9";
+    uuid = "440d4446-24ff-4852-a760-bd13e1cad9e1";
     remote = "nz.privateinternetaccess.com";
   }
+  { id = "PIA - Albania";
+    uuid = "69d3bf5f-9832-42de-ad1a-2619cbf44bde";
+    remote = "albania.privateinternetaccess.com";
+  }
   { id = "PIA - Netherlands";
-    uuid = "a3fdbc69-3032-4d43-8a2c-61719ed35c03";
+    uuid = "f248db23-1ac4-4d73-be74-9569b8eeee92";
     remote = "nl.privateinternetaccess.com";
   }
+  { id = "PIA - Iceland";
+    uuid = "3b4d06e0-c1c3-4a0a-bcf9-5358db1c0cce";
+    remote = "is.privateinternetaccess.com";
+  }
   { id = "PIA - Sweden";
-    uuid = "e1d50013-1eeb-4608-b140-45730f01f250";
+    uuid = "c93e9210-ddb6-45ba-8bbd-8702edc8c689";
     remote = "sweden.privateinternetaccess.com";
   }
   { id = "PIA - Norway";
-    uuid = "cecd2b78-db91-4161-bf75-9c16d4cdb711";
+    uuid = "d25c6b71-ee8b-4685-aabb-810644eff79f";
     remote = "no.privateinternetaccess.com";
   }
   { id = "PIA - Denmark";
-    uuid = "2b841927-5a09-4942-bec0-edb92d06cbdb";
+    uuid = "e387f1f5-003a-4309-9766-089217936b1c";
     remote = "denmark.privateinternetaccess.com";
   }
   { id = "PIA - Finland";
-    uuid = "1dfd6f31-4c09-4498-82e4-82e181d5af13";
+    uuid = "eac834b6-b6fc-4d87-85f4-720ed5d7c20c";
     remote = "fi.privateinternetaccess.com";
   }
   { id = "PIA - Switzerland";
-    uuid = "7c3cd23e-6106-4754-9a8f-5166e69e42c8";
+    uuid = "7b1b2223-877d-4c5a-a203-4723ed8e13ac";
     remote = "swiss.privateinternetaccess.com";
   }
   { id = "PIA - France";
-    uuid = "46f706ce-d891-4bf1-8e59-a0249390f0e3";
+    uuid = "bb542b23-8820-4a1e-9813-8fb07621bd29";
     remote = "france.privateinternetaccess.com";
   }
   { id = "PIA - Belgium";
-    uuid = "283cf6d2-8796-40f0-a291-a26cdc5f44c5";
+    uuid = "a7fc5303-43c7-4ead-9411-03b1ef646992";
     remote = "belgium.privateinternetaccess.com";
   }
   { id = "PIA - Austria";
-    uuid = "8221d1d4-148a-4b67-89d2-851823d20646";
+    uuid = "e35cf1d7-c38b-44f3-87cf-665a6c5eff2c";
     remote = "austria.privateinternetaccess.com";
   }
   { id = "PIA - Czech Republic";
-    uuid = "a93ddb62-3be4-4bfc-8082-8abf0dc5e0b4";
+    uuid = "64f8db6f-1b79-42e2-8b27-068bfe0a7511";
     remote = "czech.privateinternetaccess.com";
   }
   { id = "PIA - Luxembourg";
-    uuid = "7c5ffd3d-5093-4251-b239-c803ebc9260e";
+    uuid = "5b232867-9be1-4d7a-841e-72e3f140b869";
     remote = "lu.privateinternetaccess.com";
   }
   { id = "PIA - Ireland";
-    uuid = "7f2df69d-5faf-4f22-b59a-3a5e8f0e86be";
+    uuid = "c5a6546b-806b-4f14-8c7b-58c37347b62b";
     remote = "ireland.privateinternetaccess.com";
   }
   { id = "PIA - Italy";
-    uuid = "163fe8c8-a40f-4129-b670-c8c025f54a52";
+    uuid = "35336dea-f382-475e-a4be-6f8692735ddb";
     remote = "italy.privateinternetaccess.com";
   }
+  { id = "PIA - Portugal";
+    uuid = "bc81df62-8772-44b8-ab01-ccbcfe17a151";
+    remote = "pt.privateinternetaccess.com";
+  }
   { id = "PIA - Spain";
-    uuid = "c1bccad9-644a-4870-b023-10eb89582642";
+    uuid = "70dfcf0a-8918-4025-a0d2-b6eb00c5c2ca";
     remote = "spain.privateinternetaccess.com";
   }
+  { id = "PIA - Moldova";
+    uuid = "1aa49f6f-e774-4257-bd74-60f084d66a55";
+    remote = "md.privateinternetaccess.com";
+  }
   { id = "PIA - Romania";
-    uuid = "86217f1a-b579-4cac-9083-6a4bafbbaa6a";
+    uuid = "49ec5e0f-3cb4-41d4-8320-27cde0198772";
     remote = "ro.privateinternetaccess.com";
   }
+  { id = "PIA - Bulgaria";
+    uuid = "df8ef044-9fa8-4fce-93ea-ef872afe8d3d";
+    remote = "bg.privateinternetaccess.com";
+  }
+  { id = "PIA - Serbia";
+    uuid = "55c9cac1-3c96-47ea-b81d-8c96f2741792";
+    remote = "rs.privateinternetaccess.com";
+  }
+  { id = "PIA - Latvia";
+    uuid = "2c4c51e6-24e3-4fc7-b75f-1a864d1193a4";
+    remote = "lv.privateinternetaccess.com";
+  }
+  { id = "PIA - Estonia";
+    uuid = "7cee7c65-1213-4b16-b537-7645bb56fa00";
+    remote = "ee.privateinternetaccess.com";
+  }
+  { id = "PIA - Lithuania";
+    uuid = "5aacb83f-55de-4079-b218-cde070a86066";
+    remote = "lt.privateinternetaccess.com";
+  }
+  { id = "PIA - Slovakia";
+    uuid = "ed280643-3ea4-4366-b798-dc8bb198d675";
+    remote = "sk.privateinternetaccess.com";
+  }
   { id = "PIA - Hungary";
-    uuid = "4b3541cc-8761-46bd-881c-675846419693";
+    uuid = "2ddc7170-23b5-44a6-9177-c237ccf05121";
     remote = "hungary.privateinternetaccess.com";
   }
   { id = "PIA - Poland";
-    uuid = "c1e99ff3-a22a-4bf8-9a7c-96da535f15a7";
+    uuid = "d7ece3ec-f6b2-4893-bef1-4cf39bc64cad";
     remote = "poland.privateinternetaccess.com";
   }
+  { id = "PIA - Greece";
+    uuid = "a87610fd-fba5-4529-b53e-7c9e26179e1f";
+    remote = "gr.privateinternetaccess.com";
+  }
+  { id = "PIA - Bosnia and Herzegovina";
+    uuid = "8c5eeb3c-6582-446c-8d81-c1c7abf55e2b";
+    remote = "ba.privateinternetaccess.com";
+  }
+  { id = "PIA - Ukraine";
+    uuid = "19d51aaa-eddf-4875-8c7e-f5dd6d9cfe7c";
+    remote = "ua.privateinternetaccess.com";
+  }
+  { id = "PIA - North Macedonia";
+    uuid = "e3e98a27-23d1-4b23-9d97-3807204b94ee";
+    remote = "mk.privateinternetaccess.com";
+  }
+  { id = "PIA - Turkey";
+    uuid = "b0f7b9b9-2739-4614-a082-8c4687471764";
+    remote = "tr.privateinternetaccess.com";
+  }
   { id = "PIA - UAE";
-    uuid = "443e0f0e-a4ce-4030-a43f-40d5f8f62d3a";
+    uuid = "ad02317e-fee5-43af-b03d-9161bef27af3";
     remote = "ae.privateinternetaccess.com";
   }
-  { id = "PIA - Hong Kong";
-    uuid = "f1867b98-7cda-4f23-a7e9-4ef8ffb28002";
-    remote = "hk.privateinternetaccess.com";
-  }
   { id = "PIA - Singapore";
-    uuid = "03337d4b-63d2-4c68-aa56-37a877af849f";
+    uuid = "3b42b7d5-1172-4f5b-8818-1b3d4f88f4ee";
     remote = "sg.privateinternetaccess.com";
   }
   { id = "PIA - Japan";
-    uuid = "bfc9af3d-91ec-40d6-bdbb-8c07bdd2d42a";
-    remote = "japan.privateinternetaccess.com";
+    uuid = "42fc6502-f90b-4446-bc93-415b41dba1a8";
+    remote = "jp.privateinternetaccess.com";
   }
   { id = "PIA - Israel";
-    uuid = "64c6fa59-1dd3-4092-95f7-6048aa963248";
+    uuid = "57bc5d10-4b5e-4013-a219-1d0d6ea73dda";
     remote = "israel.privateinternetaccess.com";
   }
-  { id = "PIA - Mexico";
-    uuid = "fb37bf93-84dd-4f3f-9758-5e345a0b5c4f";
-    remote = "mexico.privateinternetaccess.com";
-  }
-  { id = "PIA - Brazil";
-    uuid = "2da9f9cf-4fdb-4bdc-bced-d05a1efad836";
-    remote = "brazil.privateinternetaccess.com";
+  { id = "PIA - Argentina";
+    uuid = "3035e6d5-8a34-4a1f-87d2-7429b0987f6f";
+    remote = "ar.privateinternetaccess.com";
   }
   { id = "PIA - India";
-    uuid = "8e4406b5-8bc3-49f9-ba7b-a90538193ed0";
+    uuid = "dfd38b92-bcfe-4c4c-b4d8-6eb28543c975";
     remote = "in.privateinternetaccess.com";
   }
   { id = "PIA - South Africa";
-    uuid = "5533c9a7-7c50-4f94-88e4-adac53b6659a";
+    uuid = "81056c82-3f65-4974-a8b3-081b5295722c";
     remote = "za.privateinternetaccess.com";
   }
 ]
