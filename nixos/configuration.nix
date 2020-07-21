@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
-let
-  sources = import ./nix/sources.nix;
+let sources = import ./nix/sources.nix;
 in {
   imports =
     [ ./hardware-configuration.nix ./fonts.nix ./users.nix ./pia/pia-nm.nix ];
@@ -92,17 +91,20 @@ in {
       pia-vpn.usernameFile = "/etc/pia-vpn.username";
       pia-vpn.passwordFile = "/etc/pia-vpn.password";
       pia-vpn.serverList = [
+        "us-atlanta"
         "us-california"
-        "us-east"
         "us-chicago"
-        "us-texas"
-        "us-seattle"
-        "us-west"
-        "us-siliconvalley"
-        "us-newyorkcity"
-        "us-lasvegas"
-        "us-houston"
+        "us-dal"
         "us-denver"
+        "us-east"
+        "us-florida"
+        "us-houston"
+        "us-lasvegas"
+        "us-nyc"
+        "us-sea"
+        "us-siliconvalley"
+        "us-washingtondc"
+        "us-west"
       ];
     };
   };
