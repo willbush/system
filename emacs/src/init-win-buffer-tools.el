@@ -9,8 +9,8 @@
     ;; Xmonad style keybindings
     "M-," 'edwina-inc-nmaster
     "M-." 'edwina-dec-nmaster
-    ;; I can't bind this to M-S-RET unfortunately.
-    "M-c" 'edwina-clone-window
+    "M-S-RET" 'edwina-clone-window
+    "<M-S-return>" 'edwina-clone-window
     "M-C" 'edwina-delete-window
     "M-N" 'edwina-swap-next-window
     "M-E" 'edwina-swap-previous-window
