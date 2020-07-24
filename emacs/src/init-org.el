@@ -11,15 +11,25 @@
             '(lambda ()
               (setq show-trailing-whitespace t)))
 
+  (general-unbind
+    :keymaps 'org-mode-map
+    ;; collides with a edwina keybindings
+    "<M-S-return>"
+    "<M-return>"
+    "M-RET"
+    "M-S-RET")
+
   (general-def
     :prefix ","
     :states 'normal
     :keymaps 'org-mode-map
     :major-modes t
-    "n" 'org-move-subtree-down
+    "RET" 'org-meta-return
+    "t" 'org-insert-todo-heading
     "e" 'org-move-subtree-up
+    "i" 'org-do-demote
     "m" 'org-do-promote
-    "i" 'org-do-demote)
+    "n" 'org-move-subtree-down)
 
   ;; Allows me to set the width of an inline image.
   ;; #+ATTR_ORG: :width 100
