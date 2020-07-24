@@ -192,6 +192,8 @@
   "xd" 'define-word-at-point
   "xl" 'my/sort-lines
   "xr" 'my/randomize-lines
-  "xu" 'my/uniquify-lines)
+  "xu" 'my/uniquify-lines
+  ;; binding this to an easy key because I use it a lot.
+  "xx" 'fill-paragraph)
 
 (provide 'init-keys)
