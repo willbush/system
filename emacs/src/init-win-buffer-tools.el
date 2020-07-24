@@ -3,6 +3,23 @@
 (use-package edwina
   :hook (after-init . edwina-mode)
   :config
+
+  ;; Fixes zoom so that the master window is selected after zooming from a
+  ;; non-master window. see: https://github.com/ajgrf/edwina/issues/7
+  (defun my/edwina-zoom ()
+    "Zoom/cycle the selected window to/from master area."
+    (interactive)
+    (if (eq (selected-window) (frame-first-window))
+        (edwina-swap-next-window)
+      (let ((pane (edwina-pane (selected-window))))
+        (edwina-delete-window)
+        (edwina-arrange (cons pane (edwina-pane-list)))
+        ;; The index of the current selected window in the window list is
+        ;; exactly how many times we need to move left in the list to get to the
+        ;; master window which is at index 0.
+        (dotimes (_ (cl-position (selected-window) (edwina--window-list)))
+          (edwina-select-previous-window)))))
+
   (general-def
     :states '(normal visual emacs)
     :keymaps 'override
@@ -18,7 +35,7 @@
     "M-e" 'edwina-select-previous-window
     "M-i" 'edwina-inc-mfact
     "M-m" 'edwina-dec-mfact
-    "M-RET" 'edwina-zoom))
+    "M-RET" 'my/edwina-zoom))
 
 (use-package eyebrowse
   :hook (after-init . eyebrowse-mode)
