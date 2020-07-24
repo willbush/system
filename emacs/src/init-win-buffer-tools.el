@@ -18,9 +18,32 @@
     "M-e" 'edwina-select-previous-window
     "M-i" 'edwina-inc-mfact
     "M-m" 'edwina-dec-mfact
-    ;; I can't bind this to M-S-SPC unfortunately.
-    "M-a" 'edwina-arrange
     "M-RET" 'edwina-zoom))
+
+(use-package eyebrowse
+  :hook (after-init . eyebrowse-mode)
+  :config
+  (setq eyebrowse-wrap-around t
+        eyebrowse-new-workspace t
+        eyebrowse-default-workspace-slot 0)
+
+  ;; When these keys are easy to get reach all the other functions provided by
+  ;; eyebrowse become way less useful. Therefore, this is all I feel I need to
+  ;; bind.
+  (general-def
+    :states '(normal visual emacs)
+    :keymaps 'override
+    ;; I'm binding these like I do in Xmonad
+    "M-q" 'eyebrowse-switch-to-window-config-0
+    "M-w" 'eyebrowse-switch-to-window-config-1
+    "M-f" 'eyebrowse-switch-to-window-config-2
+    "M-p" 'eyebrowse-switch-to-window-config-3
+    "M-b" 'eyebrowse-switch-to-window-config-4
+    "M-a" 'eyebrowse-switch-to-window-config-5
+    "M-r" 'eyebrowse-switch-to-window-config-6
+    "M-s" 'eyebrowse-switch-to-window-config-7
+    "M-t" 'eyebrowse-switch-to-window-config-8
+    "M-g" 'eyebrowse-switch-to-window-config-9))
 
 (use-package golden-ratio
   :commands (golden-ratio golden-ratio-mode)
