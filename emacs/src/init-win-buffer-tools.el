@@ -14,11 +14,8 @@
       (let ((pane (edwina-pane (selected-window))))
         (edwina-delete-window)
         (edwina-arrange (cons pane (edwina-pane-list)))
-        ;; The index of the current selected window in the window list is
-        ;; exactly how many times we need to move left in the list to get to the
-        ;; master window which is at index 0.
-        (dotimes (_ (cl-position (selected-window) (edwina--window-list)))
-          (edwina-select-previous-window)))))
+        ;; switch to master window
+        (select-window (car (edwina--window-list))))))
 
   (general-def
     :states '(normal visual emacs)
