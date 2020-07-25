@@ -136,8 +136,8 @@ git-timemachine-mode:
         lsp-ui-flycheck-list-position 'right)
 
   ;; Setup the keybindings for `lsp-ui-imenu'. Note that evil-collection
-  ;; provides evil bindings for this, but I want mine diff enough that I am just
-  ;; doing it myself here.
+  ;; provides evil bindings for this, but I want mine different enough that I am
+  ;; just doing it myself here.
   (general-def
     :states 'normal
     :keymaps 'lsp-ui-imenu-mode-map
