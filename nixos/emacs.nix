@@ -40,7 +40,6 @@ in {
         evil
         evil-collection
         evil-exchange
-        evil-magit
         evil-matchit
         evil-numbers
         evil-surround
