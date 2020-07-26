@@ -20,24 +20,24 @@
   (transient-define-prefix my/magit-dispatch ()
     "Invoke a Magit command from a list of available commands."
     ["Transient and dwim commands"
-     [("A" " Apply"          magit-cherry-pick)
+     [("A" " Apply"         magit-cherry-pick)
       ("gb" "Branch"        magit-branch)
-      ("B" " Bisect"         magit-bisect)
-      ("c" " Commit"         magit-commit)
-      ("d" " Diff"           magit-diff)
-      ("D" " Diff (change)"  magit-diff-refresh)]
+      ("B" " Bisect"        magit-bisect)
+      ("c" " Commit"        magit-commit)
+      ("d" " Diff"          magit-diff)
+      ("D" " Diff (change)" magit-diff-refresh)]
      [("F" "Fetch"          magit-fetch)
       ("P" "Pull"           magit-pull)
       ("l" "Log"            magit-log)
       ("L" "Log (change)"   magit-log-refresh)
       ("o" "Submodule"      magit-submodule)
       ("O" "Subtree"        magit-subtree)]
-     [("p" " Push"           magit-push)
-      ("_" " Rebase"         magit-rebase)
+     [("p" " Push"          magit-push)
+      ("_" " Rebase"        magit-rebase)
       ("gt" "Tag"           magit-tag)
       ("gT" "Note"          magit-notes)
-      ("V" " Revert"         magit-revert)
-      ("X" " Reset"          magit-reset)]
+      ("V" " Revert"        magit-revert)
+      ("X" " Reset"         magit-reset)]
      [("C" "Cherries"       magit-cherry)
       ("z" "Stash"          magit-stash)
       ("!" "Run"            magit-run)
