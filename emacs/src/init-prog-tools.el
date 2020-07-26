@@ -3,31 +3,139 @@
 (use-package magit
   :commands
   (magit-clone
-   magit-gitignore-globally
    magit-init
-   magit-status
-   magit-dispatch)
+   magit-blame
+   magit-status)
+  :init
+  (evil-set-initial-state 'magit-mode 'normal)
+  (evil-set-initial-state 'magit-diff-mode 'normal)
+  (evil-set-initial-state 'magit-log-mode 'normal)
+  (evil-set-initial-state 'magit-revision-mode 'normal)
+  (evil-set-initial-state 'magit-status-mode 'normal)
   :config
-  (setq magit-completing-read-function 'ivy-completing-read))
+  (setq magit-completing-read-function 'ivy-completing-read)
 
-(use-package evil-magit
-  :after magit
-  :config
+  ;; I bind my own magit dispatch commands here.
+  (transient-define-prefix my/magit-dispatch ()
+    "Invoke a Magit command from a list of available commands."
+    ["Transient and dwim commands"
+     [("A" " Apply"          magit-cherry-pick)
+      ("gb" "Branch"        magit-branch)
+      ("B" " Bisect"         magit-bisect)
+      ("c" " Commit"         magit-commit)
+      ("d" " Diff"           magit-diff)
+      ("D" " Diff (change)"  magit-diff-refresh)]
+     [("F" "Fetch"          magit-fetch)
+      ("P" "Pull"           magit-pull)
+      ("l" "Log"            magit-log)
+      ("L" "Log (change)"   magit-log-refresh)
+      ("o" "Submodule"      magit-submodule)
+      ("O" "Subtree"        magit-subtree)]
+     [("p" " Push"           magit-push)
+      ("_" " Rebase"         magit-rebase)
+      ("gt" "Tag"           magit-tag)
+      ("gT" "Note"          magit-notes)
+      ("V" " Revert"         magit-revert)
+      ("X" " Reset"          magit-reset)]
+     [("C" "Cherries"       magit-cherry)
+      ("z" "Stash"          magit-stash)
+      ("!" "Run"            magit-run)
+      ("W" "Worktree"       magit-worktree)]]
+    ["Applying changes"
+     :if-derived magit-mode
+     [("a" "Apply"          magit-apply)
+      ("v" "Reverse"        magit-reverse)
+      ("x" "Discard"        magit-discard)]
+     [("s" "Stage"          magit-stage)
+      ("u" "Unstage"        magit-unstage)]
+     [("S" "Stage all"      magit-stage-modified)
+      ("U" "Unstage all"    magit-unstage-all)]]
+    ["Essential commands"
+     :if-derived magit-mode
+     [("gr" "      refresh current buffer"  magit-refresh)
+      ("<tab>" "   toggle section at point" magit-section-toggle)
+      ("<return>" "visit thing at point"    magit-visit-thing)
+      ("C-h m" "   show all key bindings"   describe-mode)]
+     [("<escape>" "Quit"        keyboard-quit)
+      ("C-g"      "     Quit"   keyboard-quit)
+      ("q"        "       Quit" keyboard-quit)]])
 
-  (general-unbind
+  (general-def
     :states '(normal visual)
     :keymaps 'magit-mode-map
-    "C-w")
+    "<C-tab>" 'magit-section-cycle
+    "<M-tab>" 'magit-section-cycle-diffs
+    "?" 'my/magit-dispatch
+    "TAB" 'magit-section-toggle
+    "q" 'magit-mode-bury-buffer)
 
-  (general-swap-key '(normal visual) 'magit-mode-map
-    "C-j" "C-n"
-    "C-k" "C-e"
-    "g j" "g n"
-    "g k" "g e"
-    "j" "n"
-    "k" "e"
-    "v" "r"
-    "V" "R"))
+  (general-def
+    :states 'normal
+    :keymaps 'magit-mode-map
+    "!" 'magit-run
+    "+" 'magit-diff-more-context
+    "-" 'magit-diff-less-context
+    "A" 'magit-cherry-pick
+    "C" 'magit-cherry
+    "D" 'magit-diff-refresh
+    "L" 'magit-log-refresh
+    "O" 'magit-subtree
+    "P" 'magit-pull
+    "RET" 'magit-visit-thing
+    "S" 'magit-stage-modified
+    "gT" 'magit-notes
+    "U" 'magit-unstage-all
+    "V" 'magit-revert
+    "W" 'magit-worktree
+    "X" 'magit-reset
+    "_" 'magit-rebase
+    "a" 'magit-cherry-apply
+    "gb" 'magit-branch
+    "c" 'magit-commit
+    "d" 'magit-diff
+    "F" 'magit-fetch
+    "gr" 'magit-refresh
+    "l" 'magit-log
+    "o" 'magit-submodule
+    "p" 'magit-push
+    "s" 'magit-stage
+    "gt" 'magit-tag
+    "u" 'magit-unstage
+    "v" 'magit-reverse
+    "x" 'magit-discard
+    "z" 'magit-stash)
+
+  (general-def
+    :prefix ","
+    :states 'normal
+    :keymaps 'magit-mode-map
+    "?" 'my/magit-dispatch
+    "B" 'magit-bisect
+    "E" 'magit-ediff
+    "G" 'magit-refresh-all
+    "R" 'magit-remote
+    "b" 'magit-process-buffer
+    "c" 'magit-git-command
+    "e" 'magit-ediff-dwim
+    "f" '(:ignore t :wk "file")
+    "fr" 'magit-file-rename
+    "fu" 'magit-file-untrack
+    "i" 'magit-gitignore
+    "m" 'magit-merge
+    "p" '(:ignore t :wk "patches")
+    "pa" '(magit-am :wk "apply patches")
+    "pf" '(magit-patch :wk "format patches")
+    "r" '(:ignore t :wk "refs")
+    "ra" 'magit-show-refs-arguments
+    "rc" 'magit-show-refs-current
+    "rh" 'magit-show-refs-head
+    "ro" 'magit-show-refs-other
+    "rr" 'magit-show-refs)
+
+  (general-def
+    :states '(normal visual)
+    :keymaps 'magit-blame-mode-map
+    "q" 'magit-blame-quit))
 
 (use-package git-timemachine
   :commands git-timemachine
