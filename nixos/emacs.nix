@@ -83,6 +83,7 @@ in {
         ranger
         rustic
         smex
+        swiper
         use-package
         vimrc-mode
         visual-fill-column
