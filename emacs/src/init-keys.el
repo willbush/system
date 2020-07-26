@@ -8,7 +8,8 @@
   "C--" 'text-scale-decrease
   ;; increment and decrement number at point.
   "M-+" 'evil-numbers/inc-at-pt
-  "M--" 'evil-numbers/dec-at-pt)
+  "M--" 'evil-numbers/dec-at-pt
+  "C-s" 'swiper)
 
 ;; pressing r again after going into range mode (visual mode) will enter a hydra
 ;; for expand-region usage
@@ -118,10 +119,9 @@
   "m" '(:ignore t :wk "magit")
   "mG" 'hydra-git-gutter/body
   "mI" 'magit-init
+  "mb" 'magit-blame
   "mc" 'magit-clone
-  "md" 'magit-dispatch
   "mg" 'counsel-git-grep
-  "mi" 'magit-gitignore-globally
   "ml" 'counsel-git-log
   "mm" 'magit-status
   "mt" 'git-timemachine
