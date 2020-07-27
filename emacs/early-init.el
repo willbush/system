@@ -9,7 +9,6 @@
 (defconst IS-MAC     (eq system-type 'darwin))
 (defconst IS-LINUX   (eq system-type 'gnu/linux))
 (defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
-(defconst IS-INTERACTIVE (not noninteractive))
 
 ;; Work around to a crippling performance issue I reported affecting Emacs 28
 ;; after cario was made the default: https://debbugs.gnu.org/db/40/40733.html
