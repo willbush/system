@@ -133,10 +133,52 @@
     "ro" 'magit-show-refs-other
     "rr" 'magit-show-refs)
 
+  (defhydra hydra-magit-blame (:hint nil)
+    "
+magit-blame-mode:
+
+  _RET_ show commit
+  _C-n_ next chunk     _gn_ next chunk same commit
+  _C-p_ previous chunk _gp_ previous chunk same commit
+  _gb_ blame          - Show the commits that added or removed lines in the visited file.
+  _ga_ blame addition - For each line show the revision in which it was added.
+  _gr_ blame removal  - For each line show the revision in which it was removed.
+  _gv_ blame reverse  - For each line show the last revision in which it still exists.
+  _q_ quit             _gc_ cycle style
+
+"
+    ("C-n" magit-blame-next-chunk)
+    ("C-p" magit-blame-previous-chunk)
+    ("RET" magit-show-commit)
+    ("ga" magit-blame-addition)
+    ("gb" magit-blame)
+    ("gc" magit-blame-cycle-style)
+    ("gn" magit-blame-next-chunk-same-commit)
+    ("gp" magit-blame-previous-chunk-same-commit)
+    ("gr" magit-blame-removal)
+    ("gv" magit-blame-reverse)
+    ("q" magit-blame-quit "quit" :color blue))
+
   (general-def
     :states '(normal visual)
-    :keymaps 'magit-blame-mode-map
-    "q" 'magit-blame-quit))
+    :keymaps '(magit-blame-mode-map
+               magit-blame-read-only-mode-map)
+    "?" 'hydra-magit-blame/body
+    "C-n" 'magit-blame-next-chunk
+    "C-p" 'magit-blame-previous-chunk
+    "RET" 'magit-show-commit
+    "ga" 'magit-blame-addition
+    "gb" 'magit-blame
+    "gc" 'magit-blame-cycle-style
+    "gn" 'magit-blame-next-chunk-same-commit
+    "gp" 'magit-blame-previous-chunk-same-commit
+    "gr" 'magit-blame-removal
+    "gv" 'magit-blame-reverse
+    "q" 'magit-blame-quit)
+
+  ;; Ran into this issue on the magit-blame key bindings:
+  ;; https://github.com/noctuid/evil-guide#why-dont-keys-defined-with-evil-define-key-work-immediately
+  (add-hook 'magit-blame-mode-hook #'evil-normalize-keymaps))
 
 (use-package git-timemachine
   :commands git-timemachine
@@ -187,6 +229,7 @@ git-timemachine-mode:
     :states 'normal
     :keymaps 'git-timemachine-mode
     "," 'hydra-git-timemachine/body
+    "?" 'hydra-git-timemachine/body
 
     "C-n" 'git-timemachine-show-next-revision
     "C-p" 'git-timemachine-show-previous-revision
