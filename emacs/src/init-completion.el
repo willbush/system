@@ -2,6 +2,7 @@
 
 ;; Keep track of recently opened files
 (use-package recentf
+  :hook (after-init . recentf-mode)
   :ensure nil ;; is included in Emacs.
   :config
   (defun my/recent-file-truename (file)
@@ -23,9 +24,7 @@
             '(lambda ()
               (recentf-add-file default-directory)))
 
-  (when IS-INTERACTIVE
-    (add-hook 'kill-emacs-hook #'recentf-cleanup)
-    (recentf-mode 1)))
+  (add-hook 'kill-emacs-hook #'recentf-cleanup))
 
 (use-package ivy
   :defer 0.1
