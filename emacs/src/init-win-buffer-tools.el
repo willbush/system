@@ -4,6 +4,8 @@
   :hook (after-init . edwina-mode)
   :config
 
+  (setq edwina-mfact 0.666)
+
   ;; Fixes zoom so that the master window is selected after zooming from a
   ;; non-master window. see: https://github.com/ajgrf/edwina/issues/7
   (defun my/edwina-zoom ()
