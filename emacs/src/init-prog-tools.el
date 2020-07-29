@@ -13,6 +13,7 @@
   (evil-set-initial-state 'magit-revision-mode 'normal)
   (evil-set-initial-state 'magit-status-mode 'normal)
   (evil-set-initial-state 'magit-stash-mode 'normal)
+  (evil-set-initial-state 'magit-process-mode 'normal)
   :config
   (setq magit-completing-read-function 'ivy-completing-read)
 
