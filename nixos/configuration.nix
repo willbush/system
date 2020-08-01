@@ -133,10 +133,6 @@ in {
       displayManager = {
         defaultSession = "none+xmonad";
         lightdm.enable = true;
-        sessionCommands = ''
-          feh --bg-scale /home/will/images/retro.jpg
-          albert &
-        '';
       };
       desktopManager.xterm.enable = false;
     };
@@ -153,7 +149,6 @@ in {
     docker
     docker-compose
     fd
-    feh
     neovim
     ripgrep
     tree
