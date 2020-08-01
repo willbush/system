@@ -71,6 +71,7 @@ in {
     dotnet-sdk
     du-dust
     exa
+    feh
     firefox-beta-bin
     gcc
     gimp
