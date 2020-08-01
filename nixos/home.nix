@@ -83,6 +83,7 @@ in {
     haskellPackages.hoogle
     hicolor-icon-theme # fall back icon theme
     keepassxc
+    killall
     libreoffice
     neofetch
     niv
