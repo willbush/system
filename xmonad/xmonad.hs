@@ -8,6 +8,8 @@ import qualified XMonad.StackSet               as W
 import qualified XMonad.Util.CustomKeys        as C
 import qualified XMonad.Layout.Grid            as L
 import qualified XMonad.Layout.Spacing         as L
+import qualified XMonad.Layout.ThreeColumns    as L
+import           XMonad.Layout.LayoutModifier   ( ModifiedLayout )
 
 main :: IO ()
 main =
@@ -17,6 +19,7 @@ main =
         setWMName "LG3D" -- Needed for Java GUI to work
         spawnOnce "feh --bg-scale /home/will/sync/images/retro.jpg"
         spawnOnce "albert &"
+    , layoutHook = layouts
     , terminal = "alacritty"
     , modMask = mod4Mask -- Rebind Mod to the super key
     , keys = C.customKeys delkeys addkeys
@@ -31,6 +34,22 @@ main =
           "a", "r", "s", "t", "g"
         ]
     }
+
+layouts = tall ||| threeCol ||| Mirror tall ||| grid ||| Full
+ where
+  spaceBy :: Integer -> l a -> ModifiedLayout L.Spacing l a
+  spaceBy n = L.spacingRaw True (L.Border n n n n) True (L.Border n n n n) True
+
+  -- The default number of windows in the master pane
+  nmaster  = 1
+  -- Default proportion of screen occupied by master pane
+  ratio    = 2 / 3
+  -- Percent of screen to increment by when resizing panes
+  delta    = 3 / 100
+  -- default tiling algorithm partitions the screen into two panes
+  tall     = spaceBy 5 $ Tall nmaster delta ratio
+  grid     = spaceBy 5 L.Grid
+  threeCol = spaceBy 5 $ L.ThreeColMid 1 delta (1 / 2)
 
 delkeys :: XConfig l -> [(KeyMask, KeySym)]
 delkeys XConfig { modMask = modm } =
