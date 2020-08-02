@@ -2,14 +2,16 @@ import           Data.Default                   ( def )
 import           XMonad
 import           XMonad.Hooks.ManageDocks       ( manageDocks )
 import           XMonad.Hooks.SetWMName         ( setWMName )
+import           XMonad.Layout.LayoutModifier   ( ModifiedLayout )
 import           XMonad.Util.SpawnOnce          ( spawnOnce )
 import qualified System.Exit                   as X
-import qualified XMonad.StackSet               as W
-import qualified XMonad.Util.CustomKeys        as C
 import qualified XMonad.Layout.Grid            as L
+import qualified XMonad.Layout.MultiToggle     as L
+import qualified XMonad.Layout.Reflect         as L
 import qualified XMonad.Layout.Spacing         as L
 import qualified XMonad.Layout.ThreeColumns    as L
-import           XMonad.Layout.LayoutModifier   ( ModifiedLayout )
+import qualified XMonad.StackSet               as W
+import qualified XMonad.Util.CustomKeys        as C
 
 main :: IO ()
 main =
@@ -19,7 +21,7 @@ main =
         setWMName "LG3D" -- Needed for Java GUI to work
         spawnOnce "feh --bg-scale /home/will/sync/images/retro.jpg"
         spawnOnce "albert &"
-    , layoutHook = layouts
+    , layoutHook = L.mkToggle (L.single L.REFLECTX) $  L.mkToggle (L.single L.REFLECTY) layouts
     , terminal = "alacritty"
     , modMask = mod4Mask -- Rebind Mod to the super key
     , keys = C.customKeys delkeys addkeys
@@ -35,7 +37,7 @@ main =
         ]
     }
 
-layouts = tall ||| threeCol ||| Mirror tall ||| grid ||| Full
+layouts = tallLeft ||| threeCol ||| Mirror tall ||| grid ||| Full
  where
   spaceBy :: Integer -> l a -> ModifiedLayout L.Spacing l a
   spaceBy n = L.spacingRaw True (L.Border n n n n) True (L.Border n n n n) True
@@ -46,39 +48,38 @@ layouts = tall ||| threeCol ||| Mirror tall ||| grid ||| Full
   ratio    = 2 / 3
   -- Percent of screen to increment by when resizing panes
   delta    = 3 / 100
-  -- default tiling algorithm partitions the screen into two panes
   tall     = spaceBy 5 $ Tall nmaster delta ratio
+  -- tall layout with master on the right and stack on the left.
+  tallLeft = spaceBy 5 $ L.reflectHoriz $ Tall nmaster delta ratio
   grid     = spaceBy 5 L.Grid
   threeCol = spaceBy 5 $ L.ThreeColMid 1 delta (1 / 2)
 
 delkeys :: XConfig l -> [(KeyMask, KeySym)]
 delkeys XConfig { modMask = modm } =
-  -- Keys I'm going to rebind:
   [ (modm              , xK_h)
+  , (modm              , xK_e)
   , (modm              , xK_j)
   , (modm              , xK_k)
   , (modm              , xK_l)
   , (modm              , xK_m)
   , (modm              , xK_n)
+  , (modm              , xK_p)
   , (modm              , xK_q)
+  , (modm              , xK_r)
   , (modm              , xK_t)
+  , (modm              , xK_w)
+  , (modm .|. shiftMask, xK_e)
   , (modm .|. shiftMask, xK_h)
   , (modm .|. shiftMask, xK_j)
   , (modm .|. shiftMask, xK_k)
   , (modm .|. shiftMask, xK_l)
   , (modm .|. shiftMask, xK_m)
   , (modm .|. shiftMask, xK_n)
-  , (modm .|. shiftMask, xK_q)
-  , (modm .|. shiftMask, xK_t)
-  -- Unbind keys I don't use:
-  , (modm              , xK_w)
-  , (modm              , xK_e)
-  , (modm              , xK_r)
-  , (modm              , xK_p)
-  , (modm .|. shiftMask, xK_w)
-  , (modm .|. shiftMask, xK_e)
-  , (modm .|. shiftMask, xK_r)
   , (modm .|. shiftMask, xK_p)
+  , (modm .|. shiftMask, xK_q)
+  , (modm .|. shiftMask, xK_r)
+  , (modm .|. shiftMask, xK_t)
+  , (modm .|. shiftMask, xK_w)
   ]
 
 workspaceKeys :: [KeySym]
@@ -98,14 +99,17 @@ addkeys conf@XConfig {modMask = modm} =
   , ((modm .|. shiftMask, xK_n), windows W.swapDown)
   , ((modm .|. shiftMask, xK_e), windows W.swapUp)
   , ((modm .|. shiftMask, xK_m), windows W.focusMaster)
-  -- quit, or restart
-  , ((modm              , xK_x), spawn "xmonad --recompile && xmonad --restart")
-  , ((modm .|. controlMask, xK_x), io X.exitSuccess)
+  -- restart or kill
+  , ((modm,                 xK_k), spawn "xmonad --recompile && xmonad --restart")
+  , ((modm .|. controlMask, xK_k), io X.exitSuccess)
   -- My mnemonic for 'd' is drop floating window
-  , ((modm,               xK_d), withFocused $ windows . W.sink)
+  , ((modm, xK_d), withFocused $ windows . W.sink)
   -- Resize viewed windows to the correct size. I've never actually needed
   -- this. I'm not sure in what situation this would be useful.
-  , ((modm,               xK_z), refresh)
+  , ((modm, xK_z), refresh)
+  -- Reflect layout across the x or y axis.
+  , ((modm, xK_x), sendMessage $ L.Toggle L.REFLECTX)
+  , ((modm, xK_y), sendMessage $ L.Toggle L.REFLECTY)
   ] ++
   -- This is using a list comprehension to build a list of workspace key
   -- bindings.
