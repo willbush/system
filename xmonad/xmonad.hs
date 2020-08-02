@@ -1,14 +1,17 @@
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
+
 import           Data.Default                   ( def )
 import           XMonad
 import           XMonad.Hooks.ManageDocks       ( manageDocks )
 import           XMonad.Hooks.SetWMName         ( setWMName )
 import           XMonad.Layout.LayoutModifier   ( ModifiedLayout )
 import           XMonad.Layout.ThreeColumns     ( ThreeCol(ThreeColMid) )
+import           XMonad.Util.Types              ( Direction2D(U, D, L, R) )
 import qualified System.Exit                   as X
-import qualified XMonad.Layout.Decoration      as L
+import qualified XMonad.Layout.Decoration      as D
 import qualified XMonad.Layout.Grid            as L
 import qualified XMonad.Layout.MultiToggle     as MT
-import qualified XMonad.Layout.NoFrillsDecoration as L
 import qualified XMonad.Layout.Reflect         as L
 import qualified XMonad.Layout.Spacing         as L
 import qualified XMonad.StackSet               as W
@@ -52,30 +55,22 @@ layouts = tallLeft ||| threeCol ||| tallMirror ||| grid ||| full
   spaceBy5 = L.spacingRaw True (L.Border n n n n) True (L.Border n n n n) True
     where n = 5
 
-  -- this is a "fake title" used as a highlight bar in lieu of full borders
-  -- (I find this a cleaner and less visually intrusive solution)
-  addTopBar
-    :: l Window
-    -> ModifiedLayout
-         (L.Decoration L.NoFrillsDecoration L.DefaultShrinker)
-         l
-         Window
-  addTopBar = L.noFrillsDeco
-    L.shrinkText
-    def { L.activeBorderColor   = blue
-        , L.activeColor         = blue
-        , L.activeTextColor     = blue
-        , L.decoHeight          = 5
-        , L.inactiveBorderColor = black
-        , L.inactiveColor       = black
-        , L.inactiveTextColor   = black
-        , L.urgentBorderColor   = fuchsia
-        , L.urgentTextColor     = fuchsia
+  addTopBar = smartBarDeco
+    U
+    def { D.activeBorderColor   = active
+        , D.activeColor         = active
+        , D.activeTextColor     = active
+        , D.decoHeight          = 5
+        , D.inactiveBorderColor = inactive
+        , D.inactiveColor       = inactive
+        , D.inactiveTextColor   = inactive
+        , D.urgentBorderColor   = urgent
+        , D.urgentTextColor     = urgent
         }
 
-  black = "#000000"
-  blue = "#1273B8"
-  fuchsia = "#F012BE"
+  active   = "#1273B8"
+  inactive = "#000000"
+  urgent   = "#F012BE"
 
   -- The default number of windows in the master pane
   nmaster = 1
@@ -147,3 +142,45 @@ addkeys conf@XConfig {modMask = modm} =
       | (i, k) <- zip (XMonad.workspaces conf) workspaceKeys,
         (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
   ]
+
+-- | This type is for adding a "smart" bar decoration style with the desired
+-- theme and direction. The idea of "smart" I think comes from smart borders and
+-- all it means is the bar is only visible when there's more than one window in
+-- the current layout. I'm using this as an alternative to XMonad.Layout.IfMax
+-- because of this bug: https://github.com/xmonad/xmonad-contrib/issues/75
+--
+-- This code comes from the following (I refactored and renamed a few things):
+-- https://www.reddit.com/r/xmonad/comments/glkc6r/can_xmonad_apply_window_decorations_nofrillsdeco/fqy1vda/
+-- https://github.com/disconsis/literate-xmonad-config/blob/53b6fdb72b5c2d13d84ef3b295e75257da7cdc8c/src/config.org
+newtype SmartBarDeco a = SmartBarDeco Direction2D
+  deriving (Eq, Show, Read)
+
+instance Eq a => D.DecorationStyle SmartBarDeco a where
+  shrink (SmartBarDeco direction) = shrinkWinForDeco direction
+   where
+    shrinkWinForDeco :: Direction2D -> Rectangle -> Rectangle -> Rectangle
+    shrinkWinForDeco U (Rectangle _ _ _ dh) (Rectangle x y w h) = Rectangle x (y + D.fi dh) w (h - D.fi dh)
+    shrinkWinForDeco D (Rectangle _ _ _ dh) (Rectangle x y w h) = Rectangle x y w (h - D.fi dh)
+    shrinkWinForDeco L (Rectangle _ _ dw _) (Rectangle x y w h) = Rectangle (x + D.fi dw) y (w - D.fi dw) h
+    shrinkWinForDeco R (Rectangle _ _ dw _) (Rectangle x y w h) = Rectangle x y (w - D.fi dw) h
+
+  pureDecoration (SmartBarDeco direction) decoWidth decoHeight _ _ windowRects currentWin@(_win, Rectangle x y w h)
+    | length windowRects >= 2
+    = Just smartBarBar
+    | otherwise
+    = Nothing
+   where
+    smartBarBar = case direction of
+      U -> Rectangle x y w decoHeight
+      D -> Rectangle x (y + D.fi (h - decoHeight)) w decoHeight
+      L -> Rectangle x y decoWidth h
+      R -> Rectangle (x + D.fi (w - decoWidth)) y decoWidth h
+
+smartBarDeco
+  :: Eq a
+  => Direction2D
+  -> D.Theme
+  -> l a
+  -> ModifiedLayout (D.Decoration SmartBarDeco D.DefaultShrinker) l a
+smartBarDeco direction theme =
+  D.decoration D.shrinkText theme (SmartBarDeco direction)
