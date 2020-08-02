@@ -79,7 +79,7 @@ main =
       , ((modm .|. shiftMask, xK_m), windows W.focusMaster)
       -- quit, or restart
       , ((modm              , xK_x), spawn "xmonad --recompile && xmonad --restart")
-      , ((modm .|. controlMask, xK_x), io (X.exitWith X.ExitSuccess))
+      , ((modm .|. controlMask, xK_x), io X.exitSuccess)
       -- My mnemonic for 'd' is drop floating window
       , ((modm,               xK_d), withFocused $ windows . W.sink)
       -- Resize viewed windows to the correct size. I've never actually needed
