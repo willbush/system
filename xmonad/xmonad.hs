@@ -3,13 +3,14 @@ import           XMonad
 import           XMonad.Hooks.ManageDocks       ( manageDocks )
 import           XMonad.Hooks.SetWMName         ( setWMName )
 import           XMonad.Layout.LayoutModifier   ( ModifiedLayout )
-import           XMonad.Util.SpawnOnce          ( spawnOnce )
+import           XMonad.Layout.ThreeColumns     ( ThreeCol(ThreeColMid) )
 import qualified System.Exit                   as X
+import qualified XMonad.Layout.Decoration      as L
 import qualified XMonad.Layout.Grid            as L
-import qualified XMonad.Layout.MultiToggle     as L
+import qualified XMonad.Layout.MultiToggle     as MT
+import qualified XMonad.Layout.NoFrillsDecoration as L
 import qualified XMonad.Layout.Reflect         as L
 import qualified XMonad.Layout.Spacing         as L
-import qualified XMonad.Layout.ThreeColumns    as L
 import qualified XMonad.StackSet               as W
 import qualified XMonad.Util.CustomKeys        as C
 
@@ -19,15 +20,13 @@ main =
     { manageHook = manageDocks <+> manageHook def
     , startupHook = do
         setWMName "LG3D" -- Needed for Java GUI to work
-        spawnOnce "feh --bg-scale /home/will/sync/images/retro.jpg"
-        spawnOnce "albert &"
-    , layoutHook = L.mkToggle (L.single L.REFLECTX) $  L.mkToggle (L.single L.REFLECTY) layouts
+        spawn "feh --bg-scale /home/will/sync/images/retro.jpg"
+        spawn "albert"
+    , layoutHook = MT.mkToggle (MT.single L.REFLECTX) layouts
     , terminal = "alacritty"
     , modMask = mod4Mask -- Rebind Mod to the super key
     , keys = C.customKeys delkeys addkeys
-    , normalBorderColor = "#444444"
-    , focusedBorderColor = "#999999"
-    , borderWidth = 1
+    , borderWidth = 0
     -- add left hand Colemak-DHm home keys and keys above the home keys as
     -- workspaces. This is very useful for 48 key keyboards like the Planck
     -- which has number keys accessible via a layer (modifier).
@@ -37,24 +36,55 @@ main =
         ]
     }
 
-layouts = tallLeft ||| threeCol ||| Mirror tall ||| grid ||| Full
+layouts = tallLeft ||| threeCol ||| tallMirror ||| grid ||| full
  where
-  spaceBy :: Integer -> l a -> ModifiedLayout L.Spacing l a
-  spaceBy n = L.spacingRaw True (L.Border n n n n) True (L.Border n n n n) True
+  tall       = Tall nmaster delta ratio
+  -- tall layout with master on the right and stack on the left.
+  tallLeft   = addTopBar $ spaceBy5 $ L.reflectHoriz tall
+  tallRight  = addTopBar $ spaceBy5 tall
+  tallMirror = addTopBar $ spaceBy5 $ Mirror tall
+  grid       = addTopBar $ spaceBy5 L.Grid
+  threeCol   = addTopBar $ spaceBy5 $ ThreeColMid 1 delta (1 / 2)
+  full       = Full
+
+  -- Add space between windows when more than one window.
+  spaceBy5 :: l a -> ModifiedLayout L.Spacing l a
+  spaceBy5 = L.spacingRaw True (L.Border n n n n) True (L.Border n n n n) True
+    where n = 5
+
+  -- this is a "fake title" used as a highlight bar in lieu of full borders
+  -- (I find this a cleaner and less visually intrusive solution)
+  addTopBar
+    :: l Window
+    -> ModifiedLayout
+         (L.Decoration L.NoFrillsDecoration L.DefaultShrinker)
+         l
+         Window
+  addTopBar = L.noFrillsDeco
+    L.shrinkText
+    def { L.activeBorderColor   = blue
+        , L.activeColor         = blue
+        , L.activeTextColor     = blue
+        , L.decoHeight          = 5
+        , L.inactiveBorderColor = black
+        , L.inactiveColor       = black
+        , L.inactiveTextColor   = black
+        , L.urgentBorderColor   = fuchsia
+        , L.urgentTextColor     = fuchsia
+        }
+
+  black = "#000000"
+  blue = "#1273B8"
+  fuchsia = "#F012BE"
 
   -- The default number of windows in the master pane
-  nmaster  = 1
+  nmaster = 1
   -- Default proportion of screen occupied by master pane
-  ratio    = 2 / 3
+  ratio   = 3 / 4
   -- Percent of screen to increment by when resizing panes
-  delta    = 3 / 100
-  tall     = spaceBy 5 $ Tall nmaster delta ratio
-  -- tall layout with master on the right and stack on the left.
-  tallLeft = spaceBy 5 $ L.reflectHoriz $ Tall nmaster delta ratio
-  grid     = spaceBy 5 L.Grid
-  threeCol = spaceBy 5 $ L.ThreeColMid 1 delta (1 / 2)
+  delta   = 3 / 100
 
-delkeys :: XConfig l -> [(KeyMask, KeySym)]
+delkeys :: XConfig a -> [(KeyMask, KeySym)]
 delkeys XConfig { modMask = modm } =
   [ (modm              , xK_h)
   , (modm              , xK_e)
@@ -107,9 +137,9 @@ addkeys conf@XConfig {modMask = modm} =
   -- Resize viewed windows to the correct size. I've never actually needed
   -- this. I'm not sure in what situation this would be useful.
   , ((modm, xK_z), refresh)
-  -- Reflect layout across the x or y axis.
-  , ((modm, xK_x), sendMessage $ L.Toggle L.REFLECTX)
-  , ((modm, xK_y), sendMessage $ L.Toggle L.REFLECTY)
+  -- Reflect layout across the x axis. There is a REFLECTY, but it flips the top
+  -- highlight bar.
+  , ((modm, xK_x), sendMessage $ MT.Toggle L.REFLECTX)
   ] ++
   -- This is using a list comprehension to build a list of workspace key
   -- bindings.
