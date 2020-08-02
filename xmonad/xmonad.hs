@@ -12,16 +12,16 @@ main =
   xmonad $ def
     { manageHook = manageDocks <+> manageHook def
     , startupHook = do
-      setWMName "LG3D" -- Needed for Java GUI to work
-      spawnOnce "feh --bg-scale /home/will/sync/images/retro.jpg"
-      spawnOnce "albert &"
+        setWMName "LG3D" -- Needed for Java GUI to work
+        spawnOnce "feh --bg-scale /home/will/sync/images/retro.jpg"
+        spawnOnce "albert &"
     , terminal = "alacritty"
     , modMask = mod4Mask -- Rebind Mod to the super key
     , keys = C.customKeys delkeys addkeys
     , normalBorderColor = "#444444"
     , focusedBorderColor = "#999999"
     , borderWidth = 1
-    -- | add left hand Colemak-DHm home keys and keys above the home keys as
+    -- add left hand Colemak-DHm home keys and keys above the home keys as
     -- workspaces. This is very useful for 48 key keyboards like the Planck
     -- which has number keys accessible via a layer (modifier).
     , workspaces =
@@ -32,7 +32,7 @@ main =
   where
     delkeys :: XConfig l -> [(KeyMask, KeySym)]
     delkeys XConfig {modMask = modm} =
-      -- | Keys I'm going to rebind:
+      -- Keys I'm going to rebind:
       [ (modm,               xK_h)
       , (modm,               xK_j)
       , (modm,               xK_k)
@@ -50,7 +50,7 @@ main =
       , (modm .|. shiftMask, xK_q)
       , (modm .|. shiftMask, xK_t)
 
-      -- | Unbind keys I don't use:
+      -- Unbind keys I don't use:
       , (modm,               xK_w)
       , (modm,               xK_e)
       , (modm,               xK_r)
@@ -67,8 +67,8 @@ main =
                     ]
 
     addkeys :: XConfig l -> [((KeyMask, KeySym), X ())]
-    addkeys conf@(XConfig {modMask = modm}) =
-      -- | Rebind h, j, k, l keys to Colemak-DHm keys m, n, e, i in the same
+    addkeys conf@XConfig {modMask = modm} =
+      -- Rebind h, j, k, l keys to Colemak-DHm keys m, n, e, i in the same
       -- positions.
       [ ((modm,               xK_n), windows W.focusDown)
       , ((modm,               xK_e), windows W.focusUp)
@@ -86,7 +86,7 @@ main =
       -- this. I'm not sure in what situation this would be useful.
       , ((modm,               xK_z), refresh)
       ] ++
-      -- | This is using a list comprehension to build a list of workspace key
+      -- This is using a list comprehension to build a list of workspace key
       -- bindings.
       [ ((modm .|. m, k), windows $ f i)
           | (i, k) <- zip (XMonad.workspaces conf) workspaceKeys,
