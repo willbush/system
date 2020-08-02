@@ -1,0 +1,18 @@
+cabal-version:       2.4
+
+name:                will-xmonad
+version:             0.1.0.0
+author:              willbush
+maintainer:          will.g.bush@gmail.com
+
+executable will-xmonad
+  main-is:             xmonad.hs
+  default-language:    Haskell2010
+  build-depends:
+      base ^>=4.13.0.0
+    , X11
+    , data-default
+    , xmonad
+    , xmonad-contrib
+    , xmonad-extras
+

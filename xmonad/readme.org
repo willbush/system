@@ -1,0 +1,28 @@
+* Xmonad Configuration
+
+  I use this cabal project mainly to get better Haskell IDE features while
+  working on my xmonad configuration in Emacs. I don't actually use the binary
+  build result, but still rely on the builtin xmonad windows manager package in
+  NixOS to build and deploy my configuration.
+
+  Unfortunately, that means I have to do some duplicate work specifying Haskell
+  dependencies for Xmonad in my NixOS configuration and the cabal file.
+
+** Building and Running with Nix and Cabal
+
+   1. Get nix: https://nixos.org/nix/
+   2. Enter a nix shell ~nix-shell~ in the root of this project and GHC, Cabal,
+      and all build dependencies should be loaded automatically. Or use [[https://github.com/direnv/direnv][direnv]]
+      and optionally [[https://github.com/target/lorri][lorri]].
+   3. To build ~cabal build~
+
+** Development Setup
+
+   These are mostly notes to me in the future.
+
+   In addition to using ghcide in Emacs, I currently use terminals in a tiling
+   window manager:
+
+   1. Running ~ghcid --lint~.
+   2. Running ~lorri watch~.
+   3. One free to do whatever and test things in a repl using ~cabal repl~.
