@@ -1,8 +1,12 @@
 { config, pkgs, ... }:
 let sources = import ./nix/sources.nix;
 in {
-  imports =
-    [ ./hardware-configuration.nix ./fonts.nix ./users.nix ./pia/pia-nm.nix ];
+  imports = [
+    ./machines/tau-ceti
+    ./fonts.nix
+    ./users.nix
+    ./pia/pia-nm.nix
+  ];
 
   nixpkgs.config = {
     # Allow unfree, which is required for some drivers.
@@ -84,12 +88,11 @@ in {
   };
 
   networking = {
-    hostName = "nixos";
     networkmanager = {
       enable = true;
       pia-vpn.enable = true;
-      pia-vpn.usernameFile = "/etc/pia-vpn.username";
-      pia-vpn.passwordFile = "/etc/pia-vpn.password";
+      pia-vpn.usernameFile = /home/will/.secrets/pia-vpn.username;
+      pia-vpn.passwordFile = /home/will/.secrets/pia-vpn.password;
       pia-vpn.serverList = [
         "us-atlanta"
         "us-california"
@@ -117,8 +120,6 @@ in {
     xserver = {
       enable = true;
       layout = "us";
-
-      videoDrivers = [ "nvidiaBeta" ];
 
       windowManager.xmonad = {
         enable = true;
