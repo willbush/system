@@ -201,7 +201,7 @@ in {
 
     matchBlocks."github" = {
       hostname = "github.com";
-      identityFile = "~/.ssh/id_rsa_github";
+      identityFile = "~/.secrets/id_rsa_github";
     };
   };
 
