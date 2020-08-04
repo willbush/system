@@ -122,4 +122,7 @@
 (use-package visual-fill-column
   :commands visual-fill-column-mode)
 
+(use-package sudo-edit
+  :commands sudo-edit)
+
 (provide 'init-win-buffer-tools)
