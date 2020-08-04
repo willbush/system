@@ -185,7 +185,8 @@ Compare them on count first,and in case of tie sort them alphabetically."
   (interactive)
   (progn
     (my/kill-all-buffers)
-    (my/switch-to-dashboard)))
+    (my/switch-to-dashboard)
+    (cd "~/")))
 
 ;;;###autoload
 (defun my/kill-this-buffer ()
