@@ -82,6 +82,7 @@ in {
         ranger
         rustic
         smex
+        sudo-edit
         swiper
         use-package
         vimrc-mode
