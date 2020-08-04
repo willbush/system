@@ -2,7 +2,7 @@
 let sources = import ./nix/sources.nix;
 in {
   imports = [
-    ./machines/tau-ceti
+    ./machines/betelgeuse
     ./fonts.nix
     ./users.nix
     ./pia/pia-nm.nix
