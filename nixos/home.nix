@@ -85,7 +85,7 @@ in {
     hicolor-icon-theme # fall back icon theme
     keepassxc
     killall
-    libreoffice
+    stable.libreoffice
     neofetch
     niv
     nix-prefetch-git
