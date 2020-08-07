@@ -121,8 +121,12 @@ in {
     # themes: https://github.com/eendroroy/alacritty-theme
     settings = {
       colors = {
-        # Using the default primary background and foreground colors because I
-        # like the dark black with transparency.
+        # I changed the primary background color to black because I like that
+        # with transparency.
+        primary = {
+          background = "0x000000";
+          foreground = "0xabb2bf";
+        };
         normal = {
           black = "0x1e2127";
           red = "0xe06c75";
