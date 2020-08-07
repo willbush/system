@@ -119,8 +119,8 @@ addkeys conf@XConfig {modMask = modm} =
   -- positions.
   [ ((modm,               xK_n), windows W.focusDown)
   , ((modm,               xK_e), windows W.focusUp)
-  , ((modm,               xK_m), sendMessage Shrink)
-  , ((modm,               xK_i), sendMessage Expand)
+  , ((modm,               xK_m), sendMessage Expand)
+  , ((modm,               xK_i), sendMessage Shrink)
   , ((modm .|. shiftMask, xK_n), windows W.swapDown)
   , ((modm .|. shiftMask, xK_e), windows W.swapUp)
   , ((modm .|. shiftMask, xK_m), windows W.focusMaster)
