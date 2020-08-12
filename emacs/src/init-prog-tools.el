@@ -272,6 +272,8 @@ git-timemachine-mode:
 
   ;; I don't want lsp to prompt me to restart it when I close its buffer.
   (setq lsp-restart 'ignore)
+  ;; This is the default, but I want to set it explicitly here.
+  (setq lsp-rust-server 'rust-analyzer)
 
   (general-def
     :states 'normal

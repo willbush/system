@@ -85,7 +85,6 @@ in {
     hicolor-icon-theme # fall back icon theme
     keepassxc
     killall
-    stable.libreoffice
     neofetch
     niv
     nix-prefetch-git
@@ -97,10 +96,12 @@ in {
     planck
     ranger
     remmina
+    rust-analyzer
     rustup
     shutter
     simple-scan
     slack
+    stable.libreoffice
     syncthing-cli # provides stcli
     teams
     tokei
