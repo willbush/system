@@ -94,6 +94,7 @@ in {
     pavucontrol
     peek
     planck
+    python3
     ranger
     remmina
     rust-analyzer
