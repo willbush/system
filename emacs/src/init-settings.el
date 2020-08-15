@@ -107,6 +107,20 @@
       ;; number of keystrokes between auto-saves (default: 300)
       auto-save-interval 200)
 
+(defvar my/backup-ignore-regexps (list "\\.gpg$")
+  "*List of filename regexps to not backup")
+
+(defun my/backup-enable-p (name)
+  "Filter certain file backups"
+  (when (normal-backup-enable-predicate name)
+    (let ((backup t))
+      (mapc (lambda (re)
+              (setq backup (and backup (not (string-match re name)))))
+            my/backup-ignore-regexps)
+      backup)))
+
+(setq backup-enable-predicate 'my/backup-enable-p)
+
 ;;
 ;;; Security
 
