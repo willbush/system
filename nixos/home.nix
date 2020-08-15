@@ -232,6 +232,7 @@ in {
     temperature.night = 3000;
   };
 
-  services.syncthing.enable = true;
+  services.gpg-agent.enable = true;
   services.lorri.enable = true;
+  services.syncthing.enable = true;
 }
