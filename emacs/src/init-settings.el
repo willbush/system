@@ -107,7 +107,7 @@
       ;; number of keystrokes between auto-saves (default: 300)
       auto-save-interval 200)
 
-(defvar my/backup-ignore-regexps (list "\\.gpg$")
+(defvar my/backup-ignore-regexps (list "\\.gpg$" "\\.asc$")
   "*List of filename regexps to not backup")
 
 (defun my/backup-enable-p (name)
