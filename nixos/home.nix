@@ -53,6 +53,7 @@ in {
   };
 
   home.packages = with pkgs; [
+    (firefox.override { extraNativeMessagingHosts = [ passff-host ]; })
     albert
     aspell
     aspellDicts.en
@@ -72,12 +73,12 @@ in {
     du-dust
     exa
     feh
-    firefox-beta-bin
     gcc
     gimp
     glances
     gnome3.gnome-screenshot
     gnupg
+    gopass
     haskellPackages.brittany
     haskellPackages.ghcid
     haskellPackages.hasktags
