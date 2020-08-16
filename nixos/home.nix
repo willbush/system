@@ -53,7 +53,7 @@ in {
   };
 
   home.packages = with pkgs; [
-    (firefox.override { extraNativeMessagingHosts = [ passff-host ]; })
+    (firefox.override { extraNativeMessagingHosts = [ browserpass ]; })
     albert
     aspell
     aspellDicts.en
