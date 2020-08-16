@@ -160,6 +160,7 @@ in {
   # needed for gnome / gtk themes
   programs.dconf.enable = true;
   programs.qt5ct.enable = true;
+  programs.gnupg.agent.enable = true;
 
   programs.less = {
     enable = true;
