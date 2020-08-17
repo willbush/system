@@ -222,7 +222,8 @@ in {
     fade = true;
     vSync = true;
     experimentalBackends = true;
-    backend = "xrender"; # the default 'glx' backend lags like crazy for me for some reason.
+    # the default 'glx' backend lags like crazy for me for some reason.
+    backend = "xrender";
     fadeDelta = 1;
     # I only want transparency for a couple of applications.
     opacityRule = [
