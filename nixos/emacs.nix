@@ -14,7 +14,7 @@ in {
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacsGit;
+    package = pkgs.emacsGcc;
     extraPackages = (epkgs:
       (with epkgs; [
         adaptive-wrap
