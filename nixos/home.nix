@@ -220,12 +220,14 @@ in {
   services.picom = {
     enable = true;
     fade = true;
-    backend = "xrender";
+    vSync = true;
+    experimentalBackends = true;
+    backend = "xrender"; # the default 'glx' backend lags like crazy for me for some reason.
     fadeDelta = 1;
     # I only want transparency for a couple of applications.
     opacityRule = [
-      "90:class_g ?= 'emacs' && focused"
-      "75:class_g ?= 'emacs' && !focused"
+      "95:class_g *?= 'emacs' && focused"
+      "75:class_g *?= 'emacs' && !focused"
       "90:class_g ?= 'alacritty' && focused"
       "75:class_g ?= 'alacritty' && !focused"
     ];
