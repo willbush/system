@@ -7,7 +7,9 @@ in {
 
   services.emacs = {
     enable = true;
-    client.enable = true;
+    # temporarily disable to work around a desktop file collision issue
+    # https://github.com/nix-community/emacs-overlay/issues/58
+    # client.enable = true;
   };
 
   programs.emacs = {
