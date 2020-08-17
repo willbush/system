@@ -14,8 +14,7 @@ in {
 
   programs.emacs = {
     enable = true;
-    # Compile with imagemagick support so I can resize images.
-    package = pkgs.emacsGit.override { inherit (pkgs) imagemagick; };
+    package = pkgs.emacsGit;
     extraPackages = (epkgs:
       (with epkgs; [
         adaptive-wrap
