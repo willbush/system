@@ -291,4 +291,25 @@ Compare them on count first,and in case of tie sort them alphabetically."
     (interactive)
     (revert-buffer :ignore-auto :noconfirm))
 
+;;;###autoload
+(defun my/gopass-generate-xkcd-passwords ()
+  "Use gopass to generate xkcd style passwords to a shell buffer"
+  (interactive)
+  (my/gopass--generate-passwords "gopass pwgen --xkcd"))
+
+;;;###autoload
+(defun my/gopass-generate-passwords ()
+  "Use gopass to generate passwords to a shell buffer"
+  (interactive)
+  (my/gopass--generate-passwords "gopass pwgen --one-per-line"))
+
+;;;###autoload
+(defun my/gopass--generate-passwords (command)
+  (let* ((buf-name "*gopass passwords*")
+         (buf (get-buffer-create buf-name)))
+    (async-shell-command command buf)
+
+    (when (not (string-equal buf-name (buffer-name (current-buffer))))
+      (switch-to-buffer-other-window buf))))
+
 (provide 'funcs)
