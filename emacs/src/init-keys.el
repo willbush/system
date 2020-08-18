@@ -92,6 +92,16 @@
   "gf" 'find-function
   "gg" 'avy-goto-char-timer
   "gv" 'find-variable
+  "gp" '(:ignore t :wk "pass")
+  "gpf" 'password-store-copy-field
+  "gpp" 'ivy-pass
+  "gpu" 'password-store-url
+  "gpg" '(:ignore t :wk "generate")
+  "gpgh" 'password-generator-phonetic
+  "gpgp" 'password-generator-paranoid
+  "gpgs" 'password-generator-strong
+  "gpgx" '(my/gopass-generate-xkcd-passwords :wk "xkcd passwords")
+  "gpgm" '(my/gopass-generate-passwords :wk "many passwords")
   "h" '(:ignore t :wk "help")
   "hI" 'info-display-manual
   "hi" 'info
