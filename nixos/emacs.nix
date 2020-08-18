@@ -65,6 +65,7 @@ in {
         helpful
         hydra
         ivy
+        ivy-pass
         lsp-haskell
         lsp-mode
         lsp-ui
@@ -76,6 +77,8 @@ in {
         nix-sandbox
         nix-update
         omnisharp
+        password-generator
+        password-store
         pdf-tools
         powershell
         projectile

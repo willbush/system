@@ -210,4 +210,22 @@
     "gr" 'helpful-update
     "q" 'quit-window))
 
+(use-package password-store
+  :commands
+  ;; use ive-pass for everything else
+  (password-store-url
+   password-store-copy-field)
+  :config
+  (setq password-store-executable "gopass"))
+
+(use-package ivy-pass :commands ivy-pass)
+
+(use-package password-generator
+  :commands
+  (password-generator-phonetic
+   password-generator-strong
+   password-generator-paranoid)
+  :config
+  )
+
 (provide 'init-misc-tools)
