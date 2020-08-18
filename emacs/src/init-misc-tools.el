@@ -224,8 +224,6 @@
   :commands
   (password-generator-phonetic
    password-generator-strong
-   password-generator-paranoid)
-  :config
-  )
+   password-generator-paranoid))
 
 (provide 'init-misc-tools)
