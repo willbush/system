@@ -413,4 +413,7 @@ git-timemachine-mode:
     "p" 'compilation-previous-error
     "r" 'recompile))
 
+(use-package browse-at-remote
+  :commands browse-at-remote browse-at-remote-kill)
+
 (provide 'init-prog-tools)
