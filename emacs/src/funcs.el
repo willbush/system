@@ -226,20 +226,6 @@ Compare them on count first,and in case of tie sort them alphabetically."
     (window-configuration-to-register ?_)
     (delete-other-windows)))
 
-;;;###autoload
-(defun my/toggle-golden-ratio ()
-  "Toggles golden ratio mode on and off"
-  (interactive)
-  (if (bound-and-true-p golden-ratio-mode)
-      (progn
-        (golden-ratio-mode -1)
-        (balance-windows)
-        (message "Golden-Ratio mode disabled"))
-
-    (golden-ratio-mode 1)
-    (golden-ratio 1)
-    (message "Golden-Ratio mode enabled")))
-
 ;; depends on https://elpa.gnu.org/packages/adaptive-wrap.html
 ;;;###autoload
 (defun my/toggle-adaptive-visual-fill-column ()

@@ -60,7 +60,6 @@ in {
         git-gutter
         git-gutter-fringe
         git-timemachine
-        golden-ratio
         haskell-mode
         helpful
         hydra
@@ -95,6 +94,7 @@ in {
         wttrin
         yaml-mode
         yasnippet
+        zoom
       ]));
   };
 

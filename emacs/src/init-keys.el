@@ -166,7 +166,7 @@
   "t" '(:ignore t :wk "toggle")
   "tc" 'fci-mode
   "tf" 'auto-fill-mode
-  "tg" 'my/toggle-golden-ratio
+  "tg" '(zoom-mode :wk "zoom-mode golden ratio")
   "tl" 'toggle-truncate-lines
   "tm" 'counsel-major ;; switches major mode
   "tn" 'display-line-numbers-mode
@@ -184,7 +184,7 @@
   "wb" 'balance-windows
   "wd" 'delete-window
   "we" 'evil-window-up
-  "wg" 'golden-ratio
+  "wg" '(zoom :wk "zoom golden ratio")
   "wi" 'evil-window-right
   "wk" 'kill-buffer-and-window
   "wm" 'evil-window-left
