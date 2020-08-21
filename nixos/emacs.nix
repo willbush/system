@@ -22,6 +22,7 @@ in {
         all-the-icons-dired
         all-the-icons-ivy
         avy
+        browse-at-remote
         company
         company-tabnine
         counsel
