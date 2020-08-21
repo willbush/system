@@ -92,6 +92,8 @@
   "gf" 'find-function
   "gg" 'avy-goto-char-timer
   "gv" 'find-variable
+  "gb" '(browse-at-remote :wk "browse remote url")
+  "gy" '(browse-at-remote-kill :wk "yank remote url")
   "gp" '(:ignore t :wk "pass")
   "gpf" 'password-store-copy-field
   "gpp" 'ivy-pass
