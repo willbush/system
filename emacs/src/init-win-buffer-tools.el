@@ -62,6 +62,7 @@
     "M-g" 'eyebrowse-switch-to-window-config-9))
 
 (use-package zoom
+  :commands zoom zoom-mode
   :config
   (custom-set-variables
    ;; golden ratio
