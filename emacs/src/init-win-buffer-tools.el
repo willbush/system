@@ -1,7 +1,9 @@
 ;;; -*- lexical-binding: t; -*-
 
 (use-package edwina
-  :hook (after-init . edwina-mode)
+  ;; I no longer what edwina-mode enabled. I find it too disruptive and not
+  ;; doing what I'd like. Especially with magit buffers.
+  :defer 0.1
   :config
 
   (setq edwina-mfact 0.666)
