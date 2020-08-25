@@ -151,7 +151,7 @@
   ;; Silence warnings
   (declare-function lsp-haskell--get-root "lsp-haskell")
 
-  (setq lsp-haskell-process-path-hie "ghcide"
+  (setq lsp-haskell-process-path-hie "haskell-language-server"
         lsp-haskell-process-args-hie '()))
 
 ;;;###autoload
