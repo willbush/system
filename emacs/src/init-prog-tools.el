@@ -266,8 +266,10 @@ git-timemachine-mode:
 
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
-  :hook ((rustic-mode
-          haskell-mode) . lsp-deferred)
+  :hook (((rustic-mode haskell-mode) . lsp-deferred)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :init
+  (setq lsp-keymap-prefix ", l")
   :config
 
   ;; I don't want lsp to prompt me to restart it when I close its buffer.
