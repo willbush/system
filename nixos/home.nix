@@ -92,6 +92,7 @@ in {
     nixfmt
     okular
     openconnect
+    pandoc
     pavucontrol
     peek
     planck
