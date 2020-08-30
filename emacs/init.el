@@ -44,14 +44,3 @@
        ;; This should come after evil due to performance issues see:
        ;; https://github.com/noctuid/general.el/issues/180
        "init-keys"))
-
-;; TODO Emacs daemon stopped loading PATH variables from the shell for some
-;; reason, so I'm using this as a work around for now.
-(when IS-LINUX
-  (use-package exec-path-from-shell
-    :defer 0.1
-    :config
-    ;; from the readme this package runs faster if we remove the interactive
-    ;; flag -i
-    (setq exec-path-from-shell-arguments '("-l"))
-    (exec-path-from-shell-initialize)))
