@@ -79,7 +79,6 @@ in {
     gnome3.gnome-screenshot
     gnupg
     gopass
-    haskellPackages.brittany
     haskellPackages.ghcid
     haskellPackages.hasktags
     haskellPackages.hoogle
