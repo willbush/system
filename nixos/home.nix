@@ -82,6 +82,7 @@ in {
     haskellPackages.ghcid
     haskellPackages.hasktags
     haskellPackages.hoogle
+    haskellPackages.cabal-plan
     hicolor-icon-theme # fall back icon theme
     keepassxc
     killall
