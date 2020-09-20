@@ -148,10 +148,31 @@
 (use-package lsp-haskell
   :after (haskell-mode lsp-mode)
   :config
-  ;; Silence warnings
-  (declare-function lsp-haskell--get-root "lsp-haskell")
 
-  (setq lsp-haskell-process-path-hie "haskell-language-server"
+  ;; Comment/uncomment this line to see interactions between lsp client/server.
+  (setq lsp-log-io t)
+
+  ;; the following does not work: (lsp-haskell-set-formatter :brittany)
+  ;; see https://github.com/emacs-lsp/lsp-haskell/issues/75
+  (defun lsp-haskell-set-formatter-brittany ()
+    "Use brittany."
+    (interactive)
+    (lsp-haskell-set-formatter "brittany")
+    (lsp-haskell--set-configuration))
+
+  (defun lsp-haskell-set-formatter-floskell ()
+    "Use floskell."
+    (interactive)
+    (lsp-haskell-set-formatter "floskell")
+    (lsp-haskell--set-configuration))
+
+  (defun lsp-haskell-set-formatter-ormolu ()
+    "Use ormolu."
+    (interactive)
+    (lsp-haskell-set-formatter "ormolu")
+    (lsp-haskell--set-configuration))
+
+  (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper"
         lsp-haskell-process-args-hie '()))
 
 ;;;###autoload
