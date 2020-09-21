@@ -53,7 +53,7 @@ in haskellPkgs.developPackage rec {
       testHaskellDepends = (attrs.testHaskellDepends or [ ]) ++ [
         # avoid installing this as a system wide tool due to:
         # https://github.com/digital-asset/ghcide/issues/538
-        # haskellPkgs.haskell-language-server
+        haskellPkgs.haskell-language-server
         haskellPkgs.hlint
         sources.niv
       ];
