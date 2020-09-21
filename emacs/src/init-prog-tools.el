@@ -285,12 +285,25 @@ git-timemachine-mode:
 (use-package lsp-ui
   :commands lsp-ui-mode
   :hook (lsp-mode . lsp-ui-mode)
+  :custom
+  ;; Disabling this by default because when popup documentation prevents
+  ;; which-key from working. Also I think I rather request documentation
+  ;; explicitly, than have all the popup noise Also I think I rather request
+  ;; documentation explicitly, than have all the popup noise.
+  (lsp-ui-doc-enable nil)
   :config
+
   ;; The position of the popup documentation on hover. I don't like this
   ;; obstructing my view of the code.
-  (setq lsp-ui-doc-position 'bottom
+  (setq lsp-ui-doc-position 'top
         lsp-ui-doc-border "purple4"
         lsp-ui-flycheck-list-position 'right)
+
+  ;; This never seems to work for me and always results in void function errors
+  ;; in Rust and Haskell. There are bindings to toggle it on, and I should try
+  ;; it again sometime in the future.
+  (setq lsp-modeline-code-actions-enable nil
+        lsp-modeline-diagnostics-enable nil)
 
   ;; Setup the keybindings for `lsp-ui-imenu'. Note that evil-collection
   ;; provides evil bindings for this, but I want mine different enough that I am
