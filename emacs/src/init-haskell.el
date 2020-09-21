@@ -111,8 +111,8 @@
     :keymaps 'haskell-mode-map
     "d" 'lsp-find-definition
     "i" 'lsp-find-implementation
-    "n" 'lsp-ui-find-next-reference ;; not working yet
-    "p" 'lsp-ui-find-prev-reference ;; not working yet
+    "n" 'lsp-ui-find-next-reference
+    "p" 'lsp-ui-find-prev-reference
     "r" 'lsp-find-references
     "t" 'lsp-find-type-definition)
 
@@ -128,11 +128,11 @@
     :prefix ", r"
     :states '(normal visual)
     :keymaps 'haskell-mode-map
-    "B" 'lsp-format-buffer ;; Works in HIE, but not Ghcide yet.
+    "B" 'lsp-format-buffer
     "R" 'lsp-rename
     "a" 'lsp-execute-code-action
-    "b" 'format-all-buffer ;; uses Brittany without lsp
-    "f" 'lsp-format-region ;; Works in HIE, but not Ghcide yet.
+    "b" 'format-all-buffer
+    "f" 'lsp-format-region
     "o" 'lsp-organize-imports
     "r" 'my/brittany-format-region)
 
@@ -191,6 +191,8 @@
   (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper"
         lsp-haskell-process-args-hie '()))
 
+;; HLS provides format providers, but I'm going to keep this around until I'm
+;; sure they're dependable.
 ;;;###autoload
 (defun my/brittany-format-region (start end)
   "Uses Brittany to format a region of Haskell code."
