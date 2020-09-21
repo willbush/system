@@ -21,13 +21,11 @@
                       ;; repository, I'm reluctant to use it.
                       '((company-capf :with company-tabnine) company-tabnine company-capf)))))
   :config
+
   ;; I'm not sure what, but something calls a function provided by `haskell-doc.el'
   ;; and doesn't properly require it before doing so. requiring haskell-doc here
   ;; this fixes the void function error.
   (require 'haskell-doc)
-
-  ;; Use cabal new-style builds.
-  (setq haskell-process-type 'cabal-new-repl)
 
   ;; Use `hasktags' to regenerate `etags' on save. Using `hasktags' is a good
   ;; fall back to `lsp-mode' and it's fast.
