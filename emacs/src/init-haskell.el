@@ -44,6 +44,22 @@
   ;; point is in on the mode line.
   (add-hook 'haskell-mode-hook 'which-function-mode)
 
+  ;; fix the haskell-indentation-mode-map for evil-mode. For example, it would
+  ;; insert a comma in normal mode when haskell-indentation-mode was enabled.
+  (general-unbind 'haskell-indentation-mode-map
+    ")" "," ";" "<backtab>" "RET" "]" "}")
+
+  (general-def
+    :states '(insert)
+    :keymaps 'haskell-indentation-mode-map
+      ")" 'haskell-indentation-common-electric-command
+      "," 'haskell-indentation-common-electric-command
+      ";" 'haskell-indentation-common-electric-command
+      "<backtab>" 'haskell-indentation-indent-backwards
+      "RET" 'haskell-indentation-newline-and-indent
+      "]" 'haskell-indentation-common-electric-command
+      "}" 'haskell-indentation-common-electric-command)
+
   ;; rebind `evil-goto-definition' for Haskell mode.
   (general-def
     :states 'normal
