@@ -15,7 +15,7 @@
 ;; Reset file-name-handler-alist after initialization
 (add-hook 'emacs-startup-hook
   (lambda ()
-    (setq gc-cons-threshold 16777216 ;; ~16Mb
+    (setq gc-cons-threshold MY/GC-CONS-THRESHOLD
           gc-cons-percentage 0.1
           file-name-handler-alist default-file-name-handler-alist)))
 
