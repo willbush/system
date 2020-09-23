@@ -9,6 +9,9 @@
 (defconst IS-MAC     (eq system-type 'darwin))
 (defconst IS-LINUX   (eq system-type 'gnu/linux))
 (defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
+;; Doom currently uses 16 MiB and Spacemacs is using 100 MB. I'm going to try 64
+;; MiB to see how it goes.
+(defconst MY/GC-CONS-THRESHOLD 67108860)
 
 ;; Work around to a crippling performance issue I reported affecting Emacs 28
 ;; after cario was made the default: https://debbugs.gnu.org/db/40/40733.html
