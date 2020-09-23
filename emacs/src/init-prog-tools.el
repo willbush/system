@@ -272,6 +272,10 @@ git-timemachine-mode:
   (setq lsp-keymap-prefix ", l")
   :config
 
+  ;; Trying this out to keep things fast in lsp. Not sure yet it disabling this
+  ;; is a great idea.
+  (setq lsp-enable-file-watchers nil)
+
   ;; I don't want lsp to prompt me to restart it when I close its buffer.
   (setq lsp-restart 'ignore)
   ;; This is the default, but I want to set it explicitly here.
