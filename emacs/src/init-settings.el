@@ -195,6 +195,12 @@
 ;; been determined, but we inhibit it there anyway.
 (setq inhibit-compacting-font-caches t)
 
+;; A lsp performance tweak https://emacs-lsp.github.io/lsp-mode/page/performance/
+;; "Increase the amount of data which Emacs reads from the process. Again the
+;; emacs default is too low 4k considering that the some of the language server
+;; responses are in 800k - 3M range."
+(setq read-process-output-max 1048576) ;; 1 MiB
+
 ;; Remove command line options that aren't relevant to our current OS; means
 ;; slightly less to process at startup.
 (unless IS-MAC   (setq command-line-ns-option-alist nil))
