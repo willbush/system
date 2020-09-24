@@ -14,7 +14,7 @@ in {
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacsGit;
+    package = pkgs.emacsGcc;
     extraPackages = (epkgs:
       (with epkgs; [
         adaptive-wrap
@@ -103,24 +103,6 @@ in {
     ".emacs.d" = {
       source = ../emacs;
       recursive = true;
-      # Since home-manager deploys my config and is immutable, I might as well
-      # byte compile everything deployed this way. From my profiling with `esup`
-      # I haven't been able to see much of any gain. The main advantage is an
-      # opportunity to see compiler warnings.
-      onChange = ''
-        # Manually delete compiled files myself. There are flags that can be
-        # passed to elisp functions to force it to always recompile, but I have had issues
-        # resolved by deleting .elc files despite using those flags.
-        # I'm using the force flag to ignore the files if any don't exist.
-        rm ~/.emacs.d/*init.elc -fv
-        rm ~/.emacs.d/src/*.elc -fv
-
-        # This will incorrectly report warnings if .elc files exists before
-        # running this. I did test that this is still correctly reporting
-        # warnings when the .elc files are removed.
-        emacs -Q -l ~/.emacs.d/early-init.el -l ~/.emacs.d/init.el \
-          -batch -f batch-byte-compile ~/.emacs.d/*init.el ~/.emacs.d/src/*.el
-      '';
     };
   };
 }
