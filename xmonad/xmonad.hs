@@ -1,7 +1,6 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 
-import           Data.Default                   ( def )
 import           XMonad
 import           XMonad.Hooks.ManageDocks       ( manageDocks )
 import           XMonad.Hooks.SetWMName         ( setWMName )
@@ -44,7 +43,6 @@ layouts = tallLeft ||| threeCol ||| tallMirror ||| grid ||| full
   tall       = Tall nmaster delta ratio
   -- tall layout with master on the right and stack on the left.
   tallLeft   = addTopBar $ spaceBy5 $ L.reflectHoriz tall
-  tallRight  = addTopBar $ spaceBy5 tall
   tallMirror = addTopBar $ spaceBy5 $ Mirror tall
   grid       = addTopBar $ spaceBy5 L.Grid
   threeCol   = addTopBar $ spaceBy5 $ ThreeColMid 1 delta (1 / 2)
@@ -164,7 +162,7 @@ instance Eq a => D.DecorationStyle SmartBarDeco a where
     shrinkWinForDeco L (Rectangle _ _ dw _) (Rectangle x y w h) = Rectangle (x + D.fi dw) y (w - D.fi dw) h
     shrinkWinForDeco R (Rectangle _ _ dw _) (Rectangle x y w h) = Rectangle x y (w - D.fi dw) h
 
-  pureDecoration (SmartBarDeco direction) decoWidth decoHeight _ _ windowRects currentWin@(_win, Rectangle x y w h)
+  pureDecoration (SmartBarDeco direction) decoWidth decoHeight _ _ windowRects (_win, Rectangle x y w h)
     | length windowRects >= 2
     = Just smartBarBar
     | otherwise
