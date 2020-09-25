@@ -143,6 +143,7 @@
   "nr" 'narrow-to-region
   "nw" 'widen
   "o" '(:ignore t :wk "org")
+  "oA" 'org-archive-to-archive-sibling
   "oS" 'org-store-link
   "oa" 'org-agenda
   "oc" 'org-capture
