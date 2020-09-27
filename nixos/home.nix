@@ -85,7 +85,6 @@ in {
     haskellPackages.cabal-plan
     hicolor-icon-theme # fall back icon theme
     keepassxc
-    killall
     neofetch
     niv
     nix-prefetch-git
