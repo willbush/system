@@ -96,6 +96,7 @@ in {
     peek
     planck
     python3
+    pdfgrep
     ranger
     remmina
     rust-analyzer
