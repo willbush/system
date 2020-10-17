@@ -79,10 +79,10 @@ in {
     gnome3.gnome-screenshot
     gnupg
     gopass
+    haskellPackages.cabal-plan
     haskellPackages.ghcid
     haskellPackages.hasktags
     haskellPackages.hoogle
-    haskellPackages.cabal-plan
     hicolor-icon-theme # fall back icon theme
     keepassxc
     neofetch
@@ -90,13 +90,13 @@ in {
     nix-prefetch-git
     nixfmt
     okular
-    openconnect
+    openconnect_pa
     pandoc
     pavucontrol
+    pdfgrep
     peek
     planck
     python3
-    pdfgrep
     ranger
     remmina
     rust-analyzer
