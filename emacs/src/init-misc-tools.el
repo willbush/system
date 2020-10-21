@@ -226,4 +226,9 @@
    password-generator-strong
    password-generator-paranoid))
 
+(use-package vterm
+  :commands vterm
+  :config
+  (evil-set-initial-state 'vterm-mode 'emacs))
+
 (provide 'init-misc-tools)
