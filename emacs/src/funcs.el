@@ -247,7 +247,7 @@ Compare them on count first,and in case of tie sort them alphabetically."
   (interactive)
   (if IS-WINDOWS
       (call-interactively 'eshell)
-    (ansi-term "zsh")))
+    (vterm)))
 
 ;;
 ;;; MISC functions:
