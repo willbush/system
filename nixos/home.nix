@@ -196,6 +196,11 @@ in {
     };
   };
 
+  programs.broot = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.htop = {
     enable = true;
     meters = {
