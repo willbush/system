@@ -91,6 +91,7 @@ in {
         use-package
         vimrc-mode
         visual-fill-column
+        vterm
         which-key
         wttrin
         yaml-mode
