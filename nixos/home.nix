@@ -88,7 +88,7 @@ in {
     nix-prefetch-git
     nixfmt
     okular
-    openconnect_pa
+    openconnect
     pandoc
     pavucontrol
     pdfgrep
