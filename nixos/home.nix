@@ -34,7 +34,6 @@ in {
       dict-dir ${homeDir}/.nix-profile/lib/aspell
       master en_US
       extra-dicts en-computers.rws
-      add-extra-dicts en_US-science.rws
     '';
   };
 
@@ -58,7 +57,6 @@ in {
     aspell
     aspellDicts.en
     aspellDicts.en-computers
-    aspellDicts.en-science
     # https://github.com/NixOS/nixpkgs/issues/55995
     # needed when using cabal-install outside of a nix-shell
     binutils
