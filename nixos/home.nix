@@ -57,9 +57,8 @@ in {
     aspell
     aspellDicts.en
     aspellDicts.en-computers
-    # https://github.com/NixOS/nixpkgs/issues/55995
-    # needed when using cabal-install outside of a nix-shell
-    binutils
+    bc
+    binutils # needed when using cabal-install outside of a nix-shell
     cabal-install
     cabal2nix
     cachix
