@@ -65,6 +65,7 @@ in {
     cachix
     calibre
     chromium
+    clang-tools
     dnsutils
     docker-compose
     dotnet-sdk
