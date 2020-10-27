@@ -99,6 +99,7 @@ in {
     remmina
     rust-analyzer
     rustup
+    shfmt
     shutter
     simple-scan
     slack
