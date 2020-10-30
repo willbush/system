@@ -114,6 +114,7 @@ in {
     virt-manager
     vlc
     xdotool
+    xorg.xkill
     yacreader
     zip
   ];
