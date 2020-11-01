@@ -22,9 +22,10 @@
     For things that are only used in Windows are kept here. See its [[file:win/readme.org][readme]] for
     more information.
 
-*** config
+*** config-backups
 
-    Miscellaneous configuration files.
+    Miscellaneous configuration files that I'm backing up and are not deployed
+    automatically.
 
 * Keyboard Firmware - Planck layout
 
