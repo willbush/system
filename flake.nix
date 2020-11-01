@@ -15,7 +15,7 @@
       betelgeuse = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
+          ./machines/betelgeuse/configuration.nix
           # inputs.home-manager.nixosModules.home-manager
           # {
           #   home-manager.useGlobalPkgs = true;
