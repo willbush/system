@@ -1,5 +1,8 @@
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ../common-configuration.nix
+  ];
 
   networking.hostName = "tau-ceti";
   # Enable touchpad support.
