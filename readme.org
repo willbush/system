@@ -1,6 +1,6 @@
 * System Configuration
 
-  Everything needed to build my NixOS system for play and Windows for work.
+  Everything needed to build my NixOS system.
 
 ** Folder Structure
 
