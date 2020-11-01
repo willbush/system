@@ -14,6 +14,11 @@ in {
   };
 
   nix = {
+    # Required until nix version 2.4 for nix flakes
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
     useSandbox = true;
     autoOptimiseStore = true;
     binaryCaches = [
