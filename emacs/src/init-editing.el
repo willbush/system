@@ -126,6 +126,7 @@
 (use-package evil
   :demand t ;; demand due to general perf issues mentioned on `init-keys.el'
   :hook (after-init . evil-mode)
+  :custom (evil-undo-system 'undo-redo)
   :init
   (setq-default evil-shift-width 2)
 
@@ -186,7 +187,7 @@
     :keymaps 'evil-normal-state-map
     "&" 'evil-use-register
     "C-i" 'evil-jump-forward
-    "U" 'undo-tree-redo
+    "U" 'evil-redo
     "V" 'evil-replace-state
     "g '" 'goto-last-change-reverse
     "g S" 'evil-find-file-at-point-with-line
