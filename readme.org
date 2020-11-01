@@ -4,18 +4,20 @@
 
 ** Folder Structure
 
+The following is 2 level deep directory structure generated using ~tree -L 2
+-d~.
+
+#+begin_src
+#+end_src
+
 *** emacs
 
     My emacs configuration code. See its [[file:emacs/readme.org][readme]] for more information.
 
-*** nixos
+*** config
 
-    For Nix and NixOS related things.
-
-**** nixos/config
-
-     Config files used in NixOS that are symlinked to ~/.config/~ and managed
-     with [[https://github.com/rycee/home-manager][home manager]].
+    Config files used in NixOS that are symlinked to ~/.config/~ and managed
+    with [[https://github.com/rycee/home-manager][home manager]].
 
 *** config-backups
 
@@ -25,7 +27,7 @@
 * Keyboard Firmware - Planck layout
 
   The [[https://olkb.com/planck][Planck]] keyboard uses [[https://github.com/qmk/qmk_firmware/][qmk_firmware]] and I have my keymap code In the
-  [[./nixos/keyboard-firmware/planck/]] folder. The following section describes my
+  [[./keyboard-firmware/planck/]] folder. The following section describes my
   keyboard layout.
 
 ** Key aliases used below
