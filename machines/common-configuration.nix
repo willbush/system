@@ -1,11 +1,10 @@
 { config, pkgs, ... }:
-let sources = import ./nix/sources.nix;
+let sources = import ../nix/sources.nix;
 in {
   imports = [
-    ./machines/betelgeuse
-    ./fonts.nix
-    ./users.nix
-    ./pia/pia-nm.nix
+    ../fonts.nix
+    ../users.nix
+    ../pia/pia-nm.nix
   ];
 
   nixpkgs.config = {
