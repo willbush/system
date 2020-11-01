@@ -17,11 +17,6 @@
      Config files used in NixOS that are symlinked to ~/.config/~ and managed
      with [[https://github.com/rycee/home-manager][home manager]].
 
-*** win
-
-    For things that are only used in Windows are kept here. See its [[file:win/readme.org][readme]] for
-    more information.
-
 *** config-backups
 
     Miscellaneous configuration files that I'm backing up and are not deployed
