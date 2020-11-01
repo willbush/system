@@ -97,25 +97,25 @@ in {
   networking = {
     networkmanager = {
       enable = true;
-      pia-vpn.enable = true;
-      pia-vpn.usernameFile = /home/will/.secrets/pia-vpn.username;
-      pia-vpn.passwordFile = /home/will/.secrets/pia-vpn.password;
-      pia-vpn.serverList = [
-        "us-atlanta"
-        "us-california"
-        "us-chicago"
-        "us-dal"
-        "us-denver"
-        "us-east"
-        "us-florida"
-        "us-houston"
-        "us-lasvegas"
-        "us-nyc"
-        "us-sea"
-        "us-siliconvalley"
-        "us-washingtondc"
-        "us-west"
-      ];
+      # pia-vpn.enable = true;
+      # pia-vpn.usernameFile = /home/will/.secrets/pia-vpn.username;
+      # pia-vpn.passwordFile = /home/will/.secrets/pia-vpn.password;
+      # pia-vpn.serverList = [
+      #   "us-atlanta"
+      #   "us-california"
+      #   "us-chicago"
+      #   "us-dal"
+      #   "us-denver"
+      #   "us-east"
+      #   "us-florida"
+      #   "us-houston"
+      #   "us-lasvegas"
+      #   "us-nyc"
+      #   "us-sea"
+      #   "us-siliconvalley"
+      #   "us-washingtondc"
+      #   "us-west"
+      # ];
     };
   };
 
