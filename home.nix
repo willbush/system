@@ -27,7 +27,7 @@ in {
   home.file = {
     ".config".source = ./config;
     ".config".recursive = true;
-    ".xmonad/xmonad.hs".source = ../xmonad/xmonad.hs;
+    ".xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
     # Outside of NixOS the dictionary directory needs to be set.
     # https://github.com/NixOS/nixpkgs/issues/4521
     ".aspell.conf".text = ''
