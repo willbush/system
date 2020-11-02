@@ -2,20 +2,13 @@
 
 let
   homeDir = builtins.getEnv "HOME";
-  sources = import ./nix/sources.nix;
   planck = pkgs.callPackage ./keyboard-firmware/planck { };
-  nixos20_03 = import sources."nixpkgs-20.03" { };
 in {
   imports = [ ./emacs.nix ];
 
   home.stateVersion = "20.09";
   home.username = "will";
   home.homeDirectory = "/home/will";
-
-  # nixpkgs.config = {
-  #   allowUnfree = true;
-  #   packageOverrides = pkgs: { stable = nixos20_03; };
-  # };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
