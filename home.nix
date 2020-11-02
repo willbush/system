@@ -6,7 +6,7 @@ let
   planck = pkgs.callPackage ./keyboard-firmware/planck { };
   nixos20_03 = import sources."nixpkgs-20.03" { };
 in {
-  # imports = [ ./emacs.nix ];
+  imports = [ ./emacs.nix ];
 
   home.stateVersion = "20.09";
   home.username = "will";

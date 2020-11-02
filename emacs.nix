@@ -3,8 +3,6 @@
 let emacs-overlay = import (import ./nix/sources.nix)."emacs-overlay";
 in {
 
-  nixpkgs.overlays = [ emacs-overlay ];
-
   services.emacs = {
     enable = true;
     # temporarily disable to work around a desktop file collision issue
