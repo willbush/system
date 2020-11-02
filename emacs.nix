@@ -1,9 +1,4 @@
-{ pkgs, ... }:
-
-let emacs-overlay = import (import ./nix/sources.nix)."emacs-overlay";
-in {
-
-  nixpkgs.overlays = [ emacs-overlay ];
+{ pkgs, ... }: {
 
   services.emacs = {
     enable = true;

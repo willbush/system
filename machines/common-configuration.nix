@@ -1,11 +1,10 @@
 { config, pkgs, ... }:
-let sources = import ./nix/sources.nix;
+let sources = import ../nix/sources.nix;
 in {
   imports = [
-    ./machines/betelgeuse
-    ./fonts.nix
-    ./users.nix
-    ./pia/pia-nm.nix
+    ../fonts.nix
+    ../users.nix
+    ../pia/pia-nm.nix
   ];
 
   nixpkgs.config = {
@@ -14,6 +13,11 @@ in {
   };
 
   nix = {
+    # Required until nix version 2.4 for nix flakes
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
     useSandbox = true;
     autoOptimiseStore = true;
     binaryCaches = [
@@ -92,25 +96,25 @@ in {
   networking = {
     networkmanager = {
       enable = true;
-      pia-vpn.enable = true;
-      pia-vpn.usernameFile = /home/will/.secrets/pia-vpn.username;
-      pia-vpn.passwordFile = /home/will/.secrets/pia-vpn.password;
-      pia-vpn.serverList = [
-        "us-atlanta"
-        "us-california"
-        "us-chicago"
-        "us-dal"
-        "us-denver"
-        "us-east"
-        "us-florida"
-        "us-houston"
-        "us-lasvegas"
-        "us-nyc"
-        "us-sea"
-        "us-siliconvalley"
-        "us-washingtondc"
-        "us-west"
-      ];
+      # pia-vpn.enable = true;
+      # pia-vpn.usernameFile = /home/will/.secrets/pia-vpn.username;
+      # pia-vpn.passwordFile = /home/will/.secrets/pia-vpn.password;
+      # pia-vpn.serverList = [
+      #   "us-atlanta"
+      #   "us-california"
+      #   "us-chicago"
+      #   "us-dal"
+      #   "us-denver"
+      #   "us-east"
+      #   "us-florida"
+      #   "us-houston"
+      #   "us-lasvegas"
+      #   "us-nyc"
+      #   "us-sea"
+      #   "us-siliconvalley"
+      #   "us-washingtondc"
+      #   "us-west"
+      # ];
     };
   };
 
