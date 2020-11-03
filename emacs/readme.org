@@ -175,10 +175,11 @@
 
    Also see: [[https://www.emacswiki.org/emacs/MsWindowsGlobalContextMenu][Global context menu section of wiki]]
 
-   I have included the registry file [[../config-backups/emacs/global-context.reg]]
-   with appropriate paths in the same folder as this document. I have the
-   alternate editor set to an empty string so that it will create a new Emacs
-   daemon, if it's not running, and connect the client to it.
+   I have included the registry file
+   [[../config-backups/win/config/emacs-global-context.reg]] with appropriate paths
+   in the same folder as this document. I have the alternate editor set to an
+   empty string so that it will create a new Emacs daemon, if it's not running,
+   and connect the client to it.
 
    This will allow right clicking on a file or directory and opening it in
    Emacs. However, again it will not open in an existing instance of Emacs
