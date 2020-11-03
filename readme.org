@@ -1,6 +1,35 @@
 * System Configuration
 
-  Everything needed to build my NixOS system.
+Everything needed to build my NixOS system.
+
+** NixOS Install
+
+Build and switch to the generation provided by the flake for machine / host
+name:
+
+#+begin_src shell
+sudo nixos-rebuild switch --flake <PATH_TO_GIT_REPO>#<MACHINE>
+#+end_src
+
+For example:
+
+#+begin_src shell
+git clone https://github.com/willbush/system.git
+cd system
+sudo nixos-rebuild switch --flake '.#betelgeuse'
+#+end_src
+
+The ~.~ before the ~#~ is the path to the git repository. What comes after the
+~#~ is the machine / host name which can be found enumerated in the ~flakes.nix~
+file.
+
+*** Flakes Learning Resources
+
+- https://nixos.wiki/wiki/Flakes
+- https://www.tweag.io/blog/2020-05-25-flakes/
+- https://www.tweag.io/blog/2020-06-25-eval-cache/
+- https://www.tweag.io/blog/2020-07-31-nixos-flakes/
+- https://github.com/colemickens/nixos-flake-example
 
 ** Folder Structure
 
@@ -42,4 +71,5 @@ Machine / host specific configuration files.
 
 *** xmonad
 
-My Xmonad configuration code which is symlinked by home-manager.
+My Xmonad configuration code which is symlinked by home-manager. See its [[file:xmonad/readme.org][readme]]
+for more information.
