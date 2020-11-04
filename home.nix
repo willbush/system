@@ -177,7 +177,6 @@ in {
       ll = "exa -l";
       la = "exa -lah";
       vim = "nvim";
-      du = "dust";
     };
     oh-my-zsh = {
       enable = true;
