@@ -23,6 +23,20 @@ The ~.~ before the ~#~ is the path to the git repository. What comes after the
 ~#~ is the machine / host name which can be found enumerated in the ~flakes.nix~
 file.
 
+*** NixOS Update
+
+To update all the flake inputs:
+
+#+begin_src shell
+nix flake update --recreate-lock-file
+#+end_src
+
+To up update a single input:
+
+#+begin_src shell
+nix flake update --update-input nixpkgs
+#+end_src
+
 *** Flakes Learning Resources
 
 - https://nixos.wiki/wiki/Flakes
