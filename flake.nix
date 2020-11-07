@@ -27,6 +27,19 @@
           }
         ];
       };
+      tau-ceti = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./machines/tau-ceti/configuration.nix
+          inputs.home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.will = import ./home.nix;
+            nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
+          }
+        ];
+      };
     };
   };
 }
