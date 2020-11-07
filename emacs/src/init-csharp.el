@@ -53,7 +53,7 @@
          ;; (before-save . omnisharp-code-format-entire-file)
          )
   :config
-  (setq omnisharp-debug t)
+  (setq omnisharp-debug nil)
 
   (eval-after-load
     'company
