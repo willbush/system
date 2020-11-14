@@ -76,6 +76,7 @@ in {
     haskellPackages.hoogle
     hicolor-icon-theme # fall back icon theme
     keepassxc
+    libreoffice
     neofetch
     niv
     nix-prefetch-git
@@ -96,7 +97,6 @@ in {
     shutter
     simple-scan
     slack
-    libreoffice
     syncthing-cli # provides stcli
     teams
     texlive.combined.scheme-small # things needed for pandoc
@@ -214,6 +214,11 @@ in {
       hostname = "github.com";
       identityFile = "~/.secrets/id_rsa_github";
     };
+  };
+
+  programs.bat = {
+    enable = true;
+    config.theme = "TwoDark";
   };
 
   services.picom = {
