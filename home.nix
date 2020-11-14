@@ -52,8 +52,9 @@ in {
     aspell
     aspellDicts.en
     aspellDicts.en-computers
-    bat-extras.batdiff # https://github.com/eth-p/bat-extras
-    bat-extras.batgrep
+    bat-extras.batdiff # pretty print git diff (see: https://github.com/eth-p/bat-extras)
+    bat-extras.batgrep # pretty print ripgrep output
+    bat-extras.prettybat # formats and then bats output (useful for minified code)
     bc
     binutils # needed when using cabal-install outside of a nix-shell
     cabal-install
