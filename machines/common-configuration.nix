@@ -94,6 +94,8 @@ in {
   };
 
   networking = {
+    firewall.enable = true;
+
     networkmanager = {
       enable = true;
       # pia-vpn.enable = true;
