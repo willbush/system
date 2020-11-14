@@ -15,6 +15,8 @@ in {
 
   home.sessionVariables = {
     EDITOR = "emacsclient --create-frame --alternate-editor emacs";
+    # https://github.com/sharkdp/bat#man
+    MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
   };
 
   home.file = {
