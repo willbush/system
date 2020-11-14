@@ -52,6 +52,8 @@ in {
     aspell
     aspellDicts.en
     aspellDicts.en-computers
+    bat-extras.batdiff # https://github.com/eth-p/bat-extras
+    bat-extras.batgrep
     bc
     binutils # needed when using cabal-install outside of a nix-shell
     cabal-install
