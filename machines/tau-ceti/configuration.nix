@@ -1,10 +1,16 @@
 {
-  imports = [
-    ./hardware-configuration.nix
-    ../common-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ../common-configuration.nix ];
 
   networking.hostName = "tau-ceti";
-  # Enable touchpad support.
-  services.xserver.libinput.enable = true;
+
+  services = {
+    # Enable touchpad support.
+    xserver.libinput.enable = true;
+
+    openssh = {
+      enable = true;
+      passwordAuthentication = false;
+      ports = [ 16596 ];
+    };
+  };
 }
