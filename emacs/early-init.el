@@ -47,7 +47,7 @@
 (use-package doom-themes
   :config
   ;; Apply `doom-theme'
-  (load-theme 'doom-flatwhite t))
+  (load-theme 'doom-challenger-deep t))
 
 ;; Set `doom-modeline' early to prevent non-stylized UI flash.
 ;; Note: `doom-modeline' requires M-x all-the-icons-install-fonts.
