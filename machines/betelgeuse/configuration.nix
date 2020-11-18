@@ -4,18 +4,16 @@
   networking.hostName = "betelgeuse";
   services.xserver.videoDrivers = [ "nvidiaBeta" ];
 
-  services.rpcbind.enable = true;
-
+  # Needed for mount.nfs command (when manually mounting)
   boot.supportedFilesystems = [ "nfs" ];
 
-  # fileSystems."/mnt/media" = {
-  #   device = "tau-ceti:/media";
-  #   fsType = "nfs";
-  #   options = [
-  #     "nfsvers=4.2"
-  #     "x-systemd.automount"
-  #     "noauto"
-  #     "x-systemd.idle-timeout=600" # disconnects after 10 minutes (i.e. 600 seconds)
-  #   ];
-  # };
+  fileSystems."/mnt/media" = {
+    device = "tau-ceti:/media";
+    fsType = "nfs";
+    options = [
+      "x-systemd.automount"
+      "noauto"
+      "x-systemd.idle-timeout=600" # disconnects after 10 minutes (i.e. 600 seconds)
+    ];
+  };
 }
