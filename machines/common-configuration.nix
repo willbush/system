@@ -1,11 +1,7 @@
 { config, pkgs, ... }:
 let sources = import ../nix/sources.nix;
 in {
-  imports = [
-    ../fonts.nix
-    ../users.nix
-    ../pia/pia-nm.nix
-  ];
+  imports = [ ../fonts.nix ../users.nix ];
 
   nixpkgs.config = {
     # Allow unfree, which is required for some drivers.
@@ -95,29 +91,8 @@ in {
 
   networking = {
     firewall.enable = true;
-
-    networkmanager = {
-      enable = true;
-      # pia-vpn.enable = true;
-      # pia-vpn.usernameFile = /home/will/.secrets/pia-vpn.username;
-      # pia-vpn.passwordFile = /home/will/.secrets/pia-vpn.password;
-      # pia-vpn.serverList = [
-      #   "us-atlanta"
-      #   "us-california"
-      #   "us-chicago"
-      #   "us-dal"
-      #   "us-denver"
-      #   "us-east"
-      #   "us-florida"
-      #   "us-houston"
-      #   "us-lasvegas"
-      #   "us-nyc"
-      #   "us-sea"
-      #   "us-siliconvalley"
-      #   "us-washingtondc"
-      #   "us-west"
-      # ];
-    };
+    networkmanager.enable = true;
+    iproute2.enable = true; # Needed for mullvad daemon
   };
 
   services = {
@@ -145,6 +120,8 @@ in {
       };
       desktopManager.xterm.enable = false;
     };
+
+    mullvad-vpn.enable = true;
   };
 
   virtualisation = {
@@ -162,6 +139,7 @@ in {
     ripgrep
     tree
     wget
+    mullvad-vpn
   ];
 
   programs.ssh.startAgent = true;
