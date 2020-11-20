@@ -56,7 +56,6 @@ The following is 1 level deep directory structure generated using ~tree -L 1 -d~
 ├── emacs
 ├── keyboard-firmware
 ├── machines
-├── pia
 └── xmonad
 #+end_src
 
