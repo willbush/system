@@ -64,7 +64,7 @@
   :init
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
   :config
-  (setq dashboard-startup-banner 3
+  (setq dashboard-startup-banner "~/code/external/nixos-artwork/logo/nix-snowflake.svg"
         dashboard-banner-logo-title nil
         dashboard-set-heading-icons t
         dashboard-set-file-icons t
