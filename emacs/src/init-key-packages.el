@@ -38,7 +38,7 @@
         '(calendar
           (package-menu package)
           (pdf pdf-view)
-          (term term ansi-term multi-term)
+          (vterm term ansi-term multi-term)
           cus-theme
           info
           ivy
