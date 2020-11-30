@@ -194,14 +194,7 @@ in {
       size = 100000;
       save = 100000;
     };
-    initExtra = ''
-      # Fix tramp login hang (see: https://www.emacswiki.org/emacs/TrampMode)
-      if [[ $TERM == "dumb" ]]; then
-        unsetopt zle
-        unset zle_bracketed_paste
-        export PS1='%m %~ $ '
-      fi
-    '';
+    initExtra = pkgs.lib.fileContents ./config/zsh/zshrc-init-extra.sh;
   };
 
   programs.broot = {

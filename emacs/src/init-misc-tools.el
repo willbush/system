@@ -229,6 +229,7 @@
 (use-package vterm
   :commands vterm
   :config
-  (evil-set-initial-state 'vterm-mode 'emacs))
+  (setq vterm-max-scrollback 10000
+        vterm-buffer-name-string "vterm %s"))
 
 (provide 'init-misc-tools)
