@@ -197,6 +197,8 @@ in {
     initExtra = pkgs.lib.fileContents ./config/zsh/zshrc-init-extra.sh;
   };
 
+  programs.starship.enable = true;
+
   programs.broot = {
     enable = true;
     enableZshIntegration = true;
