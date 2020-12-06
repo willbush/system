@@ -82,6 +82,7 @@ in {
     hicolor-icon-theme # fall back icon theme
     keepassxc
     libreoffice
+    mkpasswd
     neofetch
     niv
     nix-prefetch-git
