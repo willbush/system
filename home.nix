@@ -183,10 +183,18 @@ in {
       la = "exa -lah";
       vim = "nvim";
     };
+
     oh-my-zsh = {
       enable = true;
-      theme = "lambda";
+      plugins = [
+        # Completion providers:
+        "ripgrep"
+        "cargo"
+        "rust"
+        "fd"
+      ];
     };
+
     history = {
       path = "${config.xdg.dataHome}/zsh/zsh_history";
       extended = false; # Whether to insert timestamps
