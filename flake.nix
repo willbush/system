@@ -35,7 +35,7 @@
       iso = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./machines/iso/configuration.nix
+          ./iso.nix
           "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
           inputs.home-manager.nixosModules.home-manager
           { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }

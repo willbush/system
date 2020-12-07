@@ -11,7 +11,7 @@
 
     users.nixos = { pkgs, ... }: {
       imports = [
-        (import ../../emacs.nix {
+        (import ./emacs.nix {
           inherit pkgs;
           emacsPackage = pkgs.emacsGit;
         })
