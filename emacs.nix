@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, emacsPackage ? pkgs.emacsGcc, ... }: {
 
   services.emacs = {
     enable = true;
@@ -9,7 +9,7 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacsGcc;
+    package = emacsPackage;
     extraPackages = (epkgs:
       (with epkgs; [
         adaptive-wrap
