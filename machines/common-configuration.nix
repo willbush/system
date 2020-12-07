@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 let sources = import ../nix/sources.nix;
 in {
   imports = [ ../fonts.nix ../users.nix ];
