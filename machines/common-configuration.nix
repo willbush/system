@@ -1,7 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 let sources = import ../nix/sources.nix;
 in {
   imports = [ ../fonts.nix ../users.nix ];
+
+  home-manager = {
+    users.will = import ../home.nix;
+    useGlobalPkgs = true;
+    useUserPackages = true;
+  };
 
   nixpkgs.config = {
     # Allow unfree, which is required for some drivers.

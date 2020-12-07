@@ -12,32 +12,33 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay";
   };
 
-  outputs = inputs: {
+  outputs = { self, nixpkgs, ... }@inputs: {
+    iso = self.nixosConfigurations.iso.config.system.build.isoImage;
+
     nixosConfigurations = {
-      betelgeuse = inputs.nixpkgs.lib.nixosSystem {
+      betelgeuse = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./machines/betelgeuse/configuration.nix
           inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.will = import ./home.nix;
-            nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
-          }
+          { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
         ];
       };
-      tau-ceti = inputs.nixpkgs.lib.nixosSystem {
+      tau-ceti = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./machines/tau-ceti/configuration.nix
           inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.will = import ./home.nix;
-            nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
-          }
+          { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
+        ];
+      };
+      iso = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./machines/iso/configuration.nix
+          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+          inputs.home-manager.nixosModules.home-manager
+          { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
         ];
       };
     };
