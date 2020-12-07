@@ -13,7 +13,7 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
-    iso = self.nixosConfigurations.iso.config.system.build.isoImage;
+    packages.x86_64-linux.iso = self.nixosConfigurations.iso.config.system.build.isoImage;
 
     nixosConfigurations = {
       betelgeuse = nixpkgs.lib.nixosSystem {
@@ -32,6 +32,7 @@
           { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
         ];
       };
+
       iso = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
