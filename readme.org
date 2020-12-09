@@ -2,7 +2,23 @@
 
 Everything needed to build my NixOS system.
 
-** NixOS Install
+** NixOS
+*** Build Custom ISO
+
+I have a custom bootable ISO based on the minimal ISO provided by nixpkgs. The
+custom ISO mostly just adds Emacs with my configuration along with a few other
+tools that are nice to have.
+
+To build it:
+
+#+begin_src shell
+cd system
+nix build ".#iso"
+#+end_src
+
+The ISO will be in the ~./result/iso~ build result folder.
+
+*** Install
 
 Build and switch to the generation provided by the flake for machine / host
 name:
@@ -23,7 +39,7 @@ The ~.~ before the ~#~ is the path to the git repository. What comes after the
 ~#~ is the machine / host name which can be found enumerated in the ~flakes.nix~
 file.
 
-*** NixOS Update
+*** Update
 
 To update all the flake inputs:
 
