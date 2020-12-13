@@ -29,9 +29,9 @@ in stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "qmk";
     repo = "qmk_firmware";
-    rev = "2a31fbf9a6970ed425c2331f25fb7f92648ffcf1";
-    sha256 = "0kjqa69skys26nlmx2av34phwf0rqa2gphqah2631p7wjaqbny59";
-    # date = 2020-03-15T21:46:48-07:00;
+    rev = "10e4487ba368a9e220c96e12a0d17ae729d5c1e1";
+    sha256 = "04r8pvgj6zv88h27c76lb5fvj7x3ahhfjc5kimqzbs8sikm5dfs3";
+    # date = 2020-12-13T03:19:15+09:00;
     fetchSubmodules = true;
   };
 
