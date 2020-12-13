@@ -67,6 +67,12 @@
 (setq password-cache-expiry nil
       tramp-default-method (if IS-WINDOWS "plink" "ssh"))
 
+;; warnings
+(when (fboundp 'native-compile)
+  ;; Suppress numerous gccemacs async native compilation warnings.
+  (with-eval-after-load 'warnings
+    (add-to-list 'warning-suppress-types '(comp))))
+
 ;;
 ;;; Backup Settings
 
