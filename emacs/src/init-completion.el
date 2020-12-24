@@ -63,7 +63,8 @@
 (use-package ivy-prescient
   :after counsel
   :config
-  (ivy-prescient-mode 1))
+  (ivy-prescient-mode 1)
+  (prescient-persist-mode 1))
 
 (use-package company
   :defer 0.1
