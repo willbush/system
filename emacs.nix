@@ -61,6 +61,7 @@
         hydra
         ivy
         ivy-pass
+        ivy-prescient
         lsp-haskell
         lsp-mode
         lsp-ui
@@ -80,7 +81,6 @@
         rainbow-delimiters
         ranger
         rustic
-        smex
         sudo-edit
         swiper
         use-package

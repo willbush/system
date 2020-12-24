@@ -43,9 +43,6 @@
   (declare-function all-the-icons-ivy-setup "all-the-icons-ivy-setup")
   (all-the-icons-ivy-setup))
 
-;; Used by Ivy to sort commands by frequency.
-(use-package smex :hook (after-init . smex-initialize))
-
 (use-package counsel
   :after ivy
   :config
@@ -62,6 +59,11 @@
         "rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s .")
 
   (counsel-mode 1))
+
+(use-package ivy-prescient
+  :after counsel
+  :config
+  (ivy-prescient-mode 1))
 
 (use-package company
   :defer 0.1
