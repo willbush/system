@@ -2,7 +2,11 @@
   imports = [ ./hardware-configuration.nix ../common-configuration.nix ];
 
   networking.hostName = "betelgeuse";
-  services.xserver.videoDrivers = [ "nvidiaBeta" ];
+
+  services = {
+    fstrim.enable = true;
+    xserver.videoDrivers = [ "nvidiaBeta" ];
+  };
 
   # Needed for mount.nfs command (when manually mounting)
   boot.supportedFilesystems = [ "nfs" ];
