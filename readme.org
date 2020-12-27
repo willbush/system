@@ -53,6 +53,14 @@ To up update a single input:
 nix flake update --update-input nixpkgs
 #+end_src
 
+*** Nix Repl
+
+To open the flake in a ~nix repl~ do the following:
+
+#+begin_src shell
+nix run '.#repl'
+#+end_src
+
 *** Flakes Learning Resources
 
 - https://nixos.wiki/wiki/Flakes
