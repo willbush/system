@@ -10,38 +10,54 @@
     };
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
-    packages.x86_64-linux.iso = self.nixosConfigurations.iso.config.system.build.isoImage;
+  outputs = { self, nixpkgs, ... }@inputs:
+    let system = "x86_64-linux";
+    in {
+      packages.x86_64-linux.iso =
+        self.nixosConfigurations.iso.config.system.build.isoImage;
 
-    nixosConfigurations = {
-      betelgeuse = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./machines/betelgeuse/configuration.nix
-          inputs.home-manager.nixosModules.home-manager
-          { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
-        ];
-      };
-      tau-ceti = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./machines/tau-ceti/configuration.nix
-          inputs.home-manager.nixosModules.home-manager
-          { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
-        ];
+      nixosConfigurations = {
+        betelgeuse = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./machines/betelgeuse/configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
+          ];
+        };
+        tau-ceti = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./machines/tau-ceti/configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
+          ];
+        };
+
+        iso = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+            ./iso.nix
+            inputs.home-manager.nixosModules.home-manager
+            { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
+          ];
+        };
       };
 
-      iso = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./iso.nix
-          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-          inputs.home-manager.nixosModules.home-manager
-          { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
-        ];
+      # This is a work around for `nix repl` not yet supporting flakes.
+      # You can enter a repl for this flake be doing: nix run '.#repl'
+      # see: https://github.com/NixOS/nix/issues/3803#issuecomment-748612294
+      apps.${system}.repl = inputs.flake-utils.lib.mkApp {
+        drv = nixpkgs.legacyPackages.${system}.writeShellScriptBin "repl" ''
+          confnix=$(mktemp)
+          echo "builtins.getFlake (toString $(git rev-parse --show-toplevel))" >$confnix
+          trap "rm $confnix" EXIT
+          nix repl $confnix
+        '';
       };
     };
-  };
 }
