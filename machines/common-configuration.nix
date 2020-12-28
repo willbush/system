@@ -155,7 +155,7 @@ in {
   ];
 
   programs.ssh.startAgent = true;
-  # needed for gnome / gtk themes
+  # needed for gnome / gtk themes and virt-manager
   programs.dconf.enable = true;
   programs.qt5ct.enable = true;
   programs.gnupg.agent.enable = true;
