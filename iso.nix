@@ -79,9 +79,6 @@
     chown nixos ${homeDir} ${desktopDir}
 
     ln -sfT ${manualDesktopFile} ${desktopDir + "nixos-manual.desktop"}
-    ln -sfT ${pkgs.gparted}/share/applications/gparted.desktop ${
-      desktopDir + "gparted.desktop"
-    }
     ln -sfT ${pkgs.alacritty}/share/applications/Alacritty.desktop ${
       desktopDir + "Alacritty.desktop"
     }
