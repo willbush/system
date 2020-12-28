@@ -20,7 +20,7 @@
 
   users.users.nixos.shell = pkgs.zsh;
 
-  environment.systemPackages = with pkgs; [ git ripgrep tree wget ];
+  environment.systemPackages = with pkgs; [ git ripgrep tree wget mkpasswd ];
 
   home-manager = {
     useGlobalPkgs = true;
