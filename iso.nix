@@ -5,6 +5,14 @@
 
   isoImage.edition = "plasma5";
 
+  nix = {
+    # Required until nix version 2.4 for nix flakes
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
   services.xserver = {
     desktopManager.plasma5 = { enable = true; };
 
