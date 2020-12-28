@@ -13,22 +13,26 @@
     '';
   };
 
-  services.xserver = {
-    desktopManager.plasma5 = { enable = true; };
+  services = {
+    xserver = {
+      desktopManager.plasma5 = { enable = true; };
 
-    # Automatically login as nixos.
-    displayManager = {
-      sddm.enable = true;
-      autoLogin = {
-        enable = true;
-        user = "nixos";
+      # Automatically login as nixos.
+      displayManager = {
+        sddm.enable = true;
+        autoLogin = {
+          enable = true;
+          user = "nixos";
+        };
       };
     };
+    # Nice to have when running in a virtualized environment with spice.
+    spice-vdagentd.enable = true;
   };
 
   users.users.nixos.shell = pkgs.zsh;
 
-  environment.systemPackages = with pkgs; [ git ripgrep tree wget mkpasswd ];
+  environment.systemPackages = with pkgs; [ git mkpasswd ripgrep tree wget ];
 
   home-manager = {
     useGlobalPkgs = true;
