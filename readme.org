@@ -20,24 +20,75 @@ The ISO will be in the ~./result/iso~ build result folder.
 
 *** Install
 
-Build and switch to the generation provided by the flake for machine / host
-name:
+The primary source of documentation for installing NixOS is the [[https://nixos.org/manual/nixos/stable/][manual]]. The
+following are my own notes on how I install things in various situations. I
+thought about making a install script that [[https://xkcd.com/1319/][automates]] most of this for me, but it
+just doesn't seem worth with the varying use cases and low frequency of
+re-formatting.
+
+**** [[https://virt-manager.org/][Virt Manager]]
+
+1. File > New virtual machine > Forward.
+2. Choose ISO > Forward (it should auto-detect that it's NixOS).
+3. Choose Memory and CPU amount (I usually double each default amount) > Forward.
+4. Choose available disk size (I usually increase to 30 GiB) > Forward.
+5. Check the ~Customize configuration before install~ to boot as UEFI instead of legacy BIOS > Forward.
+6. In the Overview section change the Firmware from BIOS to UEFI > Apply > Begin Installation.
+
+**** Basic partitioning without encryption or dual booting
+
+The following is mostly just following the manual instructions [[https://nixos.org/manual/nixos/stable/index.html#sec-installation-partitioning-UEFI][here]]. Note that
+one can wipe all the file systems on a device using ~sudo wipefs -a device~ (e.g.
+~sudo wipefs -a /dev/sda~) which is useful to start over or prepare a device.
+
+1. Open a parted REPL: ~sudo parted~
+2. Print all devices to determine the device to format: ~print all~
+3. Select device: ~select /dev/sda~ (Note the exact disk depends on your ~print all~ output.)
+4. Create a GPT partition table: ~mklabel gpt~
+5. Add the root partition.
+
+   #+begin_src shell
+   mkpart primary 512MiB -2GiB
+   #+end_src
+
+   This leaves space in the front of the disk (512MiB) for the boot partition and
+   space at the end for swap partition. Adjust swap size as desired.
+
+6. Add a swap partition: ~mkpart primary linux-swap -2GiB 100%~
+7. Finally, the boot partition:
+
+   #+begin_src shell
+   mkpart ESP fat32 1MiB 512MiB
+   set 3 esp on
+   #+end_src
+
+   Note that ~3~ is the disk number which you can see in ~print~ output. Your
+   disk number might be different if you're doing things in a different order.
+
+8. ~print~ to verify and ~quit~ to quit.
+
+9. Create ext4 file system: ~sudo mkfs.ext4 -L nixos /dev/sda1~
+10. Create swap area: ~sudo mkswap -L swap /dev/sda2~
+11. Create fat file system for boot partition: ~sudo mkfs.fat -F 32 -n boot /dev/sda3~
+
+**** Installing
+
+Mount the target NixOS file system:
 
 #+begin_src shell
-sudo nixos-rebuild switch --flake <PATH_TO_GIT_REPO>#<MACHINE>
+sudo mount /dev/disk/by-label/nixos /mnt
+sudo mkdir -p /mnt/boot
+sudo mount /dev/disk/by-label/boot /mnt/boot
 #+end_src
 
-For example:
+For old devices with limited RAM that depend on the swap space, activate swap
+device now:
 
 #+begin_src shell
-git clone https://github.com/willbush/system.git
-cd system
-sudo nixos-rebuild switch --flake '.#betelgeuse'
+sudo swapon /dev/sda2
 #+end_src
 
-The ~.~ before the ~#~ is the path to the git repository. What comes after the
-~#~ is the machine / host name which can be found enumerated in the ~flakes.nix~
-file.
+WIP...
 
 *** Update
 
@@ -60,6 +111,27 @@ To open the flake in a ~nix repl~ do the following:
 #+begin_src shell
 nix run '.#repl'
 #+end_src
+
+*** Switch
+
+Build and switch to the generation provided by the flake for machine / host
+name:
+
+#+begin_src shell
+sudo nixos-rebuild switch --flake <PATH_TO_GIT_REPO>#<MACHINE>
+#+end_src
+
+For example:
+
+#+begin_src shell
+git clone https://github.com/willbush/system.git
+cd system
+sudo nixos-rebuild switch --flake '.#betelgeuse'
+#+end_src
+
+The ~.~ before the ~#~ is the path to the git repository. What comes after the
+~#~ is the machine / host name which can be found enumerated in the ~flakes.nix~
+file.
 
 *** Flakes Learning Resources
 
