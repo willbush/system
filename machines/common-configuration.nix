@@ -131,6 +131,11 @@ in {
     mullvad-vpn.enable = true;
   };
 
+  # Change the default timeout for a service from 90 seconds.
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=30s
+  '';
+
   virtualisation = {
     docker.enable = true;
     libvirtd.enable = true;
