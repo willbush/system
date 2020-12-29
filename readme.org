@@ -131,7 +131,7 @@ one can wipe all the file systems on a device using ~sudo wipefs -a device~ (e.g
 5. Move system repository
 
    After booting into the newly installation, I personally prefer my system
-   repository in my home directory (change user as needed):
+   repository in my home directory (change the user as needed):
 
    #+begin_src
    sudo mv /etc/nixos/system ~/
