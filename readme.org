@@ -5,8 +5,9 @@ Everything needed to build my NixOS system.
 ** NixOS
 *** Build Custom ISO
 
-I have a custom bootable ISO that provides a Xfce graphical environment with a
-few nice to have tools and my Emacs configuration for installing NixOS.
+I have a custom bootable ISO that provides a graphical environment similar to
+the one in nixpkgs with a few nice to have tools and my Emacs configuration for
+installing NixOS.
 
 To build it:
 
@@ -37,7 +38,8 @@ re-formatting.
 6. In the Overview section change the Firmware from BIOS to UEFI > Apply
 7. In the Video QXL section change the model Virtio and enable 3D acceleration
    (allows increasing desktop resolution) > Apply > Begin Installation.
-8. Once in
+8. Once booted into the ISO the first thing I do is increase the resolution
+   (Display Configuration for plasma5).
 
 **** Basic partitioning without encryption or dual booting
 
@@ -77,22 +79,54 @@ one can wipe all the file systems on a device using ~sudo wipefs -a device~ (e.g
 
 **** Installing
 
-Mount the target NixOS file system:
+1. Mount the target NixOS file system:
 
-#+begin_src shell
-sudo mount /dev/disk/by-label/nixos /mnt
-sudo mkdir -p /mnt/boot
-sudo mount /dev/disk/by-label/boot /mnt/boot
-#+end_src
+   #+begin_src shell
+   sudo mount /dev/disk/by-label/nixos /mnt
+   sudo mkdir -p /mnt/boot
+   sudo mount /dev/disk/by-label/boot /mnt/boot
+    #+end_src
 
-For old devices with limited RAM that depend on the swap space, activate swap
-device now:
+2. Enable swap if needed
 
-#+begin_src shell
-sudo swapon /dev/sda2
-#+end_src
+   For old devices with limited RAM that depend on the swap space, activate swap
+   device now:
 
-WIP...
+   #+begin_src shell
+   sudo swapon /dev/sda2
+   #+end_src
+
+3. Prepare the configuration
+
+   #+begin_src
+   sudo nixos-generate-config --root /mnt
+   cd /mnt/etc/nixos
+   sudo git clone https://github.com/willbush/system.git
+   #+end_src
+
+   For a new machine setup the new machine in ~flake.nix~ and under
+   ~./system/machines/~ using the generated ~hardware-configuration.nix~.
+
+   Consider changing the hashed user passwords in ~user.nix~ with ~mkpasswd -m
+   sha-512~.
+
+   Be sure to stage all new files created in repository as required for flakes.
+
+4. Install
+
+   Replace betelgeuse in the following command with your machine name.
+
+   #+begin_src
+   sudo nixos-install --flake /mnt/etc/nixos/system/#betelgeuse --no-root-passwd --impure
+   reboot
+   #+end_src
+
+   Notes:
+
+   - No root password needs to be created because it should be specified in
+     ~user.nix~ as a hashed password.
+   - Impure flag is needed because nix thinks ~/mnt/nix/store~ as a non-store
+     path.
 
 *** Update
 
