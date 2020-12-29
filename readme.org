@@ -107,8 +107,8 @@ one can wipe all the file systems on a device using ~sudo wipefs -a device~ (e.g
    For a new machine setup the new machine in ~flake.nix~ and under
    ~./system/machines/~ using the generated ~hardware-configuration.nix~.
 
-   Consider changing the hashed user passwords in ~user.nix~ with ~mkpasswd -m
-   sha-512~.
+   Change the hashed user passwords in ~user.nix~. These hashed passwords can be
+   generated with ~mkpasswd -m sha-512~.
 
    Be sure to stage all new files created in repository as required for flakes.
 
