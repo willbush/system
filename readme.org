@@ -98,7 +98,7 @@ one can wipe all the file systems on a device using ~sudo wipefs -a device~ (e.g
 
 3. Prepare the configuration
 
-   #+begin_src
+   #+begin_src shell
    sudo nixos-generate-config --root /mnt
    cd /mnt/etc/nixos
    sudo git clone https://github.com/willbush/system.git
@@ -116,7 +116,7 @@ one can wipe all the file systems on a device using ~sudo wipefs -a device~ (e.g
 
    Replace betelgeuse in the following command with your machine name.
 
-   #+begin_src
+   #+begin_src shell
    sudo nixos-install --flake /mnt/etc/nixos/system/#betelgeuse --no-root-passwd --impure
    reboot
    #+end_src
@@ -133,7 +133,7 @@ one can wipe all the file systems on a device using ~sudo wipefs -a device~ (e.g
    After booting into the newly installation, I personally prefer my system
    repository in my home directory (change the user as needed):
 
-   #+begin_src
+   #+begin_src shell
    sudo mv /etc/nixos/system ~/
    sudo chown -R will ~/system/
    #+end_src
