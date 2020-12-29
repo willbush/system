@@ -5,9 +5,8 @@ Everything needed to build my NixOS system.
 ** NixOS
 *** Build Custom ISO
 
-I have a custom bootable ISO based on the graphical ISO provided by nixpkgs. The
-custom ISO mostly just adds Emacs with my configuration along with a few other
-tools that are nice to have.
+I have a custom bootable ISO that provides a Xfce graphical environment with a
+few nice to have tools and my Emacs configuration for installing NixOS.
 
 To build it:
 
@@ -30,10 +29,15 @@ re-formatting.
 
 1. File > New virtual machine > Forward.
 2. Choose ISO > Forward (it should auto-detect that it's NixOS).
-3. Choose Memory and CPU amount (I usually double each default amount) > Forward.
+3. Choose Memory and CPU amount (~4 CPUs and ~6148 RAM when host can afford it)
+   > Forward.
 4. Choose available disk size (I usually increase to 30 GiB) > Forward.
-5. Check the ~Customize configuration before install~ to boot as UEFI instead of legacy BIOS > Forward.
-6. In the Overview section change the Firmware from BIOS to UEFI > Apply > Begin Installation.
+5. Check the ~Customize configuration before install~ to boot as UEFI instead of
+   legacy BIOS > Forward.
+6. In the Overview section change the Firmware from BIOS to UEFI > Apply
+7. In the Video QXL section change the model Virtio and enable 3D acceleration
+   (allows increasing desktop resolution) > Apply > Begin Installation.
+8. Once in
 
 **** Basic partitioning without encryption or dual booting
 
