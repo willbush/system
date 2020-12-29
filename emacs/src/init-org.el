@@ -50,25 +50,28 @@
         org-agenda-start-on-weekday nil
         org-agenda-start-day "-3d")
 
-  ;; Set my agenda files to includes all my  org files that are not hidden,; auto-save, or backups.
-  (setq org-agenda-files
-        (directory-files-recursively
-          "~/org"
-          ;; ^ match beginning of string
-          ;; [^.#] do not match . or # characters
-          ;; .* match anything
-          ;; \\.org\\' match .org literally at the end of the string
-          "^[^.#].*\\.org\\'"
-          nil
-          ;; A predicate that signals to `directory-files-recursively' whether to
-          ;; recursively search a directory or not.
-          (lambda (dir)
-            (let ((name (file-name-nondirectory dir)))
-              (not (or
-                    ;; These are the directories I want to exclude:
-                    (string= ".git" name)
-                    (string= "archive" name)
-                    (string= "docs" name)))))))
+  ;; Set my agenda files to includes all my org files that are not hidden,;
+  ;; auto-save, or backups.
+  (let ((my-org-notes "~/org"))
+    (when (file-directory-p my-org-notes)
+      (setq org-agenda-files
+            (directory-files-recursively
+             my-org-notes
+             ;; ^ match beginning of string
+             ;; [^.#] do not match . or # characters
+             ;; .* match anything
+             ;; \\.org\\' match .org literally at the end of the string
+             "^[^.#].*\\.org\\'"
+             nil
+             ;; A predicate that signals to `directory-files-recursively' whether to
+             ;; recursively search a directory or not.
+             (lambda (dir)
+               (let ((name (file-name-nondirectory dir)))
+                 (not (or
+                       ;; These are the directories I want to exclude:
+                       (string= ".git" name)
+                       (string= "archive" name)
+                       (string= "docs" name)))))))))
 
   (setq org-capture-templates
         '(("w" "work project")
