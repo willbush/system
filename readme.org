@@ -12,6 +12,7 @@ installing NixOS.
 To build it:
 
 #+begin_src shell
+git clone https://github.com/willbush/system.git
 cd system
 nix build ".#iso"
 #+end_src
