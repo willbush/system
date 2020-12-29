@@ -47,9 +47,8 @@
       ];
 
       home.file = {
-        # Include this repository in the ISO so it doesn't need to be cloned.
-        "system".source = ./.;
-        "system".recursive = true;
+        # Include the readme from this repo which might be handy before cloning it.
+        "Desktop/readme.org".source = ./readme.org;
       };
 
       programs = {
