@@ -3,7 +3,7 @@
 {
   imports = [ ./fonts.nix ];
 
-  isoImage.edition = "xfce";
+  isoImage.edition = "plasma5";
 
   nix = {
     # Required until nix version 2.4 for nix flakes
@@ -15,7 +15,7 @@
 
   services = {
     xserver = {
-      desktopManager.xfce.enable = true;
+      desktopManager.plasma5.enable = true;
 
       # Automatically login as nixos.
       displayManager = {
