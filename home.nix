@@ -71,6 +71,7 @@ in {
     feh
     gcc
     gimp
+    git-crypt
     glances
     gnome3.gnome-screenshot
     gnupg
