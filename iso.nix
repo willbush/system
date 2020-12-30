@@ -1,7 +1,10 @@
-{ pkgs, ... }:
+{ modulesPath, pkgs, ... }:
 
 {
-  imports = [ ./fonts.nix ];
+  imports = [
+    "${modulesPath}/installer/cd-dvd/installation-cd-graphical-base.nix"
+    ./fonts.nix
+  ];
 
   isoImage.edition = "plasma5";
 
