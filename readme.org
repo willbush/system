@@ -24,7 +24,7 @@ The ISO will be in the ~./result/iso~ build result folder.
 The primary source of documentation for installing NixOS is the [[https://nixos.org/manual/nixos/stable/][manual]]. The
 following are my own notes on how I install things in various situations. I
 thought about making a install script that [[https://xkcd.com/1319/][automates]] most of this for me, but it
-just doesn't seem worth with the varying use cases and low frequency of
+just doesn't seem worth it with the varying use cases and low frequency of
 re-formatting.
 
 **** [[https://virt-manager.org/][Virt Manager]]
