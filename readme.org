@@ -182,13 +182,21 @@ The ~.~ before the ~#~ is the path to the git repository. What comes after the
 ~#~ is the machine / host name which can be found enumerated in the ~flakes.nix~
 file.
 
-*** Flakes Learning Resources
+*** Flake Learning Resources
 
 - https://nixos.wiki/wiki/Flakes
+- [[https://github.com/tweag/rfcs/blob/flakes/rfcs/0049-flakes.md][Original RFC]]
+- [[https://www.youtube.com/watch?v=UeBX7Ide5a0][Flake talk at NixConf]]
 - https://www.tweag.io/blog/2020-05-25-flakes/
 - https://www.tweag.io/blog/2020-06-25-eval-cache/
 - https://www.tweag.io/blog/2020-07-31-nixos-flakes/
+
+**** Flake Examples
+
 - https://github.com/colemickens/nixos-flake-example
+- https://github.com/hlissner/dotfiles
+- https://github.com/lexuge
+- https://github.com/nrdxp/nixflk
 
 ** Folder Structure
 
