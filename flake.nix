@@ -40,7 +40,6 @@
         iso = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix"
             ./iso.nix
             inputs.home-manager.nixosModules.home-manager
             { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
