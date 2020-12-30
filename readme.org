@@ -209,6 +209,7 @@ The following is 1 level deep directory structure generated using ~tree -L 1 -d~
 ├── emacs
 ├── keyboard-firmware
 ├── machines
+├── secrets
 └── xmonad
 #+end_src
 
@@ -234,6 +235,10 @@ depth on my key layout and customized Evil / Vim keybindings.
 *** machines
 
 Machine / host specific configuration files.
+
+*** secrets
+
+A place for me to store encrypted secrets using [[https://github.com/AGWA/git-crypt][git-crypt]].
 
 *** xmonad
 
