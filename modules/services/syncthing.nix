@@ -87,7 +87,7 @@ in {
             id = "tuaur-mvey4";
             label = ".secrets";
             path = "/home/will/.secrets";
-            devices = [ "betelgeuse" "saiph" "alnitak" ];
+            devices = [ "betelgeuse" "tau-ceti" "saiph" "alnitak" ];
             enable = deviceEnabled devices;
             type = deviceType devices;
             versioning = staggeredVersioning;
