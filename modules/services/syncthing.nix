@@ -21,19 +21,16 @@ in {
       configDir = "/home/will/.config/syncthing";
       dataDir = "/home/will/.local/share/syncthing";
       declarative = {
-        devices = {
-          betelgeuse.id = devices.betelgeuse.id;
-          tau-ceti.id = devices.tau-ceti.id;
-        };
+        inherit devices;
         folders = let
           deviceEnabled = devices: elem config.networking.hostName devices;
           deviceType = devices:
             if deviceEnabled devices then "sendreceive" else "receiveonly";
         in {
-          test = rec {
+          sync = rec {
             devices = [ "betelgeuse" "tau-ceti" ];
             enable = deviceEnabled devices;
-            path = "/home/will/test";
+            path = "/home/will/sync";
             rescanInterval = 3600;
             type = deviceType [ "betelgeuse" "tau-ceti" ];
             versioning = {
@@ -41,7 +38,7 @@ in {
               params = {
                 cleanInterval = "3600";
                 maxAge = "31536000"; # in seconds (365 days)
-                versionsPath = ".stversions";
+                versionsPath = ".stversions"; # The default path (cannot ommit to get the default)
               };
             };
             watch = true;
