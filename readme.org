@@ -111,6 +111,8 @@ one can wipe all the file systems on a device using ~sudo wipefs -a device~ (e.g
    Change the hashed user passwords in ~user.nix~. These hashed passwords can be
    generated with ~mkpasswd -m sha-512~.
 
+   Disable anything that depends on unlocking the encrypted secrets folder.
+
    Be sure to stage all new files created in repository as required for flakes.
 
 4. Install
