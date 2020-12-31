@@ -32,11 +32,19 @@ in {
         in {
           test = rec {
             devices = [ "betelgeuse" "tau-ceti" ];
-            path = "/home/will/test";
-            watch = true;
-            rescanInterval = 3600;
-            type = deviceType [ "betelgeuse" "nas" ];
             enable = deviceEnabled devices;
+            path = "/home/will/test";
+            rescanInterval = 3600;
+            type = deviceType [ "betelgeuse" "tau-ceti" ];
+            versioning = {
+              type = "staggered";
+              params = {
+                cleanInterval = "3600";
+                maxAge = "31536000"; # in seconds (365 days)
+                versionsPath = ".stversions";
+              };
+            };
+            watch = true;
           };
         };
       };
