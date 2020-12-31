@@ -269,6 +269,5 @@ in {
     };
 
     lorri.enable = true;
-    syncthing.enable = true;
   };
 }
