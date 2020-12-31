@@ -16,7 +16,7 @@
   outputs = { self, nixpkgs, ... }@inputs:
     let system = "x86_64-linux";
     in {
-      packages.x86_64-linux.iso =
+      packages.${system}.iso =
         self.nixosConfigurations.iso.config.system.build.isoImage;
 
       nixosConfigurations = {
