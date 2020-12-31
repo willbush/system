@@ -31,7 +31,7 @@ in {
             if deviceEnabled devices then "sendreceive" else "receiveonly";
         in {
           test = rec {
-            devices = [ "betelgeuse" ];
+            devices = [ "betelgeuse" "tau-ceti" ];
             path = "/home/will/test";
             watch = true;
             rescanInterval = 3600;
