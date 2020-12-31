@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let sources = import ../nix/sources.nix;
 in {
-  imports = [ ../fonts.nix ../users.nix ];
+  imports = [ ../fonts.nix ../users.nix ../modules/services/syncthing.nix ];
 
   home-manager = {
     users.will = import ../home.nix;
@@ -101,6 +101,8 @@ in {
     iproute2.enable = true; # Needed for mullvad daemon
     wireguard.enable = true;
   };
+
+  modules.services.syncthing.enable = true;
 
   services = {
     # Enable CUPS to print documents.
