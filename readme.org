@@ -21,14 +21,14 @@ The ISO will be in the ~./result/iso~ build result folder.
 
 *** Write Custom ISO to a USB stick
 
-Use ~lsblk~ to determine the device ~/dev/sdXX~ and replace ~/dev/sdb1~ in the
-example below with your device. You should not have the device mounted before
-running the following command. In addition, the exact file name will probably be
-different from the example below. Also see [[https://nixos.org/manual/nixos/stable/index.html#sec-booting-from-usb][the manual]] on this topic for
-additional information.
+Use ~lsblk~ to determine the device and replace ~/dev/sdX~ in the example below
+with your device. You should not have the device mounted before running the
+following command. In addition, the exact file name will probably be different
+from the example below. Also see [[https://nixos.org/manual/nixos/stable/index.html#sec-booting-from-usb][the manual]] on this topic for additional
+information.
 
 #+begin_src shell
-sudo dd if=./result/iso/nixos-21.03.20201209.e9158ec-x86_64-linux.iso  of=/dev/sdb1 status=progress
+sudo dd if=./result/iso/nixos-21.03.20201209.e9158ec-x86_64-linux.iso  of=/dev/sdX status=progress
 #+end_src
 
 If you're in Windows try https://rufus.ie/.
