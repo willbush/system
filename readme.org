@@ -19,6 +19,19 @@ nix build ".#iso"
 
 The ISO will be in the ~./result/iso~ build result folder.
 
+*** Write Custom ISO to a USB stick
+
+Use ~lsblk~ to determine the device ~/dev/sdXX~ and replace ~/dev/sdb1~ in the
+example below with your device. In addition, the exact file name will probably
+be different from the example below. Also see [[https://nixos.org/manual/nixos/stable/index.html#sec-booting-from-usb][the manual]] on this topic for
+additional information.
+
+#+begin_src shell
+sudo dd if=./result/iso/nixos-21.03.20201209.e9158ec-x86_64-linux.iso  of=/dev/sdb1 status=progress
+#+end_src
+
+If you're in Windows try https://rufus.ie/.
+
 *** Install
 
 The primary source of documentation for installing NixOS is the [[https://nixos.org/manual/nixos/stable/][manual]]. The
