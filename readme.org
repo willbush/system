@@ -4,7 +4,55 @@ Everything needed to build my NixOS system. Note this is highly customized
 configuration that's not targeting a wide audience. However, feel free to copy
 and use any parts of if you like in your own configuration.
 
+** Folder Structure
+
+The following is 1 level deep directory structure generated using ~tree -L 1 -d~.
+
+#+begin_src
+.
+├── config
+├── config-backups
+├── emacs
+├── keyboard-firmware
+├── machines
+├── secrets
+└── xmonad
+#+end_src
+
+*** config
+
+Config files used in NixOS that are symlinked to ~/.config/~ and managed with
+[[https://github.com/rycee/home-manager][home manager]].
+
+*** config-backups
+
+Miscellaneous configuration files that I'm backing up and are not deployed
+automatically.
+
+*** emacs
+
+My emacs configuration code. See its [[file:emacs/readme.org][readme]] for more information.
+
+*** keyboard-firmware
+
+Holds my keyboard firmware code managed by Nix and the [[file:keyboard-firmware/readme.org][readme]] that goes into
+depth on my key layout and customized Evil / Vim keybindings.
+
+*** machines
+
+Machine / host specific configuration files.
+
+*** secrets
+
+A place for me to store encrypted secrets using [[https://github.com/AGWA/git-crypt][git-crypt]].
+
+*** xmonad
+
+My Xmonad configuration code which is symlinked by home-manager. See its [[file:xmonad/readme.org][readme]]
+for more information.
+
 ** NixOS
+
 *** Build Custom ISO
 
 I have a custom bootable ISO that provides a graphical environment similar to
@@ -172,7 +220,7 @@ sudo mount /dev/disk/by-label/nixos /mnt
    generated with ~mkpasswd -m sha-512~.
 
    Disable anything else that depends on unlocking the encrypted secrets folder
-   (just syncthing at the time of writing this).
+   (just =syncthing= at the time of writing this).
 
    Be sure to stage all new files created in repository as required for flakes.
 
@@ -260,50 +308,3 @@ file.
 - https://github.com/hlissner/dotfiles
 - https://github.com/lexuge
 - https://github.com/nrdxp/nixflk
-
-** Folder Structure
-
-The following is 1 level deep directory structure generated using ~tree -L 1 -d~.
-
-#+begin_src
-.
-├── config
-├── config-backups
-├── emacs
-├── keyboard-firmware
-├── machines
-├── secrets
-└── xmonad
-#+end_src
-
-*** config
-
-Config files used in NixOS that are symlinked to ~/.config/~ and managed with
-[[https://github.com/rycee/home-manager][home manager]].
-
-*** config-backups
-
-Miscellaneous configuration files that I'm backing up and are not deployed
-automatically.
-
-*** emacs
-
-My emacs configuration code. See its [[file:emacs/readme.org][readme]] for more information.
-
-*** keyboard-firmware
-
-Holds my keyboard firmware code managed by Nix and the [[file:keyboard-firmware/readme.org][readme]] that goes into
-depth on my key layout and customized Evil / Vim keybindings.
-
-*** machines
-
-Machine / host specific configuration files.
-
-*** secrets
-
-A place for me to store encrypted secrets using [[https://github.com/AGWA/git-crypt][git-crypt]].
-
-*** xmonad
-
-My Xmonad configuration code which is symlinked by home-manager. See its [[file:xmonad/readme.org][readme]]
-for more information.
