@@ -156,26 +156,28 @@ in {
     mullvad-vpn
   ];
 
-  programs.ssh.startAgent = true;
-  # needed for gnome / gtk themes and virt-manager
-  programs.dconf.enable = true;
-  programs.qt5ct.enable = true;
-  programs.gnupg.agent.enable = true;
+  programs = {
+    ssh.startAgent = true;
+    # needed for gnome / gtk themes and virt-manager
+    dconf.enable = true;
+    qt5ct.enable = true;
+    gnupg.agent.enable = true;
 
-  programs.less = {
-    enable = true;
-    # Rebind to my custom vim bindings for Colemak-DHm
-    commands = {
-      n = "forw-line";
-      e = "back-line";
-      N = "forw-scroll";
-      E = "back-scroll";
-      h = "repeat-search";
-      H = "reverse-search";
-      "^H" = "help"; # This syntax means C-h
-      k = "set-mark";
-      K = "set-mark-bottom";
-      j = "goto-mark";
+    less = {
+      enable = true;
+      # Rebind to my custom vim bindings for Colemak-DHm
+      commands = {
+        n = "forw-line";
+        e = "back-line";
+        N = "forw-scroll";
+        E = "back-scroll";
+        h = "repeat-search";
+        H = "reverse-search";
+        "^H" = "help"; # This syntax means C-h
+        k = "set-mark";
+        K = "set-mark-bottom";
+        j = "goto-mark";
+      };
     };
   };
 
