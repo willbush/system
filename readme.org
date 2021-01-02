@@ -61,11 +61,11 @@ re-formatting.
 **** Basic partitioning and formatting
 
 The following is mostly just following the manual instructions [[https://nixos.org/manual/nixos/stable/index.html#sec-installation-partitioning-UEFI][here]]. However, I
-switched to using ~cfdisk~ instead of parted because I've hit the [[https://unix.stackexchange.com/questions/38164/create-partition-aligned-using-parted][misalignment
-warning]] using parted when following the manual's instructions. Most suggestions
-to fix the warning involve using percentages, but that's annoying when you want
-to create 3 or more partitions. The ~cfdisk~ utility allows specifying sizes and
-auto aligns partitions optimally.
+switched to using =cfdisk= instead of =parted= because I've hit the [[https://unix.stackexchange.com/questions/38164/create-partition-aligned-using-parted][misalignment
+warning]] using =parted= when following the manual's instructions. Most
+suggestions to fix the warning involve using percentages, but that's annoying
+when you want to create 3 or more partitions. The =cfdisk= utility allows
+specifying sizes and auto aligns partitions optimally.
 
 - Note that one can wipe all the file systems on a device using ~sudo wipefs -a
   /dev/sdX~ which is useful to start over or prepare a device.
@@ -83,7 +83,7 @@ auto aligns partitions optimally.
 
 ****** Check alignment
 
-At this point I like to use parted just to double check the alignment.
+At this point I like to use =parted= just to double check the alignment.
 
 1. Open a parted REPL: ~sudo parted~
 2. Print all devices to determine the device to format: ~print all~
