@@ -106,6 +106,8 @@ Mount the target NixOS file system:
 sudo mount /dev/disk/by-label/nixos /mnt
 #+end_src
 
+Continue to the Installation section.
+
 ***** UEFI
 
 1. ~sudo cfdisk~
