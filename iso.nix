@@ -1,10 +1,18 @@
-{ modulesPath, pkgs, ... }:
+{ modulesPath, pkgs, config, ... }:
 
 {
   imports = [
     "${modulesPath}/installer/cd-dvd/installation-cd-graphical-base.nix"
     ./fonts.nix
   ];
+
+  # I have a device that requires a proprietary wifi driver unfortunately.
+  nixpkgs.config.allowUnfree = true;
+
+  boot = {
+    kernelModules = [ "wl" ];
+    extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+  };
 
   isoImage.edition = "plasma5";
 
