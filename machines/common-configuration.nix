@@ -73,11 +73,6 @@ in {
       };
       efi.canTouchEfiVariables = true;
     };
-    # I was fooling around with elasticsearch in docker and needed to
-    # set this to get it to work. figured I would leave it after
-    # testing. see the following for what this does:
-    # https://www.kernel.org/doc/Documentation/sysctl/vm.txt
-    kernel.sysctl."vm.max_map_count" = 262144;
   };
 
   sound.enable = true;
