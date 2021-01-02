@@ -1,8 +1,8 @@
 * System Configuration
 
 Everything needed to build my NixOS system. Note this is highly customized
-configuration not targeting a wide audience. However, feel free to copy and use
-any parts of if you like in your own configuration.
+configuration that's not targeting a wide audience. However, feel free to copy
+and use any parts of if you like in your own configuration.
 
 ** NixOS
 *** Build Custom ISO
