@@ -104,7 +104,7 @@ re-formatting.
    (allows increasing desktop resolution) > Apply > Begin Installation.
 8. Once booted into the ISO the first thing I do is go to View > Scale Display
    Always. In addition, I increase the resolution using Display Configuration
-   for plasma5 (Doesn't seem to work when using BIOS firmware for some reason).
+   for plasma5.
 
 **** Basic partitioning and formatting
 
