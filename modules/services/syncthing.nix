@@ -3,6 +3,7 @@ let
   inherit (lib) mkIf mkOption types elem;
   inherit (lib.lists) remove;
   cfg = config.modules.services.syncthing;
+  host = config.networking.hostName;
   # Device IDs don't really need to be secret, but according to syncthing docs
   # one can get the device IP if they know the device ID.
   devices = import ../../secrets/syncthing-devices.nix;
@@ -21,10 +22,24 @@ in {
       user = "will";
       configDir = "/home/will/.config/syncthing";
       dataDir = "/home/will/.local/share/syncthing";
+
       declarative = {
         inherit devices;
+
+        #  A device ID is generated from the SHA-256 of certificate information.
+        #  Therefore, use our own cert and key to prevent device ID's from
+        #  changing on a fresh install of NixOS. see
+        #  https://docs.syncthing.net/dev/device-ids.html
+        #
+        # FFS!! path concatenation in nix is a pain in the ass! see
+        # https://gist.github.com/CMCDragonkai/de84aece83f8521d087416fa21e34df4
+        # This has to be an absolute path (as a string) otherwise syncthing
+        # service will fail to start.
+        cert = toString (../../secrets + "/${host}" + /cert.pem);
+        key = toString (../../secrets + "/${host}" + /key.pem);
+
         folders = let
-          deviceEnabled = devices: elem config.networking.hostName devices;
+          deviceEnabled = devices: elem host devices;
           deviceType = devices:
             if deviceEnabled devices then "sendreceive" else "receiveonly";
           staggeredVersioning = {
