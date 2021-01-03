@@ -40,7 +40,7 @@
         iso = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./iso.nix
+            ./hosts/iso.nix
             inputs.home-manager.nixosModules.home-manager
             { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
           ];
