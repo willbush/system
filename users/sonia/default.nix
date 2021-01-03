@@ -1,17 +1,19 @@
 { config, lib, pkgs, ... }:
 let inherit (lib) fileContents;
 in {
-  imports = [ ../../fonts.nix ../../modules/services/syncthing.nix ];
+  imports = [ ../../fonts.nix ];
+  # TODO deal with syncthing hard-coding home paths
+  # imports = [ ../../fonts.nix ../../modules/services/syncthing.nix ];
 
   users = {
     mutableUsers = false;
     users = {
       root.hashedPassword = fileContents ../../secrets/hashed-password-root.txt;
 
-      will = {
+      sonia = {
         uid = 1000;
         isNormalUser = true;
-        home = "/home/will";
+        home = "/home/sonia";
         hashedPassword = fileContents ../../secrets/hashed-password-will.txt;
         shell = pkgs.zsh;
         extraGroups = [ "wheel" "networkmanager" "docker" "libvirtd" ];
@@ -23,7 +25,7 @@ in {
   };
 
   home-manager = {
-    users.will = import ./home.nix;
+    users.sonia = import ./home.nix;
     useGlobalPkgs = true;
     useUserPackages = true;
   };
@@ -117,7 +119,23 @@ in {
     wireguard.enable = true;
   };
 
-  modules.services.syncthing.enable = true;
+  # TODO
+  # modules.services.syncthing.enable = true;
+
+  # TODO
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
+
+  # services.xserver = {
+  #   enable = true;
+  #   displayManager.sddm.enable = true;
+  #   desktopManager.plasma5.enable = true;
+  # };
 
   services = {
     # Enable CUPS to print documents.
