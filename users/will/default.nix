@@ -1,14 +1,34 @@
-{ config, pkgs, ... }:
-let sources = import ../nix/sources.nix;
+{ config, lib, pkgs, ... }:
+let inherit (lib) fileContents;
 in {
-  imports = [ ../fonts.nix ../users.nix ../modules/services/syncthing.nix ];
+  imports = [ ./fonts.nix ../../modules/services/syncthing.nix ];
+
+  users = {
+    mutableUsers = false;
+    users = {
+      root.hashedPassword = lib.fileContents ../../secrets/hashed-password-root.txt;
+
+      will = {
+        uid = 1000;
+        isNormalUser = true;
+        home = "/home/will";
+        hashedPassword = fileContents ../../secrets/hashed-password-will.txt;
+        shell = pkgs.zsh;
+        extraGroups = [ "wheel" "networkmanager" "docker" "libvirtd" ];
+        openssh.authorizedKeys.keys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEE2hQsuOQZ3PvM2DdI0vxpaBFoRQpFhGXZmeRq8Srs6 tau-ceti-2020-11-16"
+        ];
+      };
+    };
+  };
 
   home-manager = {
-    users.will = import ../home.nix;
+    users.will = import ./home.nix;
     useGlobalPkgs = true;
     useUserPackages = true;
   };
 
+  # TODO can remove for some hosts?
   nixpkgs.config = {
     # Allow unfree, which is required for some drivers.
     allowUnfree = true;

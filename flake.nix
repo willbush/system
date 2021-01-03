@@ -23,15 +23,16 @@
         betelgeuse = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./hosts/betelgeuse/configuration.nix
+            ./hosts/betelgeuse.nix
             inputs.home-manager.nixosModules.home-manager
             { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
           ];
         };
+
         tau-ceti = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./hosts/tau-ceti/configuration.nix
+            ./hosts/tau-ceti.nix
             inputs.home-manager.nixosModules.home-manager
             { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
           ];
