@@ -38,6 +38,15 @@
           ];
         };
 
+        bellatrix = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/bellatrix.nix
+            inputs.home-manager.nixosModules.home-manager
+            { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
+          ];
+        };
+
         iso = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
