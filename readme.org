@@ -14,7 +14,7 @@ The following is 1 level deep directory structure generated using ~tree -L 1 -d~
 ├── config-backups
 ├── emacs
 ├── keyboard-firmware
-├── machines
+├── hosts
 ├── secrets
 └── xmonad
 #+end_src
@@ -38,9 +38,9 @@ My emacs configuration code. See its [[file:emacs/readme.org][readme]] for more 
 Holds my keyboard firmware code managed by Nix and the [[file:keyboard-firmware/readme.org][readme]] that goes into
 depth on my key layout and customized Evil / Vim keybindings.
 
-*** machines
+*** hosts
 
-Machine / host specific configuration files.
+host specific configuration files.
 
 *** secrets
 
@@ -214,7 +214,7 @@ sudo mount /dev/disk/by-label/nixos /mnt
    #+end_src
 
    For a new machine setup the new machine in ~flake.nix~ and under
-   ~./system/machines/~ using the generated ~hardware-configuration.nix~.
+   ~./system/hosts/~ using the generated ~hardware-configuration.nix~.
 
    Change the hashed user passwords in ~user.nix~. These hashed passwords can be
    generated with ~mkpasswd -m sha-512~.
