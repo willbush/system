@@ -2,7 +2,7 @@
 
 let
   homeDir = builtins.getEnv "HOME";
-  planck = pkgs.callPackage ./keyboard-firmware/planck { };
+  planck = pkgs.callPackage ../../keyboard-firmware/planck { };
 in {
   imports = [ (import ./emacs.nix { inherit pkgs; }) ];
 
@@ -18,9 +18,9 @@ in {
     };
 
     file = {
-      ".config".source = ./config;
+      ".config".source = ../../config;
       ".config".recursive = true;
-      ".xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
+      ".xmonad/xmonad.hs".source = ../../xmonad/xmonad.hs;
       # Outside of NixOS the dictionary directory needs to be set.
       # https://github.com/NixOS/nixpkgs/issues/4521
       ".aspell.conf".text = ''
@@ -105,6 +105,7 @@ in {
   };
 
   programs = {
+    # TODO still need this flakes?
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
 
@@ -193,7 +194,7 @@ in {
         size = 100000;
         save = 100000;
       };
-      initExtra = pkgs.lib.fileContents ./config/zsh/zshrc-init-extra.sh;
+      initExtra = pkgs.lib.fileContents ../../config/zsh/zshrc-init-extra.sh;
     };
 
     starship.enable = true;
