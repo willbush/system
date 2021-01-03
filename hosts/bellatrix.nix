@@ -7,7 +7,7 @@
   boot.loader.grub = {
     enable = true;
     version = 2;
-    device = "/dev/sda2";
+    device = "/dev/sda";
   };
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
