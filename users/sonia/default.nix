@@ -14,7 +14,7 @@ in {
         uid = 1000;
         isNormalUser = true;
         home = "/home/sonia";
-        hashedPassword = fileContents ../../secrets/hashed-password-will.txt;
+        hashedPassword = fileContents ../../secrets/hashed-password-sonia.txt;
         shell = pkgs.zsh;
         extraGroups = [ "wheel" "networkmanager" "docker" "libvirtd" ];
         openssh.authorizedKeys.keys = [
