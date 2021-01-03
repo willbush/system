@@ -97,7 +97,7 @@
 
   home.file = {
     ".emacs.d" = {
-      source = ./emacs;
+      source = ../../emacs;
       recursive = true;
     };
   };

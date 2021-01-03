@@ -3,7 +3,7 @@
 {
   imports = [
     "${modulesPath}/installer/cd-dvd/installation-cd-graphical-base.nix"
-    ./fonts.nix
+    ../users/will/fonts.nix
   ];
 
   # I have a device that requires a proprietary wifi driver unfortunately.
@@ -51,7 +51,7 @@
 
     users.nixos = { pkgs, ... }: {
       imports = [
-        (import ./emacs.nix {
+        (import ../users/will/emacs.nix {
           inherit pkgs;
           emacsPackage = pkgs.emacsGit;
         })
@@ -59,7 +59,7 @@
 
       home.file = {
         # Include the readme from this repo which might be handy before cloning it.
-        "Desktop/readme.org".source = ./readme.org;
+        "Desktop/readme.org".source = ../readme.org;
       };
 
       programs = {
