@@ -18,4 +18,6 @@
       };
     };
   };
+
+  modules.unfree.allowList = [ "memtest86-efi" ];
 }
