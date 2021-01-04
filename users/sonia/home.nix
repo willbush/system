@@ -48,7 +48,6 @@ in {
       chromium
       clang-tools
       dnsutils
-      docker-compose
       dotnet-sdk
       du-dust
       exa

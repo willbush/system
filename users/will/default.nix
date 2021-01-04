@@ -153,16 +153,9 @@ in {
     DefaultTimeoutStopSec=30s
   '';
 
-  virtualisation = {
-    docker.enable = true;
-    libvirtd.enable = true;
-  };
-
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     curl
-    docker
-    docker-compose
     fd
     neovim
     ripgrep
@@ -173,7 +166,7 @@ in {
 
   programs = {
     ssh.startAgent = true;
-    # needed for gnome / gtk themes and virt-manager
+    # needed for gnome / gtk themes
     dconf.enable = true;
     qt5ct.enable = true;
     gnupg.agent.enable = true;
