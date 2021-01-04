@@ -86,9 +86,7 @@ in {
       shfmt
       shutter
       simple-scan
-      slack
       syncthing-cli # provides stcli
-      teams
       texlive.combined.scheme-small # things needed for pandoc
       tokei
       transmission-gtk
