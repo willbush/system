@@ -103,11 +103,6 @@ in {
     mullvad-vpn.enable = true;
   };
 
-  # Change the default timeout for a service from 90 seconds.
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=30s
-  '';
-
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     curl
