@@ -36,8 +36,5 @@
   swapDevices =
     [{ device = "/dev/disk/by-uuid/b91f3312-e433-42ba-ae1f-d9637319b89a"; }];
 
-  services = {
-    xserver.videoDrivers = [ "nvidiaBeta" ];
-    fstrim.enable = true;
-  };
+  services.fstrim.enable = true;
 }
