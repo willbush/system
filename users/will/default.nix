@@ -26,11 +26,7 @@ in {
     };
   };
 
-  home-manager = {
-    users.will = import ./home.nix;
-    useGlobalPkgs = true;
-    useUserPackages = true;
-  };
+  home-manager.users.will = import ./home.nix;
 
   # TODO can remove for some hosts?
   nixpkgs.config = {
