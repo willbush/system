@@ -68,50 +68,6 @@ in {
     };
   };
 
-  # Set your time zone.
-  time.timeZone = "America/Chicago";
-
-  boot = {
-    # required for libvirtd
-    kernelModules = [ "kvm-amd" "kvm-intel" ];
-
-    cleanTmpDir = true; # cleans all files in /tmp during boot
-    initrd.checkJournalingFS = true; # run fsck for journal file system
-
-    loader = {
-      # Timeout (in seconds) until loader boots the default menu item.
-      timeout = 2;
-      # Use the systemd-boot EFI boot loader.
-      systemd-boot = {
-        enable = true;
-        # Limit number of configurations to keep /boot partition from filling
-        # up.
-        configurationLimit = 10;
-        memtest86.enable = true;
-        # Fixes a security hole in place for the sake of backwards
-        # compatibility. See description in:
-        # nixpkgs/nixos/modules/system/boot/loader/systemd-boot/systemd-boot.nix
-        editor = false;
-      };
-      efi.canTouchEfiVariables = true;
-    };
-  };
-
-  sound.enable = true;
-  hardware = {
-    pulseaudio.enable = true;
-    sane.enable = true;
-    sane.brscan4 = {
-      enable = true;
-      netDevices = {
-        office-printer = {
-          model = "HL-2380DW";
-          ip = "192.168.1.166";
-        };
-      };
-    };
-  };
-
   networking = {
     firewall.enable = true;
     networkmanager.enable = true;
@@ -184,7 +140,7 @@ in {
 
   programs = {
     ssh.startAgent = true;
-    # needed for gnome / gtk themes and virt-manager
+    # needed for gnome / gtk themes
     dconf.enable = true;
     qt5ct.enable = true;
     gnupg.agent.enable = true;
