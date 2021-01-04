@@ -24,11 +24,6 @@ in {
 
   home-manager.users.sonia = import ./home.nix;
 
-  modules.unfree.allowList = [
-    "slack"
-    "teams"
-  ];
-
   networking = {
     firewall.enable = true;
     networkmanager.enable = true;
