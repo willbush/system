@@ -8,12 +8,8 @@
     ../profiles/virt
   ];
 
-  networking = {
-    hostName = "tau-ceti";
-
-    # Open firewall for NFS
-    firewall.allowedTCPPorts = [ 2049 ];
-  };
+  # Open firewall for NFS
+  networking.firewall.allowedTCPPorts = [ 2049 ];
 
   boot = {
     initrd = {
