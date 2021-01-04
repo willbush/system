@@ -46,9 +46,6 @@
   environment.systemPackages = with pkgs; [ git mkpasswd ripgrep tree wget ];
 
   home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-
     users.nixos = { pkgs, ... }: {
       imports = [
         (import ../users/will/emacs.nix {

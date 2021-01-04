@@ -22,11 +22,7 @@ in {
     };
   };
 
-  home-manager = {
-    users.sonia = import ./home.nix;
-    useGlobalPkgs = true;
-    useUserPackages = true;
-  };
+  home-manager.users.sonia = import ./home.nix;
 
   nixpkgs.config.allowUnfree = true;
 
