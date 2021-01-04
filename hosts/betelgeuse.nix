@@ -2,6 +2,7 @@
   imports = [
     "${modulesPath}/installer/scan/not-detected.nix"
     ../users/will
+    ../modules/unfree.nix
     ../profiles/boot/efi.nix
     ../profiles/common/host-settings.nix
     ../profiles/printer
