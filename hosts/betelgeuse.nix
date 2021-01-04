@@ -8,8 +8,6 @@
     ../profiles/virt
   ];
 
-  networking.hostName = "betelgeuse";
-
   boot = {
     # Needed for mount.nfs command (when manually mounting)
     supportedFilesystems = [ "nfs" ];
