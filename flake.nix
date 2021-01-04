@@ -33,6 +33,7 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
               };
+              networking.hostName = hostName;
             }
             { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
           ];

@@ -7,8 +7,6 @@
     ../profiles/printer
   ];
 
-  networking.hostName = "bellatrix";
-
   boot = {
     initrd = {
       checkJournalingFS = true; # run fsck for journal file system
