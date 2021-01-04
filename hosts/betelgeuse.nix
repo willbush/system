@@ -2,6 +2,7 @@
   imports = [
     "${modulesPath}/installer/scan/not-detected.nix"
     ../users/will
+    ../profiles/boot/efi.nix
     ../profiles/printer
     ../profiles/virt
   ];
@@ -21,34 +22,14 @@
     supportedFilesystems = [ "nfs" ];
 
     initrd = {
+      checkJournalingFS = true; # run fsck for journal file system
+
       availableKernelModules =
         [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
-      # run fsck for journal file system
-      checkJournalingFS = true;
     };
 
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
-
-    cleanTmpDir = true; # cleans all files in /tmp during boot
-
-    loader = {
-      # Timeout (in seconds) until loader boots the default menu item.
-      timeout = 2;
-      # Use the systemd-boot EFI boot loader.
-      systemd-boot = {
-        enable = true;
-        # Limit number of configurations to keep /boot partition from filling
-        # up.
-        configurationLimit = 10;
-        memtest86.enable = true;
-        # Fixes a security hole in place for the sake of backwards
-        # compatibility. See description in:
-        # nixpkgs/nixos/modules/system/boot/loader/systemd-boot/systemd-boot.nix
-        editor = false;
-      };
-      efi.canTouchEfiVariables = true;
-    };
   };
 
   fileSystems = {

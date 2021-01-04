@@ -2,6 +2,7 @@
   imports = [
     "${modulesPath}/installer/scan/not-detected.nix"
     ../users/sonia
+    (import ../profiles/boot/bios.nix { device = "/dev/sda"; })
     ../profiles/printer
   ];
 
@@ -16,20 +17,6 @@
   hardware.pulseaudio.enable = true;
 
   boot = {
-    cleanTmpDir = true; # cleans all files in /tmp during boot
-
-    loader = {
-      # Timeout (in seconds) until loader boots the default menu item.
-      timeout = 2;
-      grub = {
-        enable = true;
-        version = 2;
-        device = "/dev/sda";
-
-        configurationLimit = 50;
-        memtest86.enable = true;
-      };
-    };
     initrd = {
       checkJournalingFS = true; # run fsck for journal file system
       availableKernelModules = [
