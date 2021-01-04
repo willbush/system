@@ -3,7 +3,7 @@
 {
   imports = [
     "${modulesPath}/installer/cd-dvd/installation-cd-graphical-base.nix"
-    ../fonts.nix
+    ../profiles/common/fonts.nix
   ];
 
   # I have a device that requires a proprietary wifi driver unfortunately.

@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 let inherit (lib) fileContents;
 in {
-  imports = [ ../../fonts.nix ];
+  imports = [ ../../profiles/common/fonts.nix ];
   # TODO deal with syncthing hard-coding home paths
   # imports = [ ../../fonts.nix ../../modules/services/syncthing.nix ];
 
