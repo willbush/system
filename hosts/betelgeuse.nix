@@ -1,5 +1,9 @@
 { lib, modulesPath, ... }: {
-  imports = [ "${modulesPath}/installer/scan/not-detected.nix" ../users/will ];
+  imports = [
+    "${modulesPath}/installer/scan/not-detected.nix"
+    ../users/will
+    ../profiles/virt
+  ];
 
   networking.hostName = "betelgeuse";
 

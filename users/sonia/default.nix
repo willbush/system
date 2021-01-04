@@ -171,16 +171,9 @@ in {
     DefaultTimeoutStopSec=30s
   '';
 
-  virtualisation = {
-    docker.enable = true;
-    libvirtd.enable = true;
-  };
-
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     curl
-    docker
-    docker-compose
     fd
     neovim
     ripgrep
