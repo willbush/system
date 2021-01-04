@@ -104,10 +104,6 @@ in {
   };
 
   programs = {
-    # TODO still need this flakes?
-    # Let Home Manager install and manage itself.
-    home-manager.enable = true;
-
     alacritty = {
       enable = true;
       # Colors (One Dark)
