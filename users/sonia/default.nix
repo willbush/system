@@ -42,7 +42,7 @@ in {
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-    useSandbox = true;
+
     autoOptimiseStore = true;
     binaryCaches = [
       "https://cache.nixos.org/"
