@@ -3,6 +3,7 @@
     "${modulesPath}/installer/scan/not-detected.nix"
     ../users/sonia
     (import ../profiles/boot/bios.nix { device = "/dev/sda"; })
+    ../modules/unfree.nix
     ../profiles/common/host-settings.nix
     ../profiles/printer
   ];
