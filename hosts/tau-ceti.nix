@@ -3,22 +3,17 @@
     "${modulesPath}/installer/scan/not-detected.nix"
     ../users/will
     ../profiles/boot/efi.nix
+    ../profiles/common/host-settings.nix
     ../profiles/printer
     ../profiles/virt
   ];
 
   networking = {
     hostName = "tau-ceti";
-    useDHCP = false;
 
     # Open firewall for NFS
     firewall.allowedTCPPorts = [ 2049 ];
   };
-
-  time.timeZone = "America/Chicago";
-
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
 
   boot = {
     initrd = {

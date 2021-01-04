@@ -3,19 +3,12 @@
     "${modulesPath}/installer/scan/not-detected.nix"
     ../users/will
     ../profiles/boot/efi.nix
+    ../profiles/common/host-settings.nix
     ../profiles/printer
     ../profiles/virt
   ];
 
-  networking = {
-    hostName = "betelgeuse";
-    useDHCP = false;
-  };
-
-  time.timeZone = "America/Chicago";
-
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  networking.hostName = "betelgeuse";
 
   boot = {
     # Needed for mount.nfs command (when manually mounting)
