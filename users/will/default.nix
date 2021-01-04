@@ -28,11 +28,10 @@ in {
 
   home-manager.users.will = import ./home.nix;
 
-  # TODO can remove for some hosts?
-  nixpkgs.config = {
-    # Allow unfree, which is required for some drivers.
-    allowUnfree = true;
-  };
+  modules.unfree.allowList = [
+    "slack"
+    "teams"
+  ];
 
   networking = {
     firewall.enable = true;
@@ -44,10 +43,6 @@ in {
   modules.services.syncthing.enable = true;
 
   services = {
-    # Enable CUPS to print documents.
-    printing.enable = true;
-    printing.drivers = [ pkgs.hll2390dw-cups ];
-
     xserver = {
       enable = true;
       layout = "us";

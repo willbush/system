@@ -24,7 +24,10 @@ in {
 
   home-manager.users.sonia = import ./home.nix;
 
-  nixpkgs.config.allowUnfree = true;
+  modules.unfree.allowList = [
+    "slack"
+    "teams"
+  ];
 
   networking = {
     firewall.enable = true;
@@ -50,10 +53,6 @@ in {
   # };
 
   services = {
-    # Enable CUPS to print documents.
-    printing.enable = true;
-    printing.drivers = [ pkgs.hll2390dw-cups ];
-
     xserver = {
       enable = true;
       layout = "us";
