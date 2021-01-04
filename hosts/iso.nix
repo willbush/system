@@ -1,13 +1,15 @@
-{ modulesPath, pkgs, config, ... }:
-
-{
+{ lib, modulesPath, pkgs, config, ... }:
+let inherit (lib) getName;
+in {
   imports = [
     "${modulesPath}/installer/cd-dvd/installation-cd-graphical-base.nix"
     ../profiles/common/fonts.nix
   ];
 
   # I have a device that requires a proprietary wifi driver unfortunately.
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (getName pkg) [
+    "broadcom-sta"
+  ];
 
   boot = {
     kernelModules = [ "wl" ];

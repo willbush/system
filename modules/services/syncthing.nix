@@ -1,4 +1,4 @@
-{ config, options, lib, ... }:
+{ config, lib, ... }:
 let
   inherit (lib) mkIf mkOption types elem;
   inherit (lib.lists) remove;
