@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 let inherit (lib) fileContents;
 in {
-  imports = [ ../../fonts.nix ../../modules/services/syncthing.nix ];
+  imports = [ ../../profiles/common/fonts.nix ../../modules/services/syncthing.nix ];
 
   users = {
     mutableUsers = false;
