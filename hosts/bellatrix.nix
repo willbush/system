@@ -3,18 +3,11 @@
     "${modulesPath}/installer/scan/not-detected.nix"
     ../users/sonia
     (import ../profiles/boot/bios.nix { device = "/dev/sda"; })
+    ../profiles/common/host-settings.nix
     ../profiles/printer
   ];
 
-  networking = {
-    hostName = "bellatrix";
-    useDHCP = false;
-  };
-
-  time.timeZone = "America/Chicago";
-
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  networking.hostName = "bellatrix";
 
   boot = {
     initrd = {
