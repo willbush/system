@@ -22,13 +22,12 @@
         "ahci"
         "firewire_ohci"
         "usbhid"
+        "usb_storage"
         "sd_mod"
         "sr_mod"
         "sdhci_pci"
       ];
       kernelModules = [ ];
-      luks.devices."crypted".device =
-        "/dev/disk/by-uuid/9c07d830-f972-427f-98bc-1d5738f5515d";
     };
 
     kernelModules = [ "kvm-intel" "wl" ];
@@ -37,13 +36,15 @@
   };
   fileSystems = {
     "/boot" = {
-      device = "/dev/disk/by-uuid/1BC9-9CDC";
+      device = "/dev/disk/by-uuid/841B-2A58";
       fsType = "vfat";
     };
+
     "/" = {
-      device = "/dev/disk/by-uuid/237f2114-bb54-4b4e-bccc-9c2038f8f028";
+      device = "/dev/disk/by-uuid/1cc930ea-2e3c-405a-bc7d-543f2f7f0fb3";
       fsType = "ext4";
     };
+
     "srv/nfs/media" = {
       device = "/tank/media";
       options = [ "bind" ];
@@ -51,7 +52,7 @@
   };
 
   swapDevices =
-    [{ device = "/dev/disk/by-uuid/bae7570e-09d9-4c4d-9794-37ea595e88cb"; }];
+    [{ device = "/dev/disk/by-uuid/815a345f-d319-4cd6-b7d5-4ca31916b36b"; }];
 
   nix.maxJobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
@@ -76,4 +77,6 @@
       '';
     };
   };
+
+  modules.unfree.allowList = [ "broadcom-sta" ];
 }
