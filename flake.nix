@@ -14,48 +14,34 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
-    let system = "x86_64-linux";
+    let
+      inherit (nixpkgs) lib;
+      inherit (lib) nixosSystem;
+      inherit (lib.attrsets) genAttrs;
+
+      system = "x86_64-linux";
+      hosts = [ "betelgeuse" "tau-ceti" "bellatrix" "iso" ];
+
+      toConfig = hostName:
+        nixosSystem {
+          inherit system;
+          modules = [
+            (./hosts + "/${hostName}.nix")
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+              };
+            }
+            { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
+          ];
+        };
     in {
       packages.${system}.iso =
         self.nixosConfigurations.iso.config.system.build.isoImage;
 
-      nixosConfigurations = {
-        betelgeuse = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./hosts/betelgeuse.nix
-            inputs.home-manager.nixosModules.home-manager
-            { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
-          ];
-        };
-
-        tau-ceti = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./hosts/tau-ceti.nix
-            inputs.home-manager.nixosModules.home-manager
-            { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
-          ];
-        };
-
-        bellatrix = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./hosts/bellatrix.nix
-            inputs.home-manager.nixosModules.home-manager
-            { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
-          ];
-        };
-
-        iso = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./hosts/iso.nix
-            inputs.home-manager.nixosModules.home-manager
-            { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
-          ];
-        };
-      };
+      nixosConfigurations = genAttrs hosts toConfig;
 
       # This is a work around for `nix repl` not yet supporting flakes.
       # You can enter a repl for this flake be doing: nix run '.#repl'
