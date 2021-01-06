@@ -4,7 +4,12 @@ let
   homeDir = builtins.getEnv "HOME";
   planck = pkgs.callPackage ../../keyboard-firmware/planck { };
 in {
-  imports = [ (import ../will/emacs.nix { inherit pkgs; }) ];
+  imports = [
+    (import ../will/emacs.nix {
+      inherit pkgs;
+      emacsPackage = pkgs.emacsGit;
+    })
+  ];
 
   home = {
     stateVersion = "20.09";
