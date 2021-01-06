@@ -13,15 +13,16 @@ in {
       type = types.bool;
       default = false;
     };
+    user = mkOption { type = types.str; };
   };
 
   config = mkIf cfg.enable {
     services.syncthing = {
       enable = true;
       openDefaultPorts = true;
-      user = "will";
-      configDir = "/home/will/.config/syncthing";
-      dataDir = "/home/will/.local/share/syncthing";
+      user = cfg.user;
+      configDir = "/home/${cfg.user}/.config/syncthing";
+      dataDir = "/home/${cfg.user}/.local/share/syncthing";
 
       declarative = {
         inherit devices;
@@ -53,18 +54,46 @@ in {
           };
 
         in {
-          sync = rec {
+          sync-will = rec {
+            label = "sync";
             id = "mhkcv-26vrq";
-            path = "/home/will/sync";
+            path = "/home/${cfg.user}/sync";
             devices =
               [ "betelgeuse" "tau-ceti" "saiph" "alnitak" "alnilam" "rigel" ];
             enable = deviceEnabled devices;
             type = deviceType (remove "rigel" devices);
             versioning = staggeredVersioning;
           };
+          sync-sonia = rec {
+            label = "sync";
+            id = "my5ji-1zcu3";
+            path = "/home/${cfg.user}/sync";
+            devices = [ "bellatrix" "meissa" "rigel" ];
+            enable = deviceEnabled devices;
+            type = deviceType (remove "rigel" devices);
+            versioning = staggeredVersioning;
+          };
+          camera-will = rec {
+            label = "camera";
+            id = "6dmv9-w6iqp";
+            path = "/home/${cfg.user}/images/camera";
+            devices = [ "bellatrix" "meissa" "rigel" ];
+            enable = deviceEnabled devices;
+            type = deviceType (remove "rigel" devices);
+            versioning = staggeredVersioning;
+          };
+          camera-sonia = rec {
+            label = "camera";
+            id = "qtew9-yp0z9";
+            path = "/home/${cfg.user}/images/camera";
+            devices = [ "bellatrix" "meissa" "rigel" ];
+            enable = deviceEnabled devices;
+            type = deviceType (remove "rigel" devices);
+            versioning = staggeredVersioning;
+          };
           keepass = rec {
             id = "zfp7q-qpnzd";
-            path = "/home/will/keepass";
+            path = "/home/${cfg.user}/keepass";
             devices = [
               "betelgeuse"
               "tau-ceti"
@@ -79,17 +108,9 @@ in {
             type = deviceType (remove "rigel" devices);
             versioning = staggeredVersioning;
           };
-          camera = rec {
-            id = "6dmv9-w6iqp";
-            path = "/home/will/images/camera";
-            devices = [ "betelgeuse" "tau-ceti" "saiph" "alnitak" "rigel" ];
-            enable = deviceEnabled devices;
-            type = deviceType (remove "rigel" devices);
-            versioning = staggeredVersioning;
-          };
           viofo = rec {
             id = "1kcy7-2cg8l";
-            path = "/home/will/videos/viofo";
+            path = "/home/${cfg.user}/videos/viofo";
             devices = [ "betelgeuse" "saiph" "alnitak" "rigel" ];
             enable = deviceEnabled devices;
             type = deviceType (remove "rigel" devices);
@@ -101,7 +122,7 @@ in {
           secrets = rec {
             id = "tuaur-mvey4";
             label = ".secrets";
-            path = "/home/will/.secrets";
+            path = "/home/${cfg.user}/.secrets";
             devices = [ "betelgeuse" "tau-ceti" "saiph" "alnitak" ];
             enable = deviceEnabled devices;
             type = deviceType devices;

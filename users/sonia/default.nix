@@ -1,10 +1,11 @@
 { config, lib, pkgs, ... }:
 let inherit (lib) fileContents;
 in {
-  imports =
-    [ ../../profiles/common/fonts.nix ../../profiles/common/nix-settings.nix ];
-  # TODO deal with syncthing hard-coding home paths
-  # imports = [ ../../fonts.nix ../../modules/services/syncthing.nix ];
+  imports = [
+    ../../modules/services/syncthing.nix
+    ../../profiles/common/fonts.nix
+    ../../profiles/common/nix-settings.nix
+  ];
 
   users = {
     mutableUsers = false;
@@ -29,8 +30,10 @@ in {
     networkmanager.enable = true;
   };
 
-  # TODO
-  # modules.services.syncthing.enable = true;
+  modules.services.syncthing = {
+    enable = true;
+    user = "sonia";
+  };
 
   # TODO
   # Some programs need SUID wrappers, can be configured further or are
