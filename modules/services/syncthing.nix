@@ -77,7 +77,7 @@ in {
             label = "camera";
             id = "6dmv9-w6iqp";
             path = "/home/${cfg.user}/images/camera";
-            devices = [ "bellatrix" "meissa" "rigel" ];
+            devices = [ "betelgeuse" "tau-ceti" "saiph" "alnitak" "rigel" ];
             enable = deviceEnabled devices;
             type = deviceType (remove "rigel" devices);
             versioning = staggeredVersioning;
