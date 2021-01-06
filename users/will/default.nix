@@ -40,7 +40,10 @@ in {
     wireguard.enable = true;
   };
 
-  modules.services.syncthing.enable = true;
+  modules.services.syncthing = {
+    enable = true;
+    user = "will";
+  };
 
   services = {
     xserver = {
