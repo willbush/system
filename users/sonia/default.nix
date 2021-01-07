@@ -61,7 +61,6 @@ in {
         defaultSession = "none+xmonad";
         lightdm.enable = true;
       };
-      desktopManager.xterm.enable = false;
     };
   };
 
