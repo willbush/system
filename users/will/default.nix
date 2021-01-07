@@ -82,11 +82,13 @@ in {
   ];
 
   programs = {
-    ssh.startAgent = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
     # needed for gnome / gtk themes
     dconf.enable = true;
     qt5ct.enable = true;
-    gnupg.agent.enable = true;
 
     less = {
       enable = true;

@@ -36,14 +36,6 @@ in {
   };
 
   # TODO
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
   # services.xserver = {
   #   enable = true;
   #   displayManager.sddm.enable = true;
@@ -77,11 +69,13 @@ in {
   environment.systemPackages = with pkgs; [ curl fd neovim ripgrep tree wget ];
 
   programs = {
-    ssh.startAgent = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
     # needed for gnome / gtk themes
     dconf.enable = true;
     qt5ct.enable = true;
-    gnupg.agent.enable = true;
     less.enable = true;
   };
 
