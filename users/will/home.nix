@@ -2,7 +2,7 @@
 
 let planck = pkgs.callPackage ../../keyboard-firmware/planck { };
 in {
-  imports = [ ./emacs.nix ];
+  imports = [ ../profiles/emacs.nix ];
 
   home = rec {
     stateVersion = "20.09";
