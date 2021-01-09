@@ -31,7 +31,7 @@
     };
 
     packages = with pkgs; [
-      (firefox.override { extraNativeMessagingHosts = [ browserpass ]; })
+      # hicolor-icon-theme # fall back icon theme
       albert
       aspell
       aspellDicts.en
@@ -40,18 +40,14 @@
       bat-extras.batgrep # pretty print ripgrep output
       bat-extras.prettybat # formats and then bats output (useful for minified code)
       bc
-      binutils # needed when using cabal-install outside of a nix-shell
-      cabal-install
-      cabal2nix
       cachix
       calibre
       chromium
       clang-tools
-      dnsutils
-      dotnet-sdk
       du-dust
       exa
       feh
+      firefox
       gcc
       gimp
       git-crypt
@@ -59,43 +55,23 @@
       gnome3.gnome-screenshot
       gnupg
       gopass
-      haskellPackages.cabal-plan
-      haskellPackages.ghcid
-      haskellPackages.hasktags
-      haskellPackages.hoogle
-      hicolor-icon-theme # fall back icon theme
       keepassxc
       libreoffice
       mkpasswd
-      neofetch
-      niv
-      nix-prefetch-git
       nixfmt
       okular
-      openconnect
-      pandoc
       pavucontrol
       pdfgrep
       peek
       python3
-      ranger
-      remmina
-      rust-analyzer
-      rustup
       shfmt
       shutter
       simple-scan
       syncthing-cli # provides stcli
-      texlive.combined.scheme-small # things needed for pandoc
-      tokei
-      transmission-gtk
       unar
       unzip
-      virt-manager
       vlc
-      xdotool
       xorg.xkill
-      yacreader
       zip
     ];
   };
@@ -227,22 +203,22 @@
   };
 
   services = {
-    picom = {
-      enable = true;
-      fade = true;
-      vSync = true;
-      experimentalBackends = true;
-      # the default 'glx' backend lags like crazy for me for some reason.
-      backend = "xrender";
-      fadeDelta = 1;
-      # I only want transparency for a couple of applications.
-      opacityRule = [
-        "95:class_g *?= 'emacs' && focused"
-        "75:class_g *?= 'emacs' && !focused"
-        "90:class_g ?= 'alacritty' && focused"
-        "75:class_g ?= 'alacritty' && !focused"
-      ];
-    };
+    # picom = {
+    #   enable = true;
+    #   fade = true;
+    #   vSync = true;
+    #   experimentalBackends = true;
+    #   # the default 'glx' backend lags like crazy for me for some reason.
+    #   backend = "xrender";
+    #   fadeDelta = 1;
+    #   # I only want transparency for a couple of applications.
+    #   opacityRule = [
+    #     "95:class_g *?= 'emacs' && focused"
+    #     "75:class_g *?= 'emacs' && !focused"
+    #     "90:class_g ?= 'alacritty' && focused"
+    #     "75:class_g ?= 'alacritty' && !focused"
+    #   ];
+    # };
 
     redshift = {
       enable = true;
@@ -251,21 +227,19 @@
       temperature.day = 6500;
       temperature.night = 3000;
     };
-
-    lorri.enable = true;
   };
 
   xdg.enable = true;
 
-  gtk = {
-    enable = true;
-    iconTheme = {
-      name = "Adwaita";
-      package = pkgs.gnome3.adwaita-icon-theme;
-    };
-    theme = {
-      name = "Adwaita-dark";
-      package = pkgs.gnome3.gnome_themes_standard;
-    };
-  };
+  # gtk = {
+  #   enable = true;
+  #   iconTheme = {
+  #     name = "Adwaita";
+  #     package = pkgs.gnome3.adwaita-icon-theme;
+  #   };
+  #   theme = {
+  #     name = "Adwaita-dark";
+  #     package = pkgs.gnome3.gnome_themes_standard;
+  #   };
+  # };
 }
