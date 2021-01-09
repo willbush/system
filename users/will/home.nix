@@ -3,8 +3,8 @@
 let planck = pkgs.callPackage ../../keyboard-firmware/planck { };
 in {
   imports = [
+    (import ../profiles/emacs.nix { inherit pkgs; })
     ../profiles/bat.nix
-    ../profiles/emacs.nix
     ../profiles/packages.nix
     ../profiles/programs.nix
     ../profiles/services.nix
