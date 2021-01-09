@@ -1,8 +1,4 @@
-{ config, pkgs, ... }:
-
-let
-  homeDir = builtins.getEnv "HOME";
-in {
+{ config, pkgs, ... }: {
   imports = [
     (import ../will/emacs.nix {
       inherit pkgs;
@@ -10,7 +6,7 @@ in {
     })
   ];
 
-  home = {
+  home = rec {
     stateVersion = "20.09";
     username = "sonia";
     homeDirectory = "/home/sonia";
@@ -28,7 +24,7 @@ in {
       # Outside of NixOS the dictionary directory needs to be set.
       # https://github.com/NixOS/nixpkgs/issues/4521
       ".aspell.conf".text = ''
-        dict-dir ${homeDir}/.nix-profile/lib/aspell
+        dict-dir ${homeDirectory}/.nix-profile/lib/aspell
         master en_US
         extra-dicts en-computers.rws
       '';

@@ -1,12 +1,10 @@
 { config, pkgs, ... }:
 
-let
-  homeDir = builtins.getEnv "HOME";
-  planck = pkgs.callPackage ../../keyboard-firmware/planck { };
+let planck = pkgs.callPackage ../../keyboard-firmware/planck { };
 in {
-  imports = [ (import ./emacs.nix { inherit pkgs; }) ];
+  imports = [ ./emacs.nix ];
 
-  home = {
+  home = rec {
     stateVersion = "20.09";
     username = "will";
     homeDirectory = "/home/will";
@@ -24,7 +22,7 @@ in {
       # Outside of NixOS the dictionary directory needs to be set.
       # https://github.com/NixOS/nixpkgs/issues/4521
       ".aspell.conf".text = ''
-        dict-dir ${homeDir}/.nix-profile/lib/aspell
+        dict-dir ${homeDirectory}/.nix-profile/lib/aspell
         master en_US
         extra-dicts en-computers.rws
       '';
