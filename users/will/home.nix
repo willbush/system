@@ -3,10 +3,11 @@
 let planck = pkgs.callPackage ../../keyboard-firmware/planck { };
 in {
   imports = [
-    ../profiles/alacritty.nix
     ../profiles/bat.nix
     ../profiles/emacs.nix
     ../profiles/packages.nix
+    ../profiles/programs.nix
+    ../profiles/services.nix
   ];
 
   home = rec {
@@ -64,116 +65,18 @@ in {
   };
 
   programs = {
-    git = {
-      enable = true;
-      userName = "willbush";
-      userEmail = "will.g.bush@gmail.com";
-      signing = {
-        # public key fingerprint
-        key = "4441422E61E4C8F3EBFE5E333823864B54B13BDA";
-        signByDefault = true;
-      };
-    };
-
-    fzf = {
-      enable = true;
-      # This defaults to true, but I want to make it explicit because installing
-      # fzf this way is different than putting it in the home.packages list.
-      enableZshIntegration = true;
-    };
-
-    zsh = {
-      enable = true;
-      dotDir = ".config/zsh";
-      enableCompletion = true;
-      enableAutosuggestions = true;
-      shellAliases = {
-        l = "exa";
-        ll = "exa -l";
-        la = "exa -lah";
-        vim = "nvim";
-      };
-
-      oh-my-zsh = {
-        enable = true;
-        plugins = [
-          # Completion providers:
-          "ripgrep"
-          "cargo"
-          "rust"
-          "fd"
-        ];
-      };
-
-      history = {
-        path = "${config.xdg.dataHome}/zsh/zsh_history";
-        extended = false; # Whether to insert timestamps
-        ignoreDups = true;
-        size = 100000;
-        save = 100000;
-      };
-      initExtra = pkgs.lib.fileContents ../../config/zsh/zshrc-init-extra.sh;
-    };
-
-    starship.enable = true;
-
     broot = {
       enable = true;
       enableZshIntegration = true;
-    };
-
-    htop = {
-      enable = true;
-      meters = {
-        left = [ "AllCPUs" "Memory" "Swap" ];
-        right = [ "Tasks" "LoadAverage" "Uptime" ];
-      };
     };
 
     direnv = {
       enable = true;
       enableZshIntegration = true;
     };
-
-    ssh = {
-      enable = true;
-      serverAliveInterval = 30;
-
-      matchBlocks."github" = {
-        hostname = "github.com";
-        identityFile = "~/.secrets/id_rsa_github";
-      };
-    };
   };
 
-  services = {
-    picom = {
-      enable = true;
-      fade = true;
-      vSync = true;
-      experimentalBackends = true;
-      # the default 'glx' backend lags like crazy for me for some reason.
-      backend = "xrender";
-      fadeDelta = 1;
-      # I only want transparency for a couple of applications.
-      opacityRule = [
-        "95:class_g *?= 'emacs' && focused"
-        "75:class_g *?= 'emacs' && !focused"
-        "90:class_g ?= 'alacritty' && focused"
-        "75:class_g ?= 'alacritty' && !focused"
-      ];
-    };
-
-    redshift = {
-      enable = true;
-      latitude = "33";
-      longitude = "-97";
-      temperature.day = 6500;
-      temperature.night = 3000;
-    };
-
-    lorri.enable = true;
-  };
+  services.lorri.enable = true;
 
   xdg.enable = true;
 
