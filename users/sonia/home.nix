@@ -2,7 +2,6 @@
 
 let
   homeDir = builtins.getEnv "HOME";
-  planck = pkgs.callPackage ../../keyboard-firmware/planck { };
 in {
   imports = [
     (import ../will/emacs.nix {
@@ -82,7 +81,6 @@ in {
       pavucontrol
       pdfgrep
       peek
-      planck
       python3
       ranger
       remmina
