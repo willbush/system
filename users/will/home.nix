@@ -2,7 +2,7 @@
 
 let planck = pkgs.callPackage ../../keyboard-firmware/planck { };
 in {
-  imports = [ ../profiles/emacs.nix ];
+  imports = [ ../profiles/emacs.nix ../profiles/home/bat.nix ];
 
   home = rec {
     stateVersion = "20.09";
@@ -11,8 +11,6 @@ in {
 
     sessionVariables = {
       EDITOR = "emacsclient --create-frame --alternate-editor emacs";
-      # https://github.com/sharkdp/bat#man
-      MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
     };
 
     file = {
@@ -34,9 +32,6 @@ in {
       aspell
       aspellDicts.en
       aspellDicts.en-computers
-      bat-extras.batdiff # pretty print git diff (see: https://github.com/eth-p/bat-extras)
-      bat-extras.batgrep # pretty print ripgrep output
-      bat-extras.prettybat # formats and then bats output (useful for minified code)
       bc
       binutils # needed when using cabal-install outside of a nix-shell
       cabal-install
@@ -218,11 +213,6 @@ in {
         hostname = "github.com";
         identityFile = "~/.secrets/id_rsa_github";
       };
-    };
-
-    bat = {
-      enable = true;
-      config.theme = "TwoDark";
     };
   };
 
