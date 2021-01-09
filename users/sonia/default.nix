@@ -13,7 +13,6 @@ in {
       root.hashedPassword = fileContents ../../secrets/hashed-password-root.txt;
 
       sonia = {
-        uid = 1001;
         isNormalUser = true;
         home = "/home/sonia";
         hashedPassword = fileContents ../../secrets/hashed-password-sonia.txt;
