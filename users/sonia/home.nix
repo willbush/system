@@ -4,7 +4,7 @@
       inherit pkgs;
       emacsPackage = pkgs.emacsGit;
     })
-    ../profiles/home/bat.nix
+    ../profiles/bat.nix
   ];
 
   home = rec {
