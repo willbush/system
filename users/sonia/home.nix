@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
   imports = [
-    (import ../will/emacs.nix {
+    (import ../profiles/emacs.nix {
       inherit pkgs;
       emacsPackage = pkgs.emacsGit;
     })
