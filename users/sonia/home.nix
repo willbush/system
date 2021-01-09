@@ -5,6 +5,7 @@
       emacsPackage = pkgs.emacsGit;
     })
     ../profiles/bat.nix
+    ../profiles/packages.nix
   ];
 
   home = rec {
@@ -29,47 +30,11 @@
       '';
     };
 
-    packages = with pkgs; [
-      # hicolor-icon-theme # fall back icon theme
-      albert
-      aspell
-      aspellDicts.en
-      aspellDicts.en-computers
-      bc
-      cachix
-      calibre
-      chromium
-      clang-tools
-      du-dust
-      exa
-      feh
-      firefox
-      gcc
-      gimp
-      git-crypt
-      glances
-      gnome3.gnome-screenshot
-      gnupg
-      gopass
-      keepassxc
-      libreoffice
-      mkpasswd
-      nixfmt
-      okular
-      pavucontrol
-      pdfgrep
-      peek
-      python3
-      shfmt
-      shutter
-      simple-scan
-      syncthing-cli # provides stcli
-      unar
-      unzip
-      vlc
-      xorg.xkill
-      zip
-    ];
+    packages = with pkgs;
+      [
+        # hicolor-icon-theme # fall back icon theme
+        firefox
+      ];
   };
 
   programs = {

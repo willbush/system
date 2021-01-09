@@ -2,7 +2,8 @@
 
 let planck = pkgs.callPackage ../../keyboard-firmware/planck { };
 in {
-  imports = [ ../profiles/emacs.nix ../profiles/bat.nix ];
+  imports =
+    [ ../profiles/bat.nix ../profiles/emacs.nix ../profiles/packages.nix ];
 
   home = rec {
     stateVersion = "20.09";
@@ -28,71 +29,33 @@ in {
 
     packages = with pkgs; [
       (firefox.override { extraNativeMessagingHosts = [ browserpass ]; })
-      albert
-      aspell
-      aspellDicts.en
-      aspellDicts.en-computers
-      bc
       binutils # needed when using cabal-install outside of a nix-shell
       cabal-install
       cabal2nix
-      cachix
-      calibre
-      chromium
-      clang-tools
       dnsutils
       dotnet-sdk
-      du-dust
-      exa
-      feh
-      gcc
-      gimp
-      git-crypt
-      glances
-      gnome3.gnome-screenshot
-      gnupg
-      gopass
       haskellPackages.cabal-plan
       haskellPackages.ghcid
       haskellPackages.hasktags
       haskellPackages.hoogle
       hicolor-icon-theme # fall back icon theme
-      keepassxc
-      libreoffice
-      mkpasswd
       neofetch
       niv
       nix-prefetch-git
-      nixfmt
-      okular
-      openconnect
       pandoc
-      pavucontrol
-      pdfgrep
-      peek
       planck
-      python3
       ranger
       remmina
       rust-analyzer
       rustup
-      shfmt
-      shutter
-      simple-scan
       slack
-      syncthing-cli # provides stcli
       teams
       texlive.combined.scheme-small # things needed for pandoc
       tokei
       transmission-gtk
-      unar
-      unzip
       virt-manager
-      vlc
       xdotool
-      xorg.xkill
       yacreader
-      zip
     ];
   };
 
