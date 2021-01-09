@@ -4,6 +4,7 @@
       inherit pkgs;
       emacsPackage = pkgs.emacsGit;
     })
+    ../profiles/home/bat.nix
   ];
 
   home = rec {
@@ -13,8 +14,6 @@
 
     sessionVariables = {
       EDITOR = "emacsclient --create-frame --alternate-editor emacs";
-      # https://github.com/sharkdp/bat#man
-      MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
     };
 
     file = {
@@ -36,9 +35,6 @@
       aspell
       aspellDicts.en
       aspellDicts.en-computers
-      bat-extras.batdiff # pretty print git diff (see: https://github.com/eth-p/bat-extras)
-      bat-extras.batgrep # pretty print ripgrep output
-      bat-extras.prettybat # formats and then bats output (useful for minified code)
       bc
       cachix
       calibre
@@ -194,11 +190,6 @@
         hostname = "github.com";
         identityFile = "~/.secrets/id_rsa_github";
       };
-    };
-
-    bat = {
-      enable = true;
-      config.theme = "TwoDark";
     };
   };
 
