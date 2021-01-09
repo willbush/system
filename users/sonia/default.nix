@@ -45,7 +45,6 @@ in {
   services = {
     xserver = {
       enable = true;
-      layout = "us";
 
       windowManager.xmonad = {
         enable = true;
