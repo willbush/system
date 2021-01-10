@@ -34,30 +34,14 @@ in {
     user = "sonia";
   };
 
-  # TODO
-  # services.xserver = {
-  #   enable = true;
-  #   displayManager.sddm.enable = true;
-  #   desktopManager.plasma5.enable = true;
-  # };
-
   services = {
     xserver = {
       enable = true;
 
-      windowManager.xmonad = {
-        enable = true;
-        enableContribAndExtras = true;
-        extraPackages = haskellPackges: [
-          haskellPackges.xmonad-contrib
-          haskellPackges.xmonad-extras
-          haskellPackges.xmonad
-        ];
-      };
-
+      desktopManager.gnome3.enable = true;
       displayManager = {
-        defaultSession = "none+xmonad";
-        lightdm.enable = true;
+        gdm.enable = true;
+        defaultSession = "gnome";
       };
     };
   };

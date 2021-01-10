@@ -7,7 +7,6 @@
     ../profiles/bat.nix
     ../profiles/packages.nix
     ../profiles/programs.nix
-    ../profiles/services.nix
   ];
 
   home = rec {
@@ -22,7 +21,6 @@
     file = {
       ".config".source = ../../config;
       ".config".recursive = true;
-      ".xmonad/xmonad.hs".source = ../../xmonad/xmonad.hs;
     };
 
     packages = with pkgs;
