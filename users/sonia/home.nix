@@ -25,22 +25,10 @@
 
     packages = with pkgs;
       [
-        # hicolor-icon-theme # fall back icon theme
         firefox
+        vscodium
       ];
   };
 
   xdg.enable = true;
-
-  # gtk = {
-  #   enable = true;
-  #   iconTheme = {
-  #     name = "Adwaita";
-  #     package = pkgs.gnome3.adwaita-icon-theme;
-  #   };
-  #   theme = {
-  #     name = "Adwaita-dark";
-  #     package = pkgs.gnome3.gnome_themes_standard;
-  #   };
-  # };
 }
