@@ -1,6 +1,5 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    albert
     aspell
     aspellDicts.en
     aspellDicts.en-computers

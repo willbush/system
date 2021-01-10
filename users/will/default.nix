@@ -2,6 +2,7 @@
 let inherit (lib) fileContents;
 in {
   imports = [
+    ../../modules/services/albert.nix
     ../../modules/services/syncthing.nix
     ../../profiles/common/fonts.nix
     ../../profiles/common/nix-settings.nix
@@ -27,10 +28,7 @@ in {
 
   home-manager.users.will = import ./home.nix;
 
-  modules.unfree.allowList = [
-    "slack"
-    "teams"
-  ];
+  modules.unfree.allowList = [ "slack" "teams" ];
 
   networking = {
     firewall.enable = true;
@@ -39,9 +37,13 @@ in {
     wireguard.enable = true;
   };
 
-  modules.services.syncthing = {
-    enable = true;
-    user = "will";
+  modules.services = {
+    albert.enable = true;
+
+    syncthing = {
+      enable = true;
+      user = "will";
+    };
   };
 
   services = {
