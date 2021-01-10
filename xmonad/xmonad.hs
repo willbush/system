@@ -23,7 +23,6 @@ main =
     , startupHook = do
         setWMName "LG3D" -- Needed for Java GUI to work
         spawn "feh --bg-scale /home/will/sync/images/retro.jpg"
-        spawn "albert"
     , layoutHook = MT.mkToggle (MT.single L.REFLECTX) layouts
     , terminal = "alacritty"
     , modMask = mod4Mask -- Rebind Mod to the super key
