@@ -50,7 +50,19 @@
   nix.maxJobs = lib.mkDefault 16;
 
   services = {
-    xserver.videoDrivers = [ "nvidiaBeta" ];
+    xserver = {
+      videoDrivers = [ "nvidiaBeta" ];
+      # Run my display at 144 hz please. I found this setting by running
+      # nvidia-settings. Go do 'X Server Display Configuration' set the
+      # resolution to something other than auto and it will let you set the
+      # frame rate. Then you can 'Save to X configuration file' where I just
+      # save it to a temp location to inspect the output. I found online that
+      # metamodes is the one that matters for setting the resolution and frame
+      # rate, so I ignored the rest of the generated xorg.conf settings.
+      screenSection = ''
+        Option "metamodes" "3840x1600_144 +0+0"
+      '';
+    };
     fstrim.enable = true;
   };
 
