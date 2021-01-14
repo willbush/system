@@ -42,6 +42,7 @@ in {
       neofetch
       niv
       nix-prefetch-git
+      openconnect
       pandoc
       planck
       ranger
