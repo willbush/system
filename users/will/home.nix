@@ -49,6 +49,7 @@ in {
       remmina
       rust-analyzer
       rustup
+      signal-desktop
       slack
       teams
       texlive.combined.scheme-small # things needed for pandoc
