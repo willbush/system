@@ -34,6 +34,7 @@ in {
       cabal2nix
       dnsutils
       dotnet-sdk
+      feh
       haskellPackages.cabal-plan
       haskellPackages.ghcid
       haskellPackages.hasktags
