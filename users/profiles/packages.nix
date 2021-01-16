@@ -11,7 +11,6 @@
     clang-tools
     du-dust
     exa
-    feh
     gcc
     gimp
     git-crypt
