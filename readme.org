@@ -106,6 +106,40 @@ re-formatting.
    Always. In addition, I increase the resolution using Display Configuration
    for plasma5.
 
+**** Dual booting NixOS with Windows
+
+These are my abridged notes on dual booting Windows 10 along side NixOS on a
+single drive. The following outlines how to ensure the EFI partition that
+Windows creates isn't ridiculously small, how to remove the Recovery partition
+that Windows creates, and how to shrink the Primary partition to make space for
+NixOS.
+
+***** Create custom sized EFI partition that NixOS will share and Install
+
+1. Boot into the Windows setup and select custom install.
+2. Delete all partitions on the drive until only unallocated space remains.
+3. Press Shift+F10 to open an elevated command prompt.
+4. Open the disk partitioning tool's REPL by entering ~diskpart~.
+5. Enter ~list disk~ and ~select disk n~ where n is your disk number.
+6. ~create partition efi size=512~ to create a EFI system partition 512MiB.
+7. ~format quick fs=fat32 label=System~
+8. Enter ~exit~ twice to get out of the REPL and command prompt.
+9. Select the unallocated space and hit next (it will automatically utilize the
+   created EFI partition).
+
+***** Delete Recovery partition
+
+1. Once booted into Windows open another elevated command prompt and ~diskpart~.
+2. Again enter ~list disk~ and ~select disk n~ where n is your disk number.
+3. ~list partition~ and ~select partition n~ where n is the Recovery partition number.
+4. ~delete partition override~ and ~exit~ twice.
+
+***** Shrink Primary partition to make space for NixOS
+
+1. Open the Disk management GUI application.
+2. Right click on the large ~C:~ NTFS partition and shrink it to your desired size.
+3. Continue with the UEFI version of the next section.
+
 **** Basic partitioning and formatting
 
 The following is mostly just following the manual instructions [[https://nixos.org/manual/nixos/stable/index.html#sec-installation-partitioning-UEFI][here]]. However, I
@@ -159,8 +193,8 @@ Continue to the Installation section.
 ***** UEFI
 
 1. ~sudo cfdisk~
-2. select gpt
-3. new > 512M > type > EFI System
+2. select gpt (if prompted)
+3. new > 512M > type > EFI System (skip this step if dual booting with Windows)
 4. select free space
 5. new > 2G (adjust size to your liking) > type > Linux swap
 6. Select free space > new > enter (for remaining space)
@@ -173,13 +207,13 @@ At this point I like to use parted just to double check the alignment.
 1. Open a parted REPL: ~sudo parted~
 2. Print all devices to determine the device to format: ~print all~
 3. Select device: ~select /dev/sda~ (Note the exact disk depends on your ~print all~ output.)
-4. ~align-check optimal 1~ and repeat for ~2~ and ~3~ (all should output aligned)
+4. ~align-check optimal 1~ and repeat all partitions (all should output aligned)
 5. ~q~ to quit.
 
 ****** Formatting
 
 #+begin_src shell
-sudo mkfs.fat -F 32 -n boot /dev/sda1
+sudo mkfs.fat -F 32 -n boot /dev/sda1 # Skip when dual booting Windows.
 sudo mkswap -L swap /dev/sda2
 sudo mkfs.ext4 -L nixos /dev/sda3
 #+end_src
@@ -190,16 +224,16 @@ Mount the target NixOS file system:
 
 #+begin_src shell
 sudo mkdir -p /mnt/boot
-sudo mount /dev/disk/by-label/boot /mnt/boot
+sudo mount /dev/disk/by-label/boot /mnt/boot #by-label/SYSTEM if partition created by Windows
 sudo mount /dev/disk/by-label/nixos /mnt
 #+end_src
 
 **** Installation
 
-1. Enable swap if needed
+1. If you have swap, then enable it now.
 
-   For old devices with limited RAM that depend on the swap space, activate swap
-   device now:
+   When the ~hardware-configuration.nix~ is generated it won't include an entry
+   for the swap partition unless you enable it before generating the file.
 
    #+begin_src shell
    sudo swapon /dev/sda2
