@@ -47,6 +47,8 @@
   swapDevices =
     [{ device = "/dev/disk/by-uuid/9b4fd40c-0435-444b-88b9-10be2a9736a8"; }];
 
+  # high-resolution display
+  hardware.video.hidpi.enable = lib.mkDefault true;
 
   nix.maxJobs = lib.mkDefault 16;
 
