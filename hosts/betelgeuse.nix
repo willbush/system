@@ -26,11 +26,11 @@
 
   fileSystems = {
     "/boot" = {
-      device = "/dev/disk/by-uuid/B8DE-034A";
+      device = "/dev/disk/by-uuid/C231-9103";
       fsType = "vfat";
     };
     "/" = {
-      device = "/dev/disk/by-uuid/5239e314-1900-4793-9b5a-5f84657405d9";
+      device = "/dev/disk/by-uuid/a036ac4a-9f1a-4fb9-bcac-001f8fc2f5b1";
       fsType = "ext4";
     };
     "/mnt/media" = {
@@ -45,7 +45,8 @@
   };
 
   swapDevices =
-    [{ device = "/dev/disk/by-uuid/fa3f26dd-a24a-4710-ad3f-1c05c9fb5341"; }];
+    [{ device = "/dev/disk/by-uuid/9b4fd40c-0435-444b-88b9-10be2a9736a8"; }];
+
 
   nix.maxJobs = lib.mkDefault 16;
 
