@@ -1,29 +1,50 @@
 * Windows Setup
 
-  Before installing Windows make sure the BIOS is set to UEFI only
-  otherwise it might not install an EFI partition, which is annoying
-  if you want to dual boot using UEFI.
+  The following is basically a checklist to remind myself of the litany of
+  things to do after a fresh install.
 
-  The following is basically a checklist to remind myself of the
-  litany of things to do after a fresh install.
+1. Update and restart windows until it's finally done
 
-  - update windows
-  - Get Firefox
-  - Get Syncthing
-  - Get KeepassXC
-  - Sync Firefox
-  - Install latest hardware drivers (e.g. graphics)
-  - Install printer
-  - Perhaps check for a bios update
-  - Use [[https://github.com/10se1ucgo/DisableWinTracking][DisableWinTracking]]
-  - Get https://gitforwindows.org/
-  - clone this repo and use =mklinks= and =bloatware-remover= scripts
-  - Get https://chocolatey.org/
-  - Get [[https://github.com/Wox-launcher/Wox][Wox]]
-  - Look over https://ninite.com/ for ideas of what to install
-  - Configure to automatically clean the temp folder (not enabled by default)
-  - When dual booting set Windows to use UTC time:
+2. Maybe use https://www.oo-software.com/en/shutup10 (seems trusted, but not open source)
 
-    When dual booting into Linux Windows 10 has a known issue with the
-    time getting messed up. To fix it, apply the registry file in this
-    directory named: =RealTimeIsUniversal.reg=
+3. Get https://chocolatey.org/ I try to install things using this when I can.
+
+   Look over https://ninite.com/ and https://chocolatey.org/packages for ideas
+   of what to install. Here is a small list of things I installed after a fresh
+   install:
+
+   - 7zip
+   - git
+   - github-desktop
+   - gnupg
+   - gopass
+   - hackfont-windows
+   - keepassxc
+   - msys2
+   - notepadplusplus
+   - ripgrep
+   - rufus
+   - sumatrapdf.install
+   - syncthing
+   - synctrayzor
+   - vlc
+
+4. Setup Syncthing
+
+5. clone this repo and use =mklinks= and =bloatware-remover= scripts
+
+   - When dual booting into Linux Windows 10 has a known issue with the time
+     getting messed up. To fix it, apply the registry file in this directory
+     named: =RealTimeIsUniversal.reg=
+
+6. Set a ~HOME~ environment variable which is used by Emacs and other things.
+
+7. See the [[../../emacs/readme.org][Emacs readme]]
+
+8. Install printer and latest hardware drivers (e.g. graphics)
+
+9. Perhaps check for a bios update
+
+10. Sync Firefox
+
+11. Turn on "Storage Sense" in the storage settings.
