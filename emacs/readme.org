@@ -1,8 +1,3 @@
-* Linux Emacs Setup
-
-  I deploy Emacs using [[https://github.com/rycee/home-manager][home-manager]] in NixOS. Look in the NixOS folder to see
-  how that's done exactly.
-
 * Windows Emacs Setup
 ** Intro
 
@@ -211,3 +206,16 @@
     execute a shell command with =!= and enter the name of the program. For
     example, to open file explorer to the current dired folder put the point on
     =.= and execute a shell command with =!= and enter =explorer=.
+
+** Post install steps
+
+   - ~M-x all-the-icons-install-fonts~. Not sure if I'm doing this the hardway,
+     but I have it download it into the Donwload folder and open each one and
+     click ~install~.
+
+   - ~M-x company-tabnine-install-binary~. When it's done type ~TabNine::config~
+
+* NixOS Emacs Setup
+
+  This is all just automatically done through the declarative nixos configuration.
+
