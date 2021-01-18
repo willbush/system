@@ -109,10 +109,10 @@ re-formatting.
 **** Dual booting NixOS with Windows
 
 These are my abridged notes on dual booting Windows 10 along side NixOS on a
-single drive. The following outlines how to ensure the EFI partition that
-Windows creates isn't ridiculously small, how to remove the Recovery partition
-that Windows creates, and how to shrink the Primary partition to make space for
-NixOS.
+single drive and UEFI system. The following outlines how to ensure the EFI
+partition that Windows creates isn't ridiculously small, how to remove the
+Recovery partition that Windows creates, and how to shrink the Primary partition
+to make space for NixOS.
 
 ***** Create custom sized EFI partition that NixOS will share and Install
 
