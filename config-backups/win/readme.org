@@ -16,7 +16,6 @@
    - 7zip
    - git
    - github-desktop
-   - gnupg
    - gopass
    - hackfont-windows
    - keepassxc
@@ -29,22 +28,25 @@
    - synctrayzor
    - vlc
 
-4. Setup Syncthing
+4. Install https://gnupg.org/. Note this is on chocolatey and up-to-date, but
+   didn't seem to work right until I installed if from the website.
 
-5. clone this repo and use =mklinks= and =bloatware-remover= scripts
+5. Setup Syncthing
+
+6. clone this repo and use =mklinks= and =bloatware-remover= scripts
 
    - When dual booting into Linux Windows 10 has a known issue with the time
      getting messed up. To fix it, apply the registry file in this directory
      named: =RealTimeIsUniversal.reg=
 
-6. Set a ~HOME~ environment variable which is used by Emacs and other things.
+7. Set a ~HOME~ environment variable which is used by Emacs and other things.
 
-7. See the [[../../emacs/readme.org][Emacs readme]]
+8. See the [[../../emacs/readme.org][Emacs readme]]
 
-8. Install printer and latest hardware drivers (e.g. graphics)
+9. Install printer and latest hardware drivers (e.g. graphics)
 
-9. Perhaps check for a bios update
+10. Perhaps check for a bios update
 
-10. Sync Firefox
+11. Sync Firefox
 
-11. Turn on "Storage Sense" in the storage settings.
+12. Turn on "Storage Sense" in the storage settings.
