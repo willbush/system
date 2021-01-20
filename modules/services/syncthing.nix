@@ -123,7 +123,8 @@ in {
             id = "tuaur-mvey4";
             label = ".secrets";
             path = "/home/${cfg.user}/.secrets";
-            devices = [ "betelgeuse" "tau-ceti" "saiph" "alnitak" ];
+            devices =
+              [ "betelgeuse" "tau-ceti" "saiph" "alnitak" "alnilam" "rigel" ];
             enable = deviceEnabled devices;
             type = deviceType devices;
             versioning = staggeredVersioning;
