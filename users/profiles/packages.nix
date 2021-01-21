@@ -31,6 +31,7 @@
     shutter
     simple-scan
     syncthing-cli # provides stcli
+    teams
     unar
     unzip
     vlc
