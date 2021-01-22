@@ -60,6 +60,9 @@
   (size-indication-mode 1)
   (column-number-mode 1))
 
+;; A dependency that dashboard has.
+(use-package page-break-lines)
+
 (use-package dashboard
   :init
   (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
