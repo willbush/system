@@ -73,6 +73,7 @@
         nix-sandbox
         nix-update
         omnisharp
+        page-break-lines # emacs-dashboard dependency
         password-generator
         password-store
         pdf-tools
