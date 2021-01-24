@@ -18,8 +18,9 @@
     gnome3.gnome-screenshot
     gnupg
     gopass
+    hunspellDicts.en_US-large # used by libreoffice
     keepassxc
-    libreoffice
+    libreoffice-fresh
     mkpasswd
     nixfmt
     okular
