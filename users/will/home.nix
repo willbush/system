@@ -40,7 +40,9 @@ in {
       haskellPackages.hasktags
       haskellPackages.hoogle
       hicolor-icon-theme # fall back icon theme
+      lsof
       neofetch
+      nethogs
       niv
       nix-prefetch-git
       openconnect
