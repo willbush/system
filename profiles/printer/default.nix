@@ -12,13 +12,21 @@
     };
   };
 
-  # Note: first time setup requires going to http://localhost:631 and adding the
-  # printer to the cups service. In addition, in order to find the printer, I
-  # have to temporarily disable the firewall because it seems to use a randomly
-  # assigned port when discovering the network printer.
-  services.printing = {
-    enable = true;
-    drivers = [ pkgs.hll2390dw-cups ];
+  services = {
+    # Note: first time setup requires going to http://localhost:631 and adding
+    # the printer to the cups service.
+    printing = {
+      enable = true;
+      drivers = [ pkgs.hll2390dw-cups ];
+    };
+
+    # Without avahi I find that I have temporarily disable the firewall to
+    # discover my printer because it seems to use a randomly assigned port when
+    # discovering the network printer. Using avahi gets around that issue.
+    avahi = {
+      enable = true;
+      nssmdns = true;
+    };
   };
 
   modules.unfree.allowList = [
