@@ -15,7 +15,7 @@
     gnome3.gnome-screenshot
     gnupg
     gopass
-    hunspellDicts.en_US-large # used by libreoffice
+    hunspellDicts.en_US-large # spellcheck dictionary used by libreoffice
     keepassxc
     libreoffice-fresh
     mkpasswd
