@@ -30,6 +30,7 @@
     simple-scan
     syncthing-cli # provides stcli
     teams
+    trash-cli
     unar
     unzip
     vlc
@@ -37,3 +38,4 @@
     zip
   ];
 }
+
