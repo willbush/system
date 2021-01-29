@@ -28,6 +28,7 @@ in {
   home-manager.users.will = import ./home.nix;
 
   modules.unfree.allowList = [
+    "discord"
     "slack"
     "teams"
   ];

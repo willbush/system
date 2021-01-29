@@ -32,6 +32,7 @@ in {
       binutils # needed when using cabal-install outside of a nix-shell
       cabal-install
       cabal2nix
+      discord
       dnsutils
       dotnet-sdk
       feh
