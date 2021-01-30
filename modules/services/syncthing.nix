@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   inherit (lib) mkIf mkOption types elem;
   inherit (lib.lists) remove;
@@ -32,12 +32,18 @@ in {
         #  changing on a fresh install of NixOS. see
         #  https://docs.syncthing.net/dev/device-ids.html
         #
+        # Note I'm writing the text of the pem files into the nix store because
+        # otherwise I randomly get a "syncthing-copy-keys cannot stat" error. I
+        # guess due to the timing of when the systemd service starts and it runs
+        # that syncthing-copy-keys script and/or the fact those files are in a
+        # git-crypt folder.
+        #
         # FFS!! path concatenation in nix is a pain in the ass! see
         # https://gist.github.com/CMCDragonkai/de84aece83f8521d087416fa21e34df4
-        # This has to be an absolute path (as a string) otherwise syncthing
-        # service will fail to start.
-        cert = toString (../../secrets + "/${host}" + /cert.pem);
-        key = toString (../../secrets + "/${host}" + /key.pem);
+        cert = "${pkgs.writeText "syncthing-cert.pem"
+          (builtins.readFile (../../secrets + "/${host}" + /cert.pem))}";
+        key = "${pkgs.writeText "syncthing-key.pem"
+          (builtins.readFile (../../secrets + "/${host}" + /key.pem))}";
 
         folders = let
           deviceEnabled = devices: elem host devices;
