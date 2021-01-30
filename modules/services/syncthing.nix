@@ -7,6 +7,10 @@ let
   # Device IDs don't really need to be secret, but according to syncthing docs
   # one can get the device IP if they know the device ID.
   devices = import ../../secrets/syncthing-devices.nix;
+  # FFS!! path concatenation in nix is a pain in the ass! see
+  # https://gist.github.com/CMCDragonkai/de84aece83f8521d087416fa21e34df4
+  cert-text = builtins.readFile (../../secrets + "/${host}" + /cert.pem);
+  key-text = builtins.readFile (../../secrets + "/${host}" + /key.pem);
 in {
   options.modules.services.syncthing = {
     enable = mkOption {
@@ -37,13 +41,8 @@ in {
         # guess due to the timing of when the systemd service starts and it runs
         # that syncthing-copy-keys script and/or the fact those files are in a
         # git-crypt folder.
-        #
-        # FFS!! path concatenation in nix is a pain in the ass! see
-        # https://gist.github.com/CMCDragonkai/de84aece83f8521d087416fa21e34df4
-        cert = "${pkgs.writeText "syncthing-cert.pem"
-          (builtins.readFile (../../secrets + "/${host}" + /cert.pem))}";
-        key = "${pkgs.writeText "syncthing-key.pem"
-          (builtins.readFile (../../secrets + "/${host}" + /key.pem))}";
+        cert = "${pkgs.writeText "syncthing-cert.pem" cert-text}";
+        key = "${pkgs.writeText "syncthing-key.pem" key-text}";
 
         folders = let
           deviceEnabled = devices: elem host devices;
