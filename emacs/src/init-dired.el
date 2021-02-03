@@ -21,8 +21,6 @@
 (general-def
   :states 'normal
   :keymaps 'dired-mode-map
-  "q" 'quit-window
-
   ;; movement
   "n" 'dired-next-line
   "e" 'dired-previous-line
@@ -65,6 +63,8 @@
   :prefix ","
   :states 'normal
   :keymaps 'dired-mode-map
+  "q" 'quit-window
+
   "c" '(:ignore t :which-key "change file bits")
   "cg" 'dired-do-chgrp
   "cm" 'dired-do-chmod
