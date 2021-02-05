@@ -25,6 +25,7 @@
     pdfgrep
     peek
     python3
+    racket
     shfmt
     shutter
     simple-scan
