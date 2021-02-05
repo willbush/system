@@ -269,7 +269,7 @@ git-timemachine-mode:
   :hook (((rustic-mode haskell-mode) . lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration))
   :init
-  (setq lsp-keymap-prefix ", l")
+  (setq lsp-keymap-prefix "C-c l")
   :config
 
   ;; Trying this out to keep things fast in lsp. Not sure yet it disabling this
