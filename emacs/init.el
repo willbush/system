@@ -37,6 +37,7 @@
        "init-nix"
        "init-org"
        "init-prog-tools"
+       "init-racket"
        "init-rust"
        "init-scripting"
        "init-win-buffer-tools"

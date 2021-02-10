@@ -92,6 +92,7 @@
         pdf-tools
         powershell
         projectile
+        racket-mode
         rainbow-delimiters
         ranger
         rustic
