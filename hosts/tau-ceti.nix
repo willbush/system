@@ -57,6 +57,10 @@
   nix.maxJobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
+  # Lets me control the backlight via the command line.
+  # see https://nixos.wiki/wiki/Backlight
+  programs.light.enable = true;
+
   services = {
     # Enable touchpad support.
     xserver.libinput.enable = true;
