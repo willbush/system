@@ -18,6 +18,7 @@
     hunspellDicts.en_US-large # spellcheck dictionary used by libreoffice
     keepassxc
     libreoffice-fresh
+    logisim
     mkpasswd
     nixfmt
     okular
