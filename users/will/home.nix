@@ -55,6 +55,7 @@ in {
       rustup
       signal-desktop
       slack
+      tdesktop # telegram desktop
       texlive.combined.scheme-small # things needed for pandoc
       tokei
       transmission-gtk
