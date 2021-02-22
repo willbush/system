@@ -22,7 +22,7 @@ main =
     { manageHook = manageDocks <+> manageHook def
     , startupHook = do
         setWMName "LG3D" -- Needed for Java GUI to work
-        spawn "feh --bg-scale /home/will/sync/images/retro.jpg"
+        spawn "feh --bg-scale /home/will/sync/images/lone-samurai.webp"
         spawn "albert"
     , layoutHook = MT.mkToggle (MT.single L.REFLECTX) layouts
     , terminal = "alacritty"
