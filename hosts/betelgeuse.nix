@@ -1,4 +1,4 @@
-{ lib, modulesPath, ... }: {
+{ lib, modulesPath, config, ... }: {
   imports = [
     "${modulesPath}/installer/scan/not-detected.nix"
     ../users/will
@@ -47,14 +47,17 @@
   swapDevices =
     [{ device = "/dev/disk/by-uuid/9b4fd40c-0435-444b-88b9-10be2a9736a8"; }];
 
-  # high-resolution display
-  hardware.video.hidpi.enable = lib.mkDefault true;
+  hardware = {
+    nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
+    # high-resolution display
+    video.hidpi.enable = lib.mkDefault true;
+  };
 
   nix.maxJobs = lib.mkDefault 16;
 
   services = {
     xserver = {
-      videoDrivers = [ "nvidiaBeta" ];
+      videoDrivers = [ "nvidia" ];
       # Run my display at 144 hz please. I found this setting by running
       # nvidia-settings. Go do 'X Server Display Configuration' set the
       # resolution to something other than auto and it will let you set the
