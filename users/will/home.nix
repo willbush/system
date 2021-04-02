@@ -164,6 +164,13 @@ in {
         "x-scheme-handler/unknown" = "firefox.desktop";
       };
     };
+
+    userDirs = {
+      enable = true;
+      desktop = "$HOME/desktop";
+      download = "$HOME/downloads";
+      videos = "$HOME/videos";
+    };
   };
 
   gtk = {
