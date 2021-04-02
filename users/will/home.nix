@@ -49,7 +49,6 @@ in {
       openconnect
       pandoc
       planck
-      ranger
       remmina
       rust-analyzer
       rustup
