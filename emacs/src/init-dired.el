@@ -13,6 +13,17 @@
 ;; https://www.emacswiki.org/emacs/DiredSorting
 (setq dired-listing-switches "-lah  --group-directories-first")
 
+
+;;;###autoload
+(defun my/dired-xdg-open ()
+  "Open marked files or file at point in dired with xdg-open."
+  (interactive)
+  (if IS-LINUX
+      (mapc
+       (lambda (file-path) (start-process "" nil "xdg-open" file-path))
+       (dired-get-marked-files))
+    (message "xdg-open not available outside of Linux.")))
+
 ;;
 ;;; Dired Keybindings
 
@@ -86,6 +97,7 @@
   "go" 'dired-view-file
   "gr" 'dired-do-redisplay ;; Not sure when I would want to use this
   "gu" 'browse-url-of-dired-file
+  "gx" 'my/dired-xdg-open
   "k" '(:ignore t :which-key "mark extra")
   "k(" 'dired-mark-sexp
   "kD" 'dired-downcase
