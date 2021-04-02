@@ -114,8 +114,6 @@ in {
       # also check out:
       # https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
       defaultApplications = {
-
-        "application/epub+zip" = "calibre-gui.desktop";
         "application/msword" = "writer.desktop";
         "application/pdf" = "okularApplication_pdf.desktop";
         "application/vnd.oasis.opendocument.text" = "writer.desktop";
