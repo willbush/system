@@ -115,46 +115,53 @@ in {
       # https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
       defaultApplications = {
 
-        "application/epub+zip" = [ "calibre-gui.desktop" ];
-        "application/msword" = [ "writer.desktop" ];
-        "application/pdf" = [ "okularApplication_pdf.desktop" ];
-        "application/vnd.oasis.opendocument.text" = [ "writer.desktop" ];
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = [ "writer.desktop" ];
+        "application/epub+zip" = "calibre-gui.desktop";
+        "application/msword" = "writer.desktop";
+        "application/pdf" = "okularApplication_pdf.desktop";
+        "application/vnd.oasis.opendocument.text" = "writer.desktop";
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document" =
+          "writer.desktop";
 
-        "application/vnd.ms-excel" = [ "calc.desktop" ];
-        "application/vnd.oasis.opendocument.spreadsheet" = [ "calc.desktop" ];
-        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = [ "calc.desktop" ];
+        "application/vnd.ms-excel" = "calc.desktop";
+        "application/vnd.oasis.opendocument.spreadsheet" = "calc.desktop";
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" =
+          "calc.desktop";
 
-        "audio/aac" = [ "vlc.desktop" ];
-        "audio/mpeg" = [ "vlc.desktop" ];
-        "audio/ogg" = [ "vlc.desktop" ];
-        "audio/wav" = [ "vlc.desktop" ];
-        "audio/webm" = [ "vlc.desktop" ];
-        "audio/x-midi" = [ "vlc.desktop" ];
+        "audio/aac" = "vlc.desktop";
+        "audio/mpeg" = "vlc.desktop";
+        "audio/ogg" = "vlc.desktop";
+        "audio/wav" = "vlc.desktop";
+        "audio/webm" = "vlc.desktop";
+        "audio/x-midi" = "vlc.desktop";
 
-        "image/gif" = [ "sxiv.desktop" ];
-        "image/jpeg" = [ "sxiv.desktop" ];
-        "image/jpg" = [ "sxiv.desktop" ];
-        "image/png" = [ "sxiv.desktop" ];
-        "image/svg+xml" = [ "firefox.desktop" ];
-        "image/tiff" = [ "sxiv.desktop" ];
-        "image/vnd.microsoft.icon" = [ "sxiv.desktop" ];
-        "image/webp" = [ "sxiv.desktop" ];
+        "image/gif" = "sxiv.desktop";
+        "image/jpeg" = "sxiv.desktop";
+        "image/jpg" = "sxiv.desktop";
+        "image/png" = "sxiv.desktop";
+        "image/svg+xml" = "firefox.desktop";
+        "image/tiff" = "sxiv.desktop";
+        "image/vnd.microsoft.icon" = "sxiv.desktop";
+        "image/webp" = "sxiv.desktop";
 
         # Great for going from an albert directory search straight to Emacs # dired.
-        "inode/directory" = [ "emacsclient.desktop" ];
+        "inode/directory" = "emacsclient.desktop";
 
         "text/html" = "firefox.desktop";
-        "text/plain" = [ "emacsclient.desktop" ];
+        "text/plain" = "emacsclient.desktop";
 
-        "video/mp4" = [ "vlc.desktop" ];
-        "video/mpeg" = [ "vlc.desktop" ];
-        "video/ogg" = [ "vlc.desktop" ];
-        "video/webm" = [ "vlc.desktop" ];
-        "video/x-msvideo" = [ "vlc.desktop" ];
+        "video/mp4" = "vlc.desktop";
+        "video/mpeg" = "vlc.desktop";
+        "video/ogg" = "vlc.desktop";
+        "video/webm" = "vlc.desktop";
+        "video/x-msvideo" = "vlc.desktop";
 
         # Better add this because otherwise telegram overwrites mimeapps.list on startup.
-        "x-scheme-handler/tg" = [ "telegramdesktop.desktop" ];
+        "x-scheme-handler/tg" = "telegramdesktop.desktop";
+
+        "x-scheme-handler/about" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
+        "x-scheme-handler/unknown" = "firefox.desktop";
       };
     };
   };
