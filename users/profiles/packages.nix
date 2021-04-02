@@ -3,7 +3,6 @@
     albert
     bc
     cachix
-    calibre
     chromium
     clang-tools
     du-dust
