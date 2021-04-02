@@ -153,13 +153,16 @@ in {
         "video/webm" = "vlc.desktop";
         "video/x-msvideo" = "vlc.desktop";
 
-        # Better add this because otherwise telegram overwrites mimeapps.list on startup.
-        "x-scheme-handler/tg" = "telegramdesktop.desktop";
-
         "x-scheme-handler/about" = "firefox.desktop";
         "x-scheme-handler/http" = "firefox.desktop";
         "x-scheme-handler/https" = "firefox.desktop";
         "x-scheme-handler/unknown" = "firefox.desktop";
+      };
+
+      associations.added = {
+        # These apps overwrite mimeapps.list on startup unless this is explicitly added
+        "x-scheme-handler/magnet" = "transmission-gtk.desktop";
+        "x-scheme-handler/tg" = "telegramdesktop.desktop";
       };
     };
 
