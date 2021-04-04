@@ -22,7 +22,9 @@
       (mapc
        (lambda (file-path)
          (shell-command
-          (concat "xdg-open " file-path " > /dev/null 2>&1 & disown")))
+          (concat "xdg-open "
+                  (shell-quote-argument file-path)
+                  " > /dev/null 2>&1 & disown")))
        (dired-get-marked-files))
     (message "xdg-open not available outside of Linux.")))
 
