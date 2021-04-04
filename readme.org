@@ -289,7 +289,7 @@ sudo mount /dev/disk/by-label/nixos /mnt
 To update all the flake inputs:
 
 #+begin_src shell
-nix flake update --recreate-lock-file
+nix flake update
 #+end_src
 
 To up update a single input:
