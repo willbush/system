@@ -24,6 +24,7 @@
     pavucontrol
     pdfgrep
     peek
+    procs
     python3
     racket
     shfmt
