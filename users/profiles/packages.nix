@@ -32,6 +32,7 @@
     simple-scan
     syncthing-cli # provides stcli
     teams
+    tldr
     trash-cli
     unar
     unzip
