@@ -81,6 +81,7 @@
         magit
         markdown-mode
         markdown-toc
+        mips-mode
         nav-flash
         nix-mode
         nix-sandbox

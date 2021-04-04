@@ -9,6 +9,8 @@
 
 (use-package racket-mode :mode "\\.rkt\\'")
 
+(use-package mips-mode :mode "\\.mips$")
+
 ;; CSS / JavaScript (build in modes) indention level
 (setq-default css-indent-offset 2)
 (setq-default js-indent-level 2)
