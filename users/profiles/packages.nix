@@ -15,6 +15,7 @@
     gnupg
     gopass
     hunspellDicts.en_US-large # spellcheck dictionary used by libreoffice
+    inkscape
     keepassxc
     libreoffice-fresh
     logisim
