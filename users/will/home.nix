@@ -5,7 +5,7 @@ in {
   imports = [
     (import ../profiles/emacs.nix {
       inherit pkgs;
-      emacsPackage = pkgs.emacsGit;
+      emacsPackage = pkgs.emacsGcc;
     })
     ../profiles/bat.nix
     ../profiles/packages.nix
