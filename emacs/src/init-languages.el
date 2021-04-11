@@ -49,6 +49,8 @@
     :keymaps 'nix-mode-map
     "u" 'nix-update-fetch))
 
+(use-package prolog-mode :mode "\\.pl\\'")
+
 ;;
 ;;; Markdown
 
