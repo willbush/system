@@ -116,7 +116,14 @@
   ;; The default uses Emacs Lisp in Windows, which way too slow for large
   ;; projects.
   (setq projectile-indexing-method 'alien
-        projectile-completion-system 'ivy))
+        projectile-completion-system 'ivy)
+
+  ;; Make these indexing methods safe as file-local variables
+  (dolist
+      (method '((projectile-indexing-method . alien)
+                (projectile-indexing-method . hybrid)
+                (projectile-indexing-method . native)))
+    (add-to-list 'safe-local-variable-values method)))
 
 (use-package fd-dired :commands fd-dired)
 
