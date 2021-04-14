@@ -152,8 +152,4 @@
 (use-package diredfl
   :hook (dired-mode . diredfl-mode))
 
-(unless IS-WINDOWS ;; Windows can't handle this for some reason.
-  (use-package all-the-icons-dired
-    :hook (dired-mode . all-the-icons-dired-mode)))
-
 (provide 'init-dired)
