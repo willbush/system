@@ -76,6 +76,7 @@ in {
     ripgrep
     tree
     wget
+    # broken ATM unless firewall is disabled see: https://github.com/NixOS/nixpkgs/issues/113589
     mullvad-vpn
   ];
 
