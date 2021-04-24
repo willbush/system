@@ -27,6 +27,7 @@
     peek
     procs
     python3
+    python38Packages.mypy
     racket
     shfmt
     shutter
@@ -42,4 +43,3 @@
     zip
   ];
 }
-
