@@ -1,5 +1,8 @@
 ;;; -*- lexical-binding: t; -*-
 
+;;
+;;; Org mode
+
 (use-package org
   :ensure nil ;; Org is included in Emacs.
   :commands (org-mode
@@ -102,10 +105,36 @@
         (concat "archive/"
                 (format-time-string "%Y" (current-time)) "-%s_archive::")))
 
+;;
+;;; Markdown
+
+(use-package markdown-mode
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command '("pandoc" "--from=markdown" "--to=html5"))
+  (add-hook 'markdown-mode-hook
+            '(lambda ()
+               (setq show-trailing-whitespace t))))
+
+(use-package markdown-toc
+  :after markdown-mode)
+
+;;
+;;; Org and Markdown related tools
+
 (use-package pandoc-mode
   :hook
   ((markdown-mode . pandoc-mode)
    (org-mode . pandoc-mode)
-   (pandoc-mode . pandoc-load-default-settings)))
+   (pandoc-mode . pandoc-load-default-settings))
 
-(provide 'init-org)
+  :config
+  (general-def
+    :prefix ","
+    :states 'normal
+    :keymaps 'pandoc-mode-map
+    "p" 'pandoc-main-hydra/body))
+
+(provide 'init-markup-languages)
