@@ -102,4 +102,10 @@
         (concat "archive/"
                 (format-time-string "%Y" (current-time)) "-%s_archive::")))
 
+(use-package pandoc-mode
+  :hook
+  ((markdown-mode . pandoc-mode)
+   (org-mode . pandoc-mode)
+   (pandoc-mode . pandoc-load-default-settings)))
+
 (provide 'init-org)

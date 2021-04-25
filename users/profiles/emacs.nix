@@ -87,6 +87,7 @@
         nix-update
         omnisharp
         page-break-lines # emacs-dashboard dependency
+        pandoc-mode
         password-generator
         password-store
         pdf-tools
