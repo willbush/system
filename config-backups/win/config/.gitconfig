@@ -1,10 +1,12 @@
 [user]
-	name = willbush
-	email = will.g.bush@gmail.com
+  name = willbush
+  email = will.g.bush@gmail.com
 [credential]
-	helper = cache --timeout=3600
+  helper = cache --timeout=3600
 [push]
-	default = simple
+  default = simple
 [core]
-	editor = emacs
+  editor = emacs
   ignorecase = false
+[merge]
+  conflictStyle = diff3
