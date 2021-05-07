@@ -34,7 +34,7 @@ in {
       cabal2nix
       discord
       dnsutils
-      dotnet-sdk
+      dotnet-sdk_3
       feh
       gprolog
       haskellPackages.cabal-plan
