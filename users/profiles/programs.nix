@@ -46,6 +46,10 @@
         key = "4441422E61E4C8F3EBFE5E333823864B54B13BDA";
         signByDefault = true;
       };
+
+      extraConfig = {
+        merge.conflictstyle = "diff3";
+      };
     };
 
     fzf = {
