@@ -29,17 +29,10 @@ in {
 
     packages = with pkgs; [
       (firefox.override { extraNativeMessagingHosts = [ browserpass ]; })
-      binutils # needed when using cabal-install outside of a nix-shell
-      cabal-install
-      cabal2nix
       discord
       dnsutils
       dotnet-sdk_3
       feh
-      haskellPackages.cabal-plan
-      haskellPackages.ghcid
-      haskellPackages.hasktags
-      haskellPackages.hoogle
       hicolor-icon-theme # fall back icon theme
       lsof
       neofetch
