@@ -36,7 +36,6 @@ in {
       dnsutils
       dotnet-sdk_3
       feh
-      gprolog
       haskellPackages.cabal-plan
       haskellPackages.ghcid
       haskellPackages.hasktags
@@ -55,7 +54,6 @@ in {
       rustup
       signal-desktop
       slack
-      swiProlog
       sxiv
       tdesktop # telegram desktop
       texlive.combined.scheme-small # things needed for pandoc
