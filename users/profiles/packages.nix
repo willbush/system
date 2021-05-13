@@ -18,6 +18,7 @@
     inkscape
     keepassxc
     libreoffice-fresh
+    logisim
     mkpasswd
     nixfmt
     okular
