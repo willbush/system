@@ -37,6 +37,7 @@
        "init-misc-tools"
        "init-prog-tools"
        "init-win-buffer-tools"
+       "init-erc"
        "funcs"
        ;; This should come after evil due to performance issues see:
        ;; https://github.com/noctuid/general.el/issues/180
