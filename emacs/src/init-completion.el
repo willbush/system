@@ -72,8 +72,8 @@
   ;; Silence warning (:defer causes byte compile warnings)
   (declare-function global-company-mode "company")
 
-  (setq company-idle-delay 0
-        company-minimum-prefix-length 1
+  (setq company-idle-delay 0.1
+        company-minimum-prefix-length 2
         company-show-numbers t)
 
   (global-company-mode 1))
