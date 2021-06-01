@@ -6,9 +6,6 @@
   ;; zoom in and out
   "C-+" 'text-scale-increase
   "C--" 'text-scale-decrease
-  ;; increment and decrement number at point.
-  "M-+" 'evil-numbers/inc-at-pt
-  "M--" 'evil-numbers/dec-at-pt
   "C-s" 'swiper)
 
 ;; pressing r again after going into range mode (visual mode) will enter a hydra
