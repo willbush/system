@@ -170,9 +170,10 @@
     "g x" ;; Unbind explicitly despite `evil-exchange-install' stomping on this.
     "r" "s" "z O" "z a" "z c" "z m" "z o" "z r")
   (general-unbind 'motion
-    "'" "," "/" "?" ";" "C-d" "C-u" "C-v" "C-w" "E" "F" "H" "L" "M" "N"
+    "+" "-" "'" "," "/" "?" ";" "C-d" "C-u" "C-v" "C-w" "E" "F" "H" "L" "M" "N"
     "S-k" "V" "`" "e" "f" "g E" "g N" "g e" "g j" "g k" "g m" "g n" "g v"
-    "h" "j" "k" "l" "n" "v" "z H" "z L" "z h" "z l")
+    "h" "j" "k" "l" "n" "v" "z H" "z L" "z h" "z l"
+    )
 
   ;; visual state R key is not that useful.
   (general-unbind '(normal visual) "R")
@@ -185,6 +186,8 @@
 
   (general-def
     :keymaps 'evil-normal-state-map
+    "+" 'evil-numbers/inc-at-pt
+    "-" 'evil-numbers/dec-at-pt
     "&" 'evil-use-register
     "C-i" 'evil-jump-forward
     "U" 'evil-redo
