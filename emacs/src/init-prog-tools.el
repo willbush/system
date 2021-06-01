@@ -272,6 +272,13 @@ git-timemachine-mode:
   (setq lsp-keymap-prefix "C-c l")
   :config
 
+  ;; TODO: temp fix following error:
+  ;; Error processing message (void-function lsp-headerline-breadcrumb-mode)
+  ;; NOTE:
+  ;; The issue seems fixed here: https://github.com/emacs-lsp/lsp-mode/issues/2896
+  ;; However, I guess the fix hasn't made its way through melpa.
+  (setq lsp-headerline-breadcrumb-enable nil)
+
   ;; Trying this out to keep things fast in lsp. Not sure yet it disabling this
   ;; is a great idea.
   (setq lsp-enable-file-watchers nil)
