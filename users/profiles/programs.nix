@@ -94,13 +94,7 @@
 
     starship.enable = true;
 
-    htop = {
-      enable = true;
-      meters = {
-        left = [ "AllCPUs" "Memory" "Swap" ];
-        right = [ "Tasks" "LoadAverage" "Uptime" ];
-      };
-    };
+    htop.enable = true;
 
     ssh = {
       enable = true;
