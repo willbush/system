@@ -268,6 +268,11 @@ git-timemachine-mode:
   :commands (lsp lsp-deferred)
   :hook (((rustic-mode haskell-mode) . lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration))
+  :custom
+  (lsp-rust-analyzer-cargo-watch-command "clippy")
+  (lsp-eldoc-render-all t)
+  (lsp-idle-delay 0.6)
+  (lsp-rust-analyzer-server-display-inlay-hints t)
   :init
   (setq lsp-keymap-prefix "C-c l")
   :config
