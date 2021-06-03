@@ -52,6 +52,7 @@ in {
       texlive.combined.scheme-small # things needed for pandoc
       tokei
       transmission-gtk
+      ungoogled-chromium
       virt-manager
       xdotool
     ];

@@ -3,7 +3,6 @@
     albert
     bc
     cachix
-    chromium
     clang-tools
     du-dust
     exa

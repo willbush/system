@@ -23,11 +23,7 @@
       ".config".recursive = true;
     };
 
-    packages = with pkgs;
-      [
-        firefox
-        vscodium
-      ];
+    packages = with pkgs; [ chromium firefox vscodium ];
   };
 
   xdg.enable = true;
