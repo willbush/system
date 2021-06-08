@@ -54,6 +54,7 @@ in {
       transmission-gtk
       ungoogled-chromium
       virt-manager
+      xclip
       xdotool
     ];
   };
