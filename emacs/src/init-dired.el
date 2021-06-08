@@ -35,12 +35,6 @@
   (let ((current-prefix-arg 0)) ;; emulate C-u
     (call-interactively 'dired-copy-filename-as-kill)))
 
-(defun my/dired-toggle-read-only-then-evil-append-line ()
-  "Toggle dired read-only and append at the end of the line (enter insert state)."
-  (progn
-    (dired-toggle-read-only)
-    (evil-append-line 0)))
-
 ;;
 ;;; Dired Keybindings
 
@@ -75,7 +69,11 @@
 
   ;; enter into insert mode to modify
   "l" 'dired-toggle-read-only
-  "A" 'my/dired-toggle-read-only-then-evil-append-line
+  "A" '(lambda ()
+         (interactive)
+         (progn
+           (dired-toggle-read-only)
+           (evil-append-line 0)))
 
   "!" 'dired-do-shell-command
   "&" 'dired-do-async-shell-command
