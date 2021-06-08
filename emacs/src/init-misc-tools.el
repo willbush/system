@@ -125,7 +125,7 @@
     :states 'normal
     :keymaps '(disk-usage-mode-map disk-usage-by-types-mode-map)
     "R" 'disk-usage-reset-cache
-    "t" '(:ignore t :which-key "toggle")
+    "t" '(:ignore t :wk "toggle")
     "tf" 'disk-usage-toggle-full-path
     "th" 'disk-usage-toggle-human-readable
     "tr" 'disk-usage-toggle-recursive))

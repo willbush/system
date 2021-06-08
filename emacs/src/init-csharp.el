@@ -27,8 +27,8 @@
     "s" 'omnisharp-stop-server
     "c" 'omnisharp-check-alive-status
     "R" 'omnisharp-reload-solution
-    "r" '(:ignore t :which-key "refactor")
-    "n" '(:ignore t :which-key "navigate")
+    "r" '(:ignore t :wk "refactor")
+    "n" '(:ignore t :wk "navigate")
     "t" 'omnisharp-unit-test-buffer
     "u" 'omnisharp-fix-usings)
 
