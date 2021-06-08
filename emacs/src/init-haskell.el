@@ -69,14 +69,14 @@
     :states '(normal visual)
     :keymaps 'haskell-mode-map
     "." 'lsp-describe-thing-at-point
-    "F" '(:ignore t :which-key "workspace folders")
-    "c" '(:ignore t :which-key "check")
-    "d" '(:ignore t :which-key "document")
-    "f" '(:ignore t :which-key "find")
-    "p" '(:ignore t :which-key "peek")
-    "r" '(:ignore t :which-key "refactor")
-    "s" '(:ignore t :which-key "lsp session")
-    "t" '(:ignore t :which-key "toggle"))
+    "F" '(:ignore t :wk "workspace folders")
+    "c" '(:ignore t :wk "check")
+    "d" '(:ignore t :wk "document")
+    "f" '(:ignore t :wk "find")
+    "p" '(:ignore t :wk "peek")
+    "r" '(:ignore t :wk "refactor")
+    "s" '(:ignore t :wk "lsp session")
+    "t" '(:ignore t :wk "toggle"))
 
   (general-def
     :prefix ", F"
