@@ -115,7 +115,13 @@
                 (format-time-string "%Y" (current-time)) "-%s_archive::")))
 
 (use-package org-download
-  :commands (org-download-edit
+  ;; without deferring like this package adds 0.1 sec to startup time Ideally
+  ;; I'd like to add `(add-hook 'dired-mode-hook 'org-download-enable)' to
+  ;; enable dragging and dropping an image directly into dired. However, I want
+  ;; `dired' to start up as fast as possible and loading this package on initial
+  ;; opening of dired creates a noticeable delay.
+  :commands (org-download-enable
+             org-download-edit
              org-download-yank
              org-download-image
              org-download-delete

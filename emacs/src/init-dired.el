@@ -97,6 +97,14 @@
   "y" '(my/dired-yank-absolute-paths :wk "yank absolute paths")
   "Y" '(dired-copy-filename-as-kill :wk "yank file names")
 
+  ;; I don't just add this to `dired-mode-hook' because it adds noticeable delay
+  ;; to dired initial startup. And I can't find a drag-and-drop hook.
+  "E" '((lambda ()
+         (interactive)
+         (progn
+           (org-download-enable)
+           (message "org-download enabled."))) :wk "enable image drag-and-drop")
+
   "c" '(:ignore t :wk "change file bits")
   "cg" 'dired-do-chgrp
   "cm" 'dired-do-chmod
