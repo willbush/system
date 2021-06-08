@@ -80,29 +80,29 @@
   :keymaps 'dired-mode-map
   "q" 'quit-window
 
-  "c" '(:ignore t :which-key "change file bits")
+  "c" '(:ignore t :wk "change file bits")
   "cg" 'dired-do-chgrp
   "cm" 'dired-do-chmod
   "co" 'dired-do-chown
   "ct" 'dired-do-touch ;; changes file timestamp
-  "d" '(:ignore t :which-key "dired do extra")
+  "d" '(:ignore t :wk "dired do extra")
   "db" 'dired-do-byte-compile
   "dc" 'dired-clean-directory
   "dh" 'dired-do-hardlink
   "dl" 'dired-do-load
   "dp" 'dired-do-print
   "dt" 'dired-show-file-type
-  "f" '(:ignore t :which-key "flag extra")
+  "f" '(:ignore t :wk "flag extra")
   "fg" 'dired-flag-garbage-files
   "fr" 'dired-flag-files-regexp
-  "g" '(:ignore t :which-key "go")
+  "g" '(:ignore t :wk "go")
   "gO" 'dired-find-file-other-window
   "gf" 'dired-find-file
   "go" 'dired-view-file
   "gr" 'dired-do-redisplay ;; Not sure when I would want to use this
   "gu" 'browse-url-of-dired-file
   "gx" 'my/dired-xdg-open
-  "k" '(:ignore t :which-key "mark extra")
+  "k" '(:ignore t :wk "mark extra")
   "k(" 'dired-mark-sexp
   "kD" 'dired-downcase
   "kO" 'dired-mark-omitted
@@ -113,7 +113,7 @@
   "kr" 'dired-mark-files-regexp
   "ks" 'dired-mark-symlinks
   "kx" 'dired-mark-executables
-  "r" '(:ignore t :which-key "regexp extra")
+  "r" '(:ignore t :wk "regexp extra")
   "rF" 'dired-do-find-regexp-and-replace
   "rc" 'dired-do-copy-regexp
   "rf" 'dired-do-find-regexp
@@ -121,12 +121,12 @@
   "rh" 'dired-do-hardlink-regexp
   "rs" 'dired-do-symlink-regexp
   "rv" 'dired-do-rename-regexp
-  "s" '(:ignore t :which-key "subdir extra")
+  "s" '(:ignore t :wk "subdir extra")
   "sH" 'dired-hide-all
   "sh" 'dired-hide-subdir
   "si" 'dired-maybe-insert-subdir
   "sk" 'dired-kill-subdir ;; seems to be the opposite of in `dired-maybe-insert-subdir'
-  "t" '(:ignore t :which-key "toggle")
+  "t" '(:ignore t :wk "toggle")
   "td" 'dired-hide-details-mode
   "tk" 'dired-toggle-marks
   "ts" 'dired-sort-toggle-or-edit)
@@ -144,7 +144,7 @@
     :states 'normal
     :keymaps 'dired-mode-map
     :major-modes t
-    "n" '(:ignore t :which-key "dired-narrow")
+    "n" '(:ignore t :wk "dired-narrow")
     "nn" 'dired-narrow
     "nf" 'dired-narrow-fuzzy
     "nr" 'dired-narrow-regexp))
