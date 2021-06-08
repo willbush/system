@@ -60,6 +60,11 @@ in {
   };
 
   programs = {
+    neovim = {
+      enable = true;
+      extraConfig = builtins.readFile ../../nvim/init.vim;
+    };
+
     broot = {
       enable = true;
       enableZshIntegration = true;

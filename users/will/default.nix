@@ -72,7 +72,6 @@ in {
   environment.systemPackages = with pkgs; [
     curl
     fd
-    neovim
     ripgrep
     tree
     wget
