@@ -44,12 +44,15 @@
 
 (use-package flyspell
   :ensure nil ;; Flyspell is included in Emacs.
-  :hook ((text-mode . flyspell-mode)
-         (prog-mode . flyspell-prog-mode))
   :init (setq ispell-program-name "aspell")
   :config
   ;; improve perf per wiki: https://www.emacswiki.org/emacs/FlySpell
-  (setq flyspell-issue-message-flag nil))
+  (setq flyspell-issue-message-flag nil)
+
+  ;; Starting flyspell with aspell on Windows is slow
+  (unless IS-WINDOWS
+    (add-hook 'text-mode-hook 'flyspell-mode)
+    (add-hook 'prog-mode-hook 'flyspell-mode)))
 
 (use-package define-word
   :commands define-word-at-point)
