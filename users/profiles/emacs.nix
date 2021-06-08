@@ -86,6 +86,7 @@
         nix-sandbox
         nix-update
         omnisharp
+        org-download
         page-break-lines # emacs-dashboard dependency
         pandoc-mode
         password-generator

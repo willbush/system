@@ -32,7 +32,16 @@
     "e" 'org-move-subtree-up
     "i" 'org-do-demote
     "m" 'org-do-promote
-    "n" 'org-move-subtree-down)
+    "n" 'org-move-subtree-down
+    "d" '(:ignore t :wk "org-download")
+    "dc" 'org-download-clipboard
+    "dd" 'org-download-delete
+    "de" 'org-download-edit
+    "di" 'org-download-image
+    "dr" 'org-download-rename-at-point
+    "dR" 'org-download-rename-last-file
+    "ds" 'org-download-screenshot
+    "dy" 'org-download-yank)
 
   ;; Allows me to set the width of an inline image.
   ;; #+ATTR_ORG: :width 100
@@ -104,6 +113,16 @@
   (setq org-archive-location
         (concat "archive/"
                 (format-time-string "%Y" (current-time)) "-%s_archive::")))
+
+(use-package org-download
+  :commands (org-download-edit
+             org-download-yank
+             org-download-image
+             org-download-delete
+             org-download-clipboard ;; depends on xclip
+             org-download-screenshot ;; depends on gnome-screenshot
+             org-download-rename-at-point
+             org-download-rename-last-file))
 
 ;;
 ;;; Markdown
