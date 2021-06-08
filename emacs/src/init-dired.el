@@ -35,6 +35,12 @@
   (let ((current-prefix-arg 0)) ;; emulate C-u
     (call-interactively 'dired-copy-filename-as-kill)))
 
+(defun my/dired-toggle-read-only-then-evil-append-line ()
+  "Toggle dired read-only and append at the end of the line (enter insert state)."
+  (progn
+    (dired-toggle-read-only)
+    (evil-append-line 0)))
+
 ;;
 ;;; Dired Keybindings
 
@@ -67,6 +73,10 @@
   "~" 'dired-flag-backup-files
   "x" 'dired-do-flagged-delete
 
+  ;; enter into insert mode to modify
+  "l" 'dired-toggle-read-only
+  "A" 'my/dired-toggle-read-only-then-evil-append-line
+
   "!" 'dired-do-shell-command
   "&" 'dired-do-async-shell-command
   "+" 'dired-create-directory
@@ -77,7 +87,6 @@
   "Z" 'dired-do-compress
   "c" 'dired-do-compress-to
   "gr" 'revert-buffer
-  "l" 'dired-toggle-read-only
   "v" 'dired-do-rename ;; mnemonic is the v in the mv bash command
   "<delete>" 'dired-unmark-backward)
 
