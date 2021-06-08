@@ -51,7 +51,7 @@ in {
   };
 
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [ curl fd neovim ripgrep tree wget ];
+  environment.systemPackages = with pkgs; [ curl fd ripgrep tree wget ];
 
   programs = {
     gnupg.agent = {
