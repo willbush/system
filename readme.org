@@ -16,6 +16,7 @@ The following is 1 level deep directory structure generated using ~tree -L 1 -d~
 ├── hosts
 ├── keyboard-firmware
 ├── modules
+├── nvim
 ├── profiles
 ├── secrets
 ├── users
@@ -32,9 +33,13 @@ Config files used in NixOS that are symlinked to ~/.config/~ and managed with
 Miscellaneous configuration files that I'm backing up and are not deployed
 automatically.
 
-*** emacs
+*** emacs / nvim
 
 My emacs configuration code. See its [[file:emacs/readme.org][readme]] for more information.
+
+I typically only use Vim if Emacs is not available for some reason. In the
+~init.vim~ file there are just the most important key bindings in my [[keyboard-firmware/readme.org][customized
+Evil / Vim keybindings]]
 
 *** hosts
 
