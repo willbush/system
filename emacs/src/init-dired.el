@@ -13,8 +13,9 @@
 ;; https://www.emacswiki.org/emacs/DiredSorting
 (setq dired-listing-switches "-lah  --group-directories-first")
 
+;;
+;;; Dired functions
 
-;;;###autoload
 (defun my/dired-xdg-open ()
   "Open marked files or file at point in dired with xdg-open."
   (interactive)
@@ -27,6 +28,12 @@
                   " > /dev/null 2>&1 & disown")))
        (dired-get-marked-files))
     (message "xdg-open not available outside of Linux.")))
+
+(defun my/dired-yank-absolute-paths ()
+  "Yank absolute paths to marked files."
+  (interactive)
+  (let ((current-prefix-arg 0)) ;; emulate C-u
+    (call-interactively 'dired-copy-filename-as-kill)))
 
 ;;
 ;;; Dired Keybindings
@@ -79,6 +86,9 @@
   :states 'normal
   :keymaps 'dired-mode-map
   "q" 'quit-window
+
+  "y" '(my/dired-yank-absolute-paths :wk "yank absolute paths")
+  "Y" '(dired-copy-filename-as-kill :wk "yank file names")
 
   "c" '(:ignore t :wk "change file bits")
   "cg" 'dired-do-chgrp
