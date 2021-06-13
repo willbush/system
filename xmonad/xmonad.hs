@@ -23,7 +23,6 @@ main =
     , startupHook = do
         setWMName "LG3D" -- Needed for Java GUI to work
         spawn "feh --bg-scale /home/will/sync/images/typeII.png"
-        spawn "albert"
     , layoutHook = MT.mkToggle (MT.single L.REFLECTX) layouts
     , terminal = "alacritty"
     , modMask = mod4Mask -- Rebind Mod to the super key
@@ -133,6 +132,9 @@ addkeys conf@XConfig {modMask = modm} =
   -- Reflect layout across the x axis. There is a REFLECTY, but it flips the top
   -- highlight bar.
   , ((modm, xK_x), sendMessage $ MT.Toggle L.REFLECTX)
+  -- rofi keybindings
+  , ((controlMask              , xK_space), spawn "rofi -show combi -combi-modi 'drun,run,ssh' -modi combi -show-icons")
+  , ((controlMask .|. shiftMask, xK_space), spawn "rofi -show p -modi p:rofi-power-menu -lines 6")
   ] ++
   -- This is using a list comprehension to build a list of workspace key
   -- bindings.
