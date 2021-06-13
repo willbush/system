@@ -142,7 +142,7 @@ in {
         "image/vnd.microsoft.icon" = "sxiv.desktop";
         "image/webp" = "sxiv.desktop";
 
-        # Great for going from an albert directory search straight to Emacs # dired.
+        # Open directory in Emacs dired.
         "inode/directory" = "emacsclient.desktop";
 
         "text/html" = "firefox.desktop";
