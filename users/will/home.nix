@@ -33,6 +33,7 @@ in {
       discord
       dnsutils
       dotnet-sdk_3
+      exiftool
       feh
       hicolor-icon-theme # fall back icon theme
       lsof
