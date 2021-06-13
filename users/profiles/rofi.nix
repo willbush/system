@@ -4,7 +4,7 @@
     enable = true;
     theme = "Indego";
     pass.enable = true;
-    font = "Hack 12";
+    font = "Hack Nerd Font Mono 12";
     width = 25;
   };
 
