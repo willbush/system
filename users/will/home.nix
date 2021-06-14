@@ -36,7 +36,6 @@ in {
       exiftool
       feh
       hicolor-icon-theme # fall back icon theme
-      hugo
       lsof
       neofetch
       nethogs
@@ -60,6 +59,7 @@ in {
       virt-manager
       xclip
       xdotool
+      zola
     ];
   };
 
