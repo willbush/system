@@ -24,9 +24,7 @@ in {
 
   home-manager.users.sonia = import ./home.nix;
 
-  modules.unfree.allowList = [
-    "teams"
-  ];
+  modules.unfree.allowList = [ "teams" ];
 
   networking = {
     firewall.enable = true;
