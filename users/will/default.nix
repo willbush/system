@@ -27,11 +27,7 @@ in {
 
   home-manager.users.will = import ./home.nix;
 
-  modules.unfree.allowList = [
-    "discord"
-    "slack"
-    "teams"
-  ];
+  modules.unfree.allowList = [ "discord" "slack" "teams" ];
 
   networking = {
     firewall.enable = true;

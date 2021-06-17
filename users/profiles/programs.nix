@@ -47,9 +47,7 @@
         signByDefault = true;
       };
 
-      extraConfig = {
-        merge.conflictstyle = "diff3";
-      };
+      extraConfig = { merge.conflictstyle = "diff3"; };
     };
 
     fzf = {
