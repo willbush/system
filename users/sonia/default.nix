@@ -51,16 +51,7 @@ in {
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [ curl fd ripgrep tree wget ];
 
-  programs = {
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-    # needed for gnome / gtk themes
-    dconf.enable = true;
-    qt5ct.enable = true;
-    less.enable = true;
-  };
+  programs.less.enable = true;
 
   system.stateVersion = "20.09";
 }

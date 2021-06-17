@@ -5,6 +5,7 @@ in {
     ../../modules/services/syncthing.nix
     ../../profiles/common/fonts.nix
     ../../profiles/common/nix-settings.nix
+    ../../profiles/common/system-programs.nix
   ];
 
   users = {
@@ -75,30 +76,20 @@ in {
     mullvad-vpn
   ];
 
-  programs = {
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-    # needed for gnome / gtk themes
-    dconf.enable = true;
-    qt5ct.enable = true;
-
-    less = {
-      enable = true;
-      # Rebind to my custom vim bindings for Colemak-DHm
-      commands = {
-        n = "forw-line";
-        e = "back-line";
-        N = "forw-scroll";
-        E = "back-scroll";
-        h = "repeat-search";
-        H = "reverse-search";
-        "^H" = "help"; # This syntax means C-h
-        k = "set-mark";
-        K = "set-mark-bottom";
-        j = "goto-mark";
-      };
+  programs.less = {
+    enable = true;
+    # Rebind to my custom vim bindings for Colemak-DHm
+    commands = {
+      n = "forw-line";
+      e = "back-line";
+      N = "forw-scroll";
+      E = "back-scroll";
+      h = "repeat-search";
+      H = "reverse-search";
+      "^H" = "help"; # This syntax means C-h
+      k = "set-mark";
+      K = "set-mark-bottom";
+      j = "goto-mark";
     };
   };
 
