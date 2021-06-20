@@ -304,8 +304,7 @@ git-timemachine-mode:
   :custom
   ;; Disabling this by default because when popup documentation prevents
   ;; which-key from working. Also I think I rather request documentation
-  ;; explicitly, than have all the popup noise Also I think I rather request
-  ;; documentation explicitly, than have all the popup noise.
+  ;; explicitly, than have all the popup noise.
   (lsp-ui-doc-enable nil)
   :config
 
