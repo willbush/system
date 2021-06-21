@@ -52,7 +52,7 @@
   ;; Starting flyspell with aspell on Windows is slow
   (unless IS-WINDOWS
     (add-hook 'text-mode-hook 'flyspell-mode)
-    (add-hook 'prog-mode-hook 'flyspell-mode)))
+    (add-hook 'prog-mode-hook 'flyspell-prog-mode)))
 
 (use-package define-word
   :commands define-word-at-point)
