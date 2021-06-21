@@ -18,6 +18,7 @@
     aspell
     aspellDicts.en
     aspellDicts.en-computers
+    aspellDicts.en-science
   ];
 
   programs.emacs = {
