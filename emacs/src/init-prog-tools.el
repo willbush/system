@@ -269,30 +269,32 @@ git-timemachine-mode:
   :hook (((rustic-mode haskell-mode) . lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration))
   :custom
-  (lsp-rust-analyzer-cargo-watch-command "clippy")
-  (lsp-eldoc-render-all t)
-  (lsp-idle-delay 0.6)
-  (lsp-rust-analyzer-server-display-inlay-hints t)
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :config
-
   ;; TODO: temp fix following error:
   ;; Error processing message (void-function lsp-headerline-breadcrumb-mode)
   ;; NOTE:
   ;; The issue seems fixed here: https://github.com/emacs-lsp/lsp-mode/issues/2896
   ;; However, I guess the fix hasn't made its way through melpa.
-  (setq lsp-headerline-breadcrumb-enable nil)
+  ;; TODO: do I even want this feature? https://emacs-lsp.github.io/lsp-mode/page/main-features/#breadcrumb-on-headerline
+  ;; going to try it out once it works.
+  (lsp-headerline-breadcrumb-enable nil)
+  (lsp-enable-indentation nil)
+  (lsp-enable-on-type-formatting nil)
+  (lsp-modeline-code-actions-enable nil)
+  (lsp-modeline-diagnostics-enable nil)
+  (lsp-idle-delay 0.6)
 
-  ;; Trying this out to keep things fast in lsp. Not sure yet it disabling this
-  ;; is a great idea.
-  (setq lsp-enable-file-watchers nil)
+  (lsp-rust-analyzer-cargo-watch-command "clippy")
+  (lsp-rust-analyzer-server-display-inlay-hints t)
 
   ;; I don't want lsp to prompt me to restart it when I close its buffer.
-  (setq lsp-restart 'ignore)
-  ;; This is the default, but I want to set it explicitly here.
-  (setq lsp-rust-server 'rust-analyzer)
+  (lsp-restart 'ignore)
 
+  (lsp-keymap-prefix "C-c l")
+
+  ;; This is the default, but I want to set it explicitly here.
+  (lsp-rust-server 'rust-analyzer)
+
+  :config
   (general-def
     :states 'normal
     :keymaps 'lsp-browser-mode-map
@@ -306,20 +308,13 @@ git-timemachine-mode:
   ;; which-key from working. Also I think I rather request documentation
   ;; explicitly, than have all the popup noise.
   (lsp-ui-doc-enable nil)
-  :config
-
   ;; The position of the popup documentation on hover. I don't like this
   ;; obstructing my view of the code.
-  (setq lsp-ui-doc-position 'top
-        lsp-ui-doc-border "purple4"
-        lsp-ui-flycheck-list-position 'right)
+  (lsp-ui-doc-position 'top)
+  (lsp-ui-doc-border "purple4")
+  (lsp-ui-flycheck-list-position 'right)
 
-  ;; This never seems to work for me and always results in void function errors
-  ;; in Rust and Haskell. There are bindings to toggle it on, and I should try
-  ;; it again sometime in the future.
-  (setq lsp-modeline-code-actions-enable nil
-        lsp-modeline-diagnostics-enable nil)
-
+  :config
   ;; Setup the keybindings for `lsp-ui-imenu'. Note that evil-collection
   ;; provides evil bindings for this, but I want mine different enough that I am
   ;; just doing it myself here.
