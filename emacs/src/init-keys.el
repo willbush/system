@@ -29,6 +29,7 @@
   "!" 'shell-command
   "'" 'my/open-shell
   "?" 'counsel-descbinds
+  "SPC" 'counsel-M-x
   "F" '(:ignore t :wk "frame")
   "FD" 'delete-other-frames
   "Fd" 'delete-frame
@@ -37,7 +38,6 @@
   "Fn" 'make-frame
   "Fo" 'other-frame
   "S" '(:ignore t :wk "spell-checking")
-  "SPC" 'counsel-M-x
   "Sb" 'flyspell-buffer
   "Sc" 'flyspell-correct-at-point
   "Sn" 'flyspell-correct-next
