@@ -50,18 +50,7 @@
       extraConfig = { merge.conflictstyle = "diff3"; };
 
       # enables https://github.com/dandavison/delta
-      delta = {
-        enable = true;
-        options = {
-          decorations = {
-            commit-decoration-style = "bold yellow box ul";
-            file-style = "bold yellow ul";
-            file-decoration-style = "none";
-          };
-          features = "side-by-side line-numbers decorations";
-          whitespace-error-style = "22 reverse";
-        };
-      };
+      delta.enable = true;
     };
 
     fzf = {
