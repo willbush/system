@@ -181,6 +181,13 @@ magit-blame-mode:
   ;; https://github.com/noctuid/evil-guide#why-dont-keys-defined-with-evil-define-key-work-immediately
   (add-hook 'magit-blame-mode-hook #'evil-normalize-keymaps))
 
+(use-package magit-delta
+  :if (executable-find "delta")
+  :hook (magit-mode . magit-delta-mode)
+  :custom
+  (magit-delta-delta-args
+   '("--24-bit-color" "always" "--features" "magit-delta" "--color-only")))
+
 (use-package git-timemachine
   :commands git-timemachine
   :config
