@@ -76,6 +76,7 @@
         lsp-mode
         lsp-ui
         magit
+        magit-delta
         markdown-mode
         markdown-toc
         mips-mode
