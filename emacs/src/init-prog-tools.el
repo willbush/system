@@ -184,9 +184,20 @@ magit-blame-mode:
 (use-package magit-delta
   :if (executable-find "delta")
   :hook (magit-mode . magit-delta-mode)
-  :custom
-  (magit-delta-delta-args
-   '("--24-bit-color" "always" "--features" "magit-delta" "--color-only")))
+  :config
+
+  (defun my/magit-delta-toggle ()
+    "Toggle magit-delta-mode and refresh magit."
+    (interactive)
+    (progn
+      (call-interactively 'magit-delta-mode)
+      (magit-refresh)))
+
+  (general-def
+    :prefix ","
+    :states 'normal
+    :keymaps 'magit-mode-map
+    "t" '(my/magit-delta-toggle :wk "toggle magit-delta")))
 
 (use-package git-timemachine
   :commands git-timemachine
