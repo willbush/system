@@ -3,6 +3,7 @@
     fonts = with pkgs; [
       dejavu_fonts
       emacs-all-the-icons-fonts
+      fira-mono
       hack-font
       inconsolata
       iosevka
