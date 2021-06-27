@@ -7,6 +7,5 @@
       temperature.day = 6500;
       temperature.night = 3000;
     };
-    lorri.enable = true;
   };
 }
