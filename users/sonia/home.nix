@@ -7,6 +7,7 @@
     ../profiles/bat.nix
     ../profiles/packages.nix
     ../profiles/programs.nix
+    ../profiles/services.nix
   ];
 
   home = rec {
