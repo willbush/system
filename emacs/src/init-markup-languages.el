@@ -130,6 +130,20 @@
              org-download-rename-at-point
              org-download-rename-last-file))
 
+(use-package org-pomodoro
+  :commands (org-pomodoro
+             org-pomodoro-extend-last-clock)
+  :custom
+  (org-pomodoro-audio-player "mpv")
+
+  (org-pomodoro-start-sound-p t)
+  (org-pomodoro-start-sound "~/sync/sounds/mario/powerup.wav")
+  (org-pomodoro-start-sound-args "-volume 80")
+
+  (org-pomodoro-finished-sound-p t)
+  (org-pomodoro-finished-sound "~/sync/sounds/mario/1up.wav")
+  (org-pomodoro-finished-sound-args "-volume 80"))
+
 ;;
 ;;; Markdown
 
