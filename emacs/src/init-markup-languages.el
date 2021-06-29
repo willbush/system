@@ -142,7 +142,25 @@
 
   (org-pomodoro-finished-sound-p t)
   (org-pomodoro-finished-sound "~/sync/sounds/mario/1up.wav")
-  (org-pomodoro-finished-sound-args "-volume 80"))
+  (org-pomodoro-finished-sound-args "-volume 80")
+
+  ;; plays when short break is finished.
+  (org-pomodoro-short-break-sound-p t)
+  (org-pomodoro-short-break-sound "~/sync/sounds/mario/coin.wav")
+  (org-pomodoro-short-break-sound-args "-volume 80")
+
+  ;; plays when long break is finished.
+  (org-pomodoro-long-break-sound-p t)
+  (org-pomodoro-long-break-sound "~/sync/sounds/mario/coin.wav")
+  (org-pomodoro-long-break-sound-args "-volume 80")
+
+  (org-pomodoro-killed-sound-p t)
+  (org-pomodoro-killed-sound "~/sync/sounds/mario/die.wav")
+  (org-pomodoro-killed-sound-args "-volume 80")
+
+  (org-pomodoro-overtime-sound-p t)
+  (org-pomodoro-overtime-sound "~/sync/sounds/star-fox/fox.wav")
+  (org-pomodoro-overtime-sound-args "-volume 80"))
 
 ;;
 ;;; Markdown
