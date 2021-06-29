@@ -38,6 +38,7 @@ in {
       feh
       hicolor-icon-theme # fall back icon theme
       lsof
+      mpv-unwrapped
       neofetch
       nethogs
       niv
@@ -122,12 +123,12 @@ in {
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" =
           "calc.desktop";
 
-        "audio/aac" = "vlc.desktop";
-        "audio/mpeg" = "vlc.desktop";
-        "audio/ogg" = "vlc.desktop";
-        "audio/wav" = "vlc.desktop";
-        "audio/webm" = "vlc.desktop";
-        "audio/x-midi" = "vlc.desktop";
+        "audio/aac" = "mpv.desktop";
+        "audio/mpeg" = "mpv.desktop";
+        "audio/ogg" = "mpv.desktop";
+        "audio/wav" = "mpv.desktop";
+        "audio/webm" = "mpv.desktop";
+        "audio/x-midi" = "mpv.desktop";
 
         "image/gif" = "sxiv.desktop";
         "image/jpeg" = "sxiv.desktop";
@@ -148,6 +149,7 @@ in {
         "video/mpeg" = "vlc.desktop";
         "video/ogg" = "vlc.desktop";
         "video/webm" = "vlc.desktop";
+        "video/x-matroska" = "vlc.desktop";
         "video/x-msvideo" = "vlc.desktop";
 
         "x-scheme-handler/about" = "firefox.desktop";
