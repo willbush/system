@@ -148,6 +148,9 @@
   "or" 'org-refile
   "os" 'org-save-all-org-buffers
   "ot" 'org-toggle-link-display
+  "op" '(:ignore t :wk "pomodoro")
+  "opp" 'org-pomodoro
+  "opx" 'org-pomodoro-extend-last-clock
   "p" 'projectile-command-map
   "q" '(:ignore t :wk "quit")
   "qQ" 'save-buffers-kill-emacs

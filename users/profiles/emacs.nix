@@ -86,6 +86,7 @@
         nix-update
         omnisharp
         org-download
+        org-pomodoro
         page-break-lines # emacs-dashboard dependency
         pandoc-mode
         password-generator
