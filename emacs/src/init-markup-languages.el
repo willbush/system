@@ -137,8 +137,7 @@
              org-download-rename-last-file))
 
 (use-package org-pomodoro
-  :commands (org-pomodoro
-             org-pomodoro-extend-last-clock)
+  :commands org-pomodoro
   :custom
   (org-pomodoro-audio-player "mpv")
 
