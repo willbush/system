@@ -8,6 +8,12 @@
   :commands (org-mode
              org-agenda
              org-capture)
+  :custom
+  ;; I don't want to see the status of the org-clock in the mode line because I
+  ;; typically clock in/out with org-pomodoro and it updates the mode line in a
+  ;; less verbose way.
+  (org-clock-clocked-in-display nil)
+
   :config
 
   (add-hook 'org-mode-hook
