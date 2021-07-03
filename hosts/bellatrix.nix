@@ -35,9 +35,14 @@
   swapDevices =
     [{ device = "/dev/disk/by-uuid/b91f3312-e433-42ba-ae1f-d9637319b89a"; }];
 
+  hardware = {
+    bluetooth.enable = true;
+  };
+
   services = {
     xserver.videoDrivers = [ "nvidia" ];
     fstrim.enable = true;
+    blueman.enable = true; # provides blueman-manager to manage Bluetooth devices
   };
 
   modules.unfree.allowList = [ "nvidia-x11" "nvidia-settings" ];
