@@ -15,7 +15,7 @@ in {
   ];
 
   home = rec {
-    stateVersion = "20.09";
+    stateVersion = "21.11";
     username = "will";
     homeDirectory = "/home/will";
 
