@@ -4,8 +4,10 @@
   services = {
     gpg-agent = {
       enable = true;
-      defaultCacheTtl = 18000;
-      defaultCacheTtlSsh = 18000;
+      defaultCacheTtl = 10800; # 3 hours
+      defaultCacheTtlSsh = 10800;
+      maxCacheTtl = 21600; # 6 hours
+      maxCacheTtlSsh = 21600;
     };
   };
 }
