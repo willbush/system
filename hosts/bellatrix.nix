@@ -42,7 +42,6 @@
   services = {
     xserver.videoDrivers = [ "nvidia" ];
     fstrim.enable = true;
-    blueman.enable = true; # provides blueman-manager to manage Bluetooth devices
   };
 
   modules.unfree.allowList = [ "nvidia-x11" "nvidia-settings" ];
