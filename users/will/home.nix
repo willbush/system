@@ -8,9 +8,10 @@ in {
       emacsPackage = pkgs.emacsGcc;
     })
     ../profiles/bat.nix
-    ../profiles/rofi.nix
+    ../profiles/gpg.nix
     ../profiles/packages.nix
     ../profiles/programs.nix
+    ../profiles/rofi.nix
     ../profiles/services.nix
   ];
 
