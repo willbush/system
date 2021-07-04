@@ -5,6 +5,7 @@
       emacsPackage = pkgs.emacsGit;
     })
     ../profiles/bat.nix
+    ../profiles/gpg.nix
     ../profiles/packages.nix
     ../profiles/programs.nix
     ../profiles/services.nix
