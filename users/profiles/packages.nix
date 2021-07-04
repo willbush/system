@@ -10,7 +10,6 @@
     git-crypt
     glances
     gnome3.gnome-screenshot
-    gnupg
     gopass
     hunspellDicts.en_US-large # spellcheck dictionary used by libreoffice
     inkscape
