@@ -58,7 +58,6 @@ in {
       tokei
       transmission-gtk
       ungoogled-chromium
-      veracrypt
       virt-manager
       xclip
       xdotool
