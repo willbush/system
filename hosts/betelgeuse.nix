@@ -72,5 +72,5 @@
     fstrim.enable = true;
   };
 
-  modules.unfree.allowList = [ "nvidia-x11" "nvidia-settings" "veracrypt" ];
+  modules.unfree.allowList = [ "nvidia-x11" "nvidia-settings" ];
 }
