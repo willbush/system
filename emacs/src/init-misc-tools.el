@@ -248,4 +248,8 @@
   (setq vterm-max-scrollback 10000
         vterm-buffer-name-string "vterm %s"))
 
+(use-package exec-path-from-shell
+  :if (not IS-WINDOWS)
+  :commands exec-path-from-shell-copy-env)
+
 (provide 'init-misc-tools)
