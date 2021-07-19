@@ -62,7 +62,6 @@ in {
       virt-manager
       xclip
       xdotool
-      zola
     ];
   };
 
