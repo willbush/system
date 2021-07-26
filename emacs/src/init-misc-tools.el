@@ -39,7 +39,7 @@
   :commands gcmh-idle-garbage-collect
   :config
   (setq gcmh-idle-delay 5
-        gcmh-high-cons-threshold MY/GC-CONS-THRESHOLD)
+        gcmh-high-cons-threshold GC-CONS-THRESHOLD)
   (add-function :after after-focus-change-function #'gcmh-idle-garbage-collect))
 
 (use-package flyspell
