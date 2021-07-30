@@ -5,6 +5,7 @@
     clang-tools
     du-dust
     exa
+    flameshot
     gcc
     gimp
     git-crypt
@@ -26,7 +27,6 @@
     python38Packages.mypy
     racket
     shfmt
-    shutter
     simple-scan
     syncthing-cli # provides stcli
     teams
