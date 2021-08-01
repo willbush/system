@@ -4,22 +4,22 @@
   :mode "\\.hs\\'"
   :init
   (add-hook 'haskell-mode-hook
-            '(lambda ()
-               (progn
-                 ;; For some reason haskell-mode doesn't respect global
-                 ;; tab-width. It uses 8 by default.
-                 (setq-local tab-width 2)
+            (lambda ()
+              (progn
+                ;; For some reason haskell-mode doesn't respect global
+                ;; tab-width. It uses 8 by default.
+                (setq-local tab-width 2)
 
-                 (set (make-local-variable 'company-backends)
-                      ;; Adding `company-capf' to the end of the list because
-                      ;; something else is adding it to the front of the list if
-                      ;; I don't.
+                (set (make-local-variable 'company-backends)
+                     ;; Adding `company-capf' to the end of the list because
+                     ;; something else is adding it to the front of the list if
+                     ;; I don't.
 
-                      ;; Note that `company-lsp' is also something to consider
-                      ;; using instead of `company-capf'. However, since it
-                      ;; hasn't seen any activity in a year on their Github
-                      ;; repository, I'm reluctant to use it.
-                      '((company-capf :with company-tabnine) company-tabnine company-capf)))))
+                     ;; Note that `company-lsp' is also something to consider
+                     ;; using instead of `company-capf'. However, since it
+                     ;; hasn't seen any activity in a year on their Github
+                     ;; repository, I'm reluctant to use it.
+                     '((company-capf :with company-tabnine) company-tabnine company-capf)))))
   :config
 
   ;; I'm not sure what, but something calls a function provided by `haskell-doc.el'
