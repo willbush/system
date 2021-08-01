@@ -73,6 +73,17 @@
   (with-eval-after-load 'warnings
     (add-to-list 'warning-suppress-types '(comp))))
 
+
+;;
+;;; Windows / Frames
+
+;; Favor vertical splits over horizontal ones. Without this something as simple
+;; as decreasing the font size can make `split-window-sensibly' favor splitting
+;; windows below.
+;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Window-Choice.html
+(setq split-width-threshold 160
+      split-height-threshold nil)
+
 ;;
 ;;; Backup Settings
 
