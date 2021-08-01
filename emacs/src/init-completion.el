@@ -21,7 +21,7 @@
         recentf-max-saved-items 1000)
 
   (add-hook 'dired-mode-hook
-            '(lambda ()
+            (lambda ()
               (recentf-add-file default-directory)))
 
   (add-hook 'kill-emacs-hook #'recentf-cleanup))

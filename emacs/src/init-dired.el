@@ -69,11 +69,11 @@
 
   ;; enter into insert mode to modify
   "l" 'dired-toggle-read-only
-  "A" '(lambda ()
-         (interactive)
-         (progn
-           (dired-toggle-read-only)
-           (evil-append-line 0)))
+  "A" (lambda ()
+        (interactive)
+        (progn
+          (dired-toggle-read-only)
+          (evil-append-line 0)))
 
   "!" 'dired-do-shell-command
   "&" 'dired-do-async-shell-command
