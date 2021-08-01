@@ -25,7 +25,7 @@
 ;; Set default font
 (set-face-attribute 'default nil
                     :family "Fira Mono"
-                    :height 100
+                    :height 110
                     :weight 'normal
                     :width 'normal)
 
