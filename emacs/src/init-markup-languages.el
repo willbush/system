@@ -17,7 +17,7 @@
   :config
 
   (add-hook 'org-mode-hook
-            '(lambda ()
+            (lambda ()
               (setq show-trailing-whitespace t)))
 
   (general-unbind
@@ -177,8 +177,8 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command '("pandoc" "--from=markdown" "--to=html5"))
   (add-hook 'markdown-mode-hook
-            '(lambda ()
-               (setq show-trailing-whitespace t))))
+            (lambda ()
+              (setq show-trailing-whitespace t))))
 
 (use-package markdown-toc
   :after markdown-mode)

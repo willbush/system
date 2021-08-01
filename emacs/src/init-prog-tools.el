@@ -277,8 +277,8 @@ git-timemachine-mode:
   :hook (lsp-mode . flycheck-mode))
 
 (add-hook 'prog-mode-hook
-          '(lambda ()
-             (setq show-trailing-whitespace t)))
+          (lambda ()
+            (setq show-trailing-whitespace t)))
 
 (use-package format-all :commands (format-all-buffer))
 
