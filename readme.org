@@ -83,30 +83,6 @@ nix build ".#iso"
 
 The ISO will be in the ~./result/iso~ build result folder.
 
-**** Nix Build segmentation fault work around
-
-#+begin_src
-❯ nix build ".#iso"
-warning: Git tree '/home/will/system' is dirty
-[1]    34681 segmentation fault (core dumped)  nix build ".#iso"
-#+end_src
-
-I started running into segmentation faults when doing ~nix flake check~ and
-realized it was during the build for the custom iso. This is a known issue
-that's open in nix flakes.
-
-See:
-
-- https://github.com/NixOS/nix/issues/4178
-- https://github.com/NixOS/nix/issues/4246
-- https://github.com/NixOS/nix/issues/4670
-
-The work around currently:
-
-#+begin_src shell
-GC_DONT_GC=1 nix build ".#iso"
-#+end_src
-
 *** Write Custom ISO to a USB stick
 
 Use ~lsblk~ to determine the device and replace ~/dev/sdX~ in the example below
