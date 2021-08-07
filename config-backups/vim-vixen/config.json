@@ -62,7 +62,7 @@
     "complete": "sbh"
   },
   "blacklist": [
-    "play.typeracer.com",
+    "*.typeracer.com",
     "monkeytype.com"
   ]
 }
