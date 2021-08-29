@@ -133,6 +133,19 @@ in {
           type = deviceType devices;
           versioning = staggeredVersioning;
         };
+        seedvault = rec {
+          id = "zfwgm-o1ue7";
+          label = ".SeedVaultAndroidBackup";
+          path = "/home/${cfg.user}/.SeedVaultAndroidBackup";
+          devices =
+            [ "betelgeuse" "tau-ceti" "saiph" "alnitak" "alnilam" "rigel" ];
+          enable = deviceEnabled devices;
+          type = deviceType devices;
+          versioning = {
+            type = "trashcan";
+            params.cleanoutDays = "30";
+          };
+        };
       };
     };
   };
