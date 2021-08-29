@@ -32,6 +32,7 @@ in {
 
     packages = with pkgs; [
       (firefox.override { extraNativeMessagingHosts = [ browserpass ]; })
+      android-tools
       discord
       dnsutils
       dotnet-sdk_3
