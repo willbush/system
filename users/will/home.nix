@@ -55,6 +55,7 @@ in {
       slack
       sxiv
       tdesktop # telegram desktop
+      teams
       texlive.combined.scheme-small # things needed for pandoc
       tokei
       transmission-gtk
