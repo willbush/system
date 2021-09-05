@@ -95,10 +95,10 @@ in {
       fadeDelta = 3;
       # I only want transparency for a couple of applications.
       opacityRule = [
-        "95:class_g *?= 'emacs' && focused"
-        "75:class_g *?= 'emacs' && !focused"
-        "90:class_g ?= 'alacritty' && focused"
-        "75:class_g ?= 'alacritty' && !focused"
+        "98:class_g *?= 'emacs' && focused"
+        "88:class_g *?= 'emacs' && !focused"
+        "98:class_g ?= 'alacritty' && focused"
+        "88:class_g ?= 'alacritty' && !focused"
       ];
     };
     lorri.enable = true;
