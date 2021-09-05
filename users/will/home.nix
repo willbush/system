@@ -61,6 +61,7 @@ in {
       transmission-gtk
       ungoogled-chromium
       virt-manager
+      woeusb # Windows ISO to USB drive utility
       xclip
       xdotool
     ];
