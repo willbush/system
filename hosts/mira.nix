@@ -1,21 +1,16 @@
 { config, lib, modulesPath, ... }: {
   imports = [
     "${modulesPath}/installer/scan/not-detected.nix"
-    ../users/will
+    ../users/sonia
     ../modules/unfree.nix
     ../profiles/boot/efi.nix
     ../profiles/common/host-settings.nix
     ../profiles/printer
-    ../profiles/virt
   ];
-
-  # Open firewall for NFS
-  networking.firewall.allowedTCPPorts = [ 2049 ];
 
   boot = {
     initrd = {
       checkJournalingFS = true; # run fsck for journal file system
-
       availableKernelModules = [
         "uhci_hcd"
         "ehci_pci"
@@ -37,23 +32,19 @@
 
   fileSystems = {
     "/boot" = {
-      device = "/dev/disk/by-uuid/841B-2A58";
+      device = "/dev/disk/by-uuid/7147-E657";
       fsType = "vfat";
     };
 
     "/" = {
-      device = "/dev/disk/by-uuid/1cc930ea-2e3c-405a-bc7d-543f2f7f0fb3";
+      device = "/dev/disk/by-uuid/1083beae-939d-4cea-9c6b-fcd34e60d6ad";
       fsType = "ext4";
-    };
-
-    "srv/nfs/media" = {
-      device = "/tank/media";
-      options = [ "bind" ];
     };
   };
 
   swapDevices =
-    [{ device = "/dev/disk/by-uuid/815a345f-d319-4cd6-b7d5-4ca31916b36b"; }];
+    [ { device = "/dev/disk/by-uuid/5ed331c6-253f-4c88-8651-62563df26913"; }
+    ];
 
   nix.maxJobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
@@ -67,20 +58,6 @@
     xserver.libinput.enable = true;
 
     fstrim.enable = true;
-
-    openssh = {
-      enable = true;
-      passwordAuthentication = false;
-      ports = [ 16596 ];
-    };
-
-    nfs.server = {
-      enable = true;
-      exports = ''
-        /srv/nfs       192.168.1.90(rw,sync,crossmnt,fsid=0,no_subtree_check)
-        /srv/nfs/media 192.168.1.90(rw,sync,no_root_squash,no_subtree_check)
-      '';
-    };
   };
 
   modules.unfree.allowList = [ "broadcom-sta" ];
