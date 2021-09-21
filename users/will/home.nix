@@ -35,7 +35,7 @@ in {
       android-tools
       discord
       dnsutils
-      dotnet-sdk_3
+      dotnet-sdk_5
       exiftool
       feh
       hicolor-icon-theme # fall back icon theme
