@@ -72,7 +72,7 @@ in {
           label = "sync";
           id = "my5ji-1zcu3";
           path = "/home/${cfg.user}/sync";
-          devices = [ "bellatrix" "meissa" "rigel" ];
+          devices = [ "bellatrix" "meissa" "mira" "rigel" ];
           enable = deviceEnabled devices;
           type = deviceType (remove "rigel" devices);
           versioning = staggeredVersioning;
@@ -90,7 +90,7 @@ in {
           label = "camera";
           id = "qtew9-yp0z9";
           path = "/home/${cfg.user}/images/camera";
-          devices = [ "bellatrix" "meissa" "rigel" ];
+          devices = [ "bellatrix" "meissa" "mira" "rigel" ];
           enable = deviceEnabled devices;
           type = deviceType (remove "rigel" devices);
           versioning = staggeredVersioning;
@@ -106,6 +106,7 @@ in {
             "alnilam"
             "bellatrix"
             "meissa"
+            "mira"
             "rigel"
           ];
           enable = deviceEnabled devices;
