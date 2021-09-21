@@ -64,6 +64,7 @@ in {
       woeusb # Windows ISO to USB drive utility
       xclip
       xdotool
+      zola
     ];
   };
 
