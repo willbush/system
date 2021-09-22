@@ -14,6 +14,8 @@ in {
   boot = {
     kernelModules = [ "wl" ];
     extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+    # Framework wifi needs Linux 5.13 or newer (https://grahamc.com/blog/nixos-on-framework)
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   isoImage.edition = "plasma5";
