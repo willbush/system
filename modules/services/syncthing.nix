@@ -62,8 +62,15 @@ in {
           label = "sync";
           id = "mhkcv-26vrq";
           path = "/home/${cfg.user}/sync";
-          devices =
-            [ "betelgeuse" "tau-ceti" "saiph" "alnitak" "alnilam" "stephenson2-18" "rigel" ];
+          devices = [
+            "alnilam"
+            "alnitak"
+            "betelgeuse"
+            "rigel"
+            "saiph"
+            "stephenson2-18"
+            "tau-ceti"
+          ];
           enable = deviceEnabled devices;
           type = deviceType (remove "rigel" devices);
           versioning = staggeredVersioning;
@@ -81,7 +88,7 @@ in {
           label = "camera";
           id = "6dmv9-w6iqp";
           path = "/home/${cfg.user}/images/camera";
-          devices = [ "betelgeuse" "tau-ceti" "saiph" "alnitak" "rigel" ];
+          devices = [ "alnitak" "betelgeuse" "rigel" "saiph" "tau-ceti" ];
           enable = deviceEnabled devices;
           type = deviceType (remove "rigel" devices);
           versioning = staggeredVersioning;
@@ -99,16 +106,16 @@ in {
           id = "zfp7q-qpnzd";
           path = "/home/${cfg.user}/keepass";
           devices = [
-            "betelgeuse"
-            "tau-ceti"
-            "saiph"
-            "alnitak"
             "alnilam"
-            "stephenson2-18"
+            "alnitak"
             "bellatrix"
+            "betelgeuse"
             "meissa"
             "mira"
             "rigel"
+            "saiph"
+            "stephenson2-18"
+            "tau-ceti"
           ];
           enable = deviceEnabled devices;
           type = deviceType (remove "rigel" devices);
@@ -129,8 +136,15 @@ in {
           id = "tuaur-mvey4";
           label = ".secrets";
           path = "/home/${cfg.user}/.secrets";
-          devices =
-            [ "betelgeuse" "tau-ceti" "saiph" "alnitak" "alnilam" "stephenson2-18" "rigel" ];
+          devices = [
+            "alnilam"
+            "alnitak"
+            "betelgeuse"
+            "rigel"
+            "saiph"
+            "stephenson2-18"
+            "tau-ceti"
+          ];
           enable = deviceEnabled devices;
           type = deviceType devices;
           versioning = staggeredVersioning;
@@ -139,8 +153,15 @@ in {
           id = "zfwgm-o1ue7";
           label = ".SeedVaultAndroidBackup";
           path = "/home/${cfg.user}/.SeedVaultAndroidBackup";
-          devices =
-            [ "betelgeuse" "tau-ceti" "saiph" "alnitak" "alnilam" "stephenson2-18" "rigel" ];
+          devices = [
+            "alnilam"
+            "alnitak"
+            "betelgeuse"
+            "rigel"
+            "saiph"
+            "stephenson2-18"
+            "tau-ceti"
+          ];
           enable = deviceEnabled devices;
           type = deviceType devices;
           versioning = {
