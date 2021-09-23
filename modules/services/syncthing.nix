@@ -63,7 +63,7 @@ in {
           id = "mhkcv-26vrq";
           path = "/home/${cfg.user}/sync";
           devices =
-            [ "betelgeuse" "tau-ceti" "saiph" "alnitak" "alnilam" "rigel" ];
+            [ "betelgeuse" "tau-ceti" "saiph" "alnitak" "alnilam" "stephenson2-18" "rigel" ];
           enable = deviceEnabled devices;
           type = deviceType (remove "rigel" devices);
           versioning = staggeredVersioning;
@@ -104,6 +104,7 @@ in {
             "saiph"
             "alnitak"
             "alnilam"
+            "stephenson2-18"
             "bellatrix"
             "meissa"
             "mira"
@@ -129,7 +130,7 @@ in {
           label = ".secrets";
           path = "/home/${cfg.user}/.secrets";
           devices =
-            [ "betelgeuse" "tau-ceti" "saiph" "alnitak" "alnilam" "rigel" ];
+            [ "betelgeuse" "tau-ceti" "saiph" "alnitak" "alnilam" "stephenson2-18" "rigel" ];
           enable = deviceEnabled devices;
           type = deviceType devices;
           versioning = staggeredVersioning;
@@ -139,7 +140,7 @@ in {
           label = ".SeedVaultAndroidBackup";
           path = "/home/${cfg.user}/.SeedVaultAndroidBackup";
           devices =
-            [ "betelgeuse" "tau-ceti" "saiph" "alnitak" "alnilam" "rigel" ];
+            [ "betelgeuse" "tau-ceti" "saiph" "alnitak" "alnilam" "stephenson2-18" "rigel" ];
           enable = deviceEnabled devices;
           type = deviceType devices;
           versioning = {
