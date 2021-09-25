@@ -6,6 +6,9 @@ let
   syschdemd = import ./syschdemd.nix { inherit lib pkgs config defaultUser; };
 in {
   # imports = [ "${modulesPath}/profiles/minimal.nix" ];
+  imports = [
+    ../profiles/common/nix-settings.nix
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
