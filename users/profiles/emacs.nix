@@ -85,6 +85,7 @@
         nix-mode
         nix-sandbox
         nix-update
+        nixpkgs-fmt
         omnisharp
         org-download
         org-pomodoro
