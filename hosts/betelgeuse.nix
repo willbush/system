@@ -71,6 +71,9 @@
       '';
     };
     fstrim.enable = true;
+
+    # needed for globalprotect-openconnect to work
+    globalprotect.enable = true;
   };
 
   modules.unfree.allowList = [ "nvidia-x11" "nvidia-settings" ];
