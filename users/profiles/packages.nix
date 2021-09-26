@@ -18,6 +18,7 @@
     keepassxc
     libreoffice-fresh
     mkpasswd
+    mutagen
     nixpkgs-fmt
     okular
     pavucontrol
