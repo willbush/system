@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 
 let planck = pkgs.callPackage ../../keyboard-firmware/planck { };
-in {
+in
+{
   imports = [
     (import ../profiles/emacs.nix {
       inherit pkgs;
