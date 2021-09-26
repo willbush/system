@@ -17,7 +17,7 @@
     keepassxc
     libreoffice-fresh
     mkpasswd
-    nixfmt
+    nixpkgs-fmt
     okular
     pavucontrol
     pdfgrep
