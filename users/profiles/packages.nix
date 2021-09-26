@@ -10,6 +10,7 @@
     gimp
     git-crypt
     glances
+    globalprotect-openconnect
     gnome3.gnome-screenshot
     gopass
     hunspellDicts.en_US-large # spellcheck dictionary used by libreoffice
