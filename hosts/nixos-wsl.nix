@@ -3,10 +3,11 @@
 with lib;
 let
   defaultUser = "will";
-  syschdemd = import ./syschdemd.nix { inherit lib pkgs config defaultUser; };
-in {
-  # imports = [ "${modulesPath}/profiles/minimal.nix" ];
+  syschdemd = import ./nixos-wsl/syschdemd.nix { inherit lib pkgs config defaultUser; };
+in
+{
   imports = [
+    ./nixos-wsl/build-tarball.nix
     ../profiles/common/nix-settings.nix
   ];
 
@@ -54,16 +55,20 @@ in {
 
   security.sudo.wheelNeedsPassword = false;
 
-  # Disable systemd units that don't make sense on WSL
-  systemd.services."serial-getty@ttyS0".enable = false;
-  systemd.services."serial-getty@hvc0".enable = false;
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@".enable = false;
+  systemd = {
+    # Don't allow emergency mode, because we don't have a console.
+    enableEmergencyMode = false;
 
-  systemd.services.firewall.enable = false;
-  systemd.services.systemd-resolved.enable = false;
-  systemd.services.systemd-udevd.enable = false;
+    # Disable systemd units that don't make sense on WSL
+    services = {
+      "serial-getty@ttyS0".enable = false;
+      "serial-getty@hvc0".enable = false;
+      "getty@tty1".enable = false;
+      "autovt@".enable = false;
 
-  # Don't allow emergency mode, because we don't have a console.
-  systemd.enableEmergencyMode = false;
+      firewall.enable = false;
+      systemd-resolved.enable = false;
+      systemd-udevd.enable = false;
+    };
+  };
 }
