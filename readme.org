@@ -367,3 +367,6 @@ Dual licensed under either of
 - MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
 
 at your option.
+
+However, code under the ~./hosts/nixos-wsl/~ directory is distributed solely
+under the Apache License, Version 2.0. See its [[file:hosts/nixos-wsl/readme.org][readme]] for more information.

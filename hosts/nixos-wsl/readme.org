@@ -1,0 +1,9 @@
+* Nixos WSL
+
+The code in this directory is taken from https://github.com/Trundle/NixOS-WSL
+since (at the time of this writing) it doesn't yet [[https://github.com/Trundle/NixOS-WSL/pull/19][have modular flake support]].
+
+* License
+
+Code in this directory is solely licensed under the Apache License, Version 2.0.
+See ~LICENSE~ or http://www.apache.org/licenses/LICENSE-2.0.html for details.
