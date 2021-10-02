@@ -46,6 +46,7 @@ in
       nethogs
       niv
       nix-prefetch-git
+      omnisharp-roslyn
       openconnect
       pandoc
       planck

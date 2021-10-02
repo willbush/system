@@ -86,7 +86,6 @@
         nix-sandbox
         nix-update
         nixpkgs-fmt
-        omnisharp
         org-download
         org-pomodoro
         page-break-lines # emacs-dashboard dependency
