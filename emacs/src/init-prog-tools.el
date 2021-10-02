@@ -189,7 +189,9 @@ magit-blame-mode:
 
 (use-package magit-delta
   :if (executable-find "delta")
-  :hook (magit-mode . magit-delta-mode)
+  ;; Default to off for now due to crippling performance when magit has a large
+  ;; number of diffs https://github.com/dandavison/magit-delta/issues/9 :hook
+  ;; (magit-mode . magit-delta-mode)
   :config
 
   (defun my/magit-delta-toggle ()
