@@ -20,7 +20,15 @@
       inherit (lib.attrsets) genAttrs;
 
       system = "x86_64-linux";
-      hosts = [ "betelgeuse" "tau-ceti" "mira" "bellatrix" "iso" "nixos-wsl" ];
+      hosts = [
+        "bellatrix"
+        "betelgeuse"
+        "iso"
+        "mintaka"
+        "mira"
+        "nixos-wsl"
+        "tau-ceti"
+      ];
 
       toConfig = hostName:
         nixosSystem {
