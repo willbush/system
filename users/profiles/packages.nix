@@ -2,11 +2,11 @@
   home.packages = with pkgs; [
     bc
     cachix
+    clang
     clang-tools
     du-dust
     exa
     flameshot
-    gcc
     gimp
     git-crypt
     glances
