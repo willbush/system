@@ -290,7 +290,7 @@ git-timemachine-mode:
 
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
-  :hook (((rustic-mode haskell-mode) . lsp-deferred)
+  :hook (((rustic-mode haskell-mode csharp-mode) . lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration))
   :custom
   ;; TODO: temp fix following error:
