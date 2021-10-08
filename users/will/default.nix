@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 let inherit (lib) fileContents;
-in {
+in
+{
   imports = [
     ../../modules/services/syncthing.nix
     ../../profiles/common/fonts.nix
@@ -72,7 +73,6 @@ in {
     ripgrep
     tree
     wget
-    # broken ATM unless firewall is disabled see: https://github.com/NixOS/nixpkgs/issues/113589
     mullvad-vpn
   ];
 
