@@ -13,7 +13,6 @@
       "https://hydra.iohk.io"
       "https://nix-community.cachix.org"
       "https://nix-tools.cachix.org"
-      "https://nixcache.reflex-frp.org"
       "https://willbush.cachix.org"
     ];
     binaryCachePublicKeys = [
@@ -21,7 +20,6 @@
       "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "nix-tools.cachix.org-1:ebBEBZLogLxcCvipq2MTvuHlP7ZRdkazFSQsbs0Px1A="
-      "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
       "willbush.cachix.org-1:PuQjKarzPYTnxgEzKUoTDQ+aN0SImhO8NMZ0CamKBL4="
     ];
     gc = {
