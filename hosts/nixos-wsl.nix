@@ -8,6 +8,7 @@ in
 {
   imports = [
     ./nixos-wsl/build-tarball.nix
+    ../profiles/common/fonts.nix
     ../profiles/common/nix-settings.nix
   ];
 
