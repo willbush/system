@@ -436,6 +436,12 @@ NixOS distribution.
     }
    #+end_src
 
+   Rebuild and switch:
+
+   #+begin_src shell
+     sudo nixos-rebuild switch
+   #+end_src
+
 4. Clone this repository and rebuild switch:
 
    #+begin_src shell
