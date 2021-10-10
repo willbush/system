@@ -33,10 +33,13 @@
     syncthing-cli # provides stcli
     tldr
     trash-cli
-    unar
-    unzip
     vlc
     xorg.xkill
+
+    # compressor / archiver packages
+    p7zip
+    unar
+    unzip
     zip
   ];
 }
