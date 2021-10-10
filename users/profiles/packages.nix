@@ -4,8 +4,10 @@
     cachix
     clang
     clang-tools
+    curl
     du-dust
     exa
+    fd
     flameshot
     gimp
     git-crypt
@@ -28,12 +30,15 @@
     python3
     python38Packages.mypy
     racket
+    ripgrep
     shfmt
     simple-scan
     syncthing-cli # provides stcli
     tldr
     trash-cli
+    tree
     vlc
+    wget
     xorg.xkill
 
     # compressor / archiver packages

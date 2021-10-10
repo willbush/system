@@ -67,11 +67,6 @@ in
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    curl
-    fd
-    ripgrep
-    tree
-    wget
     mullvad-vpn
   ];
 

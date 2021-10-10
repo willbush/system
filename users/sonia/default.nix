@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 let inherit (lib) fileContents;
-in {
+in
+{
   imports = [
     ../../modules/services/syncthing.nix
     ../../profiles/common/fonts.nix
@@ -45,9 +46,6 @@ in {
       };
     };
   };
-
-  # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [ curl fd ripgrep tree wget ];
 
   programs.less.enable = true;
 
