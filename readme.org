@@ -397,17 +397,21 @@ NixOS distribution.
    Edit the configuration to enable nix flakes and add the git package.
 
    #+begin_src nix
-    nix = {
-      package = pkgs.nixUnstable;
-      extraOptions = ''
-        experimental-features = nix-command flakes
-      '';
+    {
+      # ...
+      nix = {
+        package = pkgs.nixUnstable;
+        extraOptions = ''
+          experimental-features = nix-command flakes
+        '';
       };
 
-    # List packages installed in system profile.
-    environment.systemPackages = with pkgs; [
-      git
-    ];
+      # List packages installed in system profile.
+      environment.systemPackages = with pkgs; [
+        git
+      ];
+      # ...
+    }
    #+end_src
 
 4. Clone this repo and ~sudo nixos-rebuild switch --flake '/home/nixos/system/#nixos-wsl'~
