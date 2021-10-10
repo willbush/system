@@ -1,4 +1,10 @@
-* Table of Contents                                                     :TOC_3:
+* System Configuration
+
+Everything needed to build my NixOS system. Note this is highly customized
+configuration that's not targeting a wide audience. However, feel free to copy
+and use any parts of if you like in your own configuration.
+
+** Table of Contents                                                  :TOC_3:
 - [[#system-configuration][System Configuration]]
   - [[#folder-structure][Folder Structure]]
     - [[#config][config]]
@@ -19,12 +25,6 @@
     - [[#flake-learning-resources][Flake Learning Resources]]
     - [[#nixos-on-wsl2][NixOS on WSL2]]
 - [[#license][License]]
-
-* System Configuration
-
-Everything needed to build my NixOS system. Note this is highly customized
-configuration that's not targeting a wide audience. However, feel free to copy
-and use any parts of if you like in your own configuration.
 
 ** Folder Structure
 
