@@ -6,7 +6,6 @@ in
     ../../modules/services/syncthing.nix
     ../../profiles/common/fonts.nix
     ../../profiles/common/nix-settings.nix
-    ../../profiles/common/system-programs.nix
   ];
 
   users = {
@@ -91,6 +90,12 @@ in
       K = "set-mark-bottom";
       j = "goto-mark";
     };
+  };
+
+  programs = {
+    # needed for gnome / gtk themes
+    dconf.enable = true;
+    qt5ct.enable = true;
   };
 
   system.stateVersion = "21.11";
