@@ -357,6 +357,61 @@ file.
 - https://github.com/lexuge
 - https://github.com/divnix/devos
 
+*** NixOS on WSL2
+
+Thanks to [[https://github.com/Trundle/NixOS-WSL][NixOS-WSL]] I can run NixOS in WSL2 on Windows.
+
+Anytime I do this, I need to check what's changed since last time and update
+code copied from that repo into [[./hosts/nixos-wsl]]. Code was copied there because
+they don't yet [[https://github.com/Trundle/NixOS-WSL/pull/19][have modular flake support]].
+
+I can build my own tarball:
+
+#+begin_src shell
+nix build .#nixosConfigurations.nixos-wsl.config.system.build.tarball
+#+end_src
+
+The tarball ends up in ~./result/tarball/nixos-system-x86_64-linux.tar.gz~
+
+Copy it over to Windows and install:
+
+#+begin_src
+PS C:\Users\will\Downloads> mkdir C:\NixOS
+PS C:\Users\will\Downloads> wsl --import NixOS C:\NixOS\ .\nixos-system-x86_64-linux.tar.gz --version 2
+PS C:\Users\will\Downloads> wsl -d NixOS
+$ /nix/var/nix/profiles/system/activate
+$ exit
+#+end_src
+
+Set NixOS as the default ~wsl -s NixOS~ and ~wsl~ will now take me into the
+NixOS distribution.
+
+**** Bootstrap my WSL2 flake using NixOS-WSL's provided tarball
+
+1. Download the [[https://github.com/Trundle/NixOS-WSL/releases/latest/download/nixos-system-x86_64-linux.tar.gz][tarball]] from their GitHub page.
+
+2. Perform same steps above to install the tarball.
+
+3. ~sudo nano /etc/nixos/configuration.nix~
+
+   Edit the configuration to enable nix flakes and add the git package.
+
+   #+begin_src nix
+    nix = {
+      package = pkgs.nixUnstable;
+      extraOptions = ''
+        experimental-features = nix-command flakes
+      '';
+      };
+
+    # List packages installed in system profile.
+    environment.systemPackages = with pkgs; [
+      git
+    ];
+   #+end_src
+
+4. Clone this repo and ~sudo nixos-rebuild switch --flake '/home/nixos/system/#nixos-wsl'~
+
 * License
 
 Dual licensed under either of
