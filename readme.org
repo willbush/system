@@ -414,7 +414,11 @@ NixOS distribution.
     }
    #+end_src
 
-4. Clone this repo and ~sudo nixos-rebuild switch --flake '/home/nixos/system/#nixos-wsl'~
+4. Clone this repository and rebuild switch:
+
+   #+begin_src shell
+    sudo nixos-rebuild switch --flake '/home/nixos/system/#nixos-wsl'
+   #+end_src
 
 * License
 
