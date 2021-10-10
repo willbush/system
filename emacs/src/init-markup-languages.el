@@ -167,6 +167,10 @@
   (org-pomodoro-overtime-sound "~/sync/sounds/star-fox/fox.wav")
   (org-pomodoro-overtime-sound-args "-volume 80"))
 
+
+(use-package toc-org
+  :hook (org-mode . toc-org-mode))
+
 ;;
 ;;; Markdown
 
