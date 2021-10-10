@@ -6,6 +6,7 @@
     })
     ../profiles/bat.nix
     ../profiles/gpg.nix
+    ../profiles/packages-gui.nix
     ../profiles/packages.nix
     ../profiles/programs.nix
     ../profiles/services.nix
