@@ -9,7 +9,6 @@ in
   imports = [
     ../profiles/common/fonts.nix
     ../profiles/common/nix-settings.nix
-    ../users/profiles/packages.nix
     ./nixos-wsl/build-tarball.nix
   ];
 
@@ -21,6 +20,7 @@ in
         inherit pkgs;
         emacsPackage = pkgs.emacsGcc;
       })
+      ../users/profiles/packages.nix
     ];
 
     home = rec {
