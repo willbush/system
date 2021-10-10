@@ -101,6 +101,7 @@
         rustic
         sudo-edit
         swiper
+        toc-org
         use-package
         vimrc-mode
         visual-fill-column
