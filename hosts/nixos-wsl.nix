@@ -7,9 +7,10 @@ let
 in
 {
   imports = [
-    ./nixos-wsl/build-tarball.nix
     ../profiles/common/fonts.nix
     ../profiles/common/nix-settings.nix
+    ../users/profiles/packages.nix
+    ./nixos-wsl/build-tarball.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
