@@ -52,8 +52,6 @@
   swapDevices =
     [{ device = "/dev/disk/by-uuid/9b4fd40c-0435-444b-88b9-10be2a9736a8"; }];
 
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
-
   nix.maxJobs = lib.mkDefault 16;
 
   services = {
