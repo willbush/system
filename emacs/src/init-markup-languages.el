@@ -29,6 +29,13 @@
     "M-S-RET")
 
   (general-def
+    :states '(normal visual)
+    :keymaps 'org-mode-map
+    :major-modes t
+    "TAB" 'org-cycle
+    "RET" 'org-return)
+
+  (general-def
     :prefix ","
     :states 'normal
     :keymaps 'org-mode-map
