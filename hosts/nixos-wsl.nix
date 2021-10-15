@@ -2,7 +2,14 @@
 
 with lib;
 let
-  defaultUser = "will";
+  # Use the default user given by https://github.com/Trundle/NixOS-WSL because
+  # bootstrapping my config from theirs involves changing the user name, then
+  # the new name will have uid 1001. However, WSL default mount options assume
+  # user uid is 1000:
+  # https://docs.microsoft.com/en-us/windows/wsl/wsl-config#per-distribution-configuration-options-with-wslconf
+  # A user with a different uid will run into permission issues when copying
+  # files to WSL from Windows.
+  defaultUser = "nixos";
   syschdemd = import ./nixos-wsl/syschdemd.nix { inherit lib pkgs config defaultUser; };
 in
 {
@@ -32,7 +39,7 @@ in
         EDITOR = "emacsclient --create-frame --alternate-editor emacs";
       };
 
-      packages = with pkgs; [ mutagen ];
+      packages = with pkgs; [ mutagen git ];
     };
   };
 
@@ -45,6 +52,7 @@ in
   networking.dhcpcd.enable = false;
 
   users.users.${defaultUser} = {
+    uid = 1000;
     isNormalUser = true;
     extraGroups = [ "wheel" ];
   };
