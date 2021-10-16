@@ -21,7 +21,7 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
-  home-manager.users.will = {
+  home-manager.users.nixos = {
     imports = [
       (import ../users/profiles/emacs.nix {
         inherit pkgs;
@@ -32,8 +32,8 @@ in
 
     home = rec {
       stateVersion = "21.11";
-      username = "will";
-      homeDirectory = "/home/will";
+      username = defaultUser;
+      homeDirectory = "/home/${defaultUser}";
 
       sessionVariables = {
         EDITOR = "emacsclient --create-frame --alternate-editor emacs";
