@@ -33,19 +33,25 @@ in
     };
 
     packages = with pkgs; [
-      # gui
+      # GUI
+
+      ## browsers
       (firefox.override { extraNativeMessagingHosts = [ browserpass ]; })
+      ungoogled-chromium
+
+      ## chat
       discord
+      signal-desktop
+      slack
+      tdesktop # telegram desktop
+      teams
+
+      ## other
       hicolor-icon-theme # fall back icon theme
       mpv-unwrapped
       remmina
-      signal-desktop
-      slack
       sxiv
-      tdesktop # telegram desktop
-      teams
       transmission-gtk
-      ungoogled-chromium
       virt-manager
 
       # non-gui
