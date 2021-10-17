@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     # office
     libreoffice-fresh
+    hunspellDicts.en_US-large # spellcheck dictionary used by libreoffice
     okular
     simple-scan
 

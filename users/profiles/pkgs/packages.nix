@@ -1,38 +1,48 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    bc
-    cachix
-    clang
-    clang-tools
+    # core
     curl
-    du-dust
     exa
     fd
-    git-crypt
-    glances
-    gopass
-    hunspellDicts.en_US-large # spellcheck dictionary used by libreoffice
-    mkpasswd
-    mutagen
+    ripgrep
+    tree
+    wget
+
+    # dev
+    clang
+    clang-tools
     nixpkgs-fmt
-    pdfgrep
-    procs
     python3
     python38Packages.mypy
     racket
-    ripgrep
     shfmt
-    syncthing-cli # provides stcli
-    tldr
-    trash-cli
-    tree
-    wget
-    xorg.xkill
+
+    # security
+    git-crypt
+    gopass
+    mkpasswd
 
     # compressor / archiver packages
     p7zip
     unar
     unzip
     zip
+
+    # tui utils
+    glances
+    procs
+
+    # other utils
+    du-dust
+    mutagen
+    pdfgrep
+    tldr
+    trash-cli
+    xorg.xkill
+
+    # to remove
+    cachix
+    bc
+    syncthing-cli # provides stcli
   ];
 }
