@@ -39,10 +39,5 @@
     tldr
     trash-cli
     xorg.xkill
-
-    # to remove
-    cachix
-    bc
-    syncthing-cli # provides stcli
   ];
 }
