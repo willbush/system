@@ -10,6 +10,7 @@ in
     })
     ../profiles/bat.nix
     ../profiles/gpg.nix
+    ../profiles/gtk.nix
     ../profiles/packages-gui.nix
     ../profiles/packages.nix
     ../profiles/picom.nix
@@ -100,16 +101,4 @@ in
   };
 
   services.lorri.enable = true;
-
-  gtk = {
-    enable = true;
-    iconTheme = {
-      name = "Adwaita";
-      package = pkgs.gnome3.adwaita-icon-theme;
-    };
-    theme = {
-      name = "Adwaita-dark";
-      package = pkgs.gnome3.gnome_themes_standard;
-    };
-  };
 }
