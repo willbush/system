@@ -22,6 +22,7 @@ in
   users.users.${defaultUser} = {
     uid = 1000;
     isNormalUser = true;
+    shell = pkgs.zsh;
     extraGroups = [ "wheel" ];
   };
 
