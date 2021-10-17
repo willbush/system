@@ -3,7 +3,7 @@
 with lib;
 let
   # Use the default user given by https://github.com/Trundle/NixOS-WSL because
-  # bootstrapping my config from theirs involves changing the user name, then
+  # if bootstrapping my config from theirs involves changing the user name, then
   # the new name will have uid 1001. However, WSL default mount options assume
   # user uid is 1000:
   # https://docs.microsoft.com/en-us/windows/wsl/wsl-config#per-distribution-configuration-options-with-wslconf
