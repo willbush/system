@@ -34,11 +34,11 @@ in
       })
       ../profiles/bat.nix
       ../profiles/gpg.nix
+      ../profiles/gtk.nix
       ../profiles/pkgs/cli.nix
       ../profiles/pkgs/gui.nix
       ../profiles/programs.nix
       ../profiles/redshift.nix
-      ./gtk.nix
       ./picom.nix
       ./pkgs/cli.nix
       ./pkgs/gui.nix
