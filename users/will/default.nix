@@ -6,6 +6,7 @@ in
     ../../modules/services/syncthing.nix
     ../../profiles/common/fonts.nix
     ../../profiles/common/nix-settings.nix
+    ./less.nix
   ];
 
   users = {
@@ -106,23 +107,6 @@ in
   environment.systemPackages = with pkgs; [
     mullvad-vpn
   ];
-
-  programs.less = {
-    enable = true;
-    # Rebind to my custom vim bindings for Colemak-DHm
-    commands = {
-      n = "forw-line";
-      e = "back-line";
-      N = "forw-scroll";
-      E = "back-scroll";
-      h = "repeat-search";
-      H = "reverse-search";
-      "^H" = "help"; # This syntax means C-h
-      k = "set-mark";
-      K = "set-mark-bottom";
-      j = "goto-mark";
-    };
-  };
 
   programs = {
     # needed for gnome / gtk themes
