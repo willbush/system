@@ -12,9 +12,10 @@ in
     ../profiles/gpg.nix
     ../profiles/packages-gui.nix
     ../profiles/packages.nix
+    ../profiles/picom.nix
     ../profiles/programs.nix
-    ../profiles/rofi.nix
     ../profiles/redshift.nix
+    ../profiles/rofi.nix
     ../profiles/xdg.nix
   ];
 
@@ -98,25 +99,7 @@ in
     };
   };
 
-  services = {
-    picom = {
-      enable = true;
-      fade = true;
-      vSync = true;
-      experimentalBackends = true;
-      # the default 'glx' backend lags like crazy for me for some reason.
-      backend = "xrender";
-      fadeDelta = 3;
-      # I only want transparency for a couple of applications.
-      opacityRule = [
-        "98:class_g *?= 'emacs' && focused"
-        "88:class_g *?= 'emacs' && !focused"
-        "98:class_g ?= 'alacritty' && focused"
-        "88:class_g ?= 'alacritty' && !focused"
-      ];
-    };
-    lorri.enable = true;
-  };
+  services.lorri.enable = true;
 
   gtk = {
     enable = true;
