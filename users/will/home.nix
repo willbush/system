@@ -1,7 +1,4 @@
 { config, pkgs, ... }:
-
-let planck = pkgs.callPackage ../../keyboard-firmware/planck { };
-in
 {
   imports = [
     (import ../profiles/emacs.nix {
@@ -16,6 +13,8 @@ in
     ../profiles/redshift.nix
     ./gtk.nix
     ./picom.nix
+    ./pkgs/cli.nix
+    ./pkgs/gui.nix
     ./rofi.nix
     ./xdg.nix
   ];
@@ -34,52 +33,6 @@ in
       ".config".recursive = true;
       ".xmonad/xmonad.hs".source = ../../xmonad/xmonad.hs;
     };
-
-    packages = with pkgs; [
-      # GUI
-
-      ## browsers
-      (firefox.override { extraNativeMessagingHosts = [ browserpass ]; })
-      ungoogled-chromium
-
-      ## chat
-      discord
-      slack
-      tdesktop # telegram desktop
-      teams
-
-      ## other
-      hicolor-icon-theme # fall back icon theme
-      mpv-unwrapped
-      remmina
-      sxiv
-      transmission-gtk
-      virt-manager
-
-      # non-gui
-      android-tools
-      dnsutils
-      dotnet-sdk_5
-      exiftool
-      feh
-      lsof
-      neofetch
-      nethogs
-      niv
-      nix-prefetch-git
-      omnisharp-roslyn
-      openconnect
-      pandoc
-      planck
-      rust-analyzer
-      rustup
-      texlive.combined.scheme-small # things needed for pandoc
-      tokei
-      woeusb # Windows ISO to USB drive utility
-      xclip
-      xdotool
-      zola
-    ];
   };
 
   services.lorri.enable = true;
