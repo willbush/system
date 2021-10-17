@@ -12,5 +12,8 @@
     peek
     simple-scan
     vlc
+
+    # Chat
+    signal-desktop
   ];
 }

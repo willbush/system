@@ -44,7 +44,6 @@ in
 
       ## chat
       discord
-      signal-desktop
       slack
       tdesktop # telegram desktop
       teams
