@@ -7,8 +7,6 @@ let
   # the new name will have uid 1001. However, WSL default mount options assume
   # user uid is 1000:
   # https://docs.microsoft.com/en-us/windows/wsl/wsl-config#per-distribution-configuration-options-with-wslconf
-  # A user with a different uid will run into permission issues when copying
-  # files to WSL from Windows.
   defaultUser = "nixos";
   syschdemd = import ./nixos-wsl/syschdemd.nix { inherit lib pkgs config defaultUser; };
 in
