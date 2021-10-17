@@ -14,7 +14,7 @@ in
     ../profiles/packages.nix
     ../profiles/programs.nix
     ../profiles/rofi.nix
-    ../profiles/services.nix
+    ../profiles/redshift.nix
     ../profiles/xdg.nix
   ];
 
