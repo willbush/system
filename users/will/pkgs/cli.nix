@@ -3,24 +3,31 @@ let planck = pkgs.callPackage ../../../keyboard-firmware/planck { };
 in
 {
   home.packages = with pkgs; [
+    # dev
+    dotnet-sdk_5
+    nix-prefetch-git
+    omnisharp-roslyn
+    rust-analyzer
+    rustup
+    tokei
+
+    # tui
+    nethogs
+
+    # pandoc releted
+    pandoc
+    texlive.combined.scheme-small # things needed for pandoc
+
+    # other
     android-tools
     dnsutils
-    dotnet-sdk_5
     exiftool
     feh
     lsof
     neofetch
-    nethogs
     niv
-    nix-prefetch-git
-    omnisharp-roslyn
     openconnect
-    pandoc
     planck
-    rust-analyzer
-    rustup
-    texlive.combined.scheme-small # things needed for pandoc
-    tokei
     woeusb # Windows ISO to USB drive utility
     xclip
     xdotool
