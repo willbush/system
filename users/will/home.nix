@@ -33,16 +33,28 @@ in
     };
 
     packages = with pkgs; [
+      # gui
       (firefox.override { extraNativeMessagingHosts = [ browserpass ]; })
-      android-tools
       discord
+      hicolor-icon-theme # fall back icon theme
+      mpv-unwrapped
+      remmina
+      signal-desktop
+      slack
+      sxiv
+      tdesktop # telegram desktop
+      teams
+      transmission-gtk
+      ungoogled-chromium
+      virt-manager
+
+      # non-gui
+      android-tools
       dnsutils
       dotnet-sdk_5
       exiftool
       feh
-      hicolor-icon-theme # fall back icon theme
       lsof
-      mpv-unwrapped
       neofetch
       nethogs
       niv
@@ -51,19 +63,10 @@ in
       openconnect
       pandoc
       planck
-      remmina
       rust-analyzer
       rustup
-      signal-desktop
-      slack
-      sxiv
-      tdesktop # telegram desktop
-      teams
       texlive.combined.scheme-small # things needed for pandoc
       tokei
-      transmission-gtk
-      ungoogled-chromium
-      virt-manager
       woeusb # Windows ISO to USB drive utility
       xclip
       xdotool
