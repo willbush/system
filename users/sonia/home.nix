@@ -9,7 +9,7 @@
     ../profiles/packages-gui.nix
     ../profiles/packages.nix
     ../profiles/programs.nix
-    ../profiles/services.nix
+    ../profiles/redshift.nix
   ];
 
   home = rec {
