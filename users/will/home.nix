@@ -10,8 +10,8 @@ in
     })
     ../profiles/bat.nix
     ../profiles/gpg.nix
-    ../profiles/packages-gui.nix
-    ../profiles/packages.nix
+    ../profiles/pkgs/gui.nix
+    ../profiles/pkgs/packages.nix
     ../profiles/programs.nix
     ../profiles/redshift.nix
     ./gtk.nix
