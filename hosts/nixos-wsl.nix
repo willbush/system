@@ -27,7 +27,7 @@ in
         inherit pkgs;
         emacsPackage = pkgs.emacsGcc;
       })
-      ../users/profiles/packages.nix
+      ../users/profiles/pkgs/cli.nix
     ];
 
     home = rec {
