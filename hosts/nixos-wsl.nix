@@ -47,13 +47,22 @@ in
       homeDirectory = "/home/${defaultUser}";
 
       sessionVariables = {
-        EDITOR = "emacsclient --create-frame --alternate-editor emacs";
+        EDITOR = "em";
       };
 
       file = {
         ".config".source = ../config;
         ".config".recursive = true;
       };
+    };
+
+    # Add additional zsh aliass for wsl.
+    program.zsh.shellAliases = {
+      alias em = ''
+        export DISPLAY=$(ip route | awk '/^default/{print $3; exit}'):0.0
+        export LIBGL_ALWAYS_INDIRECT=1
+        setsid emacsclient --create-frame --alternate-editor emacs
+      '';
     };
   };
 
