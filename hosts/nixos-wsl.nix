@@ -57,7 +57,7 @@ in
     };
 
     # Add additional zsh aliass for wsl.
-    program.zsh.shellAliases = {
+    programs.zsh.shellAliases = {
       em = ''
         export DISPLAY=$(ip route | awk '/^default/{print $3; exit}'):0.0
         export LIBGL_ALWAYS_INDIRECT=1
