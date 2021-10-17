@@ -39,7 +39,7 @@ in
         EDITOR = "emacsclient --create-frame --alternate-editor emacs";
       };
 
-      packages = with pkgs; [ mutagen git ];
+      packages = with pkgs; [ git ];
     };
   };
 
