@@ -14,12 +14,18 @@ let
 in
 {
   imports = [
+    ../modules/unfree.nix
     ../profiles/common/fonts.nix
     ../profiles/common/nix-settings.nix
+    ../users/will/less.nix
     ./nixos-wsl/build-tarball.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
+  users.users.${defaultUser} = {
+    uid = 1000;
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+  };
 
   home-manager.users.nixos = {
     imports = [
@@ -27,7 +33,13 @@ in
         inherit pkgs;
         emacsPackage = pkgs.emacsGcc;
       })
+      ../users/profiles/bat.nix
+      ../users/profiles/gpg.nix
       ../users/profiles/pkgs/cli.nix
+      ../users/profiles/pkgs/cli.nix
+      ../users/profiles/programs.nix
+      ../users/will/pkgs/cli.nix
+      ../users/will/xdg.nix
     ];
 
     home = rec {
@@ -39,7 +51,10 @@ in
         EDITOR = "emacsclient --create-frame --alternate-editor emacs";
       };
 
-      packages = with pkgs; [ git ];
+      file = {
+        ".config".source = ../config;
+        ".config".recursive = true;
+      };
     };
   };
 
@@ -50,12 +65,6 @@ in
   environment.etc."resolv.conf".enable = false;
 
   networking.dhcpcd.enable = false;
-
-  users.users.${defaultUser} = {
-    uid = 1000;
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-  };
 
   users.users.root = {
     shell = "${syschdemd}/bin/syschdemd";
