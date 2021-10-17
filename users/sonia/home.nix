@@ -6,8 +6,8 @@
     })
     ../profiles/bat.nix
     ../profiles/gpg.nix
+    ../profiles/pkgs/cli.nix
     ../profiles/pkgs/gui.nix
-    ../profiles/pkgs/packages.nix
     ../profiles/programs.nix
     ../profiles/redshift.nix
   ];
