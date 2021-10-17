@@ -28,8 +28,10 @@
     zip
 
     # tui utils
+    btop
     glances
     procs
+    zenith
 
     # other utils
     du-dust
