@@ -13,7 +13,6 @@
     clang-tools
     nixpkgs-fmt
     python3
-    python38Packages.mypy
     racket
     shfmt
 
