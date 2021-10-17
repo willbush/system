@@ -10,14 +10,14 @@ in
     })
     ../profiles/bat.nix
     ../profiles/gpg.nix
-    ../profiles/gtk.nix
     ../profiles/packages-gui.nix
     ../profiles/packages.nix
-    ../profiles/picom.nix
     ../profiles/programs.nix
     ../profiles/redshift.nix
-    ../profiles/rofi.nix
-    ../profiles/xdg.nix
+    ./gtk.nix
+    ./picom.nix
+    ./rofi.nix
+    ./xdg.nix
   ];
 
   home = rec {
