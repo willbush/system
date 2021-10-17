@@ -1,19 +1,30 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    flameshot
-    gimp
-    globalprotect-openconnect
-    gnome3.gnome-screenshot
-    inkscape
-    keepassxc
+    # office
     libreoffice-fresh
     okular
-    pavucontrol
-    peek
     simple-scan
+
+    # security
+    globalprotect-openconnect
+    keepassxc
+
+    # chat
+    signal-desktop
+
+    # video
     vlc
 
-    # Chat
-    signal-desktop
+    # screenshot / screen capture
+    flameshot
+    gnome3.gnome-screenshot
+    peek
+
+    # image manipulation
+    inkscape
+    gimp
+
+    # volume control
+    pavucontrol
   ];
 }
