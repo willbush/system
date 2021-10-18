@@ -57,7 +57,7 @@ in
     };
 
     # Add additional zsh settings for WSL2.
-    programs.zsh.shellAliases = {
+    programs.zsh = {
       localVariables = {
         LIBGL_ALWAYS_INDIRECT = 1;
       };
