@@ -56,13 +56,18 @@ in
       };
     };
 
-    # Add additional zsh aliass for wsl.
+    # Add additional zsh settings for WSL2.
     programs.zsh.shellAliases = {
-      em = ''
-        export DISPLAY=$(ip route | awk '/^default/{print $3; exit}'):0.0
-        export LIBGL_ALWAYS_INDIRECT=1
-        setsid emacsclient --create-frame --alternate-editor emacs
-      '';
+      localVariables = {
+        LIBGL_ALWAYS_INDIRECT = 1;
+      };
+
+      shellAliases = {
+        em = ''
+          export DISPLAY=$(ip route | awk '/^default/{print $3; exit}'):0.0
+          setsid emacsclient --create-frame --alternate-editor emacs
+        '';
+      };
     };
   };
 
