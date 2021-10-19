@@ -100,11 +100,7 @@
     ssh = {
       enable = true;
       serverAliveInterval = 30;
-
-      matchBlocks."github" = {
-        hostname = "github.com";
-        identityFile = "~/.secrets/id_rsa_github";
-      };
+      matchBlocks = import ../../secrets/ssh-matchblocks.nix;
     };
 
     neovim = {
