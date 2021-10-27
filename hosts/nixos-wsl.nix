@@ -78,7 +78,7 @@ in
   # Only disable resolv.conf generation when allowing wsl to generate it
   # environment.etc."resolv.conf".enable = false;
 
-  networking = import ../../secrets/work-network-settings.nix;
+  networking = import ../secrets/work-network-settings.nix;
 
   users.users.root = {
     shell = "${syschdemd}/bin/syschdemd";
