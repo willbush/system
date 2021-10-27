@@ -75,9 +75,10 @@ in
   boot.isContainer = true;
 
   environment.etc.hosts.enable = false;
-  environment.etc."resolv.conf".enable = false;
+  # Only disable resolv.conf generation when allowing wsl to generate it
+  # environment.etc."resolv.conf".enable = false;
 
-  networking.dhcpcd.enable = false;
+  networking = import ../../secrets/work-network-settings.nix;
 
   users.users.root = {
     shell = "${syschdemd}/bin/syschdemd";
