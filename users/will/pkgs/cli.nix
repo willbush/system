@@ -4,7 +4,7 @@ in
 {
   home.packages = with pkgs; [
     # dev
-    dotnet-sdk_5
+    dotnet-sdk_6
     nix-prefetch-git
     omnisharp-roslyn
     rust-analyzer
