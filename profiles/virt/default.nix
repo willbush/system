@@ -2,7 +2,7 @@
   virtualisation = {
     libvirtd = {
       enable = true;
-      qemuRunAsRoot = false;
+      qemu.runAsRoot = false;
     };
 
     docker.enable = true;
