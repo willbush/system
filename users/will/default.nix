@@ -54,6 +54,7 @@ in
 
       sessionVariables = {
         EDITOR = "emacsclient --create-frame --alternate-editor emacs";
+        DOTNET_CLI_TELEMETRY_OPTOUT = 1;
       };
 
       file = {
