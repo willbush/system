@@ -47,7 +47,10 @@
         signByDefault = true;
       };
 
-      extraConfig = { merge.conflictstyle = "diff3"; };
+      extraConfig = {
+        merge.conflictstyle = "diff3";
+        pull.rebase = false;
+      };
 
       # enables https://github.com/dandavison/delta
       delta.enable = true;
