@@ -11,11 +11,14 @@
     tdesktop # telegram desktop
     teams
 
+    # image viewer
+    sxiv
+    cinnamon.xviewer
+
     # other
     hicolor-icon-theme # fall back icon theme
     mpv-unwrapped
     remmina
-    sxiv
     transmission-gtk
     virt-manager
   ];
