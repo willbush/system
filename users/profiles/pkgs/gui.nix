@@ -31,5 +31,8 @@
 
     # volume control
     pavucontrol
+
+    # Tools for monitoring the health of hard drives
+    smartmontools
   ];
 }
