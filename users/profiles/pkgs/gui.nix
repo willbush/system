@@ -6,10 +6,6 @@
     okular
     simple-scan
 
-    # java
-    jdk8
-    jetbrains.idea-community
-
     # security
     globalprotect-openconnect
     keepassxc
