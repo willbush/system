@@ -20,6 +20,15 @@
         recentf-max-menu-items 0
         recentf-max-saved-items 1000)
 
+  ;; Exclude these from recentf
+  (dolist
+      (ex '("\\.gpg$"
+            "^/scp:"
+            "^/ssh:"
+            "^/su:"
+            "^/sudo:"))
+    (add-to-list 'recentf-exclude ex))
+
   (add-hook 'dired-mode-hook
             (lambda ()
               (recentf-add-file default-directory)))
