@@ -54,6 +54,8 @@
 
   nix.maxJobs = lib.mkDefault 16;
 
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
+
   services = {
     xserver = {
       videoDrivers = [ "nvidia" ];
