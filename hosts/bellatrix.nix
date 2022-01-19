@@ -38,14 +38,6 @@
 
   hardware = {
     bluetooth.enable = true;
-    # The following setting was done to fix the following error:
-    # Failed assertions: - You cannot use wayland with GDM without modesetting
-    # enabled for NVIDIA drivers, set `hardware.nvidia.modesetting.enable =
-    # true`
-    nvidia = {
-      modesetting.enable = true;
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
-    };
   };
 
   services = {
