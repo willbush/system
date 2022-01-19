@@ -6,6 +6,7 @@
     ../modules/unfree.nix
     ../profiles/common/host-settings.nix
     ../profiles/printer
+    ../profiles/virt
   ];
 
   boot = {

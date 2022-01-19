@@ -18,7 +18,7 @@ in
         home = "/home/sonia";
         hashedPassword = fileContents ../../secrets/hashed-password-sonia.txt;
         shell = pkgs.zsh;
-        extraGroups = [ "wheel" "networkmanager" ];
+        extraGroups = [ "wheel" "networkmanager" "docker" ];
       };
     };
   };
