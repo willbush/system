@@ -6,6 +6,7 @@
     ../profiles/boot/efi.nix
     ../profiles/common/host-settings.nix
     ../profiles/printer
+    ../profiles/virt
   ];
 
   boot = {
