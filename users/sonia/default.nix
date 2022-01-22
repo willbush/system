@@ -75,7 +75,11 @@ in
 
       desktopManager.gnome.enable = true;
       displayManager = {
-        gdm.enable = true;
+        gdm = {
+          enable = true;
+          wayland = false;
+          nvidiaWayland = false;
+        };
         defaultSession = "gnome";
       };
     };
