@@ -36,6 +36,7 @@ in
       ../profiles/pkgs/gui.nix
       ../profiles/programs.nix
       ../profiles/redshift.nix
+      ./pkgs/gui.nix
     ];
 
     home = rec {
