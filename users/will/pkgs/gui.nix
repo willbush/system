@@ -9,8 +9,8 @@
     slack
 
     # image viewer
+    gnome.eog
     sxiv
-    cinnamon.xviewer
 
     # other
     hicolor-icon-theme # fall back icon theme
