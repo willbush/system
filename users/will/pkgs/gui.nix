@@ -6,10 +6,7 @@
     ungoogled-chromium
 
     # chat
-    discord
     slack
-    tdesktop # telegram desktop
-    teams
 
     # image viewer
     sxiv

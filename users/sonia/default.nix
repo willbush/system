@@ -59,6 +59,8 @@ in
     xdg.enable = true;
   };
 
+  modules.unfree.allowList = [ "discord" "teams" ];
+
   networking = {
     firewall.enable = true;
     networkmanager.enable = true;
