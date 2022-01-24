@@ -11,7 +11,9 @@
     keepassxc
 
     # chat
+    discord
     signal-desktop
+    teams
 
     # video
     vlc
