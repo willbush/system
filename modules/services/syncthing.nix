@@ -55,7 +55,7 @@ in
               cleanInterval = "3600";
               maxAge = "31536000"; # in seconds (365 days)
               versionsPath =
-                ".stversions"; # The default path (cannot ommit to get the default)
+                ".stversions"; # The default path (cannot omit to get the default)
             };
           };
 
