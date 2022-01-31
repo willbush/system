@@ -136,7 +136,7 @@ addkeys conf@XConfig {modMask = modm} =
   , ((modm, xK_l), spawn "betterlockscreen --lock dim")
   -- rofi keybindings
   , ((controlMask              , xK_space), spawn "rofi -show combi -combi-modi 'drun,run,ssh' -modi combi -show-icons")
-  , ((controlMask .|. shiftMask, xK_space), spawn "rofi -show p -modi p:rofi-power-menu -lines 6")
+  , ((controlMask .|. shiftMask, xK_space), spawn "rofi -show p -modi 'p:rofi-power-menu --choices=reboot/shutdown/logout/suspend'")
   -- https://github.com/svenstaro/rofi-calc
   , ((modm,                      xK_c),     spawn "rofi -show calc -modi calc -no-show-match -no-sort")
   ] ++
