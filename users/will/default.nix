@@ -40,9 +40,10 @@ in
       ../profiles/pkgs/gui.nix
       ../profiles/programs.nix
       ../profiles/redshift.nix
-      ./picom.nix
       ./pkgs/cli.nix
       ./pkgs/gui.nix
+      ./lockscreen.nix
+      ./picom.nix
       ./rofi.nix
       ./xdg.nix
     ];
