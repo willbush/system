@@ -2,7 +2,7 @@
 
   programs.rofi = {
     enable = true;
-    theme = "Indego";
+    theme = "Arc-Dark";
     pass.enable = true;
     font = "Hack Nerd Font Mono 12";
   };
