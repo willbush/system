@@ -132,6 +132,8 @@ addkeys conf@XConfig {modMask = modm} =
   -- Reflect layout across the x axis. There is a REFLECTY, but it flips the top
   -- highlight bar.
   , ((modm, xK_x), sendMessage $ MT.Toggle L.REFLECTX)
+  -- lock screen
+  , ((modm, xK_l), spawn "betterlockscreen --lock dim")
   -- rofi keybindings
   , ((controlMask              , xK_space), spawn "rofi -show combi -combi-modi 'drun,run,ssh' -modi combi -show-icons")
   , ((controlMask .|. shiftMask, xK_space), spawn "rofi -show p -modi p:rofi-power-menu -lines 6")
