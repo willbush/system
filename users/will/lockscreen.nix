@@ -1,7 +1,7 @@
 {
   services.betterlockscreen = {
     enable = true;
-    inactiveInterval = 1;
+    inactiveInterval = 5;
     arguments = [ "dim" ];
   };
 }
