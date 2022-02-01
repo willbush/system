@@ -16,6 +16,11 @@
     racket
     shfmt
 
+    # node
+    nodejs
+    nodePackages.npm
+    nodePackages.expo-cli
+
     # security
     git-crypt
     gopass
