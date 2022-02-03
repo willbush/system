@@ -14,11 +14,6 @@
                      ;; Adding `company-capf' to the end of the list because
                      ;; something else is adding it to the front of the list if
                      ;; I don't.
-
-                     ;; Note that `company-lsp' is also something to consider
-                     ;; using instead of `company-capf'. However, since it
-                     ;; hasn't seen any activity in a year on their Github
-                     ;; repository, I'm reluctant to use it.
                      '((company-capf :with company-tabnine) company-tabnine company-capf)))))
   :config
 
