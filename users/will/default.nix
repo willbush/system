@@ -68,7 +68,7 @@ in
     services.lorri.enable = true;
   };
 
-  modules.unfree.allowList = [ "discord" "slack" "teams" ];
+  modules.unfree.allowList = [ "discord" "slack" "teams" "rider" ];
 
   networking = {
     firewall.enable = true;
