@@ -11,7 +11,7 @@
 
 ;; better dired sorting defaults
 ;; https://www.emacswiki.org/emacs/DiredSorting
-(setq dired-listing-switches "-lah  --group-directories-first")
+(setq dired-listing-switches "-lahX  --group-directories-first")
 
 ;;
 ;;; Dired functions
