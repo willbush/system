@@ -191,6 +191,9 @@
             (lambda ()
               (setq show-trailing-whitespace t))))
 
+(use-package yaml-mode
+  :mode ("\\.yaml\\'" . yaml-mode))
+
 (use-package markdown-toc
   :after markdown-mode)
 
