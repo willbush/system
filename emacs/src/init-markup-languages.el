@@ -192,7 +192,11 @@
               (setq show-trailing-whitespace t))))
 
 (use-package yaml-mode
-  :mode ("\\.yaml\\'" . yaml-mode))
+  :mode ("\\.yaml\\'" . yaml-mode)
+  :init
+  (add-hook 'yaml-mode-hook
+            (lambda ()
+              (setq show-trailing-whitespace t))))
 
 (use-package markdown-toc
   :after markdown-mode)
