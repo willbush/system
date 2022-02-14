@@ -31,11 +31,14 @@
        "init-csharp"
        "init-dired"
        "init-editing"
+
+       ;; These two must come before other languages.
+       "init-misc-tools"
+       "init-prog-tools"
+
        "init-haskell"
        "init-languages"
        "init-markup-languages"
-       "init-misc-tools"
-       "init-prog-tools"
        "init-win-buffer-tools"
        "init-erc"
        "funcs"

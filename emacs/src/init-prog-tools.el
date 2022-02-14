@@ -292,8 +292,6 @@ git-timemachine-mode:
 
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
-  :hook (((rustic-mode haskell-mode c-mode) . lsp-deferred)
-         (lsp-mode . lsp-enable-which-key-integration))
   :custom
   ;; TODO: temp fix following error:
   ;; Error processing message (void-function lsp-headerline-breadcrumb-mode)
@@ -321,6 +319,8 @@ git-timemachine-mode:
   (lsp-rust-server 'rust-analyzer)
 
   :config
+  (lsp-enable-which-key-integration t)
+
   (general-def
     :states 'normal
     :keymaps 'lsp-browser-mode-map

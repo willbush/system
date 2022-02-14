@@ -5,11 +5,21 @@
 ;;; their own file.
 
 (use-package rustic
-  :mode ("\\.rs\\'" . rustic-mode))
+  :mode ("\\.rs\\'" . rustic-mode)
+  :hook (rustic-mode . lsp-deferred))
+
+(use-package cc-mode
+  :hook (c-mode . lsp-deferred))
 
 (use-package racket-mode :mode "\\.rkt\\'")
 
 (use-package mips-mode :mode "\\.mips$")
+
+(use-package typescript-mode
+  :mode "\\.ts[x]?\\'"
+  :hook (typescript-mode . lsp-deferred)
+  :config
+  (setq typescript-ident-level 2))
 
 ;; CSS / JavaScript (build in modes) indention level
 (setq-default css-indent-offset 2)

@@ -102,6 +102,7 @@
         sudo-edit
         swiper
         toc-org
+        typescript-mode
         use-package
         vimrc-mode
         visual-fill-column
