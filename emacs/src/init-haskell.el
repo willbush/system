@@ -2,6 +2,7 @@
 
 (use-package haskell-mode
   :mode "\\.hs\\'"
+  :hook (haskell-mode . lsp-deferred)
   :init
   (add-hook 'haskell-mode-hook
             (lambda ()

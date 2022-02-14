@@ -20,6 +20,8 @@
     nodejs
     nodePackages.npm
     nodePackages.expo-cli
+    nodePackages.typescript
+    nodePackages.typescript-language-server
 
     # security
     git-crypt
