@@ -16,7 +16,9 @@
 (use-package mips-mode :mode "\\.mips$")
 
 (use-package typescript-mode
-  :mode "\\.ts[x]?\\'"
+  ;; doesn't support tsx files yet:
+  ;; https://github.com/emacs-typescript/typescript.el/issues/4
+  :mode "\\.ts\\'"
   :hook (typescript-mode . lsp-deferred)
   :config
   (setq typescript-ident-level 2))

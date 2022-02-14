@@ -467,4 +467,29 @@ git-timemachine-mode:
 (use-package browse-at-remote
   :commands browse-at-remote browse-at-remote-kill)
 
+(use-package web-mode
+  :mode ("\\.[agj]sp\\'"
+         "\\.as[cp]x\\'"
+         "\\.css\\'"
+         "\\.djhtml\\'"
+         "\\.erb\\'"
+         "\\.html?\\'"
+         "\\.jsx?\\'"
+         "\\.mustache\\'"
+         "\\.phtml\\'"
+         "\\.scss\\'"
+         "\\.tpl\\.php\\'"
+         "\\.tsx?\\'"
+         "\\.xaml\\'"
+         "\\.xml\\'")
+  :custom
+  (web-mode-css-indent-offset 2)
+  (web-mode-enable-auto-pairing t)
+  (web-mode-enable-block-face t)
+  (web-mode-enable-comment-keywords t)
+  (web-mode-enable-css-colorization t)
+  (web-mode-enable-current-element-highlight t)
+  (web-mode-markup-indent-offset 2)
+  (web-mode-code-indent-offset 2))
+
 (provide 'init-prog-tools)
