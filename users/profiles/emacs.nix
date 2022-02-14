@@ -107,6 +107,7 @@
         vimrc-mode
         visual-fill-column
         vterm
+        web-mode
         which-key
         wttrin
         yaml-mode
