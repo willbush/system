@@ -42,6 +42,7 @@ in
       ../profiles/redshift.nix
       ./pkgs/cli.nix
       ./pkgs/gui.nix
+      ./git.nix
       ./lockscreen.nix
       ./picom.nix
       ./rofi.nix

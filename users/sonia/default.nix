@@ -36,6 +36,7 @@ in
       ../profiles/pkgs/gui.nix
       ../profiles/programs.nix
       ../profiles/redshift.nix
+      ./git.nix
       ./pkgs/gui.nix
     ];
 
