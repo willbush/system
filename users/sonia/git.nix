@@ -6,6 +6,7 @@
     userEmail = "sonia.y.santos@gmail.com";
 
     extraConfig = {
+      init.defaultBranch = "main";
       merge.conflictstyle = "diff3";
       pull.rebase = false;
     };
