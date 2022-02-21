@@ -60,7 +60,7 @@ in
     xdg.enable = true;
   };
 
-  modules.unfree.allowList = [ "discord" "teams" ];
+  modules.unfree.allowList = [ "discord" "teams" "android-studio-stable" ];
 
   networking = {
     firewall.enable = true;

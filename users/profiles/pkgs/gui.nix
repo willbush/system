@@ -32,5 +32,8 @@
 
     # Tools for monitoring the health of hard drives
     smartmontools
+
+    # Dev
+    android-studio
   ];
 }

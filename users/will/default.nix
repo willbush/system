@@ -69,7 +69,7 @@ in
     services.lorri.enable = true;
   };
 
-  modules.unfree.allowList = [ "discord" "slack" "teams" "rider" ];
+  modules.unfree.allowList = [ "discord" "slack" "teams" "rider" "android-studio-stable" ];
 
   networking = {
     firewall.enable = true;
