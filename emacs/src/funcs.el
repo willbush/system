@@ -146,6 +146,14 @@ Compare them on count first,and in case of tie sort them alphabetically."
   (set-buffer-file-coding-system 'utf-8-unix nil))
 
 ;;;###autoload
+(defun my/delete-carrage-returns ()
+  (interactive)
+  (save-excursion
+    (goto-char 0)
+    (while (search-forward "\r" nil :noerror)
+      (replace-match ""))))
+
+;;;###autoload
 (defun my/unix2dos ()
   "Convert the current buffer to a DOS file encoding."
   (interactive)
