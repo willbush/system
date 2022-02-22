@@ -41,6 +41,7 @@
     zenith
 
     # other utils
+    android-tools
     du-dust
     mutagen
     pdfgrep
