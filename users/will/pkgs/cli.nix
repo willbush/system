@@ -19,7 +19,6 @@ in
     texlive.combined.scheme-small # things needed for pandoc
 
     # other
-    android-tools
     dnsutils
     exiftool
     feh
