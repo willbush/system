@@ -115,6 +115,11 @@ in
     # needed for gnome / gtk themes
     dconf.enable = true;
     qt5ct.enable = true;
+
+    neovim = {
+      enable = true;
+      extraConfig = builtins.readFile ../../nvim/init.vim;
+    };
   };
 
   system.stateVersion = "21.11";
