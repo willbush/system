@@ -18,8 +18,9 @@
 
     # node
     nodejs
-    nodePackages.npm
     nodePackages.expo-cli
+    nodePackages.npm
+    nodePackages.prettier
     nodePackages.typescript
     nodePackages.typescript-language-server
 
