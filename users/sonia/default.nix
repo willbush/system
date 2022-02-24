@@ -58,6 +58,10 @@ in
     };
 
     xdg.enable = true;
+
+    programs = {
+      neovim.enable = true;
+    };
   };
 
   modules.unfree.allowList = [ "discord" "teams" "android-studio-stable" ];
