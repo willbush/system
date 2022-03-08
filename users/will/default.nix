@@ -79,7 +79,7 @@ in
   modules.unfree.allowList = [ "discord" "slack" "teams" "rider" "android-studio-stable" ];
 
   networking = {
-    firewall.enable = true;
+    firewall.enable = false;
     networkmanager.enable = true;
     iproute2.enable = true; # Needed for mullvad daemon
     wireguard.enable = true;

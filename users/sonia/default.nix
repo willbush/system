@@ -67,7 +67,7 @@ in
   modules.unfree.allowList = [ "discord" "teams" "android-studio-stable" ];
 
   networking = {
-    firewall.enable = true;
+    firewall.enable = false;
     networkmanager.enable = true;
   };
 
