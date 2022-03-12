@@ -35,6 +35,7 @@
 
     # Dev
     android-studio
+    arduino
     vscodium
   ];
 }
