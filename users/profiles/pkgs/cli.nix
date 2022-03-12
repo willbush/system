@@ -11,6 +11,7 @@
     # dev
     clang
     clang-tools
+    github-changelog-generator
     nixpkgs-fmt
     python3
     racket
