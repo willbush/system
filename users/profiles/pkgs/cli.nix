@@ -24,6 +24,8 @@
     nodePackages.prettier
     nodePackages.typescript
     nodePackages.typescript-language-server
+    nodePackages.npm-check-updates
+    nodePackages.react-native-cli
 
     # security
     git-crypt
