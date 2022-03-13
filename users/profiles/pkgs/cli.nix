@@ -9,6 +9,7 @@
     wget
 
     # dev
+    android-tools
     clang
     clang-tools
     github-changelog-generator
@@ -45,12 +46,12 @@
     zenith
 
     # other utils
-    android-tools
     du-dust
     mutagen
     pdfgrep
     tldr
     trash-cli
+    usbutils
     xorg.xkill
   ];
 }
