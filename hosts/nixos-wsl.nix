@@ -37,6 +37,7 @@ in
       ../users/profiles/pkgs/cli.nix
       ../users/profiles/pkgs/cli.nix
       ../users/profiles/programs.nix
+      ../users/will/git.nix
       ../users/will/pkgs/cli.nix
       ../users/will/xdg.nix
     ];
