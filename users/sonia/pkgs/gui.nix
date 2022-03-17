@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     # java
-    jdk8
+    jdk
     jetbrains.idea-community
   ];
 }

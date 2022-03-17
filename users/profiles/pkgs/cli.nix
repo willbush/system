@@ -13,6 +13,7 @@
     clang
     clang-tools
     github-changelog-generator
+    jdk
     nixpkgs-fmt
     python3
     racket
