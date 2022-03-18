@@ -54,7 +54,10 @@
 
   nix.maxJobs = lib.mkDefault 16;
 
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
+  hardware = {
+    nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
+    opengl.enable = true;
+  };
 
   services = {
     xserver = {
