@@ -106,7 +106,7 @@ in
 
       displayManager = {
         defaultSession = "none+xmonad";
-        lightdm.enable = true;
+        sddm.enable = true;
       };
     };
 
