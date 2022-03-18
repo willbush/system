@@ -61,7 +61,6 @@
         plugins = [
           # Completion providers:
           "ripgrep"
-          "cargo"
           "rust"
           "fd"
         ];
