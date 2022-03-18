@@ -43,10 +43,9 @@
   };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/5ed331c6-253f-4c88-8651-62563df26913"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/5ed331c6-253f-4c88-8651-62563df26913"; }];
 
-  nix.maxJobs = lib.mkDefault 4;
+  nix.settings.max-jobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   # Lets me control the backlight via the command line.
