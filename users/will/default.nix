@@ -44,7 +44,7 @@ in
       ./pkgs/gui.nix
       ./git.nix
       ./lockscreen.nix
-      ./picom.nix
+      # ./picom.nix
       ./rofi.nix
       ./xdg.nix
     ];
