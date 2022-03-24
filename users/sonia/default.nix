@@ -88,7 +88,6 @@ in
         gdm = {
           enable = true;
           wayland = false;
-          nvidiaWayland = false;
         };
         defaultSession = "gnome";
       };
