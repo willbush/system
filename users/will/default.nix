@@ -19,7 +19,15 @@ in
         home = "/home/will";
         hashedPassword = fileContents ../../secrets/hashed-password-will.txt;
         shell = pkgs.zsh;
-        extraGroups = [ "wheel" "networkmanager" "docker" "libvirtd" ];
+        extraGroups = [
+          "wheel"
+          "networkmanager"
+          "docker"
+          "libvirtd"
+          # For Arduino ESP32
+          "tty"
+          "dialout"
+        ];
         openssh.authorizedKeys.keys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEE2hQsuOQZ3PvM2DdI0vxpaBFoRQpFhGXZmeRq8Srs6 tau-ceti-2020-11-16"
         ];
