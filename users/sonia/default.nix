@@ -18,7 +18,14 @@ in
         home = "/home/sonia";
         hashedPassword = fileContents ../../secrets/hashed-password-sonia.txt;
         shell = pkgs.zsh;
-        extraGroups = [ "wheel" "networkmanager" "docker" ];
+        extraGroups = [
+          "wheel"
+          "networkmanager"
+          "docker"
+          # For Arduino ESP32
+          "tty"
+          "dialout"
+        ];
       };
     };
   };
