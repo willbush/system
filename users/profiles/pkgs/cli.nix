@@ -13,21 +13,18 @@
     clang
     clang-tools
     github-changelog-generator
-    jdk
     nixpkgs-fmt
     python3
     racket
     shfmt
 
     # node
-    nodejs
     nodePackages.expo-cli
     nodePackages.npm
     nodePackages.prettier
     nodePackages.typescript
     nodePackages.typescript-language-server
-    nodePackages.npm-check-updates
-    nodePackages.react-native-cli
+    nodejs
 
     # security
     git-crypt
