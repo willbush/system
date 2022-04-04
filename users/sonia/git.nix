@@ -14,4 +14,10 @@
     # enables https://github.com/dandavison/delta
     delta.enable = true;
   };
+
+  ssh = {
+    enable = true;
+    serverAliveInterval = 30;
+    matchBlocks = import ../../secrets/ssh-matchblocks-sonia.nix;
+  };
 }

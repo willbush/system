@@ -24,7 +24,7 @@
     ssh = {
       enable = true;
       serverAliveInterval = 30;
-      matchBlocks = import ../../secrets/ssh-matchblocks.nix;
+      matchBlocks = import ../../secrets/ssh-matchblocks-will.nix;
     };
   };
 }
