@@ -143,7 +143,11 @@ in
             devices = [
               "alnilam"
               "alnitak"
+              "bellatrix"
               "betelgeuse"
+              "meissa"
+              "mintaka"
+              "mira"
               "rigel"
               "saiph"
               "stephenson2-18"
