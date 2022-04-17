@@ -8,7 +8,7 @@
 
       extraConfig = {
         init.defaultBranch = "main";
-        merge.conflictstyle = "diff3";
+        merge.conflictstyle = "zdiff3";
         pull.rebase = false;
       };
 
