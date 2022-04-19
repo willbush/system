@@ -16,7 +16,7 @@ in
     ../profiles/common/fonts.nix
     ../profiles/common/nix-settings.nix
     ../users/will/less.nix
-    ./nixos-wsl/modules/build-tarball.nix
+    ./nixos-wsl/build-tarball.nix
   ];
 
   users.users.${defaultUser} = {
