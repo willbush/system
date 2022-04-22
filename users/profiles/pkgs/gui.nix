@@ -18,10 +18,12 @@
     # video
     vlc
 
+
     # screenshot / screen capture
     flameshot
     gnome3.gnome-screenshot
     peek
+    simplescreenrecorder
 
     # image manipulation
     inkscape
