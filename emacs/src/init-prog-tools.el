@@ -284,12 +284,6 @@ git-timemachine-mode:
 
 (use-package format-all :commands (format-all-buffer))
 
-(use-package aggressive-indent
-  :hook ((css-mode
-          elisp-mode
-          rustic-mode
-          java-mode) . aggressive-indent-mode))
-
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
   :custom
