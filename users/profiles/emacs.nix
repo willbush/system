@@ -25,7 +25,6 @@
     extraPackages = (epkgs:
       (with epkgs; [
         adaptive-wrap
-        aggressive-indent
         all-the-icons-ivy
         avy
         browse-at-remote
