@@ -1,4 +1,4 @@
-{ pkgs, emacsPackage ? pkgs.emacsGcc, ... }: {
+{ pkgs, emacsPackage ? pkgs.emacsNativeComp, ... }: {
 
   home.file = {
     ".emacs.d" = {
