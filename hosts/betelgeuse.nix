@@ -38,15 +38,6 @@
       device = "/dev/disk/by-uuid/a036ac4a-9f1a-4fb9-bcac-001f8fc2f5b1";
       fsType = "ext4";
     };
-    "/mnt/media" = {
-      device = "tau-ceti:/media";
-      fsType = "nfs";
-      options = [
-        "x-systemd.automount"
-        "noauto"
-        "x-systemd.idle-timeout=600" # disconnects after 10 minutes (i.e. 600 seconds)
-      ];
-    };
   };
 
   swapDevices =
