@@ -39,7 +39,7 @@ in
     imports = [
       (import ../profiles/emacs.nix {
         inherit pkgs;
-        emacsPackage = pkgs.emacsGcc;
+        emacsPackage = pkgs.emacsNativeComp;
       })
       ../profiles/bat.nix
       ../profiles/gpg.nix
