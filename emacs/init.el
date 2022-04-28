@@ -22,6 +22,7 @@
 ;; order matters in the initialization process.
 (mapc 'load
       (list
+       "init-dashboard"
        "init-settings"
        ;; Put key binding packages high on the list so other files can also bind
        ;; keys and define hydras.
