@@ -5,9 +5,7 @@
 
 (use-package dashboard
   :init
-  ;; causes emacs daemon to lock up when attempting to start
-  ;; see: https://github.com/emacs-dashboard/emacs-dashboard/issues/334
-  ;; (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+  (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
   :config
 
   (let ((art "~/code/external/nixos-artwork/logo/nix-snowflake.svg"))
