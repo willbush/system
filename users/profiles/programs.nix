@@ -60,9 +60,11 @@
         enable = true;
         plugins = [
           # Completion providers:
+          "docker"
+          "docker-compose"
+          "fd"
           "ripgrep"
           "rust"
-          "fd"
         ];
       };
 
