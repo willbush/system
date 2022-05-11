@@ -15,6 +15,8 @@
 
 (use-package mips-mode :mode "\\.mips$")
 
+(use-package dockerfile-mode :mode "Dockerfile\\'")
+
 (use-package typescript-mode
   ;; doesn't support tsx files yet:
   ;; https://github.com/emacs-typescript/typescript.el/issues/4

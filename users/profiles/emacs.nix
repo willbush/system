@@ -40,6 +40,7 @@
         diredfl
         direnv
         disk-usage
+        dockerfile-mode
         doom-modeline
         doom-themes
         edwina
