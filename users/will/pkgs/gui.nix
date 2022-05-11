@@ -12,6 +12,9 @@
     gnome.eog
     sxiv
 
+    # video editor
+    libsForQt5.kdenlive
+
     # dev
     jetbrains.rider
 
