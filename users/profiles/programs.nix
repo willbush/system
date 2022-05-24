@@ -62,6 +62,7 @@
           # Completion providers:
           "docker"
           "docker-compose"
+          "dotnet"
           "fd"
           "helm"
           "kubectl"
