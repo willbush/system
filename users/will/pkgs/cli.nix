@@ -12,8 +12,9 @@ in
     tokei
 
     # k8s
-    minikube
     kubectl
+    kubernetes-helm
+    minikube
 
     # tui
     nethogs
