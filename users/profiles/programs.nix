@@ -63,6 +63,8 @@
           "docker"
           "docker-compose"
           "fd"
+          "kubectl"
+          "minikube"
           "ripgrep"
           "rust"
         ];
