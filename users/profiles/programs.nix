@@ -63,6 +63,7 @@
           "docker"
           "docker-compose"
           "fd"
+          "helm"
           "kubectl"
           "minikube"
           "ripgrep"
