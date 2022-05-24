@@ -11,6 +11,10 @@ in
     rustup
     tokei
 
+    # k8s
+    minikube
+    kubectl
+
     # tui
     nethogs
 
