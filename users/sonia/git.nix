@@ -7,6 +7,7 @@
       userEmail = "sonia.y.santos@gmail.com";
 
       extraConfig = {
+        core.autocrlf = "input";
         init.defaultBranch = "main";
         merge.conflictstyle = "zdiff3";
         pull.rebase = false;
