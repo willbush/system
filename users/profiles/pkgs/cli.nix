@@ -46,6 +46,7 @@
 
     # other utils
     du-dust
+    file
     mutagen
     pdfgrep
     tldr
