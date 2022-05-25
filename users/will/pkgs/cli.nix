@@ -19,7 +19,7 @@ in
     # tui
     nethogs
 
-    # pandoc releted
+    # pandoc related
     pandoc
     texlive.combined.scheme-small # things needed for pandoc
 
