@@ -15,6 +15,7 @@ in
     kubectl
     kubernetes-helm
     minikube
+    argocd
 
     # tui
     nethogs
