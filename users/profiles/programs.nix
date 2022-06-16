@@ -50,9 +50,11 @@
       enableCompletion = true;
       enableAutosuggestions = true;
       shellAliases = {
+        k = "kubectl";
+        kgp = "kubectl get pods";
         l = "exa";
-        ll = "exa -l";
         la = "exa -lah";
+        ll = "exa -l";
         vim = "nvim";
       };
 
