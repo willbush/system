@@ -58,7 +58,7 @@ in
     ];
 
     home = rec {
-      stateVersion = "21.11";
+      stateVersion = "22.05";
       username = "will";
       homeDirectory = "/home/will";
 
@@ -132,5 +132,5 @@ in
     qt5ct.enable = true;
   };
 
-  system.stateVersion = "21.11";
+  system.stateVersion = "22.05";
 }
