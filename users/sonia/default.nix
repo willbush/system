@@ -48,7 +48,7 @@ in
     ];
 
     home = rec {
-      stateVersion = "21.11";
+      stateVersion = "22.05";
       username = "sonia";
       homeDirectory = "/home/sonia";
 
@@ -103,5 +103,5 @@ in
 
   programs.less.enable = true;
 
-  system.stateVersion = "21.11";
+  system.stateVersion = "22.05";
 }
