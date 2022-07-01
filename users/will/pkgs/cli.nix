@@ -4,6 +4,7 @@ in
 {
   home.packages = with pkgs; [
     # dev
+    bfg-repo-cleaner
     dotnet-sdk_6
     nix-prefetch-git
     omnisharp-roslyn
