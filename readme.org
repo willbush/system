@@ -348,7 +348,7 @@ Build and switch to the generation provided by the flake for machine / host
 name:
 
 #+begin_src shell
-sudo -u <username> nixos-rebuild switch --flake <PATH_TO_GIT_REPO>#<MACHINE>
+sudo -E nixos-rebuild switch --flake <PATH_TO_GIT_REPO>#<MACHINE>
 #+end_src
 
 For example:
@@ -356,7 +356,7 @@ For example:
 #+begin_src shell
 git clone https://github.com/willbush/system.git
 cd system
-sudo -u will nixos-rebuild switch --flake '.#betelgeuse'
+sudo -E nixos-rebuild switch --flake '.#betelgeuse'
 #+end_src
 
 The ~.~ before the ~#~ is the path to the git repository. What comes after the
