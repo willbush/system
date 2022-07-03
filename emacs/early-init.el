@@ -47,7 +47,7 @@
 (use-package doom-themes
   :config
   ;; Apply `doom-theme'
-  (load-theme 'doom-one t))
+  (load-theme 'doom-moonlight t))
 
 ;; Set `doom-modeline' early to prevent non-stylized UI flash.
 ;; Note: `doom-modeline' requires M-x all-the-icons-install-fonts.
