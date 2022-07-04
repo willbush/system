@@ -2,7 +2,7 @@
 let inherit (lib) getName;
 in {
   imports = [
-    "${modulesPath}/installer/cd-dvd/installation-cd-graphical-base.nix"
+    "${modulesPath}/installer/cd-dvd/installation-cd-graphical-calamares.nix"
     ../profiles/common/fonts.nix
   ];
 
@@ -95,11 +95,9 @@ in {
       chown nixos ${homeDir} ${desktopDir}
 
       ln -sfT ${manualDesktopFile} ${desktopDir + "nixos-manual.desktop"}
-      ln -sfT ${pkgs.alacritty}/share/applications/Alacritty.desktop ${
-        desktopDir + "Alacritty.desktop"
-      }
-      ln -sfT ${pkgs.emacsGit}/share/applications/emacsclient.desktop ${
-        desktopDir + "emacsclient.desktop"
-      }
+      ln -sfT ${pkgs.alacritty}/share/applications/Alacritty.desktop ${desktopDir + "Alacritty.desktop"}
+      ln -sfT ${pkgs.emacsGit}/share/applications/emacsclient.desktop ${desktopDir + "emacsclient.desktop"}
+      ln -sfT ${pkgs.emacsGit}/share/applications/emacs.desktop ${desktopDir + "emacs.desktop"}
+      ln -sfT ${pkgs.calamares-nixos}/share/applications/io.calamares.calamares.desktop ${desktopDir + "io.calamares.calamares.desktop"}
     '';
 }
