@@ -51,6 +51,7 @@
       enableAutosuggestions = true;
       shellAliases = {
         k = "kubectl";
+        em = "emacsclient --create-frame";
         kgp = "kubectl get pods";
         l = "exa";
         la = "exa -lah";
