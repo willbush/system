@@ -13,10 +13,11 @@ in
     tokei
 
     # k8s
+    argocd
     kubectl
     kubernetes-helm
+    lens
     minikube
-    argocd
 
     # tui
     nethogs
