@@ -63,6 +63,7 @@
   },
   "blacklist": [
     "*.typeracer.com",
-    "monkeytype.com"
+    "monkeytype.com",
+    "github.com"
   ]
 }
