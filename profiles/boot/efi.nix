@@ -5,7 +5,10 @@
     loader = {
       # Timeout (in seconds) until loader boots the default menu item.
       timeout = 2;
+
       efi.canTouchEfiVariables = true;
+      efi.efiSysMountPoint = "/boot/efi";
+
       # Use the systemd-boot EFI boot loader.
       systemd-boot = {
         enable = true;
