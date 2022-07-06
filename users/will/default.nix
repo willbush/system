@@ -84,7 +84,7 @@ in
     };
   };
 
-  modules.unfree.allowList = [ "discord" "slack" "teams" "rider" "android-studio-stable" ];
+  modules.unfree.allowList = [ "slack" "teams" "rider" "android-studio-stable" ];
 
   networking = {
     firewall.enable = false;

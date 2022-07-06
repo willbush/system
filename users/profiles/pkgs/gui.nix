@@ -11,7 +11,6 @@
     keepassxc
 
     # chat
-    discord
     signal-desktop
     teams
 

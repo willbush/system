@@ -71,7 +71,7 @@ in
     };
   };
 
-  modules.unfree.allowList = [ "discord" "teams" "android-studio-stable" ];
+  modules.unfree.allowList = [ "teams" "android-studio-stable" ];
 
   networking = {
     firewall.enable = false;
