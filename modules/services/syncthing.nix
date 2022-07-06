@@ -73,6 +73,7 @@ in
               "saiph"
               "stephenson2-18"
               "tau-ceti"
+              "ton-618"
             ];
             enable = deviceEnabled devices;
             type = deviceType (remove "rigel" devices);
@@ -91,7 +92,14 @@ in
             label = "camera";
             id = "6dmv9-w6iqp";
             path = "/home/${cfg.user}/images/camera";
-            devices = [ "alnitak" "betelgeuse" "rigel" "saiph" "tau-ceti" ];
+            devices = [
+              "alnitak"
+              "betelgeuse"
+              "rigel"
+              "saiph"
+              "tau-ceti"
+              "ton-618"
+            ];
             enable = deviceEnabled devices;
             type = deviceType (remove "rigel" devices);
             versioning = staggeredVersioning;
@@ -120,6 +128,7 @@ in
               "saiph"
               "stephenson2-18"
               "tau-ceti"
+              "ton-618"
             ];
             enable = deviceEnabled devices;
             type = deviceType (remove "rigel" devices);
@@ -128,7 +137,13 @@ in
           viofo = rec {
             id = "1kcy7-2cg8l";
             path = "/home/${cfg.user}/videos/viofo";
-            devices = [ "betelgeuse" "saiph" "alnitak" "rigel" ];
+            devices = [
+              "betelgeuse"
+              "saiph"
+              "alnitak"
+              "rigel"
+              "ton-618"
+            ];
             enable = deviceEnabled devices;
             type = deviceType (remove "rigel" devices);
             versioning = {
@@ -152,6 +167,7 @@ in
               "saiph"
               "stephenson2-18"
               "tau-ceti"
+              "ton-618"
             ];
             enable = deviceEnabled devices;
             type = deviceType devices;
@@ -169,6 +185,7 @@ in
               "saiph"
               "stephenson2-18"
               "tau-ceti"
+              "ton-618"
             ];
             enable = deviceEnabled devices;
             type = deviceType devices;
