@@ -46,8 +46,26 @@
 ;; Set `doom-themes' early to prevent non-stylized UI flash.
 (use-package doom-themes
   :config
-  ;; Apply `doom-theme'
-  (load-theme 'doom-moonlight t))
+  ;; Some of my favorite themes:
+  ;; doom-Iosvkem
+  ;; doom-badger
+  ;; doom-city-lights
+  ;; doom-dracula
+  ;; doom-horizon
+  ;; doom-ir-black
+  ;; doom-material
+  ;; doom-meltbus
+  ;; doom-moonlight
+  ;; doom-one
+  ;; doom-one-light
+  ;; doom-outrun-electric
+  ;; doom-palenight
+  ;; doom-spacegrey
+  ;; doom-tokyo-night
+  ;; doom-vibrant
+  ;; doom-wilmersdorf
+  ;; modus-vivendi
+  (load-theme 'modus-vivendi t))
 
 ;; Set `doom-modeline' early to prevent non-stylized UI flash.
 ;; Note: `doom-modeline' requires M-x all-the-icons-install-fonts.
