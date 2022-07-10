@@ -82,9 +82,10 @@
   "f" '(:ignore t :wk "file")
   "fd" 'fd-dired
   "ff" 'counsel-find-file
+  "fz" 'zoxide-find-file
+  "ft" 'zoxide-travel
   "fs" 'sudo-edit
   "fy" 'my/yank-and-show-buffer-full-path
-  "fz" 'counsel-fzf
   "g" '(:ignore t :wk "go")
   "gf" 'find-function
   "gg" 'avy-goto-char-timer

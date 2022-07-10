@@ -113,6 +113,7 @@
         yaml-mode
         yasnippet
         zoom
+        zoxide
       ]));
   };
 }
