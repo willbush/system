@@ -7,7 +7,6 @@
       timeout = 2;
 
       efi.canTouchEfiVariables = true;
-      efi.efiSysMountPoint = "/boot/efi";
 
       # Use the systemd-boot EFI boot loader.
       systemd-boot = {
