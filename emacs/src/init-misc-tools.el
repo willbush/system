@@ -8,6 +8,20 @@
   :config
   (setq swiper-goto-start-of-match t))
 
+(use-package zoxide
+  :hook
+  ((find-file
+    projectile-after-switch-project
+    dired-after-readin) . my/zoxide-add)
+  :config
+  ;; Needed to expand-file-name to get it working well
+  (defun my/zoxide-add (&optional path &rest _)
+    "Add PATH to zoxide database.  This function is called asynchronously."
+    (interactive "Dpath: ")
+    (unless path
+      (setq path (expand-file-name default-directory)))
+    (zoxide-run t "add" path)))
+
 (use-package deadgrep
   :commands deadgrep
   :config
