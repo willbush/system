@@ -49,7 +49,7 @@
     file
     mutagen
     pdfgrep
-    tldr
+    tealdeer # tldr in Rust
     trash-cli
     usbutils
     xorg.xkill
