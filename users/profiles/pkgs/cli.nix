@@ -47,6 +47,7 @@
     # other utils
     du-dust
     file
+    hyperfine # benchmarking tool
     mutagen
     pdfgrep
     tealdeer # tldr in Rust
