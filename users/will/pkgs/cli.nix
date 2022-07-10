@@ -37,6 +37,7 @@ in
     lsof
     neofetch
     niv
+    nushell
     planck
     woeusb # Windows ISO to USB drive utility
     xclip
