@@ -9,18 +9,16 @@
   (setq swiper-goto-start-of-match t))
 
 (use-package zoxide
+  :custom
+  ;; `zoxide-get-path-function' does not expand `default-directory' and neither
+  ;; does the zoxide executable.
+  ;; see: https://gitlab.com/Vonfry/zoxide.el/-/issues/3
+  (zoxide-get-path-function
+   (lambda (&rest _) (expand-file-name default-directory)))
   :hook
   ((find-file
     projectile-after-switch-project
-    dired-after-readin) . my/zoxide-add)
-  :config
-  ;; Needed to expand-file-name to get it working well
-  (defun my/zoxide-add (&optional path &rest _)
-    "Add PATH to zoxide database.  This function is called asynchronously."
-    (interactive "Dpath: ")
-    (unless path
-      (setq path (expand-file-name default-directory)))
-    (zoxide-run t "add" path)))
+    dired-after-readin) . zoxide-add))
 
 (use-package deadgrep
   :commands deadgrep
