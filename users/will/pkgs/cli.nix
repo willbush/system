@@ -26,14 +26,17 @@ in
     pandoc
     texlive.combined.scheme-small # things needed for pandoc
 
-    # other
+    # network
     dnsutils
+    openconnect
+    rustscan
+
+    # other
     exiftool
     feh
     lsof
     neofetch
     niv
-    openconnect
     planck
     woeusb # Windows ISO to USB drive utility
     xclip
