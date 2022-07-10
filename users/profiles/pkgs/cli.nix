@@ -39,12 +39,14 @@
     zip
 
     # tui utils
+    bottom
     btop
     glances
     procs
     zenith
 
     # other utils
+    onefetch
     du-dust
     file
     hyperfine # benchmarking tool
