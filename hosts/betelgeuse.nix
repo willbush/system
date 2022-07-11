@@ -71,4 +71,6 @@
   };
 
   modules.unfree.allowList = [ "nvidia-x11" "nvidia-settings" ];
+
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
