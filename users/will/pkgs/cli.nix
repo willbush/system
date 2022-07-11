@@ -30,6 +30,7 @@ in
     dnsutils
     openconnect
     rustscan
+    xh
 
     # other
     exiftool
