@@ -38,7 +38,7 @@ in
       })
       ../profiles/bat.nix
       ../profiles/gpg.nix
-      ../profiles/gtk.nix
+      ../profiles/gui-theme.nix
       ../profiles/pkgs/cli.nix
       ../profiles/pkgs/gui.nix
       ../profiles/programs.nix
