@@ -17,7 +17,6 @@
     # video
     vlc
 
-
     # screenshot / screen capture
     flameshot
     gnome3.gnome-screenshot
@@ -33,6 +32,9 @@
 
     # Tools for monitoring the health of hard drives
     smartmontools
+
+    # remove unnecessary files from your computer
+    czkawka
 
     # Dev
     android-studio
