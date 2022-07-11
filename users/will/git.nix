@@ -18,8 +18,7 @@
         pull.rebase = false;
       };
 
-      # enables https://github.com/dandavison/delta
-      delta.enable = true;
+      difftastic.enable = true;
     };
 
     ssh = {

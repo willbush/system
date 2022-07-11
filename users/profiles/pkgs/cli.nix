@@ -12,6 +12,7 @@
     android-tools
     clang
     clang-tools
+    delta
     github-changelog-generator
     nixpkgs-fmt
     python3
