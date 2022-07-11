@@ -58,7 +58,7 @@ in
     ];
 
     home = rec {
-      stateVersion = "22.05";
+      stateVersion = "22.11";
       username = "will";
       homeDirectory = "/home/will";
 
@@ -126,5 +126,5 @@ in
     mullvad-vpn
   ];
 
-  system.stateVersion = "22.05";
+  system.stateVersion = "22.11";
 }

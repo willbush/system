@@ -59,7 +59,7 @@ in {
       ];
 
       home = {
-        stateVersion = "22.05";
+        stateVersion = "22.11";
         file = {
           # Include the readme from this repo which might be handy before cloning it.
           "Desktop/readme.org".source = ../readme.org;
