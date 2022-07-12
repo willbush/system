@@ -9,6 +9,9 @@
   ];
 
   boot = {
+
+    loader.efi.efiSysMountPoint = "/boot/efi";
+
     initrd = {
       checkJournalingFS = true; # run fsck for journal file system
       availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
