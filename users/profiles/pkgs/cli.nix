@@ -13,7 +13,9 @@
     clang
     clang-tools
     delta
+    git-imerge
     github-changelog-generator
+    gitui
     nixpkgs-fmt
     python3
     racket
