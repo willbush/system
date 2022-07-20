@@ -66,7 +66,6 @@ in
             id = "mhkcv-26vrq";
             path = "/home/${cfg.user}/sync";
             devices = [
-              "alnilam"
               "alnitak"
               "betelgeuse"
               "rigel"
@@ -114,7 +113,6 @@ in
             id = "zfp7q-qpnzd";
             path = "/home/${cfg.user}/keepass";
             devices = [
-              "alnilam"
               "alnitak"
               "bellatrix"
               "betelgeuse"
@@ -150,7 +148,6 @@ in
             label = ".secrets";
             path = "/home/${cfg.user}/.secrets";
             devices = [
-              "alnilam"
               "alnitak"
               "bellatrix"
               "betelgeuse"
@@ -170,7 +167,6 @@ in
             label = ".SeedVaultAndroidBackup";
             path = "/home/${cfg.user}/.SeedVaultAndroidBackup";
             devices = [
-              "alnilam"
               "alnitak"
               "betelgeuse"
               "rigel"
