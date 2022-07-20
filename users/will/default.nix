@@ -94,7 +94,7 @@ in
   };
 
   modules.services.syncthing = {
-    enable = true;
+    enable = config.networking.hostName != "ton-618";
     user = "will";
   };
 
