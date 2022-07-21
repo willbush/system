@@ -3,7 +3,7 @@
   programs = {
     git = {
       enable = true;
-      userName = "willbush";
+      userName = "Will Bush";
       userEmail = "will.g.bush@gmail.com";
       signing = {
         # public key fingerprint
