@@ -67,4 +67,8 @@
 
 (use-package prolog-mode :mode "\\.pl\\'")
 
+(use-package meson-mode
+  :mode "meson//.build\\'"
+  :hook (meson-mode . company-mode))
+
 (provide 'init-languages)

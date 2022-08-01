@@ -80,6 +80,7 @@
         magit-delta
         markdown-mode
         markdown-toc
+        meson-mode
         mips-mode
         nav-flash
         nix-mode
