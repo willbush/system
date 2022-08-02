@@ -65,7 +65,7 @@
   ;; doom-vibrant
   ;; doom-wilmersdorf
   ;; modus-vivendi
-  (load-theme 'modus-vivendi t))
+  (load-theme 'doom-tokyo-night t))
 
 ;; Set `doom-modeline' early to prevent non-stylized UI flash.
 ;; Note: `doom-modeline' requires M-x all-the-icons-install-fonts.
