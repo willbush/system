@@ -63,7 +63,7 @@ in
       };
 
       shellAliases = {
-        em = ''
+        emc = ''
           export DISPLAY=$(ip route | awk '/^default/{print $3; exit}'):0.0
           setsid emacsclient --create-frame --alternate-editor emacs
         '';
