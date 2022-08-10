@@ -39,7 +39,6 @@ in
     neofetch
     niv
     nushell
-    openssl
     planck
     woeusb # Windows ISO to USB drive utility
     xclip
