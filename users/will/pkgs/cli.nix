@@ -27,6 +27,7 @@ in
     texlive.combined.scheme-small # things needed for pandoc
 
     # network
+    cifs-utils
     dnsutils
     openconnect
     rustscan
