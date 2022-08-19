@@ -22,6 +22,7 @@
       enable = true;
       # Works fine for the hll2380dw
       drivers = [ pkgs.hll2390dw-cups ];
+      logLevel = "notice"; # one level below "info"
     };
 
     avahi = {
