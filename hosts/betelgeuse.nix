@@ -10,8 +10,8 @@
   ];
 
   boot = {
-    # Needed for mount.nfs command (when manually mounting)
-    supportedFilesystems = [ "nfs" ];
+    # Needed for mount.cifs command (when manually mounting)
+    supportedFilesystems = [ "cifs" ];
 
     initrd = {
       checkJournalingFS = true; # run fsck for journal file system
@@ -68,6 +68,12 @@
 
     # needed for globalprotect-openconnect to work
     globalprotect.enable = true;
+
+    samba = {
+      enable = true;
+      openFirewall = true;
+      nsswins = true;
+    };
   };
 
   modules.unfree.allowList = [ "nvidia-x11" "nvidia-settings" ];
