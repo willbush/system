@@ -8,7 +8,6 @@
       inconsolata
       iosevka
       liberation_ttf
-      nerdfonts
       powerline-fonts
       source-code-pro
       ubuntu_font_family
