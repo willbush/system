@@ -42,6 +42,7 @@ in
         emacsPackage = pkgs.emacsNativeComp;
       })
       ../profiles/bat.nix
+      ../profiles/dotnet.nix
       ../profiles/gpg.nix
       ../profiles/gui-theme.nix
       ../profiles/pkgs/cli.nix
@@ -64,7 +65,6 @@ in
 
       sessionVariables = {
         EDITOR = "emacsclient --create-frame --alternate-editor emacs";
-        DOTNET_CLI_TELEMETRY_OPTOUT = 1;
       };
 
       file = {
