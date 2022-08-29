@@ -16,7 +16,7 @@
     libsForQt5.kdenlive
 
     # dev
-    jetbrains.rider
+    pkgs.stable.jetbrains.rider
 
     # Open source Dropbox client
     maestral-gui

@@ -35,12 +35,12 @@
 
       # see https://nixos.wiki/wiki/Flakes#Importing_packages_from_multiple_channels
       overlay-stable = final: prev: {
-        stable = nixpkgs-stable.legacyPackages.${prev.system};
-        # use this variant if unfree packages are needed:
-        # stable = import nixpkgs-stable {
-        #   inherit system;
-        #   config.allowUnfree = true;
-        # };
+        stable = import nixpkgs-stable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+        # use this variant if unfree packages are not needed:
+        # stable = nixpkgs-stable.legacyPackages.${prev.system};
       };
 
       toConfig = hostName:
