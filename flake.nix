@@ -2,7 +2,9 @@
   description = "The system configuration of a professional yak shaver";
 
   inputs = {
+    # I use unstable by default
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-22.05-small";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -13,7 +15,7 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, ... }@inputs:
     let
       inherit (nixpkgs) lib;
       inherit (lib) nixosSystem;
@@ -31,6 +33,16 @@
         "ton-618"
       ];
 
+      # see https://nixos.wiki/wiki/Flakes#Importing_packages_from_multiple_channels
+      overlay-stable = final: prev: {
+        stable = nixpkgs-stable.legacyPackages.${prev.system};
+        # use this variant if unfree packages are needed:
+        # stable = import nixpkgs-stable {
+        #   inherit system;
+        #   config.allowUnfree = true;
+        # };
+      };
+
       toConfig = hostName:
         nixosSystem {
           inherit system;
@@ -44,7 +56,14 @@
               };
               networking.hostName = hostName;
             }
-            { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
+            {
+              nixpkgs.overlays =
+                [
+                  inputs.emacs-overlay.overlay
+                  # Overlays-module makes "pkgs.stable" available in configuration.nix
+                  overlay-stable
+                ];
+            }
           ];
         };
     in
