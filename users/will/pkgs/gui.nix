@@ -26,6 +26,7 @@
     hicolor-icon-theme # fall back icon theme
     mpv-unwrapped
     remmina
+    rustdesk
     transmission-gtk
     virt-manager
   ];

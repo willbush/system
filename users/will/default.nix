@@ -84,7 +84,13 @@ in
     };
   };
 
-  modules.unfree.allowList = [ "slack" "teams" "rider" "android-studio-stable" ];
+  modules.unfree.allowList = [
+    "android-studio-stable"
+    "libsciter" # used by rustdesk
+    "rider"
+    "slack"
+    "teams"
+  ];
 
   networking = {
     firewall.enable = false;
