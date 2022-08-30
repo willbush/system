@@ -1,6 +1,8 @@
 { pkgs, ... }: {
   home = with pkgs; {
     packages = [
+      # note that Rider needs it's path to the dotnet cli tool fixed every time
+      # this updates.
       dotnet-sdk
     ];
     sessionVariables = {
