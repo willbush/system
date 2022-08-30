@@ -60,8 +60,9 @@
               nixpkgs.overlays =
                 [
                   inputs.emacs-overlay.overlay
-                  # Overlays-module makes "pkgs.stable" available in configuration.nix
+                  # Make "pkgs.stable" available
                   overlay-stable
+                  (import ./overlays/rider.nix)
                 ];
             }
           ];
