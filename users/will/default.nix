@@ -127,21 +127,6 @@ in
     mullvad-vpn.enable = true;
   };
 
-  # request-key expects a configuration file under /etc
-  environment.etc."request-key.conf" = {
-    text =
-      let
-        upcall = "${pkgs.cifs-utils}/bin/cifs.upcall";
-        keyctl = "${pkgs.keyutils}/bin/keyctl";
-      in
-      ''
-        #OP     TYPE          DESCRIPTION  CALLOUT_INFO  PROGRAM
-        # -t is required for DFS share servers...
-        create  cifs.spnego   *            *             ${upcall} -t %k
-        create  dns_resolver  *            *             ${upcall} %k
-      '';
-  };
-
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     mullvad-vpn
