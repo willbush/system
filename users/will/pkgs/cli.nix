@@ -5,6 +5,7 @@ in
   home.packages = with pkgs; [
     # dev
     bfg-repo-cleaner
+    jdk
     nix-prefetch-git
     omnisharp-roslyn
     rust-analyzer
