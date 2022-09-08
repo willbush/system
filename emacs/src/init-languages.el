@@ -11,6 +11,8 @@
 (use-package cc-mode
   :hook (c-mode . lsp-deferred))
 
+(use-package dart-mode :mode "\\.dart\\'")
+
 (use-package racket-mode :mode "\\.rkt\\'")
 
 (use-package mips-mode :mode "\\.mips$")

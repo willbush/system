@@ -34,6 +34,7 @@
         counsel-projectile
         csharp-mode
         dashboard
+        dart-mode
         deadgrep
         define-word
         dired-narrow
