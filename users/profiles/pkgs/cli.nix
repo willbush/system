@@ -13,6 +13,7 @@
     clang
     clang-tools
     delta
+    flutter
     git-imerge
     github-changelog-generator
     gitui
