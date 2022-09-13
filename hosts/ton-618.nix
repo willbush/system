@@ -25,7 +25,10 @@
     };
 
     kernelModules = [ "kvm-intel" ];
-    extraModulePackages = [ ];
+    # Need this for running WSL2 inside a VM running Windows
+    # https://www.linux-kvm.org/page/Nested_Guests
+    # https://docs.fedoraproject.org/en-US/quick-docs/using-nested-virtualization-in-kvm/
+    extraModprobeConfig = "options kvm-amd nested=1";
   };
 
   fileSystems."/" =
