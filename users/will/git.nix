@@ -16,6 +16,7 @@
         init.defaultBranch = "main";
         merge.conflictstyle = "zdiff3";
         pull.rebase = false;
+        push.autoSetupRemote = true;
       };
 
       difftastic.enable = true;

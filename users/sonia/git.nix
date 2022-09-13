@@ -11,6 +11,7 @@
         init.defaultBranch = "main";
         merge.conflictstyle = "zdiff3";
         pull.rebase = false;
+        push.autoSetupRemote = true;
       };
 
       # enables https://github.com/dandavison/delta
