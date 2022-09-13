@@ -51,6 +51,7 @@
       enableAutosuggestions = true;
       shellAliases = {
         k = "kubectl";
+        mk = "minikube kubectl --"; # https://minikube.sigs.k8s.io/docs/handbook/kubectl/
         em = "emacsclient --create-frame";
         kgp = "kubectl get pods";
         l = "exa";

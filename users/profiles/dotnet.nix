@@ -1,14 +1,17 @@
-{ pkgs, ... }: {
-  home = with pkgs; {
+{ pkgs, ... }:
+let sdk = pkgs.dotnet-sdk;
+in
+{
+  home = {
     packages = [
       # note that Rider needs it's path to the dotnet cli tool fixed every time
       # this updates.
-      dotnet-sdk
+      sdk
     ];
     sessionVariables = {
       DOTNET_CLI_TELEMETRY_OPTOUT = 1;
       # I thought this would help Rider found dotnet, but it doesn't seem to work.
-      DOTNET_ROOT = dotnet-sdk;
+      DOTNET_ROOT = sdk;
     };
   };
 }
