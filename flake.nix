@@ -62,7 +62,6 @@
                   inputs.emacs-overlay.overlay
                   # Make "pkgs.stable" available
                   overlay-stable
-                  (import ./overlays/rider.nix)
                 ];
             }
           ];
