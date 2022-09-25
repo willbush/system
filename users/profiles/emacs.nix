@@ -5,10 +5,10 @@
       source = inputs.chemacs;
     };
     ".config/chemacs/profiles.el" = {
-      source = ../../../emacs/profiles.el;
+      source = ../../emacs/profiles.el;
     };
     ".config/emacs.default" = {
-      source = ../../../emacs/default;
+      source = ../../emacs/default;
       recursive = true;
     };
   };
