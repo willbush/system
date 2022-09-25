@@ -4,10 +4,11 @@ In NixOS I use [[https://github.com/nix-community/home-manager][home-manager]] t
 config ~$XDG_CONFIG_HOME~. I use [[https://github.com/plexus/chemacs2][Chemacs]] as an Emacs profile switcher.
 
 The =default= directory has my main configuration. If you want to try it, just
-copy it to =~/.emacs.d=. For example:
+copy it to =~/.emacs.d= or =~/.config/emacs=. For example:
 
 #+begin_src bash
 [ -f ~/.emacs ] && mv ~/.emacs ~/.emacs.bak
 [ -d ~/.emacs.d ] && mv ~/.emacs.d ~/.emacs.d.bak
-cp -a ./default ~/.emacs.d
+[ -d ~/.config/emacs ] && mv ~/.config/emacs ~/.config/emacs.bak
+cp -a ./default ~/.config/emacs
 #+end_src
