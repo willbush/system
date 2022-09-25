@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ inputs, config, lib, pkgs, ... }:
 let inherit (lib) fileContents;
 in
 {
@@ -37,7 +37,8 @@ in
 
   home-manager.users.will = {
     imports = [
-      (import ../profiles/emacs.nix {
+      (import ../profiles/emacs {
+        inherit inputs;
         inherit pkgs;
         emacsPackage = pkgs.emacsNativeComp;
       })

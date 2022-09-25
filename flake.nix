@@ -12,6 +12,12 @@
     };
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
+
+    chemacs = {
+      url = "github:plexus/chemacs2";
+      flake = false;
+    };
+
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -65,6 +71,7 @@
                 ];
             }
           ];
+          specialArgs = { inherit inputs; };
         };
     in
     {

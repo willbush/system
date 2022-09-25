@@ -52,7 +52,7 @@ in {
   home-manager = {
     users.nixos = { pkgs, ... }: {
       imports = [
-        (import ../users/profiles/emacs.nix {
+        (import ../users/profiles/emacs {
           inherit pkgs;
           emacsPackage = pkgs.emacsGit;
         })

@@ -1,8 +1,14 @@
-{ pkgs, emacsPackage ? pkgs.emacsNativeComp, ... }: {
+{ inputs, pkgs, emacsPackage ? pkgs.emacsNativeComp, ... }: {
 
   home.file = {
-    ".emacs.d" = {
-      source = ../../emacs;
+    ".config/emacs" = {
+      source = inputs.chemacs;
+    };
+    ".config/chemacs/profiles.el" = {
+      source = ./profiles.el;
+    };
+    ".config/emacs.default" = {
+      source = ../../../emacs;
       recursive = true;
     };
   };
