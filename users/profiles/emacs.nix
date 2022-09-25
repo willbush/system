@@ -11,6 +11,10 @@
       source = ../../emacs/default;
       recursive = true;
     };
+    ".config/emacs.rewrite" = {
+      source = ../../emacs/rewrite;
+      recursive = true;
+    };
   };
 
   services.emacs = {
