@@ -1,4 +1,4 @@
-# Emacs
+* Emacs
 
 In NixOS I use [[https://github.com/nix-community/home-manager][home-manager]] to bootstrap files and folders under FreeDesktop
 config ~$XDG_CONFIG_HOME~. I use [[https://github.com/plexus/chemacs2][Chemacs]] as an Emacs profile switcher.
