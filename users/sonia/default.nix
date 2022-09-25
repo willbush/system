@@ -32,7 +32,8 @@ in
 
   home-manager.users.sonia = {
     imports = [
-      (import ../profiles/emacs.nix {
+      (import ../profiles/emacs {
+        inherit inputs;
         inherit pkgs;
         emacsPackage = pkgs.emacsGit;
       })

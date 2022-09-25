@@ -28,7 +28,8 @@ in
 
   home-manager.users.nixos = {
     imports = [
-      (import ../users/profiles/emacs.nix {
+      (import ../users/profiles/emacs {
+        inherit inputs;
         inherit pkgs;
         emacsPackage = pkgs.emacsNativeComp;
       })

@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "chemacs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1657636466,
+        "narHash": "sha256-YD5GncKB2n0ybMNE1NHfjnIYe/Je3wdI0AgI2pcmxgQ=",
+        "owner": "plexus",
+        "repo": "chemacs2",
+        "rev": "d722459287566e8c91ae077bf3d65966ebece190",
+        "type": "github"
+      },
+      "original": {
+        "owner": "plexus",
+        "repo": "chemacs2",
+        "type": "github"
+      }
+    },
     "emacs-overlay": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -118,6 +134,7 @@
     },
     "root": {
       "inputs": {
+        "chemacs": "chemacs",
         "emacs-overlay": "emacs-overlay",
         "flake-utils": "flake-utils_2",
         "home-manager": "home-manager",
