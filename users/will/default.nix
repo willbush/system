@@ -37,7 +37,7 @@ in
 
   home-manager.users.will = {
     imports = [
-      (import ../profiles/emacs {
+      (import ../profiles/emacs.nix {
         inherit inputs;
         inherit pkgs;
         emacsPackage = pkgs.emacsNativeComp;
