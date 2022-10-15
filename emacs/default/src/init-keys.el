@@ -184,6 +184,7 @@
   "wM" 'evil-window-move-far-left
   "wN" 'evil-window-move-very-bottom
   "wb" 'balance-windows
+  "wc" 'my/center-horizontal-split
   "wd" 'delete-window
   "we" 'evil-window-up
   "wg" '(zoom :wk "zoom golden ratio")
