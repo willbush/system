@@ -91,6 +91,7 @@ in
     "rider"
     "slack"
     "teams"
+    "zoom"
   ];
 
   networking = {
