@@ -1,8 +1,23 @@
 { inputs, pkgs, emacsPackage ? pkgs.emacsNativeComp, ... }: {
 
   home.file = {
-    ".config/emacs" = {
+    ".config/chemacs-repo" = {
       source = inputs.chemacs;
+      # Work around for home-manager not being able to copy instead of link.
+      # see: https://github.com/nix-community/home-manager/issues/3090
+      onChange = ''
+        trash-put -f ~/.config/emacs
+        cp -a ~/.config/chemacs-repo/ ~/.config/emacs/
+        chmod u+w ~/.config/emacs/ -R
+      '';
+    };
+    ".config/crafted-emacs-repo" = {
+      source = inputs.crafted-emacs;
+      onChange = ''
+        trash-put -f ~/.config/crafted-emacs
+        cp -a ~/.config/crafted-emacs-repo/ ~/.config/crafted-emacs/
+        chmod u+w ~/.config/crafted-emacs/ -R
+      '';
     };
     ".config/chemacs/profiles.el" = {
       source = ../../emacs/profiles.el;
@@ -13,6 +28,10 @@
     };
     ".config/emacs.rewrite" = {
       source = ../../emacs/rewrite;
+      recursive = true;
+    };
+    ".config/emacs.crafted" = {
+      source = ../../emacs/crafted;
       recursive = true;
     };
   };
