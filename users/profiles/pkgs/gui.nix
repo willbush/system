@@ -20,7 +20,7 @@
 
     # screenshot / screen capture
     flameshot
-    gnome3.gnome-screenshot
+    gnome.gnome-screenshot
     peek
     simplescreenrecorder
 
