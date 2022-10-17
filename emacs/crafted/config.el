@@ -41,10 +41,10 @@
 (add-hook 'emacs-startup-hook
           (lambda ()
             (custom-set-faces
-             `(default ((t (:font "JetBrains Mono Light 18"))))
+             `(default ((t (:font "Fira Mono 11"))))
              `(fixed-pitch ((t (:inherit (default)))))
              `(fixed-pitch-serif ((t (:inherit (default)))))
-             `(variable-pitch ((t (:font "Arial 18")))))))
+             `(variable-pitch ((t (:font "Libre Baskerville 13")))))))
 
 ;; Themes are color customization packages which coordinate the
 ;; various colors, and in some cases, font-sizes for various aspects
