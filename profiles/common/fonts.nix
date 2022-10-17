@@ -8,6 +8,7 @@
       inconsolata
       iosevka
       liberation_ttf
+      libre-baskerville
       powerline-fonts
       source-code-pro
       ubuntu_font_family
