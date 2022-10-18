@@ -52,9 +52,10 @@ in
       ../profiles/redshift.nix
       ./pkgs/cli.nix
       ./pkgs/gui.nix
-      ./git.nix
-      ./lockscreen.nix
       # ./picom.nix
+      ./git.nix
+      ./krew.nix
+      ./lockscreen.nix
       ./rofi.nix
       ./xdg.nix
     ];
