@@ -21,6 +21,7 @@
     python3
     racket
     shfmt
+    xq # rust implementation of jq
 
     # node
     nodePackages.expo-cli
