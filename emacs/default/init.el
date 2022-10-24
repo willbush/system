@@ -15,7 +15,7 @@
 ;; Set the file-name-handler to nil (because regexing is cpu intensive)
 (setq file-name-handler-alist nil)
 
-(add-to-list 'load-path (expand-file-name "src/" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "modules/" user-emacs-directory))
 
 (eval-when-compile
   (require 'use-package))
