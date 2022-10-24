@@ -199,4 +199,4 @@
 ;; less to process at startup.
 (setq command-line-ns-option-alist nil)
 
-(provide 'init-settings)
+(provide 'init-defaults)

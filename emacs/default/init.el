@@ -22,7 +22,7 @@
 
 ;; order matters in the initialization process.
 (require 'init-dashboard)
-(require 'init-settings)
+(require 'init-defaults)
 ;; Put key binding packages high on the list so other files can also bind
 ;; keys and define hydras.
 (require 'init-key-packages)
