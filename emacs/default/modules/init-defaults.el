@@ -46,6 +46,10 @@
       scroll-conservatively 101
       scroll-margin 0
       scroll-preserve-screen-position t
+      ;; More performant rapid scrolling over unfontified regions. May cause
+      ;; brief spells of inaccurate syntax highlighting right after scrolling,
+      ;; which should quickly self-correct.
+      fast-but-imprecise-scrolling t
       ;; Reduce cursor lag by a tiny bit by not auto-adjusting `window-vscroll'
       ;; for tall lines.
       auto-window-vscroll nil
@@ -160,21 +164,20 @@
 ;; insensitivity).
 (setq auto-mode-case-fold nil)
 
+;; Better support for files with long lines
+(global-so-long-mode 1)
+
 ;; Disable bidirectional text rendering for a modest performance boost. I've set
 ;; this to `nil' in the past, but the `bidi-display-reordering's docs say that
 ;; is an undefined state and suggest this to be just as good:
 (setq-default bidi-display-reordering 'left-to-right
-              bidi-paragraph-direction 'left-to-right)
+              bidi-paragraph-direction 'left-to-right
+              bidi-inhibit-bpa t)
 
 ;; Reduce rendering/line scan work for Emacs by not rendering cursors or regions
 ;; in non-focused windows.
 (setq-default cursor-in-non-selected-windows nil)
 (setq highlight-nonselected-windows nil)
-
-;; More performant rapid scrolling over unfontified regions. May cause brief
-;; spells of inaccurate syntax highlighting right after scrolling, which should
-;; quickly self-correct.
-(setq fast-but-imprecise-scrolling t)
 
 ;; Resizing the Emacs frame can be a terribly expensive part of changing the
 ;; font. By inhibiting this, we halve startup times, particularly when we use
@@ -198,5 +201,70 @@
 ;; Remove command line options that aren't relevant to Linux; means slightly
 ;; less to process at startup.
 (setq command-line-ns-option-alist nil)
+
+;;
+;;; Editing Settings
+
+(setq electric-pair-pairs
+  '(
+    (?\( . ?\))
+    (?\[ . ?\])
+    (?\{ . ?\})
+   ))
+
+(electric-pair-mode t)
+
+;; I don't want two spaces after my periods. This the affects behavior
+;; of `fill-paragraph' (among other things).
+(setq sentence-end-double-space nil)
+
+;; Prevent indention inserting tabs by default.
+(setq-default indent-tabs-mode nil
+              tab-width 2)
+
+;; fill-paragraph uses fill-column for the width at which to break lines
+(setq-default fill-column 80)
+
+;; Continue wrapped words at white-space, rather than in the middle of
+;; a word.
+(setq-default word-wrap t)
+
+;; ...but don't do any wrapping by default. It's expensive. Enable
+;; `visual-line-mode' if you want soft line-wrapping. `auto-fill-mode'
+;; for hard line-wrapping.
+(setq-default truncate-lines t)
+
+;; If enabled (and `truncate-lines' was disabled), soft wrapping no
+;; longer occurs when that window is less than
+;; `truncate-partial-width-windows' characters wide. We don't need
+;; this, and it's extra work for Emacs otherwise, so off it goes.
+(setq truncate-partial-width-windows nil)
+
+;; The POSIX standard defines a line is "a sequence of zero or more
+;; non-newline characters followed by a terminating newline", so files
+;; should end in a newline. Windows doesn't respect this (because it's
+;; Windows), but we should, since programmers' tools tend to be POSIX
+;; compliant.
+(setq require-final-newline t)
+
+;; Default to hard line-wrapping in text modes. Hard wrapping is more
+;; performant, and Emacs makes it trivially easy to reflow text with
+;; `fill-paragraph' and `evil-fill'.
+(add-hook 'text-mode-hook #'auto-fill-mode)
+
+;; Cull duplicates in the kill ring to reduce bloat and make the kill
+;; ring easier to peruse (with `counsel-yank-pop').
+(setq kill-do-not-save-duplicates t)
+
+;; Allow UTF or composed text from the clipboard, even in the terminal
+;; or on non-X systems (like Windows or macOS), where only `STRING' is
+;; used.
+(setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
+
+;;
+;;; Extra file extensions to support
+
+(push '("/LICENSE\\'" . text-mode) auto-mode-alist)
+(push '("\\.log\\'" . text-mode) auto-mode-alist)
 
 (provide 'init-defaults)
