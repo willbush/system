@@ -41,7 +41,7 @@
 (require 'init-markup-languages)
 (require 'init-win-buffer-tools)
 (require 'init-erc)
-(require 'funcs)
+(require 'init-funcs)
 ;; This should come after evil due to performance issues see:
 ;; https://github.com/noctuid/general.el/issues/180
 (require 'init-keys)

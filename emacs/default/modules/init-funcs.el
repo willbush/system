@@ -311,4 +311,4 @@ gets zoomed to make it center."
     (when (not (string-equal buf-name (buffer-name (current-buffer))))
       (switch-to-buffer-other-window buf))))
 
-(provide 'funcs)
+(provide 'init-funcs)
