@@ -262,14 +262,6 @@ gets zoomed to make it center."
     (adaptive-wrap-prefix-mode 1)
     (message "visual-fill-column and adaptive-wrap-prefix mode enabled")))
 
-;;;###autoload
-(defun my/open-shell ()
-  "Opens my prefered shell for the current operating system."
-  (interactive)
-  (if IS-WINDOWS
-      (call-interactively 'eshell)
-    (vterm)))
-
 ;;
 ;;; MISC functions:
 

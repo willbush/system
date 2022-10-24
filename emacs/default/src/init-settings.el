@@ -1,17 +1,18 @@
 ;;; -*- lexical-binding: t; -*-
-;; Most settings here are taken from or at least inspired by Doom Emacs.
-
-;;
-;;; Support Validation
-
-(defconst MIN-EMACS-VERSION "27")
-
-(when (version< emacs-version MIN-EMACS-VERSION)
-  (error "Detected Emacs %s. This config supports Emacs %s and higher."
-         emacs-version MIN-EMACS-VERSION))
+;; Default settings inspired by Doom and Crafted Emacs.
 
 ;;
 ;;; Emacs Core Configuration
+
+;; Revert Dired and other buffers
+(setq global-auto-revert-non-file-buffers t)
+
+;; Revert buffers when the underlying file has changed
+(global-auto-revert-mode 1)
+
+;; Typed text replaces the selection if the selection is active,
+;; pressing delete or backspace deletes the selection.
+(delete-selection-mode +1)
 
 ;; Longer max number of message buffer line.
 (setq message-log-max 5000)
@@ -21,18 +22,9 @@
   (set-charset-priority 'unicode))
 (prefer-coding-system 'utf-8)
 (setq locale-coding-system 'utf-8)
-;; The clipboard's on Windows could be in an encoding that's wider (or thinner)
-;; than utf-8, so let Emacs/the OS decide what encoding to use there.
-(unless IS-WINDOWS
-  (setq selection-coding-system 'utf-8))
 
-;; Emacs on Windows frequently confuses HOME (C:\Users\<NAME>) and %APPDATA%,
-;; causing `abbreviate-home-dir' to produce incorrect paths.
-(when IS-WINDOWS
-  (setq abbreviated-home-dir "\\`'"))
-
-;; switches (yes or no) prompts to (y or n)
-(defalias 'yes-or-no-p 'y-or-n-p)
+;; yes-or-no-p uses shorter answers "y" or "n".
+(setq use-short-answers t)
 
 ;; When Emacs tags get regenerated I want it to reload them without prompting me
 ;; y or n.
@@ -42,14 +34,25 @@
 ;; be focused on the help buffer so I can quickly exit it.
 (setq help-window-select t)
 
-;; scrolling settings
-(setq
-  scroll-conservatively 1000
-  scroll-margin 4
-  scroll-step 1
-  mouse-wheel-scroll-amount '(6 ((shift) . 1))
-  mouse-wheel-progressive-speed nil
-  jit-lock-defer-time 0)
+;;
+;;; Scrolling
+(setq hscroll-margin 2
+      hscroll-step 1
+      ;; Emacs spends too much effort recentering the screen if you scroll the
+      ;; cursor more than N lines past window edges (where N is the settings of
+      ;; `scroll-conservatively'). This is especially slow in larger files
+      ;; during large-scale scrolling commands. If kept over 100, the window is
+      ;; never automatically recentered.
+      scroll-conservatively 101
+      scroll-margin 0
+      scroll-preserve-screen-position t
+      ;; Reduce cursor lag by a tiny bit by not auto-adjusting `window-vscroll'
+      ;; for tall lines.
+      auto-window-vscroll nil
+      ;; mouse
+      mouse-wheel-scroll-amount '(6 ((shift) . hscroll))
+      mouse-wheel-scroll-amount-horizontal 2
+      mouse-wheel-progressive-speed nil)
 
 ;; keeps a faint highlight on the line of the point. Note I found there is a
 ;; cost to this being on where every vertical movement causes emacs takes up
@@ -64,8 +67,7 @@
 (put 'narrow-to-region 'disabled nil)
 
 ;; tramp:
-(setq password-cache-expiry nil
-      tramp-default-method (if IS-WINDOWS "plink" "ssh"))
+(setq password-cache-expiry nil)
 
 ;; warnings
 (when (fboundp 'native-compile)
@@ -141,31 +143,6 @@
 ;;
 ;;; Security
 
-;; Emacs is essentially one huge security vulnerability, what with all the
-;; dependencies it pulls in from all corners of the globe. Let's try to be at
-;; least a little more discerning.
-(setq gnutls-verify-error (not (getenv "INSECURE"))
-      gnutls-algorithm-priority
-      (when (boundp 'libgnutls-version)
-        (concat "SECURE128:+SECURE192:-VERS-ALL:+VERS-TLS1.2"
-                (if (and (not IS-WINDOWS)
-                         (not (version< emacs-version "26.3"))
-                         (>= libgnutls-version 30605))
-                    ":+VERS-TLS1.3")))
-      ;; `gnutls-min-prime-bits' is set based on recommendations from
-      ;; https://www.keylength.com/en/4/
-      gnutls-min-prime-bits 3072
-      tls-checktrust gnutls-verify-error
-      ;; Emacs is built with `gnutls' by default, so `tls-program' would not
-      ;; be used in that case. Otherwise, people have reasons to not go with
-      ;; `gnutls', we use `openssl' instead.
-      ;; For more details, see https://redd.it/8sykl1
-      tls-program '("openssl s_client -connect %h:%p -CAfile %t -nbio -no_ssl3 -no_tls1 -no_tls1_1 -ign_eof"
-                    "gnutls-cli -p %p --dh-bits=3072 --ocsp --x509cafile=%t \
---strict-tofu --priority='SECURE192:+SECURE128:-VERS-ALL:+VERS-TLS1.2:+VERS-TLS1.3' %h"
-                    ;; compatibility fall-backs
-                    "gnutls-cli -p %p %h"))
-
 ;; Emacs stores authinfo in $HOME and in plaintext. Let's not do that, mkay?
 ;; This file stores usernames, passwords, and other such treasures for the
 ;; aspiring malicious third party.
@@ -218,9 +195,8 @@
 ;; responses are in 800k - 3M range."
 (setq read-process-output-max 1048576) ;; 1 MiB
 
-;; Remove command line options that aren't relevant to our current OS; means
-;; slightly less to process at startup.
-(unless IS-MAC   (setq command-line-ns-option-alist nil))
-(unless IS-LINUX (setq command-line-x-option-alist nil))
+;; Remove command line options that aren't relevant to Linux; means slightly
+;; less to process at startup.
+(setq command-line-ns-option-alist nil)
 
 (provide 'init-settings)

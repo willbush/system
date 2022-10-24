@@ -62,9 +62,8 @@
   (setq flyspell-issue-message-flag nil)
 
   ;; Starting flyspell with aspell on Windows is slow
-  (unless IS-WINDOWS
-    (add-hook 'text-mode-hook 'flyspell-mode)
-    (add-hook 'prog-mode-hook 'flyspell-prog-mode)))
+  (add-hook 'text-mode-hook 'flyspell-mode)
+  (add-hook 'prog-mode-hook 'flyspell-prog-mode))
 
 (use-package define-word
   :commands define-word-at-point)
@@ -158,10 +157,9 @@
     "th" 'disk-usage-toggle-human-readable
     "tr" 'disk-usage-toggle-recursive))
 
-(unless IS-WINDOWS
-  ;; lorri makes this as a global minor-mode tolerable.
-  (use-package direnv
-    :hook (after-init . direnv-mode)))
+;; lorri makes this as a global minor-mode tolerable.
+(use-package direnv
+    :hook (after-init . direnv-mode))
 
 (use-package pdf-tools
   :mode (("\\.pdf\\'" . pdf-view-mode)))
@@ -261,7 +259,6 @@
         vterm-buffer-name-string "vterm %s"))
 
 (use-package exec-path-from-shell
-  :if (not IS-WINDOWS)
   :commands exec-path-from-shell-copy-env)
 
 (provide 'init-misc-tools)

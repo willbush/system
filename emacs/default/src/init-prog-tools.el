@@ -20,8 +20,7 @@
   ;; when using ssh for git authentication and this environmental variable is
   ;; not set, magit complains about being unable to read or have access rights
   ;; while git works fine in the terminal.
-  (when (not IS-WINDOWS)
-    (exec-path-from-shell-copy-env "SSH_AUTH_SOCK"))
+  (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
 
   ;; I bind my own magit dispatch commands here.
   (transient-define-prefix my/magit-dispatch ()
