@@ -27,7 +27,7 @@
   :keymaps 'override
   "TAB" 'mode-line-other-buffer
   "!" 'shell-command
-  "'" 'my/open-shell
+  "'" 'vterm
   "?" 'counsel-descbinds
   "SPC" 'counsel-M-x
   "F" '(:ignore t :wk "frame")

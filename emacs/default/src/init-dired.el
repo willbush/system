@@ -19,15 +19,13 @@
 (defun my/dired-xdg-open ()
   "Open marked files or file at point in dired with xdg-open."
   (interactive)
-  (if IS-LINUX
-      (mapc
-       (lambda (file-path)
-         (shell-command
-          (concat "xdg-open "
-                  (shell-quote-argument file-path)
-                  " > /dev/null 2>&1 & disown")))
-       (dired-get-marked-files))
-    (message "xdg-open not available outside of Linux.")))
+  (mapc
+   (lambda (file-path)
+     (shell-command
+      (concat "xdg-open "
+              (shell-quote-argument file-path)
+              " > /dev/null 2>&1 & disown")))
+   (dired-get-marked-files)))
 
 (defun my/dired-yank-absolute-paths ()
   "Yank absolute paths to marked files."

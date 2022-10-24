@@ -3,18 +3,10 @@
 ;; Defer garbage collection further back in the startup process
 (setq gc-cons-threshold most-positive-fixnum)
 
-;;
-;;; Global Constants
-
-(defconst IS-MAC     (eq system-type 'darwin))
-(defconst IS-LINUX   (eq system-type 'gnu/linux))
-(defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
-;; Doom currently uses 16 MiB and Spacemacs is using 100 MB. I'm going to try 64
-;; MiB to see how it goes.
-(defconst GC-CONS-THRESHOLD 67108860)
-
 ;; Work around to a crippling performance issue I reported affecting Emacs 28
-;; after cario was made the default: https://debbugs.gnu.org/db/40/40733.html
+;; after cario was made the default: https://debbugs.gnu.org/db/40/40733.html I
+;; don't have this font on my system anymore, but I keep this around incase it
+;; finds its way back somehow.
 (add-to-list 'face-ignored-fonts "Adobe Blank")
 
 ;; Prevent the glimpse of un-styled Emacs by disabling these UI elements early.
@@ -22,58 +14,31 @@
 (push '(tool-bar-lines . 0) default-frame-alist)
 (push '(vertical-scroll-bars) default-frame-alist)
 
-;; Set default font
-(set-face-attribute 'default nil
-                    :family "Fira Mono"
-                    :height 100
-                    :weight 'normal
-                    :width 'normal)
+;; Less visual noise
+(setq inhibit-startup-message t
+      inhibit-default-init t
+      ;; Avoid pulling in many packages by starting the scratch buffer in
+      ;; `fundamental-mode', rather than, say, `org-mode' or `text-mode'.
+      initial-major-mode 'fundamental-mode
+      initial-scratch-message nil
+      ring-bell-function 'ignore)
 
-;; Resizing the Emacs frame can be a terribly expensive part of changing the
-;; font. By inhibiting this, we easily halve startup times with fonts that are
-;; larger than the system default.
-(setq frame-inhibit-implied-resize t)
+;; Set the default face. The default face is the basis for most other faces used
+;; in Emacs. A "face" is a configuration including font, font size, foreground
+;; and background colors and other attributes. The fixed-pitch and
+;; fixed-pitch-serif faces are monospace faces generally used as the default
+;; face for code. The variable-pitch face is used when `variable-pitch-mode' is
+;; turned on, generally whenever a non-monospace face is preferred.
+(custom-set-faces
+ `(default ((t (:font "Fira Mono 10"))))
+ `(fixed-pitch ((t (:inherit (default)))))
+ `(fixed-pitch-serif ((t (:inherit (default)))))
+ `(variable-pitch ((t (:font "DejaVu Sans 10")))))
 
-;; Ignore X resources; its settings would be redundant with the other settings
-;; in this file and can conflict with later config (particularly where the
-;; cursor color is concerned).
-(advice-add #'x-apply-session-resources :override #'ignore)
+;; Loads a nice blue theme, avoids the white screen flash on startup.
+(load-theme 'deeper-blue t)
 
-(add-to-list 'load-path (expand-file-name "src/" user-emacs-directory))
-
-(require 'early-init-package)
-
-;; Set `doom-themes' early to prevent non-stylized UI flash.
-(use-package doom-themes
-  :config
-  ;; Some of my favorite themes:
-  ;; doom-Iosvkem
-  ;; doom-badger
-  ;; doom-city-lights
-  ;; doom-dracula
-  ;; doom-horizon
-  ;; doom-ir-black
-  ;; doom-material
-  ;; doom-meltbus
-  ;; doom-moonlight
-  ;; doom-one
-  ;; doom-one-light
-  ;; doom-outrun-electric
-  ;; doom-palenight
-  ;; doom-spacegrey
-  ;; doom-tokyo-night
-  ;; doom-vibrant
-  ;; doom-wilmersdorf
-  ;; modus-vivendi
-  (load-theme 'doom-tokyo-night t))
-
-;; Set `doom-modeline' early to prevent non-stylized UI flash.
-;; Note: `doom-modeline' requires M-x all-the-icons-install-fonts.
-(use-package doom-modeline
-  :config
-  (setq doom-modeline-icon t
-        doom-modeline-major-mode-color-icon t
-        doom-modeline-buffer-file-name-style 'truncate-upto-root)
-  (doom-modeline-mode 1)
-  (size-indication-mode 1)
-  (column-number-mode 1))
+;; In Emacs 27+, package initialization occurs before `user-init-file' is
+;; loaded, but after `early-init-file'. I handle package initialization, so we
+;; must prevent Emacs from doing it early!
+(setq package-enable-at-startup nil)
