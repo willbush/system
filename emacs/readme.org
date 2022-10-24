@@ -12,3 +12,5 @@ copy it to =~/.emacs.d= or =~/.config/emacs=. For example:
 [ -d ~/.config/emacs ] && mv ~/.config/emacs ~/.config/emacs.bak
 cp -a ./default ~/.config/emacs
 #+end_src
+
+Note that I only support Linux. I no longer test my configuration on Windows or OSX.
