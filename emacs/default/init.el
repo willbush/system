@@ -49,8 +49,6 @@
 ;; Reset file-name-handler-alist after initialization
 (add-hook 'emacs-startup-hook
           (lambda ()
-            ;; Doom currently uses 16 MiB and Spacemacs is using 100 MB. I'm going to try 64
-            ;; MiB to see how it goes.
             (setq gc-cons-threshold GC-CONS-THRESHOLD
                   gc-cons-percentage 0.1
                   file-name-handler-alist default-file-name-handler-alist)))
