@@ -15,6 +15,8 @@
 
 (use-package racket-mode :mode "\\.rkt\\'")
 
+(use-package terraform-mode :mode "\\.tf\\'")
+
 (use-package mips-mode :mode "\\.mips$")
 
 (use-package dockerfile-mode :mode "Dockerfile\\'")

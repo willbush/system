@@ -22,6 +22,7 @@
     python3
     racket
     shfmt
+    terraform
 
     # node
     nodePackages.expo-cli

@@ -58,8 +58,8 @@
         counsel
         counsel-projectile
         csharp-mode
-        dashboard
         dart-mode
+        dashboard
         deadgrep
         define-word
         dired-narrow
@@ -128,6 +128,7 @@
         rustic
         sudo-edit
         swiper
+        terraform-mode
         toc-org
         typescript-mode
         use-package
