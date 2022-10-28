@@ -70,7 +70,6 @@
         doom-modeline
         doom-themes
         edwina
-        esup
         evil
         evil-collection
         evil-exchange

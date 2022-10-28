@@ -42,8 +42,6 @@
     "RET" 'deadgrep-visit-result
     "<escape>" 'deadgrep-mode))
 
-(use-package esup :commands esup)
-
 ;; Adopt Doom's sneaky garbage collection strategy of waiting until idle time to
 ;; collect; staving off the collector while the user is working.
 (use-package gcmh
