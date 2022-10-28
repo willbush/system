@@ -45,7 +45,6 @@
   "Sr" 'flyspell-region
   "a" '(:ignore t :wk "apps")
   "aD" 'deer-jump-other-window
-  "aE" 'esup
   "ad" 'deer ;; minimal ranger dired
   "ae" '(:ignore t :wk "direnv")
   "aeU" 'direnv-update-directory-environment
