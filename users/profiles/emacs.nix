@@ -52,6 +52,7 @@
         adaptive-wrap
         all-the-icons-ivy
         avy
+        benchmark-init
         browse-at-remote
         company
         company-tabnine

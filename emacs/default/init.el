@@ -20,9 +20,15 @@
 (eval-when-compile
   (require 'use-package))
 
+(use-package benchmark-init
+  :config
+  ;; To disable collection of benchmark data after init is done.
+  (add-hook 'after-init-hook 'benchmark-init/deactivate))
+
 ;; order matters in the initialization process.
-(require 'init-dashboard)
 (require 'init-defaults)
+(require 'init-dashboard)
+
 ;; Put key binding packages high on the list so other files can also bind
 ;; keys and define hydras.
 (require 'init-key-packages)
