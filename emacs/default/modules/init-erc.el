@@ -1,6 +1,7 @@
 ;;; -*- lexical-binding: t; -*-
 
 (use-package erc
+  :commands erc
   :init
   (setq erc-server "irc.libera.chat"
         erc-nick "willbush"
