@@ -53,15 +53,12 @@
   (add-function :after after-focus-change-function #'gcmh-idle-garbage-collect))
 
 (use-package flyspell
+  :commands (flyspell-mode flyspell-prog-mode)
   :ensure nil ;; Flyspell is included in Emacs.
   :init (setq ispell-program-name "aspell")
   :config
   ;; improve perf per wiki: https://www.emacswiki.org/emacs/FlySpell
-  (setq flyspell-issue-message-flag nil)
-
-  ;; Starting flyspell with aspell on Windows is slow
-  (add-hook 'text-mode-hook 'flyspell-mode)
-  (add-hook 'prog-mode-hook 'flyspell-prog-mode))
+  (setq flyspell-issue-message-flag nil))
 
 (use-package define-word
   :commands define-word-at-point)
