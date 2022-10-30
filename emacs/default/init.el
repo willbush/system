@@ -20,13 +20,17 @@
 (eval-when-compile
   (require 'use-package))
 
-(use-package benchmark-init
-  :config
-  ;; To disable collection of benchmark data after init is done.
-  (add-hook 'after-init-hook
-            (lambda ()
-              (progn (benchmark-init/deactivate)
-                     (require 'benchmark-init-modes)))))
+(when (string-equal (getenv "EMACS_RUN_BENCHMARK_INIT") "1")
+  (use-package benchmark-init
+    :config
+    ;; To disable collection of benchmark data after init is done.
+    (add-hook 'after-init-hook
+              (lambda ()
+                (progn
+                  (benchmark-init/deactivate)
+                  (require 'benchmark-init-modes)
+                  (benchmark-init/show-durations-tree)
+                  (benchmark-init/show-durations-tabulated))))))
 
 ;; order matters in the initialization process.
 (require 'init-defaults)
