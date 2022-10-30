@@ -23,7 +23,7 @@
 (when (string-equal (getenv "EMACS_RUN_BENCHMARK_INIT") "1")
   (use-package benchmark-init
     :config
-    ;; To disable collection of benchmark data after init is done.
+    ;; Disable collection of benchmark data after init is done and show results.
     (add-hook 'after-init-hook
               (lambda ()
                 (progn

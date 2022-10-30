@@ -411,6 +411,7 @@ git-timemachine-mode:
     nil nil 'center))
 
 (use-package debug
+  :defer
   :ensure nil ;; debugger-mode is included in Emacs.
   :config
   (evil-set-initial-state 'debugger-mode 'normal)
@@ -441,6 +442,7 @@ git-timemachine-mode:
     "t" 'debugger-step-through))
 
 (use-package compile
+  :defer
   :ensure nil ;; debugger-mode is included in Emacs.
   :config
   (evil-set-initial-state 'compilation-mode 'normal)

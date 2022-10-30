@@ -163,8 +163,8 @@
   :mode (("\\.pdf\\'" . pdf-view-mode)))
 
 (use-package woman
+  :defer
   :ensure nil ;; included in Emacs.
-  :after evil
   :config
   (evil-set-initial-state 'woman-mode 'normal)
   (general-def
@@ -175,8 +175,8 @@
     "gr" 'woman-reformat-last-file))
 
 (use-package cus-edit
+  :defer
   :ensure nil ;; included in Emacs.
-  :after evil
   :config
   (evil-set-initial-state 'Custom-mode 'normal)
   (general-def
@@ -193,8 +193,8 @@
 ;; Despite using helpful, I might find myself in help-mode so I'm going to keep
 ;; these settings.
 (use-package help-mode
+  :defer
   :ensure nil ;; included in Emacs.
-  :after evil
   :config
   (evil-set-initial-state 'help-mode 'normal)
   (evil-collection-inhibit-insert-state 'help-mode-map)
