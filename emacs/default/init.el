@@ -23,7 +23,10 @@
 (use-package benchmark-init
   :config
   ;; To disable collection of benchmark data after init is done.
-  (add-hook 'after-init-hook 'benchmark-init/deactivate))
+  (add-hook 'after-init-hook
+            (lambda ()
+              (progn (benchmark-init/deactivate)
+                     (require 'benchmark-init-modes)))))
 
 ;; order matters in the initialization process.
 (require 'init-defaults)
