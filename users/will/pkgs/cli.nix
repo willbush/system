@@ -35,6 +35,7 @@ in
     # other
     exiftool
     feh
+    gource # git history visualization
     lsof
     neofetch
     niv
