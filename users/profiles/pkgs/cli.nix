@@ -17,6 +17,7 @@
     git-imerge
     github-changelog-generator
     gitui
+    helix
     jq # TODO try xq
     nixpkgs-fmt
     python3
