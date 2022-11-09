@@ -8,6 +8,7 @@ in
     jdk
     nix-prefetch-git
     omnisharp-roslyn
+    powershell
     rust-analyzer
     rustup
     tokei
