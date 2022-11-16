@@ -14,6 +14,7 @@
     clang-tools
     delta
     flutter
+    gh
     git-imerge
     github-changelog-generator
     gitui
