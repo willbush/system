@@ -157,7 +157,9 @@ Compare them on count first,and in case of tie sort them alphabetically."
 (defun my/unix2dos ()
   "Convert the current buffer to a DOS file encoding."
   (interactive)
-  (set-buffer-file-coding-system 'utf-8-dos nil))
+  (progn
+    (set-buffer-file-coding-system 'utf-8-dos nil)
+    (my/delete-carrage-returns)))
 
 ;; window / buffer related functions:
 
