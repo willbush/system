@@ -143,7 +143,9 @@ Compare them on count first,and in case of tie sort them alphabetically."
 (defun my/dos2unix ()
   "Convert the current buffer to a Unix file encoding."
   (interactive)
-  (set-buffer-file-coding-system 'utf-8-unix nil))
+  (progn
+    (set-buffer-file-coding-system 'utf-8-unix nil)
+    (my/delete-carrage-returns)))
 
 ;;;###autoload
 (defun my/delete-carrage-returns ()
@@ -157,9 +159,7 @@ Compare them on count first,and in case of tie sort them alphabetically."
 (defun my/unix2dos ()
   "Convert the current buffer to a DOS file encoding."
   (interactive)
-  (progn
-    (set-buffer-file-coding-system 'utf-8-dos nil)
-    (my/delete-carrage-returns)))
+  (set-buffer-file-coding-system 'utf-8-dos nil))
 
 ;; window / buffer related functions:
 
