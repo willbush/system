@@ -195,13 +195,15 @@
   "wx" 'my/toggle-maximize-window
   "x" '(:ignore t :wk "text manipulation")
   "xC" 'my/sort-lines-by-column-reverse
-  "xD" 'my/unix2dos
   "xL" 'my/sort-lines-reverse
   "xR" 'my/randomize-words
-  "xU" 'my/dos2unix
   "xa" 'my/analyze-word-count
   "xc" 'my/sort-lines-by-column
   "xd" 'define-word-at-point
+  "xe" '(:ignore t :wk "line endings")
+  "xec" 'my/delete-carrage-returns
+  "xed" 'my/unix2dos
+  "xeu" 'my/dos2unix
   "xl" 'my/sort-lines
   "xr" 'my/randomize-lines
   "xu" 'my/uniquify-lines
