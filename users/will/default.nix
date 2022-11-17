@@ -91,7 +91,6 @@ in
     "libsciter" # used by rustdesk
     "rider"
     "slack"
-    "teams"
     "zoom"
   ];
 

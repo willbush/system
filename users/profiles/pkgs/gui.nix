@@ -12,7 +12,6 @@
 
     # chat
     signal-desktop
-    teams
     zoom-us
 
     # video
