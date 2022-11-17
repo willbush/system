@@ -4,6 +4,7 @@ in
 {
   home.packages = with pkgs; [
     # dev
+    azure-cli
     bfg-repo-cleaner
     jdk
     nix-prefetch-git
