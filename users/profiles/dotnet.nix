@@ -1,5 +1,5 @@
 { pkgs, ... }:
-let sdk = pkgs.dotnet-sdk;
+let sdk = pkgs.dotnet-sdk_7;
 in
 {
   home = {
