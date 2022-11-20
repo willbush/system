@@ -5,11 +5,9 @@
 ;;; their own file.
 
 (use-package rustic
-  :mode ("\\.rs\\'" . rustic-mode)
-  :hook (rustic-mode . lsp-deferred))
+  :mode ("\\.rs\\'" . rustic-mode))
 
-(use-package cc-mode
-  :hook (c-mode . lsp-deferred))
+(use-package cc-mode)
 
 (use-package dart-mode :mode "\\.dart\\'")
 
@@ -25,7 +23,6 @@
   ;; doesn't support tsx files yet:
   ;; https://github.com/emacs-typescript/typescript.el/issues/4
   :mode "\\.ts\\'"
-  :hook (typescript-mode . lsp-deferred)
   :config
   (setq typescript-ident-level 2))
 

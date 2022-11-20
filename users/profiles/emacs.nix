@@ -97,8 +97,6 @@
         ivy
         ivy-pass
         ivy-prescient
-        lsp-mode
-        lsp-ui
         magit
         magit-delta
         markdown-mode
