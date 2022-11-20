@@ -93,6 +93,7 @@
         git-gutter
         git-gutter-fringe
         git-timemachine
+        haskell-mode
         helpful
         hydra
         ivy

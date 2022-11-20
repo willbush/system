@@ -11,6 +11,8 @@
 
 (use-package dart-mode :mode "\\.dart\\'")
 
+(use-package haskell-mode :mode "\\.hs\\'")
+
 (use-package racket-mode :mode "\\.rkt\\'")
 
 (use-package terraform-mode :mode "\\.tf\\'")
