@@ -4,7 +4,7 @@ nnoremap n j|xnoremap n j|onoremap n j
 nnoremap e k|xnoremap e k|onoremap e k
 nnoremap i l|xnoremap i l|onoremap i l
 
-" f/F = far word/WORD
+" new mnemonic: f/F = far word/WORD
 nnoremap f e|xnoremap f e|onoremap f e
 nnoremap F E|xnoremap F E|onoremap F E
 
@@ -22,7 +22,7 @@ nnoremap R V|xnoremap R V
 nnoremap gr gv " range restore
 nnoremap <C-R> <C-V> " range block
 
-" find forward/back now search
+" new mnemonic: s/S = search
 nnoremap s f|xnoremap s f|onoremap s f
 nnoremap S F|xnoremap S F|onoremap S F
 
