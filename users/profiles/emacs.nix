@@ -93,13 +93,11 @@
         git-gutter
         git-gutter-fringe
         git-timemachine
-        haskell-mode
         helpful
         hydra
         ivy
         ivy-pass
         ivy-prescient
-        lsp-haskell
         lsp-mode
         lsp-ui
         magit

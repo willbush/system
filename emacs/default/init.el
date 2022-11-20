@@ -49,7 +49,6 @@
 (require 'init-misc-tools)
 (require 'init-prog-tools)
 
-(require 'init-haskell)
 (require 'init-languages)
 (require 'init-markup-languages)
 (require 'init-win-buffer-tools)
