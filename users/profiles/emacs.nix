@@ -85,7 +85,6 @@
         eyebrowse
         fd-dired
         fill-column-indicator
-        flycheck
         flyspell-correct-ivy
         format-all
         gcmh
