@@ -277,10 +277,6 @@ git-timemachine-mode:
 
     "q" 'git-timemachine-quit))
 
-(use-package flycheck
-  :commands flycheck-add-next-checker
-  :hook (lsp-mode . flycheck-mode))
-
 (add-hook 'prog-mode-hook
           (lambda ()
             (setq show-trailing-whitespace t)))
