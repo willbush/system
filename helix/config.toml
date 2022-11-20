@@ -1,0 +1,64 @@
+# At most one section each of 'keys.normal', 'keys.insert' and 'keys.select'
+[keys.normal]
+e = "move_line_up"
+n = "move_line_down"
+m = "move_char_left"
+i = "move_char_right"
+
+# new mnemonic: f/F = far word/WORD
+f = "move_next_word_end"
+F = "move_next_long_word_end"
+
+# new mnemonic: s/S = search
+s = "find_next_char"
+S = "find_prev_char"
+
+"^" = "goto_line_start"
+"$" = "goto_line_end"
+M = "goto_first_nonwhitespace"
+I = "goto_line_end"
+
+# keys that change text.
+v = "replace"
+
+h	= "search_next"
+H	= "search_prev"
+
+# new mnemonic: r/R = range
+r = "select_mode"
+l = "insert_mode"
+L = "prepend_to_line"
+
+# TODO
+# rebind m = "match_mode"
+# - rebinding this doesn't seem to be supported yet
+
+# new mnemonic: range mode
+[keys.select]
+e = "move_line_up"
+n = "move_line_down"
+m = "move_char_left"
+i = "move_char_right"
+
+# new mnemonic: f/F = far word/WORD
+f = "move_next_word_end"
+F = "move_next_long_word_end"
+
+# new mnemonic: s/S = search
+s = "find_next_char"
+S = "find_prev_char"
+
+"^" = "goto_line_start"
+"$" = "goto_line_end"
+M = "goto_first_nonwhitespace"
+I = "goto_line_end"
+
+# keys that change text.
+v = "replace"
+
+h	= "search_next"
+H	= "search_prev"
+
+# new mnemonic: r/R = range
+l = "insert_mode"
+L = "prepend_to_line"
