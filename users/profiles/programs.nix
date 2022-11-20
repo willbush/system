@@ -59,6 +59,10 @@
         la = "exa -lah";
         ll = "exa -l";
         vim = "nvim";
+        # TODO: test if I can remove this.
+        # This is a work around to only the uppercase binary is on the path when I install this via cli.nix.
+        # Not sure why that happens. When I install it via `nix-shell -p omnisharp` it works fine.
+        omnisharp = "OmniSharp";
       };
 
       oh-my-zsh = {
