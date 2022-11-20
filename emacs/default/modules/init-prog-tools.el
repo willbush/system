@@ -283,6 +283,8 @@ git-timemachine-mode:
 
 (use-package format-all :commands (format-all-buffer))
 
+(use-package eglot :commands (eglot))
+
 (use-package git-gutter
   :hook ((markdown-mode
          org-mode

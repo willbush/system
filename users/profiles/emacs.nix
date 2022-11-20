@@ -71,6 +71,7 @@
         doom-modeline
         doom-themes
         edwina
+        eglot # TODO remove when Emacs 29 hits master because it's included.
         evil
         evil-collection
         evil-exchange
