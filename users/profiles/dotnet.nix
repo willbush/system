@@ -13,5 +13,8 @@ in
       # I thought this would help Rider found dotnet, but it doesn't seem to work.
       DOTNET_ROOT = sdk;
     };
+
+    # Add dotnet tools to path
+    sessionPath = [ "$HOME/.dotnet/tools" ];
   };
 }
