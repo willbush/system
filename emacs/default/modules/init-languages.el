@@ -4,6 +4,16 @@
 ;;; A file for other language packages / settings that are too simple to be in
 ;;; their own file.
 
+(use-package tree-sitter
+  :defer t
+  :hook (after-init . global-tree-sitter-mode)
+  :config
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
+(use-package tree-sitter-langs
+  :defer t
+  :after tree-sitter)
+
 (use-package rustic
   :mode ("\\.rs\\'" . rustic-mode))
 
