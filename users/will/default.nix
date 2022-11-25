@@ -91,6 +91,7 @@ in
     "libsciter" # used by rustdesk
     "rider"
     "slack"
+    "spotify"
     "zoom"
   ];
 
