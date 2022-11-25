@@ -10,6 +10,7 @@ in
     nix-prefetch-git
     omnisharp-roslyn
     powershell
+    rnix-lsp
     rust-analyzer
     rustup
     tokei
