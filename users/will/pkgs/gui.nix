@@ -27,6 +27,7 @@
     mpv-unwrapped
     pkgs.stable.remmina
     rustdesk
+    spotify
     transmission-gtk
     virt-manager
   ];
