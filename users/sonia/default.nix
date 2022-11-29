@@ -72,7 +72,10 @@ in
     };
   };
 
-  modules.unfree.allowList = [ "android-studio-stable" ];
+  modules.unfree.allowList = [
+    "android-studio-stable"
+    "zoom"
+  ];
 
   networking = {
     firewall.enable = false;
