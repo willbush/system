@@ -12,7 +12,6 @@ in
     powershell
     rnix-lsp
     rust-analyzer
-    rustup
     tokei
 
     # k8s
