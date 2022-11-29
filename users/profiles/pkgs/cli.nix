@@ -23,6 +23,7 @@
     nixpkgs-fmt
     python3
     racket
+    rustup
     shfmt
     terraform
 
