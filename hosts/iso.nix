@@ -1,4 +1,4 @@
-{ lib, modulesPath, pkgs, config, ... }:
+{ inputs, lib, modulesPath, pkgs, config, ... }:
 let inherit (lib) getName;
 in {
   imports = [
