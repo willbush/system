@@ -35,20 +35,14 @@
 ;; order matters in the initialization process.
 (require 'init-defaults)
 (require 'init-dashboard)
-
-;; Put key binding packages high on the list so other files can also bind
-;; keys and define hydras.
 (require 'init-key-packages)
 (require 'init-ui)
-(require 'init-completion)
 (require 'init-csharp)
 (require 'init-dired)
 (require 'init-editing)
-
-;; These two must come before other languages.
 (require 'init-misc-tools)
+(require 'init-completion)
 (require 'init-prog-tools)
-
 (require 'init-languages)
 (require 'init-markup-languages)
 (require 'init-win-buffer-tools)

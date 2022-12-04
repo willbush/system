@@ -87,13 +87,15 @@
 
   (global-company-mode 1))
 
-(use-package company-tabnine
-  :after company
-  :config
-  ;; Silence warning (company's :defer causes byte compile warnings)
-  (declare-function company-tabnine "company-tabnine")
+(use-package company-box
+  :hook (company-mode . company-box-mode))
 
-  (add-to-list 'company-backends #'company-tabnine))
+(use-package copilot
+  :hook ((prog-mode text-mode) . copilot-mode)
+  :bind ("C-<tab>" . copilot-accept-completion)
+  :config
+  (setq copilot-node-executable
+        (exec-path-from-shell-copy-env "NODEJS_16_X")))
 
 (use-package counsel-projectile
   :defer 0.1
