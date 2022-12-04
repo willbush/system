@@ -16,6 +16,22 @@
         "type": "github"
       }
     },
+    "copilot-el": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1668477448,
+        "narHash": "sha256-hma5nFmYzMf0bAXcfrZlFZ9u9k7qBiQkLlMKEp4Ae/I=",
+        "owner": "zerolfx",
+        "repo": "copilot.el",
+        "rev": "1be31d962e212fb60e0a5972b4be60cb29341559",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zerolfx",
+        "repo": "copilot.el",
+        "type": "github"
+      }
+    },
     "crafted-emacs": {
       "flake": false,
       "locked": {
@@ -151,6 +167,7 @@
     "root": {
       "inputs": {
         "chemacs": "chemacs",
+        "copilot-el": "copilot-el",
         "crafted-emacs": "crafted-emacs",
         "emacs-overlay": "emacs-overlay",
         "flake-utils": "flake-utils_2",

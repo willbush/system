@@ -23,6 +23,12 @@
     };
 
     flake-utils.url = "github:numtide/flake-utils";
+
+    # Not on melpa yet.
+    copilot-el = {
+      url = "github:zerolfx/copilot.el";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, ... }@inputs:

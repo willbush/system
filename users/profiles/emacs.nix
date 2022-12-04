@@ -1,34 +1,39 @@
-{ inputs, pkgs, emacsPackage ? pkgs.emacsNativeComp, ... }: {
-
-  home.file = {
-    ".config/chemacs-repo" = {
-      source = inputs.chemacs;
-      # Work around for home-manager not being able to copy instead of link.
-      # see: https://github.com/nix-community/home-manager/issues/3090
-      onChange = ''
-        trash-put -f ~/.config/emacs
-        cp -a ~/.config/chemacs-repo/ ~/.config/emacs/
-        chmod u+w ~/.config/emacs/ -R
-      '';
+{ inputs, pkgs, emacsPackage ? pkgs.emacsNativeComp, ... }:
+{
+  home = {
+    sessionVariables = {
+      NODEJS_16_X = "${pkgs.nodejs-16_x}/bin/node";
     };
-    ".config/crafted-emacs-repo" = {
-      source = inputs.crafted-emacs;
-      onChange = ''
-        trash-put -f ~/.config/crafted-emacs
-        cp -a ~/.config/crafted-emacs-repo/ ~/.config/crafted-emacs/
-        chmod u+w ~/.config/crafted-emacs/ -R
-      '';
-    };
-    ".config/chemacs/profiles.el" = {
-      source = ../../emacs/profiles.el;
-    };
-    ".config/emacs.default" = {
-      source = ../../emacs/default;
-      recursive = true;
-    };
-    ".config/emacs.crafted" = {
-      source = ../../emacs/crafted;
-      recursive = true;
+    file = {
+      ".config/chemacs-repo" = {
+        source = inputs.chemacs;
+        # Work around for home-manager not being able to copy instead of link.
+        # see: https://github.com/nix-community/home-manager/issues/3090
+        onChange = ''
+          trash-put -f ~/.config/emacs
+          cp -a ~/.config/chemacs-repo/ ~/.config/emacs/
+          chmod u+w ~/.config/emacs/ -R
+        '';
+      };
+      ".config/crafted-emacs-repo" = {
+        source = inputs.crafted-emacs;
+        onChange = ''
+          trash-put -f ~/.config/crafted-emacs
+          cp -a ~/.config/crafted-emacs-repo/ ~/.config/crafted-emacs/
+          chmod u+w ~/.config/crafted-emacs/ -R
+        '';
+      };
+      ".config/chemacs/profiles.el" = {
+        source = ../../emacs/profiles.el;
+      };
+      ".config/emacs.default" = {
+        source = ../../emacs/default;
+        recursive = true;
+      };
+      ".config/emacs.crafted" = {
+        source = ../../emacs/crafted;
+        recursive = true;
+      };
     };
   };
 
@@ -42,11 +47,42 @@
     aspellDicts.en
     aspellDicts.en-computers
     aspellDicts.en-science
+    nodejs-16_x # copilot.el only supports 12.x to 17.x, limited by upstream
   ];
 
   programs.emacs = {
     enable = true;
     package = emacsPackage;
+    overrides = self: super: {
+      copilot =
+        let
+          rev = inputs.copilot-el.shortRev;
+        in
+        with pkgs;
+        with pkgs.emacsPackages;
+        melpaBuild {
+          pname = "copilot";
+          ename = "copilot";
+          version = inputs.copilot-el.lastModifiedDate;
+          commit = rev;
+          packageRequires = [ dash editorconfig s ];
+
+          src = fetchFromGitHub {
+            inherit rev;
+            owner = "zerolfx";
+            repo = "copilot.el";
+            sha256 = inputs.copilot-el.narHash;
+          };
+
+          recipe = writeText "recipe" ''
+            (copilot
+              :repo "zerolfx/copilot.el"
+              :fetcher github
+              :files ("*.el" "dist"))
+          '';
+          meta.description = "Emacs plugin for GitHub Copilot";
+        };
+    };
     extraPackages = (epkgs:
       (with epkgs; [
         adaptive-wrap
@@ -55,7 +91,8 @@
         benchmark-init
         browse-at-remote
         company
-        company-tabnine
+        company-box
+        copilot
         counsel
         counsel-projectile
         csharp-mode
