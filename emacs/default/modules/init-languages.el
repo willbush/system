@@ -15,7 +15,9 @@
   :after tree-sitter)
 
 (use-package rustic
-  :mode ("\\.rs\\'" . rustic-mode))
+  :mode ("\\.rs\\'" . rustic-mode)
+  :config
+  (setq rustic-lsp-client 'eglot))
 
 (use-package cc-mode)
 
