@@ -196,18 +196,20 @@
   "x" '(:ignore t :wk "text manipulation")
   "xC" 'my/sort-lines-by-column-reverse
   "xL" 'my/sort-lines-reverse
-  "xR" 'my/randomize-words
+  "xR" 'reverse-region
   "xa" 'my/analyze-word-count
   "xc" 'my/sort-lines-by-column
   "xd" 'define-word-at-point
+  "xl" 'my/sort-lines
+  "xu" 'my/uniquify-lines
+  ;; binding this to an easy key because I use it a lot.
+  "xx" 'fill-paragraph
+  "xr" '(:ignore t :wk "randomize")
+  "xrl" 'my/randomize-lines
+  "xrw" 'my/randomize-words
   "xe" '(:ignore t :wk "line endings")
   "xec" 'my/delete-carrage-returns
   "xed" 'my/unix2dos
-  "xeu" 'my/dos2unix
-  "xl" 'my/sort-lines
-  "xr" 'my/randomize-lines
-  "xu" 'my/uniquify-lines
-  ;; binding this to an easy key because I use it a lot.
-  "xx" 'fill-paragraph)
+  "xeu" 'my/dos2unix)
 
 (provide 'init-keys)
