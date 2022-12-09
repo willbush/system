@@ -92,6 +92,7 @@ in
     "rider"
     "slack"
     "spotify"
+    "webex"
     "zoom"
   ];
 
