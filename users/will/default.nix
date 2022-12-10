@@ -40,7 +40,7 @@ in
       (import ../profiles/emacs.nix {
         inherit inputs;
         inherit pkgs;
-        emacsPackage = pkgs.emacsNativeComp;
+        emacsPackage = pkgs.emacsUnstable;
       })
       ../profiles/bat.nix
       ../profiles/dotnet.nix

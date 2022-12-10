@@ -31,7 +31,7 @@ in
       (import ../users/profiles/emacs.nix {
         inherit inputs;
         inherit pkgs;
-        emacsPackage = pkgs.emacsNativeComp;
+        emacsPackage = pkgs.emacsUnstable;
       })
       ../users/profiles/bat.nix
       ../users/profiles/gpg.nix
