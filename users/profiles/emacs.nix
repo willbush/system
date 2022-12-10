@@ -1,4 +1,4 @@
-{ inputs, pkgs, emacsPackage ? pkgs.emacsNativeComp, ... }:
+{ inputs, pkgs, emacsPackage ? pkgs.emacsUnstable, ... }:
 {
   home = {
     sessionVariables = {
