@@ -73,7 +73,6 @@ in
   };
 
   modules.unfree.allowList = [
-    "android-studio-stable"
     "zoom"
   ];
 

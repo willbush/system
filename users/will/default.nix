@@ -87,7 +87,6 @@ in
   };
 
   modules.unfree.allowList = [
-    "android-studio-stable"
     "libsciter" # used by rustdesk
     "rider"
     "slack"

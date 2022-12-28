@@ -37,7 +37,6 @@
     czkawka
 
     # Dev
-    android-studio
     arduino
     vscodium
   ];
