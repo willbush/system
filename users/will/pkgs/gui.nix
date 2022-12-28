@@ -7,7 +7,6 @@
 
     # chat
     slack
-    webex
 
     # image viewer
     gnome.eog

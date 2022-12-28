@@ -12,7 +12,6 @@
 
     # chat
     signal-desktop
-    zoom-us
 
     # video
     vlc
