@@ -47,7 +47,7 @@
     zenith
 
     # other utils
-    onefetch
+    onefetch # neofetch like tool
     du-dust
     file
     hyperfine # benchmarking tool

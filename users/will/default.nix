@@ -91,8 +91,6 @@ in
     "rider"
     "slack"
     "spotify"
-    "webex"
-    "zoom"
   ];
 
   networking = {
