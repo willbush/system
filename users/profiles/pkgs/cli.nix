@@ -28,7 +28,6 @@
     terraform
 
     # node
-    nodePackages.expo-cli
     nodePackages.markdown-link-check
     nodePackages.npm
     nodePackages.prettier
