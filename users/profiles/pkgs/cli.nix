@@ -18,7 +18,7 @@
     github-changelog-generator
     gitui
     helix
-    jq # TODO try xq
+    xq # jq in rust
     nixpkgs-fmt
     python3
     racket
