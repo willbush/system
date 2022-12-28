@@ -9,7 +9,6 @@
     slack
 
     # image viewer
-    gnome.eog
     sxiv
 
     # video editor
