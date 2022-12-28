@@ -59,3 +59,12 @@ nnoremap " ,|xnoremap " ,|onoremap " ,
 " The insanity that is vim script uses '"' for comments... sometimes.
 " After a map command it doesn't need to be escaped.
 nnoremap & "|xnoremap & "| onoremap & "
+
+" width of a tab character
+set tabstop=4
+" indents width
+set shiftwidth=2
+" number of columns for a TAB
+set softtabstop=4
+" Expand TABs to spaces
+set expandtab
