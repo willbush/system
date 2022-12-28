@@ -6,6 +6,7 @@ in
     # dev
     azure-cli
     bfg-repo-cleaner
+    git-filter-repo
     nix-prefetch-git
     omnisharp-roslyn
     powershell
