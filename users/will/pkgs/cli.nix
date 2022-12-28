@@ -6,7 +6,6 @@ in
     # dev
     azure-cli
     bfg-repo-cleaner
-    jdk
     nix-prefetch-git
     omnisharp-roslyn
     powershell
@@ -40,12 +39,8 @@ in
     ffmpeg
     gource # git history visualization
     lsof
-    neofetch
-    niv
-    nushell
+    nushell # command is nu
     planck
-    woeusb # Windows ISO to USB drive utility
-    xclip
     xdotool
     zola
   ];
