@@ -18,21 +18,14 @@
     github-changelog-generator
     gitui
     helix
-    xq # jq in rust
     nixpkgs-fmt
+    nodePackages.prettier
     python3
     racket
     rustup
     shfmt
     terraform
-
-    # node
-    nodePackages.markdown-link-check
-    nodePackages.npm
-    nodePackages.prettier
-    nodePackages.typescript
-    nodePackages.typescript-language-server
-    nodejs
+    xq # jq in rust
 
     # security
     git-crypt
