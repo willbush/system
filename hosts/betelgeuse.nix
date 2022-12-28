@@ -13,11 +13,14 @@
     # Needed for mount.cifs command (when manually mounting)
     supportedFilesystems = [ "cifs" ];
 
+    loader.efi.efiSysMountPoint = "/boot/efi";
+
     initrd = {
       checkJournalingFS = true; # run fsck for journal file system
-
-      availableKernelModules =
-        [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+      availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+      secrets = {
+        "/crypto_keyfile.bin" = null;
+      };
     };
 
     kernelModules = [ "kvm-amd" ];
@@ -29,25 +32,28 @@
     extraModprobeConfig = "options kvm-amd nested=1";
   };
 
-  fileSystems = {
-    "/boot" = {
-      device = "/dev/disk/by-uuid/C231-9103";
-      fsType = "vfat";
-    };
-    "/" = {
-      device = "/dev/disk/by-uuid/a036ac4a-9f1a-4fb9-bcac-001f8fc2f5b1";
+  fileSystems."/" =
+    {
+      device = "/dev/disk/by-uuid/e8a78c50-7cc9-4d5f-bd16-12f4d7b27bc5";
       fsType = "ext4";
     };
-  };
 
-  swapDevices =
-    [{ device = "/dev/disk/by-uuid/9b4fd40c-0435-444b-88b9-10be2a9736a8"; }];
+  boot.initrd.luks.devices."luks-acd1029d-fdd2-496f-922d-ea04379a1b17".device = "/dev/disk/by-uuid/acd1029d-fdd2-496f-922d-ea04379a1b17";
+
+  fileSystems."/boot/efi" =
+    {
+      device = "/dev/disk/by-uuid/7C41-AC57";
+      fsType = "vfat";
+    };
+
+  swapDevices = [ ];
 
   nix.settings.max-jobs = lib.mkDefault 16;
 
   hardware = {
     nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
     opengl.enable = true;
+    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   };
 
   services = {
@@ -77,6 +83,4 @@
   };
 
   modules.unfree.allowList = [ "nvidia-x11" "nvidia-settings" ];
-
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
