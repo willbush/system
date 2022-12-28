@@ -10,8 +10,6 @@
         enable = true;
         version = 2;
         inherit device;
-        configurationLimit = 50;
-        memtest86.enable = true;
       };
     };
   };
