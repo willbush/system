@@ -91,11 +91,6 @@
 
     htop.enable = true;
 
-    broot = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-
     navi = {
       enable = true;
       enableZshIntegration = true;
