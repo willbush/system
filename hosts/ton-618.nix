@@ -9,9 +9,6 @@
   ];
 
   boot = {
-    # Needed for mount.cifs command (when manually mounting)
-    supportedFilesystems = [ "cifs" ];
-
     loader.efi.efiSysMountPoint = "/boot/efi";
 
     initrd = {
