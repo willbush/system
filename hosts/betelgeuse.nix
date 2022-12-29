@@ -10,9 +10,6 @@
   ];
 
   boot = {
-    # Needed for mount.cifs command (when manually mounting)
-    supportedFilesystems = [ "cifs" ];
-
     loader.efi.efiSysMountPoint = "/boot/efi";
 
     initrd = {
@@ -76,12 +73,6 @@
 
     # needed for globalprotect-openconnect to work
     globalprotect.enable = true;
-
-    samba = {
-      enable = true;
-      openFirewall = true;
-      nsswins = true;
-    };
   };
 
   modules.unfree.allowList = [ "nvidia-x11" "nvidia-settings" ];
