@@ -61,10 +61,11 @@ nnoremap " ,|xnoremap " ,|onoremap " ,
 nnoremap & "|xnoremap & "| onoremap & "
 
 " width of a tab character
-set tabstop=4
+set tabstop=2
 " indents width
 set shiftwidth=2
 " number of columns for a TAB
-set softtabstop=4
+set softtabstop=2
 " Expand TABs to spaces
 set expandtab
+set autoindent
