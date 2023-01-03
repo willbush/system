@@ -4,6 +4,7 @@ in
 {
   imports = [
     ../../modules/services/clamav.nix
+    ../../modules/services/opensnitch.nix
     ../../modules/services/syncthing.nix
     ../../profiles/common/fonts.nix
     ../../profiles/common/nix-settings.nix
@@ -108,8 +109,11 @@ in
     };
 
     services.clamav.enable = true;
-  };
 
+    services.opensnitch = {
+      enable = true;
+      user = "will";
+    };
   };
 
   services = {
