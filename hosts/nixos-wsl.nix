@@ -100,7 +100,7 @@ in
       "getty@tty1".enable = false;
       "autovt@".enable = false;
 
-      firewall.enable = false;
+      firewall.enable = true;
       systemd-resolved.enable = false;
       systemd-udevd.enable = false;
     };

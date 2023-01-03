@@ -94,7 +94,7 @@ in
   ];
 
   networking = {
-    firewall.enable = false;
+    firewall.enable = true;
     networkmanager.enable = true;
     iproute2.enable = true; # Needed for mullvad daemon
     wireguard.enable = true;
