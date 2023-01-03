@@ -3,6 +3,7 @@ let inherit (lib) fileContents;
 in
 {
   imports = [
+    ../../modules/services/clamav.nix
     ../../modules/services/syncthing.nix
     ../../profiles/common/fonts.nix
     ../../profiles/common/nix-settings.nix
@@ -80,9 +81,13 @@ in
     networkmanager.enable = true;
   };
 
-  modules.services.syncthing = {
-    enable = true;
-    user = "sonia";
+  modules = {
+    services.syncthing = {
+      enable = true;
+      user = "sonia";
+    };
+
+    services.clamav.enable = true;
   };
 
   services = {

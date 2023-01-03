@@ -3,6 +3,7 @@ let inherit (lib) fileContents;
 in
 {
   imports = [
+    ../../modules/services/clamav.nix
     ../../modules/services/syncthing.nix
     ../../profiles/common/fonts.nix
     ../../profiles/common/nix-settings.nix
@@ -100,9 +101,15 @@ in
     wireguard.enable = true;
   };
 
-  modules.services.syncthing = {
-    enable = config.networking.hostName != "ton-618";
-    user = "will";
+  modules = {
+    services.syncthing = {
+      enable = config.networking.hostName != "ton-618";
+      user = "will";
+    };
+
+    services.clamav.enable = true;
+  };
+
   };
 
   services = {
