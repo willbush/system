@@ -54,7 +54,7 @@ in
       ../profiles/redshift.nix
       ./pkgs/cli.nix
       ./pkgs/gui.nix
-      # ./picom.nix
+      ./picom.nix
       ./git.nix
       ./krew.nix
       ./lockscreen.nix
