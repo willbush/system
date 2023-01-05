@@ -20,6 +20,7 @@ in
     kubernetes-helm
     lens
     minikube
+    octant
 
     # tui
     nethogs
