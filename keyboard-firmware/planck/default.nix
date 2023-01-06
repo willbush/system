@@ -26,7 +26,7 @@ stdenv.mkDerivation rec {
     cp -rv ${./keymap}/* keyboards/planck/keymaps/willbush
   '';
 
-  # Use make instead of qmk tool so we can skip try to use git to determin
+  # Use make instead of qmk tool so we can skip try to use git to determine
   # firmware version.
   buildPhase = "make SKIP_GIT=yes planck/rev6:willbush";
 
