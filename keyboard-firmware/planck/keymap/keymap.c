@@ -1,7 +1,8 @@
 #include QMK_KEYBOARD_H
-#include "muse.h"
 
-extern keymap_config_t keymap_config;
+#ifdef AUDIO_ENABLE
+#    include "muse.h"
+#endif
 
 enum planck_layers {
   _COLEMAK,
@@ -76,12 +77,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ADJUST] = LAYOUT_planck_grid(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, MU_MOD,  AU_ON,   AU_OFF,  _______, _______, QWERTY,  COLEMAK, GAMING,  _______, _______,
-    _______, _______, _______, MU_ON,   MU_OFF,  _______, _______, _______, _______, _______, DEBUG,   _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RESET,   _______
+    _______, _______, _______, MU_ON,   MU_OFF,  _______, _______, _______, _______, _______, DB_TOGG, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, QK_BOOT, _______
   )
 };
 
-uint32_t layer_state_set_user(uint32_t state) {
+layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
