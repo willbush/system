@@ -4,7 +4,7 @@ in
 {
   imports = [
     ../../modules/services/clamav.nix
-    ../../modules/services/opensnitch.nix
+    ../../modules/services/opensnitch
     ../../modules/services/syncthing.nix
     ../../profiles/common/fonts.nix
     ../../profiles/common/nix-settings.nix
