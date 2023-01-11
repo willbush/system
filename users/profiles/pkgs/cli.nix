@@ -18,6 +18,7 @@
     github-changelog-generator
     gitui
     helix
+    nixfmt
     nixpkgs-fmt
     nodePackages.prettier
     python3
