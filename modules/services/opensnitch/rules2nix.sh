@@ -8,16 +8,16 @@ set -e
 echo '{' >> rules.nix
 
 for file in /var/lib/opensnitch/rules/*.json; do
-	if [ -L "$file" ]; then
-		echo "\"$file\" = " >> rules.nix
+  if [ -L "$file" ]; then
+    echo "\"$file\" = " >> rules.nix
 
-		nix eval --impure --expr "
-        let rules = builtins.fromJSON (builtins.readFile $file);
-        in builtins.removeAttrs rules [ \"created\" \"updated\" \"precedence\" ]
-      " >> rules.nix
+    nix eval --impure --expr "
+      let rules = builtins.fromJSON (builtins.readFile $file);
+      in builtins.removeAttrs rules [ \"created\" \"updated\" \"precedence\" ]
+    " >> rules.nix
 
-		echo ';' >> rules.nix
-	fi
+    echo ';' >> rules.nix
+  fi
 done
 
 echo '}' >> rules.nix
