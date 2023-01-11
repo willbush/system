@@ -11,6 +11,7 @@ enum planck_layers {
   _NUM,
   _LOWER,
   _RAISE,
+  _PLOVER,
   _HYPER,
   _ADJUST
 };
@@ -18,7 +19,9 @@ enum planck_layers {
 enum planck_keycodes {
   COLEMAK = SAFE_RANGE,
   QWERTY,
-  GAMING,
+  PLOVER,
+  EXT_PLV,
+  GAMING
 };
 
 #define LOWER MO(_LOWER)
@@ -44,11 +47,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, SFT_ENT,
     _______, NUM,     KC_LGUI, KC_LALT, LOWER,   HYPER,   KC_SPC,  RAISE,   KC_RALT, KC_RGUI, _______, KC_RCTL
   ),
+  /* Plover layer (http://opensteno.org)
+  * ,-----------------------------------------------------------------------------------.
+  * |   #  |   #  |   #  |   #  |   #  |   #  |   #  |   #  |   #  |   #  |   #  |   #  |
+  * |------+------+------+------+------+------+------+------+------+------+------+------|
+  * |      |   S  |   T  |   P  |   H  |   *  |   *  |   F  |   P  |   L  |   T  |   D  |
+  * |------+------+------+------+------+------+------+------+------+------+------+------|
+  * |      |   S  |   K  |   W  |   R  |   *  |   *  |   R  |   B  |   G  |   S  |   Z  |
+  * |------+------+------+------+------+------+------+------+------+------+------+------|
+  * | Exit |      |      |      |   A  |   O  |   E  |   U  |      |      |      | Exit |
+  * `-----------------------------------------------------------------------------------'
+  */
+  [_PLOVER] = LAYOUT_planck_grid(
+    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1,    KC_1   ,
+    XXXXXXX, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC,
+    XXXXXXX, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+    EXT_PLV, XXXXXXX, XXXXXXX, XXXXXXX, KC_C,    KC_V,    KC_N,    KC_M,    XXXXXXX, XXXXXXX, XXXXXXX, EXT_PLV
+  ),
   [_GAMING] = LAYOUT_planck_grid(
     KC_6,    KC_3,    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_BSPC,
     KC_5,    KC_2,    CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_QUOT,
     KC_4,    KC_1,    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, SFT_ENT,
-    KC_GRV,  KC_DOT,  KC_LCTL, KC_SLSH, KC_LALT, KC_F1,   KC_SPC,  KC_F2,   KC_F3,   KC_F4,   KC_F5,   COLEMAK
+    COLEMAK, KC_DOT,  KC_LCTL, KC_SLSH, KC_LALT, KC_F1,   KC_SPC,  KC_F2,   KC_F3,   KC_F4,   KC_F5,   COLEMAK
   ),
   [_LOWER] = LAYOUT_planck_grid(
     _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
@@ -76,11 +96,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_ADJUST] = LAYOUT_planck_grid(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, MU_MOD,  AU_ON,   AU_OFF,  _______, _______, QWERTY,  COLEMAK, GAMING,  _______, _______,
+    _______, _______, MU_MOD,  AU_ON,   AU_OFF,  _______, _______, PLOVER,  COLEMAK, QWERTY,  GAMING,  _______,
     _______, _______, _______, MU_ON,   MU_OFF,  _______, _______, _______, _______, _______, DB_TOGG, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, QK_BOOT, _______
   )
 };
+
+#ifdef AUDIO_ENABLE
+  float plover_song[][2]     = SONG(PLOVER_SOUND);
+  float plover_gb_song[][2]  = SONG(PLOVER_GOODBYE_SOUND);
+#endif
 
 layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
@@ -103,6 +128,34 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case GAMING:
       if (record->event.pressed) {
         set_single_persistent_default_layer(_GAMING);
+      }
+      return false;
+      break;
+    case PLOVER:
+      if (record->event.pressed) {
+        #ifdef AUDIO_ENABLE
+          stop_all_notes();
+          PLAY_SONG(plover_song);
+        #endif
+        layer_off(_RAISE);
+        layer_off(_LOWER);
+        layer_off(_ADJUST);
+        layer_on(_PLOVER);
+        if (!eeconfig_is_enabled()) {
+            eeconfig_init();
+        }
+        keymap_config.raw = eeconfig_read_keymap();
+        keymap_config.nkro = 1;
+        eeconfig_update_keymap(keymap_config.raw);
+      }
+      return false;
+      break;
+    case EXT_PLV:
+      if (record->event.pressed) {
+        #ifdef AUDIO_ENABLE
+          PLAY_SONG(plover_gb_song);
+        #endif
+        layer_off(_PLOVER);
       }
       return false;
       break;
