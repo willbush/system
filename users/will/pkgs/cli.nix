@@ -43,6 +43,8 @@ in
     lsof
     nushell # command is nu
     planck
+    tesseract5
+    xclip
     xdotool
     zola
   ];
