@@ -29,7 +29,6 @@
     hicolor-icon-theme # fall back icon theme
     mpv-unwrapped
     pkgs.stable.remmina
-    plover.dev
     rustdesk
     spotify
     transmission-gtk
