@@ -46,6 +46,7 @@
   "a" '(:ignore t :wk "apps")
   "aD" 'deer-jump-other-window
   "ad" 'deer ;; minimal ranger dired
+  "ag" 'atomic-chrome-start-server ;; g is for GhostText browser extension
   "ae" '(:ignore t :wk "direnv")
   "aeU" 'direnv-update-directory-environment
   "aea" 'direnv-allow

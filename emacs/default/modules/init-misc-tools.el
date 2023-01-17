@@ -256,4 +256,8 @@
 (use-package exec-path-from-shell
   :commands exec-path-from-shell-copy-env)
 
+;; For use with GhostText browser extension
+(use-package atomic-chrome
+  :commands atomic-chrome-start-server)
+
 (provide 'init-misc-tools)
