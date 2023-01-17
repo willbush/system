@@ -87,6 +87,7 @@
       (with epkgs; [
         adaptive-wrap
         all-the-icons-ivy
+        atomic-chrome
         avy
         benchmark-init
         browse-at-remote
