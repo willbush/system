@@ -13,6 +13,7 @@ in
     rnix-lsp
     rust-analyzer
     tokei
+    vault
 
     # k8s
     argocd
