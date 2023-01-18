@@ -70,12 +70,6 @@
       '';
     };
     fstrim.enable = true;
-
-    # needed for globalprotect-openconnect to work
-    globalprotect = {
-      enable = true;
-      settings = import ../secrets/work-globalprotect-settings.nix;
-    };
   };
 
   modules.unfree.allowList = [ "nvidia-x11" "nvidia-settings" ];
