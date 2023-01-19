@@ -145,6 +145,10 @@ in
     };
   };
 
+  security.pki.certificates = [
+    "${builtins.readFile ../../secrets/work-cert.pem}"
+  ];
+
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     mullvad-vpn
