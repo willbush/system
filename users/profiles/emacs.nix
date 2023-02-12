@@ -149,6 +149,7 @@
         nix-update
         nixpkgs-fmt
         org-download
+        org-modern
         org-pomodoro
         page-break-lines # emacs-dashboard dependency
         pandoc-mode
