@@ -170,7 +170,7 @@
              org-download-rename-last-file))
 
 (use-package org-modern
-  :commands global-org-modern-mode
+  :commands (global-org-modern-mode org-modern-mode)
   :config
   (set-face-attribute 'org-modern-symbol nil :family "Iosevka"))
 
