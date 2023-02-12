@@ -146,10 +146,11 @@
   "oa" 'org-agenda
   "oc" 'org-capture
   "oi" 'org-indent-mode
+  "om" 'org-modern-mode
+  "op" 'org-pomodoro
   "or" 'org-refile
   "os" 'org-save-all-org-buffers
   "ot" 'org-toggle-link-display
-  "op" 'org-pomodoro
   "p" 'projectile-command-map
   "q" '(:ignore t :wk "quit")
   "qQ" 'save-buffers-kill-emacs
