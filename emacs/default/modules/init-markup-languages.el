@@ -71,9 +71,33 @@
   (setq org-todo-keywords
         '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELED(c)")))
 
-  (setq org-agenda-span 30
-        org-agenda-start-on-weekday nil
-        org-agenda-start-day "-3d")
+  (setq
+   ;; Edit settings
+   org-auto-align-tags nil
+   org-tags-column 0
+   org-catch-invisible-edits 'show-and-error
+   org-special-ctrl-a/e t
+   org-insert-heading-respect-content t
+
+   ;; Org styling, hide markup etc.
+   org-hide-emphasis-markers t
+   org-pretty-entities t
+   org-ellipsis "…"
+
+   ;; Agenda
+   org-agenda-span 30
+   org-agenda-start-on-weekday nil
+   org-agenda-start-day "-3d"
+
+   ;; Agenda styling
+   org-agenda-tags-column 0
+   org-agenda-block-separator ?─
+   org-agenda-time-grid
+   '((daily today require-timed)
+     (800 1000 1200 1400 1600 1800 2000)
+     " ┄┄┄┄┄ " "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
+   org-agenda-current-time-string
+   "⭠ now ─────────────────────────────────────────────────")
 
   ;; Set my agenda files to includes all my org files that are not hidden,;
   ;; auto-save, or backups.
@@ -125,7 +149,9 @@
   ;; format string syntax
   (setq org-archive-location
         (concat "archive/"
-                (format-time-string "%Y" (current-time)) "-%s_archive::")))
+                (format-time-string "%Y" (current-time)) "-%s_archive::"))
+
+  (global-org-modern-mode))
 
 (use-package org-download
   ;; without deferring like this package adds 0.1 sec to startup time Ideally
@@ -142,6 +168,11 @@
              org-download-screenshot ;; depends on gnome-screenshot
              org-download-rename-at-point
              org-download-rename-last-file))
+
+(use-package org-modern
+  :commands global-org-modern-mode
+  :config
+  (set-face-attribute 'org-modern-symbol nil :family "Iosevka"))
 
 (use-package org-pomodoro
   :commands org-pomodoro
