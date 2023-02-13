@@ -52,12 +52,13 @@ in
       ../profiles/pkgs/gui.nix
       ../profiles/programs.nix
       ../profiles/redshift.nix
-      ./pkgs/cli.nix
-      ./pkgs/gui.nix
-      ./picom.nix
       ./git.nix
       ./krew.nix
       ./lockscreen.nix
+      ./picom.nix
+      ./pipx.nix
+      ./pkgs/cli.nix
+      ./pkgs/gui.nix
       ./rofi.nix
       ./xdg.nix
     ];
