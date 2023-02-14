@@ -1,5 +1,7 @@
 { pkgs, ... }:
-let planck = pkgs.callPackage ../../../keyboard-firmware/planck { };
+let
+  planck = pkgs.callPackage ../../../keyboard-firmware/planck { };
+  crkbd = pkgs.callPackage ../../../keyboard-firmware/crkbd { };
 in
 {
   home.packages = with pkgs; [
@@ -36,6 +38,10 @@ in
     rustscan
     xh
 
+    # Keyboard firmware flash
+    crkbd
+    planck
+
     # other
     exiftool
     feh
@@ -43,7 +49,6 @@ in
     gource # git history visualization
     lsof
     nushell # command is nu
-    planck
     tesseract5
     xclip
     xdotool
