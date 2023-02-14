@@ -7,10 +7,10 @@
 enum planck_layers {
   _COLEMAK,
   _QWERTY,
-  _NUM,
   _LOWER,
   _RAISE,
   _HYPER,
+  _NUM,
   _ADJUST
 };
 
