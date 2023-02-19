@@ -43,7 +43,7 @@ in
     ];
 
     home = rec {
-      stateVersion = "22.11";
+      stateVersion = "23.05";
       username = defaultUser;
       homeDirectory = "/home/${defaultUser}";
 
@@ -105,4 +105,6 @@ in
       systemd-udevd.enable = false;
     };
   };
+
+  system.stateVersion = "23.05";
 }

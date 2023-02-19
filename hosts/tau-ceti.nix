@@ -70,7 +70,7 @@
 
     openssh = {
       enable = true;
-      passwordAuthentication = false;
+      settings.passwordAuthentication = false;
       ports = [ 16596 ];
     };
 
