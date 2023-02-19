@@ -64,7 +64,7 @@ in
     ];
 
     home = rec {
-      stateVersion = "22.11";
+      stateVersion = "23.05";
       username = "will";
       homeDirectory = "/home/will";
 
@@ -112,7 +112,7 @@ in
     services.clamav.enable = true;
 
     services.opensnitch = {
-      enable = true;
+      enable = false;
       user = "will";
     };
   };
@@ -155,5 +155,5 @@ in
     mullvad-vpn
   ];
 
-  system.stateVersion = "22.11";
+  system.stateVersion = "23.05";
 }

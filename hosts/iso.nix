@@ -60,7 +60,7 @@ in {
       ];
 
       home = {
-        stateVersion = "22.11";
+        stateVersion = "23.05";
         file = {
           # Include the readme from this repo which might be handy before cloning it.
           "Desktop/readme.org".source = ../readme.org;
@@ -80,6 +80,7 @@ in {
     };
   };
 
+  system.stateVersion = "23.05";
   system.activationScripts.installerDesktop =
     let
 
