@@ -421,6 +421,7 @@ git-timemachine-mode:
 (use-package ediff
   :ensure nil ;; included in Emacs.
   :config
-    (setq ediff-split-window-function 'split-window-horizontally))
+  (setq ediff-split-window-function 'split-window-horizontally)
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 
 (provide 'init-prog-tools)
