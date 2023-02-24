@@ -418,4 +418,9 @@ git-timemachine-mode:
   (web-mode-markup-indent-offset 2)
   (web-mode-code-indent-offset 2))
 
+(use-package ediff
+  :ensure nil ;; included in Emacs.
+  :config
+    (setq ediff-split-window-function 'split-window-horizontally))
+
 (provide 'init-prog-tools)
