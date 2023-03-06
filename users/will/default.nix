@@ -90,7 +90,6 @@ in
   };
 
   modules.unfree.allowList = [
-    "libsciter" # used by rustdesk
     "rider"
     "slack"
     "spotify"
