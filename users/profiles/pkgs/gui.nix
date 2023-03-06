@@ -31,12 +31,5 @@
 
     # Tools for monitoring the health of hard drives
     smartmontools
-
-    # remove unnecessary files from your computer
-    czkawka
-
-    # Dev
-    arduino
-    vscodium
   ];
 }

@@ -13,10 +13,8 @@
     clang
     clang-tools
     delta
-    flutter
     gh
     github-changelog-generator
-    gitui
     helix
     nixfmt
     nixpkgs-fmt
