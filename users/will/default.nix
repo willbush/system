@@ -149,10 +149,15 @@ in
     "${builtins.readFile ../../secrets/work-cert.pem}"
   ];
 
+  security.pam.krb5.enable = true;
+  krb5 =
+    {
+      enable = true;
+      config = builtins.readFile ../../secrets/krb5.conf;
+    };
+
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [
-    mullvad-vpn
-  ];
+  environment.systemPackages = with pkgs; [ mullvad-vpn ];
 
   system.stateVersion = "23.05";
 }
