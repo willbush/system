@@ -95,7 +95,16 @@
   :bind ("C-<tab>" . copilot-accept-completion)
   :config
   (setq copilot-node-executable
-        (exec-path-from-shell-copy-env "NODEJS_16_X")))
+        (exec-path-from-shell-copy-env "NODEJS_16_X"))
+
+  (defun my/disable-copilot-mode-for-gpg ()
+    "Disable copilot-mode if the current buffer is visiting a .gpg file."
+    (when (and (stringp buffer-file-name)
+               (string-match "\\.gpg$" buffer-file-name))
+      (copilot-mode -1)
+      (message "Disabling copilot-mode for .gpg file.")))
+
+  (add-hook 'find-file-hook #'my/disable-copilot-mode-for-gpg))
 
 (use-package counsel-projectile
   :defer 0.1
