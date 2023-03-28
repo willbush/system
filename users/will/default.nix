@@ -145,6 +145,8 @@ in
     };
   };
 
+  programs.zsh.enable = true;
+
   security.pki.certificates = [
     "${builtins.readFile ../../secrets/work-cert.pem}"
   ];

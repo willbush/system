@@ -105,6 +105,7 @@ in
       systemd-udevd.enable = false;
     };
   };
+  programs.zsh.enable = true;
 
   system.stateVersion = "23.05";
 }

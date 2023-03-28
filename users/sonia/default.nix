@@ -109,6 +109,7 @@ in
   };
 
   programs.less.enable = true;
+  programs.zsh.enable = true;
 
   system.stateVersion = "23.05";
 }
