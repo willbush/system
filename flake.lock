@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "chatgpt-shell": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1681049906,
+        "narHash": "sha256-jYStsrbTJp2i05nYbHCksahFPAjt0NSvPhTECU6JklI=",
+        "owner": "xenodium",
+        "repo": "chatgpt-shell",
+        "rev": "66921b73d39e5d3b5b2d616a233ab6bdcc835cdd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "xenodium",
+        "repo": "chatgpt-shell",
+        "type": "github"
+      }
+    },
     "chemacs": {
       "flake": false,
       "locked": {
@@ -168,6 +184,7 @@
     },
     "root": {
       "inputs": {
+        "chatgpt-shell": "chatgpt-shell",
         "chemacs": "chemacs",
         "copilot-el": "copilot-el",
         "crafted-emacs": "crafted-emacs",

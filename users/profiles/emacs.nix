@@ -54,6 +54,8 @@
     enable = true;
     package = emacsPackage;
     overrides = self: super: {
+      # I install the packages below by hand because they're not in MELPA, and I
+      # don't want to incur the startup cost of using straight.el.
       copilot =
         let
           rev = inputs.copilot-el.shortRev;
@@ -82,6 +84,35 @@
           '';
           meta.description = "Emacs plugin for GitHub Copilot";
         };
+
+      chatgpt-shell =
+        let
+          rev = inputs.chatgpt-shell.shortRev;
+        in
+        with pkgs;
+        with pkgs.emacsPackages;
+        melpaBuild {
+          pname = "chatgpt-shell";
+          ename = "chatgpt-shell";
+          version = inputs.chatgpt-shell.lastModifiedDate;
+          commit = rev;
+          packageRequires = [ ];
+
+          src = fetchFromGitHub {
+            inherit rev;
+            owner = "xenodium";
+            repo = "chatgpt-shell";
+            sha256 = inputs.chatgpt-shell.narHash;
+          };
+
+          recipe = writeText "recipe" ''
+            (chatgpt-shell
+              :repo "xenodium/chatgpt-shell"
+              :fetcher github
+              :files ("*.el"))
+          '';
+          meta.description = "Emacs plugin for ChatGPT Shell";
+        };
     };
     extraPackages = (epkgs:
       (with epkgs; [
@@ -91,6 +122,7 @@
         avy
         benchmark-init
         browse-at-remote
+        chatgpt-shell
         company
         company-box
         copilot

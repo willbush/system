@@ -260,4 +260,11 @@
 (use-package atomic-chrome
   :commands atomic-chrome-start-server)
 
+(use-package chatgpt-shell
+  :commands chatgpt-shell
+  :config
+  (setq chatgpt-shell-openai-key
+        (lambda ()
+          (nth 3 (process-lines "gopass" "show" "will/websites/openai.com")))))
+
 (provide 'init-misc-tools)
