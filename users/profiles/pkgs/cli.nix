@@ -21,7 +21,6 @@
     nodePackages.prettier
     python3
     racket
-    rustup
     shfmt
     terraform
     xq # jq in rust
