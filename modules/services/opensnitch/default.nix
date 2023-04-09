@@ -17,19 +17,6 @@ in
       enable = true;
       rules = {
 
-        rustup = {
-          name = "rustup";
-          enabled = true;
-          action = "allow";
-          duration = "always";
-          operator = {
-            type = "simple";
-            sensitive = false;
-            operand = "process.path";
-            data = "${pkgs.rustup}/bin/.rustup-wrapped";
-          };
-        };
-
         octant = {
           name = "octant";
           enabled = true;

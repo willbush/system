@@ -13,7 +13,6 @@ in
     omnisharp-roslyn
     powershell
     rnix-lsp
-    rust-analyzer
     tokei
     vault
 
