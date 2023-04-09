@@ -29,6 +29,10 @@
       url = "github:zerolfx/copilot.el";
       flake = false;
     };
+    chatgpt-shell = {
+      url = "github:xenodium/chatgpt-shell";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, ... }@inputs:
