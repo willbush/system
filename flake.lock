@@ -3,11 +3,11 @@
     "chatgpt-shell": {
       "flake": false,
       "locked": {
-        "lastModified": 1681049906,
-        "narHash": "sha256-jYStsrbTJp2i05nYbHCksahFPAjt0NSvPhTECU6JklI=",
+        "lastModified": 1681944626,
+        "narHash": "sha256-u+FPcVCioFyho/0k/MvZI+oCBEYRwS0DRZ5fDJwI41Q=",
         "owner": "xenodium",
         "repo": "chatgpt-shell",
-        "rev": "66921b73d39e5d3b5b2d616a233ab6bdcc835cdd",
+        "rev": "e9a81dd911eb8f0d1a3e5c8ec5d73b483240afee",
         "type": "github"
       },
       "original": {
@@ -35,11 +35,11 @@
     "copilot-el": {
       "flake": false,
       "locked": {
-        "lastModified": 1679938020,
-        "narHash": "sha256-lArGY8GXWH8kDH6j9xMfL7TtS6/STYhVXu+NQgKpipc=",
+        "lastModified": 1681693443,
+        "narHash": "sha256-/lY0FTYXgEcoNCM9H+5Djmi1O0EPaWy+qN+ml+/yBUY=",
         "owner": "zerolfx",
         "repo": "copilot.el",
-        "rev": "082d848195d968d1fd5a08e6efa5f191d4232289",
+        "rev": "b98c07007b48fcbf8a146b012b2317f09891a3fd",
         "type": "github"
       },
       "original": {
@@ -70,11 +70,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1679939982,
-        "narHash": "sha256-COd5vcqB/Sh0C8pOrach6ks4RBdOOchF+LVLCPqU4vI=",
+        "lastModified": 1681925015,
+        "narHash": "sha256-19OXViH4zFPCZ9igAZCDmC4hw+yWEKZW9w6wrXvcAd8=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "fc609cc57c97c8ddc1a5bb61b03c334b96880477",
+        "rev": "fc0a9c421f8b1533317bca59867c18244487534a",
         "type": "github"
       },
       "original": {
@@ -99,12 +99,15 @@
       }
     },
     "flake-utils_2": {
+      "inputs": {
+        "systems": "systems"
+      },
       "locked": {
-        "lastModified": 1678901627,
-        "narHash": "sha256-U02riOqrKKzwjsxc/400XnElV+UtPUQWpANPlyazjH0=",
+        "lastModified": 1681202837,
+        "narHash": "sha256-H+Rh19JDwRtpVPAWp64F+rlEtxUWBAQW28eAi3SRSzg=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "93a2b84fc4b70d9e089d029deacc3583435c2ed6",
+        "rev": "cfacdce06f30d2b68473a46042957675eebb3401",
         "type": "github"
       },
       "original": {
@@ -117,15 +120,14 @@
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
-        ],
-        "utils": "utils"
+        ]
       },
       "locked": {
-        "lastModified": 1679786039,
-        "narHash": "sha256-VNjswu0Q4bZOkWNuc0+dHvRdjUCj+MnDlRfw/Q0R3vI=",
+        "lastModified": 1681935410,
+        "narHash": "sha256-ab7lYrtHb6DyGQFYyxL8EV9/jE1udsvVSsXfMbb2O2k=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "cf662b6c98a0da81e06066fff0ecf9cbd4627727",
+        "rev": "571d0ed82538ea11f9ed4451fae892d9de8c3cc7",
         "type": "github"
       },
       "original": {
@@ -168,11 +170,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1679865578,
-        "narHash": "sha256-sYQmxxqIYL3QFsRYjW0AufhGur8qWfwoOGPGHRJZlGc=",
+        "lastModified": 1681737997,
+        "narHash": "sha256-pHhjgsIkRMu80LmVe8QoKIZB6VZGRRxFmIvsC5S89k4=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4361baa782dc3d3b35fd455a1adc370681d9187c",
+        "rev": "f00994e78cd39e6fc966f0c4103f908e63284780",
         "type": "github"
       },
       "original": {
@@ -195,18 +197,18 @@
         "nixpkgs-stable": "nixpkgs-stable"
       }
     },
-    "utils": {
+    "systems": {
       "locked": {
-        "lastModified": 1676283394,
-        "narHash": "sha256-XX2f9c3iySLCw54rJ/CZs+ZK6IQy7GXNY4nSOyu2QG4=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "3db36a8b464d0c4532ba1c7dda728f4576d6d073",
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
         "type": "github"
       },
       "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
+        "owner": "nix-systems",
+        "repo": "default",
         "type": "github"
       }
     }
