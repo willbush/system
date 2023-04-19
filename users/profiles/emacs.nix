@@ -47,7 +47,6 @@
     aspellDicts.en
     aspellDicts.en-computers
     aspellDicts.en-science
-    nodejs-16_x # copilot.el only supports 12.x to 17.x, limited by upstream
   ];
 
   programs.emacs = {
