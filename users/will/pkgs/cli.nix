@@ -10,6 +10,7 @@ in
     bfg-repo-cleaner
     git-filter-repo
     nix-prefetch-git
+    nodejs # for copilot.el login
     omnisharp-roslyn
     powershell
     rnix-lsp
