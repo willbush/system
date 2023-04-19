@@ -1,6 +1,6 @@
 {
   boot = {
-    cleanTmpDir = true; # cleans all files in /tmp during boot
+    tmp.cleanOnBoot = true;
 
     loader = {
       # Timeout (in seconds) until loader boots the default menu item.
