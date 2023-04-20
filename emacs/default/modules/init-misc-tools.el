@@ -9,6 +9,9 @@
   (setq swiper-goto-start-of-match t))
 
 (use-package zoxide
+  :commands
+  (zoxide-find-file
+   zoxide-travel)
   :hook
   ((find-file
     projectile-after-switch-project
