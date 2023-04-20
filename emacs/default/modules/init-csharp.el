@@ -1,7 +1,7 @@
 ;;; -*- lexical-binding: t; -*-
 
 (use-package csharp-mode
-  :mode "\\.cs\\'"
+  :ensure nil ;; included in Emacs.
   :init
   (add-hook 'csharp-mode-hook
             (lambda ()
