@@ -9,12 +9,6 @@
   (setq swiper-goto-start-of-match t))
 
 (use-package zoxide
-  :custom
-  ;; TODO: remove in the future. This is the default as of
-  ;; https://git.sr.ht/~vonfry/zoxide.el/commit/b09c06962316d28b14ecbb2340af7c0636ab6d16
-  ;; see: https://gitlab.com/Vonfry/zoxide.el/-/issues/3
-  (zoxide-get-path-function
-   (lambda (&rest _) (expand-file-name default-directory)))
   :hook
   ((find-file
     projectile-after-switch-project
