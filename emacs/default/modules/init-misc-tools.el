@@ -278,4 +278,10 @@
         (lambda ()
           (nth 3 (process-lines "gopass" "show" "will/websites/openai.com")))))
 
+(use-package keycast
+  :commands
+  (keycast-header-line-mode
+   keycast-log-mode
+   keycast-tab-bar-mode))
+
 (provide 'init-misc-tools)

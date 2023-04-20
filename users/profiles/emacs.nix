@@ -166,6 +166,7 @@
         ivy
         ivy-pass
         ivy-prescient
+        keycast
         magit
         magit-delta
         markdown-mode
