@@ -48,7 +48,7 @@
   nix.settings.max-jobs = lib.mkDefault 16;
 
   hardware = {
-    nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
+    nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
     opengl.enable = true;
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   };
