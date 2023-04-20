@@ -30,6 +30,7 @@
   "'" 'vterm
   "?" 'counsel-descbinds
   "SPC" 'counsel-M-x
+
   "F" '(:ignore t :wk "frame")
   "FD" 'delete-other-frames
   "Fd" 'delete-frame
@@ -37,21 +38,41 @@
   "Fm" 'toggle-frame-maximized
   "Fn" 'make-frame
   "Fo" 'other-frame
+
   "S" '(:ignore t :wk "spell-checking")
   "Sb" 'flyspell-buffer
   "Sc" 'flyspell-correct-at-point
   "Sn" 'flyspell-correct-next
   "Sp" 'flyspell-correct-previous
   "Sr" 'flyspell-region
+
   "a" '(:ignore t :wk "apps")
+
+  "ac" '(:ignore t :wk "chapgpt")
+  "ace" '(chatgpt-shell-explain-code :wk "explain-code")
+  "acc" '(chatgpt-shell-clear-buffer :wk "clear-buffer")
+  "acC" '(chatgpt-shell-ctrl-c-ctrl-c :wk "ctrl-c-ctrl-c")
+  "acd" '(chatgpt-shell-describe-code :wk "describe-code")
+  "acg" '(chatgpt-shell-generate-unit-test :wk "generate-unit-test")
+  "acm" '(chatgpt-shell-mark-at-point-dwim :wk "mark-at-point-dwim")
+  "acp" '(chatgpt-shell-proofreading-doc :wk "proofreading-doc")
+  "acr" '(chatgpt-shell-refactory-code :wk "refactory-code")
+  "acR" '(chatgpt-shell-restore-session-from-transcript :wk "restore-session-from-transcript")
+  "act" '(chatgpt-shell-save-session-transcript :wk "save-session-transcript")
+  "acv" '(chatgpt-shell-view-at-point :wk "view-at-point")
+  "acS" '(chatgpt-shell-send-region :wk "send-region")
+  "acs" '(chatgpt-shell-send-and-review-region :wk "send-and-review-region")
+
   "aD" 'deer-jump-other-window
   "ad" 'deer ;; minimal ranger dired
   "ag" 'atomic-chrome-start-server ;; g is for GhostText browser extension
+
   "ae" '(:ignore t :wk "direnv")
   "aeU" 'direnv-update-directory-environment
   "aea" 'direnv-allow
   "aem" 'direnv-mode
   "aeu" 'direnv-update-environment
+
   "ap" '(:ignore t :wk "profiler")
   "apk" 'profiler-stop
   "apr" 'profiler-report
@@ -62,6 +83,7 @@
   "au" 'disk-usage
   "aU" 'disk-usage-by-types
   "aw" 'wttrin
+
   "b" '(:ignore t :wk "buffer")
   "bB" 'bury-buffer
   "bD" 'my/kill-all-buffers
@@ -76,9 +98,11 @@
   "bm" 'my/switch-to-messages
   "br" 'my/revert-buffer-no-confirm
   "bs" 'my/switch-to-scratch
+
   "c" '(:ignore t :wk "comment")
   "cl" 'comment-line
   "cr" 'comment-or-uncomment-region
+
   "f" '(:ignore t :wk "file")
   "fd" 'fd-dired
   "ff" 'counsel-find-file
@@ -86,22 +110,26 @@
   "ft" 'zoxide-travel
   "fs" 'sudo-edit
   "fy" 'my/yank-and-show-buffer-full-path
+
   "g" '(:ignore t :wk "go")
   "gf" 'find-function
   "gg" 'avy-goto-char-timer
   "gv" 'find-variable
   "gb" '(browse-at-remote :wk "browse remote url")
   "gy" '(browse-at-remote-kill :wk "yank remote url")
+
   "gp" '(:ignore t :wk "pass")
   "gpf" 'password-store-copy-field
   "gpp" 'ivy-pass
   "gpu" 'password-store-url
+
   "gpg" '(:ignore t :wk "generate")
   "gpgh" 'password-generator-phonetic
   "gpgp" 'password-generator-paranoid
   "gpgs" 'password-generator-strong
   "gpgx" '(my/gopass-generate-xkcd-passwords :wk "xkcd passwords")
   "gpgm" '(my/gopass-generate-passwords :wk "many passwords")
+
   "h" '(:ignore t :wk "help")
   "hI" 'info-display-manual
   "hi" 'info
@@ -109,6 +137,7 @@
   "hn"  'view-emacs-news
   "ht" 'evil-tutor-start
   "hw"  'woman
+
   "hd" '(:ignore t :wk "describe")
   "hdB" 'evil-collection-describe-bindings
   "hdK" 'my/describe-keymap
@@ -126,6 +155,7 @@
   "hdt" 'describe-theme
   "hdu" 'counsel-unicode-char
   "hdv" 'counsel-describe-variable
+
   "m" '(:ignore t :wk "magit")
   "mG" 'hydra-git-gutter/body
   "mI" 'magit-init
@@ -135,11 +165,13 @@
   "ml" 'counsel-git-log
   "mm" 'magit-status
   "mt" 'git-timemachine
+
   "n" '(:ignore t :wk "narrow")
   "nf" 'narrow-to-defun
   "np" 'narrow-to-page
   "nr" 'narrow-to-region
   "nw" 'widen
+
   "o" '(:ignore t :wk "org")
   "oA" 'org-archive-to-archive-sibling
   "oS" 'org-store-link
@@ -152,12 +184,15 @@
   "os" 'org-save-all-org-buffers
   "ot" 'org-toggle-link-display
   "p" 'projectile-command-map
+
   "q" '(:ignore t :wk "quit")
   "qQ" 'save-buffers-kill-emacs
   "qq" 'save-buffers-kill-terminal
+
   "r" '(:ignore t :wk "rapid") ;; emphasize easy access over mnemonics
   "rl" 'counsel-load-theme
   "rs" 'save-buffer
+
   "s" '(:ignore t :wk "search")
   "sD" '(counsel-rg :wk "counsel-rg-directory")
   "sc" 'evil-ex-nohighlight ;; mnemonic is search clear
@@ -166,6 +201,7 @@
   "sr" 'counsel-rg
   "ss" 'swiper-multi
   "sz" 'counsel-fzf
+
   "t" '(:ignore t :wk "toggle")
   "tc" 'fci-mode
   "tf" 'auto-fill-mode
@@ -176,6 +212,7 @@
   "ts" 'flyspell-mode
   "tt" 'display-time-mode
   "tv" 'my/toggle-adaptive-visual-fill-column
+
   "w" '(:ignore t :wk "window")
   "w-" 'split-window-vertically
   "w/" 'split-window-horizontally
@@ -195,6 +232,7 @@
   "wn" 'evil-window-down
   "wo" 'delete-other-windows
   "wx" 'my/toggle-maximize-window
+
   "x" '(:ignore t :wk "text manipulation")
   "xC" 'my/sort-lines-by-column-reverse
   "xL" 'my/sort-lines-reverse
@@ -206,9 +244,11 @@
   "xu" 'my/uniquify-lines
   ;; binding this to an easy key because I use it a lot.
   "xx" 'fill-paragraph
+
   "xr" '(:ignore t :wk "randomize")
   "xrl" 'my/randomize-lines
   "xrw" 'my/randomize-words
+
   "xe" '(:ignore t :wk "line endings")
   "xec" 'my/delete-carrage-returns
   "xed" 'my/unix2dos
