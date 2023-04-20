@@ -386,9 +386,11 @@ git-timemachine-mode:
 (use-package format-all :commands (format-all-buffer))
 
 (use-package eglot
-  :commands (eglot)
+  :ensure nil ;; included in Emacs.
   :config
-  (setq eglot-autoreconnect nil))
+  (setq eglot-autoreconnect nil)
+  (add-to-list 'eglot-server-programs
+               '(csharp-mode . ("OmniSharp" "-lsp"))))
 
 (use-package git-gutter
   :hook ((markdown-mode
