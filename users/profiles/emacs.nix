@@ -127,7 +127,6 @@
         copilot
         counsel
         counsel-projectile
-        csharp-mode
         dart-mode
         dashboard
         deadgrep
