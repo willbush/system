@@ -261,7 +261,21 @@
   :commands atomic-chrome-start-server)
 
 (use-package chatgpt-shell
-  :commands chatgpt-shell
+  :commands
+  (chatgpt-shell
+   chatgpt-shell-clear-buffer
+   chatgpt-shell-ctrl-c-ctrl-c
+   chatgpt-shell-describe-code
+   chatgpt-shell-explain-code
+   chatgpt-shell-generate-unit-test
+   chatgpt-shell-mark-at-point-dwim
+   chatgpt-shell-proofreading-doc
+   chatgpt-shell-refactory-code
+   chatgpt-shell-restore-session-from-transcript
+   chatgpt-shell-save-session-transcript
+   chatgpt-shell-send-and-review-region
+   chatgpt-shell-send-region
+   chatgpt-shell-view-at-point)
   :config
   (setq chatgpt-shell-openai-key
         (lambda ()
