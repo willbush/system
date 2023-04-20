@@ -1,6 +1,6 @@
 {
   services.picom = {
-    enable = true;
+    enable = false;
     fade = true;
     vSync = true;
     # the default 'glx' backend lags like crazy for me for some reason.
