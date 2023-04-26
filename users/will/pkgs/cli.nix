@@ -8,6 +8,7 @@ in
     # dev
     azure-cli
     bfg-repo-cleaner
+    gdb
     git-filter-repo
     nix-prefetch-git
     nodejs # for copilot.el login
