@@ -52,8 +52,9 @@
   :demand t ;; demand due to general perf issues mentioned on `init-keys.el'
   :hook (after-init . evil-mode)
   :custom (evil-undo-system 'undo-redo)
-  :init
-  (setq-default evil-shift-width 2)
+  :config
+  (setq evil-shift-width 2)
+  (setq evil-shift-round nil)
 
   (setq evil-ex-complete-emacs-commands nil
         evil-vsplit-window-right t
@@ -62,7 +63,6 @@
         evil-want-C-d-scroll nil
         evil-want-C-u-scroll nil
         evil-want-C-i-jump nil)
-  :config
   (evil-select-search-module 'evil-search-module 'evil-search)
 
   ;; Silence warning (:functions use-package property doesn't work for me for
