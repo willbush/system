@@ -15,6 +15,7 @@ in
     omnisharp-roslyn
     powershell
     rnix-lsp
+    sqlfluff
     tokei
     vault
 
