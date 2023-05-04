@@ -52,6 +52,7 @@
   "acC" '(chatgpt-shell-ctrl-c-ctrl-c :wk "ctrl-c-ctrl-c")
   "acR" '(chatgpt-shell-restore-session-from-transcript :wk "restore-session-from-transcript")
   "acS" '(chatgpt-shell-send-region :wk "send-region")
+  "acT" '(chatgpt-shell-save-session-transcript :wk "save-session-transcript")
   "acc" 'chatgpt-shell
   "acd" '(chatgpt-shell-describe-code :wk "describe-code")
   "ace" '(chatgpt-shell-explain-code :wk "explain-code")
@@ -61,7 +62,7 @@
   "acp" '(chatgpt-shell-proofreading-doc :wk "proofreading-doc")
   "acr" '(chatgpt-shell-refactory-code :wk "refactory-code")
   "acs" '(chatgpt-shell-send-and-review-region :wk "send-and-review-region")
-  "act" '(chatgpt-shell-save-session-transcript :wk "save-session-transcript")
+  "act" '(my/toggle-chatgpt-shell-model-version :wk "toggle model version")
   "acv" '(chatgpt-shell-view-at-point :wk "view-at-point")
 
   "aD" 'deer-jump-other-window

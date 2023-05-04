@@ -269,6 +269,18 @@
    chatgpt-shell-send-and-review-region
    chatgpt-shell-send-region
    chatgpt-shell-view-at-point)
+  :init
+  (setq chatgpt-shell-model-version "gpt-4")
+
+  (defun my/toggle-chatgpt-shell-model-version ()
+    "Toggle the `chatgpt-shell-model-version` between 'gpt-3.5-turbo' and 'gpt-4'."
+    (interactive)
+    (setq chatgpt-shell-model-version
+          (if (string= chatgpt-shell-model-version "gpt-4")
+              "gpt-3.5-turbo"
+            "gpt-4"))
+    (message "ChatGPT model version set to: %s" chatgpt-shell-model-version))
+
   :config
   (setq chatgpt-shell-openai-key
         (lambda ()
