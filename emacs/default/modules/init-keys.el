@@ -49,19 +49,20 @@
   "a" '(:ignore t :wk "apps")
 
   "ac" '(:ignore t :wk "chapgpt")
-  "ace" '(chatgpt-shell-explain-code :wk "explain-code")
-  "acc" '(chatgpt-shell-clear-buffer :wk "clear-buffer")
   "acC" '(chatgpt-shell-ctrl-c-ctrl-c :wk "ctrl-c-ctrl-c")
+  "acR" '(chatgpt-shell-restore-session-from-transcript :wk "restore-session-from-transcript")
+  "acS" '(chatgpt-shell-send-region :wk "send-region")
+  "acc" 'chatgpt-shell
   "acd" '(chatgpt-shell-describe-code :wk "describe-code")
+  "ace" '(chatgpt-shell-explain-code :wk "explain-code")
   "acg" '(chatgpt-shell-generate-unit-test :wk "generate-unit-test")
+  "acl" '(chatgpt-shell-clear-buffer :wk "clear-buffer")
   "acm" '(chatgpt-shell-mark-at-point-dwim :wk "mark-at-point-dwim")
   "acp" '(chatgpt-shell-proofreading-doc :wk "proofreading-doc")
   "acr" '(chatgpt-shell-refactory-code :wk "refactory-code")
-  "acR" '(chatgpt-shell-restore-session-from-transcript :wk "restore-session-from-transcript")
+  "acs" '(chatgpt-shell-send-and-review-region :wk "send-and-review-region")
   "act" '(chatgpt-shell-save-session-transcript :wk "save-session-transcript")
   "acv" '(chatgpt-shell-view-at-point :wk "view-at-point")
-  "acS" '(chatgpt-shell-send-region :wk "send-region")
-  "acs" '(chatgpt-shell-send-and-review-region :wk "send-and-review-region")
 
   "aD" 'deer-jump-other-window
   "ad" 'deer ;; minimal ranger dired
