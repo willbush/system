@@ -93,6 +93,9 @@ in
     "rider"
     "slack"
     "spotify"
+    "steam"
+    "steam-original"
+    "steam-run"
   ];
 
   networking = {
@@ -146,6 +149,12 @@ in
   };
 
   programs.zsh.enable = true;
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
 
   security.pki.certificates = [
     "${builtins.readFile ../../secrets/work-cert.pem}"
