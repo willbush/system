@@ -2,8 +2,12 @@
   nix = {
     # Required until nix version 2.4 for nix flakes
     package = pkgs.nixUnstable;
+
+    # The keep-* options below protect the nix-shell against garbage collection
     extraOptions = ''
       experimental-features = nix-command flakes
+      keep-outputs = true
+      keep-derivations = true
     '';
 
     settings = {
