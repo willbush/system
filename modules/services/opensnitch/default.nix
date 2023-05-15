@@ -225,19 +225,6 @@ in
           };
         };
 
-        spotify = {
-          name = "spotify";
-          enabled = true;
-          action = "allow";
-          duration = "always";
-          operator = {
-            type = "simple";
-            sensitive = false;
-            operand = "process.path";
-            data = "${pkgs.spotify}/share/spotify/.spotify-wrapped";
-          };
-        };
-
         cups-browsed = {
           name = "cups-browsed";
           enabled = true;
