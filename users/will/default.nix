@@ -92,7 +92,6 @@ in
   modules.unfree.allowList = [
     "rider"
     "slack"
-    "spotify"
     "steam"
     "steam-original"
     "steam-run"

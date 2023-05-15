@@ -28,7 +28,6 @@
     # other
     hicolor-icon-theme # fall back icon theme
     pkgs.stable.remmina
-    spotify
     transmission-gtk
     virt-manager
   ];
