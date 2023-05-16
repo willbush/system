@@ -150,7 +150,7 @@ in
   programs.zsh.enable = true;
 
   programs.steam = {
-    enable = true;
+    enable = config.networking.hostName == "betelgeuse";
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
