@@ -16,6 +16,7 @@
     gh
     github-changelog-generator
     helix
+    jq
     nixfmt
     nixpkgs-fmt
     nodePackages.prettier
