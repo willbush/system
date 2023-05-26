@@ -247,11 +247,6 @@
 ;; compliant.
 (setq require-final-newline t)
 
-;; Default to hard line-wrapping in text modes. Hard wrapping is more
-;; performant, and Emacs makes it trivially easy to reflow text with
-;; `fill-paragraph' and `evil-fill'.
-(add-hook 'text-mode-hook #'auto-fill-mode)
-
 ;; Cull duplicates in the kill ring to reduce bloat and make the kill
 ;; ring easier to peruse (with `counsel-yank-pop').
 (setq kill-do-not-save-duplicates t)
