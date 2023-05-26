@@ -70,6 +70,9 @@ in
 
       sessionVariables = {
         EDITOR = "emacsclient --create-frame --alternate-editor emacs";
+        # Set docker to use BuildKit by default.
+        # TODO: remove when this is the default in docker
+        DOCKER_BUILDKIT = 1;
       };
 
       file = {
