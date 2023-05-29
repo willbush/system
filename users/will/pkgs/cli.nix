@@ -22,7 +22,6 @@ in
     argocd
     kubectl
     kubernetes-helm
-    lens
     minikube
     octant
 
