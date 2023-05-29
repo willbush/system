@@ -43,7 +43,6 @@
 
       system = "x86_64-linux";
       hosts = [
-        "bellatrix"
         "betelgeuse"
         "iso"
         "mintaka"
