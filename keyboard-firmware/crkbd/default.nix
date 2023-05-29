@@ -13,9 +13,9 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "qmk";
     repo = "qmk_firmware";
-    rev = "42c6920e23d8dace7652155d04310cae60f12e42";
-    sha256 = "0cinbmlkvqq6hmawdm9qz7fmv0blay0p91q5z17lrs9chavck00l";
-    # date = 2023-05-28T23:27:13+01:00;
+    rev = "4a7d65b9d74af40fd5f92b58aad250f33f1af86a";
+    sha256 = "1azdbg16xbvz08392nkwx3pp597djb7xr7xn8x0xjj123jknqbfr";
+    # date = 2023-01-05T23:40:53+00:00;
     fetchSubmodules = true;
   };
 
@@ -26,7 +26,7 @@ stdenv.mkDerivation rec {
     cp -rv ${./keymap}/* keyboards/crkbd/keymaps/willbush
   '';
 
-  # Use make instead of qmk tool so we can skip trying to use git to determine
+  # Use make instead of qmk tool so we can skip try to use git to determine
   # firmware version.
   buildPhase = "make SKIP_GIT=yes crkbd/rev1:willbush";
 
