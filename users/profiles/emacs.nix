@@ -1,9 +1,6 @@
 { inputs, pkgs, emacsPackage ? pkgs.emacsUnstable, ... }:
 {
   home = {
-    sessionVariables = {
-      NODEJS_16_X = "${pkgs.nodejs-16_x}/bin/node";
-    };
     file = {
       ".config/chemacs-repo" = {
         source = inputs.chemacs;

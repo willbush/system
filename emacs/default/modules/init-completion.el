@@ -94,9 +94,6 @@
   :hook ((prog-mode text-mode) . copilot-mode)
   :bind ("C-<tab>" . copilot-accept-completion)
   :config
-  (setq copilot-node-executable
-        (exec-path-from-shell-copy-env "NODEJS_16_X"))
-
   (defun my/disable-copilot-for-gpg-p ()
     "Return t if the current buffer is visiting a .gpg file."
     (and (stringp buffer-file-name)
