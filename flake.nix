@@ -49,7 +49,6 @@
         "mintaka"
         "mira"
         "nixos-wsl"
-        "tau-ceti"
         "ton-618"
       ];
 

@@ -70,7 +70,6 @@ in
               "betelgeuse"
               "rigel"
               "saiph"
-              "tau-ceti"
             ];
             enable = deviceEnabled devices;
             type = deviceType (remove "rigel" devices);
@@ -94,7 +93,6 @@ in
               "betelgeuse"
               "rigel"
               "saiph"
-              "tau-ceti"
             ];
             enable = deviceEnabled devices;
             type = deviceType (remove "rigel" devices);
@@ -121,7 +119,6 @@ in
               "mira"
               "rigel"
               "saiph"
-              "tau-ceti"
             ];
             enable = deviceEnabled devices;
             type = deviceType (remove "rigel" devices);
@@ -156,7 +153,6 @@ in
               "mira"
               "rigel"
               "saiph"
-              "tau-ceti"
             ];
             enable = deviceEnabled devices;
             type = deviceType devices;
@@ -171,7 +167,6 @@ in
               "betelgeuse"
               "rigel"
               "saiph"
-              "tau-ceti"
             ];
             enable = deviceEnabled devices;
             type = deviceType devices;
