@@ -13,7 +13,6 @@ in
     nix-prefetch-git
     nodejs # for copilot.el login
     omnisharp-roslyn
-    powershell
     rnix-lsp
     sqlfluff
     tokei
