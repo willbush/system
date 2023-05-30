@@ -2,8 +2,8 @@
 
 #define MASTER_LEFT
 
-#define QUICK_TAP_TERM 0
 #define TAPPING_TERM 100
+#define RETRO_TAPPING
 
 #ifdef RGBLIGHT_ENABLE
 #    define RGBLIGHT_EFFECT_RAINBOW_MOOD
