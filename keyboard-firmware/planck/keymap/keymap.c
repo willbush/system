@@ -4,25 +4,14 @@
 #    include "muse.h"
 #endif
 
-enum planck_layers {
-  _COLEMAK,
-  _QWERTY,
-  _LOWER,
-  _RAISE,
-  _HYPER,
-  _NUM,
-  _ADJUST
-};
+enum planck_layers { _COLEMAK, _QWERTY, _LOWER, _RAISE, _HYPER, _NUM, _ADJUST };
 
-enum planck_keycodes {
-  COLEMAK = SAFE_RANGE,
-  QWERTY
-};
+enum planck_keycodes { COLEMAK = SAFE_RANGE, QWERTY };
 
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define HYPER MO(_HYPER)
-#define NUM   TT(_NUM)
+#define NUM TT(_NUM)
 
 // Left Ctrl when held, Escape when tapped.
 #define CTL_ESC LCTL_T(KC_ESC)
@@ -33,6 +22,7 @@ enum planck_keycodes {
 
 // See the readme file at the root of this repository for easier to view tables
 // and description of these layouts.
+// clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_COLEMAK] = LAYOUT_planck_grid(
      KC_TAB, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_COMM, KC_SCLN, KC_BSPC,
@@ -77,38 +67,39 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT, XXXXXXX
   )
 };
+// clang-format on
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case QWERTY:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_QWERTY);
-      }
-      return false;
-      break;
-    case COLEMAK:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_COLEMAK);
-      }
-      return false;
-      break;
-  }
-  return true;
+    switch (keycode) {
+        case QWERTY:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_QWERTY);
+            }
+            return false;
+            break;
+        case COLEMAK:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_COLEMAK);
+            }
+            return false;
+            break;
+    }
+    return true;
 }
 
 /* https://docs.qmk.fm/#/feature_audio?id=music-mask */
 bool music_mask_user(uint16_t keycode) {
-  switch (keycode) {
-    case RAISE:
-    case LOWER:
-    case HYPER:
-    case NUM:
-      return false;
-    default:
-      return true;
-  }
+    switch (keycode) {
+        case RAISE:
+        case LOWER:
+        case HYPER:
+        case NUM:
+            return false;
+        default:
+            return true;
+    }
 }
