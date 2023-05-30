@@ -1,22 +1,14 @@
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 
-enum crkbd_layers {
-  _COLEMAK,
-  _LOWER,
-  _RAISE,
-  _HYPER,
-  _FN,
-  _NUM,
-  _ADJUST
-};
+enum crkbd_layers { _COLEMAK, _LOWER, _RAISE, _HYPER, _FN, _NUM, _ADJUST };
 
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define HYPER MO(_HYPER)
 #define FN MO(_FN)
 #define ADJUST MO(_ADJUST)
-#define NUM   TT(_NUM)
+#define NUM TT(_NUM)
 
 // Left Ctrl when held, Escape when tapped.
 #define CTL_ESC LCTL_T(KC_ESC)
@@ -25,6 +17,7 @@ enum crkbd_layers {
 // Right shift when held, Enter when tapped.
 #define SFT_ENT RSFT_T(KC_ENT)
 
+// clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_COLEMAK] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
@@ -110,6 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   )
 };
+// clang-format on
 
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
