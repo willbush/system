@@ -16,5 +16,5 @@
 // Setup double tapping to toggle TT layers.
 #define TAPPING_TOGGLE 2
 
-#define QUICK_TAP_TERM 0
 #define TAPPING_TERM 100
+#define RETRO_TAPPING
