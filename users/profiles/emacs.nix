@@ -1,4 +1,4 @@
-{ inputs, pkgs, emacsPackage ? pkgs.emacsUnstable, ... }:
+{ inputs, pkgs, emacsPackage ? pkgs.emacs-unstable, ... }:
 {
   home = {
     file = {
