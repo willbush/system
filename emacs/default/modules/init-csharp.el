@@ -20,7 +20,8 @@
 (add-hook 'nxml-mode-hook
           (lambda ()
             (when (or (string-match "\\.csproj\\'" (buffer-file-name))
-                      (string-match "\\.xaml\\'" (buffer-file-name)))
+                      (string-match "\\.xaml\\'" (buffer-file-name))
+                      (string-match "\\.props\\'" (buffer-file-name)))
               (setq indent-tabs-mode t))))
 
 (provide 'init-csharp)
