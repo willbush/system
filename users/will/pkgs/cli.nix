@@ -6,6 +6,7 @@ in
 {
   home.packages = with pkgs; [
     # dev
+    act
     azure-cli
     bfg-repo-cleaner
     gdb
