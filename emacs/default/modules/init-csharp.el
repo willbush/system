@@ -16,6 +16,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.csproj\\'" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.xaml\\'" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.props\\'" . nxml-mode))
 
 (add-hook 'nxml-mode-hook
           (lambda ()
