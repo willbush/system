@@ -17,6 +17,9 @@
 (use-package rustic
   :mode ("\\.rs\\'" . rustic-mode)
   :config
+  (add-hook 'rustic-mode-hook
+            (lambda ()
+              (setq fill-column 100)))
   (setq rustic-lsp-client 'eglot))
 
 (use-package cc-mode)
