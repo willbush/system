@@ -27,8 +27,8 @@
 
     # other
     hicolor-icon-theme # fall back icon theme
-    pkgs.stable.remmina
-    transmission-gtk
+    remmina
+    pkgs.stable.transmission-gtk
     virt-manager
   ];
 }
