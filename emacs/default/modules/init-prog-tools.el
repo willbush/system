@@ -513,8 +513,11 @@ git-timemachine-mode:
          "\\.scss\\'"
          "\\.tpl\\.php\\'"
          "\\.tsx?\\'"
+         "\\.xml\\'"
+         ;; C# .NET stuff
          "\\.xaml\\'"
-         "\\.xml\\'")
+         "\\.csproj\\'"
+         "\\.props\\'")
   :custom
   (web-mode-css-indent-offset 2)
   (web-mode-enable-auto-pairing t)
