@@ -12,17 +12,15 @@
                     tab-width 4
                     evil-shift-width 4
                     c-basic-offset 4)
-              (c-set-offset 'substatement-open 0))))
-
-(add-to-list 'auto-mode-alist '("\\.csproj\\'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.xaml\\'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.props\\'" . nxml-mode))
-
-(add-hook 'nxml-mode-hook
-          (lambda ()
-            (when (or (string-match "\\.csproj\\'" (buffer-file-name))
-                      (string-match "\\.xaml\\'" (buffer-file-name))
-                      (string-match "\\.props\\'" (buffer-file-name)))
-              (setq indent-tabs-mode t))))
+              (c-set-offset 'substatement-open 0)))
+  :config
+  (add-hook 'web-mode-hook
+            (lambda ()
+              (when (or (string-match "\\.csproj\\'" (buffer-file-name))
+                        (string-match "\\.xaml\\'" (buffer-file-name))
+                        (string-match "\\.props\\'" (buffer-file-name)))
+                (progn
+                  (setq indent-tabs-mode t)
+                  (web-mode-use-tabs))))))
 
 (provide 'init-csharp)
