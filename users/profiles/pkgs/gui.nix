@@ -19,7 +19,7 @@
     # screenshot / screen capture
     flameshot
     gnome.gnome-screenshot
-    # peek # build broken on unstable nixpkgs
+    peek
     simplescreenrecorder
 
     # image manipulation
