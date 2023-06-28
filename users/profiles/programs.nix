@@ -61,6 +61,7 @@
         la = "exa -lah";
         ll = "exa -l";
         vim = "nvim";
+        vi = "nvim";
       };
 
       oh-my-zsh = {
