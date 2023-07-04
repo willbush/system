@@ -1,5 +1,10 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  planck = pkgs.callPackage ../../../keyboard-firmware/planck { };
+in
+{
   home.packages = with pkgs; [
+    planck
     # core
     curl
     exa
