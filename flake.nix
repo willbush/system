@@ -44,6 +44,7 @@
       system = "x86_64-linux";
       hosts = [
         "betelgeuse"
+        "blazar"
         "iso"
         "mintaka"
         "mira"
