@@ -32,8 +32,8 @@ in
     };
 
     globalprotectSettings = mkOption {
-      type = types.str;
-      default = "";
+      type = types.attrs;
+      default = { };
       description = "work globalprotect settings";
     };
 
