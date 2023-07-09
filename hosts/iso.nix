@@ -56,7 +56,7 @@ in {
         (import ../users/profiles/emacs.nix {
           inherit inputs;
           inherit pkgs;
-          emacsPackage = pkgs.emacsGit;
+          emacsPackage = pkgs.emacs-git;
         })
       ];
 
