@@ -296,10 +296,10 @@ sudo mount /dev/disk/by-label/nixos /mnt
 
 3. Install
 
-   Replace betelgeuse in the following command with your machine name.
+   Replace blazar in the following command with your machine name.
 
    #+begin_src shell
-   sudo nixos-install --flake /mnt/etc/nixos/system/#betelgeuse --no-root-passwd --impure
+   sudo nixos-install --flake /mnt/etc/nixos/system/#blazar --no-root-passwd --impure
    reboot
    #+end_src
 
@@ -356,7 +356,7 @@ For example:
 #+begin_src shell
 git clone https://github.com/willbush/system.git
 cd system
-sudo nixos-rebuild switch --flake '.#betelgeuse'
+sudo nixos-rebuild switch --flake '.#blazar'
 #+end_src
 
 The ~.~ before the ~#~ is the path to the git repository. What comes after the
