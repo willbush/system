@@ -12,12 +12,12 @@ in
   users = {
     mutableUsers = false;
     users = {
-      root.hashedPassword = fileContents ../../secrets/hashed-password-root.txt;
+      root.hashedPassword = config.modules.secrets.rootHashedPassword;
 
       sonia = {
         isNormalUser = true;
         home = "/home/sonia";
-        hashedPassword = fileContents ../../secrets/hashed-password-sonia.txt;
+        hashedPassword = config.modules.secrets.soniaHashedPassword;
         shell = pkgs.zsh;
         extraGroups = [
           "wheel"
@@ -45,7 +45,10 @@ in
       ../profiles/pkgs/gui.nix
       ../profiles/programs.nix
       ../profiles/redshift.nix
-      ./git.nix
+      (import ./git.nix {
+        inherit pkgs;
+        inherit config;
+      })
       ./pkgs/gui.nix
     ];
 
@@ -83,7 +86,7 @@ in
 
   modules = {
     services.syncthing = {
-      enable = true;
+      enable = config.modules.secrets.enable;
       user = "sonia";
     };
 

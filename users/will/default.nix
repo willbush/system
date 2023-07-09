@@ -1,5 +1,7 @@
 { inputs, config, lib, pkgs, ... }:
-let inherit (lib) fileContents;
+let
+  inherit (lib) fileContents;
+  secretsEnabled = config.modules.secrets.enable;
 in
 {
   imports = [
@@ -14,12 +16,12 @@ in
   users = {
     mutableUsers = false;
     users = {
-      root.hashedPassword = fileContents ../../secrets/hashed-password-root.txt;
+      root.hashedPassword = config.modules.secrets.rootHashedPassword;
 
       will = {
         isNormalUser = true;
         home = "/home/will";
-        hashedPassword = fileContents ../../secrets/hashed-password-will.txt;
+        hashedPassword = config.modules.secrets.willHashedPassword;
         shell = pkgs.zsh;
         extraGroups = [
           "wheel"
@@ -49,7 +51,10 @@ in
       ../profiles/pkgs/gui.nix
       ../profiles/programs.nix
       ../profiles/redshift.nix
-      ./git.nix
+      (import ./git.nix {
+        inherit pkgs;
+        inherit config;
+      })
       ./krew.nix
       ./lockscreen.nix
       ./picom.nix
@@ -106,7 +111,7 @@ in
 
   modules = {
     services.syncthing = {
-      enable = config.networking.hostName != "ton-618";
+      enable = config.modules.secrets.enable && config.networking.hostName != "ton-618";
       user = "will";
     };
 
@@ -142,8 +147,8 @@ in
 
     # needed for globalprotect-openconnect to work
     globalprotect = {
-      enable = true;
-      settings = import ../../secrets/work-globalprotect-settings.nix;
+      enable = secretsEnabled;
+      settings = config.modules.secrets.globalprotectSettings;
     };
   };
 
@@ -155,16 +160,13 @@ in
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
-  security.pki.certificates = [
-    "${builtins.readFile ../../secrets/work-cert.pem}"
-  ];
+  security.pki.certificates = config.modules.secrets.pkiCertificates;
 
-  security.pam.krb5.enable = true;
-  krb5 =
-    {
-      enable = true;
-      config = builtins.readFile ../../secrets/krb5.conf;
-    };
+  security.pam.krb5.enable = secretsEnabled;
+  krb5 = {
+    enable = secretsEnabled;
+    config = config.modules.secrets.krb5Config;
+  };
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [ mullvad-vpn ];

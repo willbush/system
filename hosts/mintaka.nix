@@ -2,12 +2,17 @@
   imports = [
     "${modulesPath}/installer/scan/not-detected.nix"
     ../users/sonia
+    ../modules/secrets.nix
     ../modules/unfree.nix
     ../profiles/boot/efi.nix
     ../profiles/common/host-settings.nix
     ../profiles/printer
     ../profiles/virt
   ];
+
+  # Whether to use git-crypt encrypted secrets directory or use temporary / fake
+  # values.
+  modules.secrets.enable = true;
 
   boot = {
     initrd.availableKernelModules = [
