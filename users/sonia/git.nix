@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
 
   programs = {
     git = {
@@ -21,7 +21,7 @@
     ssh = {
       enable = true;
       serverAliveInterval = 30;
-      matchBlocks = import ../../secrets/ssh-matchblocks-sonia.nix;
+      matchBlocks = config.modules.secrets.soniaMatchBlocks;
     };
   };
 }

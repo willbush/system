@@ -12,12 +12,17 @@ let
 in
 {
   imports = [
+    ../modules/secrets.nix
     ../modules/unfree.nix
     ../profiles/common/fonts.nix
     ../profiles/common/nix-settings.nix
     ../users/will/less.nix
     ./nixos-wsl/build-tarball.nix
   ];
+
+  # Whether to use git-crypt encrypted secrets directory or use temporary / fake
+  # values.
+  modules.secrets.enable = true;
 
   users.users.${defaultUser} = {
     uid = 1000;
@@ -37,7 +42,10 @@ in
       ../users/profiles/gpg.nix
       ../users/profiles/pkgs/cli.nix
       ../users/profiles/programs.nix
-      ../users/will/git.nix
+      (import ../users/will/git.nix {
+        inherit pkgs;
+        inherit config;
+      })
       ../users/will/pkgs/cli.nix
       ../users/will/xdg.nix
     ];
