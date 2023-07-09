@@ -67,7 +67,6 @@ in
             path = "/home/${cfg.user}/sync";
             devices = [
               "alnitak"
-              "betelgeuse"
               "blazar"
               "rigel"
               "saiph"
@@ -91,7 +90,6 @@ in
             path = "/home/${cfg.user}/images/camera";
             devices = [
               "alnitak"
-              "betelgeuse"
               "blazar"
               "rigel"
               "saiph"
@@ -114,7 +112,6 @@ in
             path = "/home/${cfg.user}/keepass";
             devices = [
               "alnitak"
-              "betelgeuse"
               "blazar"
               "meissa"
               "mintaka"
@@ -130,7 +127,6 @@ in
             id = "1kcy7-2cg8l";
             path = "/home/${cfg.user}/videos/viofo";
             devices = [
-              "betelgeuse"
               "blazar"
               "saiph"
               "alnitak"
@@ -149,7 +145,6 @@ in
             path = "/home/${cfg.user}/.secrets";
             devices = [
               "alnitak"
-              "betelgeuse"
               "blazar"
               "meissa"
               "mintaka"
@@ -167,7 +162,6 @@ in
             path = "/home/${cfg.user}/.SeedVaultAndroidBackup";
             devices = [
               "alnitak"
-              "betelgeuse"
               "blazar"
               "rigel"
               "saiph"
