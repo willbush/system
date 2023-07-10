@@ -34,11 +34,11 @@ sed -i '/nixpkgs.hostPlatform/s/^/#/' $FILENAME
 sed -i '/networking.useDHCP/s/^/#/' $FILENAME
 
 # fix the import for flakes.
-sed -i 's/(modulesPath + "\/installer\/scan\/not-detected.nix")/"${modulesPath}\/installer\/scan\/not-detected.nix"/' ./hosts/"$hostname".nix
+sed -i 's|\(modulesPath + "/\)\(.*\.nix"\)|"${modulesPath}/\2|' ./hosts/"$hostname".nix
 
 # Append imports
 for i in "${IMPORTS[@]}"; do
-	sed -i "/\"\${modulesPath}\/installer\/scan\/not-detected.nix\"/a\       $i" $FILENAME
+	sed -i "/.nix\"/a\       $i" $FILENAME
 done
 
 # Append before availableKernelModules: secret settings and crypto_keyfile.bin
