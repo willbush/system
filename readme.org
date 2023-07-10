@@ -17,7 +17,6 @@ and use any parts of if you like in your own configuration.
     - [[#xmonad][xmonad]]
   - [[#nixos][NixOS]]
     - [[#install][Install]]
-    - [[#switch][Switch]]
     - [[#update][Update]]
     - [[#nixos-on-wsl2][NixOS on WSL2]]
 - [[#license][License]]
@@ -106,28 +105,20 @@ for more information.
     git clone https://github.com/willbush/system.git
     cd system
     sudo chmod u+x ./new-host-bootstrap.sh
+    git add -A
   #+end_src
 
-*** Switch
-
-Build and switch to the generation provided by the flake for machine / host
-name:
+Next Install the flake using the:
 
 #+begin_src shell
 sudo nixos-rebuild switch --flake <PATH_TO_GIT_REPO>#<MACHINE>
 #+end_src
 
-For example:
+For example Assuming you selected your new host name to be ~tester~ and your current directory is ~~/code/system~:
 
 #+begin_src shell
-git clone https://github.com/willbush/system.git
-cd system
-sudo nixos-rebuild switch --flake '.#blazar'
+sudo nixos-rebuild switch --flake .#tester
 #+end_src
-
-The ~.~ before the ~#~ is the path to the git repository. What comes after the
-~#~ is the machine / host name which can be found enumerated in the ~flakes.nix~
-file.
 
 *** Update
 
