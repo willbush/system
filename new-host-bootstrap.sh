@@ -11,8 +11,6 @@ echo "Enter new hostname:"
 read hostname
 FILENAME="./hosts/$hostname.nix"
 IMPORTS=(
-	../profiles/virt
-	../profiles/printer
 	../profiles/common/host-settings.nix
 	../profiles/boot/efi.nix
 	../modules/unfree.nix
