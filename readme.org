@@ -18,7 +18,6 @@ and use any parts of if you like in your own configuration.
   - [[#nixos][NixOS]]
     - [[#install][Install]]
     - [[#update][Update]]
-    - [[#nix-repl][Nix Repl]]
     - [[#switch][Switch]]
     - [[#nixos-on-wsl2][NixOS on WSL2]]
 - [[#license][License]]
@@ -100,14 +99,6 @@ To up update a single input:
 
 #+begin_src shell
 nix flake update --update-input nixpkgs
-#+end_src
-
-*** Nix Repl
-
-To open the flake in a ~nix repl~ do the following:
-
-#+begin_src shell
-nix run '.#repl'
 #+end_src
 
 *** Switch
