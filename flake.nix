@@ -83,17 +83,5 @@
     in
     {
       nixosConfigurations = genAttrs hosts toConfig;
-
-      # This is a work around for `nix repl` not yet supporting flakes.
-      # You can enter a repl for this flake be doing: nix run '.#repl'
-      # see: https://github.com/NixOS/nix/issues/3803#issuecomment-748612294
-      apps.${system}.repl = inputs.flake-utils.lib.mkApp {
-        drv = nixpkgs.legacyPackages.${system}.writeShellScriptBin "repl" ''
-          confnix=$(mktemp)
-          echo "builtins.getFlake (toString $(git rev-parse --show-toplevel))" >$confnix
-          trap "rm $confnix" EXIT
-          nix repl $confnix
-        '';
-      };
     };
 }
