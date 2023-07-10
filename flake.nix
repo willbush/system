@@ -40,7 +40,6 @@
       system = "x86_64-linux";
       hosts = [
         "blazar"
-        "iso"
         "mintaka"
         "mira"
         "nixos-wsl"
@@ -83,9 +82,6 @@
         };
     in
     {
-      packages.${system}.iso =
-        self.nixosConfigurations.iso.config.system.build.isoImage;
-
       nixosConfigurations = genAttrs hosts toConfig;
 
       # This is a work around for `nix repl` not yet supporting flakes.
