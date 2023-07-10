@@ -126,11 +126,13 @@ Next Install the flake using the:
 sudo nixos-rebuild switch --flake <PATH_TO_GIT_REPO>#<MACHINE>
 #+end_src
 
-For example Assuming you selected your new host name to be ~tester~ and your current directory is ~~/code/system~:
+For example Assuming you selected your new host name to be ~tester~ and your current directory is =~/code/system=:
 
 #+begin_src shell
 sudo nixos-rebuild switch --flake .#tester
 #+end_src
+
+If everything looks good ~reboot~ and the the temporary user / root password is ~temp~.
 
 *** Update
 
