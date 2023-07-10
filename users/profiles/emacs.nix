@@ -80,35 +80,6 @@
           '';
           meta.description = "Emacs plugin for GitHub Copilot";
         };
-
-      chatgpt-shell =
-        let
-          rev = inputs.chatgpt-shell.shortRev;
-        in
-        with pkgs;
-        with pkgs.emacsPackages;
-        melpaBuild {
-          pname = "chatgpt-shell";
-          ename = "chatgpt-shell";
-          version = inputs.chatgpt-shell.lastModifiedDate;
-          commit = rev;
-          packageRequires = [ ];
-
-          src = fetchFromGitHub {
-            inherit rev;
-            owner = "xenodium";
-            repo = "chatgpt-shell";
-            sha256 = inputs.chatgpt-shell.narHash;
-          };
-
-          recipe = writeText "recipe" ''
-            (chatgpt-shell
-              :repo "xenodium/chatgpt-shell"
-              :fetcher github
-              :files ("*.el"))
-          '';
-          meta.description = "Emacs plugin for ChatGPT Shell";
-        };
     };
     extraPackages = (epkgs:
       (with epkgs; [
