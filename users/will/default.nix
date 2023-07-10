@@ -56,7 +56,7 @@ in
         inherit config;
       })
       ./krew.nix
-      ./lockscreen.nix
+      ./wallpaper.nix
       ./picom.nix
       ./pipx.nix
       ./pkgs/cli.nix
