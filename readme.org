@@ -110,40 +110,6 @@ re-formatting.
    Always. In addition, I increase the resolution using Display Configuration
    for plasma5.
 
-**** Dual booting NixOS with Windows
-
-These are my abridged notes on dual booting Windows 10 along side NixOS on a
-single drive and UEFI system. The following outlines how to ensure the EFI
-partition that Windows creates isn't ridiculously small, how to remove the
-Recovery partition that Windows creates, and how to shrink the Primary partition
-to make space for NixOS.
-
-***** Create custom sized EFI partition that NixOS will share and Install
-
-1. Boot into the Windows setup and select custom install.
-2. Delete all partitions on the drive until only unallocated space remains.
-3. Press Shift+F10 to open an elevated command prompt.
-4. Open the disk partitioning tool's REPL by entering ~diskpart~.
-5. Enter ~list disk~ and ~select disk n~ where n is your disk number.
-6. ~create partition efi size=512~ to create a EFI system partition 512MiB.
-7. ~format quick fs=fat32 label=System~
-8. Enter ~exit~ twice to get out of the REPL and command prompt.
-9. Select the unallocated space and hit next (it will automatically utilize the
-   created EFI partition).
-
-***** Delete Recovery partition
-
-1. Once booted into Windows open another elevated command prompt and ~diskpart~.
-2. Again enter ~list disk~ and ~select disk n~ where n is your disk number.
-3. ~list partition~ and ~select partition n~ where n is the Recovery partition number.
-4. ~delete partition override~ and ~exit~ twice.
-
-***** Shrink Primary partition to make space for NixOS
-
-1. Open the Disk management GUI application.
-2. Right click on the large ~C:~ NTFS partition and shrink it to your desired size.
-3. Continue with the UEFI version of the next section.
-
 **** Basic partitioning and formatting
 
 The following is mostly just following the manual instructions [[https://nixos.org/manual/nixos/stable/index.html#sec-installation-partitioning-UEFI][here]]. However, I
