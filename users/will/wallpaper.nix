@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   wallpapers =
-    if builtins.pathExists "/home/will/sync/wallpapers/"
-    then "%h/sync/wallpapers/" # %h is a systemd thing for ~/.
+    if config.modules.services.syncthing.enable
+    then "/home/will/sync/wallpapers"
     else "${pkgs.gnome.gnome-backgrounds}/share/backgrounds/gnome";
 in
 {
@@ -14,6 +14,6 @@ in
   services.random-background = {
     enable = true;
     imageDirectory = wallpapers;
-    interval = "1m";
+    interval = "2h";
   };
 }
