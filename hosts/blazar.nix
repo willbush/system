@@ -15,9 +15,7 @@
   modules.secrets.enable = true;
 
   # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
+  boot.initrd.secrets."/crypto_keyfile.bin" = null;
 
   # generated hardware-configuration:
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];

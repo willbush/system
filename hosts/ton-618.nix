@@ -20,9 +20,7 @@
       checkJournalingFS = true; # run fsck for journal file system
       availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
       kernelModules = [ "amdgpu" ];
-      secrets = {
-        "/crypto_keyfile.bin" = null;
-      };
+      secrets."/crypto_keyfile.bin" = null;
     };
 
     kernelModules = [ "kvm-intel" ];
