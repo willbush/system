@@ -6,18 +6,6 @@ in {
     ../profiles/common/fonts.nix
   ];
 
-  # I have a device that requires a proprietary wifi driver unfortunately.
-  # nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (getName pkg) [
-  #   "broadcom-sta"
-  # ];
-
-  # boot = {
-  #   kernelModules = [ "wl" ];
-  #   extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
-  #   # Framework wifi needs Linux 5.13 or newer (https://grahamc.com/blog/nixos-on-framework)
-  #   kernelPackages = pkgs.linuxPackages_latest;
-  # };
-
   isoImage.edition = "plasma5";
 
   nix = {
@@ -48,7 +36,13 @@ in {
   users.users.nixos.shell = pkgs.zsh;
   programs.zsh.enable = true;
 
-  environment.systemPackages = with pkgs; [ git mkpasswd ripgrep tree wget ];
+  environment.systemPackages = with pkgs; [
+    git
+    mkpasswd
+    ripgrep
+    tree
+    wget
+  ];
 
   home-manager = {
     users.nixos = { pkgs, ... }: {
@@ -56,7 +50,7 @@ in {
         (import ../users/profiles/emacs.nix {
           inherit inputs;
           inherit pkgs;
-          emacsPackage = pkgs.emacs-git;
+          emacsPackage = pkgs.emacs-unstable;
         })
       ];
 
@@ -81,7 +75,6 @@ in {
     };
   };
 
-  system.stateVersion = "23.05";
   system.activationScripts.installerDesktop =
     let
 
@@ -98,9 +91,12 @@ in {
       chown nixos ${homeDir} ${desktopDir}
 
       ln -sfT ${manualDesktopFile} ${desktopDir + "nixos-manual.desktop"}
+      ln -sfT ${pkgs.gparted}/share/applications/gparted.desktop ${desktopDir + "gparted.desktop"}
+      ln -sfT ${pkgs.konsole}/share/applications/org.kde.konsole.desktop ${desktopDir + "org.kde.konsole.desktop"}
+      ln -sfT ${pkgs.calamares-nixos}/share/applications/io.calamares.calamares.desktop ${desktopDir + "io.calamares.calamares.desktop"}
+
       ln -sfT ${pkgs.alacritty}/share/applications/Alacritty.desktop ${desktopDir + "Alacritty.desktop"}
       ln -sfT ${pkgs.emacs-git}/share/applications/emacsclient.desktop ${desktopDir + "emacsclient.desktop"}
       ln -sfT ${pkgs.emacs-git}/share/applications/emacs.desktop ${desktopDir + "emacs.desktop"}
-      ln -sfT ${pkgs.calamares-nixos}/share/applications/io.calamares.calamares.desktop ${desktopDir + "io.calamares.calamares.desktop"}
     '';
 }
