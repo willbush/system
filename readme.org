@@ -105,6 +105,7 @@ nix-shell -p git
 git clone https://github.com/willbush/system.git
 cd system
 sudo chmod u+x ./new-host-bootstrap.sh
+sudo ./new-host-bootstrap.sh
 git add -A
   #+end_src
 
