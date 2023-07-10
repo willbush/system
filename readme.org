@@ -16,8 +16,8 @@ and use any parts of if you like in your own configuration.
     - [[#secrets][secrets]]
     - [[#xmonad][xmonad]]
   - [[#nixos][NixOS]]
-    - [[#miminal-install][Miminal Install]]
-    - [[#switch][Switch]]
+    - [[#miminal-install][Miminal install]]
+    - [[#switch-to-flake][Switch to flake]]
     - [[#update][Update]]
     - [[#nixos-on-wsl2][NixOS on WSL2]]
 - [[#license][License]]
@@ -85,7 +85,7 @@ for more information.
 
 ** NixOS
 
-*** Miminal Install
+*** Miminal install
 
 - [[https://nixos.org/download.html#nixos-iso][Download]] latest the latest graphical ISO. The Gnome vs Plasma version only affects the desktop environment the ISO boots to.
 
@@ -97,7 +97,7 @@ for more information.
 
 - Reboot when done into the new NixOS install and login.
 
-*** Switch
+*** Switch to flake
 
   #+begin_src shell
 cd ~
