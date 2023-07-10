@@ -87,6 +87,27 @@ for more information.
 
 *** Install
 
+- [[https://nixos.org/download.html#nixos-iso][Download]] latest the latest graphical ISO. The Gnome vs Plasma version only affects the desktop environment the ISO boots to.
+
+- [[https://nixos.org/manual/nixos/stable/index.html#sec-booting-from-usb][Flash it]] to a USB flash drive.
+
+- Boot from the USB flash drive on new host machine.
+
+- Click through Calamares installer. On Desktop step choose ~No desktop~. Don't forget to encrypt the drive.
+
+- Reboot when done into the new NixOS install.
+
+- Login and:
+
+  #+begin_src shell
+    cd ~
+    mkdir code && cd code
+    nix-shell -p git
+    git clone https://github.com/willbush/system.git
+    cd system
+    sudo chmod u+x ./new-host-bootstrap.sh
+  #+end_src
+
 *** Switch
 
 Build and switch to the generation provided by the flake for machine / host
