@@ -99,13 +99,13 @@ for more information.
 - Login and:
 
   #+begin_src shell
-    cd ~
-    mkdir code && cd code
-    nix-shell -p git
-    git clone https://github.com/willbush/system.git
-    cd system
-    sudo chmod u+x ./new-host-bootstrap.sh
-    git add -A
+cd ~
+mkdir code && cd code
+nix-shell -p git
+git clone https://github.com/willbush/system.git
+cd system
+sudo chmod u+x ./new-host-bootstrap.sh
+git add -A
   #+end_src
 
 Next Install the flake using the:
