@@ -56,7 +56,10 @@ in
         inherit config;
       })
       ./krew.nix
-      ./wallpaper.nix
+      (import ./wallpaper.nix {
+        inherit pkgs;
+        inherit config;
+      })
       ./picom.nix
       ./pipx.nix
       ./pkgs/cli.nix
