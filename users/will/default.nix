@@ -62,7 +62,10 @@ in
       })
       ./picom.nix
       ./pipx.nix
-      ./pkgs/cli.nix
+      (import ./pkgs/cli.nix {
+        inherit pkgs;
+        inherit config;
+      })
       ./pkgs/gui.nix
       ./rofi.nix
       ./xdg.nix
