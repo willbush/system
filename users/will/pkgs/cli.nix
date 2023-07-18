@@ -1,7 +1,10 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   planck = pkgs.callPackage ../../../keyboard-firmware/planck { };
   crkbd = pkgs.callPackage ../../../keyboard-firmware/crkbd { };
+  kubectl-vsphere = pkgs.callPackage ../kubectl-vsphere.nix {
+    syncthingEnabled = config.modules.services.syncthing.enable;
+  };
 in
 {
   home.packages = with pkgs; [
@@ -22,6 +25,7 @@ in
     # k8s
     argocd
     kubectl
+    kubectl-vsphere
     kubernetes-helm
     minikube
     octant
