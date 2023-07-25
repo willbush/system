@@ -148,6 +148,7 @@
         org-download
         org-modern
         org-pomodoro
+        ox-gfm
         page-break-lines # emacs-dashboard dependency
         pandoc-mode
         password-generator
