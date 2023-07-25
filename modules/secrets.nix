@@ -69,5 +69,9 @@ in
     modules.secrets.krb5Config = builtins.readFile ../secrets/krb5.conf;
     modules.secrets.willMatchBlocks = import ../secrets/ssh-matchblocks-will.nix;
     modules.secrets.soniaMatchBlocks = import ../secrets/ssh-matchblocks-sonia.nix;
+
+    modules.secrets.pkiCertificates = [
+      "${builtins.readFile ../secrets/work-cert.pem}"
+    ];
   };
 }
