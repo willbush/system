@@ -60,8 +60,9 @@
         l = "exa";
         la = "exa -lah";
         ll = "exa -l";
-        vim = "nvim";
+        tp = "trash-put";
         vi = "nvim";
+        vim = "nvim";
       };
 
       oh-my-zsh = {
