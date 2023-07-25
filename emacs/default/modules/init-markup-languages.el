@@ -153,6 +153,8 @@
 
   (global-org-modern-mode))
 
+(use-package ox-gfm :after org)
+
 (use-package org-download
   ;; without deferring like this package adds 0.1 sec to startup time Ideally
   ;; I'd like to add `(add-hook 'dired-mode-hook 'org-download-enable)' to
