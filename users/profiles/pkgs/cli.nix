@@ -14,7 +14,6 @@ in
     wget
 
     # dev
-    android-tools
     clang
     clang-tools
     delta
