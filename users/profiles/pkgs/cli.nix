@@ -14,8 +14,6 @@ in
     wget
 
     # dev
-    clang
-    clang-tools
     delta
     gh
     github-changelog-generator
