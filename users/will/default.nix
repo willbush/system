@@ -102,9 +102,6 @@ in
   modules.unfree.allowList = [
     "rider"
     "slack"
-    "steam"
-    "steam-original"
-    "steam-run"
   ];
 
   networking = {
@@ -153,12 +150,6 @@ in
   };
 
   programs.zsh.enable = true;
-
-  programs.steam = {
-    enable = config.networking.hostName == "blazar";
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };
 
   security.pki.certificates = config.modules.secrets.pkiCertificates;
 
