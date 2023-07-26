@@ -16,14 +16,11 @@ in
     # dev
     delta
     gh
-    github-changelog-generator
-    helix
     jq
     nixfmt
     nixpkgs-fmt
     nodePackages.prettier
     python3
-    racket
     shfmt
     terraform
     xq # jq in rust
