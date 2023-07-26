@@ -9,15 +9,9 @@ in
 {
   home.packages = with pkgs; [
     # dev
-    act
-    azure-cli
-    bfg-repo-cleaner
     gdb
-    git-filter-repo
-    nix-prefetch-git
     nodejs # for copilot.el login
     omnisharp-roslyn
-    rnix-lsp
     sqlfluff
     tokei
     vault
