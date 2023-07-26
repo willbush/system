@@ -36,19 +36,14 @@ in
     zip
 
     # tui utils
-    bottom
     btop
     glances
-    procs
     zenith
 
     # other utils
-    onefetch # neofetch like tool
     du-dust
     file
     hyperfine # benchmarking tool
-    mutagen
-    pdfgrep
     tealdeer # tldr in Rust
     trash-cli
     usbutils
