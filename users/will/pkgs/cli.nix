@@ -42,12 +42,8 @@ in
     planck
 
     # other
-    exiftool
     feh
-    ffmpeg
-    gource # git history visualization
     lsof
-    nushell # command is nu
     tesseract5
     xclip
     xdotool
