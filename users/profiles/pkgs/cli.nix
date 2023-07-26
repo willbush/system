@@ -31,8 +31,6 @@ in
     # security
     git-crypt
     gopass
-    mkpasswd
-    openssl
 
     # compressor / archiver packages
     p7zip
