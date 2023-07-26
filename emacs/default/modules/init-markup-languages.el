@@ -61,6 +61,8 @@
   ;; [[~/images/example.jpg]]
   (setq org-image-actual-width nil)
 
+  (setq org-export-with-toc nil)
+
   (setq org-catch-invisible-edits 'show-and-error)
 
   (setq org-list-demote-modify-bullet '(("+" . "-") ("-" . "+") ("*" . "+")))
