@@ -95,11 +95,6 @@
 
     htop.enable = true;
 
-    navi = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-
     zoxide = {
       enable = true;
       enableZshIntegration = true;
