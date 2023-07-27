@@ -22,6 +22,7 @@ in
     kubectl
     kubectl-vsphere
     kubernetes-helm
+    kustomize
     minikube
     octant
 
