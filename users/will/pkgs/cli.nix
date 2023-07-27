@@ -18,6 +18,7 @@ in
 
     # k8s
     argocd
+    k9s
     kubectl
     kubectl-vsphere
     kubernetes-helm
