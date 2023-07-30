@@ -14,6 +14,6 @@ in
   services.random-background = {
     enable = true;
     imageDirectory = wallpapers;
-    interval = "2h";
+    interval = "1h";
   };
 }
