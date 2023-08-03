@@ -19,7 +19,7 @@
     # screenshot / screen capture
     flameshot
     gnome.gnome-screenshot
-    # peek
+    peek
     simplescreenrecorder
 
     # image manipulation
