@@ -23,13 +23,13 @@ in
         hashedPassword = config.modules.secrets.willHashedPassword;
         shell = pkgs.zsh;
         extraGroups = [
-          "wheel"
-          "networkmanager"
+          "dialout"
           "docker"
           "libvirtd"
-          # For Arduino ESP32
-          "tty"
-          "dialout"
+          "networkmanager"
+          "tty" # For Arduino ESP32
+          "wheel"
+          "wireshark"
         ];
       };
     };
@@ -150,6 +150,8 @@ in
   };
 
   programs.zsh.enable = true;
+
+  programs.wireshark.enable = true;
 
   security.pki.certificates = config.modules.secrets.pkiCertificates;
 
