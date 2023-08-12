@@ -226,6 +226,14 @@
             (lambda ()
               (setq show-trailing-whitespace t))))
 
+;; markdown preview
+(use-package grip-mode
+  :commands grip-mode
+  :init
+  (general-def
+    :keymaps 'markdown-mode-command-map
+    "g" 'grip-mode))
+
 (use-package yaml-mode
   :mode ("\\.yaml\\'" . yaml-mode)
   :init

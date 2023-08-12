@@ -127,6 +127,7 @@
         git-gutter
         git-gutter-fringe
         git-timemachine
+        grip-mode
         haskell-mode
         helpful
         hydra
