@@ -20,7 +20,8 @@ in
     nixfmt
     nixpkgs-fmt
     nodePackages.prettier
-    python3
+    python311
+    python311Packages.grip # markdown preview
     shfmt
     terraform
     xq # jq in rust
