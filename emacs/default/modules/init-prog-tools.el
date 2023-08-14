@@ -388,7 +388,9 @@ git-timemachine-mode:
 (use-package eglot
   :ensure nil ;; included in Emacs.
   :config
-  (setq eglot-autoreconnect nil)
+  (setq eglot-autoreconnect nil
+        eldoc-echo-area-prefer-doc-buffer t)
+
   (add-to-list 'eglot-server-programs
                '(csharp-mode . ("OmniSharp" "-lsp"))))
 
