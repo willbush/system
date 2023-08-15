@@ -232,7 +232,13 @@
   :init
   (general-def
     :keymaps 'markdown-mode-command-map
-    "g" 'grip-mode))
+    "g" 'grip-mode)
+  :config
+  (setq grip-github-user "willbush")
+  (setq grip-github-password
+        (funcall
+         (lambda ()
+           (nth 0 (process-lines "gopass" "show" "will/websites/general/github-pat-grip"))))))
 
 (use-package yaml-mode
   :mode ("\\.yaml\\'" . yaml-mode)
