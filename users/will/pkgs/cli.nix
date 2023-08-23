@@ -20,10 +20,10 @@ in
     argocd
     k9s
     kube-score
+    kubeconform
     kubectl
     kubectl-vsphere
     kubernetes-helm
-    kubeval
     kustomize
     minikube
     octant
