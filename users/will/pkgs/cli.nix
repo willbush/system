@@ -19,9 +19,11 @@ in
     # k8s
     argocd
     k9s
+    kube-score
     kubectl
     kubectl-vsphere
     kubernetes-helm
+    kubeval
     kustomize
     minikube
     octant
