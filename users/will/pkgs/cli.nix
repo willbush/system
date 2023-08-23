@@ -11,7 +11,7 @@ in
     # dev
     gdb
     nodejs # for copilot.el login
-    omnisharp-roslyn
+    omnisharp-roslyn # broken until https://github.com/NixOS/nixpkgs/pull/249091
     sqlfluff
     tokei
     vault
