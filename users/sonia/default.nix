@@ -57,10 +57,6 @@ in
       username = "sonia";
       homeDirectory = "/home/sonia";
 
-      sessionVariables = {
-        EDITOR = "emacsclient --create-frame --alternate-editor emacs";
-      };
-
       file = {
         ".config".source = ../../config;
         ".config".recursive = true;
