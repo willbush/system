@@ -18,6 +18,7 @@ in
 
     # k8s
     argocd
+    eksctl
     k9s
     kube-score
     kubeconform
