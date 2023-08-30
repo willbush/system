@@ -2,8 +2,9 @@
 let
   planck = pkgs.callPackage ../../../keyboard-firmware/planck { };
   crkbd = pkgs.callPackage ../../../keyboard-firmware/crkbd { };
+  eksctl-anywhere = pkgs.callPackage ../eksctl-anywhere.nix { };
   kubectl-vsphere = pkgs.callPackage ../kubectl-vsphere.nix {
-    syncthingEnabled = config.modules.services.syncthing.enable;
+    syncthingEnabled = true;
   };
 in
 {
@@ -19,6 +20,7 @@ in
     # k8s
     argocd
     eksctl
+    eksctl-anywhere
     k9s
     kube-score
     kubeconform
