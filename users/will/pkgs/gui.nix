@@ -7,7 +7,9 @@
     ungoogled-chromium
 
     # chat
+    discord
     slack
+    teams
 
     # image viewer
     sxiv
