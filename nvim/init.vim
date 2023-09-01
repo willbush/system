@@ -69,3 +69,5 @@ set softtabstop=2
 " Expand TABs to spaces
 set expandtab
 set autoindent
+" Disable annoying sound on errors (when used as .ideavimrc)
+set visualbell
