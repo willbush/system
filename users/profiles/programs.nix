@@ -57,9 +57,9 @@
         mk = "minikube kubectl --"; # https://minikube.sigs.k8s.io/docs/handbook/kubectl/
         em = "emacsclient --create-frame";
         kgp = "kubectl get pods";
-        l = "exa";
-        la = "exa -lah";
-        ll = "exa -l";
+        l = "eza";
+        la = "eza -lah";
+        ll = "eza -l";
         tp = "trash-put";
         vi = "nvim";
         vim = "nvim";

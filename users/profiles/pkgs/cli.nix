@@ -7,7 +7,7 @@ in
     planck
     # core
     curl
-    exa
+    eza
     fd
     ripgrep
     tree
