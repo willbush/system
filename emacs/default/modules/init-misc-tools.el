@@ -284,7 +284,7 @@
   :config
   (setq chatgpt-shell-openai-key
         (lambda ()
-          (nth 3 (process-lines "gopass" "show" "will/websites/openai.com")))))
+          (nth 4 (process-lines "gopass" "show" "will/work/openai.com")))))
 
 (use-package keycast
   :commands
