@@ -1,5 +1,9 @@
+{ pkgs, ... }:
 {
   programs.gpg.enable = true;
+  # Use the stable version of GnuPG because for some reason new version freezes
+  # Emacs when trying to save using auto-encryption-mode in a gpg file.
+  programs.gpg.package = pkgs.stable.gnupg;
 
   services = {
     gpg-agent = {

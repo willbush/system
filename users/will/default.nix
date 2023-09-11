@@ -44,7 +44,7 @@ in
       })
       ../profiles/bat.nix
       ../profiles/dotnet.nix
-      ../profiles/gpg.nix
+      (import ../profiles/gpg.nix { inherit pkgs; })
       ../profiles/gui-theme.nix
       ../profiles/pkgs/cli.nix
       ../profiles/pkgs/gui.nix
