@@ -25,13 +25,21 @@
     :keymaps 'deadgrep-mode-map
     "RET" 'deadgrep-visit-result
     "S-RET" 'deadgrep-visit-result-other-window
+
+    "gs" 'deadgrep-search-term
+
     "go" 'deadgrep-visit-result-other-window
     "gr" 'deadgrep-restart
+
+    "gc" 'deadgrep-cycle-search-case
+    "gt" 'deadgrep-cycle-search-type
+
     "C-n" 'deadgrep-forward
     "C-e" 'deadgrep-backward
     "TAB" 'deadgrep-toggle-file-results
     "l" 'deadgrep-edit-mode ;; similar to how dired works
-    "q" 'quit-window)
+    ;; not using q because often define macros here
+    "Q" 'quit-window)
 
   (general-def
     :states 'normal
