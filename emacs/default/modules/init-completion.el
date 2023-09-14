@@ -116,9 +116,22 @@
     (interactive)
     (counsel-projectile-switch-project "D"))
 
+  (defun my/dired-toggle-projectile ()
+    "Toggle current directory in known projects."
+    (interactive)
+    (when (eq major-mode 'dired-mode)
+      (if (member default-directory projectile-known-projects)
+          (progn
+            (projectile-remove-known-project default-directory)
+            (message "Project removed."))
+        (progn
+          (projectile-add-known-project default-directory)
+          (message "Project added.")))))
+
   (general-def
     :keymaps 'projectile-command-map
     "P" 'my/counsel-projectile-switch-project-dired
+    "T" 'my/dired-toggle-projectile
     ;; Was bound to P. Rebind it.
     "Z" 'projectile-test-project)
 
