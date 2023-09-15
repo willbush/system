@@ -19,6 +19,7 @@
     # screenshot / screen capture
     flameshot
     gnome.gnome-screenshot
+    obs-studio
     peek
     simplescreenrecorder
 
