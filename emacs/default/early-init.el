@@ -30,7 +30,7 @@
 ;; face for code. The variable-pitch face is used when `variable-pitch-mode' is
 ;; turned on, generally whenever a non-monospace face is preferred.
 (custom-set-faces
- `(default ((t (:font "Fira Mono 10"))))
+ `(default ((t (:font "Fira Mono 11"))))
  `(fixed-pitch ((t (:inherit (default)))))
  `(fixed-pitch-serif ((t (:inherit (default)))))
  `(variable-pitch ((t (:font "DejaVu Sans 10")))))
