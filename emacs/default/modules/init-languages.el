@@ -34,6 +34,8 @@
 
 (use-package mips-mode :mode "\\.mips$")
 
+(use-package protobuf-mode :mode "\\.proto$")
+
 (use-package dockerfile-mode :mode "Dockerfile\\'")
 
 (use-package typescript-mode
