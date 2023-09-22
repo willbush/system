@@ -21,6 +21,7 @@ in
     nixpkgs-fmt
     nodePackages.prettier
     python311
+    python311Packages.pip
     python311Packages.grip # markdown preview
     shfmt
     terraform
