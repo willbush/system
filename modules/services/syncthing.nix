@@ -29,7 +29,7 @@ in
       configDir = "/home/${cfg.user}/.config/syncthing";
       dataDir = "/home/${cfg.user}/.local/share/syncthing";
 
-      inherit devices;
+      settings.devices = devices;
 
       #  A device ID is generated from the SHA-256 of certificate information.
       #  Therefore, use our own cert and key to prevent device ID's from
@@ -44,7 +44,7 @@ in
       cert = "${pkgs.writeText "syncthing-cert.pem" cert-text}";
       key = "${pkgs.writeText "syncthing-key.pem" key-text}";
 
-      folders =
+      settings.folders =
         let
           deviceEnabled = devices: elem host devices;
           deviceType = devices:
