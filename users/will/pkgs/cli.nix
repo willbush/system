@@ -13,6 +13,7 @@ in
     gdb
     nodejs # for copilot.el login
     omnisharp-roslyn # broken until https://github.com/NixOS/nixpkgs/pull/249091
+    openssl
     sqlfluff
     tokei
     vault
