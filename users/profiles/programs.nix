@@ -76,6 +76,7 @@
           "helm"
           "kubectl"
           "minikube"
+          "poetry"
           "ripgrep"
           "rust"
         ];
