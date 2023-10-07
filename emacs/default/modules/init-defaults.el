@@ -26,6 +26,9 @@
 ;; yes-or-no-p uses shorter answers "y" or "n".
 (setq use-short-answers t)
 
+;; Don't pop up UI dialogs when prompting
+(setq use-dialog-box nil)
+
 ;; When Emacs tags get regenerated I want it to reload them without prompting me
 ;; y or n.
 (setq-default tags-revert-without-query 1)
