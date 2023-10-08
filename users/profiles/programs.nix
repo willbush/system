@@ -6,6 +6,7 @@
       # setting examples: https://github.com/jwilm/alacritty/blob/master/alacritty.yml
       # themes: https://github.com/eendroroy/alacritty-theme
       settings = {
+        font.size = 12;
         colors = {
           # I changed the primary background color to black because I like that
           # with transparency.
