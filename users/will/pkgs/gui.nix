@@ -29,7 +29,7 @@
 
     # other
     hicolor-icon-theme # fall back icon theme
-    pkgs.stable.transmission-gtk
+    pkgs.transmission-gtk
     remmina
     virt-manager
     wireshark
