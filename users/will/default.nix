@@ -123,6 +123,7 @@ in
 
   services = {
     xserver = {
+      dpi = 110;
       enable = true;
 
       windowManager.xmonad = {
