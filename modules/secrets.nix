@@ -72,7 +72,6 @@ in
 
     modules.secrets.pkiCertificates = [
       "${builtins.readFile ../secrets/work-cert.pem}"
-      "${builtins.readFile ../secrets/tanzu-root-ca.pem}"
     ];
   };
 }
