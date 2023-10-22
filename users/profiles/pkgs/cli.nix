@@ -25,7 +25,6 @@ in
     python311Packages.grip # markdown preview
     python311Packages.pip
     shfmt
-    terraform
     xq # jq in rust
 
     # security
