@@ -102,7 +102,6 @@ in
     "discord"
     "rider"
     "slack"
-    "teams"
   ];
 
   networking = {
