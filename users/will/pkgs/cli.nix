@@ -3,9 +3,6 @@ let
   planck = pkgs.callPackage ../../../keyboard-firmware/planck { };
   crkbd = pkgs.callPackage ../../../keyboard-firmware/crkbd { };
   eksctl-anywhere = pkgs.callPackage ../eksctl-anywhere.nix { };
-  kubectl-vsphere = pkgs.callPackage ../kubectl-vsphere.nix {
-    syncthingEnabled = true;
-  };
 in
 {
   home.packages = with pkgs; [
@@ -26,7 +23,6 @@ in
     kube-score
     kubeconform
     kubectl
-    kubectl-vsphere
     kubernetes-helm
     kustomize
     minikube
