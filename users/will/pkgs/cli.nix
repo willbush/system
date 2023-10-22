@@ -30,7 +30,6 @@ in
     kubernetes-helm
     kustomize
     minikube
-    octant
 
     # tui
     nethogs
