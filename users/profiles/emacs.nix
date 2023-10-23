@@ -169,7 +169,6 @@
         toc-org
         treesit-auto
         typescript-mode
-        use-package
         vimrc-mode
         visual-fill-column
         vterm
