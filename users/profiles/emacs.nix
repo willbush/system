@@ -167,8 +167,7 @@
         swiper
         terraform-mode
         toc-org
-        tree-sitter
-        tree-sitter-langs
+        treesit-auto
         typescript-mode
         use-package
         vimrc-mode

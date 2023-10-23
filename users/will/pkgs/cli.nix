@@ -7,6 +7,7 @@ in
 {
   home.packages = with pkgs; [
     # dev
+    gcc # for `treesit-auto-install-all` which builds treesitter grammars
     gdb
     nodejs # for copilot.el login
     omnisharp-roslyn # broken until https://github.com/NixOS/nixpkgs/pull/249091
