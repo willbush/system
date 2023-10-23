@@ -17,9 +17,6 @@
 
 (add-to-list 'load-path (expand-file-name "modules/" user-emacs-directory))
 
-(eval-when-compile
-  (require 'use-package))
-
 (when (string-equal (getenv "EMACS_RUN_BENCHMARK_INIT") "1")
   (use-package benchmark-init
     :config
