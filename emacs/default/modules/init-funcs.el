@@ -296,7 +296,7 @@ gets zoomed to make it center."
 (defun my/gopass-generate-xkcd-passwords ()
   "Use gopass to generate xkcd style passwords to a shell buffer"
   (interactive)
-  (my/gopass--generate-passwords "gopass pwgen --xkcd"))
+  (my/gopass--generate-passwords "gopass pwgen --xkcd --lang en --sep ' '"))
 
 ;;;###autoload
 (defun my/gopass-generate-passwords ()
