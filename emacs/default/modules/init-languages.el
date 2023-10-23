@@ -4,15 +4,15 @@
 ;;; A file for other language packages / settings that are too simple to be in
 ;;; their own file.
 
-(use-package tree-sitter
-  :defer t
-  :hook (after-init . global-tree-sitter-mode)
+(use-package treesit-auto
+  :demand t
   :config
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+  (setq treesit-auto-install 'prompt)
 
-(use-package tree-sitter-langs
-  :defer t
-  :after tree-sitter)
+  ;; `treesit-auto-install-all' needs to be called to install every available,
+  ;; maintained grammar. This depends on `gcc' being installed.
+
+  (global-treesit-auto-mode))
 
 (use-package rustic
   :mode ("\\.rs\\'" . rustic-mode)
