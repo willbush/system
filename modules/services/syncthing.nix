@@ -168,7 +168,6 @@ in
             devices = [
               "alnitak"
               "blazar"
-              "blitzar"
               "rigel"
               "saiph"
             ];
