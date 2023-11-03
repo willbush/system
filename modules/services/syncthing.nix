@@ -68,6 +68,7 @@ in
             devices = [
               "alnitak"
               "blazar"
+              "blitzar"
               "rigel"
               "saiph"
             ];
@@ -91,6 +92,7 @@ in
             devices = [
               "alnitak"
               "blazar"
+              "blitzar"
               "rigel"
               "saiph"
             ];
@@ -113,6 +115,7 @@ in
             devices = [
               "alnitak"
               "blazar"
+              "blitzar"
               "meissa"
               "mintaka"
               "mira"
@@ -128,6 +131,7 @@ in
             path = "/home/${cfg.user}/videos/viofo";
             devices = [
               "blazar"
+              "blitzar"
               "saiph"
               "alnitak"
               "rigel"
@@ -146,6 +150,7 @@ in
             devices = [
               "alnitak"
               "blazar"
+              "blitzar"
               "meissa"
               "mintaka"
               "mira"
@@ -163,6 +168,7 @@ in
             devices = [
               "alnitak"
               "blazar"
+              "blitzar"
               "rigel"
               "saiph"
             ];
