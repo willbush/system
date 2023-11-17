@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     # browsers
-    (firefox.override { extraNativeMessagingHosts = [ browserpass ]; })
+    (firefox.override { nativeMessagingHosts = [ browserpass ]; })
 
     ungoogled-chromium
 
