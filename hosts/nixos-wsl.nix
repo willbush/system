@@ -55,10 +55,6 @@ in
       username = defaultUser;
       homeDirectory = "/home/${defaultUser}";
 
-      sessionVariables = {
-        EDITOR = "em";
-      };
-
       file = {
         ".config".source = ../config;
         ".config".recursive = true;
