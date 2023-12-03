@@ -3,6 +3,7 @@
     libvirtd = {
       enable = true;
       qemu.runAsRoot = false;
+      qemu.ovmf.enable = true;
     };
 
     docker.enable = true;
