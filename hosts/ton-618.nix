@@ -50,7 +50,7 @@
 
   hardware = {
     bluetooth.enable = true;
-    opengl.enable = true;
+    opengl.enable = true; # used for libvirt 3D acceleration
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   };
 

@@ -40,7 +40,7 @@
   swapDevices = [ ];
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.opengl.enable = true;
+  hardware.opengl.enable = true; # used for libvirt 3D acceleration
 
   services.hardware.openrgb.enable = true;
   services.hardware.openrgb.motherboard = "amd";
