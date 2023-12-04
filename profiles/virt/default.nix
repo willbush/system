@@ -1,11 +1,6 @@
 { pkgs, ... }: {
   virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu.runAsRoot = false;
-      qemu.ovmf.enable = true;
-    };
-
+    libvirtd.enable = true;
     docker.enable = true;
   };
 
