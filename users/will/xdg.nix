@@ -1,6 +1,9 @@
 {
   xdg = {
     enable = true;
+
+    autostart.enable = false;
+
     mime.enable = true;
     mimeApps = {
       enable = true;
