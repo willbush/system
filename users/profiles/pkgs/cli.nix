@@ -40,7 +40,7 @@ in
     # tui utils
     btop
     glances
-    zenith
+    # zenith #broken
 
     # other utils
     du-dust
