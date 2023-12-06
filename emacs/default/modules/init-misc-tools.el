@@ -261,6 +261,15 @@
 (use-package exec-path-from-shell
   :commands exec-path-from-shell-copy-env)
 
+(use-package gptel
+ :config
+  (require 'gptel-curl)
+
+  (setq gptel-default-mode 'org-mode)
+  (setq gptel-api-key
+        (lambda ()
+          (nth 4 (process-lines "gopass" "show" "will/work/openai.com")))))
+
 (use-package chatgpt-shell
   :commands
   (chatgpt-shell
