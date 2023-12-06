@@ -128,6 +128,7 @@
         git-gutter
         git-gutter-fringe
         git-timemachine
+        gptel
         grip-mode
         haskell-mode
         helpful
