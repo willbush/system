@@ -17,6 +17,11 @@ in
       daemon.enable = true;
       # keep the signatures' database updated
       updater.enable = true;
+      updater.interval = "daily";
+
+      # https://rseichter.github.io/fangfrisch/
+      fangfrisch.enable = true;
+      fangfrisch.interval = "daily";
     };
   };
 }
