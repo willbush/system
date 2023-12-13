@@ -71,7 +71,7 @@ in
     ];
 
     home = rec {
-      stateVersion = "23.05";
+      stateVersion = "23.11";
       username = "will";
       homeDirectory = "/home/will";
 
@@ -165,5 +165,5 @@ in
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [ mullvad-vpn ];
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 }
