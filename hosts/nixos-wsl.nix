@@ -51,7 +51,7 @@ in
     ];
 
     home = rec {
-      stateVersion = "23.05";
+      stateVersion = "23.11";
       username = defaultUser;
       homeDirectory = "/home/${defaultUser}";
 
@@ -111,5 +111,5 @@ in
   };
   programs.zsh.enable = true;
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 }

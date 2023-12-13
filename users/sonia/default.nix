@@ -53,7 +53,7 @@ in
     ];
 
     home = rec {
-      stateVersion = "23.05";
+      stateVersion = "23.11";
       username = "sonia";
       homeDirectory = "/home/sonia";
 
@@ -110,5 +110,5 @@ in
   programs.less.enable = true;
   programs.zsh.enable = true;
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 }
