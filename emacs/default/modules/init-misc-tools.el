@@ -266,6 +266,7 @@
   (require 'gptel-curl)
 
   (setq gptel-default-mode 'org-mode)
+  (setq-default gptel-model "gpt-4-32k")
   (setq gptel-api-key
         (lambda ()
           (nth 4 (process-lines "gopass" "show" "will/work/openai.com")))))
