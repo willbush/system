@@ -9,6 +9,7 @@
     gpg-agent = {
       enable = true;
       enableSshSupport = true;
+      pinentryFlavor = "qt";
 
       defaultCacheTtl = 10800; # 3 hours
       defaultCacheTtlSsh = 10800;
