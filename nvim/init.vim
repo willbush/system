@@ -71,3 +71,5 @@ set expandtab
 set autoindent
 " Disable annoying sound on errors (when used as .ideavimrc)
 set visualbell
+" Fix clipboard to work like one would expect.
+set clipboard=unnamedplus
