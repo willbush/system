@@ -96,6 +96,9 @@ in
         extraConfig = builtins.readFile ../../nvim/init.vim;
       };
     };
+
+    # Nicely reload system units when changing configs
+    systemd.user.startServices = "sd-switch";
   };
 
   modules.unfree.allowList = [
