@@ -21,6 +21,7 @@ in
     nixpkgs-fmt
     nodePackages.prettier
     poetry
+    powershell
     python311
     python311Packages.grip # markdown preview
     python311Packages.pip
