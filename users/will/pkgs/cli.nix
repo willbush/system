@@ -9,6 +9,7 @@ in
     # dev
     gcc # for `treesit-auto-install-all` which builds treesitter grammars
     gdb
+    nix-prefetch-git
     nodejs # for copilot.el login
     omnisharp-roslyn # broken until https://github.com/NixOS/nixpkgs/pull/249091
     openssl
