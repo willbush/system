@@ -37,8 +37,8 @@ in
       description = "work globalprotect settings";
     };
 
-    krb5Config = mkOption {
-      type = types.str;
+    krb5Settings = mkOption {
+      type = types.attrs;
       default = "";
       description = "work krb5 config";
     };
@@ -66,7 +66,7 @@ in
     modules.secrets.willHashedPassword = fileContents ../secrets/hashed-password-will.txt;
     modules.secrets.soniaHashedPassword = fileContents ../secrets/hashed-password-sonia.txt;
     modules.secrets.globalprotectSettings = import ../secrets/work-globalprotect-settings.nix;
-    modules.secrets.krb5Config = builtins.readFile ../secrets/krb5.conf;
+    modules.secrets.krb5Settings = import ../secrets/krb5-settings.nix;
     modules.secrets.willMatchBlocks = import ../secrets/ssh-matchblocks-will.nix;
     modules.secrets.soniaMatchBlocks = import ../secrets/ssh-matchblocks-sonia.nix;
 
