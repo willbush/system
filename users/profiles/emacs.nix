@@ -136,6 +136,7 @@
         ivy
         ivy-pass
         ivy-prescient
+        jsonrpc # needed for copilot.el
         keycast
         magit
         magit-delta
