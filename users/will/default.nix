@@ -105,6 +105,7 @@ in
     "discord"
     "rider"
     "slack"
+    "vault"
   ];
 
   networking = {
