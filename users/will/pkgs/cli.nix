@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let
   planck = pkgs.callPackage ../../../keyboard-firmware/planck { };
-  crkbd = pkgs.callPackage ../../../keyboard-firmware/crkbd { };
+  # crkbd = pkgs.callPackage ../../../keyboard-firmware/crkbd { };
   eksctl-anywhere = pkgs.callPackage ../eksctl-anywhere.nix { };
 in
 {
@@ -42,7 +42,7 @@ in
     xh
 
     # Keyboard firmware flash
-    crkbd
+    # crkbd
     planck
 
     # other
