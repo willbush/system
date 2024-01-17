@@ -105,6 +105,7 @@ in
     "discord"
     "rider"
     "slack"
+    "vault"
   ];
 
   networking = {
@@ -159,10 +160,9 @@ in
 
   security.pki.certificates = config.modules.secrets.pkiCertificates;
 
-  security.pam.krb5.enable = secretsEnabled;
-  krb5 = {
+  security.krb5 = {
     enable = secretsEnabled;
-    config = config.modules.secrets.krb5Config;
+    settings = config.modules.secrets.krb5Settings;
   };
 
   # List packages installed in system profile.

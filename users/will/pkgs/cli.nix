@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let
   planck = pkgs.callPackage ../../../keyboard-firmware/planck { };
-  crkbd = pkgs.callPackage ../../../keyboard-firmware/crkbd { };
+  # crkbd = pkgs.callPackage ../../../keyboard-firmware/crkbd { };
   eksctl-anywhere = pkgs.callPackage ../eksctl-anywhere.nix { };
 in
 {
@@ -10,6 +10,7 @@ in
     gcc # for `treesit-auto-install-all` which builds treesitter grammars
     gdb
     grafana-loki # provides: promtail loki-canary loki logcli
+    nix-prefetch-git
     nodejs # for copilot.el login
 
     omnisharp-roslyn # broken until https://github.com/NixOS/nixpkgs/pull/249091
@@ -43,7 +44,7 @@ in
     xh
 
     # Keyboard firmware flash
-    crkbd
+    # crkbd
     planck
 
     # other
