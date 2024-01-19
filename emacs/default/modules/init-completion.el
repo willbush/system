@@ -94,6 +94,9 @@
   :hook ((prog-mode text-mode) . copilot-mode)
   :bind ("C-<tab>" . copilot-accept-completion)
   :config
+
+  (setq copilot-indent-offset-warning-disable t)
+
   (defun my/disable-copilot-for-gpg-p ()
     "Return t if the current buffer is visiting a .gpg file."
     (and (stringp buffer-file-name)
