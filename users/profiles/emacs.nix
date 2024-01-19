@@ -64,7 +64,7 @@
           ename = "copilot";
           version = inputs.copilot-el.lastModifiedDate;
           commit = rev;
-          packageRequires = [ dash editorconfig s ];
+          packageRequires = [ dash editorconfig s jsonrpc ];
 
           src = fetchFromGitHub {
             inherit rev;
