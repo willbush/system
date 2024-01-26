@@ -300,6 +300,9 @@
     (message "ChatGPT model version set to: %s" chatgpt-shell-model-version))
 
   :config
+  ;; The system prompt chatgpt-shell-system-prompts index.
+  (setq chatgpt-shell-system-prompt 3)
+
   (setq chatgpt-shell-openai-key
         (lambda ()
           (nth 4 (process-lines "gopass" "show" "will/work/openai.com")))))
