@@ -42,6 +42,7 @@
     {
       device = "/dev/disk/by-uuid/136A-4599";
       fsType = "vfat";
+      options = [ "umask=0077" ];
     };
 
   swapDevices = [ ];
