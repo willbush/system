@@ -23,7 +23,6 @@ in
         hashedPassword = config.modules.secrets.willHashedPassword;
         shell = pkgs.zsh;
         extraGroups = [
-          "dialout"
           "docker"
           "libvirtd"
           "networkmanager"
