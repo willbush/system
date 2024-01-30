@@ -16,7 +16,6 @@ in
     omnisharp-roslyn # broken until https://github.com/NixOS/nixpkgs/pull/249091
     openssl
     tokei
-    vault
 
     # k8s
     argocd
