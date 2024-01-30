@@ -71,7 +71,7 @@ in
     ];
 
     home = rec {
-      stateVersion = "23.11";
+      stateVersion = "24.05";
       username = "will";
       homeDirectory = "/home/will";
 
@@ -167,5 +167,6 @@ in
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [ mullvad-vpn ];
 
-  system.stateVersion = "23.11";
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  system.stateVersion = "24.05";
 }

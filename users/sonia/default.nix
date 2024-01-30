@@ -53,7 +53,7 @@ in
     ];
 
     home = rec {
-      stateVersion = "23.11";
+      stateVersion = "24.05";
       username = "sonia";
       homeDirectory = "/home/sonia";
 
@@ -110,5 +110,6 @@ in
   programs.less.enable = true;
   programs.zsh.enable = true;
 
-  system.stateVersion = "23.11";
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  system.stateVersion = "24.05";
 }
