@@ -26,7 +26,6 @@ in
           "docker"
           "libvirtd"
           "networkmanager"
-          "tty" # For Arduino ESP32
           "wheel"
           "wireshark"
         ];
