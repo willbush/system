@@ -1,4 +1,4 @@
-{ lib, modulesPath, config, ... }: {
+{ pkgs, lib, modulesPath, config, ... }: {
   imports = [
     "${modulesPath}/installer/scan/not-detected.nix"
     ../users/will
@@ -28,6 +28,7 @@
     # https://www.linux-kvm.org/page/Nested_Guests
     # https://docs.fedoraproject.org/en-US/quick-docs/using-nested-virtualization-in-kvm/
     extraModprobeConfig = "options kvm-amd nested=1";
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   fileSystems."/" =
