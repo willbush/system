@@ -1,4 +1,4 @@
-{ lib, modulesPath, config, ... }: {
+{ pkgs, lib, modulesPath, config, ... }: {
   imports = [
     "${modulesPath}/installer/scan/not-detected.nix"
     ../users/will
@@ -22,6 +22,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   fileSystems."/" =
     {
