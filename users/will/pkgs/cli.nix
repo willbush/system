@@ -7,6 +7,8 @@ in
 {
   home.packages = with pkgs; [
     # dev
+    docker
+    docker-compose
     gcc # for `treesit-auto-install-all` which builds treesitter grammars
     gdb
     grafana-loki # provides: promtail loki-canary loki logcli
