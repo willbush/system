@@ -4,6 +4,12 @@ let
   secretsEnabled = config.modules.secrets.enable;
 in
 {
+  services.emacs = {
+    enable = true;
+    package = pkgs.emacs-unstable;
+    defaultEditor = true;
+  };
+
   imports = [
     ../../modules/services/clamav.nix
     ../../modules/services/syncthing.nix

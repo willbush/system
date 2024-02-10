@@ -34,12 +34,13 @@
     };
   };
 
-  services.emacs = {
-    enable = true;
-    package = emacsPackage;
-    client.enable = true;
-    defaultEditor = true;
-  };
+  # TODO: this doesn't work, but nixpkgs services.emacs does. Why?
+  # services.emacs = {
+  #   enable = true;
+  #   package = emacsPackage;
+  #   client.enable = true;
+  #   defaultEditor = true;
+  # };
 
   home.packages = with pkgs; [
     aspell
