@@ -36,6 +36,7 @@
 
   services.emacs = {
     enable = true;
+    package = emacsPackage;
     client.enable = true;
     defaultEditor = true;
   };
