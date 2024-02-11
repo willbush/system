@@ -42,10 +42,7 @@ in
       ../users/profiles/gpg.nix
       ../users/profiles/pkgs/cli.nix
       ../users/profiles/programs.nix
-      (import ../users/will/git.nix {
-        inherit pkgs;
-        inherit config;
-      })
+      ../users/will/git.nix
       ../users/will/pkgs/cli.nix
       ../users/will/xdg.nix
     ];
