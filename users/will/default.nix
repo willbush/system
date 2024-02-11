@@ -41,36 +41,23 @@ in
 
   home-manager.users.will = {
     imports = [
-      (import ../profiles/emacs.nix {
-        inherit inputs;
-        inherit pkgs;
-        emacsPackage = pkgs.emacs-unstable;
-      })
       ../profiles/bat.nix
       ../profiles/dotnet.nix
-      (import ../profiles/gpg.nix { inherit pkgs; })
+      ../profiles/emacs.nix
+      ../profiles/gpg.nix
       ../profiles/gui-theme.nix
       ../profiles/pkgs/cli.nix
       ../profiles/pkgs/gui.nix
       ../profiles/programs.nix
       ../profiles/redshift.nix
-      (import ./git.nix {
-        inherit pkgs;
-        inherit config;
-      })
+      ./git.nix
       ./krew.nix
-      (import ./wallpaper.nix {
-        inherit pkgs;
-        inherit config;
-      })
       ./picom.nix
       ./pipx.nix
-      (import ./pkgs/cli.nix {
-        inherit pkgs;
-        inherit config;
-      })
+      ./pkgs/cli.nix
       ./pkgs/gui.nix
       ./rofi.nix
+      ./wallpaper.nix
       ./xdg.nix
     ];
 

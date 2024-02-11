@@ -54,8 +54,6 @@
           inherit system;
           config.allowUnfree = true;
         };
-        # use this variant if unfree packages are not needed:
-        # stable = nixpkgs-stable.legacyPackages.${prev.system};
       };
 
       toConfig = hostName:
@@ -68,10 +66,11 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
+                extraSpecialArgs = { inherit inputs; };
               };
-              networking.hostName = hostName;
             }
             {
+              networking.hostName = hostName;
               nixpkgs.overlays =
                 [
                   inputs.emacs-overlay.overlay

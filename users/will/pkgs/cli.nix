@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 let
   planck = pkgs.callPackage ../../../keyboard-firmware/planck { };
   # crkbd = pkgs.callPackage ../../../keyboard-firmware/crkbd { };
