@@ -34,3 +34,7 @@ vterm_prompt_end() {
 }
 setopt PROMPT_SUBST
 PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'
+
+# Allows `rm -rf dir/*`. The -f is suppost to be silent, but ZSH disables it by
+# default which violates the principle of least surprise.
+setopt RM_STAR_SILENT
