@@ -20,12 +20,11 @@
       url = "github:plexus/chemacs2";
       flake = false;
     };
+
     crafted-emacs = {
       url = "github:SystemCrafters/crafted-emacs";
       flake = false;
     };
-
-    flake-utils.url = "github:numtide/flake-utils";
 
     # Not on melpa yet.
     copilot-el = {
