@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ pkgs, osConfig, ... }: {
 
   programs = {
     git = {
@@ -25,7 +25,7 @@
     ssh = {
       enable = true;
       serverAliveInterval = 30;
-      matchBlocks = config.modules.secrets.willMatchBlocks;
+      matchBlocks = osConfig.modules.secrets.willMatchBlocks;
     };
   };
 }

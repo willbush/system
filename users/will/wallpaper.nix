@@ -1,7 +1,7 @@
-{ pkgs, config, ... }:
+{ pkgs, osConfig, ... }:
 let
   wallpapers =
-    if config.modules.services.syncthing.enable
+    if osConfig.modules.services.syncthing.enable
     then "/home/will/sync/wallpapers"
     else "${pkgs.gnome.gnome-backgrounds}/share/backgrounds/gnome";
 in

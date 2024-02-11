@@ -1,4 +1,4 @@
-{ inputs, pkgs, emacsPackage ? pkgs.emacs-unstable, ... }:
+{ inputs, pkgs, ... }:
 {
   home = {
     file = {
@@ -37,7 +37,7 @@
   # TODO: this doesn't work, but nixpkgs services.emacs does. Why?
   # services.emacs = {
   #   enable = true;
-  #   package = emacsPackage;
+  #   package = pkgs.emacs-unstable;
   #   client.enable = true;
   #   defaultEditor = true;
   # };
@@ -51,7 +51,7 @@
 
   programs.emacs = {
     enable = true;
-    package = emacsPackage;
+    package = pkgs.emacs-unstable;
     overrides = self: super: {
       # I install the packages below by hand because they're not in MELPA, and I
       # don't want to incur the startup cost of using straight.el.
