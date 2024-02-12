@@ -8,7 +8,9 @@ and use any parts of if you like in your own configuration.
 - [[#system-configuration][System Configuration]]
   - [[#folder-structure][Folder Structure]]
     - [[#configs][configs]]
-    - [[#emacs--nvim][emacs / nvim]]
+  - [[#keyboard-firmware][keyboard firmware]]
+  - [[#xmonad][Xmonad]]
+  - [[#emacs--nvim][emacs / nvim]]
     - [[#hosts][hosts]]
     - [[#modules-profiles-and-users][modules, profiles, and users]]
     - [[#secrets][secrets]]
@@ -40,13 +42,17 @@ A sort of catch all for config / non-nix code.
 Some are simply configuration files that are symlinked to ~/.config/~ and managed
 with [[https://github.com/rycee/home-manager][home manager]].
 
-- *keyboard firmware* code managed by Nix and the [[file:configs/keyboard-firmware/readme.org][readme]] that goes into depth on
-  my key layout and customized Evil / Vim keybindings.
+** keyboard firmware
 
-- *Xmonad* configuration code which is symlinked by home-manager. See its [[file:configs/xmonad/readme.org][readme]]
-  for more information.
+Keyboard firmware code managed by Nix and the [[file:configs/keyboard-firmware/readme.org][readme]] that goes into depth on my
+key layout and customized Evil / Vim keybindings.
 
-*** emacs / nvim
+** Xmonad
+
+Xmonad configuration code which is symlinked by home-manager. See its [[file:configs/xmonad/readme.org][readme]] for
+more information.
+
+** emacs / nvim
 
 My emacs configuration code. See its [[file:configs/emacs/readme.org][readme]] for more information.
 
