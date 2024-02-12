@@ -71,10 +71,6 @@ in
         # TODO: remove when this is the default in docker
         DOCKER_BUILDKIT = 1;
       };
-
-      file = {
-        ".xmonad/xmonad.hs".source = ../../configs/xmonad/xmonad.hs;
-      };
     };
 
     wayland.windowManager.hyprland = {
