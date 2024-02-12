@@ -168,7 +168,6 @@
              org-download-yank
              org-download-image
              org-download-delete
-             org-download-clipboard ;; depends on xclip
              org-download-screenshot ;; depends on gnome-screenshot
              org-download-rename-at-point
              org-download-rename-last-file))
