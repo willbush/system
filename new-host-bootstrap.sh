@@ -12,7 +12,7 @@ read hostname
 FILENAME="./hosts/$hostname.nix"
 IMPORTS=(
 	../profiles/common/host-settings.nix
-	../profiles/boot/efi.nix
+	../profiles/efi.nix
 	../modules/unfree.nix
 	../modules/secrets.nix
 	../users/will
