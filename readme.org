@@ -94,10 +94,9 @@ mkdir code && cd code
 nix-shell -p git
 git clone https://github.com/willbush/system.git
 cd system
-sudo chmod u+x ./new-host-bootstrap.sh
-sudo ./new-host-bootstrap.sh
-git add -A
   #+end_src
+
+Bootstrap the new host by modifying the ~flake.nix~ etc. and be sure to ~git add -A~
 
 Look up your device using ~lsblk~.
 
