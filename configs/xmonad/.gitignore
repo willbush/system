@@ -1,9 +1,0 @@
-# cabal
-/.ghc.environment.*
-dist-newstyle/
-dist/
-cabal.project.local
-cabal.project.local~
-
-# emacs
-TAGS
