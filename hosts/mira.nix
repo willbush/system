@@ -4,7 +4,7 @@
     ../users/sonia
     ../modules/secrets.nix
     ../modules/unfree.nix
-    ../profiles/boot/efi.nix
+    ../profiles/efi.nix
     ../profiles/common/host-settings.nix
     ../profiles/printer
   ];

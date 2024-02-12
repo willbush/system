@@ -99,14 +99,6 @@ sudo ./new-host-bootstrap.sh
 git add -A
   #+end_src
 
-Note that if you're installing on an old machine or a VM that doesn't use uefi
-BIOS, then you may need to replace the following import:
-
-#+begin_src diff
--    ../profiles/boot/efi.nix
-+    (import ../profiles/boot/bios.nix { device = "/dev/vda"; })
-#+end_src
-
 Look up your device using ~lsblk~.
 
 Next Install the flake using the:
