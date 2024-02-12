@@ -57,7 +57,6 @@ in
       ./pipx.nix
       ./pkgs/cli.nix
       ./pkgs/gui.nix
-      ./wallpaper.nix
       ./xdg.nix
     ];
 
