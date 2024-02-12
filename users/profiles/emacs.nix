@@ -21,14 +21,14 @@
         '';
       };
       ".config/chemacs/profiles.el" = {
-        source = ../../emacs/profiles.el;
+        source = ../../configs/emacs/profiles.el;
       };
       ".config/emacs.default" = {
-        source = ../../emacs/default;
+        source = ../../configs/emacs/default;
         recursive = true;
       };
       ".config/emacs.crafted" = {
-        source = ../../emacs/crafted;
+        source = ../../configs/emacs/crafted;
         recursive = true;
       };
     };

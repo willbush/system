@@ -51,11 +51,6 @@ in
       stateVersion = "24.05";
       username = defaultUser;
       homeDirectory = "/home/${defaultUser}";
-
-      file = {
-        ".config".source = ../config;
-        ".config".recursive = true;
-      };
     };
 
     # Add additional zsh settings for WSL2.

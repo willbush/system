@@ -1,7 +1,7 @@
 * Keyboard Firmware - Planck layout
 
   The [[https://olkb.com/planck][Planck]] keyboard uses [[https://github.com/qmk/qmk_firmware/][qmk_firmware]] and I have my keymap code In the
-  [[./keyboard-firmware/planck/]] folder. The following section describes my
+  [[./configs/keyboard-firmware/planck/]] folder. The following section describes my
   keyboard layout.
 
 ** Key aliases used below

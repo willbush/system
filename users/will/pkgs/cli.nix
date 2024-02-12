@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
-  planck = pkgs.callPackage ../../../keyboard-firmware/planck { };
-  # crkbd = pkgs.callPackage ../../../keyboard-firmware/crkbd { };
+  planck = pkgs.callPackage ../../../configs/keyboard-firmware/planck { };
+  # crkbd = pkgs.callPackage ../../../configs/keyboard-firmware/crkbd { };
   eksctl-anywhere = pkgs.callPackage ../eksctl-anywhere.nix { };
 in
 {
