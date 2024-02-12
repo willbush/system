@@ -7,10 +7,10 @@ and use any parts of if you like in your own configuration.
 ** Table of Contents                                                  :TOC_3:
 - [[#system-configuration][System Configuration]]
   - [[#folder-structure][Folder Structure]]
-    - [[#configs][configs]]
-  - [[#keyboard-firmware][keyboard firmware]]
-  - [[#xmonad][Xmonad]]
-  - [[#emacs--nvim][emacs / nvim]]
+  - [[#configs][configs]]
+    - [[#keyboard-firmware][keyboard firmware]]
+    - [[#xmonad][Xmonad]]
+    - [[#emacs--nvim][emacs / nvim]]
     - [[#hosts][hosts]]
     - [[#modules-profiles-and-users][modules, profiles, and users]]
     - [[#secrets][secrets]]
@@ -35,24 +35,24 @@ The following is 1 level deep directory structure generated using ~tree -L 1 -d~
 └── users
 #+end_src
 
-*** configs
+** configs
 
 A sort of catch all for config / non-nix code.
 
 Some are simply configuration files that are symlinked to ~/.config/~ and managed
 with [[https://github.com/rycee/home-manager][home manager]].
 
-** keyboard firmware
+*** keyboard firmware
 
 Keyboard firmware code managed by Nix and the [[file:configs/keyboard-firmware/readme.org][readme]] that goes into depth on my
 key layout and customized Evil / Vim keybindings.
 
-** Xmonad
+*** Xmonad
 
 Xmonad configuration code which is symlinked by home-manager. See its [[file:configs/xmonad/readme.org][readme]] for
 more information.
 
-** emacs / nvim
+*** emacs / nvim
 
 My emacs configuration code. See its [[file:configs/emacs/readme.org][readme]] for more information.
 
