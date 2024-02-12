@@ -49,11 +49,9 @@ in
     planck
 
     # other
-    feh
     lsof
     tesseract5
     wl-clipboard-rs
-    xdotool
     zola
   ];
 }
