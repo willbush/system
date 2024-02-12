@@ -15,6 +15,7 @@ in
     ../../modules/services/syncthing.nix
     ../../profiles/common/fonts.nix
     ../../profiles/common/nix-settings.nix
+    ./greetd.nix
     ./less.nix
   ];
 
@@ -56,7 +57,6 @@ in
       ./pipx.nix
       ./pkgs/cli.nix
       ./pkgs/gui.nix
-      ./rofi.nix
       ./wallpaper.nix
       ./xdg.nix
     ];
@@ -77,9 +77,18 @@ in
       };
     };
 
+    wayland.windowManager.hyprland = {
+      enable = true;
+      extraConfig = builtins.readFile ../../configs/hypr/hyprland.conf;
+    };
+
     services.lorri.enable = true;
 
+    # lightweight notification daemon for Wayland
+    services.mako.enable = true;
+
     programs = {
+      wofi.enable = true;
       neovim = {
         enable = true;
         extraConfig = builtins.readFile ../../configs/nvim/init.vim;
@@ -108,31 +117,10 @@ in
       enable = config.modules.secrets.enable && config.networking.hostName != "ton-618";
       user = "will";
     };
-
     services.clamav.enable = true;
   };
 
   services = {
-    xserver = {
-      dpi = 110;
-      enable = true;
-
-      windowManager.xmonad = {
-        enable = true;
-        enableContribAndExtras = true;
-        extraPackages = haskellPackges: [
-          haskellPackges.xmonad-contrib
-          haskellPackges.xmonad-extras
-          haskellPackges.xmonad
-        ];
-      };
-
-      displayManager = {
-        defaultSession = "none+xmonad";
-        sddm.enable = true;
-      };
-    };
-
     mullvad-vpn.enable = true;
 
     # needed for globalprotect-openconnect to work

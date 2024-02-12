@@ -101,6 +101,8 @@ in
       };
     };
   };
+  # gnome desktopManager does 'pulseaudio.enable = mkDefault true'
+  hardware.pulseaudio.enable = false;
 
   programs.less.enable = true;
   programs.zsh.enable = true;
