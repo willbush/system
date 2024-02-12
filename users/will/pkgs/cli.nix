@@ -52,7 +52,7 @@ in
     feh
     lsof
     tesseract5
-    xclip
+    wl-clipboard-rs
     xdotool
     zola
   ];
