@@ -57,11 +57,6 @@ in
       username = "sonia";
       homeDirectory = "/home/sonia";
 
-      file = {
-        ".config".source = ../../config;
-        ".config".recursive = true;
-      };
-
       packages = with pkgs; [ chromium firefox ];
     };
 

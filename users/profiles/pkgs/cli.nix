@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  planck = pkgs.callPackage ../../../keyboard-firmware/planck { };
+  planck = pkgs.callPackage ../../../configs/keyboard-firmware/planck { };
 in
 {
   home.packages = with pkgs; [

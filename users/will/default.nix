@@ -73,9 +73,7 @@ in
       };
 
       file = {
-        ".config".source = ../../config;
-        ".config".recursive = true;
-        ".xmonad/xmonad.hs".source = ../../xmonad/xmonad.hs;
+        ".xmonad/xmonad.hs".source = ../../configs/xmonad/xmonad.hs;
       };
     };
 
@@ -84,7 +82,7 @@ in
     programs = {
       neovim = {
         enable = true;
-        extraConfig = builtins.readFile ../../nvim/init.vim;
+        extraConfig = builtins.readFile ../../configs/nvim/init.vim;
       };
     };
 
