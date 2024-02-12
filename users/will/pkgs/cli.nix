@@ -50,7 +50,6 @@ in
 
     # other
     lsof
-    tesseract5
     wl-clipboard-rs
     zola
   ];

@@ -51,8 +51,6 @@
       enableCompletion = true;
       enableAutosuggestions = true;
       shellAliases = {
-        # Simple and amazing way to use OCR to capture text from a selection on the screen.
-        ft = "flameshot gui --raw | tesseract stdin stdout -l eng | xclip -in -selection clipboard";
         k = "kubectl";
         kcn = "kubectl config set-context $(kubectl config current-context) --namespace";
         mk = "minikube kubectl --"; # https://minikube.sigs.k8s.io/docs/handbook/kubectl/
