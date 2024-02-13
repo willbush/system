@@ -108,7 +108,6 @@
         dockerfile-mode
         doom-modeline
         doom-themes
-        edwina
         evil
         evil-collection
         evil-exchange

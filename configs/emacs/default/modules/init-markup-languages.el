@@ -16,7 +16,6 @@
 
   (general-unbind
     :keymaps 'org-mode-map
-    ;; collides with a edwina keybindings
     "<M-S-return>"
     "<M-return>"
     "M-RET"
