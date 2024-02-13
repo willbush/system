@@ -155,6 +155,7 @@
 
   (global-org-modern-mode))
 
+;; Github Flavored Markdown exporter for Org Mode
 (use-package ox-gfm :after org)
 
 (use-package org-download
