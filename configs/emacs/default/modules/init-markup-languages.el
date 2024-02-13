@@ -8,12 +8,6 @@
   :commands (org-mode
              org-agenda
              org-capture)
-  :custom
-  ;; I don't want to see the status of the org-clock in the mode line because I
-  ;; typically clock in/out with org-pomodoro and it updates the mode line in a
-  ;; less verbose way.
-  (org-clock-clocked-in-display nil)
-
   :config
 
   (add-hook 'org-mode-hook
@@ -153,38 +147,6 @@
   :commands (global-org-modern-mode org-modern-mode)
   :config
   (set-face-attribute 'org-modern-symbol nil :family "Iosevka"))
-
-(use-package org-pomodoro
-  :commands org-pomodoro
-  :custom
-  (org-pomodoro-audio-player "mpv")
-
-  (org-pomodoro-start-sound-p t)
-  (org-pomodoro-start-sound "~/sync/sounds/mario/powerup.wav")
-  (org-pomodoro-start-sound-args "-volume 80")
-
-  (org-pomodoro-finished-sound-p t)
-  (org-pomodoro-finished-sound "~/sync/sounds/mario/1up.wav")
-  (org-pomodoro-finished-sound-args "-volume 80")
-
-  ;; plays when short break is finished.
-  (org-pomodoro-short-break-sound-p t)
-  (org-pomodoro-short-break-sound "~/sync/sounds/mario/coin.wav")
-  (org-pomodoro-short-break-sound-args "-volume 80")
-
-  ;; plays when long break is finished.
-  (org-pomodoro-long-break-sound-p t)
-  (org-pomodoro-long-break-sound "~/sync/sounds/mario/coin.wav")
-  (org-pomodoro-long-break-sound-args "-volume 80")
-
-  (org-pomodoro-killed-sound-p t)
-  (org-pomodoro-killed-sound "~/sync/sounds/mario/die.wav")
-  (org-pomodoro-killed-sound-args "-volume 80")
-
-  (org-pomodoro-overtime-sound-p t)
-  (org-pomodoro-overtime-sound "~/sync/sounds/star-fox/fox.wav")
-  (org-pomodoro-overtime-sound-args "-volume 80"))
-
 
 (use-package toc-org
   :hook (org-mode . toc-org-mode))
