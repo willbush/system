@@ -146,7 +146,6 @@
         mips-mode
         nav-flash
         nix-mode
-        nix-sandbox
         nixpkgs-fmt
         org-download
         org-modern

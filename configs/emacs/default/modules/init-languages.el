@@ -60,15 +60,6 @@
 ;;
 ;;; Nix
 
-(use-package nix-sandbox
-  :commands (nix-shell-command
-             nix-shell
-             nix-compile
-             nix-find-sandbox
-             nix-current-sandbox
-             nix-executable-find
-             nix-find-sandbox))
-
 (use-package nixpkgs-fmt
   :commands nixpkgs-fmt
   :hook (nix-mode . nixpkgs-fmt-on-save-mode))
