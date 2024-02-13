@@ -118,7 +118,6 @@
         evil-visualstar
         exec-path-from-shell
         expand-region
-        eyebrowse
         fd-dired
         fill-column-indicator
         flyspell-correct-ivy
