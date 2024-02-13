@@ -28,8 +28,6 @@
 
 (use-package haskell-mode :mode "\\.hs\\'")
 
-(use-package racket-mode :mode "\\.rkt\\'")
-
 (use-package terraform-mode :mode "\\.tf\\'")
 
 (use-package protobuf-mode :mode "\\.proto$")
