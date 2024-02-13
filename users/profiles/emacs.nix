@@ -158,7 +158,6 @@
         powershell
         projectile
         protobuf-mode
-        racket-mode
         rainbow-delimiters
         ranger
         rustic
