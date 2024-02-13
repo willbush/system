@@ -143,7 +143,6 @@
         magit-delta
         markdown-mode
         markdown-toc
-        mips-mode
         nav-flash
         nix-mode
         nixpkgs-fmt

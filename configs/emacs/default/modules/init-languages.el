@@ -32,8 +32,6 @@
 
 (use-package terraform-mode :mode "\\.tf\\'")
 
-(use-package mips-mode :mode "\\.mips$")
-
 (use-package protobuf-mode :mode "\\.proto$")
 
 (use-package dockerfile-mode :mode "Dockerfile\\'")
