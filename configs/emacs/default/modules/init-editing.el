@@ -14,10 +14,6 @@
 (use-package evil-surround
   :commands global-evil-surround-mode)
 
-;; Use % to jump to matching tags (no learning curve!)
-(use-package evil-matchit
-  :commands global-evil-matchit-mode)
-
 ;; see https://github.com/Dewdrops/evil-exchange
 (use-package evil-exchange
   :commands evil-exchange-install)
@@ -169,7 +165,6 @@
 
   (global-evil-visualstar-mode)
   (global-evil-surround-mode 1)
-  (global-evil-matchit-mode 1)
   ;; binds `evil-exchange' to "g x" and `evil-exchange-cancel' to "g X". Note
   ;; this will stomp on "g x" key binding which is `browse-url-at-point' by
   ;; default. I rebind this above.
