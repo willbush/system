@@ -112,7 +112,6 @@
         evil
         evil-collection
         evil-exchange
-        evil-matchit
         evil-numbers
         evil-surround
         evil-traces
