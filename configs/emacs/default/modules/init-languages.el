@@ -69,8 +69,6 @@
              nix-executable-find
              nix-find-sandbox))
 
-(use-package nix-update :commands nix-update-fetch)
-
 (use-package nixpkgs-fmt
   :commands nixpkgs-fmt
   :hook (nix-mode . nixpkgs-fmt-on-save-mode))
@@ -82,7 +80,6 @@
     :prefix ","
     :states '(normal visual)
     :keymaps 'nix-mode-map
-    "u" 'nix-update-fetch
     "f" '(nixpkgs-fmt :wk "format file")))
 
 (use-package prolog-mode :mode "\\.pl\\'")
