@@ -73,7 +73,7 @@
               networking.hostName = hostName;
               nixpkgs.overlays =
                 [
-                  inputs.emacs-overlay.overlay
+                  inputs.emacs-overlay.overlays.default
                   # Make "pkgs.stable" available
                   overlay-stable
                 ];
