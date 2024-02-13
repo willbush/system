@@ -18,6 +18,7 @@
 (use-package evil-exchange
   :commands evil-exchange-install)
 
+;; enables visual previews for certain evil-ex commands.
 (use-package evil-traces
   :after evil-ex
   :config
