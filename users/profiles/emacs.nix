@@ -170,7 +170,6 @@
         vterm
         web-mode
         which-key
-        wttrin
         yaml-mode
         yasnippet
         zoom
