@@ -65,11 +65,6 @@
         evil-want-C-i-jump nil)
   (evil-select-search-module 'evil-search-module 'evil-search)
 
-  ;; Silence warning (:functions use-package property doesn't work for me for
-  ;; some reason).
-  (declare-function evil-line-move "evil-common")
-  (declare-function evil-set-command-properties "evil-common")
-
   (evil-define-motion my/evil-next-line-10 (count)
     "Move the cursor COUNT * 10 lines down."
     :type line

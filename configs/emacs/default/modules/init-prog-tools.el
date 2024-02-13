@@ -315,21 +315,6 @@ magit-blame-mode:
 (use-package git-timemachine
   :commands git-timemachine
   :config
-  ;; Silence warnings
-  (declare-function git-timemachine-show-next-revision "git-timemachine")
-  (declare-function git-timemachine-show-next-revision "git-timemachine")
-  (declare-function git-timemachine-show-previous-revision "git-timemachine")
-  (declare-function git-timemachine-show-revision-fuzzy "git-timemachine")
-  (declare-function git-timemachine-show-commit "git-timemachine")
-  (declare-function git-timemachine-show-current-revision "git-timemachine")
-  (declare-function git-timemachine-show-latest-revision-in-branch "git-timemachine")
-  (declare-function git-timemachine-show-nth-revision "git-timemachine")
-  (declare-function git-timemachine-blame "git-timemachine")
-  (declare-function git-timemachine-kill-abbreviated-revision "git-timemachine")
-  (declare-function git-timemachine-kill-revision "git-timemachine")
-  (declare-function git-timemachine-switch-branch "git-timemachine")
-  (declare-function git-timemachine-quit "git-timemachine")
-
   (defhydra hydra-git-timemachine (:hint nil)
     "
 git-timemachine-mode:
@@ -400,13 +385,6 @@ git-timemachine-mode:
          prog-mode
          conf-mode) . git-gutter-mode)
   :config
-  ;; Silence warnings
-  (declare-function git-gutter:next-hunk "git-gutter")
-  (declare-function git-gutter:previous-hunk "git-gutter")
-  (declare-function git-gutter:stage-hunk "git-gutter")
-  (declare-function git-gutter:revert-hunk "git-gutter")
-  (declare-function git-gutter:popup-hunk "git-gutter")
-
   (defhydra hydra-git-gutter
     (:body-pre (git-gutter-mode 1) :hint nil)
    "
