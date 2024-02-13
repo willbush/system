@@ -180,7 +180,6 @@
   "oc" 'org-capture
   "oi" 'org-indent-mode
   "om" 'org-modern-mode
-  "op" 'org-pomodoro
   "or" 'org-refile
   "os" 'org-save-all-org-buffers
   "ot" 'org-toggle-link-display
