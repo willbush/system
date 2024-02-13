@@ -34,10 +34,9 @@
     };
   };
 
-  # TODO: this doesn't work, but nixpkgs services.emacs does. Why?
   # services.emacs = {
   #   enable = true;
-  #   package = pkgs.emacs-unstable;
+  #   package = pkgs.emacs-unstable-pgtk;
   #   client.enable = true;
   #   defaultEditor = true;
   # };
@@ -51,7 +50,7 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs-unstable;
+    package = pkgs.emacs-unstable-pgtk;
     overrides = self: super: {
       # I install the packages below by hand because they're not in MELPA, and I
       # don't want to incur the startup cost of using straight.el.
