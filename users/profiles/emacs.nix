@@ -146,7 +146,6 @@
         nav-flash
         nix-mode
         nixpkgs-fmt
-        org-download
         org-modern
         org-pomodoro
         ox-gfm
