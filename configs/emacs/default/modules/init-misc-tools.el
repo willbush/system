@@ -77,26 +77,6 @@
   (declare-function flyspell-correct-ivy "flyspell-correct-ivy")
   (setq flyspell-correct-interface #'flyspell-correct-ivy))
 
-;; A frontend for weather web service wttr.in
-(use-package wttrin
-  :commands wttrin
-  :custom
-  (wttrin-default-cities '("Dallas"))
-  (wttrin-default-accept-language '("Accept-Language" . "en-US"))
-  :config
-  ;; TODO: work around for following issue (packages looks unmaintained atm)
-  ;; https://github.com/bcbcarl/emacs-wttrin/issues/16
-  ;; https://github.com/bcbcarl/emacs-wttrin/pull/20
-  (defun wttrin-fetch-raw-string (query)
-    "Get the weather information based on your QUERY."
-    (let ((url-user-agent "curl"))
-      (add-to-list 'url-request-extra-headers wttrin-default-accept-language)
-      (with-current-buffer
-          (url-retrieve-synchronously
-           (concat "http://wttr.in/" query "?A")
-           (lambda (status) (switch-to-buffer (current-buffer))))
-        (decode-coding-string (buffer-string) 'utf-8)))))
-
 (use-package ranger
   :commands
   (ranger
