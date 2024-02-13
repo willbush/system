@@ -73,6 +73,4 @@
     :keymaps 'nix-mode-map
     "f" '(nixpkgs-fmt :wk "format file")))
 
-(use-package prolog-mode :mode "\\.pl\\'")
-
 (provide 'init-languages)
