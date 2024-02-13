@@ -45,16 +45,7 @@
     "e" 'org-move-subtree-up
     "i" 'org-do-demote
     "m" 'org-do-promote
-    "n" 'org-move-subtree-down
-    "d" '(:ignore t :wk "org-download")
-    "dc" 'org-download-clipboard
-    "dd" 'org-download-delete
-    "de" 'org-download-edit
-    "di" 'org-download-image
-    "dr" 'org-download-rename-at-point
-    "dR" 'org-download-rename-last-file
-    "ds" 'org-download-screenshot
-    "dy" 'org-download-yank)
+    "n" 'org-move-subtree-down)
 
   ;; Allows me to set the width of an inline image.
   ;; #+ATTR_ORG: :width 100
@@ -157,21 +148,6 @@
 
 ;; Github Flavored Markdown exporter for Org Mode
 (use-package ox-gfm :after org)
-
-(use-package org-download
-  ;; without deferring like this package adds 0.1 sec to startup time Ideally
-  ;; I'd like to add `(add-hook 'dired-mode-hook 'org-download-enable)' to
-  ;; enable dragging and dropping an image directly into dired. However, I want
-  ;; `dired' to start up as fast as possible and loading this package on initial
-  ;; opening of dired creates a noticeable delay.
-  :commands (org-download-enable
-             org-download-edit
-             org-download-yank
-             org-download-image
-             org-download-delete
-             org-download-screenshot ;; depends on gnome-screenshot
-             org-download-rename-at-point
-             org-download-rename-last-file))
 
 (use-package org-modern
   :commands (global-org-modern-mode org-modern-mode)
