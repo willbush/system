@@ -148,7 +148,6 @@
         nav-flash
         nix-mode
         nix-sandbox
-        nix-update
         nixpkgs-fmt
         org-download
         org-modern
