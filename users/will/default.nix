@@ -44,7 +44,6 @@ in
       ../profiles/pkgs/cli.nix
       ../profiles/pkgs/gui.nix
       ../profiles/programs.nix
-      ../profiles/redshift.nix
       ./git.nix
       ./krew.nix
       ./picom.nix

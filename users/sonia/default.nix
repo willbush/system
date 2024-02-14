@@ -44,7 +44,6 @@ in
       ../profiles/pkgs/cli.nix
       ../profiles/pkgs/gui.nix
       ../profiles/programs.nix
-      ../profiles/redshift.nix
       (import ./git.nix {
         inherit pkgs;
         inherit config;
