@@ -17,7 +17,8 @@
     vlc
 
     # screenshot / screen capture
-    gnome.gnome-screenshot
+    grim
+    slurp
     obs-studio
     peek
     simplescreenrecorder
