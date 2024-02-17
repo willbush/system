@@ -124,21 +124,6 @@ in
             type = deviceType (remove "rigel" devices);
             versioning = staggeredVersioning;
           };
-          viofo = rec {
-            id = "1kcy7-2cg8l";
-            path = "/home/${cfg.user}/videos/viofo";
-            devices = [
-              "blazar"
-              "blitzar"
-              "rigel"
-            ];
-            enable = deviceEnabled devices;
-            type = deviceType (remove "rigel" devices);
-            versioning = {
-              type = "trashcan";
-              params.cleanoutDays = "30";
-            };
-          };
           secrets = rec {
             id = "tuaur-mvey4";
             label = ".secrets";
