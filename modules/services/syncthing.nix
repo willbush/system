@@ -143,6 +143,7 @@ in
             path = "/home/${cfg.user}/.SeedVaultAndroidBackup";
             devices = [
               "blazar"
+              "blitzar"
               "rigel"
             ];
             enable = deviceEnabled devices;
