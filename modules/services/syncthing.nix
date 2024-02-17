@@ -66,11 +66,9 @@ in
             id = "mhkcv-26vrq";
             path = "/home/${cfg.user}/sync";
             devices = [
-              "alnitak"
               "blazar"
               "blitzar"
               "rigel"
-              "saiph"
             ];
             enable = deviceEnabled devices;
             type = deviceType (remove "rigel" devices);
@@ -80,7 +78,10 @@ in
             label = "sync";
             id = "my5ji-1zcu3";
             path = "/home/${cfg.user}/sync";
-            devices = [ "meissa" "mira" "mintaka" "rigel" ];
+            devices = [
+              "meissa"
+              "rigel"
+            ];
             enable = deviceEnabled devices;
             type = deviceType (remove "rigel" devices);
             versioning = staggeredVersioning;
@@ -90,11 +91,9 @@ in
             id = "6dmv9-w6iqp";
             path = "/home/${cfg.user}/images/camera";
             devices = [
-              "alnitak"
               "blazar"
               "blitzar"
               "rigel"
-              "saiph"
             ];
             enable = deviceEnabled devices;
             type = deviceType (remove "rigel" devices);
@@ -104,7 +103,10 @@ in
             label = "camera";
             id = "qtew9-yp0z9";
             path = "/home/${cfg.user}/images/camera";
-            devices = [ "meissa" "mira" "mintaka" "rigel" ];
+            devices = [
+              "meissa"
+              "rigel"
+            ];
             enable = deviceEnabled devices;
             type = deviceType (remove "rigel" devices);
             versioning = staggeredVersioning;
@@ -113,14 +115,10 @@ in
             id = "zfp7q-qpnzd";
             path = "/home/${cfg.user}/keepass";
             devices = [
-              "alnitak"
               "blazar"
               "blitzar"
               "meissa"
-              "mintaka"
-              "mira"
               "rigel"
-              "saiph"
             ];
             enable = deviceEnabled devices;
             type = deviceType (remove "rigel" devices);
@@ -132,8 +130,6 @@ in
             devices = [
               "blazar"
               "blitzar"
-              "saiph"
-              "alnitak"
               "rigel"
             ];
             enable = deviceEnabled devices;
@@ -148,14 +144,10 @@ in
             label = ".secrets";
             path = "/home/${cfg.user}/.secrets";
             devices = [
-              "alnitak"
               "blazar"
               "blitzar"
               "meissa"
-              "mintaka"
-              "mira"
               "rigel"
-              "saiph"
             ];
             enable = deviceEnabled devices;
             type = deviceType devices;
@@ -166,10 +158,8 @@ in
             label = ".SeedVaultAndroidBackup";
             path = "/home/${cfg.user}/.SeedVaultAndroidBackup";
             devices = [
-              "alnitak"
               "blazar"
               "rigel"
-              "saiph"
             ];
             enable = deviceEnabled devices;
             type = deviceType devices;
