@@ -146,7 +146,6 @@ in
             devices = [
               "blazar"
               "blitzar"
-              "meissa"
               "rigel"
             ];
             enable = deviceEnabled devices;
