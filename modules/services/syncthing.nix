@@ -162,7 +162,7 @@ in
             versioning = staggeredVersioning;
           };
           seedvault = rec {
-            id = "zfwgm-o1ue7";
+            id = "p1lfy-c18s5";
             label = ".SeedVaultAndroidBackup";
             path = "/home/${cfg.user}/.SeedVaultAndroidBackup";
             devices = [
