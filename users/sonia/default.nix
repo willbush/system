@@ -33,12 +33,8 @@ in
 
   home-manager.users.sonia = {
     imports = [
-      (import ../profiles/emacs.nix {
-        inherit inputs;
-        inherit pkgs;
-        emacsPackage = pkgs.emacs-unstable;
-      })
       ../profiles/bat.nix
+      ../profiles/emacs.nix
       ../profiles/gpg.nix
       ../profiles/gui-theme.nix
       ../profiles/pkgs/cli.nix
