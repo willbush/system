@@ -19,7 +19,6 @@ in
     jq
     nixpkgs-fmt
     nodePackages.prettier
-    powershell
     python311Packages.grip # markdown preview
     shfmt
     xq # jq in rust
