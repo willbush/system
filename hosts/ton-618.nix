@@ -1,12 +1,12 @@
 { pkgs, lib, modulesPath, config, ... }: {
   imports = [
     "${modulesPath}/installer/scan/not-detected.nix"
-    ../users/will
     ../modules/secrets.nix
     ../modules/unfree.nix
     ../profiles/efi.nix
-    ../profiles/common/host-settings.nix
+    ../profiles/host-settings.nix
     ../profiles/virt
+    ../users/will
   ];
 
   # Whether to use git-crypt encrypted secrets directory or use temporary / fake

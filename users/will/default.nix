@@ -7,9 +7,9 @@ in
   imports = [
     ../../modules/services/clamav.nix
     ../../modules/services/syncthing.nix
-    ../../profiles/common/fonts.nix
-    ../../profiles/common/nix-settings.nix
-    ../../profiles/common/sudo-rs.nix
+    ../../profiles/fonts.nix
+    ../../profiles/nix-settings.nix
+    ../../profiles/sudo-rs.nix
     ./greetd.nix
     ./less.nix
   ];
