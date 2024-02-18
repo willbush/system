@@ -18,6 +18,7 @@
       directories = [
         ".local/share/zoxide"
         ".local/share/zsh"
+        ".mozilla" # firefox
         "code"
         "downloads"
         "images"
