@@ -9,6 +9,7 @@ in
     ../../modules/services/syncthing.nix
     ../../profiles/common/fonts.nix
     ../../profiles/common/nix-settings.nix
+    ../../profiles/common/sudo-rs.nix
     ./greetd.nix
     ./less.nix
   ];
