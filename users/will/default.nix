@@ -47,7 +47,6 @@ in
       ../profiles/programs.nix
       ./git.nix
       ./krew.nix
-      ./pipx.nix
       ./pkgs/cli.nix
       ./pkgs/gui.nix
       ./xdg.nix
