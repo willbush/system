@@ -51,7 +51,6 @@
         "blazar"
         "mintaka"
         "mira"
-        "nixos-wsl"
         "ton-618"
       ];
 
