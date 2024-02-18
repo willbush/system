@@ -23,9 +23,6 @@ in
           "wheel"
           "networkmanager"
           "docker"
-          # For Arduino ESP32
-          "tty"
-          "dialout"
         ];
       };
     };
