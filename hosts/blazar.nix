@@ -1,23 +1,24 @@
 { pkgs, lib, modulesPath, config, ... }: {
   imports = [
-    "${modulesPath}/installer/scan/not-detected.nix"
-    ../users/will
+    (modulesPath + "/installer/scan/not-detected.nix")
     ../modules/secrets.nix
     ../modules/unfree.nix
-    ../profiles/efi.nix
+    ../persist.nix
     ../profiles/common/host-settings.nix
+    ../profiles/efi.nix
     ../profiles/printer
     ../profiles/virt
+    ../users/will
   ];
 
   # Whether to use git-crypt encrypted secrets directory or use temporary / fake
   # values.
   modules.secrets.enable = true;
 
-  # Setup keyfile
-  boot.initrd.secrets."/crypto_keyfile.bin" = null;
+  services.hardware.openrgb.enable = true;
+  services.hardware.openrgb.motherboard = "amd";
 
-  # generated hardware-configuration:
+  # Generated hardware configuration below:
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" ];
@@ -26,23 +27,52 @@
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/40b9b5e4-5491-4d87-8dfa-af968d2941e2";
-      fsType = "ext4";
+      device = "none";
+      fsType = "tmpfs";
+      options = [ "defaults" "size=25%" "mode=755" ];
     };
-
-  boot.initrd.luks.devices."luks-a8aa68da-aeaa-4d6f-a511-72bb61f2b442".device = "/dev/disk/by-uuid/a8aa68da-aeaa-4d6f-a511-72bb61f2b442";
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/E85B-9142";
+      device = "/dev/disk/by-uuid/7198-4C39";
       fsType = "vfat";
       options = [ "umask=0077" ];
     };
 
-  swapDevices = [ ];
+  fileSystems."/nix" =
+    {
+      device = "/dev/disk/by-uuid/32caa2ef-8183-450b-a906-e0bd3d03f1e6";
+      fsType = "ext4";
+    };
 
+  boot.initrd.luks.devices."crypted".device = "/dev/disk/by-uuid/ee9aa93f-df8c-4a85-a0a9-49a4bae51d5a";
+
+  fileSystems."/etc/nixos" =
+    {
+      device = "/nix/persist/etc/nixos";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/var/log" =
+    {
+      device = "/nix/persist/var/log";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  swapDevices =
+    [{
+      device = "/dev/disk/by-partuuid/1dc4dd53-b7e6-4712-b382-58e30592b3e0";
+      randomEncryption.enable = true;
+    }];
+
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  networking.useDHCP = lib.mkDefault true;
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-  services.hardware.openrgb.enable = true;
-  services.hardware.openrgb.motherboard = "amd";
 }

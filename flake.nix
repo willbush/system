@@ -5,6 +5,7 @@
     # I use unstable by default
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-22.11-small";
+    impermanence.url = "github:nix-community/impermanence";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -33,7 +34,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, ... }@inputs:
+  outputs =
+    { self
+    , nixpkgs
+    , nixpkgs-stable
+    , impermanence
+    , ...
+    }@inputs:
     let
       inherit (nixpkgs) lib;
       inherit (lib) nixosSystem;
@@ -61,6 +68,7 @@
           inherit system;
           modules = [
             (./hosts + "/${hostName}.nix")
+            impermanence.nixosModules.impermanence
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager = {
