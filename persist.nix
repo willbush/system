@@ -16,9 +16,15 @@
     ];
     users.will = {
       directories = [
+        ".cache/fontconfig"
+        ".cache/mesa_shader_cache"
+        ".cache/mozilla"
+        ".cache/org-persist"
+        ".cache/tealdeer"
         ".config/emacs.default/backups"
         ".config/emacs.default/eln-cache"
         ".config/emacs.default/transient"
+        ".config/emacs.default/tree-sitter"
         ".config/emacs.default/var"
         ".config/libreoffice"
         ".config/syncthing"
@@ -40,6 +46,7 @@
       ];
       files = [
         ".bash_history"
+        ".cache/wofi-drun"
         ".config/emacs.default/projectile-bookmarks.eld"
         ".config/emacs.default/recentf"
       ];
