@@ -2,6 +2,7 @@
 {
   services.greetd = {
     enable = true;
+    vt = 2; # The virtual console (tty) that greetd should use.
     settings = {
       default_session.command = ''
         ${pkgs.greetd.tuigreet}/bin/tuigreet \
