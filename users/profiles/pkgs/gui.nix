@@ -21,7 +21,6 @@
     slurp
     obs-studio
     peek
-    simplescreenrecorder
 
     # image manipulation
     inkscape
