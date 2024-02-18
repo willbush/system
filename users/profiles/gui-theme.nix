@@ -2,14 +2,12 @@
 {
   gtk = {
     enable = true;
-    theme = {
-      package = pkgs.gnome-themes-extra;
-      name = "Adwaita-dark";
-    };
-    iconTheme = {
-      package = pkgs.gnome-themes-extra;
-      name = "Adwaita";
-    };
+
+    theme.name = "rose-pine";
+    theme.package = pkgs.rose-pine-gtk-theme;
+
+    iconTheme.name = "rose-pine";
+    iconTheme.package = pkgs.rose-pine-icon-theme;
   };
 
   qt = {
