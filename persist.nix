@@ -21,6 +21,8 @@
         ".cache/mozilla"
         ".cache/org-persist"
         ".cache/tealdeer"
+        ".config/Signal"
+        ".config/Slack"
         ".config/emacs.default/.cache"
         ".config/emacs.default/backups"
         ".config/emacs.default/eln-cache"
