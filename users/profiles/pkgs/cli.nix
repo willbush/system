@@ -17,7 +17,6 @@ in
     delta
     gh
     jq
-    nixfmt
     nixpkgs-fmt
     nodePackages.prettier
     poetry
