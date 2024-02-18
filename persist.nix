@@ -18,8 +18,8 @@
       directories = [
         ".config/emacs.default/backups"
         ".config/emacs.default/eln-cache"
-        ".config/emacs.default/var"
         ".config/emacs.default/transient"
+        ".config/emacs.default/var"
         ".config/libreoffice"
         ".config/syncthing"
         ".local/share/Trash"
@@ -31,6 +31,7 @@
         "images"
         "sync"
         { directory = ".SeedVaultAndroidBackup"; mode = "0700"; }
+        { directory = ".config/gh"; mode = "0700"; }
         { directory = ".gnupg"; mode = "0700"; }
         { directory = ".password-store"; mode = "0700"; }
         { directory = ".secrets"; mode = "0700"; }
