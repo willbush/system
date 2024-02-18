@@ -1,5 +1,5 @@
 {
-  description = "The system configuration of a professional yak shaver";
+  description = "Trying to build the perfect system";
 
   inputs = {
     # I use unstable by default
