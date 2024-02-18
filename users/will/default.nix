@@ -68,8 +68,6 @@ in
       extraConfig = builtins.readFile ../../configs/hypr/hyprland.conf;
     };
 
-    services.lorri.enable = true;
-
     # lightweight notification daemon for Wayland
     services.mako.enable = true;
 
