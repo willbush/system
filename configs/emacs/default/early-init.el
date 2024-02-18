@@ -35,9 +35,6 @@
  `(fixed-pitch-serif ((t (:inherit (default)))))
  `(variable-pitch ((t (:font "DejaVu Sans 10")))))
 
-;; Loads a nice blue theme, avoids the white screen flash on startup.
-(load-theme 'deeper-blue t)
-
 ;; In Emacs 27+, package initialization occurs before `user-init-file' is
 ;; loaded, but after `early-init-file'. I handle package initialization, so we
 ;; must prevent Emacs from doing it early!
