@@ -28,7 +28,6 @@ in
     gopass
 
     # compressor / archiver packages
-    p7zip
     unar
     unzip
     zip
