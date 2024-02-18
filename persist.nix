@@ -16,6 +16,13 @@
     ];
     users.will = {
       directories = [
+        ".config/emacs.default/backups"
+        ".config/emacs.default/eln-cache"
+        ".config/emacs.default/var"
+        ".config/emacs.default/transient"
+        ".config/libreoffice"
+        ".config/syncthing"
+        ".local/share/Trash"
         ".local/share/zoxide"
         ".local/share/zsh"
         ".mozilla" # firefox
@@ -32,6 +39,8 @@
       ];
       files = [
         ".bash_history"
+        ".config/emacs.default/projectile-bookmarks.eld"
+        ".config/emacs.default/recentf"
       ];
     };
   };
