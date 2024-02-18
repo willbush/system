@@ -14,9 +14,6 @@ and use any parts of if you like in your own configuration.
   - [[#modules-profiles-and-users][modules, profiles, and users]]
   - [[#secrets][secrets]]
 - [[#nixos][NixOS]]
-  - [[#miminal-install][Miminal install]]
-  - [[#switch-to-flake][Switch to flake]]
-  - [[#update][Update]]
 - [[#license][License]]
 
 * Folder Structure
@@ -67,59 +64,8 @@ A place for me to store encrypted secrets using [[https://github.com/AGWA/git-cr
 
 * NixOS
 
-** Miminal install
-
-- [[https://nixos.org/download.html#nixos-iso][Download]] latest the latest graphical ISO. The Gnome vs Plasma version only affects the desktop environment the ISO boots to.
-
-- [[https://nixos.org/manual/nixos/stable/index.html#sec-booting-from-usb][Flash it]] to a USB flash drive.
-
-- Boot from the USB flash drive on new host machine.
-
-- Click through Calamares installer. On Desktop step choose ~No desktop~. Don't forget to encrypt the drive.
-
-- Reboot when done into the new NixOS install and login.
-
-** Switch to flake
-
-  #+begin_src shell
-cd ~
-mkdir code && cd code
-nix-shell -p git
-git clone https://github.com/willbush/system.git
-cd system
-  #+end_src
-
-Bootstrap the new host by modifying the ~flake.nix~ etc. and be sure to ~git add -A~
-
-Look up your device using ~lsblk~.
-
-Next Install the flake using the:
-
-#+begin_src shell
-sudo nixos-rebuild switch --flake <PATH_TO_GIT_REPO>#<MACHINE>
-#+end_src
-
-For example Assuming you selected your new host name to be ~tester~ and your current directory is =~/code/system=:
-
-#+begin_src shell
-sudo nixos-rebuild switch --flake .#tester
-#+end_src
-
-If everything looks good ~reboot~ and the the temporary user / root password is ~temp~.
-
-** Update
-
-To update all the flake inputs:
-
-#+begin_src shell
-nix flake update
-#+end_src
-
-To up update a single input:
-
-#+begin_src shell
-nix flake update --update-input nixpkgs
-#+end_src
+I run an [[https://github.com/nix-community/impermanence][impermanent]] setup with tmpfs as root, flakes, LUKS encryption. Check
+out [[https://willbush.dev/blog/impermanent-nixos/][this blog]] post I made if you're interested.
 
 * License
 
