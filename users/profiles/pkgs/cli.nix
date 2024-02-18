@@ -44,6 +44,5 @@ in
     tealdeer # tldr in Rust
     trash-cli
     usbutils
-    xorg.xkill
   ];
 }
