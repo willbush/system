@@ -4,8 +4,8 @@
     ../modules/secrets.nix
     ../modules/unfree.nix
     ../persist.nix
-    ../profiles/common/host-settings.nix
     ../profiles/efi.nix
+    ../profiles/host-settings.nix
     ../profiles/printer
     ../profiles/virt
     ../users/will
