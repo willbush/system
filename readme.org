@@ -1,9 +1,7 @@
-* NixOS system configuration
+* NixOS system and Emacs configuration
 
-Everything needed to build my NixOS system.
-
-I run an [[https://github.com/nix-community/impermanence][impermanent]] setup with tmpfs as root, flakes, LUKS encryption. Check
-out [[https://willbush.dev/blog/impermanent-nixos/][this blog]] post I made if you're interested.
+In NixOS, I run an [[https://github.com/nix-community/impermanence][impermanent]] setup with tmpfs as root, flakes, LUKS
+encryption. Check out [[https://willbush.dev/blog/impermanent-nixos/][this blog]] post I made if you're interested.
 
 * Folder Structure
 
