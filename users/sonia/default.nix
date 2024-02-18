@@ -76,9 +76,6 @@ in
     xserver = {
       enable = true;
 
-      # swaps caps-lock and escape keys for better escape access in vim.
-      xkbOptions = "caps:swapescape";
-
       desktopManager.gnome.enable = true;
       displayManager = {
         gdm = {
