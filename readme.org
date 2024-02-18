@@ -1,4 +1,4 @@
-* NixOS system and Emacs configuration
+* NixOS system and Emacs config
 
 In NixOS, I run an [[https://github.com/nix-community/impermanence][impermanent]] setup with tmpfs as root, flakes, LUKS
 encryption. Check out [[https://willbush.dev/blog/impermanent-nixos/][this blog]] post I made if you're interested.
