@@ -70,6 +70,8 @@ in
 
     # lightweight notification daemon for Wayland
     services.mako.enable = true;
+    # timeout in milliseconds.
+    services.mako.defaultTimeout = 5000;
 
     programs = {
       wofi.enable = true;
