@@ -23,7 +23,7 @@
   ;; doom-tokyo-night
   ;; doom-vibrant
   ;; doom-wilmersdorf
-  (load-theme 'doom-vibrant t))
+  (load-theme 'doom-tokyo-night t))
 
 ;; Set `doom-modeline' early to prevent non-stylized UI flash.
 ;; Note: `doom-modeline' requires M-x all-the-icons-install-fonts.
