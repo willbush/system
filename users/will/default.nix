@@ -45,6 +45,7 @@ in
       ../profiles/pkgs/cli.nix
       ../profiles/pkgs/gui.nix
       ../profiles/programs.nix
+      ../profiles/swaylock.nix
       ./git.nix
       ./pkgs/cli.nix
       ./pkgs/gui.nix
@@ -121,6 +122,7 @@ in
   programs.wireshark.enable = true;
 
   security.pki.certificates = config.modules.secrets.pkiCertificates;
+  security.pam.services.swaylock = { };
 
   security.krb5 = {
     enable = secretsEnabled;
