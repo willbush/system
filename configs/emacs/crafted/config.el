@@ -53,9 +53,7 @@
 ;; Crafted Emacs uses the `deeper-blue' theme. Here is an example of
 ;; loading a different theme from the venerable Doom Emacs project.
 (crafted-package-install-package 'doom-themes)
-(progn
-  (disable-theme 'deeper-blue)          ; first turn off the deeper-blue theme
-  (load-theme 'doom-palenight t))       ; load the doom-palenight theme
+(load-theme 'doom-palenight t)
 
 ;; To not load `custom.el' after `config.el', uncomment this line.
 (setq crafted-load-custom-file nil)

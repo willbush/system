@@ -23,10 +23,7 @@
   ;; doom-tokyo-night
   ;; doom-vibrant
   ;; doom-wilmersdorf
-
-  ;; Must disable early-init theme otherwise artifacts will remain from that theme.
-  (disable-theme 'deeper-blue)
-  (load-theme 'doom-Iosvkem t))
+  (load-theme 'doom-vibrant t))
 
 ;; Set `doom-modeline' early to prevent non-stylized UI flash.
 ;; Note: `doom-modeline' requires M-x all-the-icons-install-fonts.
