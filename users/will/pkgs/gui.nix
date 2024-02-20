@@ -25,6 +25,8 @@
 
     # file manager
     gnome.nautilus
+    # manage keyring
+    gnome.seahorse
 
     # other
     hicolor-icon-theme # fall back icon theme
