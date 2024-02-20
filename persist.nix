@@ -19,6 +19,7 @@
         ".cache/JetBrains"
         ".cache/bat"
         ".cache/fontconfig"
+        ".cache/maestral"
         ".cache/mesa_shader_cache"
         ".cache/mozilla"
         ".cache/org-persist"
@@ -34,17 +35,21 @@
         ".config/emacs.default/var"
         ".config/github-copilot"
         ".config/libreoffice"
+        ".config/maestral"
         ".config/syncthing"
         ".dotnet"
         ".java"
         ".local/share/JetBrains"
         ".local/share/Trash"
+        ".local/share/maestral"
+        ".local/share/maestral"
         ".local/share/zoxide"
         ".local/share/zsh"
         ".mozilla" # firefox
         ".nuget"
         "code"
         "downloads"
+        "dropbox"
         "images"
         "sync"
         { directory = ".SeedVaultAndroidBackup"; mode = "0700"; }
@@ -59,6 +64,7 @@
       files = [
         ".bash_history"
         ".cache/wofi-drun"
+        ".config/dconf/user"
         ".config/emacs.default/projectile-bookmarks.eld"
         ".config/emacs.default/recentf"
       ];
