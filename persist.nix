@@ -42,7 +42,6 @@
         ".local/share/JetBrains"
         ".local/share/Trash"
         ".local/share/maestral"
-        ".local/share/maestral"
         ".local/share/zoxide"
         ".local/share/zsh"
         ".mozilla" # firefox
