@@ -3,6 +3,7 @@
     "${modulesPath}/installer/scan/not-detected.nix"
     ../modules/secrets.nix
     ../modules/unfree.nix
+    ../persist.nix
     ../profiles/efi.nix
     ../profiles/host-settings.nix
     ../profiles/virt
@@ -14,16 +15,6 @@
   modules.secrets.enable = true;
 
   boot = {
-    loader.efi.efiSysMountPoint = "/boot/efi";
-
-    initrd = {
-      checkJournalingFS = true; # run fsck for journal file system
-      availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-      kernelModules = [ "amdgpu" ];
-      secrets."/crypto_keyfile.bin" = null;
-    };
-
-    kernelModules = [ "kvm-intel" ];
     # Need this for running WSL2 inside a VM running Windows
     # https://www.linux-kvm.org/page/Nested_Guests
     # https://docs.fedoraproject.org/en-US/quick-docs/using-nested-virtualization-in-kvm/
@@ -31,35 +22,66 @@
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true; # provides blueman-manager
+
+  # generated hardware-configuration.nix:
+
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
+
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/af889332-0e49-4822-adf8-4832ec485341";
-      fsType = "ext4";
+      device = "none";
+      fsType = "tmpfs";
+      options = [ "defaults" "size=25%" "mode=755" ];
     };
 
-  boot.initrd.luks.devices."luks-d859f723-a2e7-41b9-ba03-af39da55e927".device = "/dev/disk/by-uuid/d859f723-a2e7-41b9-ba03-af39da55e927";
-
-  fileSystems."/boot/efi" =
+  fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/136A-4599";
+      device = "/dev/disk/by-uuid/E5FE-F2AE";
       fsType = "vfat";
       options = [ "umask=0077" ];
     };
 
-  swapDevices = [ ];
-
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-
-  hardware = {
-    bluetooth.enable = true;
-    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  };
-
-  services = {
-    blueman.enable = true; # provides blueman-manager
-    xserver = {
-      videoDrivers = [ "amdgpu" ];
+  fileSystems."/nix" =
+    {
+      device = "/dev/disk/by-uuid/01af5c79-1394-45d0-8c2c-15032463f896";
+      fsType = "ext4";
     };
-    fstrim.enable = true;
-  };
+
+  boot.initrd.luks.devices."crypted".device = "/dev/disk/by-uuid/4dbc65f8-b320-47cb-b18f-f45f17cc2df0";
+
+  fileSystems."/etc/nixos" =
+    {
+      device = "/nix/persist/etc/nixos";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/var/log" =
+    {
+      device = "/nix/persist/var/log";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  swapDevices =
+    [{
+      device = "/dev/disk/by-partuuid/ec1d7357-3749-4e12-8f95-e0d838a09192";
+      randomEncryption.enable = true;
+    }];
+
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
 }
