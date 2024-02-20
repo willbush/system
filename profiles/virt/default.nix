@@ -9,7 +9,6 @@
     spice-protocol
     win-virtio
     win-spice
-    gnome.adwaita-icon-theme # better theme for virt-manager
   ];
 
   programs.virt-manager.enable = true;
