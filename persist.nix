@@ -5,6 +5,7 @@
     directories = [
       "/etc/NetworkManager/system-connections"
       "/var/cache/tuigreet"
+      "/var/lib/libvirt/images"
       "/var/lib/systemd/coredump"
       "/var/log"
     ];
