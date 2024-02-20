@@ -16,11 +16,14 @@
     ];
     users.will = {
       directories = [
+        ".cache/JetBrains"
+        ".cache/bat"
         ".cache/fontconfig"
         ".cache/mesa_shader_cache"
         ".cache/mozilla"
         ".cache/org-persist"
         ".cache/tealdeer"
+        ".config/JetBrains"
         ".config/Signal"
         ".config/Slack"
         ".config/emacs.default/.cache"
@@ -32,10 +35,14 @@
         ".config/github-copilot"
         ".config/libreoffice"
         ".config/syncthing"
+        ".dotnet"
+        ".java"
+        ".local/share/JetBrains"
         ".local/share/Trash"
         ".local/share/zoxide"
         ".local/share/zsh"
         ".mozilla" # firefox
+        ".nuget"
         "code"
         "downloads"
         "images"
