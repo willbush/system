@@ -4,8 +4,9 @@
     hideMounts = true;
     directories = [
       "/etc/NetworkManager/system-connections"
+      "/var/cache/libvirt"
       "/var/cache/tuigreet"
-      "/var/lib/libvirt/images"
+      "/var/lib/libvirt"
       "/var/lib/systemd/coredump"
       "/var/log"
     ];
@@ -25,9 +26,11 @@
         ".cache/mozilla"
         ".cache/org-persist"
         ".cache/tealdeer"
+        ".cache/virt-manager"
         ".config/JetBrains"
         ".config/Signal"
         ".config/Slack"
+        ".config/dconf"
         ".config/emacs.default/.cache"
         ".config/emacs.default/backups"
         ".config/emacs.default/eln-cache"
@@ -64,7 +67,6 @@
       files = [
         ".bash_history"
         ".cache/wofi-drun"
-        ".config/dconf/user"
         ".config/emacs.default/projectile-bookmarks.eld"
         ".config/emacs.default/recentf"
       ];
