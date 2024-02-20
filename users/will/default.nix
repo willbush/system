@@ -74,6 +74,8 @@ in
     # timeout in milliseconds.
     services.mako.defaultTimeout = 5000;
 
+    services.gnome-keyring.enable = true;
+
     programs = {
       wofi.enable = true;
       neovim = {
