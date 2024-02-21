@@ -29,6 +29,10 @@
 ;; Don't pop up UI dialogs when prompting
 (setq use-dialog-box nil)
 
+;; Fixes paste for pgtk Emacs build on wayland
+;; https://github.com/doomemacs/doomemacs/issues/5219#issuecomment-918195842
+(setq x-select-request-type nil)
+
 ;; When Emacs tags get regenerated I want it to reload them without prompting me
 ;; y or n.
 (setq-default tags-revert-without-query 1)
