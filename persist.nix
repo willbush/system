@@ -20,6 +20,7 @@
       directories = [
         ".cache/JetBrains"
         ".cache/bat"
+        ".cache/dconf"
         ".cache/fontconfig"
         ".cache/maestral"
         ".cache/mesa_shader_cache"
@@ -81,6 +82,7 @@
         ".cache/wofi-drun"
         ".config/emacs.default/projectile-bookmarks.eld"
         ".config/emacs.default/recentf"
+        ".config/pavucontrol.ini"
       ];
     };
   };
