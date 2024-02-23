@@ -78,6 +78,10 @@ in
 
     services.gnome-keyring.enable = true;
 
+    # Limiter, compressor, convolver, equalizer and auto volume and many other
+    # plugins for PipeWire applications
+    services.easyeffects.enable = true;
+
     programs = {
       wofi.enable = true;
       neovim = {
