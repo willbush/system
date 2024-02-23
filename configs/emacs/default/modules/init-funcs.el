@@ -315,21 +315,25 @@ gets zoomed to make it center."
 
 ;;;###autoload
 (defun my/rsync-diff-home ()
-  "Diff persistant ~ to ephemeral ~"
+  "Diff persistent ~ to ephemeral ~"
   (interactive)
-  (let ((buffer-name "*rsync-diff-home*")
-        (command
-         (concat
-          "rsync -amvxx "
-          "--dry-run "
-          "--no-links "
-          "--exclude '/tmp/*' "
-          "--exclude '/root/*' "
-          "--exclude '.config/*emacs*/*' "
-          "~/ /nix/persist/home/will/ "
-          "| rg -v '^skipping|/$'")))
-    (start-process-shell-command "rsync" buffer-name command)
-    (switch-to-buffer buffer-name)
-    (beginning-of-buffer)))
+  (let* ((buffer-name "*rsync-diff-home*")
+         (command
+          (concat
+           "rsync -amvxx "
+           "--dry-run "
+           "--no-links "
+           "--exclude '/tmp/*' "
+           "--exclude '/root/*' "
+           "--exclude '.config/*emacs*/*' "
+           "~/ /nix/persist/home/will/ "
+           "| rg -v '^skipping|/$'"))
+         (process (start-process-shell-command "rsync" buffer-name command)))
+    (set-process-sentinel
+     process
+     (lambda (_process _event)
+       (with-current-buffer buffer-name
+         (switch-to-buffer buffer-name)
+         (beginning-of-buffer))))))
 
 (provide 'init-funcs)
