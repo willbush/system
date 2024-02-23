@@ -314,34 +314,6 @@ gets zoomed to make it center."
       (switch-to-buffer-other-window buf))))
 
 ;;;###autoload
-(defun my/guidrustler ()
-  "Run guidrustler asynchronously in a new buffer, splitting the window horizontally."
-  (interactive)
-  (let ((buffer-name "*guidrustler-output*"))
-    (when (get-buffer buffer-name)
-      (kill-buffer buffer-name))
-    (split-window-horizontally)
-    (other-window 1)
-    (let ((buffer (get-buffer-create buffer-name)))
-      (with-current-buffer buffer
-        (erase-buffer)
-        (insert "Running 'guidrustler all-eds'...\n\n")
-        (ansi-color-apply-on-region (point-min) (point-max)))
-      (switch-to-buffer buffer)
-      (read-only-mode)
-      (set-buffer-modified-p nil)
-      (let ((process (start-process "guidrustler" buffer "guidrustler" "all-eds")))
-        (set-process-sentinel
-         process
-         (lambda (process _event)
-           (when (eq (process-status process) 'exit)
-             (with-current-buffer (process-buffer process)
-               (read-only-mode -1)
-               (ansi-color-apply-on-region (point-min) (point-max))
-               (read-only-mode)
-               (set-buffer-modified-p nil)))))))))
-
-;;;###autoload
 (defun my/rsync-diff-home ()
   "Diff persistant ~ to ephemeral ~"
   (interactive)
