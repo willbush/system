@@ -34,5 +34,8 @@
     remmina
     virt-manager
     wireshark
+
+    # A GTK patchbay for pipewire.
+    helvum
   ];
 }
