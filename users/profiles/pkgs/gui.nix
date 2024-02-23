@@ -25,8 +25,5 @@
     # image manipulation
     inkscape
     gimp
-
-    # volume control
-    pavucontrol
   ];
 }
