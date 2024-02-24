@@ -17,8 +17,10 @@ in
     delta
     gh
     jq
+    nil # Nix Language server
     nixpkgs-fmt
     nodePackages.prettier
+    omnisharp-roslyn # broken until https://github.com/NixOS/nixpkgs/pull/249091
     python311Packages.grip # markdown preview
     shfmt
     xq # jq in rust

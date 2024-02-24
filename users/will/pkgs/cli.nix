@@ -14,8 +14,6 @@ in
     grafana-loki # provides: promtail loki-canary loki logcli
     nix-prefetch-git
     nodejs # for copilot.el login
-
-    omnisharp-roslyn # broken until https://github.com/NixOS/nixpkgs/pull/249091
     openssl
     tokei
 
