@@ -1,4 +1,4 @@
-{ pkgs, osConfig, ... }: {
+{ osConfig, ... }: {
 
   programs = {
     git = {
