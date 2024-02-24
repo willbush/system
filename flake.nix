@@ -35,8 +35,7 @@
   };
 
   outputs =
-    { self
-    , nixpkgs
+    { nixpkgs
     , nixpkgs-stable
     , impermanence
     , ...
@@ -55,7 +54,7 @@
       ];
 
       # see https://nixos.wiki/wiki/Flakes#Importing_packages_from_multiple_channels
-      overlay-stable = final: prev: {
+      overlay-stable = _final: _prev: {
         stable = import nixpkgs-stable {
           inherit system;
           config.allowUnfree = true;

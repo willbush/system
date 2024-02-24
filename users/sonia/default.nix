@@ -1,6 +1,4 @@
-{ inputs, config, lib, pkgs, ... }:
-let inherit (lib) fileContents;
-in
+{ config, lib, pkgs, ... }:
 {
   imports = [
     ../../modules/services/clamav.nix
