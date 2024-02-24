@@ -12,10 +12,17 @@ in
     gcc # for `treesit-auto-install-all` which builds treesitter grammars
     gdb
     grafana-loki # provides: promtail loki-canary loki logcli
+    hyperfine # benchmarking tool
+    jq
+    nil # Nix Language server
     nix-prefetch-git
     nodejs # for copilot.el login
+    omnisharp-roslyn # broken until https://github.com/NixOS/nixpkgs/pull/249091
     openssl
+    python311Packages.grip # markdown preview
+    shfmt
     tokei
+    xq # jq in rust
 
     # k8s
     argocd
@@ -30,7 +37,10 @@ in
     minikube
 
     # tui
+    btop
+    glances
     nethogs
+    zenith
 
     # pandoc related
     pandoc
@@ -47,6 +57,7 @@ in
     planck
 
     # other
+    file
     lsof
     wl-clipboard-rs
     zola
