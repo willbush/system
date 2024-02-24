@@ -76,8 +76,6 @@ in
     # timeout in milliseconds.
     services.mako.defaultTimeout = 5000;
 
-    services.gnome-keyring.enable = true;
-
     # Limiter, compressor, convolver, equalizer and auto volume and many other
     # plugins for PipeWire applications
     services.easyeffects.enable = true;
@@ -116,6 +114,10 @@ in
   };
 
   services = {
+    # Enable the gnome-keyrig secrets vault. Will be exposed through DBus to
+    # programs willing to store secrets.
+    gnome.gnome-keyring.enable = true;
+
     mullvad-vpn.enable = true;
 
     # needed for globalprotect-openconnect to work

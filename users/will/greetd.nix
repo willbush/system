@@ -14,4 +14,6 @@
       '';
     };
   };
+  # unlock keyring on login
+  security.pam.services.greetd.enableGnomeKeyring = true;
 }
