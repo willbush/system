@@ -57,7 +57,6 @@
         ".local/share/Trash"
         ".local/share/direnv"
         ".local/share/keyrings"
-        ".local/share/keyrings"
         ".local/share/maestral"
         ".local/share/remmina"
         ".local/share/zoxide"
