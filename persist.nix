@@ -25,6 +25,7 @@
         ".cache/maestral"
         ".cache/mesa_shader_cache"
         ".cache/mozilla"
+        ".cache/nix"
         ".cache/oh-my-zsh"
         ".cache/org-persist"
         ".cache/remmina"
