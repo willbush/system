@@ -46,6 +46,7 @@ in
       ../profiles/pkgs/gui.nix
       ../profiles/programs.nix
       ../profiles/swaylock.nix
+      ../profiles/swayidle.nix
       ./git.nix
       ./pkgs/cli.nix
       ./pkgs/gui.nix
