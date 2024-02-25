@@ -28,14 +28,15 @@
     # manage keyring
     gnome.seahorse
 
+    # audio
+    helvum # A GTK patchbay for pipewire.
+    pavucontrol
+
     # other
     hicolor-icon-theme # fall back icon theme
     pkgs.transmission-gtk
     remmina
     virt-manager
     wireshark
-
-    # A GTK patchbay for pipewire.
-    helvum
   ];
 }
