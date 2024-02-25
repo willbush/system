@@ -30,7 +30,6 @@
 
     # audio
     helvum # A GTK patchbay for pipewire.
-    pavucontrol
 
     # other
     hicolor-icon-theme # fall back icon theme
