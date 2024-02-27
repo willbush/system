@@ -62,7 +62,6 @@
   "acp" '(chatgpt-shell-proofreading-doc :wk "proofreading-doc")
   "acr" '(chatgpt-shell-refactory-code :wk "refactory-code")
   "acs" '(chatgpt-shell-send-and-review-region :wk "send-and-review-region")
-  "act" '(my/toggle-chatgpt-shell-model-version :wk "toggle model version")
   "acv" '(chatgpt-shell-view-at-point :wk "view-at-point")
 
   "aD" 'deer-jump-other-window

@@ -246,7 +246,7 @@
   (require 'gptel-curl)
 
   (setq gptel-default-mode 'org-mode)
-  (setq-default gptel-model "gpt-4")
+  (setq-default gptel-model "gpt-4-turbo-preview")
   (setq gptel-api-key
         (lambda ()
           (nth 3 (process-lines "gopass" "show" "will/work/openai.com")))))
@@ -268,16 +268,7 @@
    chatgpt-shell-send-region
    chatgpt-shell-view-at-point)
   :init
-  (setq chatgpt-shell-model-version "gpt-4")
-
-  (defun my/toggle-chatgpt-shell-model-version ()
-    "Toggle the `chatgpt-shell-model-version` between 'gpt-4-1106-preview' and 'gpt-4'."
-    (interactive)
-    (setq chatgpt-shell-model-version
-          (if (string= chatgpt-shell-model-version "gpt-4")
-              "gpt-4-1106-preview"
-            "gpt-4"))
-    (message "ChatGPT model version set to: %s" chatgpt-shell-model-version))
+  (setq chatgpt-shell-model-version "gpt-4-turbo-preview")
 
   :config
   ;; The system prompt chatgpt-shell-system-prompts index.
