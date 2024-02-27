@@ -66,6 +66,7 @@
   "acv" '(chatgpt-shell-view-at-point :wk "view-at-point")
 
   "aD" 'deer-jump-other-window
+  "aH" 'my/rsync-diff-home
   "ad" 'deer ;; minimal ranger dired
 
   "ae" '(:ignore t :wk "direnv")
