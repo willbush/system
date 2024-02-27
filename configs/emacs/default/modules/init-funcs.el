@@ -336,4 +336,29 @@ gets zoomed to make it center."
          (switch-to-buffer buffer-name)
          (beginning-of-buffer))))))
 
+;;;###autoload
+(defun my/rsync-diff-root ()
+  "Diff persistent / to ephemeral /"
+  (interactive)
+  (let* ((buffer-name "*rsync-diff-root*")
+         (password (password-read "Enter sudo password: "))
+         (command
+          (concat
+           "echo " (shell-quote-argument password) " | sudo -S "
+           "sudo rsync -amvxx "
+           "--dry-run "
+           "--no-links "
+           "--exclude '/tmp/*' "
+           "--exclude '/root/*' "
+           "--exclude '.config/*emacs*/*' "
+           "/ /nix/persist/ "
+           "| rg -v '^skipping|/$'"))
+         (process (start-process-shell-command "rsync" buffer-name command)))
+    (set-process-sentinel
+     process
+     (lambda (_process _event)
+       (with-current-buffer buffer-name
+         (switch-to-buffer buffer-name)
+         (beginning-of-buffer))))))
+
 (provide 'init-funcs)
