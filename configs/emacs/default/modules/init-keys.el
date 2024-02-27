@@ -66,6 +66,7 @@
 
   "aD" 'deer-jump-other-window
   "aH" 'my/rsync-diff-home
+  "aR" 'my/rsync-diff-root
   "ad" 'deer ;; minimal ranger dired
 
   "ae" '(:ignore t :wk "direnv")
