@@ -29,10 +29,6 @@
 ;; Don't pop up UI dialogs when prompting
 (setq use-dialog-box nil)
 
-;; Fixes paste for pgtk Emacs build on wayland
-;; https://github.com/doomemacs/doomemacs/issues/5219#issuecomment-918195842
-(setq x-select-request-type nil)
-
 ;; When Emacs tags get regenerated I want it to reload them without prompting me
 ;; y or n.
 (setq-default tags-revert-without-query 1)
@@ -257,11 +253,6 @@
 ;; Cull duplicates in the kill ring to reduce bloat and make the kill
 ;; ring easier to peruse (with `counsel-yank-pop').
 (setq kill-do-not-save-duplicates t)
-
-;; Allow UTF or composed text from the clipboard, even in the terminal
-;; or on non-X systems (like Windows or macOS), where only `STRING' is
-;; used.
-(setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
 
 ;;
 ;;; Extra file extensions to support
