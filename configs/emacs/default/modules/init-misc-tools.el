@@ -249,7 +249,7 @@
   (setq-default gptel-model "gpt-4")
   (setq gptel-api-key
         (lambda ()
-          (nth 4 (process-lines "gopass" "show" "will/work/openai.com")))))
+          (nth 3 (process-lines "gopass" "show" "will/work/openai.com")))))
 
 (use-package chatgpt-shell
   :commands
