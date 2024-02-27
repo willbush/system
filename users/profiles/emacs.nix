@@ -36,7 +36,7 @@
 
   # services.emacs = {
   #   enable = true;
-  #   package = pkgs.emacs-unstable-pgtk;
+  #   package = pkgs.emacs-pgtk;
   #   client.enable = true;
   #   defaultEditor = true;
   # };
@@ -50,7 +50,7 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs-unstable-pgtk;
+    package = pkgs.emacs-pgtk;
     overrides = _self: _super: {
       # I install the packages below by hand because they're not in MELPA, and I
       # don't want to incur the startup cost of using straight.el.
