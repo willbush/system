@@ -15,6 +15,7 @@
       # file you won't be able to easily use journalctl to look at journals for
       # previous boots.
       "/etc/machine-id"
+      "/var/lib/logrotate.status"
     ];
     users.will = {
       directories = [
