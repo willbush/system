@@ -54,7 +54,7 @@
         ".dotnet"
         ".java"
         ".local/share/JetBrains"
-        ".local/share/Nuget"
+        ".local/share/NuGet"
         ".local/share/Trash"
         ".local/share/direnv"
         ".local/share/keyrings"
