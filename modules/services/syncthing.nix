@@ -22,8 +22,14 @@ in
   };
 
   config = mkIf cfg.enable {
+
+    home-manager.users."${cfg.user}".services.syncthing.enable = true;
+
     services.syncthing = {
       enable = true;
+      # Use home-manager service above. Syncthing is kinda slow to start and I
+      # rather not stare at it starting up while waiting to login.
+      systemService = false;
       openDefaultPorts = true;
       user = cfg.user;
       configDir = "/home/${cfg.user}/.config/syncthing";
