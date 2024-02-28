@@ -4,7 +4,9 @@
     hideMounts = true;
     directories = [
       "/etc/NetworkManager/system-connections"
+      "/etc/mullvad-vpn"
       "/var/cache/libvirt"
+      "/var/cache/mullvad-vpn"
       "/var/cache/tuigreet"
       "/var/lib/libvirt"
       "/var/lib/systemd/coredump"
@@ -34,6 +36,7 @@
         ".cache/virt-manager"
         ".cargo"
         ".config/JetBrains"
+        ".config/Mullvad VPN"
         ".config/Signal"
         ".config/Slack"
         ".config/dconf"
