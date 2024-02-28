@@ -11,7 +11,7 @@
       "/var/lib/clamav"
       "/var/lib/docker/"
       "/var/lib/libvirt"
-      "/var/lib/openrgb/"
+      "/var/lib/OpenRGB/"
       "/var/lib/systemd/coredump"
       "/var/log"
     ];
