@@ -8,7 +8,6 @@
       "/var/cache/libvirt"
       "/var/cache/mullvad-vpn"
       "/var/cache/tuigreet"
-      "/var/lib/clamav"
       "/var/lib/docker/"
       "/var/lib/libvirt"
       "/var/lib/OpenRGB/"

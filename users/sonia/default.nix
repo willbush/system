@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
-    ../../modules/services/clamav.nix
     ../../modules/services/syncthing.nix
     ../../profiles/fonts.nix
     ../../profiles/nix-settings.nix
@@ -66,8 +65,6 @@
       enable = config.modules.secrets.enable;
       user = "sonia";
     };
-
-    services.clamav.enable = true;
   };
 
   services = {

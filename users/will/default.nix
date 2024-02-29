@@ -5,7 +5,6 @@ let
 in
 {
   imports = [
-    ../../modules/services/clamav.nix
     ../../modules/services/syncthing.nix
     ../../profiles/fonts.nix
     ../../profiles/nix-settings.nix
@@ -111,7 +110,6 @@ in
       enable = config.modules.secrets.enable && config.networking.hostName != "ton-618";
       user = "will";
     };
-    services.clamav.enable = true;
   };
 
   services = {
