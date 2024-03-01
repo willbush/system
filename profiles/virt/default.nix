@@ -12,6 +12,7 @@
   ];
 
   programs.virt-manager.enable = true;
+  programs.dconf.enable = true; # virt-manager requires dconf to remember settings
 
   virtualisation = {
     docker.enable = true;
