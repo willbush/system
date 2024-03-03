@@ -70,13 +70,6 @@
 ;; tramp:
 (setq password-cache-expiry nil)
 
-;; warnings
-(when (fboundp 'native-compile)
-  ;; Suppress numerous gccemacs async native compilation warnings.
-  (with-eval-after-load 'warnings
-    (add-to-list 'warning-suppress-types '(comp))))
-
-
 ;;
 ;;; Windows / Frames
 
