@@ -7,7 +7,7 @@
 ;; threshold to temporarily prevent it from running, then reset it later using a
 ;; hook and controlling after that with `gcmh-mode'.
 (setq gc-cons-threshold most-positive-fixnum
-      gc-cons-percentage 0.6)
+      gc-cons-percentage 1.0)
 
 ;; Keep a ref to the actual file-name-handler
 (defvar default-file-name-handler-alist file-name-handler-alist)
