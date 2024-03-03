@@ -22,11 +22,6 @@
       flake = false;
     };
 
-    crafted-emacs = {
-      url = "github:SystemCrafters/crafted-emacs";
-      flake = false;
-    };
-
     # Not on melpa yet.
     copilot-el = {
       url = "github:zerolfx/copilot.el";
