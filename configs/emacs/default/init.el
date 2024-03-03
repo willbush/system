@@ -34,7 +34,6 @@
 (require 'init-dashboard)
 (require 'init-key-packages)
 (require 'init-ui)
-(require 'init-csharp)
 (require 'init-dired)
 (require 'init-editing)
 (require 'init-misc-tools)
@@ -42,7 +41,6 @@
 (require 'init-prog-tools)
 (require 'init-languages)
 (require 'init-markup-languages)
-(require 'init-win-buffer-tools)
 (require 'init-erc)
 (require 'init-funcs)
 ;; This should come after evil due to performance issues see:
