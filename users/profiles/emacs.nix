@@ -12,23 +12,11 @@
           chmod u+w ~/.config/emacs/ -R
         '';
       };
-      ".config/crafted-emacs-repo" = {
-        source = inputs.crafted-emacs;
-        onChange = ''
-          rm -rf ~/.config/crafted-emacs
-          cp -a ~/.config/crafted-emacs-repo/ ~/.config/crafted-emacs/
-          chmod u+w ~/.config/crafted-emacs/ -R
-        '';
-      };
       ".config/chemacs/profiles.el" = {
         source = ../../configs/emacs/profiles.el;
       };
       ".config/emacs.default" = {
         source = ../../configs/emacs/default;
-        recursive = true;
-      };
-      ".config/emacs.crafted" = {
-        source = ../../configs/emacs/crafted;
         recursive = true;
       };
     };
