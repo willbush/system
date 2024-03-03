@@ -53,7 +53,8 @@
   :hook (after-init . gcmh-mode)
   :commands gcmh-idle-garbage-collect
   :config
-  (setq gcmh-idle-delay 5
+  (setq gcmh-idle-delay 'auto
+        gcmh-auto-idle-delay-factor 10
         gcmh-high-cons-threshold GC-CONS-THRESHOLD)
   (add-function :after after-focus-change-function #'gcmh-idle-garbage-collect))
 
