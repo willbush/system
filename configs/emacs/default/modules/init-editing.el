@@ -83,7 +83,7 @@
   ;; insert mode key gets special treatment because it needs to be swapped to
   ;; get the inner bindings in visual mode automatically setup correctly.
   (general-unbind 'normal
-    "&" "C-r" "J" "R" "S" "\"" "g &" "g ," "g ;" "g F" "g f" "g i" "m"
+    "&" "C-r" "C-." "J" "R" "S" "\"" "g &" "g ," "g ;" "g F" "g f" "g i" "m"
     "g x" ;; Unbind explicitly despite `evil-exchange-install' stomping on this.
     "r" "s" "z O" "z a" "z c" "z m" "z o" "z r")
   (general-unbind 'motion

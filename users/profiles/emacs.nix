@@ -74,16 +74,15 @@
     extraPackages = (epkgs:
       (with epkgs; [
         adaptive-wrap
-        all-the-icons-ivy
+        all-the-icons-completion
         avy
         benchmark-init
         browse-at-remote
         chatgpt-shell
-        company
-        company-box
+        consult
+        consult-project-extra
         copilot
-        counsel
-        counsel-projectile
+        corfu
         dart-mode
         dashboard
         deadgrep
@@ -95,6 +94,8 @@
         dockerfile-mode
         doom-modeline
         doom-themes
+        embark
+        embark-consult
         evil
         evil-collection
         evil-exchange
@@ -105,9 +106,7 @@
         evil-visualstar
         exec-path-from-shell
         expand-region
-        fd-dired
         fill-column-indicator
-        flyspell-correct-ivy
         format-all
         gcmh
         general
@@ -119,17 +118,16 @@
         haskell-mode
         helpful
         hydra
-        ivy
-        ivy-pass
-        ivy-prescient
         keycast
         magit
         magit-delta
+        marginalia
         markdown-mode
         markdown-toc
         nav-flash
         nix-mode
         nixpkgs-fmt
+        orderless
         org-modern
         ox-gfm
         page-break-lines # emacs-dashboard dependency
@@ -138,7 +136,6 @@
         password-store
         pdf-tools
         powershell
-        projectile
         protobuf-mode
         rainbow-delimiters
         ranger
@@ -149,6 +146,7 @@
         toc-org
         treesit-auto
         typescript-mode
+        vertico
         vimrc-mode
         visual-fill-column
         vterm

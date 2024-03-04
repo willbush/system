@@ -237,9 +237,26 @@
 ;; compliant.
 (setq require-final-newline t)
 
-;; Cull duplicates in the kill ring to reduce bloat and make the kill
-;; ring easier to peruse (with `counsel-yank-pop').
+;; Cull duplicates in the kill ring to reduce bloat
 (setq kill-do-not-save-duplicates t)
+
+;;
+;;; Completion Settings
+
+;; This is a must for completion
+(savehist-mode 1)
+
+;; TAB cycle if there are only few candidates
+(setq completion-cycle-threshold 3)
+
+;; Hide commands in M-x which do not apply to the current mode. Corfu commands
+;; are hidden, since they are not supposed to be used via M-x.
+(setq read-extended-command-predicate
+      #'command-completion-default-include-p)
+
+;; Enable indentation+completion using the TAB key.
+;; `completion-at-point' is often bound to M-TAB.
+(setq tab-always-indent 'complete)
 
 ;;
 ;;; Extra file extensions to support

@@ -1,5 +1,76 @@
 ;;; -*- lexical-binding: t; -*-
 
+;; The `vertico' package applies a vertical layout to the minibuffer. It also
+;; pops up the minibuffer eagerly so we can see the available options without
+;; further interactions.
+(use-package vertico
+  :config
+  (setq vertico-cycle t)
+  (vertico-mode 1))
+
+
+;; The `marginalia' package provides helpful annotations next to completion
+;; candidates in the minibuffer.
+(use-package marginalia
+  :config
+  (marginalia-mode))
+
+
+;; The `orderless' package lets the minibuffer use an out-of-order pattern
+;; matching algorithm.
+(use-package orderless
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
+
+
+(use-package consult)
+
+(use-package consult-project-extra
+  :commands (consult-project-extra-find consult-project-extra-find-other-window))
+
+
+(use-package corfu
+  :custom
+  (corfu-cycle t)
+  (corfu-auto t)
+  :config
+
+  (global-corfu-mode)
+
+  (general-def
+   :keymaps 'corfu-map
+   "C-h" 'corfu-info-documentation)
+
+  (require 'corfu-popupinfo)
+  (corfu-popupinfo-mode))
+
+
+(use-package embark
+  :commands (embark-act embark-dwim embark-bindings)
+  :init
+  ;; Optionally replace the key help with a completing-read interface
+  (setq prefix-help-command #'embark-prefix-help-command)
+
+  :config
+  ;; Hide the mode line of the Embark live/completions buffers
+  (add-to-list 'display-buffer-alist
+               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
+                 nil
+                 (window-parameters (mode-line-format . none)))))
+
+
+(use-package embark-consult
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
+
+
+(use-package all-the-icons-completion
+  :config
+  (all-the-icons-completion-mode)
+  (add-hook 'marginalia-mode-hook #'all-the-icons-completion-marginalia-setup))
+
+
 ;; Keep track of recently opened files
 (use-package recentf
   :hook (after-init . recentf-mode)
@@ -35,49 +106,6 @@
 
   (add-hook 'kill-emacs-hook #'recentf-cleanup))
 
-(use-package ivy
-  :defer 0.1
-  :config
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-display-style 'fancy)
-  (ivy-mode 1))
-
-(use-package all-the-icons-ivy
-  :after ivy
-  :config
-  (all-the-icons-ivy-setup))
-
-(use-package counsel
-  :after ivy
-  :config
-  (setq counsel-describe-function-function #'helpful-callable
-        counsel-describe-variable-function #'helpful-variable)
-
-  (setq counsel-git-cmd "rg --files"
-        counsel-grep-base-command
-          "rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s %s"
-        counsel-rg-base-command
-        "rg --column --line-number --no-heading --smart-case --no-ignore --hidden --follow --color never %s .")
-
-  (counsel-mode 1))
-
-(use-package ivy-prescient
-  :after counsel
-  :config
-  (ivy-prescient-mode 1)
-  (prescient-persist-mode 1))
-
-(use-package company
-  :defer 0.1
-  :config
-  (setq company-idle-delay 0
-        company-minimum-prefix-length 2
-        company-show-numbers t)
-
-  (global-company-mode 1))
-
-(use-package company-box
-  :hook (company-mode . company-box-mode))
 
 (use-package copilot
   :hook ((prog-mode text-mode) . copilot-mode)
@@ -92,55 +120,5 @@
          (string-match "\\.gpg$" buffer-file-name)))
 
   (add-to-list 'copilot-disable-predicates #'my/disable-copilot-for-gpg-p))
-
-(use-package counsel-projectile
-  :defer 0.1
-  :config
-  ;; This can also be accomplished by invoking
-  ;; `counsel-projectile-switch-project' then `M-o D', but I want to make it
-  ;; easier.
-  (defun my/counsel-projectile-switch-project-dired ()
-    "Switches to a projectile project's root in dired mode."
-    (interactive)
-    (counsel-projectile-switch-project "D"))
-
-  (defun my/dired-toggle-projectile ()
-    "Toggle current directory in known projects."
-    (interactive)
-    (when (eq major-mode 'dired-mode)
-      (if (member default-directory projectile-known-projects)
-          (progn
-            (projectile-remove-known-project default-directory)
-            (message "Project removed."))
-        (progn
-          (projectile-add-known-project default-directory)
-          (message "Project added.")))))
-
-  (general-def
-    :keymaps 'projectile-command-map
-    "P" 'my/counsel-projectile-switch-project-dired
-    "T" 'my/dired-toggle-projectile
-    ;; Was bound to P. Rebind it.
-    "Z" 'projectile-test-project)
-
-  ;; `counsel-projectile-mode' enables `projectile-mode'
-  (counsel-projectile-mode 1))
-
-(use-package projectile
-  :commands projectile-mode
-  :config
-  ;; The default uses Emacs Lisp in Windows, which way too slow for large
-  ;; projects.
-  (setq projectile-indexing-method 'alien
-        projectile-completion-system 'ivy)
-
-  ;; Make these indexing methods safe as file-local variables
-  (dolist
-      (method '((projectile-indexing-method . alien)
-                (projectile-indexing-method . hybrid)
-                (projectile-indexing-method . native)))
-    (add-to-list 'safe-local-variable-values method)))
-
-(use-package fd-dired :commands fd-dired)
 
 (provide 'init-completion)

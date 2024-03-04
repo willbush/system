@@ -67,7 +67,6 @@
       (overlay-put compilation-highlight-overlay 'window (selected-window))))
 
   :hook ((bookmark-after-jump
-          counsel-grep-post-action
           imenu-after-jump
           evil-jumps-post-jump
           xref-after-jump
@@ -81,7 +80,6 @@
 
   ;; Seems I could just add advice to set-buffer to remove some of these, but it
   ;; didn't work for me.
-  (advice-add #'ivy-switch-buffer :after #'my/maybe-nav-flash)
   (advice-add #'next-buffer :after #'my/maybe-nav-flash)
   (advice-add #'previous-buffer :after #'my/maybe-nav-flash)
   (advice-add #'switch-to-buffer :after #'my/maybe-nav-flash)
