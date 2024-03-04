@@ -3,11 +3,13 @@
 ;;
 ;;; Org mode
 
-(use-package org
+(use-package org-mode
   :ensure nil ;; Org is included in Emacs.
+  :defer 2
   :commands (org-mode
              org-agenda
              org-capture)
+  :mode "\\.org\\'"
   :config
 
   (add-hook 'org-mode-hook
@@ -135,15 +137,16 @@
   ;; format string syntax
   (setq org-archive-location
         (concat "archive/"
-                (format-time-string "%Y" (current-time)) "-%s_archive::"))
-
-  (global-org-modern-mode))
+                (format-time-string "%Y" (current-time)) "-%s_archive::")))
 
 ;; Github Flavored Markdown exporter for Org Mode
 (use-package ox-gfm :after org)
 
 (use-package org-modern
   :commands (global-org-modern-mode org-modern-mode)
+  :defer 2 ;; load if not loaded already because it takes ~300 ms to load
+  :init
+  (with-eval-after-load 'org (global-org-modern-mode))
   :config
   (set-face-attribute 'org-modern-symbol nil :family "Iosevka"))
 

@@ -9,12 +9,9 @@
   (setq swiper-goto-start-of-match t))
 
 (use-package zoxide
-  :commands
-  (zoxide-find-file
-   zoxide-travel)
+  :commands zoxide-travel
   :hook
   ((find-file
-    projectile-after-switch-project
     dired-after-readin) . zoxide-add))
 
 (use-package deadgrep
@@ -68,15 +65,6 @@
 
 (use-package define-word
   :commands define-word-at-point)
-
-(use-package flyspell-correct-ivy
-  :commands
-  (flyspell-correct-at-point
-   flyspell-correct-next
-   flyspell-correct-previous)
-  :init
-  (declare-function flyspell-correct-ivy "flyspell-correct-ivy")
-  (setq flyspell-correct-interface #'flyspell-correct-ivy))
 
 (use-package ranger
   :commands
@@ -203,7 +191,6 @@
    helpful-at-point)
 
   :init
-  ;; Note counsel settings take care of "C-h f" and "C-h v"
   (global-set-key (kbd "C-h k") #'helpful-key)
 
   :config
@@ -224,7 +211,6 @@
   :config
   (setq password-store-executable "gopass"))
 
-(use-package ivy-pass :commands ivy-pass)
 
 (use-package password-generator
   :commands

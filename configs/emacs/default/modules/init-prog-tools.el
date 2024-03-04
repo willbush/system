@@ -114,8 +114,6 @@
   (evil-set-initial-state 'magit-stash-mode 'normal)
   (evil-set-initial-state 'magit-process-mode 'normal)
   :config
-  (setq magit-completing-read-function 'ivy-completing-read)
-
   ;; when using ssh for git authentication and this environmental variable is
   ;; not set, magit complains about being unable to read or have access rights
   ;; while git works fine in the terminal.

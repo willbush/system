@@ -89,7 +89,6 @@
       files = [
         ".bash_history"
         ".cache/wofi-drun"
-        ".config/emacs.default/projectile-bookmarks.eld"
         ".config/emacs.default/recentf"
         ".config/ncpamixer.conf"
       ];

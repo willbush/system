@@ -2,10 +2,10 @@
 
 ;; Global Bindings
 (general-def
-  "M-x" 'counsel-M-x
   ;; zoom in and out
   "C-+" 'text-scale-increase
   "C--" 'text-scale-decrease
+  "C-." 'embark-act
   "C-s" 'swiper)
 
 ;; pressing r again after going into range mode (visual mode) will enter a hydra
@@ -28,8 +28,8 @@
   "TAB" 'mode-line-other-buffer
   "!" 'shell-command
   "'" 'vterm
-  "?" 'counsel-descbinds
-  "SPC" 'counsel-M-x
+  "?" 'embark-bindings
+  "SPC" 'execute-extended-command
 
   "F" '(:ignore t :wk "frame")
   "FD" 'delete-other-frames
@@ -86,15 +86,14 @@
   "aU" 'disk-usage-by-types
 
   "b" '(:ignore t :wk "buffer")
-  "bB" 'bury-buffer
+  "bB" 'consult-buffer-other-window
   "bD" 'my/kill-all-buffers
   "bH" 'my/kill-all-buffers-then-switch-to-dashboard
   "bI" 'ibuffer
   "bO" 'my/kill-other-windows-buffers
-  "bb" 'ivy-switch-buffer
+  "bb" 'consult-buffer
   "bd" 'my/kill-this-buffer
   "bh" 'my/switch-to-dashboard
-  "bi" 'counsel-ibuffer
   "bk" 'kill-buffer ;; requests buffer to kill
   "bm" 'my/switch-to-messages
   "br" 'my/revert-buffer-no-confirm
@@ -105,11 +104,9 @@
   "cr" 'comment-or-uncomment-region
 
   "f" '(:ignore t :wk "file")
-  "fd" 'fd-dired
-  "ff" 'counsel-find-file
-  "fz" 'zoxide-find-file
-  "ft" 'zoxide-travel
+  "ff" 'find-file
   "fs" 'sudo-edit
+  "fr" 'consult-recent-file
   "fy" 'my/yank-and-show-buffer-full-path
 
   "g" '(:ignore t :wk "go")
@@ -121,7 +118,7 @@
 
   "gp" '(:ignore t :wk "pass")
   "gpf" 'password-store-copy-field
-  "gpp" 'ivy-pass
+  "gpp" 'password-store-copy
   "gpu" 'password-store-url
 
   "gpg" '(:ignore t :wk "generate")
@@ -134,36 +131,32 @@
   "h" '(:ignore t :wk "help")
   "hI" 'info-display-manual
   "hi" 'info
-  "hl" 'counsel-find-library
+  "hl" 'find-library
   "hn"  'view-emacs-news
   "ht" 'evil-tutor-start
   "hw"  'woman
 
   "hd" '(:ignore t :wk "describe")
+  "hdb" 'embark-bindings
   "hdB" 'evil-collection-describe-bindings
   "hdK" 'my/describe-keymap
   "hdM" 'helpful-macro
   "hdP" 'describe-package
-  "hdS" 'counsel-info-lookup-symbol
-  "hdb" 'counsel-descbinds
   "hdc" 'describe-char
-  "hdf" 'counsel-describe-function
+  "hdf" 'describe-function
   "hdg" 'general-describe-keybindings
   "hdk" 'helpful-key
   "hdm" 'describe-mode
   "hdp" 'helpful-at-point
   "hds" 'helpful-symbol
   "hdt" 'describe-theme
-  "hdu" 'counsel-unicode-char
-  "hdv" 'counsel-describe-variable
+  "hdv" 'describe-variable
 
   "m" '(:ignore t :wk "magit")
   "mG" 'hydra-git-gutter/body
   "mI" 'magit-init
   "mb" 'magit-blame
   "mc" 'magit-clone
-  "mg" 'counsel-git-grep
-  "ml" 'counsel-git-log
   "mm" 'magit-status
   "mt" 'git-timemachine
 
@@ -183,31 +176,35 @@
   "or" 'org-refile
   "os" 'org-save-all-org-buffers
   "ot" 'org-toggle-link-display
-  "p" 'projectile-command-map
+
+  "p" '(:ignore t :wk "project")
+  "pb" 'consult-project-buffer
+  "pd" 'project-dired
+  "pf" 'project-find-file
+  "pk" 'project-kill-buffers
+  "pp" 'consult-project-extra-find
+  "pP" 'consult-project-extra-find-other-window
 
   "q" '(:ignore t :wk "quit")
   "qQ" 'save-buffers-kill-emacs
   "qq" 'save-buffers-kill-terminal
 
   "r" '(:ignore t :wk "rapid") ;; emphasize easy access over mnemonics
-  "rl" 'counsel-load-theme
+  "rl" 'consult-theme
   "rs" 'save-buffer
 
   "s" '(:ignore t :wk "search")
-  "sD" '(counsel-rg :wk "counsel-rg-directory")
   "sc" 'evil-ex-nohighlight ;; mnemonic is search clear
   "sd" 'deadgrep
-  "so" 'counsel-outline
-  "sr" 'counsel-rg
-  "ss" 'swiper-multi
-  "sz" 'counsel-fzf
+  "so" 'consult-outline
+  "sr" 'consult-ripgrep
+  "ss" '(zoxide-travel :wk "zoxide search directory")
 
   "t" '(:ignore t :wk "toggle")
   "tc" 'fci-mode
   "tf" 'auto-fill-mode
   "tg" '(zoom-mode :wk "zoom-mode golden ratio")
   "tl" 'toggle-truncate-lines
-  "tm" 'counsel-major ;; switches major mode
   "tn" 'display-line-numbers-mode
   "ts" 'flyspell-mode
   "tt" 'display-time-mode

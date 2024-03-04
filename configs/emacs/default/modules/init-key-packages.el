@@ -6,7 +6,6 @@
 (use-package hydra)
 
 (use-package which-key
-  :defer 0.1
   :init
   (setq which-key-sort-order #'which-key-prefix-then-key-order
         which-key-sort-uppercase-first nil
@@ -37,7 +36,6 @@
           (vterm term ansi-term multi-term)
           cus-theme
           info
-          ivy
           minibuffer))
 
   (defun my/custom-evil-collection-bindings (_mode mode-keymaps &rest _rest)
