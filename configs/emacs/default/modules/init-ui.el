@@ -26,7 +26,6 @@
   (load-theme 'doom-Iosvkem t))
 
 ;; Set `doom-modeline' early to prevent non-stylized UI flash.
-;; Note: `doom-modeline' requires M-x all-the-icons-install-fonts.
 (use-package doom-modeline
   :config
   (setq doom-modeline-icon t
