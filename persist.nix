@@ -45,6 +45,7 @@
         ".config/discord"
         ".config/emacs.default/.cache"
         ".config/emacs.default/backups"
+        ".config/emacs.default/chatgpt"
         ".config/emacs.default/eln-cache"
         ".config/emacs.default/transient"
         ".config/emacs.default/tree-sitter"
@@ -89,6 +90,8 @@
       files = [
         ".bash_history"
         ".cache/wofi-drun"
+        ".config/emacs.default/history"
+        ".config/emacs.default/projects"
         ".config/emacs.default/recentf"
         ".config/ncpamixer.conf"
       ];
