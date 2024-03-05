@@ -13,6 +13,7 @@
 
   (setq dashboard-banner-logo-title nil
         dashboard-set-heading-icons t
+        dashboard-projects-backend 'project-el
         dashboard-set-file-icons t
         dashboard-items '((recents  . 5)
                           (projects . 5)))
