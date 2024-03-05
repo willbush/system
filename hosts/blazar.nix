@@ -51,20 +51,6 @@
 
   boot.initrd.luks.devices."crypted".device = "/dev/disk/by-uuid/ee9aa93f-df8c-4a85-a0a9-49a4bae51d5a";
 
-  fileSystems."/etc/nixos" =
-    {
-      device = "/nix/persist/etc/nixos";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-
-  fileSystems."/var/log" =
-    {
-      device = "/nix/persist/var/log";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-
   swapDevices =
     [{
       device = "/dev/disk/by-partuuid/1dc4dd53-b7e6-4712-b382-58e30592b3e0";
