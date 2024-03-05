@@ -106,6 +106,7 @@
 
   "f" '(:ignore t :wk "file")
   "ff" 'find-file
+  "ft" 'zoxide-travel
   "fs" 'sudo-edit
   "fr" 'consult-recent-file
   "fy" 'my/yank-and-show-buffer-full-path
