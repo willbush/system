@@ -90,6 +90,7 @@
       files = [
         ".bash_history"
         ".cache/wofi-drun"
+        ".config/emacs.default/bookmarks"
         ".config/emacs.default/history"
         ".config/emacs.default/projects"
         ".config/emacs.default/recentf"
