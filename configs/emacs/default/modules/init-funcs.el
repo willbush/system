@@ -325,7 +325,9 @@ gets zoomed to make it center."
            "--no-links "
            "--exclude '/tmp/*' "
            "--exclude '/root/*' "
-           "--exclude '.config/*emacs*/*' "
+           "--exclude '.config/emacs/*' "
+           "--exclude '.cache/chromium/*' "
+           "--exclude '.config/chromium/*' "
            "~/ /nix/persist/home/will/ "
            "| rg -v '^skipping|/$'"))
          (process (start-process-shell-command "rsync" buffer-name command)))
@@ -350,7 +352,9 @@ gets zoomed to make it center."
            "--no-links "
            "--exclude '/tmp/*' "
            "--exclude '/root/*' "
-           "--exclude '.config/*emacs*/*' "
+           "--exclude '.config/emacs/*' "
+           "--exclude '.cache/chromium/*' "
+           "--exclude '.config/chromium/*' "
            "/ /nix/persist/ "
            "| rg -v '^skipping|/$'"))
          (process (start-process-shell-command "rsync" buffer-name command)))
