@@ -205,8 +205,8 @@
 
 (use-package password-store
   :commands
-  ;; use ive-pass for everything else
   (password-store-url
+   password-store-copy
    password-store-copy-field)
   :config
   (setq password-store-executable "gopass"))
