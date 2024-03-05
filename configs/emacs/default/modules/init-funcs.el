@@ -365,4 +365,26 @@ gets zoomed to make it center."
          (switch-to-buffer buffer-name)
          (beginning-of-buffer))))))
 
+;;;###autoload
+(defun my/rsync-find-orphaned-files ()
+  "Find orphaned files in /nix/persist"
+  (interactive)
+  (let* ((buffer-name "*rsync-orphaned-files*")
+         (password (password-read "Enter sudo password: "))
+         (command
+          (concat
+           "echo " (shell-quote-argument password) " | sudo -S "
+           "sudo rsync -amvxx "
+           "--dry-run "
+           "--no-links "
+           "/nix/persist/ /"
+           "| rg -v '^skipping|/$'"))
+         (process (start-process-shell-command "rsync" buffer-name command)))
+    (set-process-sentinel
+     process
+     (lambda (_process _event)
+       (with-current-buffer buffer-name
+         (switch-to-buffer buffer-name)
+         (beginning-of-buffer))))))
+
 (provide 'init-funcs)
