@@ -11,7 +11,7 @@
       "/var/lib/docker/"
       "/var/lib/libvirt"
       "/var/lib/OpenRGB/"
-      "/var/lib/systemd/coredump"
+      "/var/lib/systemd"
       "/var/log"
     ];
     files = [
