@@ -52,7 +52,7 @@ in
       ./xdg.nix
     ];
 
-    home = rec {
+    home = {
       stateVersion = "24.05";
       username = "will";
       homeDirectory = "/home/will";
