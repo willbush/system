@@ -12,17 +12,12 @@
     (setq dashboard-startup-banner (if (file-exists-p art) art 3)))
 
   (setq dashboard-banner-logo-title nil
-        dashboard-item-shortcuts nil
         dashboard-projects-backend 'project-el
         dashboard-set-file-icons t
         dashboard-set-heading-icons t
         dashboard-items '((recents  . 5)
                           (projects . 5)
-                          (bookmarks . 5))
-        dashboard-item-names '(("Recent Files:" . "Recent Files: (g r)")
-                               ("Projects:" . "Projects: (g p)")
-                               ("Bookmarks:" . "Bookmarks: (g m)")
-                               ))
+                          (bookmarks . 5)))
 
 
   ;; This is the default icon, but it doesn't always show up when running Emacs
