@@ -85,7 +85,7 @@
   (general-unbind 'normal
     "&" "C-r" "C-." "J" "R" "S" "\"" "g &" "g ," "g ;" "g F" "g f" "g i" "m"
     "g x" ;; Unbind explicitly despite `evil-exchange-install' stomping on this.
-    "r" "s" "z O" "z a" "z c" "z m" "z o" "z r")
+    "TAB" "r" "s" "z O" "z a" "z c" "z m" "z o" "z r")
   (general-unbind 'motion
     "+" "-" "'" "," "/" "?" ";" "C-d" "C-u" "C-v" "C-w" "E" "F" "H" "L" "M" "N"
     "S-k" "V" "`" "e" "f" "g E" "g N" "g e" "g j" "g k" "g m" "g n" "g v"
