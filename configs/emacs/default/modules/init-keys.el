@@ -22,7 +22,6 @@
 ;; this in a `evil-after-load-hook' doesn't work.
 (general-def
   :prefix "SPC"
-  :non-normal-prefix "M-SPC"
   :states '(normal visual emacs)
   :keymaps 'override
   "TAB" 'mode-line-other-buffer
