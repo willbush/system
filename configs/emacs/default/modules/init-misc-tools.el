@@ -237,33 +237,6 @@
         (lambda ()
           (nth 3 (process-lines "gopass" "show" "will/work/openai.com")))))
 
-(use-package chatgpt-shell
-  :commands
-  (chatgpt-shell
-   chatgpt-shell-clear-buffer
-   chatgpt-shell-ctrl-c-ctrl-c
-   chatgpt-shell-describe-code
-   chatgpt-shell-explain-code
-   chatgpt-shell-generate-unit-test
-   chatgpt-shell-mark-at-point-dwim
-   chatgpt-shell-proofreading-doc
-   chatgpt-shell-refactory-code
-   chatgpt-shell-restore-session-from-transcript
-   chatgpt-shell-save-session-transcript
-   chatgpt-shell-send-and-review-region
-   chatgpt-shell-send-region
-   chatgpt-shell-view-at-point)
-  :init
-  (setq chatgpt-shell-model-version "gpt-4-turbo-preview")
-
-  :config
-  ;; The system prompt chatgpt-shell-system-prompts index.
-  (setq chatgpt-shell-system-prompt 3)
-
-  (setq chatgpt-shell-openai-key
-        (lambda ()
-          (nth 3 (process-lines "gopass" "show" "will/work/openai.com")))))
-
 (use-package keycast
   :commands
   (keycast-header-line-mode

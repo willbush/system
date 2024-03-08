@@ -78,7 +78,6 @@
         avy
         benchmark-init
         browse-at-remote
-        chatgpt-shell
         consult
         consult-project-extra
         copilot
