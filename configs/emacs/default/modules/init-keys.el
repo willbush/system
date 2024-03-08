@@ -48,9 +48,6 @@
 
   "a" '(:ignore t :wk "apps")
 
-  "ac" '(:ignore t :wk "chapgpt")
-  "acc" 'gptel
-
   "aD" 'deer-jump-other-window
   "aH" 'my/rsync-diff-home
   "aO" 'my/rsync-find-orphaned-files
@@ -140,6 +137,10 @@
   "hds" 'helpful-symbol
   "hdt" 'describe-theme
   "hdv" 'describe-variable
+
+  "l" '(:ignore t :wk "llms")
+  "ll" 'gptel
+  "ls" 'gptel-send
 
   "k" '(consult-bookmark :wk "bookmark")
 
