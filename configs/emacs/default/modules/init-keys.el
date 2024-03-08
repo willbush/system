@@ -49,20 +49,7 @@
   "a" '(:ignore t :wk "apps")
 
   "ac" '(:ignore t :wk "chapgpt")
-  "acC" '(chatgpt-shell-ctrl-c-ctrl-c :wk "ctrl-c-ctrl-c")
-  "acR" '(chatgpt-shell-restore-session-from-transcript :wk "restore-session-from-transcript")
-  "acS" '(chatgpt-shell-send-region :wk "send-region")
-  "acT" '(chatgpt-shell-save-session-transcript :wk "save-session-transcript")
-  "acc" 'chatgpt-shell
-  "acd" '(chatgpt-shell-describe-code :wk "describe-code")
-  "ace" '(chatgpt-shell-explain-code :wk "explain-code")
-  "acg" '(chatgpt-shell-generate-unit-test :wk "generate-unit-test")
-  "acl" '(chatgpt-shell-clear-buffer :wk "clear-buffer")
-  "acm" '(chatgpt-shell-mark-at-point-dwim :wk "mark-at-point-dwim")
-  "acp" '(chatgpt-shell-proofreading-doc :wk "proofreading-doc")
-  "acr" '(chatgpt-shell-refactory-code :wk "refactory-code")
-  "acs" '(chatgpt-shell-send-and-review-region :wk "send-and-review-region")
-  "acv" '(chatgpt-shell-view-at-point :wk "view-at-point")
+  "acc" 'gptel
 
   "aD" 'deer-jump-other-window
   "aH" 'my/rsync-diff-home
@@ -153,6 +140,8 @@
   "hds" 'helpful-symbol
   "hdt" 'describe-theme
   "hdv" 'describe-variable
+
+  "k" '(consult-bookmark :wk "bookmark")
 
   "m" '(:ignore t :wk "magit")
   "mG" 'hydra-git-gutter/body
