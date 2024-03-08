@@ -6,6 +6,7 @@
   "C-+" 'text-scale-increase
   "C--" 'text-scale-decrease
   "C-." 'embark-act
+  "C-/" 'dabbrev-completion
   "C-s" 'swiper)
 
 ;; pressing r again after going into range mode (visual mode) will enter a hydra
