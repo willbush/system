@@ -95,6 +95,7 @@
         ".config/emacs.default/projects"
         ".config/emacs.default/recentf"
         ".config/ncpamixer.conf"
+        ".local/share/nix/repl-history"
       ];
     };
   };
