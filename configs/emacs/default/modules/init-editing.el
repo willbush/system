@@ -89,8 +89,7 @@
   (general-unbind 'motion
     "+" "-" "'" "," "/" "?" ";" "C-d" "C-u" "C-v" "C-w" "E" "F" "H" "L" "M" "N"
     "S-k" "V" "`" "e" "f" "g E" "g N" "g e" "g j" "g k" "g m" "g n" "g v"
-    "h" "j" "k" "l" "n" "v" "z H" "z L" "z h" "z l"
-    )
+    "TAB" "h" "j" "k" "l" "n" "v" "z H" "z L" "z h" "z l")
 
   ;; visual state R key is not that useful.
   (general-unbind '(normal visual) "R")
