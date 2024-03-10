@@ -3,13 +3,13 @@
 ;;
 ;;; Org mode
 
-(use-package org-mode
+(use-package org
   :ensure nil ;; Org is included in Emacs.
   :defer 2
   :commands (org-mode
              org-agenda
              org-capture)
-  :mode "\\.org\\'"
+  :mode ("\\.org\\'" . org-mode)
   :config
 
   (add-hook 'org-mode-hook
