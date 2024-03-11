@@ -6,7 +6,6 @@
     ../persist.nix
     ../profiles/efi.nix
     ../profiles/host-settings.nix
-    ../profiles/virt
     ../users/will
   ];
 

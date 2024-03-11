@@ -2,10 +2,13 @@
 let
   inherit (lib) fileContents;
   secretsEnabled = config.modules.secrets.enable;
+  username = "will";
 in
 {
   imports = [
     ../../modules/services/syncthing.nix
+    ../../modules/services/virt.nix
+    ../../modules/services/docker.nix
     ../../profiles/fonts.nix
     ../../profiles/nix-settings.nix
     ../../profiles/sudo-rs.nix
@@ -24,8 +27,6 @@ in
         hashedPassword = config.modules.secrets.willHashedPassword;
         shell = pkgs.zsh;
         extraGroups = [
-          "docker"
-          "libvirtd"
           "networkmanager"
           "wheel"
           "wireshark"
@@ -54,7 +55,7 @@ in
 
     home = {
       stateVersion = "24.05";
-      username = "will";
+      inherit username;
       homeDirectory = "/home/will";
 
       file.".ideavimrc".text = fileContents ../../configs/nvim/init.vim;
@@ -108,7 +109,15 @@ in
   modules = {
     services.syncthing = {
       enable = config.modules.secrets.enable && config.networking.hostName != "ton-618";
-      user = "will";
+      user = username;
+    };
+    services.virt = {
+      enable = true;
+      user = username;
+    };
+    services.docker = {
+      enable = true;
+      user = username;
     };
   };
 

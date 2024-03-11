@@ -68,8 +68,6 @@
         enable = true;
         plugins = [
           # Completion providers:
-          "docker"
-          "docker-compose"
           "dotnet"
           "fd"
           "helm"

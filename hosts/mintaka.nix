@@ -6,7 +6,6 @@
     ../profiles/efi.nix
     ../profiles/host-settings.nix
     ../profiles/printer
-    ../profiles/virt
     ../users/sonia
   ];
 
