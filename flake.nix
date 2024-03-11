@@ -43,8 +43,6 @@
       system = "x86_64-linux";
       hosts = [
         "blazar"
-        "mintaka"
-        "mira"
         "ton-618"
       ];
 
