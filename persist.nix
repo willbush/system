@@ -12,6 +12,7 @@
       "/var/lib/libvirt"
       "/var/lib/OpenRGB/"
       "/var/lib/systemd"
+      "/var/lib/swtpm-localca/" # needed for Windows VM via qemu
       "/var/log"
     ];
     files = [
