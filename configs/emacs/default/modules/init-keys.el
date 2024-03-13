@@ -141,6 +141,8 @@
   "l" '(:ignore t :wk "llms")
   "ll" 'gptel
   "ls" 'gptel-send
+  "la" 'gptel-abort
+  "le" 'gptel-end-of-response
 
   "k" '(consult-bookmark :wk "bookmark")
 
