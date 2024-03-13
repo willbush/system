@@ -176,8 +176,7 @@
   "pd" 'project-dired
   "pf" 'project-find-file
   "pk" 'project-kill-buffers
-  "pp" 'consult-project-extra-find
-  "pP" 'consult-project-extra-find-other-window
+  "pp" 'my/zoxide-travel-and-project-find
 
   "q" '(:ignore t :wk "quit")
   "qQ" 'save-buffers-kill-emacs
