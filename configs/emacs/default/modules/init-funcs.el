@@ -8,7 +8,6 @@
 ;;
 ;;; Text manipulation related functions:
 
-;;;###autoload
 (defun my/sort-lines-by-column (&optional reverse)
   "Sort lines by the selected column.
 A non-nil argument sorts in reverse order."
@@ -18,13 +17,11 @@ A non-nil argument sorts in reverse order."
          (end (if region-active (region-end) (point-max))))
     (sort-columns reverse beg end)))
 
-;;;###autoload
 (defun my/sort-lines-by-column-reverse ()
   "Sort lines by the selected column in reverse order."
   (interactive)
   (my/sort-lines-by-column -1))
 
-;;;###autoload
 (defun my/sort-lines (&optional reverse)
   "Sort lines in a region or the current buffer. A non-nil
 argument sorts in reverse order."
@@ -34,13 +31,11 @@ argument sorts in reverse order."
          (end (if region-active (region-end) (point-max))))
     (sort-lines reverse beg end)))
 
-;;;###autoload
 (defun my/sort-lines-reverse ()
   "Sort lines in reverse order, in a region or the current buffer."
   (interactive)
   (my/sort-lines -1))
 
-;;;###autoload
 (defun my/uniquify-lines ()
   "Remove duplicate adjacent lines in a region or the current buffer"
   (interactive)
@@ -53,7 +48,6 @@ argument sorts in reverse order."
         (while (re-search-forward "^\\(.*\n\\)\\1+" end t)
           (replace-match "\\1"))))))
 
-;;;###autoload
 (defun my/randomize-words (beg end)
   "Randomize the order of words in region."
   (interactive "*r")
@@ -85,7 +79,6 @@ argument sorts in reverse order."
                    (setq sorted (cdr sorted)))))
              all))))
 
-;;;###autoload
 (defun my/randomize-lines (beg end)
   "Randomize lines in region from BEG to END."
   (interactive "*r")
@@ -99,7 +92,6 @@ argument sorts in reverse order."
                          (lambda (a b) (< (car a) (car b))))))))
 
 ;; from Spacemacs which took from http://www.emacswiki.org/emacs/WordCount
-;;;###autoload
 (defun my/analyze-word-count (start end)
   "Count how many times each word is used in the region.
 Punctuation is ignored."
@@ -139,7 +131,6 @@ Compare them on count first,and in case of tie sort them alphabetically."
         (message "No words.")))
     words))
 
-;;;###autoload
 (defun my/dos2unix ()
   "Convert the current buffer to a Unix file encoding."
   (interactive)
@@ -147,7 +138,6 @@ Compare them on count first,and in case of tie sort them alphabetically."
     (set-buffer-file-coding-system 'utf-8-unix nil)
     (my/delete-carrage-returns)))
 
-;;;###autoload
 (defun my/delete-carrage-returns ()
   (interactive)
   (save-excursion
@@ -155,7 +145,6 @@ Compare them on count first,and in case of tie sort them alphabetically."
     (while (search-forward "\r" nil :noerror)
       (replace-match ""))))
 
-;;;###autoload
 (defun my/unix2dos ()
   "Convert the current buffer to a DOS file encoding."
   (interactive)
@@ -163,25 +152,21 @@ Compare them on count first,and in case of tie sort them alphabetically."
 
 ;; window / buffer related functions:
 
-;;;###autoload
 (defun my/kill-all-buffers ()
   "kill all buffers"
   (interactive)
   (mapc 'kill-buffer (buffer-list)))
 
-;;;###autoload
 (defun my/switch-to-messages ()
   "Switch to *Messages* buffer."
   (interactive)
   (switch-to-buffer "*Messages*"))
 
-;;;###autoload
 (defun my/switch-to-scratch ()
   "Switch to *scratch* buffer."
   (interactive)
   (switch-to-buffer "*scratch*"))
 
-;;;###autoload
 (defun my/switch-to-dashboard ()
   "Switch to *dashboard* (creates if needed)"
   (interactive)
@@ -189,7 +174,6 @@ Compare them on count first,and in case of tie sort them alphabetically."
     (generate-new-buffer dashboard-buffer-name))
   (dashboard-refresh-buffer))
 
-;;;###autoload
 (defun my/kill-all-buffers-then-switch-to-dashboard ()
   "Kills all buffers then switches to *dashboard* (creates if needed)"
   (interactive)
@@ -198,7 +182,6 @@ Compare them on count first,and in case of tie sort them alphabetically."
     (my/switch-to-dashboard)
     (cd "~/")))
 
-;;;###autoload
 (defun my/kill-this-buffer ()
   "Kill the current buffer."
   (interactive)
@@ -206,7 +189,6 @@ Compare them on count first,and in case of tie sort them alphabetically."
       (abort-recursive-edit)
     (kill-buffer)))
 
-;;;###autoload
 (defun my/kill-other-windows-buffers ()
   "Kill all other windows and buffers"
   (interactive)
@@ -215,7 +197,6 @@ Compare them on count first,and in case of tie sort them alphabetically."
     (delete-other-windows)))
 
 ;; http://camdez.com/blog/2013/11/14/emacs-show-buffer-file-name/
-;;;###autoload
 (defun my/yank-and-show-buffer-full-path ()
   "Yank (i.e. copy) and show the full path to the current file in the minibuffer."
   (interactive)
@@ -225,7 +206,6 @@ Compare them on count first,and in case of tie sort them alphabetically."
         (message (kill-new file-name))
       (error "Buffer not visiting a file"))))
 
-;;;###autoload
 (defun my/toggle-maximize-window ()
   "Toggle between maximizing the window and restoring previous window setup."
   (interactive)
@@ -236,7 +216,6 @@ Compare them on count first,and in case of tie sort them alphabetically."
     (window-configuration-to-register ?_)
     (delete-other-windows)))
 
-;;;###autoload
 (defun my/center-horizontal-split ()
   "Nice for ultra-wide screen when you have a buffer taking up the
 entire screen. This function splits the window horizontally,
@@ -250,7 +229,6 @@ gets zoomed to make it center."
     (zoom)))
 
 ;; depends on https://elpa.gnu.org/packages/adaptive-wrap.html
-;;;###autoload
 (defun my/toggle-adaptive-visual-fill-column ()
   "Toggles visual-fill-column-mode and adaptive-wrap-prefix-mode on or off"
   (interactive)
@@ -268,7 +246,6 @@ gets zoomed to make it center."
 ;;; MISC functions:
 
 ;; https://stackoverflow.com/questions/3480173/show-keys-in-emacs-keymap-value
-;;;###autoload
 (defun my/describe-keymap (keymap)
   "Describe a keymap."
   (interactive
@@ -286,25 +263,21 @@ gets zoomed to make it center."
     (with-current-buffer standard-output ;; temp buffer
       (setq help-xref-stack-item (list #'my/describe-keymap keymap)))))
 
-;;;###autoload
 (defun my/revert-buffer-no-confirm ()
     "Revert buffer without confirmation."
     (interactive)
     (revert-buffer :ignore-auto :noconfirm))
 
-;;;###autoload
 (defun my/gopass-generate-xkcd-passwords ()
   "Use gopass to generate xkcd style passwords to a shell buffer"
   (interactive)
   (my/gopass--generate-passwords "gopass pwgen --xkcd --lang en --sep ' '"))
 
-;;;###autoload
 (defun my/gopass-generate-passwords ()
   "Use gopass to generate passwords to a shell buffer"
   (interactive)
   (my/gopass--generate-passwords "gopass pwgen --one-per-line"))
 
-;;;###autoload
 (defun my/gopass--generate-passwords (command)
   (let* ((buf-name "*gopass passwords*")
          (buf (get-buffer-create buf-name)))
@@ -313,7 +286,6 @@ gets zoomed to make it center."
     (when (not (string-equal buf-name (buffer-name (current-buffer))))
       (switch-to-buffer-other-window buf))))
 
-;;;###autoload
 (defun my/rsync-diff-home ()
   "Diff persistent ~ to ephemeral ~"
   (interactive)
@@ -338,7 +310,6 @@ gets zoomed to make it center."
          (switch-to-buffer buffer-name)
          (beginning-of-buffer))))))
 
-;;;###autoload
 (defun my/rsync-diff-root ()
   "Diff persistent / to ephemeral /"
   (interactive)
@@ -365,7 +336,6 @@ gets zoomed to make it center."
          (switch-to-buffer buffer-name)
          (beginning-of-buffer))))))
 
-;;;###autoload
 (defun my/rsync-find-orphaned-files ()
   "Find orphaned files in /nix/persist"
   (interactive)
