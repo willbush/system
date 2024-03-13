@@ -357,4 +357,10 @@ gets zoomed to make it center."
          (switch-to-buffer buffer-name)
          (beginning-of-buffer))))))
 
+(defun my/zoxide-travel-and-project-find ()
+  "Travel to a directory using zoxide, then find a file using consult-project-extra-find."
+  (interactive)
+  (call-interactively #'zoxide-travel)
+  (call-interactively #'consult-project-extra-find))
+
 (provide 'init-funcs)
