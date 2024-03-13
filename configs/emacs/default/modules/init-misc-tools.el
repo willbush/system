@@ -236,10 +236,11 @@
 
   (setq-default
    gptel-model "claude-3-opus-20240229"
-   gptel-backend (gptel-make-anthropic "Claude"
-                   :stream t
-                   :key (lambda ()
-                          (nth 0 (process-lines "gopass" "show" "will/general/claude-api-key"))))))
+   gptel-backend
+   (gptel-make-anthropic "Claude"
+     :stream t
+     :key (lambda ()
+            (nth 0 (process-lines "gopass" "show" "will/general/claude-api-key"))))))
 
 (use-package keycast
   :commands
