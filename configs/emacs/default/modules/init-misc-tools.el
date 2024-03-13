@@ -230,12 +230,16 @@
 (use-package gptel
  :config
   (require 'gptel-curl)
+  (require 'gptel-anthropic)
 
   (setq gptel-default-mode 'org-mode)
-  (setq-default gptel-model "gpt-4-turbo-preview")
-  (setq gptel-api-key
-        (lambda ()
-          (nth 3 (process-lines "gopass" "show" "will/work/openai.com")))))
+
+  (setq-default
+   gptel-model "claude-3-opus-20240229"
+   gptel-backend (gptel-make-anthropic "Claude"
+                   :stream t
+                   :key (lambda ()
+                          (nth 0 (process-lines "gopass" "show" "will/general/claude-api-key"))))))
 
 (use-package keycast
   :commands
