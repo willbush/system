@@ -41,6 +41,7 @@ in
     glances
     ncpamixer # mixer for PulseAudio inspired by pavucontrol
     nethogs
+    nvtop-amd
     zenith
 
     # pandoc related
