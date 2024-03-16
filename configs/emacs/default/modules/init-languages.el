@@ -4,6 +4,14 @@
 ;;; A file for other language packages / settings that are too simple to be in
 ;;; their own file.
 
+(use-package project
+  :ensure nil ;; included in Emacs.
+  :init
+  ;; project.el project root marker for when in a project that's in a
+  ;; sub-directory of a git repo.
+  (setq project-vc-extra-root-markers '("Cargo.toml")))
+
+
 (use-package treesit-auto
   :demand t
   :config
