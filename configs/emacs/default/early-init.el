@@ -30,10 +30,10 @@
 ;; face for code. The variable-pitch face is used when `variable-pitch-mode' is
 ;; turned on, generally whenever a non-monospace face is preferred.
 (custom-set-faces
- `(default ((t (:font "Fira Mono 11"))))
+ `(default ((t (:font "Fira Mono 12"))))
  `(fixed-pitch ((t (:inherit (default)))))
  `(fixed-pitch-serif ((t (:inherit (default)))))
- `(variable-pitch ((t (:font "DejaVu Sans 10")))))
+ `(variable-pitch ((t (:font "DejaVu Sans 12")))))
 
 ;; In Emacs 27+, package initialization occurs before `user-init-file' is
 ;; loaded, but after `early-init-file'. I handle package initialization, so we
