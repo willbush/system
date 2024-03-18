@@ -49,7 +49,8 @@
       enable = true;
       dotDir = ".config/zsh";
       enableCompletion = true;
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
+
       shellAliases = {
         k = "kubectl";
         kcn = "kubectl config set-context $(kubectl config current-context) --namespace";

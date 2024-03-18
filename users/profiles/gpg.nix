@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.gpg.enable = true;
 
@@ -6,8 +6,8 @@
     gpg-agent = {
       enable = true;
       enableSshSupport = true;
-      pinentryFlavor = "qt";
-
+      enableZshIntegration = true;
+      pinentryPackage = pkgs.pinentry-gnome3;
       defaultCacheTtl = 10800; # 3 hours
       defaultCacheTtlSsh = 10800;
       maxCacheTtl = 21600; # 6 hours
