@@ -15,20 +15,19 @@
 (use-package treesit-auto
   :demand t
   :config
-  (setq treesit-auto-install 'prompt)
-
-  ;; `treesit-auto-install-all' needs to be called to install every available,
-  ;; maintained grammar. This depends on `gcc' being installed.
-
+  ;; Note `treesit-auto-install-all' can be called to install every available,
+  ;; maintained grammar.
+  (setq treesit-auto-install t)
   (global-treesit-auto-mode))
 
-(use-package rustic
-  :mode ("\\.rs\\'" . rustic-mode)
-  :config
-  (add-hook 'rustic-mode-hook
+(use-package rust-mode
+  :mode ("\\.rs$" . rust-mode)
+  :init
+  (add-hook 'rust-mode-hook
             (lambda ()
               (setq fill-column 100)))
-  (setq rustic-lsp-client 'eglot))
+
+  (setq rust-ts-mode-hook rust-mode-hook))
 
 (use-package cc-mode)
 
@@ -64,20 +63,18 @@
 (use-package csharp-mode
   :ensure nil ;; included in Emacs.
   :init
+  (add-hook 'csharp-mode-hook
+            (lambda ()
+              (c-set-offset 'substatement-open 0)
+              (setq indent-tabs-mode t
+                    c-syntactic-indentation t
+                    fill-column 100
+                    truncate-lines t
+                    tab-width 4
+                    evil-shift-width 4
+                    c-basic-offset 4)))
 
-  (defun csharp-mode-setup ()
-    (setq indent-tabs-mode t
-          c-syntactic-indentation t
-          fill-column 100
-          truncate-lines t
-          tab-width 4
-          evil-shift-width 4
-          c-basic-offset 4)
-
-    (c-set-offset 'substatement-open 0))
-
-  (add-hook 'csharp-mode-hook 'csharp-mode-setup)
-  (add-hook 'csharp-ts-mode-hook 'csharp-mode-setup)
+  (setq csharp-ts-mode-hook csharp-mode-hook)
 
   (add-hook 'web-mode-hook
             (lambda ()
