@@ -32,6 +32,22 @@
         "type": "github"
       }
     },
+    "eglot-x": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711214189,
+        "narHash": "sha256-bpiDNGpUYUV3/lHgJSEBl9mmMT/PlIReJLAXW3RK9A8=",
+        "owner": "nemethf",
+        "repo": "eglot-x",
+        "rev": "5375c5127b1487384ad08f5b3483e6a70cbb3fa4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nemethf",
+        "repo": "eglot-x",
+        "type": "github"
+      }
+    },
     "emacs-overlay": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -159,6 +175,7 @@
       "inputs": {
         "chemacs": "chemacs",
         "copilot-el": "copilot-el",
+        "eglot-x": "eglot-x",
         "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
         "impermanence": "impermanence",

@@ -22,9 +22,14 @@
       flake = false;
     };
 
-    # Not on melpa yet.
+    # Never going to be on melpa.
     copilot-el = {
       url = "github:zerolfx/copilot.el";
+      flake = false;
+    };
+    # Eventually will be on elpa https://github.com/nemethf/eglot-x/issues/1
+    eglot-x = {
+      url = "github:nemethf/eglot-x";
       flake = false;
     };
   };
