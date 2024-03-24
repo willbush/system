@@ -157,11 +157,12 @@
 ;;; Markdown
 
 (use-package markdown-mode
+  :defer 2 ;; load if not loaded already because eldoc uses it in rust-mode
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command '("pandoc" "--from=markdown" "--to=html5"))
+  :init
   (add-hook 'markdown-mode-hook
             (lambda ()
               (setq show-trailing-whitespace t))))
