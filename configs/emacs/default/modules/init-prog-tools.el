@@ -373,7 +373,10 @@ git-timemachine-mode:
   :hook ((rust-mode nix-mode) . eglot-ensure)
   :config
   (setq eglot-autoreconnect nil
-        eldoc-echo-area-prefer-doc-buffer t)
+        eldoc-echo-area-prefer-doc-buffer t
+        ;; I don't look at the events buffer so disable it for modest
+        ;; performance increase - https://joaotavora.github.io/eglot/#Performance-1
+        eglot-events-buffer-config '(:size 0 :format full))
 
   (add-to-list 'eglot-server-programs
                '((rust-ts-mode rust-mode) .
@@ -384,6 +387,12 @@ git-timemachine-mode:
 
   (add-to-list 'eglot-server-programs
                '(nix-mode . ("nil"))))
+
+
+(use-package eglot-x
+  :after eglot
+  :config
+  (eglot-x-setup))
 
 (use-package git-gutter
   :hook ((markdown-mode
