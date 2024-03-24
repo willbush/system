@@ -9,6 +9,19 @@
   (vertico-mode 1))
 
 
+(use-package vertico-directory
+  :after vertico
+  :ensure nil ;; This is an vertico extension
+  ;; More convenient directory navigation commands
+  :bind (:map vertico-map
+              ("RET" . vertico-directory-enter)
+              ("DEL" . vertico-directory-delete-char)
+              ("M-DEL" . vertico-directory-delete-word))
+  ;; Cleans up path when moving directories with shadowed paths syntax, e.g.
+  ;; cleans ~/foo/bar/// to /, and ~/foo/bar/~/ to ~/.
+  :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
+
+
 ;; The `marginalia' package provides helpful annotations next to completion
 ;; candidates in the minibuffer.
 (use-package marginalia
