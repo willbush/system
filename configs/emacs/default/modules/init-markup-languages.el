@@ -9,7 +9,7 @@
   :commands (org-mode
              org-agenda
              org-capture)
-  :mode ("\\.org\\'" . org-mode)
+  :mode ("\\.org$" . org-mode)
   :config
 
   (add-hook 'org-mode-hook
@@ -181,7 +181,7 @@
            (nth 0 (process-lines "gopass" "show" "will/websites/general/github-pat-grip"))))))
 
 (use-package yaml-mode
-  :mode ("\\.yaml\\'" . yaml-mode)
+  :mode ("\\.yaml$" . yaml-mode)
   :init
   (add-hook 'yaml-mode-hook
             (lambda ()
