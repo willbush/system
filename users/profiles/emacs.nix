@@ -138,7 +138,7 @@
         protobuf-mode
         rainbow-delimiters
         ranger
-        rustic
+        rust-mode
         sudo-edit
         swiper
         terraform-mode

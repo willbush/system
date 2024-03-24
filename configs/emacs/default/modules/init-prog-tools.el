@@ -370,14 +370,17 @@ git-timemachine-mode:
 
 (use-package eglot
   :ensure nil ;; included in Emacs.
-  :hook
-  (nix-mode . eglot-ensure)
+  :hook ((rust-mode nix-mode) . eglot-ensure)
   :config
   (setq eglot-autoreconnect nil
         eldoc-echo-area-prefer-doc-buffer t)
 
   (add-to-list 'eglot-server-programs
-               '(csharp-mode . ("OmniSharp" "-lsp")))
+               '((rust-ts-mode rust-mode) .
+                 ("rust-analyzer" :initializationOptions (:check (:command "clippy")))))
+
+  (add-to-list 'eglot-server-programs
+               '((csharp-ts-mode csharp-mode) . ("OmniSharp" "-lsp")))
 
   (add-to-list 'eglot-server-programs
                '(nix-mode . ("nil"))))
