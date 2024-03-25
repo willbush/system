@@ -366,7 +366,13 @@ git-timemachine-mode:
           (lambda ()
             (setq show-trailing-whitespace t)))
 
-(use-package format-all :commands (format-all-buffer))
+(use-package format-all
+  :commands (format-all-mode format-all-buffer)
+  :hook (nix-mode . format-all-mode)
+  :config
+  (setq-default format-all-formatters
+                '(("Nix" nixpkgs-fmt)
+                  ("Shell" (shfmt "--indent" "2" "--case-indent")))))
 
 (use-package eglot
   :ensure nil ;; included in Emacs.
