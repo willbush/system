@@ -368,11 +368,16 @@ git-timemachine-mode:
 
 (use-package format-all
   :commands (format-all-mode format-all-buffer)
-  :hook (nix-mode . format-all-mode)
+  :hook ((nix-mode
+          bash-mode
+          bash-ts-mode
+          yaml-mode
+          yaml-ts-mode) . format-all-mode)
   :config
   (setq-default format-all-formatters
                 '(("Nix" nixpkgs-fmt)
-                  ("Shell" (shfmt "--indent" "2" "--case-indent")))))
+                  ("Shell" (shfmt "--indent" "2" "--case-indent"))
+                  ("YAML" prettier))))
 
 (use-package eglot
   :ensure nil ;; included in Emacs.
