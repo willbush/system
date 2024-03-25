@@ -67,8 +67,6 @@
   "apw" 'profiler-report-write-profile
   "ar" 'ranger
   "as" 'speedbar
-  "au" 'disk-usage
-  "aU" 'disk-usage-by-types
 
   "b" '(:ignore t :wk "buffer")
   "bB" 'consult-buffer-other-window

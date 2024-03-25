@@ -116,7 +116,6 @@
         dired-narrow
         diredfl
         direnv
-        disk-usage
         dockerfile-mode
         doom-modeline
         doom-themes
