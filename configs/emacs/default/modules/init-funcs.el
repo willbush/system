@@ -234,13 +234,16 @@ gets zoomed to make it center."
   (interactive)
   (if (bound-and-true-p visual-fill-column-mode)
       (progn
-        (visual-fill-column-mode -1)
         (adaptive-wrap-prefix-mode -1)
-        (message "visual-fill-column and adaptive-wrap-prefix mode disabled"))
+        (auto-fill-mode -1)
+        (visual-fill-column-mode -1)
+        (visual-line-mode -1)
+        (message "word-wrap like mode disabled"))
 
-    (visual-fill-column-mode 1)
     (adaptive-wrap-prefix-mode 1)
-    (message "visual-fill-column and adaptive-wrap-prefix mode enabled")))
+    (visual-fill-column-mode 1)
+    (visual-line-mode 1)
+    (message "word-wrap like mode mode enabled")))
 
 ;;
 ;;; MISC functions:
