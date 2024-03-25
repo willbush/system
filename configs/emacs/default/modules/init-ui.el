@@ -1,39 +1,22 @@
 ;;; -*- lexical-binding: t; -*-
 ;; Also see `early-init-file' because it sets UI elements early.
 
-;; Set `doom-themes' early to prevent non-stylized UI flash.
-(use-package doom-themes
-  :config
-  ;; Some of my favorite themes:
-  ;; doom-Iosvkem
-  ;; doom-badger
-  ;; doom-city-lights
-  ;; doom-dracula
-  ;; doom-horizon
-  ;; doom-ir-black
-  ;; doom-material
-  ;; doom-meltbus
-  ;; doom-molokai
-  ;; doom-moonlight
-  ;; doom-one
-  ;; doom-one-light
-  ;; doom-outrun-electric
-  ;; doom-palenight
-  ;; doom-spacegrey
-  ;; doom-tokyo-night
-  ;; doom-vibrant
-  ;; doom-wilmersdorf
-  (load-theme 'doom-Iosvkem t))
 
-;; Set `doom-modeline' early to prevent non-stylized UI flash.
+(use-package doom-themes
+  :hook (after-init . (lambda () (load-theme 'doom-Iosvkem t))))
+
+
 (use-package doom-modeline
-  :config
+  :hook (after-init .
+                    (lambda ()
+                      (doom-modeline-mode)
+                      (size-indication-mode)
+                      (column-number-mode)))
+  :init
   (setq doom-modeline-icon t
         doom-modeline-major-mode-color-icon t
-        doom-modeline-buffer-file-name-style 'truncate-upto-root)
-  (doom-modeline-mode 1)
-  (size-indication-mode 1)
-  (column-number-mode 1))
+        doom-modeline-buffer-file-name-style 'truncate-upto-root))
+
 
 ;; Get rid of "For information about GNU Emacs..." message at startup, unless
 ;; we're in a daemon session, where it'll say "Starting Emacs daemon." instead,
