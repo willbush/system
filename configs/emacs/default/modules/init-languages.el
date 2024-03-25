@@ -88,13 +88,6 @@
 ;;
 ;;; Nix
 
-(use-package nix-mode
-  :mode "\\.nix\\'"
-  :config
-  (general-def
-    :prefix ","
-    :states '(normal visual)
-    :keymaps 'nix-mode-map
-    "f" '(nixpkgs-fmt :wk "format file")))
+(use-package nix-mode :mode "\\.nix\\'")
 
 (provide 'init-languages)
