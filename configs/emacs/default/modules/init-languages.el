@@ -88,10 +88,6 @@
 ;;
 ;;; Nix
 
-(use-package nixpkgs-fmt
-  :commands nixpkgs-fmt
-  :hook (nix-mode . nixpkgs-fmt-on-save-mode))
-
 (use-package nix-mode
   :mode "\\.nix\\'"
   :config

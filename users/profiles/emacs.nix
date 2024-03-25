@@ -152,7 +152,6 @@
         markdown-toc
         nav-flash
         nix-mode
-        nixpkgs-fmt
         orderless
         org-modern
         ox-gfm
