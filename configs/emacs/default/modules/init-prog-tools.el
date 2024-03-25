@@ -114,6 +114,11 @@
   (evil-set-initial-state 'magit-stash-mode 'normal)
   (evil-set-initial-state 'magit-process-mode 'normal)
   :config
+  ;; when using ssh for git authentication and this environmental variable is
+  ;; not set, magit complains about being unable to read or have access rights
+  ;; while git works fine in the terminal.
+  (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
+
   ;; I bind my own magit dispatch commands here.
   (transient-define-prefix my/magit-dispatch ()
     "Invoke a Magit command from a list of available commands."
