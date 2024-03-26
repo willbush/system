@@ -8,11 +8,13 @@
   :config
   (setq swiper-goto-start-of-match t))
 
+
 (use-package zoxide
   :commands zoxide-travel
   :hook
   ((find-file
     dired-after-readin) . zoxide-add))
+
 
 (use-package deadgrep
   :commands deadgrep
@@ -44,6 +46,7 @@
     "RET" 'deadgrep-visit-result
     "<escape>" 'deadgrep-mode))
 
+
 ;; Adopt Doom's sneaky garbage collection strategy of waiting until idle time to
 ;; collect; staving off the collector while the user is working.
 (use-package gcmh
@@ -55,6 +58,7 @@
         gcmh-high-cons-threshold GC-CONS-THRESHOLD)
   (add-function :after after-focus-change-function #'gcmh-idle-garbage-collect))
 
+
 (use-package flyspell
   :commands (flyspell-mode flyspell-prog-mode)
   :ensure nil ;; Flyspell is included in Emacs.
@@ -63,8 +67,10 @@
   ;; improve perf per wiki: https://www.emacswiki.org/emacs/FlySpell
   (setq flyspell-issue-message-flag nil))
 
+
 (use-package define-word
   :commands define-word-at-point)
+
 
 (use-package ranger
   :commands
@@ -89,8 +95,10 @@
 (use-package direnv
     :hook (after-init . direnv-mode))
 
+
 (use-package pdf-tools
   :mode (("\\.pdf\\'" . pdf-view-mode)))
+
 
 (use-package woman
   :defer
@@ -103,6 +111,7 @@
     "]]" 'WoMan-next-manpage
     "[[" 'WoMan-previous-manpage
     "gr" 'woman-reformat-last-file))
+
 
 (use-package cus-edit
   :defer
@@ -119,6 +128,7 @@
     "C-e" 'Custom-goto-parent
     "C-o" 'Custom-goto-parent
     "q" 'Custom-buffer-done))
+
 
 ;; Despite using helpful, I might find myself in help-mode so I'm going to keep
 ;; these settings.
@@ -139,6 +149,7 @@
     "RET" 'help-follow
     "gr" 'revert-buffer
     "q" 'quit-window))
+
 
 ;; A better *help* buffer.
 (use-package helpful
@@ -163,6 +174,7 @@
     "gr" 'helpful-update
     "q" 'quit-window))
 
+
 (use-package password-store
   :commands
   (password-store-url
@@ -178,14 +190,17 @@
    password-generator-strong
    password-generator-paranoid))
 
+
 (use-package vterm
   :commands vterm
   :config
   (setq vterm-max-scrollback 10000
         vterm-buffer-name-string "vterm %s"))
 
+
 (use-package exec-path-from-shell
   :commands exec-path-from-shell-copy-env)
+
 
 (use-package gptel
  :config
@@ -202,11 +217,13 @@
      :key (lambda ()
             (nth 0 (process-lines "gopass" "show" "will/general/claude-api-key"))))))
 
+
 (use-package keycast
   :commands
   (keycast-header-line-mode
    keycast-log-mode
    keycast-tab-bar-mode))
+
 
 (use-package zoom
   :commands zoom zoom-mode
@@ -215,8 +232,10 @@
    ;; golden ratio
   '(zoom-size '(0.618 . 0.618))))
 
+
 (use-package adaptive-wrap
   :commands adaptive-wrap-prefix-mode)
+
 
 (use-package visual-fill-column
   :commands visual-fill-column-mode)

@@ -4,9 +4,11 @@
 (use-package evil-visualstar
   :commands global-evil-visualstar-mode)
 
+
 ;; Enables inc/dec of numbers!
 (use-package evil-numbers
   :commands (evil-numbers/inc-at-pt evil-numbers/dec-at-pt))
+
 
 ;; See tutorials:
 ;; https://github.com/emacs-evil/evil-surround
@@ -14,9 +16,11 @@
 (use-package evil-surround
   :commands global-evil-surround-mode)
 
+
 ;; see https://github.com/Dewdrops/evil-exchange
 (use-package evil-exchange
   :commands evil-exchange-install)
+
 
 ;; enables visual previews for certain evil-ex commands.
 (use-package evil-traces
@@ -24,8 +28,10 @@
   :config
   (evil-traces-mode))
 
+
 (use-package avy
   :commands (avy-goto-char avy-goto-char-timer))
+
 
 (use-package expand-region
   :commands (er/expand-region er/contract-region)
@@ -42,8 +48,10 @@
     :keymaps 'evil-visual-state-map
     "r" 'hydra-expand-region/body))
 
+
 (use-package evil-tutor
   :commands evil-tutor-start)
+
 
 (use-package evil
   :demand t ;; demand due to general perf issues mentioned on `init-keys.el'

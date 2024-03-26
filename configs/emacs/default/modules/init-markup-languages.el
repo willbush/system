@@ -139,8 +139,10 @@
         (concat "archive/"
                 (format-time-string "%Y" (current-time)) "-%s_archive::")))
 
+
 ;; Github Flavored Markdown exporter for Org Mode
 (use-package ox-gfm :after org)
+
 
 (use-package org-modern
   :commands (global-org-modern-mode org-modern-mode)
@@ -149,6 +151,7 @@
   (with-eval-after-load 'org (global-org-modern-mode))
   :config
   (set-face-attribute 'org-modern-symbol nil :family "Iosevka"))
+
 
 (use-package toc-org
   :hook (org-mode . toc-org-mode))
@@ -167,6 +170,7 @@
             (lambda ()
               (setq show-trailing-whitespace t))))
 
+
 ;; markdown preview
 (use-package grip-mode
   :commands grip-mode
@@ -181,12 +185,14 @@
          (lambda ()
            (nth 0 (process-lines "gopass" "show" "will/websites/general/github-pat-grip"))))))
 
+
 (use-package yaml-mode
   :mode ("\\.yaml$" . yaml-mode)
   :init
   (add-hook 'yaml-mode-hook
             (lambda ()
               (setq show-trailing-whitespace t))))
+
 
 (use-package markdown-toc
   :after markdown-mode)

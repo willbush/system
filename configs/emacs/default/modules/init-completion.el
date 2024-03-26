@@ -39,6 +39,7 @@
 
 (use-package consult)
 
+
 (use-package consult-project-extra
   :commands (consult-project-extra-find consult-project-extra-find-other-window))
 
