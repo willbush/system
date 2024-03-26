@@ -286,6 +286,7 @@ magit-blame-mode:
   ;; https://github.com/noctuid/evil-guide#why-dont-keys-defined-with-evil-define-key-work-immediately
   (add-hook 'magit-blame-mode-hook #'evil-normalize-keymaps))
 
+
 (use-package magit-delta
   ;; This package does a require on magit which takes ~500ms, so definitely want to lazy load it.
   :commands
@@ -309,6 +310,7 @@ magit-blame-mode:
     :states 'normal
     :keymaps 'magit-mode-map
     "t" '(my/magit-delta-toggle :wk "toggle magit-delta")))
+
 
 (use-package git-timemachine
   :commands git-timemachine
@@ -366,6 +368,7 @@ git-timemachine-mode:
           (lambda ()
             (setq show-trailing-whitespace t)))
 
+
 (use-package format-all
   :commands (format-all-mode format-all-buffer)
   :hook ((nix-mode
@@ -378,6 +381,7 @@ git-timemachine-mode:
                 '(("Nix" nixpkgs-fmt)
                   ("Shell" (shfmt "--indent" "2" "--case-indent"))
                   ("YAML" prettier))))
+
 
 (use-package eglot
   :ensure nil ;; included in Emacs.
@@ -404,6 +408,7 @@ git-timemachine-mode:
   :after eglot
   :config
   (eglot-x-setup))
+
 
 (use-package git-gutter
   :hook ((markdown-mode
@@ -433,6 +438,7 @@ git-timemachine-mode:
  ("q" nil :color blue)
  ("Q" (git-gutter-mode -1) :color blue)))
 
+
 (use-package git-gutter-fringe
   :after git-gutter
   :config
@@ -449,6 +455,7 @@ git-timemachine-mode:
   (define-fringe-bitmap 'git-gutter-fr:deleted
     [0 0 0 0 0 0 0 0 0 0 0 0 0 128 192 224 240 248]
     nil nil 'center))
+
 
 (use-package debug
   :defer
@@ -481,6 +488,7 @@ git-timemachine-mode:
     "r" 'debugger-return-value
     "t" 'debugger-step-through))
 
+
 (use-package compile
   :defer
   :ensure nil ;; debugger-mode is included in Emacs.
@@ -503,8 +511,10 @@ git-timemachine-mode:
     "p" 'compilation-previous-error
     "r" 'recompile))
 
+
 (use-package browse-at-remote
   :commands browse-at-remote browse-at-remote-kill)
+
 
 (use-package web-mode
   :mode ("\\.[agj]sp\\'"
@@ -533,6 +543,7 @@ git-timemachine-mode:
   (web-mode-enable-current-element-highlight t)
   (web-mode-markup-indent-offset 2)
   (web-mode-code-indent-offset 2))
+
 
 (use-package ediff
   :ensure nil ;; included in Emacs.
