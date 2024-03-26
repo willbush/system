@@ -24,6 +24,7 @@
 (unless (daemonp)
   (advice-add #'display-startup-echo-area-message :override #'ignore))
 
+
 ;; Highlight matching parentheses
 (use-package paren
   :ensure nil
@@ -32,11 +33,14 @@
   (setq show-paren-when-point-inside-paren t
         show-paren-when-point-in-periphery t))
 
+
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
+
 (use-package fill-column-indicator
   :commands fci-mode)
+
 
 (use-package nav-flash
   :commands nav-flash-show

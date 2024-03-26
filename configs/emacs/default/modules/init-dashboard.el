@@ -3,6 +3,7 @@
 ;; A dependency that dashboard has.
 (use-package page-break-lines)
 
+
 (use-package dashboard
   :init
   (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))

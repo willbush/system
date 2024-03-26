@@ -5,6 +5,7 @@
 (use-package general)
 (use-package hydra)
 
+
 (use-package which-key
   :init
   (setq which-key-sort-order #'which-key-prefix-then-key-order
@@ -16,6 +17,7 @@
         which-key-idle-delay 0.5)
   :config
   (which-key-mode +1))
+
 
 ;; A collection of evil key bindings for various modes
 (use-package evil-collection

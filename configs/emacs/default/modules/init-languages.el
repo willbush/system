@@ -29,17 +29,14 @@
 
   (setq rust-ts-mode-hook rust-mode-hook))
 
+
 (use-package cc-mode)
-
 (use-package dart-mode :mode "\\.dart\\'")
-
 (use-package haskell-mode :mode "\\.hs\\'")
-
 (use-package terraform-mode :mode "\\.tf\\'")
-
 (use-package protobuf-mode :mode "\\.proto$")
-
 (use-package dockerfile-mode :mode "Dockerfile\\'")
+
 
 (use-package typescript-mode
   ;; doesn't support tsx files yet:
@@ -55,6 +52,7 @@
 (use-package powershell
   :mode ("\\.ps[dm]?1\\'" . powershell-mode)
   :commands (powershell-mode powershell))
+
 
 (use-package vimrc-mode
   :mode (("\\.vim\\(rc\\)?\\'" . vimrc-mode)
