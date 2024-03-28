@@ -203,7 +203,7 @@
 
 
 (use-package gptel
- :config
+  :config
   (require 'gptel-curl)
   (require 'gptel-anthropic)
 
@@ -212,6 +212,11 @@
   (setq-default
    gptel-model "claude-3-opus-20240229"
    gptel-backend
+
+   (setq gptel-api-key
+         (lambda ()
+           (nth 3 (process-lines "gopass" "show" "will/work/openai.com"))))
+
    (gptel-make-anthropic "Claude"
      :stream t
      :key (lambda ()
