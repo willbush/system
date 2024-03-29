@@ -79,6 +79,13 @@
   "bh" 'my/switch-to-dashboard
   "bk" 'kill-buffer ;; requests buffer to kill
   "bm" 'my/switch-to-messages
+
+  "bn" '(:ignore t :wk "narrow")
+  "bnf" 'narrow-to-defun
+  "bnp" 'narrow-to-page
+  "bnr" 'narrow-to-region
+  "bnw" 'widen
+
   "br" 'my/revert-buffer-no-confirm
   "bs" 'my/switch-to-scratch
 
@@ -151,12 +158,6 @@
   "mc" 'magit-clone
   "mm" 'magit-status
   "mt" 'git-timemachine
-
-  "n" '(:ignore t :wk "narrow")
-  "nf" 'narrow-to-defun
-  "np" 'narrow-to-page
-  "nr" 'narrow-to-region
-  "nw" 'widen
 
   "o" '(:ignore t :wk "org")
   "oA" 'org-archive-to-archive-sibling
