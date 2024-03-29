@@ -20,13 +20,6 @@
       # file you won't be able to easily use journalctl to look at journals for
       # previous boots.
       "/etc/machine-id"
-
-      # `.updated` files are created by systemd-update-done. Their only purpose
-      # is to hold a timestamp of the time this directory was updated. I haven't
-      # observed any issues not persisting them.
-      "/var/.updated"
-      "/etc/.updated"
-
       "/var/lib/logrotate.status"
     ];
     users.will = {
