@@ -41,6 +41,7 @@
 (require 'init-prog-tools)
 (require 'init-languages)
 (require 'init-markup-languages)
+(require 'init-org)
 (require 'init-erc)
 (require 'init-funcs)
 ;; This should come after evil due to performance issues see:
