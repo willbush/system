@@ -165,15 +165,8 @@
              org-roam-capture
              org-roam-dailies-capture-today)
   :custom
-  (org-roam-directory (file-truename "~/code/org-test/"))
+  (org-roam-directory "~/code/org-test/")
   :config
-  ;; If you're using a vertical completion framework, you might want a more
-  ;; informative completion interface
-  (setq org-roam-node-display-template
-        (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
-
-  (org-roam-db-autosync-mode)
-  ;; If using org-roam-protocol
-  (require 'org-roam-protocol))
+  (org-roam-db-autosync-mode))
 
 (provide 'init-org)
