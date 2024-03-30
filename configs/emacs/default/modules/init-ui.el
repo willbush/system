@@ -1,21 +1,22 @@
 ;;; -*- lexical-binding: t; -*-
 ;; Also see `early-init-file' because it sets UI elements early.
 
-
+;; Set `doom-themes' early to prevent non-stylized UI flash.
 (use-package doom-themes
-  :hook (after-init . (lambda () (load-theme 'doom-Iosvkem t))))
+  :config
+  (load-theme 'doom-Iosvkem t))
 
 
+;; Set `doom-modeline' early to prevent non-stylized UI flash.
 (use-package doom-modeline
-  :hook (after-init .
-                    (lambda ()
-                      (doom-modeline-mode)
-                      (size-indication-mode)
-                      (column-number-mode)))
-  :init
+  :config
   (setq doom-modeline-icon t
         doom-modeline-major-mode-color-icon t
-        doom-modeline-buffer-file-name-style 'truncate-upto-root))
+        doom-modeline-buffer-file-name-style 'truncate-upto-root)
+
+  (doom-modeline-mode)
+  (size-indication-mode)
+  (column-number-mode))
 
 
 ;; Get rid of "For information about GNU Emacs..." message at startup, unless
