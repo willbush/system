@@ -109,6 +109,7 @@
         consult-project-extra
         copilot
         corfu
+        dape
         dart-mode
         dashboard
         deadgrep
