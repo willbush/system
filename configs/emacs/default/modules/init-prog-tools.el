@@ -239,7 +239,7 @@
     "ro" 'magit-show-refs-other
     "rr" 'magit-show-refs)
 
-  (defhydra hydra-magit-blame (:hint nil)
+  (defhydra hydra-magit-blame (:color pink :hint nil)
     "
 magit-blame-mode:
 
@@ -315,7 +315,7 @@ magit-blame-mode:
 (use-package git-timemachine
   :commands git-timemachine
   :config
-  (defhydra hydra-git-timemachine (:hint nil)
+  (defhydra hydra-git-timemachine (:color pink :hint nil)
     "
 git-timemachine-mode:
 
@@ -417,7 +417,7 @@ git-timemachine-mode:
          conf-mode) . git-gutter-mode)
   :config
   (defhydra hydra-git-gutter
-    (:body-pre (git-gutter-mode 1) :hint nil)
+    (:body-pre (git-gutter-mode 1) :color pink :hint nil)
    "
  Git gutter:
    _n_: next hunk        _s_tage hunk     _q_uit
