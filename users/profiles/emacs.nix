@@ -154,6 +154,7 @@
         nix-mode
         orderless
         org-modern
+        org-roam
         ox-gfm
         page-break-lines # emacs-dashboard dependency
         pandoc-mode

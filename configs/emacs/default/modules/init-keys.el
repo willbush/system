@@ -159,6 +159,14 @@
   "mm" 'magit-status
   "mt" 'git-timemachine
 
+  "n" '(:ignore t :wk "org-roam node")
+  "nt" 'org-roam-buffer-toggle
+  "nf" 'org-roam-node-find
+  "ng" 'org-roam-graph
+  "ni" 'org-roam-node-insert
+  "nc" 'org-roam-capture
+  "nd" 'org-roam-dailies-capture-today
+
   "o" '(:ignore t :wk "org")
   "oA" 'org-archive-to-archive-sibling
   "oS" 'org-store-link

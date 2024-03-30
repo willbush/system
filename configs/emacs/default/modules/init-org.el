@@ -156,4 +156,24 @@
 (use-package toc-org
   :hook (org-mode . toc-org-mode))
 
+
+(use-package org-roam
+  :commands (org-roam-buffer-toggle
+             org-roam-node-find
+             org-roam-graph
+             org-roam-node-insert
+             org-roam-capture
+             org-roam-dailies-capture-today)
+  :custom
+  (org-roam-directory (file-truename "~/code/org-test/"))
+  :config
+  ;; If you're using a vertical completion framework, you might want a more
+  ;; informative completion interface
+  (setq org-roam-node-display-template
+        (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+
+  (org-roam-db-autosync-mode)
+  ;; If using org-roam-protocol
+  (require 'org-roam-protocol))
+
 (provide 'init-org)
