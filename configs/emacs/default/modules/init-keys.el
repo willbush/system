@@ -93,6 +93,10 @@
   "cl" 'comment-line
   "cr" 'comment-or-uncomment-region
 
+  "d" '(:ignore t :wk "dape")
+  "dd" 'dape
+  "dh" 'hydra-dape-dispatch/body
+
   "f" '(:ignore t :wk "file")
   "ff" 'find-file
   "ft" 'zoxide-travel

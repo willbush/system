@@ -1,5 +1,51 @@
 ;;; -*- lexical-binding: t; -*-
 
+
+(use-package dape
+  :commands (dape hydra-dape-dispatch/body)
+  :init
+  (defhydra hydra-dape-dispatch (:color pink :hint nil)
+    "
+^Stepping^                ^Breakpoints^             ^Info^                    ^Quit
+
+_n_: Next                 _B_: Remove all           _<_: Select Stack up      _q_: Quit
+_s_: Step in              _b_: Toggle               _>_: Select Stack down    _k_: Kill
+_o_: Step out             _e_: Expression           _R_: Repl
+_c_: Continue             _l_: Log                  _i_: Info
+_p_: Pause                _w_: Toggle Watch Expr    _m_: Memory
+_r_: Restart              _x_: Eval Expression      _s_: Select Stack
+^ ^                       ^ ^                       _t_: Select Thread
+"
+    ("n" dape-next)
+    ("s" dape-step-in)
+    ("o" dape-step-out)
+    ("c" dape-continue)
+    ("p" dape-pause)
+    ("r" dape-restart)
+    ("B" dape-breakpoint-remove-all)
+    ("b" dape-breakpoint-toggle)
+    ("e" dape-breakpoint-expression)
+    ("l" dape-breakpoint-log)
+    ("w" dape-watch-dwim)
+    ("x" dape-evaluate-expression)
+    ("<" dape-stack-select-up)
+    (">" dape-stack-select-down)
+    ("R" dape-repl)
+    ("i" dape-info)
+    ("m" dape-read-memory)
+    ("s" dape-select-stack)
+    ("t" dape-select-thread)
+    ("q" dape-quit :color blue)
+    ("k" dape-kill :color blue))
+
+  ;; Display hydra on startup
+  ;; (add-hook 'dape-on-start-hooks #'hydra-dape-dispatch/body)
+
+  :config
+  (setq dape-key-prefix nil)
+  (setq dape-buffer-window-arrangement 'right))
+
+
 ;; Taken from: https://tsdh.org/posts/2022-08-01-difftastic-diffing-with-magit.html
 ;;;###autoload
 (defun my/magit--with-difftastic (buffer command)
@@ -420,6 +466,7 @@ git-timemachine-mode:
     (:body-pre (git-gutter-mode 1) :color pink :hint nil)
    "
  Git gutter:
+
    _n_: next hunk        _s_tage hunk     _q_uit
    _e_: previous hunk    _r_evert hunk    _Q_uit and deactivate git-gutter
    ^ ^                   _p_opup hunk
