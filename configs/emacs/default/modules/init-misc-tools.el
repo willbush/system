@@ -219,7 +219,7 @@
    (gptel-make-anthropic "Claude"
      :stream t
      :key (lambda ()
-            (nth 0 (process-lines "gopass" "show" "will/general/claude-api-key"))))))
+            (nth 0 (process-lines "gopass" "show" "will/work/claude-api-key"))))))
 
 
 (use-package keycast
