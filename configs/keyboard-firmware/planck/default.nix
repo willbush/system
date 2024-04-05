@@ -1,4 +1,10 @@
-{ stdenv, fetchFromGitHub, writeScript, qmk, makeWrapper }:
+{
+  stdenv,
+  fetchFromGitHub,
+  writeScript,
+  qmk,
+  makeWrapper,
+}:
 
 let
   flash-planck = writeScript "flash-planck" ''
@@ -19,7 +25,10 @@ stdenv.mkDerivation rec {
     fetchSubmodules = true;
   };
 
-  buildInputs = [ qmk makeWrapper ];
+  buildInputs = [
+    qmk
+    makeWrapper
+  ];
 
   prePatch = ''
     mkdir -pv keyboards/planck/keymaps/willbush

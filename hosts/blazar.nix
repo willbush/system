@@ -1,4 +1,11 @@
-{ pkgs, lib, modulesPath, config, ... }: {
+{
+  pkgs,
+  lib,
+  modulesPath,
+  config,
+  ...
+}:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ../modules/secrets.nix
@@ -18,7 +25,14 @@
   services.hardware.openrgb.motherboard = "amd";
 
   # Generated hardware configuration below:
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [
+    "nvme"
+    "xhci_pci"
+    "ahci"
+    "usbhid"
+    "usb_storage"
+    "sd_mod"
+  ];
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
@@ -28,33 +42,35 @@
   # https://docs.fedoraproject.org/en-US/quick-docs/using-nested-virtualization-in-kvm/
   boot.extraModprobeConfig = "options kvm-amd nested=1";
 
-  fileSystems."/" =
-    {
-      device = "none";
-      fsType = "tmpfs";
-      options = [ "defaults" "size=25%" "mode=755" ];
-    };
+  fileSystems."/" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [
+      "defaults"
+      "size=25%"
+      "mode=755"
+    ];
+  };
 
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/7198-4C39";
-      fsType = "vfat";
-      options = [ "umask=0077" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/7198-4C39";
+    fsType = "vfat";
+    options = [ "umask=0077" ];
+  };
 
-  fileSystems."/nix" =
-    {
-      device = "/dev/disk/by-uuid/32caa2ef-8183-450b-a906-e0bd3d03f1e6";
-      fsType = "ext4";
-    };
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/32caa2ef-8183-450b-a906-e0bd3d03f1e6";
+    fsType = "ext4";
+  };
 
   boot.initrd.luks.devices."crypted".device = "/dev/disk/by-uuid/ee9aa93f-df8c-4a85-a0a9-49a4bae51d5a";
 
-  swapDevices =
-    [{
+  swapDevices = [
+    {
       device = "/dev/disk/by-partuuid/1dc4dd53-b7e6-4712-b382-58e30592b3e0";
       randomEncryption.enable = true;
-    }];
+    }
+  ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

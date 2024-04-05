@@ -79,14 +79,38 @@
         "dropbox"
         "images"
         "sync"
-        { directory = ".SeedVaultAndroidBackup"; mode = "0700"; }
-        { directory = ".config/gh"; mode = "0700"; }
-        { directory = ".gnupg"; mode = "0700"; }
-        { directory = ".password-store"; mode = "0700"; }
-        { directory = ".pki"; mode = "0700"; }
-        { directory = ".secrets"; mode = "0700"; }
-        { directory = ".ssh"; mode = "0700"; }
-        { directory = "keepass"; mode = "0700"; }
+        {
+          directory = ".SeedVaultAndroidBackup";
+          mode = "0700";
+        }
+        {
+          directory = ".config/gh";
+          mode = "0700";
+        }
+        {
+          directory = ".gnupg";
+          mode = "0700";
+        }
+        {
+          directory = ".password-store";
+          mode = "0700";
+        }
+        {
+          directory = ".pki";
+          mode = "0700";
+        }
+        {
+          directory = ".secrets";
+          mode = "0700";
+        }
+        {
+          directory = ".ssh";
+          mode = "0700";
+        }
+        {
+          directory = "keepass";
+          mode = "0700";
+        }
       ];
       files = [
         ".bash_history"

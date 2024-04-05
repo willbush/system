@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   inherit (lib) mkIf mkOption types;
   cfg = config.modules.services.docker;
@@ -22,7 +27,10 @@ in
         docker
         docker-compose
       ];
-      programs.zsh.oh-my-zsh.plugins = [ "docker" "docker-compose" ];
+      programs.zsh.oh-my-zsh.plugins = [
+        "docker"
+        "docker-compose"
+      ];
     };
   };
 }

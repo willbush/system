@@ -53,7 +53,12 @@
           ename = "copilot";
           version = inputs.copilot-el.lastModifiedDate;
           commit = rev;
-          packageRequires = [ dash editorconfig s jsonrpc ];
+          packageRequires = [
+            dash
+            editorconfig
+            s
+            jsonrpc
+          ];
 
           src = fetchFromGitHub {
             inherit rev;
@@ -98,7 +103,8 @@
           meta.description = "Protocol extensions for Eglot ";
         };
     };
-    extraPackages = (epkgs:
+    extraPackages = (
+      epkgs:
       (with epkgs; [
         adaptive-wrap
         all-the-icons-completion
@@ -182,6 +188,7 @@
         yaml-mode
         zoom
         zoxide
-      ]));
+      ])
+    );
   };
 }

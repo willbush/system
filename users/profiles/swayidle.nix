@@ -8,9 +8,15 @@ in
     enable = true;
     events = [
       # executes command before systemd puts the computer to sleep.
-      { event = "before-sleep"; command = lock; }
+      {
+        event = "before-sleep";
+        command = lock;
+      }
       # executes command when logind signals that the session should be locked
-      { event = "lock"; command = lock; }
+      {
+        event = "lock";
+        command = lock;
+      }
     ];
     timeouts = [
       {

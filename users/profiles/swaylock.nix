@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # requires `security.pam.services.swaylock = { };` at the system level or else
   # unlock will not work.
   programs.swaylock = {

@@ -35,10 +35,11 @@
   };
 
   outputs =
-    { nixpkgs
-    , nixpkgs-stable
-    , impermanence
-    , ...
+    {
+      nixpkgs,
+      nixpkgs-stable,
+      impermanence,
+      ...
     }@inputs:
     let
       inherit (nixpkgs) lib;
@@ -59,7 +60,8 @@
         };
       };
 
-      toConfig = hostName:
+      toConfig =
+        hostName:
         nixosSystem {
           inherit system;
           modules = [
@@ -70,20 +72,23 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                extraSpecialArgs = { inherit inputs; };
+                extraSpecialArgs = {
+                  inherit inputs;
+                };
               };
             }
             {
               networking.hostName = hostName;
-              nixpkgs.overlays =
-                [
-                  inputs.emacs-overlay.overlays.default
-                  # Make "pkgs.stable" available
-                  overlay-stable
-                ];
+              nixpkgs.overlays = [
+                inputs.emacs-overlay.overlays.default
+                # Make "pkgs.stable" available
+                overlay-stable
+              ];
             }
           ];
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+          };
         };
     in
     {
