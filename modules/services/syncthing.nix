@@ -1,6 +1,16 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
-  inherit (lib) mkIf mkOption types elem;
+  inherit (lib)
+    mkIf
+    mkOption
+    types
+    elem
+    ;
   inherit (lib.lists) remove;
   cfg = config.modules.services.syncthing;
   host = config.networking.hostName;
@@ -30,7 +40,10 @@ in
     # 21027/UDP for discovery
     # source: https://docs.syncthing.net/users/firewall.html
     networking.firewall.allowedTCPPorts = [ 22000 ];
-    networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+    networking.firewall.allowedUDPPorts = [
+      22000
+      21027
+    ];
 
     services.syncthing = {
       enable = true;
@@ -60,18 +73,15 @@ in
       settings.folders =
         let
           deviceEnabled = devices: elem host devices;
-          deviceType = devices:
-            if deviceEnabled devices then "sendreceive" else "receiveonly";
+          deviceType = devices: if deviceEnabled devices then "sendreceive" else "receiveonly";
           staggeredVersioning = {
             type = "staggered";
             params = {
               cleanInterval = "3600";
               maxAge = "31536000"; # in seconds (365 days)
-              versionsPath =
-                ".stversions"; # The default path (cannot omit to get the default)
+              versionsPath = ".stversions"; # The default path (cannot omit to get the default)
             };
           };
-
         in
         {
           sync-will = rec {

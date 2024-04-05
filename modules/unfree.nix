@@ -2,7 +2,8 @@
 let
   inherit (lib) types mkOption getName;
   cfg = config.modules.unfree;
-in {
+in
+{
   options.modules.unfree = {
     allowList = mkOption {
       default = [ ];
@@ -16,7 +17,6 @@ in {
   };
 
   config = {
-    nixpkgs.config.allowUnfreePredicate = pkg:
-      builtins.elem (getName pkg) cfg.allowList;
+    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (getName pkg) cfg.allowList;
   };
 }

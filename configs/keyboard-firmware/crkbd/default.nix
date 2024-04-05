@@ -1,4 +1,10 @@
-{ stdenv, fetchFromGitHub, writeScript, qmk, makeWrapper }:
+{
+  stdenv,
+  fetchFromGitHub,
+  writeScript,
+  qmk,
+  makeWrapper,
+}:
 
 let
   flash-crkbd = writeScript "flash-crkbd" ''
@@ -19,7 +25,10 @@ stdenv.mkDerivation rec {
     fetchSubmodules = true;
   };
 
-  buildInputs = [ qmk makeWrapper ];
+  buildInputs = [
+    qmk
+    makeWrapper
+  ];
 
   prePatch = ''
     mkdir -pv keyboards/crkbd/keymaps/willbush

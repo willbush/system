@@ -1,5 +1,11 @@
 { config, lib, ... }:
-let inherit (lib) types mkOption mkIf fileContents;
+let
+  inherit (lib)
+    types
+    mkOption
+    mkIf
+    fileContents
+    ;
   cfg = config.modules.secrets;
 in
 {
@@ -56,8 +62,6 @@ in
     modules.secrets.krb5Settings = import ../secrets/krb5-settings.nix;
     modules.secrets.willMatchBlocks = import ../secrets/ssh-matchblocks-will.nix;
 
-    modules.secrets.pkiCertificates = [
-      "${builtins.readFile ../secrets/work-cert.pem}"
-    ];
+    modules.secrets.pkiCertificates = [ "${builtins.readFile ../secrets/work-cert.pem}" ];
   };
 }

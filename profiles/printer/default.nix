@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   hardware = {
     sane.enable = true;
     sane.brscan4 = {
