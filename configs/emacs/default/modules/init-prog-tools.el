@@ -424,7 +424,7 @@ git-timemachine-mode:
           yaml-ts-mode) . format-all-mode)
   :config
   (setq-default format-all-formatters
-                '(("Nix" nixpkgs-fmt)
+                '(("Nix" nixfmt)
                   ("Shell" (shfmt "--indent" "2" "--case-indent"))
                   ("YAML" prettier))))
 
