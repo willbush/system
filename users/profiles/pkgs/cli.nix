@@ -12,7 +12,7 @@
     # dev
     delta
     gh
-    nixpkgs-fmt
+    nixfmt-rfc-style
     nodePackages.prettier
 
     # security
