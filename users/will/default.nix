@@ -52,8 +52,9 @@ in
       ../profiles/pkgs/cli.nix
       ../profiles/pkgs/gui.nix
       ../profiles/programs.nix
-      ../profiles/swaylock.nix
       ../profiles/swayidle.nix
+      ../profiles/swaylock.nix
+      ../profiles/zathura.nix
       ./git.nix
       ./pkgs/cli.nix
       ./pkgs/gui.nix
@@ -78,13 +79,17 @@ in
 
     wayland.windowManager.hyprland = {
       enable = true;
+      catppuccin.enable = true;
       extraConfig = builtins.readFile ../../configs/hypr/hyprland.conf;
     };
 
     # lightweight notification daemon for Wayland
-    services.mako.enable = true;
-    # timeout in milliseconds.
-    services.mako.defaultTimeout = 5000;
+    services.mako = {
+      enable = true;
+      catppuccin.enable = true;
+      # timeout in milliseconds.
+      services.mako.defaultTimeout = 5000;
+    };
 
     # Limiter, compressor, convolver, equalizer and auto volume and many other
     # plugins for PipeWire applications
