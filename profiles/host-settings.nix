@@ -17,6 +17,11 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  # set catppuccin theme flavor for NixOS module
+  catppuccin.flavour = "mocha";
+  # virtual console is enabled by default. Just applying theme
+  console.catppuccin.enable = true;
+
   sound.enable = true;
   # Enable sound with pipewire.
   security.rtkit.enable = true;
