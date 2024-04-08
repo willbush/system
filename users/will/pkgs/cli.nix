@@ -37,7 +37,6 @@ in
     minikube
 
     # tui
-    btop
     glances
     ncpamixer # mixer for PulseAudio inspired by pavucontrol
     nethogs

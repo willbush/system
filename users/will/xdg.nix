@@ -25,14 +25,14 @@
         "audio/webm" = "mpv.desktop";
         "audio/x-midi" = "mpv.desktop";
 
-        "image/gif" = "sxiv.desktop";
-        "image/jpeg" = "sxiv.desktop";
-        "image/jpg" = "sxiv.desktop";
-        "image/png" = "sxiv.desktop";
+        "image/gif" = "imv.desktop";
+        "image/jpeg" = "imv.desktop";
+        "image/jpg" = "imv.desktop";
+        "image/png" = "imv.desktop";
         "image/svg+xml" = "firefox.desktop";
-        "image/tiff" = "sxiv.desktop";
-        "image/vnd.microsoft.icon" = "sxiv.desktop";
-        "image/webp" = "sxiv.desktop";
+        "image/tiff" = "imv.desktop";
+        "image/vnd.microsoft.icon" = "imv.desktop";
+        "image/webp" = "imv.desktop";
 
         # Open directory in Emacs dired.
         "inode/directory" = "emacsclient.desktop";
