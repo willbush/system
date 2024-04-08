@@ -20,7 +20,10 @@
         push.autoSetupRemote = true;
       };
 
-      difftastic.enable = true;
+      delta = {
+        enable = true;
+        catppuccin.enable = true;
+      };
     };
 
     ssh = {

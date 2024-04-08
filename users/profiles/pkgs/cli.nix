@@ -10,7 +10,6 @@
     wget
 
     # dev
-    delta
     gh
     nixfmt-rfc-style
     nodePackages.prettier
