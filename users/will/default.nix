@@ -88,7 +88,7 @@ in
       enable = true;
       catppuccin.enable = true;
       # timeout in milliseconds.
-      services.mako.defaultTimeout = 5000;
+      defaultTimeout = 5000;
     };
 
     # Limiter, compressor, convolver, equalizer and auto volume and many other
