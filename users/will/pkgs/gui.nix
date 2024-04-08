@@ -10,9 +10,6 @@
     discord
     slack
 
-    # image viewer
-    sxiv
-
     # video editor
     libsForQt5.kdenlive
 
