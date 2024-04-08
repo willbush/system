@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -42,6 +43,7 @@ in
 
   home-manager.users.will = {
     imports = [
+      inputs.catppuccin.homeManagerModules.catppuccin
       ../profiles/bat.nix
       ../profiles/dotnet.nix
       ../profiles/emacs.nix
@@ -71,6 +73,8 @@ in
         DOCKER_BUILDKIT = 1;
       };
     };
+
+    catppuccin.flavour = "mocha";
 
     wayland.windowManager.hyprland = {
       enable = true;
