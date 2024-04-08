@@ -26,6 +26,7 @@
       directories = [
         ".cache/JetBrains"
         ".cache/bat"
+        ".cache/thumbnails"
         ".cache/dconf"
         ".cache/fontconfig"
         ".cache/maestral"
