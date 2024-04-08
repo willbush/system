@@ -10,7 +10,7 @@
       # https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
       defaultApplications = {
         "application/msword" = "writer.desktop";
-        "application/pdf" = "okularApplication_pdf.desktop";
+        "application/pdf" = "org.pwmt.zathura.desktop";
         "application/vnd.oasis.opendocument.text" = "writer.desktop";
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "writer.desktop";
 
