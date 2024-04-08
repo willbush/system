@@ -75,6 +75,7 @@ in
       };
     };
 
+    # set catppuccin theme flavor for home-manager module
     catppuccin.flavour = "mocha";
 
     wayland.windowManager.hyprland = {

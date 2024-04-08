@@ -71,11 +71,13 @@
       catppuccin.enable = true;
     };
 
+    # command: btm
     bottom = {
       enable = true;
       catppuccin.enable = true;
     };
 
+    # command line image viewer intended for use with tiling window managers.
     imv = {
       enable = true;
       catppuccin.enable = true;
