@@ -94,6 +94,7 @@ in
       wofi.enable = true;
       neovim = {
         enable = true;
+        catppuccin.enable = true;
         extraConfig = builtins.readFile ../../configs/nvim/init.vim;
       };
     };
