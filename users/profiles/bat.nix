@@ -3,7 +3,7 @@
 
   programs.bat = {
     enable = true;
-    config.theme = "TwoDark";
+    catppuccin.enable = true;
   };
 
   home = {
