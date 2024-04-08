@@ -32,13 +32,16 @@
       url = "github:nemethf/eglot-x";
       flake = false;
     };
+    # Soothing pastel theme for Nix
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs =
     {
+      catppuccin,
+      impermanence,
       nixpkgs,
       nixpkgs-stable,
-      impermanence,
       ...
     }@inputs:
     let
@@ -66,6 +69,7 @@
           inherit system;
           modules = [
             (./hosts + "/${hostName}.nix")
+            catppuccin.nixosModules.catppuccin
             impermanence.nixosModules.impermanence
             inputs.home-manager.nixosModules.home-manager
             {
