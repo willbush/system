@@ -58,7 +58,3 @@ Dual licensed under either:
 - MIT license ([[http://opensource.org/licenses/MIT][LICENSE-MIT]])
 
 at your option.
-
-<p align="center">
-	<a href="https://github.com/willbush/system/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a>
-</p>
