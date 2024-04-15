@@ -32,6 +32,7 @@ in
     kubernetes-helm
     kustomize
     minikube
+    talosctl
 
     # tui
     glances
