@@ -1,8 +1,7 @@
 { pkgs, ... }:
 let
-  planck = pkgs.callPackage ../../../configs/keyboard-firmware/planck { };
   # crkbd = pkgs.callPackage ../../../configs/keyboard-firmware/crkbd { };
-  eksctl-anywhere = pkgs.callPackage ../eksctl-anywhere.nix { };
+  planck = pkgs.callPackage ../../../configs/keyboard-firmware/planck { };
 in
 {
   home.packages = with pkgs; [
@@ -26,8 +25,6 @@ in
 
     # k8s
     argocd
-    eksctl
-    eksctl-anywhere
     k9s
     kube-score
     kubeconform
