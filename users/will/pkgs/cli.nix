@@ -23,7 +23,7 @@ in
 
     # jq like tools
     jq
-    xq # jq in rust
+    # xq # jq in rust
     yq # YAML/XML/TOML processor
 
     # k8s
