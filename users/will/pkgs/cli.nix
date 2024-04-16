@@ -12,7 +12,6 @@ in
     gdb
     grafana-loki # provides: promtail loki-canary loki logcli
     hyperfine # benchmarking tool
-    jq
     nil # Nix Language server
     nix-prefetch-git
     nodejs # for copilot.el login
@@ -21,7 +20,11 @@ in
     python311Packages.grip # markdown preview
     shfmt
     tokei
+
+    # jq like tools
+    jq
     xq # jq in rust
+    yq # YAML/XML/TOML processor
 
     # k8s
     argocd
