@@ -24,7 +24,7 @@ in
     # jq like tools
     jq
     # xq # jq in rust
-    yq # YAML/XML/TOML processor
+    yq-go # YAML processor
 
     # k8s
     argocd
