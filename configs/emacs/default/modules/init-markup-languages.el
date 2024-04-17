@@ -31,7 +31,8 @@
 
 
 (use-package yaml-mode
-  :mode ("\\.yaml$" . yaml-mode)
+  :mode (("\\.yaml\\'" . yaml-mode)
+         ("\\.yml\\'" . yaml-mode))
   :init
   (add-hook 'yaml-mode-hook
             (lambda ()
