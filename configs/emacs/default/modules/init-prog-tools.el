@@ -323,7 +323,7 @@ git-timemachine-mode:
   :config
   (setq-default format-all-formatters
                 '(("Nix" nixfmt)
-                  ("Shell" (shfmt "--indent" "2" "--case-indent"))
+                  ("Shell" (shfmt "--indent" "2" "--case-indent" "--space-redirects"))
                   ("YAML" prettier))))
 
 
