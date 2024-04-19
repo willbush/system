@@ -28,6 +28,7 @@ in
 
     # k8s
     argocd
+    argocd-autopilot
     k9s
     kube-score
     kubeconform
