@@ -62,7 +62,6 @@
         ".config/zsh"
         ".dotnet"
         ".java"
-        ".kube"
         ".local/share/JetBrains"
         ".local/share/NuGet"
         ".local/share/Trash"
@@ -91,6 +90,10 @@
         }
         {
           directory = ".gnupg";
+          mode = "0700";
+        }
+        {
+          directory = ".kube";
           mode = "0700";
         }
         {
