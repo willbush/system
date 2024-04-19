@@ -94,5 +94,10 @@
       enableZshIntegration = true;
       nix-direnv.enable = true;
     };
+
+    k9s = {
+      enable = true;
+      catppuccin.enable = true;
+    };
   };
 }
