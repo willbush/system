@@ -26,7 +26,6 @@
       directories = [
         ".cache/JetBrains"
         ".cache/bat"
-        ".cache/thumbnails"
         ".cache/dconf"
         ".cache/fontconfig"
         ".cache/maestral"
@@ -37,6 +36,7 @@
         ".cache/org-persist"
         ".cache/remmina"
         ".cache/tealdeer"
+        ".cache/thumbnails"
         ".cache/virt-manager"
         ".cargo"
         ".config/JetBrains"
@@ -62,6 +62,7 @@
         ".config/zsh"
         ".dotnet"
         ".java"
+        ".kube"
         ".local/share/JetBrains"
         ".local/share/NuGet"
         ".local/share/Trash"
