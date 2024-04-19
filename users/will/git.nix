@@ -5,7 +5,7 @@
     git = {
       enable = true;
       userName = "Will Bush";
-      userEmail = "will.g.bush@gmail.com";
+      userEmail = "git@willbush.dev";
       signing = {
         # public key fingerprint
         key = "4441422E61E4C8F3EBFE5E333823864B54B13BDA";
