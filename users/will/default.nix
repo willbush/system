@@ -56,6 +56,7 @@ in
       ../profiles/swaylock.nix
       ../profiles/zathura.nix
       ./git.nix
+      ./krew.nix
       ./pkgs/cli.nix
       ./pkgs/gui.nix
       ./xdg.nix
