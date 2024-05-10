@@ -66,6 +66,7 @@
         ".config/zsh"
         ".dotnet"
         ".java"
+        ".krew"
         ".local/share/JetBrains"
         ".local/share/NuGet"
         ".local/share/Trash"
