@@ -83,6 +83,7 @@
         ".minikube"
         ".mozilla" # firefox
         ".nuget"
+        ".talos"
         "code"
         "downloads"
         "dropbox"
