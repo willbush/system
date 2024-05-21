@@ -8,11 +8,12 @@
       "/var/cache/libvirt"
       "/var/cache/mullvad-vpn"
       "/var/cache/tuigreet"
+      "/var/lib/OpenRGB/"
       "/var/lib/docker/"
       "/var/lib/libvirt"
-      "/var/lib/OpenRGB/"
-      "/var/lib/systemd"
+      "/var/lib/nixos/" # contains important state: https://github.com/nix-community/impermanence/issues/178
       "/var/lib/swtpm-localca/" # needed for Windows VM via qemu
+      "/var/lib/systemd"
       "/var/log"
     ];
     files = [
