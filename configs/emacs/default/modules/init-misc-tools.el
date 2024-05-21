@@ -207,13 +207,22 @@
   (require 'gptel-curl)
   (require 'gptel-anthropic)
 
+  ;; https://github.com/karthink/gptel/issues/302
+  (add-hook 'gptel-mode-hook #'auto-fill-mode)
+  (add-hook 'gptel-post-response-functions
+            (lambda (beg end)
+              (whitespace-cleanup)
+              (when auto-fill-function
+                (fill-region beg end))))
+
   (setq gptel-default-mode 'org-mode)
 
   (gptel-make-anthropic
-   "Claude"
-   :stream t
-   :key (lambda ()
-          (nth 0 (process-lines "gopass" "show" "will/work/claude-api-key"))))
+      "Claude"
+    :stream t
+    :key (lambda ()
+           (nth 0 (process-lines "gopass" "show" "will/work/claude-api-key"))))
+
 
   (setq gptel-model "gpt-4o"
         gptel-api-key
