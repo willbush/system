@@ -33,6 +33,7 @@ in
     kubectl
     kubelogin-oidc # k8s credential plugin implementing OIDC auth
     kubernetes-helm
+    kubeseal
     kustomize
     minikube
     talosctl
