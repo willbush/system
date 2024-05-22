@@ -29,6 +29,7 @@
         ".cache/bat"
         ".cache/dconf"
         ".cache/fontconfig"
+        ".cache/gstreamer-1.0"
         ".cache/helm"
         ".cache/maestral"
         ".cache/mesa_shader_cache"
