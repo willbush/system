@@ -208,12 +208,9 @@
   (require 'gptel-anthropic)
 
   ;; https://github.com/karthink/gptel/issues/302
-  (add-hook 'gptel-mode-hook #'auto-fill-mode)
-  (add-hook 'gptel-post-response-functions
-            (lambda (beg end)
-              (whitespace-cleanup)
-              (when auto-fill-function
-                (fill-region beg end))))
+  ;; hard wrapping doesn't work well because it applies to source blocks
+  (add-hook 'gptel-mode-hook #'visual-line-mode)
+  (add-hook 'gptel-post-response-functions 'whitespace-cleanup)
 
   (setq gptel-default-mode 'org-mode)
 
