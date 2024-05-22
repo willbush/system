@@ -268,4 +268,10 @@
    ("rc\\'" . conf-mode)
    ("\\.\\(?:hex\\|nes\\)\\'" . hexl-mode)))
 
+;;
+;;; Warnings
+
+;; Not really liking that warnings create a buffer at the bottom.
+(setq warning-display-at-bottom nil)
+
 (provide 'init-defaults)
