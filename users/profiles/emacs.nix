@@ -1,6 +1,9 @@
 { inputs, pkgs, ... }:
 {
   home = {
+    sessionVariables = {
+      EDITOR = "emacs";
+    };
     file = {
       ".config/chemacs-repo" = {
         source = inputs.chemacs;
