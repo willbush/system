@@ -128,6 +128,8 @@
 
   (setq copilot-indent-offset-warning-disable t)
 
+  (add-to-list 'warning-suppress-log-types '(copilot copilot-exceeds-max-char))
+
   (defun my/disable-copilot-for-gpg-p ()
     "Return t if the current buffer is visiting a .gpg file."
     (and (stringp buffer-file-name)
