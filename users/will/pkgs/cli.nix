@@ -21,7 +21,7 @@ in
 
     # jq like tools
     jq
-    # xq # jq in rust
+    xq # jq in rust
     yq-go # YAML processor
 
     # k8s
