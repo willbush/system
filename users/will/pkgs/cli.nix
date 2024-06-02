@@ -27,8 +27,6 @@ in
     # k8s
     argocd
     cilium-cli
-    kube-score
-    kubeconform
     kubectl
     kubelogin-oidc # k8s credential plugin implementing OIDC auth
     kubernetes-helm
