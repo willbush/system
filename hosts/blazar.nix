@@ -13,7 +13,7 @@
     ../persist.nix
     ../profiles/efi.nix
     ../profiles/host-settings.nix
-    ../profiles/printer
+    ../profiles/printer.nix
     ../users/will
   ];
 
