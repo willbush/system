@@ -15,7 +15,6 @@ in
     ../../modules/services/syncthing.nix
     ../../modules/services/virt.nix
     ../../modules/services/docker.nix
-    ../../profiles/fonts.nix
     ../../profiles/nix-settings.nix
     ./greetd.nix
     ./less.nix
@@ -169,6 +168,21 @@ in
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [ mullvad-vpn ];
+
+  fonts.packages = with pkgs; [
+    dejavu_fonts
+    emacs-all-the-icons-fonts
+    fira-mono
+    hack-font
+    inconsolata
+    iosevka
+    liberation_ttf
+    libre-baskerville
+    nerdfonts
+    powerline-fonts
+    source-code-pro
+    ubuntu_font_family
+  ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";
