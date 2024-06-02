@@ -2,7 +2,6 @@
 {
   programs.zathura = {
     enable = true;
-    catppuccin.enable = true;
     mappings = {
       "m" = "scroll left";
       "n" = "scroll down";

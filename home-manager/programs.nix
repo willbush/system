@@ -3,13 +3,11 @@
   programs = {
     alacritty = {
       enable = true;
-      catppuccin.enable = true;
       settings.font.size = 12;
     };
 
     fzf = {
       enable = true;
-      catppuccin.enable = true;
       # This defaults to true, but I want to make it explicit because installing
       # fzf this way is different than putting it in the home.packages list.
       enableZshIntegration = true;
@@ -60,29 +58,17 @@
       initExtra = pkgs.lib.fileContents ../configs/zsh/zshrc-init-extra.sh;
     };
 
-    starship = {
-      enable = true;
-      catppuccin.enable = true;
-    };
+    starship.enable = true;
 
     htop.enable = true;
 
-    btop = {
-      enable = true;
-      catppuccin.enable = true;
-    };
+    btop.enable = true;
 
     # command: btm
-    bottom = {
-      enable = true;
-      catppuccin.enable = true;
-    };
+    bottom.enable = true;
 
     # command line image viewer intended for use with tiling window managers.
-    imv = {
-      enable = true;
-      catppuccin.enable = true;
-    };
+    imv.enable = true;
 
     zoxide = {
       enable = true;
@@ -95,9 +81,6 @@
       nix-direnv.enable = true;
     };
 
-    k9s = {
-      enable = true;
-      catppuccin.enable = true;
-    };
+    k9s.enable = true;
   };
 }

@@ -74,17 +74,17 @@ in
 
     # set catppuccin theme flavor for home-manager module
     catppuccin.flavor = "mocha";
+    # Enable for all available programs
+    catppuccin.enable = true;
 
     wayland.windowManager.hyprland = {
       enable = true;
-      catppuccin.enable = true;
       extraConfig = builtins.readFile ../configs/hypr/hyprland.conf;
     };
 
     # lightweight notification daemon for Wayland
     services.mako = {
       enable = true;
-      catppuccin.enable = true;
       # timeout in milliseconds.
       defaultTimeout = 5000;
     };
@@ -97,7 +97,6 @@ in
       wofi.enable = true;
       neovim = {
         enable = true;
-        catppuccin.enable = true;
         extraConfig = builtins.readFile ../configs/nvim/init.vim;
       };
     };

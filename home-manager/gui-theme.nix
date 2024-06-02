@@ -7,10 +7,7 @@
     name = "Vanilla-DMZ";
   };
 
-  gtk = {
-    enable = true;
-    catppuccin.enable = true;
-  };
+  gtk.enable = true;
 
   qt = {
     enable = true;

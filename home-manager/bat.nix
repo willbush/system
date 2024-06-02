@@ -1,10 +1,7 @@
 { pkgs, ... }:
 {
 
-  programs.bat = {
-    enable = true;
-    catppuccin.enable = true;
-  };
+  programs.bat.enable = true;
 
   home = {
     packages = with pkgs; [
