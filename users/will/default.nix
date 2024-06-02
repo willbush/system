@@ -153,16 +153,19 @@ in
 
   programs.wireshark.enable = true;
 
-  security.pki.certificates = config.modules.secrets.pkiCertificates;
-  security.pam.services.swaylock = { };
+  security = {
+    sudo.enable = false;
+    sudo-rs.enable = true;
+    sudo-rs.execWheelOnly = true;
 
-  security.krb5 = {
-    enable = secretsEnabled;
-    settings = config.modules.secrets.krb5Settings;
+    pki.certificates = config.modules.secrets.pkiCertificates;
+    pam.services.swaylock = { };
+
+    krb5 = {
+      enable = secretsEnabled;
+      settings = config.modules.secrets.krb5Settings;
+    };
   };
-  security.sudo.enable = false;
-  security.sudo-rs.enable = true;
-  security.sudo-rs.execWheelOnly = true;
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [ mullvad-vpn ];
