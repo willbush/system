@@ -2,58 +2,48 @@
 {
   home.packages = with pkgs; [
     # office
-    libreoffice-fresh
     hunspellDicts.en_US-large # spellcheck dictionary used by libreoffice
+    libreoffice-fresh
     simple-scan
 
-    # security
-    globalprotect-openconnect
+    # Security & Password Management
+    globalprotect-openconnect # VPN
     keepassxc
 
-    # chat
-    signal-desktop
-
-    # video
-    vlc
-
-    # screenshot / screen capture
-    grim
-    slurp
-    obs-studio
-    peek
-
-    # image manipulation
-    inkscape
-    gimp
-
-    # browsers
-    (firefox.override { nativeMessagingHosts = [ browserpass ]; })
-
-    ungoogled-chromium
-
-    # chat
+    # Communication
     discord
+    signal-desktop
     slack
 
-    # video editor
+    # Multimedia
+    gimp
+    grim
+    inkscape
     libsForQt5.kdenlive
+    obs-studio
+    peek
+    slurp
+    vlc
 
-    # dev
+    # Browsers
+    (firefox.override { nativeMessagingHosts = [ browserpass ]; })
+    ungoogled-chromium
+
+    # Development
     jetbrains.rider
 
-    # Open source Dropbox client
+    # Cloud & Sync
     maestral-gui
     maestral # cli tool
 
-    # file manager
+    # GNOME Apps
     gnome.nautilus
-    # manage keyring
     gnome.seahorse
 
-    # audio
+    # Audio
     helvum # A GTK patchbay for pipewire.
 
-    # other
+    # Utilities
     pkgs.transmission-gtk
     remmina
     virt-manager
