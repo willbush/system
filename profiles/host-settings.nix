@@ -18,7 +18,7 @@
   };
 
   # set catppuccin theme flavor for NixOS module
-  catppuccin.flavour = "mocha";
+  catppuccin.flavor = "mocha";
   # virtual console is enabled by default. Just applying theme
   console.catppuccin.enable = true;
 
