@@ -65,6 +65,7 @@
         ".config/pulse"
         ".config/remmina"
         ".config/syncthing"
+        ".config/vlc"
         ".config/zsh"
         ".dotnet"
         ".java"
