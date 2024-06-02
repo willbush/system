@@ -54,7 +54,6 @@
     helvum # A GTK patchbay for pipewire.
 
     # other
-    hicolor-icon-theme # fall back icon theme
     pkgs.transmission-gtk
     remmina
     virt-manager
