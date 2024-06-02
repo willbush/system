@@ -17,7 +17,6 @@ in
     ../../modules/services/docker.nix
     ../../profiles/fonts.nix
     ../../profiles/nix-settings.nix
-    ../../profiles/sudo-rs.nix
     ./greetd.nix
     ./less.nix
   ];
@@ -161,6 +160,9 @@ in
     enable = secretsEnabled;
     settings = config.modules.secrets.krb5Settings;
   };
+  security.sudo.enable = false;
+  security.sudo-rs.enable = true;
+  security.sudo-rs.execWheelOnly = true;
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [ mullvad-vpn ];
