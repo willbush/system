@@ -17,12 +17,10 @@
 
     # Multimedia
     gimp
-    grim
     inkscape
     libsForQt5.kdenlive
     obs-studio
     peek
-    slurp
     vlc
 
     # Browsers
