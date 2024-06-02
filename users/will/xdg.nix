@@ -18,12 +18,12 @@
         "application/vnd.oasis.opendocument.spreadsheet" = "calc.desktop";
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = "calc.desktop";
 
-        "audio/aac" = "mpv.desktop";
-        "audio/mpeg" = "mpv.desktop";
-        "audio/ogg" = "mpv.desktop";
-        "audio/wav" = "mpv.desktop";
-        "audio/webm" = "mpv.desktop";
-        "audio/x-midi" = "mpv.desktop";
+        "audio/aac" = "vlc.desktop";
+        "audio/mpeg" = "vlc.desktop";
+        "audio/ogg" = "vlc.desktop";
+        "audio/wav" = "vlc.desktop";
+        "audio/webm" = "vlc.desktop";
+        "audio/x-midi" = "vlc.desktop";
 
         "image/gif" = "imv.desktop";
         "image/jpeg" = "imv.desktop";
