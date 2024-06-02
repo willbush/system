@@ -5,38 +5,33 @@ let
 in
 {
   home.packages = with pkgs; [
-    # core
+    # Utilities
     curl
+    du-dust
     eza
     fd
-    ripgrep
-    tree
-    wget
-
-    # dev
+    file
     gh
-    nixfmt-rfc-style
-    nodePackages.prettier
-
-    # security
     git-crypt
     gopass
-
-    # compressor / archiver packages
-    unar
-    unzip
-    zip
-
-    # other utils
-    du-dust
+    lsof
+    nixfmt-rfc-style
+    nodePackages.prettier
+    ripgrep
     tealdeer # tldr in Rust
     trash-cli
+    tree
+    unar
+    unzip
     usbutils
+    wget
+    wl-clipboard-rs
+    zip
+    zola # blogging
 
-    # dev
+    # Development
     gcc # for `treesit-auto-install-all` which builds treesitter grammars
     gdb
-    grafana-loki # provides: promtail loki-canary loki logcli
     hyperfine # benchmarking tool
     nil # Nix Language server
     nix-prefetch-git
@@ -47,14 +42,23 @@ in
     shfmt
     tokei
 
-    # jq like tools
+    # Data processing
     jq
     xq # jq in rust
     yq-go # YAML processor
 
-    # k8s
+    # Monitoring
+    glances
+    ncpamixer # mixer for PulseAudio inspired by pavucontrol
+    nethogs
+    nix-inspect
+    nvtopPackages.amd
+    zenith
+
+    # Kubernetes
     argocd
     cilium-cli
+    grafana-loki # provides: promtail loki-canary loki logcli
     kubectl
     kubelogin-oidc # k8s credential plugin implementing OIDC auth (used by omni)
     kubernetes-helm
@@ -63,19 +67,7 @@ in
     minikube
     talosctl
 
-    # tui
-    glances
-    ncpamixer # mixer for PulseAudio inspired by pavucontrol
-    nethogs
-    nix-inspect
-    nvtopPackages.amd
-    zenith
-
-    # pandoc related
-    pandoc
-    texlive.combined.scheme-small # things needed for pandoc
-
-    # network
+    # Network
     dnsutils
     openconnect
     rustscan
@@ -85,10 +77,8 @@ in
     # crkbd
     planck
 
-    # other
-    file
-    lsof
-    wl-clipboard-rs
-    zola
+    # Pandoc related
+    pandoc
+    texlive.combined.scheme-small # things needed for pandoc
   ];
 }
