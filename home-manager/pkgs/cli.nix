@@ -14,10 +14,12 @@ in
     gh
     git-crypt
     gopass
+    grim # Grab images from a Wayland compositor.
     lsof
     nixfmt-rfc-style
     nodePackages.prettier
     ripgrep
+    slurp # Select a region in a Wayland compositor (used with grim)
     tealdeer # tldr in Rust
     trash-cli
     tree
