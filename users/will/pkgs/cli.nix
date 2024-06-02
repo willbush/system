@@ -26,7 +26,6 @@ in
 
     # k8s
     argocd
-    argocd-autopilot
     cilium-cli
     kube-score
     kubeconform
