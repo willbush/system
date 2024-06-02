@@ -49,8 +49,6 @@ in
       ../profiles/emacs.nix
       ../profiles/gpg.nix
       ../profiles/gui-theme.nix
-      ../profiles/pkgs/cli.nix
-      ../profiles/pkgs/gui.nix
       ../profiles/programs.nix
       ../profiles/swayidle.nix
       ../profiles/swaylock.nix
