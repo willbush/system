@@ -3,18 +3,21 @@
 In NixOS, I run an [[https://github.com/nix-community/impermanence][impermanent]] setup with tmpfs as root, flakes, LUKS
 encryption. Check out [[https://willbush.dev/blog/impermanent-nixos/][this blog]] post I made if you're interested.
 
+
 * Folder Structure
 
-The following is 1 level deep directory structure generated using ~tree -L 1 -d~.
+The following is 1 level deep directory structure generated using ~tree -L 1 -d~
+with annotations.
 
 #+begin_src
 .
-├── configs
-├── hosts
-├── modules
-├── profiles
-├── secrets
-└── users
+├── configs        # see below.
+├── home-manager   # home-manager packages and profiles.
+├── hosts          # host specific configuration files.
+├── modules        # NixOS modules
+├── profiles       # NixOS profiles
+├── secrets        # git-crypt encrypted secrets.
+└── users          # user specific
 #+end_src
 
 ** configs
@@ -37,17 +40,6 @@ I typically only use Vim if Emacs is not available for some reason. In the
 ~init.vim~ file there are just the most important key bindings in my [[configs/keyboard-firmware/readme.org][customized
 Evil / Vim keybindings]]
 
-** hosts
-
-host specific configuration files.
-
-** modules, profiles, and users
-
-similar to and inspired by: https://devos.divnix.com/index.html
-
-** secrets
-
-A place for me to store encrypted secrets using [[https://github.com/AGWA/git-crypt][git-crypt]].
 
 * License
 

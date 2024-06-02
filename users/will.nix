@@ -12,12 +12,12 @@ let
 in
 {
   imports = [
-    ../../modules/services/syncthing.nix
-    ../../modules/services/virt.nix
-    ../../modules/services/docker.nix
-    ../../profiles/nix-settings.nix
-    ./greetd.nix
-    ./less.nix
+    ../modules/services/docker.nix
+    ../modules/services/syncthing.nix
+    ../modules/services/virt.nix
+    ../profiles/greetd.nix
+    ../profiles/less.nix
+    ../profiles/nix-settings.nix
   ];
 
   users = {
@@ -42,20 +42,20 @@ in
   home-manager.users.will = {
     imports = [
       inputs.catppuccin.homeManagerModules.catppuccin
-      ../profiles/bat.nix
-      ../profiles/dotnet.nix
-      ../profiles/emacs.nix
-      ../profiles/gpg.nix
-      ../profiles/gui-theme.nix
-      ../profiles/programs.nix
-      ../profiles/swayidle.nix
-      ../profiles/swaylock.nix
-      ../profiles/zathura.nix
-      ./git.nix
-      ./krew.nix
-      ./pkgs/cli.nix
-      ./pkgs/gui.nix
-      ./xdg.nix
+      ../home-manager/bat.nix
+      ../home-manager/dotnet.nix
+      ../home-manager/emacs.nix
+      ../home-manager/git.nix
+      ../home-manager/gpg.nix
+      ../home-manager/gui-theme.nix
+      ../home-manager/krew.nix
+      ../home-manager/pkgs/cli.nix
+      ../home-manager/pkgs/gui.nix
+      ../home-manager/programs.nix
+      ../home-manager/swayidle.nix
+      ../home-manager/swaylock.nix
+      ../home-manager/xdg.nix
+      ../home-manager/zathura.nix
     ];
 
     home = {
@@ -63,7 +63,7 @@ in
       inherit username;
       homeDirectory = "/home/will";
 
-      file.".ideavimrc".text = fileContents ../../configs/nvim/init.vim;
+      file.".ideavimrc".text = fileContents ../configs/nvim/init.vim;
 
       sessionVariables = {
         # Set docker to use BuildKit by default.
@@ -78,7 +78,7 @@ in
     wayland.windowManager.hyprland = {
       enable = true;
       catppuccin.enable = true;
-      extraConfig = builtins.readFile ../../configs/hypr/hyprland.conf;
+      extraConfig = builtins.readFile ../configs/hypr/hyprland.conf;
     };
 
     # lightweight notification daemon for Wayland
@@ -98,7 +98,7 @@ in
       neovim = {
         enable = true;
         catppuccin.enable = true;
-        extraConfig = builtins.readFile ../../configs/nvim/init.vim;
+        extraConfig = builtins.readFile ../configs/nvim/init.vim;
       };
     };
 

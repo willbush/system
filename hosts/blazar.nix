@@ -10,11 +10,11 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     ../modules/secrets.nix
     ../modules/unfree.nix
-    ../persist.nix
     ../profiles/efi.nix
     ../profiles/host-settings.nix
+    ../profiles/persist.nix
     ../profiles/printer.nix
-    ../users/will
+    ../users/will.nix
   ];
 
   # Whether to use git-crypt encrypted secrets directory or use temporary / fake

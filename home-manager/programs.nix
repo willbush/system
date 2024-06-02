@@ -57,7 +57,7 @@
         size = 100000;
         save = 100000;
       };
-      initExtra = pkgs.lib.fileContents ../../configs/zsh/zshrc-init-extra.sh;
+      initExtra = pkgs.lib.fileContents ../configs/zsh/zshrc-init-extra.sh;
     };
 
     starship = {
