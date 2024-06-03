@@ -10,11 +10,11 @@
     "${modulesPath}/installer/scan/not-detected.nix"
     ../modules/secrets.nix
     ../modules/unfree.nix
-    ../profiles/efi.nix
-    ../profiles/host-settings.nix
-    ../profiles/nix-settings.nix
-    ../profiles/persist.nix
-    ../profiles/printer.nix
+    ../profiles/nixos/efi.nix
+    ../profiles/nixos/host-settings.nix
+    ../profiles/nixos/nix-settings.nix
+    ../profiles/nixos/persist.nix
+    ../profiles/nixos/printer.nix
     ../users/will.nix
   ];
 

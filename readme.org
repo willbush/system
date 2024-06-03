@@ -6,16 +6,14 @@ encryption. Check out [[https://willbush.dev/blog/impermanent-nixos/][this blog]
 
 * Folder Structure
 
-The following is 1 level deep directory structure generated using ~tree -L 1 -d~
-with annotations.
-
 #+begin_src
 .
 ├── configs        # see below.
-├── home-manager   # home-manager packages and profiles.
 ├── hosts          # host specific configuration files.
 ├── modules        # NixOS modules
-├── profiles       # NixOS profiles
+├── profiles
+│   ├── home       # home-manager profiles
+│   └── nixos      # nixos profiles
 ├── secrets        # git-crypt encrypted secrets.
 └── users          # user specific
 #+end_src

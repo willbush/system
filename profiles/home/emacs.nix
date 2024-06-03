@@ -16,10 +16,10 @@
         '';
       };
       ".config/chemacs/profiles.el" = {
-        source = ../configs/emacs/profiles.el;
+        source = ../../configs/emacs/profiles.el;
       };
       ".config/emacs.default" = {
-        source = ../configs/emacs/default;
+        source = ../../configs/emacs/default;
         recursive = true;
       };
     };
