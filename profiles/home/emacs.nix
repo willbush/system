@@ -167,7 +167,6 @@
         org-roam
         ox-gfm
         page-break-lines # emacs-dashboard dependency
-        pandoc-mode
         password-generator
         password-store
         pdf-tools

@@ -42,20 +42,5 @@
 (use-package markdown-toc
   :after markdown-mode)
 
-;;
-;;; Org and Markdown related tools
-
-(use-package pandoc-mode
-  :hook
-  ((markdown-mode . pandoc-mode)
-   (org-mode . pandoc-mode)
-   (pandoc-mode . pandoc-load-default-settings))
-
-  :config
-  (general-def
-    :prefix ","
-    :states 'normal
-    :keymaps 'pandoc-mode-map
-    "p" 'pandoc-main-hydra/body))
 
 (provide 'init-markup-languages)
