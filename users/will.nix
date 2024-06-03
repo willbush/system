@@ -63,12 +63,6 @@ in
       homeDirectory = "/home/will";
 
       file.".ideavimrc".text = fileContents ../configs/nvim/init.vim;
-
-      sessionVariables = {
-        # Set docker to use BuildKit by default.
-        # TODO: remove when this is the default in docker
-        DOCKER_BUILDKIT = 1;
-      };
     };
 
     # set catppuccin theme flavor for home-manager module
