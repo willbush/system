@@ -6,10 +6,6 @@
     libreoffice-fresh
     simple-scan
 
-    # Security & Password Management
-    globalprotect-openconnect # VPN
-    keepassxc
-
     # Communication
     discord
     signal-desktop
@@ -42,6 +38,7 @@
     helvum # A GTK patchbay for pipewire.
 
     # Utilities
+    keepassxc
     pkgs.transmission-gtk
     remmina
     virt-manager
