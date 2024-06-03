@@ -32,7 +32,6 @@ in
         extraGroups = [
           "networkmanager"
           "wheel"
-          "wireshark"
         ];
       };
     };
@@ -141,8 +140,6 @@ in
   };
 
   programs.zsh.enable = true;
-
-  programs.wireshark.enable = true;
 
   security = {
     sudo.enable = false;
