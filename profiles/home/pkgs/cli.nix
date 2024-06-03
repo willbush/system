@@ -78,9 +78,5 @@ in
     # Keyboard firmware flash
     # crkbd
     planck
-
-    # Pandoc related
-    pandoc
-    texlive.combined.scheme-small # things needed for pandoc
   ];
 }
