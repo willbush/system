@@ -4,7 +4,6 @@
   inputs = {
     # I use unstable by default
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-22.11-small";
     impermanence.url = "github:nix-community/impermanence";
 
     home-manager = {
@@ -41,7 +40,6 @@
       catppuccin,
       impermanence,
       nixpkgs,
-      nixpkgs-stable,
       ...
     }@inputs:
     let
@@ -54,14 +52,6 @@
         "blazar"
         "ton-618"
       ];
-
-      # see https://nixos.wiki/wiki/Flakes#Importing_packages_from_multiple_channels
-      overlay-stable = _final: _prev: {
-        stable = import nixpkgs-stable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      };
 
       toConfig =
         hostName:
@@ -83,11 +73,7 @@
             }
             {
               networking.hostName = hostName;
-              nixpkgs.overlays = [
-                inputs.emacs-overlay.overlays.default
-                # Make "pkgs.stable" available
-                overlay-stable
-              ];
+              nixpkgs.overlays = [ inputs.emacs-overlay.overlays.default ];
             }
           ];
           specialArgs = {
