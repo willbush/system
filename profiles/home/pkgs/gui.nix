@@ -45,6 +45,5 @@
     pkgs.transmission-gtk
     remmina
     virt-manager
-    wireshark
   ];
 }
