@@ -12,6 +12,7 @@
     ../modules/unfree.nix
     ../profiles/efi.nix
     ../profiles/host-settings.nix
+    ../profiles/nix-settings.nix
     ../profiles/persist.nix
     ../users/will.nix
   ];

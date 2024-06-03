@@ -7,11 +7,12 @@
 }:
 {
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
+    "${modulesPath}/installer/scan/not-detected.nix"
     ../modules/secrets.nix
     ../modules/unfree.nix
     ../profiles/efi.nix
     ../profiles/host-settings.nix
+    ../profiles/nix-settings.nix
     ../profiles/persist.nix
     ../profiles/printer.nix
     ../users/will.nix
