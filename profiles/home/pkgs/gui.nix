@@ -21,7 +21,7 @@
 
     # Browsers
     (firefox.override { nativeMessagingHosts = [ browserpass ]; })
-    ungoogled-chromium
+    ungoogled-chromium # sometimes I use for testing
 
     # Development
     jetbrains.rider
@@ -31,8 +31,8 @@
     maestral # cli tool
 
     # GNOME Apps
-    gnome.nautilus
-    gnome.seahorse
+    gnome.nautilus # file manager I sometimes use
+    gnome.seahorse # password and keys manager
 
     # Audio
     helvum # A GTK patchbay for pipewire.
