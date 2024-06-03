@@ -15,8 +15,8 @@ in
     ../modules/services/docker.nix
     ../modules/services/syncthing.nix
     ../modules/services/virt.nix
-    ../profiles/greetd.nix
-    ../profiles/less.nix
+    ../profiles/nixos/greetd.nix
+    ../profiles/nixos/less.nix
   ];
 
   users = {
@@ -41,20 +41,20 @@ in
   home-manager.users.will = {
     imports = [
       inputs.catppuccin.homeManagerModules.catppuccin
-      ../home-manager/bat.nix
-      ../home-manager/dotnet.nix
-      ../home-manager/emacs.nix
-      ../home-manager/git.nix
-      ../home-manager/gpg.nix
-      ../home-manager/gui-theme.nix
-      ../home-manager/krew.nix
-      ../home-manager/pkgs/cli.nix
-      ../home-manager/pkgs/gui.nix
-      ../home-manager/programs.nix
-      ../home-manager/swayidle.nix
-      ../home-manager/swaylock.nix
-      ../home-manager/xdg.nix
-      ../home-manager/zathura.nix
+      ../profiles/home/bat.nix
+      ../profiles/home/dotnet.nix
+      ../profiles/home/emacs.nix
+      ../profiles/home/git.nix
+      ../profiles/home/gpg.nix
+      ../profiles/home/gui-theme.nix
+      ../profiles/home/krew.nix
+      ../profiles/home/pkgs/cli.nix
+      ../profiles/home/pkgs/gui.nix
+      ../profiles/home/programs.nix
+      ../profiles/home/swayidle.nix
+      ../profiles/home/swaylock.nix
+      ../profiles/home/xdg.nix
+      ../profiles/home/zathura.nix
     ];
 
     home = {
