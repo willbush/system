@@ -17,7 +17,6 @@ in
     ../modules/services/virt.nix
     ../profiles/greetd.nix
     ../profiles/less.nix
-    ../profiles/nix-settings.nix
   ];
 
   users = {
