@@ -31,12 +31,6 @@ in
       description = "default password 'temp' for initial system setup.";
     };
 
-    globalprotectSettings = mkOption {
-      type = types.attrs;
-      default = { };
-      description = "work globalprotect settings";
-    };
-
     krb5Settings = mkOption {
       type = types.attrs;
       default = "";
@@ -58,7 +52,6 @@ in
   config = mkIf cfg.enable {
     modules.secrets.rootHashedPassword = fileContents ../secrets/hashed-password-root.txt;
     modules.secrets.willHashedPassword = fileContents ../secrets/hashed-password-will.txt;
-    modules.secrets.globalprotectSettings = import ../secrets/work-globalprotect-settings.nix;
     modules.secrets.krb5Settings = import ../secrets/krb5-settings.nix;
     modules.secrets.willMatchBlocks = import ../secrets/ssh-matchblocks-will.nix;
 

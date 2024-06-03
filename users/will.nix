@@ -131,12 +131,6 @@ in
     gnome.gnome-keyring.enable = true;
 
     mullvad-vpn.enable = true;
-
-    # needed for globalprotect-openconnect to work
-    globalprotect = {
-      enable = secretsEnabled;
-      settings = config.modules.secrets.globalprotectSettings;
-    };
   };
 
   programs.zsh.enable = true;
