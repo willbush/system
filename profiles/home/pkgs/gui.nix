@@ -16,6 +16,7 @@
     inkscape
     libsForQt5.kdenlive
     obs-studio
+    swappy # Wayland native snapshot editing tool
     vlc
 
     # Browsers
