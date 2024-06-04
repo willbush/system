@@ -16,7 +16,6 @@
     inkscape
     libsForQt5.kdenlive
     obs-studio
-    peek
     vlc
 
     # Browsers
