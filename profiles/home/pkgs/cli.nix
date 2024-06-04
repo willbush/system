@@ -28,6 +28,7 @@ in
     usbutils
     wget
     wl-clipboard-rs
+    wl-screenrec
     zip
     zola # blogging
 
