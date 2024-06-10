@@ -224,7 +224,7 @@
   (setq gptel-model "gpt-4o"
         gptel-api-key
         (lambda ()
-          (nth 3 (process-lines "gopass" "show" "will/work/openai.com")))))
+          (nth 3 (process-lines "gopass" "show" "will/websites/openai.com")))))
 
 
 (use-package keycast
