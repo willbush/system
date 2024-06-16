@@ -21,7 +21,7 @@
 
     # Browsers
     (firefox.override { nativeMessagingHosts = [ browserpass ]; })
-    ungoogled-chromium # sometimes I use for testing
+    chromium # sometimes I use for testing
 
     # Development
     jetbrains.rider
