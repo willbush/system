@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "atomic-chrome": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712478236,
+        "narHash": "sha256-mUdVT+TkXC6+Pwqm/cev0jEC4s6fp2qmVxXlh9e5Z+k=",
+        "owner": "KarimAziev",
+        "repo": "atomic-chrome",
+        "rev": "7ae4397640c7a9f1c52edaef36710c47f7111c41",
+        "type": "github"
+      },
+      "original": {
+        "owner": "KarimAziev",
+        "repo": "atomic-chrome",
+        "type": "github"
+      }
+    },
     "catppuccin": {
       "locked": {
         "lastModified": 1717565621,
@@ -172,6 +188,7 @@
     },
     "root": {
       "inputs": {
+        "atomic-chrome": "atomic-chrome",
         "catppuccin": "catppuccin",
         "chemacs": "chemacs",
         "copilot-el": "copilot-el",

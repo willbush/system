@@ -31,6 +31,10 @@
       url = "github:nemethf/eglot-x";
       flake = false;
     };
+    atomic-chrome = {
+      url = "github:KarimAziev/atomic-chrome";
+      flake = false;
+    };
     # Soothing pastel theme for Nix
     catppuccin.url = "github:catppuccin/nix";
   };
