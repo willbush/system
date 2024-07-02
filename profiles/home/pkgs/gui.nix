@@ -38,7 +38,7 @@
     helvum # A GTK patchbay for pipewire.
 
     # Utilities
-    pkgs.transmission-gtk
+    transmission_4-gtk
     remmina
     virt-manager
   ];
