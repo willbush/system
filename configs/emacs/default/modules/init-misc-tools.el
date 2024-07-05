@@ -218,7 +218,7 @@
       "Claude"
     :stream t
     :key (lambda ()
-           (nth 0 (process-lines "gopass" "show" "will/work/claude-api-key"))))
+           (nth 0 (process-lines "gopass" "show" "will/general/claude-api-key"))))
 
 
   (setq gptel-model "gpt-4o"
