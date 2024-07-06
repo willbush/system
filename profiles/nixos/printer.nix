@@ -22,7 +22,8 @@
     printing = {
       enable = true;
       # Works fine for the hll2380dw
-      drivers = [ pkgs.hll2390dw-cups ];
+      # dropped since it was unmaintained.
+      # drivers = [ pkgs.hll2390dw-cups ];
       logLevel = "notice"; # one level below "info"
     };
 
