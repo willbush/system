@@ -30,8 +30,8 @@
     maestral # cli tool
 
     # GNOME Apps
-    gnome.nautilus # file manager I sometimes use
-    gnome.seahorse # password and keys manager
+    nautilus # file manager I sometimes use
+    seahorse # password and keys manager
 
     # Audio
     helvum # A GTK patchbay for pipewire.
