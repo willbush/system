@@ -85,14 +85,6 @@ in
     # plugins for PipeWire applications
     services.easyeffects.enable = true;
 
-    programs = {
-      wofi.enable = true;
-      neovim = {
-        enable = true;
-        extraConfig = builtins.readFile ../configs/nvim/init.vim;
-      };
-    };
-
     # Nicely reload system units when changing configs
     systemd.user.startServices = "sd-switch";
   };
