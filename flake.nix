@@ -2,7 +2,6 @@
   description = "Trying to build the perfect system";
 
   inputs = {
-    # I use unstable by default
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     impermanence.url = "github:nix-community/impermanence";
 
