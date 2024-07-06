@@ -84,7 +84,7 @@
 
     neovim = {
       enable = true;
-      extraConfig = builtins.readFile ../configs/nvim/init.vim;
+      extraConfig = builtins.readFile ../../configs/nvim/init.vim;
     };
   };
 }
