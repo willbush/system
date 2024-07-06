@@ -61,11 +61,8 @@
     starship.enable = true;
 
     htop.enable = true;
-
     btop.enable = true;
-
-    # command: btm
-    bottom.enable = true;
+    bottom.enable = true; # command: btm
 
     # command line image viewer intended for use with tiling window managers.
     imv.enable = true;
@@ -82,5 +79,12 @@
     };
 
     k9s.enable = true;
+
+    wofi.enable = true;
+
+    neovim = {
+      enable = true;
+      extraConfig = builtins.readFile ../configs/nvim/init.vim;
+    };
   };
 }
