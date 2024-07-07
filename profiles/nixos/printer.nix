@@ -21,9 +21,6 @@
     # avahi gets around that issue by connecting via a different means.
     printing = {
       enable = true;
-      # Works fine for the hll2380dw
-      # dropped since it was unmaintained.
-      # drivers = [ pkgs.hll2390dw-cups ];
       logLevel = "notice"; # one level below "info"
     };
 
