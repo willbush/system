@@ -7,6 +7,7 @@
 
 
 (use-package which-key
+  :ensure nil ;; Org is included in Emacs.
   :init
   (setq which-key-sort-order #'which-key-prefix-then-key-order
         which-key-sort-uppercase-first nil

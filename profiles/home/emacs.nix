@@ -216,7 +216,6 @@
         visual-fill-column
         vterm
         web-mode
-        which-key
         yaml-mode
         zoom
         zoxide
