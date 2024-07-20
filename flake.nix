@@ -34,17 +34,12 @@
       url = "github:KarimAziev/atomic-chrome";
       flake = false;
     };
-    # Soothing pastel theme for Nix
-    catppuccin.url = "github:catppuccin/nix";
+    # System-wide colorscheming and typography for NixOS
+    stylix.url = "github:danth/stylix";
   };
 
   outputs =
-    {
-      catppuccin,
-      impermanence,
-      nixpkgs,
-      ...
-    }@inputs:
+    { nixpkgs, ... }@inputs:
     let
       inherit (nixpkgs) lib;
       inherit (lib) nixosSystem;
@@ -62,9 +57,9 @@
           inherit system;
           modules = [
             (./hosts + "/${hostName}.nix")
-            catppuccin.nixosModules.catppuccin
-            impermanence.nixosModules.impermanence
+            inputs.impermanence.nixosModules.impermanence
             inputs.home-manager.nixosModules.home-manager
+            inputs.stylix.nixosModules.stylix
             {
               home-manager = {
                 useGlobalPkgs = true;
