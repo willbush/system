@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
@@ -39,13 +38,11 @@ in
 
   home-manager.users.will = {
     imports = [
-      inputs.catppuccin.homeManagerModules.catppuccin
       ../profiles/home/bat.nix
       ../profiles/home/dotnet.nix
       ../profiles/home/emacs.nix
       ../profiles/home/git.nix
       ../profiles/home/gpg.nix
-      ../profiles/home/gui-theme.nix
       ../profiles/home/krew.nix
       ../profiles/home/pkgs/cli.nix
       ../profiles/home/pkgs/gui.nix
@@ -64,10 +61,7 @@ in
       file.".ideavimrc".text = fileContents ../configs/nvim/init.vim;
     };
 
-    # set catppuccin theme flavor for home-manager module
-    catppuccin.flavor = "mocha";
-    # Enable for all available programs
-    catppuccin.enable = true;
+    gtk.enable = true;
 
     wayland.windowManager.hyprland = {
       enable = true;
@@ -154,6 +148,16 @@ in
     source-code-pro
     ubuntu_font_family
   ];
+
+  stylix = {
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    image = pkgs.fetchurl {
+      # https://www.reddit.com/r/WidescreenWallpaper/comments/1dzli4w/untitled_7680x2160/
+      url = "https://i.redd.it/1k3jwtm7zlbd1.jpeg";
+      hash = "sha256-3GJ6pwrExTGJ5y+X//7iBY2ABDUkcFlxQzot24evceo=";
+    };
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.11";

@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   hardware = {
     sane.enable = true;
