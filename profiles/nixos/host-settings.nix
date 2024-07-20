@@ -22,7 +22,6 @@
   # virtual console is enabled by default. Just applying theme
   console.catppuccin.enable = true;
 
-  sound.enable = true;
   # Enable sound with pipewire.
   security.rtkit.enable = true;
   services.pipewire = {
