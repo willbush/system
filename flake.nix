@@ -15,6 +15,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # System-wide colorscheming and typography for NixOS
+    stylix = {
+      url = "github:danth/stylix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+
     chemacs = {
       url = "github:plexus/chemacs2";
       flake = false;
@@ -25,22 +34,16 @@
       url = "github:zerolfx/copilot.el";
       flake = false;
     };
+
     # Eventually will be on elpa https://github.com/nemethf/eglot-x/issues/1
     eglot-x = {
       url = "github:nemethf/eglot-x";
       flake = false;
     };
+
     atomic-chrome = {
       url = "github:KarimAziev/atomic-chrome";
       flake = false;
-    };
-    # System-wide colorscheming and typography for NixOS
-    stylix = {
-      url = "github:danth/stylix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
     };
   };
 
