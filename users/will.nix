@@ -117,6 +117,13 @@ in
 
   programs.zsh.enable = true;
 
+  programs.nh = {
+    enable = true;
+    flake = "/home/will/code/system";
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 10d --keep 5";
+  };
+
   security = {
     sudo.enable = false;
     sudo-rs.enable = true;
