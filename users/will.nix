@@ -81,10 +81,6 @@ in
       defaultTimeout = 5000;
     };
 
-    # Limiter, compressor, convolver, equalizer and auto volume and many other
-    # plugins for PipeWire applications
-    services.easyeffects.enable = true;
-
     # Nicely reload system units when changing configs
     systemd.user.startServices = "sd-switch";
   };
