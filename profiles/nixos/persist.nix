@@ -100,10 +100,6 @@
           mode = "0700";
         }
         {
-          directory = ".config/gh";
-          mode = "0700";
-        }
-        {
           directory = ".gnupg";
           mode = "0700";
         }

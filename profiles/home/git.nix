@@ -29,5 +29,7 @@
       serverAliveInterval = 30;
       matchBlocks = osConfig.modules.secrets.willMatchBlocks;
     };
+
+    gh.enable = true;
   };
 }

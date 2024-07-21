@@ -11,7 +11,6 @@ in
     eza
     fd
     file
-    gh
     git-crypt
     gopass
     grim # Grab images from a Wayland compositor.
