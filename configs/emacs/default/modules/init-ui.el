@@ -39,10 +39,6 @@
   :hook (prog-mode . rainbow-delimiters-mode))
 
 
-(use-package fill-column-indicator
-  :commands fci-mode)
-
-
 (use-package nav-flash
   :commands nav-flash-show
   :preface

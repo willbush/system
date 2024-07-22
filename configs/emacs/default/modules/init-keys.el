@@ -205,7 +205,7 @@
   "ss" '(zoxide-travel :wk "zoxide search directory")
 
   "t" '(:ignore t :wk "toggle")
-  "tc" 'fci-mode
+  "tc" 'display-fill-column-indicator-mode
   "tf" 'auto-fill-mode
   "tg" '(zoom-mode :wk "zoom-mode golden ratio")
   "tl" 'toggle-truncate-lines
