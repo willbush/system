@@ -214,17 +214,13 @@
 
   (setq gptel-default-mode 'org-mode)
 
-  (gptel-make-anthropic
-      "Claude"
-    :stream t
-    :key (lambda ()
-           (nth 0 (process-lines "gopass" "show" "will/general/claude-api-key"))))
-
-
-  (setq gptel-model "gpt-4o"
-        gptel-api-key
-        (lambda ()
-          (nth 3 (process-lines "gopass" "show" "will/websites/openai.com")))))
+  (setq
+    gptel-model "claude-3-5-sonnet-20240620"
+    gptel-backend
+    (gptel-make-anthropic "Claude"
+      :stream t
+      :key (lambda () (nth 0 (process-lines "gopass" "show" "will/general/claude-api-key"))))
+    gptel-api-key (lambda () (nth 3 (process-lines "gopass" "show" "will/websites/openai.com")))))
 
 
 (use-package keycast
