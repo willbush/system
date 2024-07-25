@@ -94,6 +94,7 @@
         "downloads"
         "dropbox"
         "images"
+        "rdp-share"
         "sync"
         {
           directory = ".SeedVaultAndroidBackup";
