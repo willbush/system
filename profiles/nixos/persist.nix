@@ -82,6 +82,7 @@
         ".local/share/maestral"
         ".local/share/omni"
         ".local/share/remmina"
+        ".local/share/talos"
         ".local/share/zoxide"
         ".local/share/zsh"
         ".local/state/k9s"
