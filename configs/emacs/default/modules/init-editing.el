@@ -49,10 +49,6 @@
     "r" 'hydra-expand-region/body))
 
 
-(use-package evil-tutor
-  :commands evil-tutor-start)
-
-
 (use-package evil
   :demand t ;; demand due to general perf issues mentioned on `init-keys.el'
   :hook (after-init . evil-mode)
