@@ -33,6 +33,7 @@
 
 ;;
 ;;; Scrolling
+
 (setq hscroll-margin 2
       hscroll-step 1
       ;; Emacs spends too much effort recentering the screen if you scroll the
@@ -43,22 +44,22 @@
       scroll-conservatively 101
       scroll-margin 0
       scroll-preserve-screen-position t
-      ;; More performant rapid scrolling over unfontified regions. May cause
-      ;; brief spells of inaccurate syntax highlighting right after scrolling,
-      ;; which should quickly self-correct.
-      fast-but-imprecise-scrolling t
+      pixel-scroll-precision-mode t
       ;; Reduce cursor lag by a tiny bit by not auto-adjusting `window-vscroll'
       ;; for tall lines.
       auto-window-vscroll nil
       ;; mouse
-      mouse-wheel-scroll-amount '(6 ((shift) . hscroll))
-      mouse-wheel-scroll-amount-horizontal 2
-      mouse-wheel-progressive-speed nil)
+      mouse-wheel-scroll-amount '(2 ((shift) . hscroll))
+      mouse-wheel-scroll-amount-horizontal 2)
 
-;; keeps a faint highlight on the line of the point. Note I found there is a
-;; cost to this being on where every vertical movement causes emacs takes up
-;; ~15% CPU. Edit: after changing some performance related settings, this is now
-;; closer to ~8 CPU. I find it worth having.
+;;
+;;; Cursor
+
+;; Disable the blinking cursor.
+(blink-cursor-mode -1)
+(setq blink-matching-paren nil)
+
+;; keeps a faint highlight on the line of the point.
 (global-hl-line-mode 1)
 
 ;; follows symlinks without prompt when set to t
