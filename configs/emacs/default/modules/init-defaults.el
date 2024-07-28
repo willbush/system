@@ -67,7 +67,15 @@
 ;; allow narrow to region
 (put 'narrow-to-region 'disabled nil)
 
-;; tramp:
+;;
+;;; Tramp
+
+;; Note from Tramp manual:
+;;
+;; ‘password-cache-expiry’ sets the duration (in seconds) the passwords are
+;; remembered. Passwords are never saved permanently nor can they extend beyond
+;; the lifetime of the current Emacs session. Set ‘password-cache-expiry’ to
+;; ‘nil’ to disable expiration.
 (setq password-cache-expiry nil)
 
 ;;
