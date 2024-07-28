@@ -4,7 +4,7 @@
 ;; Set `doom-themes' early to prevent non-stylized UI flash.
 (use-package doom-themes
   :config
-  (load-theme 'doom-badger t))
+  (load-theme 'doom-Iosvkem t))
 
 
 ;; Set `doom-modeline' early to prevent non-stylized UI flash.
