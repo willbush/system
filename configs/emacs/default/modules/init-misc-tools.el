@@ -198,10 +198,6 @@
         vterm-buffer-name-string "vterm %s"))
 
 
-(use-package exec-path-from-shell
-  :commands exec-path-from-shell-copy-env)
-
-
 (use-package gptel
   :config
   (require 'gptel-curl)
