@@ -75,7 +75,6 @@
         ".krew"
         ".local/share/JetBrains"
         ".local/share/NuGet"
-        ".local/share/Trash"
         ".local/share/direnv"
         ".local/share/k9s"
         ".local/share/keyrings"
