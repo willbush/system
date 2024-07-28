@@ -207,7 +207,6 @@
         terraform-mode
         toc-org
         treesit-auto
-        typescript-mode
         vertico
         vimrc-mode
         visual-fill-column

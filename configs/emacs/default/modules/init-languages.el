@@ -38,13 +38,6 @@
 (use-package dockerfile-mode :mode "Dockerfile\\'")
 
 
-(use-package typescript-mode
-  ;; doesn't support tsx files yet:
-  ;; https://github.com/emacs-typescript/typescript.el/issues/4
-  :mode "\\.ts\\'"
-  :config
-  (setq typescript-ident-level 2))
-
 ;; CSS / JavaScript (build in modes) indention level
 (setq-default css-indent-offset 2)
 (setq-default js-indent-level 2)
