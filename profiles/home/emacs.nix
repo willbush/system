@@ -169,6 +169,7 @@
         evil-surround
         evil-traces
         evil-visualstar
+        exec-path-from-shell
         expand-region
         format-all
         gcmh
