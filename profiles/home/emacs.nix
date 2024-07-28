@@ -189,7 +189,6 @@
         marginalia
         markdown-mode
         markdown-toc
-        nav-flash
         nix-mode
         orderless
         org-modern
@@ -201,6 +200,7 @@
         pdf-tools
         powershell
         protobuf-mode
+        pulsar
         rainbow-delimiters
         ranger
         rust-mode
