@@ -55,6 +55,7 @@ in
     nethogs
     nix-inspect
     nvtopPackages.amd
+    viddy # Modern watch command
     zenith
 
     # Kubernetes
@@ -71,6 +72,7 @@ in
 
     # Network
     dnsutils
+    doggo # DNS Client for Humans.
     openconnect
     rustscan
     xh
