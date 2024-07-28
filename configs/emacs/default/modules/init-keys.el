@@ -128,7 +128,6 @@
   "hi" 'info
   "hl" 'find-library
   "hn"  'view-emacs-news
-  "ht" 'evil-tutor-start
   "hw"  'woman
 
   "hd" '(:ignore t :wk "describe")
