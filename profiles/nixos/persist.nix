@@ -96,6 +96,7 @@
         "images"
         "rdp-share"
         "sync"
+        "vms"
         {
           directory = ".SeedVaultAndroidBackup";
           mode = "0700";
