@@ -41,6 +41,7 @@ in
     omnisharp-roslyn # broken until https://github.com/NixOS/nixpkgs/pull/249091
     openssl
     python312Packages.grip # markdown preview
+    quickemu # VM manager
     shfmt
     tokei
 
