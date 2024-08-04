@@ -62,6 +62,8 @@
 
     userDirs = {
       enable = true;
+      createDirectories = true;
+
       desktop = "$HOME/desktop";
       download = "$HOME/downloads";
       publicShare = "$HOME/public";
