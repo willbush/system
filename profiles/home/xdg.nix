@@ -64,6 +64,7 @@
       enable = true;
       desktop = "$HOME/desktop";
       download = "$HOME/downloads";
+      publicShare = "$HOME/public";
       videos = "$HOME/videos";
     };
   };
