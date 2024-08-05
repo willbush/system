@@ -46,6 +46,7 @@
         ".cargo"
         ".config/JetBrains"
         ".config/Mullvad VPN"
+        ".config/OpenRGB"
         ".config/Signal"
         ".config/Slack"
         ".config/argocd"
