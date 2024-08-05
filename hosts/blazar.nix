@@ -22,8 +22,12 @@
   # values.
   modules.secrets.enable = true;
 
-  services.hardware.openrgb.enable = true;
-  services.hardware.openrgb.motherboard = "amd";
+  services.hardware.openrgb = {
+    enable = true;
+    package = pkgs.openrgb-with-all-plugins;
+    motherboard = "amd";
+  };
+
   # ROCm is an Advanced Micro Devices (AMD) software stack for graphics processing unit (GPU) programming.
   # Used by things like ollama and Tabby
   nixpkgs.config.rocmSupport = true;
