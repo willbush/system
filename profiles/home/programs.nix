@@ -38,12 +38,10 @@
         plugins = [
           # Completion providers:
           "dotnet"
-          "fd"
           "helm"
           "kubectl"
           "minikube"
           "poetry"
-          "ripgrep"
           "rust"
         ];
       };
