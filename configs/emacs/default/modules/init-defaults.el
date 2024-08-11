@@ -1,5 +1,86 @@
-;;; -*- lexical-binding: t; -*-
-;; Default settings inspired by Doom and Crafted Emacs.
+;;
+;;; Optimizations
+
+;;; Runtime optimizations
+;; PERF: A second, case-insensitive pass over `auto-mode-alist' is time wasted.
+(setq auto-mode-case-fold nil)
+
+;; PERF: Disable bidirectional text scanning for a modest performance boost.
+;;   I've set this to `nil' in the past, but the `bidi-display-reordering's docs
+;;   say that is an undefined state and suggest this to be just as good:
+(setq-default bidi-display-reordering 'left-to-right
+              bidi-paragraph-direction 'left-to-right)
+
+;; PERF: Disabling BPA makes redisplay faster, but might produce incorrect
+;;   reordering of bidirectional text with embedded parentheses (and other
+;;   bracket characters whose 'paired-bracket' Unicode property is non-nil).
+(setq bidi-inhibit-bpa t)
+
+;; Reduce rendering/line scan work for Emacs by not rendering cursors or regions
+;; in non-focused windows.
+(setq-default cursor-in-non-selected-windows nil)
+(setq highlight-nonselected-windows nil)
+
+;; More performant rapid scrolling over unfontified regions. May cause brief
+;; spells of inaccurate syntax highlighting right after scrolling, which should
+;; quickly self-correct.
+(setq fast-but-imprecise-scrolling t)
+
+;; Don't ping things that look like domain names.
+(setq ffap-machine-p-known 'reject)
+
+;; Emacs "updates" its UI more often than it needs to, so we slow it down
+;; slightly from 0.5s:
+(setq idle-update-delay 1.0)
+
+;; Font compacting can be terribly expensive, especially for rendering icon
+;; fonts on Windows. Whether disabling it has a notable affect on Linux and Mac
+;; hasn't been determined, but do it anyway, just in case. This increases memory
+;; usage, however!
+(setq inhibit-compacting-font-caches t)
+
+;; PGTK builds only: this timeout adds latency to frame operations, like
+;; `make-frame-invisible', which are frequently called without a guard because
+;; it's inexpensive in non-PGTK builds. Lowering the timeout from the default
+;; 0.1 should make childframes and packages that manipulate them (like `lsp-ui',
+;; `company-box', and `posframe') feel much snappier. See emacs-lsp/lsp-ui#613.
+(setq pgtk-wait-for-event-timeout 0.001)
+
+;; A lsp performance tweak https://emacs-lsp.github.io/lsp-mode/page/performance/
+;; "Increase the amount of data which Emacs reads from the process. Again the
+;; emacs default is too low 4k considering that the some of the language server
+;; responses are in 800k - 3M range."
+(setq read-process-output-max (* 1024 1024)) ;; 1 MiB
+
+;; Introduced in Emacs HEAD (b2f8c9f), this inhibits fontification while
+;; receiving input, which should help a little with scrolling performance.
+(setq redisplay-skip-fontification-on-input t)
+
+;; Remove command line options that aren't relevant to Linux; means slightly
+;; less to process at startup.
+(setq command-line-ns-option-alist nil)
+
+;; PERF: Resizing the Emacs frame (to accommodate fonts that are smaller or
+;;   larger than the system font) appears to impact startup time dramatically.
+;;   The larger the delta, the greater the delay. Even trivial deltas can yield
+;;   up to a ~1000ms loss, depending on font size and `window-system'. PGTK
+;;   seems least affected and NS/MAC the most.
+(setq frame-inhibit-implied-resize t)
+
+;; PERF,UX: Prevent "For information about GNU Emacs..." line in *Messages*.
+;; For some reason this saves ~10ms startup time
+(advice-add #'display-startup-echo-area-message :override #'ignore)
+;; PERF: Suppress the vanilla startup screen completely. We've disabled it
+;;   with `inhibit-startup-screen', but it would still initialize anyway.
+;;   This involves file IO and/or bitmap work (depending on the frame type).
+(advice-add #'display-startup-screen :override #'ignore)
+
+(add-hook
+ 'emacs-startup-hook
+ (lambda ()
+   ;; Better support for files with long lines
+   (global-so-long-mode 1)))
+
 
 ;;
 ;;; Emacs Core Configuration
@@ -7,15 +88,17 @@
 ;; Revert Dired and other buffers
 (setq global-auto-revert-non-file-buffers t)
 
-;; Revert buffers when the underlying file has changed
-(global-auto-revert-mode 1)
+;; PERF: enabling these modes adds 8-10 ms startup delay.
+;; So do it in a hook.
+(add-hook
+ 'emacs-startup-hook
+ (lambda ()
+   ;; Revert buffers when the underlying file has changed
+   (global-auto-revert-mode 1)
 
-;; Typed text replaces the selection if the selection is active,
-;; pressing delete or backspace deletes the selection.
-(delete-selection-mode +1)
-
-;; Longer max number of message buffer line.
-(setq message-log-max 5000)
+   ;; Typed text replaces the selection if the selection is active,
+   ;; pressing delete or backspace deletes the selection.
+   (delete-selection-mode +1)))
 
 ;; yes-or-no-p uses shorter answers "y" or "n".
 (setq use-short-answers t)
@@ -55,18 +138,31 @@
 ;;
 ;;; Cursor
 
-;; Disable the blinking cursor.
-(blink-cursor-mode -1)
+;; Don't blink the paren matching the one at point, it's too distracting.
 (setq blink-matching-paren nil)
 
-;; keeps a faint highlight on the line of the point.
-(global-hl-line-mode 1)
+;; Don't stretch the cursor to fit wide characters, it is disorienting,
+;; especially for tabs.
+(setq x-stretch-cursor nil)
 
 ;; follows symlinks without prompt when set to t
 (setq vc-follow-symlinks t)
 
 ;; allow narrow to region
 (put 'narrow-to-region 'disabled nil)
+
+;; PERF: enabling these modes adds very small startup delay.
+;; So do it in a hook.
+(add-hook
+ 'emacs-startup-hook
+ (lambda ()
+   ;; The blinking cursor is distracting, but also interferes with cursor settings
+   ;; in some minor modes that try to change it buffer-locally (like treemacs) and
+   ;; can cause freezing for folks (esp on macOS) with customized & color cursors.
+   (blink-cursor-mode -1)
+
+   ;; keeps a faint highlight on the line of the point.
+   (global-hl-line-mode 1)))
 
 ;;
 ;;; Tramp
@@ -146,72 +242,13 @@
 ;;
 ;;; Security
 
-;; Emacs stores authinfo in $HOME and in plaintext. Let's not do that, mkay?
-;; This file stores usernames, passwords, and other such treasures for the
-;; aspiring malicious third party.
+;; By default, Emacs stores `authinfo' in $HOME and in plain-text. Let's not do
+;; that, mkay? This file stores usernames, passwords, and other treasures for
+;; the aspiring malicious third party. Need a GPG setup though.
 (setq auth-sources (list "~/.authinfo.gpg"))
 
 ;;
-;;; Optimizations
-
-;; Emacs "updates" its UI more often than it needs to, so we slow it down
-;; slightly from 0.5s:
-(setq idle-update-delay 1)
-
-;; A second, case-insensitive pass over `auto-mode-alist' is time wasted, and
-;; indicates miss-configuration (or that the user needs to stop relying on case
-;; insensitivity).
-(setq auto-mode-case-fold nil)
-
-;; Better support for files with long lines
-(global-so-long-mode 1)
-
-;; Disable bidirectional text rendering for a modest performance boost. I've set
-;; this to `nil' in the past, but the `bidi-display-reordering's docs say that
-;; is an undefined state and suggest this to be just as good:
-(setq-default bidi-display-reordering 'left-to-right
-              bidi-paragraph-direction 'left-to-right
-              bidi-inhibit-bpa t)
-
-;; Reduce rendering/line scan work for Emacs by not rendering cursors or regions
-;; in non-focused windows.
-(setq-default cursor-in-non-selected-windows nil)
-(setq highlight-nonselected-windows nil)
-
-;; Resizing the Emacs frame can be a terribly expensive part of changing the
-;; font. By inhibiting this, we halve startup times, particularly when we use
-;; fonts that are larger than the system default (which would resize the frame).
-(setq frame-inhibit-implied-resize t)
-
-;; Don't ping things that look like domain names.
-(setq ffap-machine-p-known 'reject)
-
-;; Font compacting can be terribly expensive, especially for rendering icon
-;; fonts on Windows. Whether it has a noteable affect on Linux and Mac hasn't
-;; been determined, but we inhibit it there anyway.
-(setq inhibit-compacting-font-caches t)
-
-;; A lsp performance tweak https://emacs-lsp.github.io/lsp-mode/page/performance/
-;; "Increase the amount of data which Emacs reads from the process. Again the
-;; emacs default is too low 4k considering that the some of the language server
-;; responses are in 800k - 3M range."
-(setq read-process-output-max 1048576) ;; 1 MiB
-
-;; Remove command line options that aren't relevant to Linux; means slightly
-;; less to process at startup.
-(setq command-line-ns-option-alist nil)
-
-;;
 ;;; Editing Settings
-
-(setq electric-pair-pairs
-  '(
-    (?\( . ?\))
-    (?\[ . ?\])
-    (?\{ . ?\})
-   ))
-
-(electric-pair-mode t)
 
 ;; I don't want two spaces after my periods. This the affects behavior
 ;; of `fill-paragraph' (among other things).
@@ -221,6 +258,10 @@
 (setq-default indent-tabs-mode nil
               tab-width 2)
 
+;; Make `tabify' and `untabify' only affect indentation. Not tabs/spaces in the
+;; middle of a line.
+(setq tabify-regexp "^\t* [ \t]+")
+
 ;; fill-paragraph uses fill-column for the width at which to break lines
 (setq-default fill-column 80)
 
@@ -229,14 +270,14 @@
 (setq-default word-wrap t)
 
 ;; ...but don't do any wrapping by default. It's expensive. Enable
-;; `visual-line-mode' if you want soft line-wrapping. `auto-fill-mode'
-;; for hard line-wrapping.
+;; `visual-line-mode' if you want soft line-wrapping. `auto-fill-mode' for hard
+;; line-wrapping.
 (setq-default truncate-lines t)
 
-;; If enabled (and `truncate-lines' was disabled), soft wrapping no
-;; longer occurs when that window is less than
-;; `truncate-partial-width-windows' characters wide. We don't need
-;; this, and it's extra work for Emacs otherwise, so off it goes.
+;; If enabled (and `truncate-lines' was disabled), soft wrapping no longer
+;; occurs when that window is less than `truncate-partial-width-windows'
+;; characters wide. We don't need this, and it's extra work for Emacs otherwise,
+;; so off it goes.
 (setq truncate-partial-width-windows nil)
 
 ;; The POSIX standard defines a line is "a sequence of zero or more
@@ -246,14 +287,21 @@
 ;; compliant.
 (setq require-final-newline t)
 
+;; Default to soft line-wrapping in text modes. It is more sensibile for text
+;; modes, even if hard wrapping is more performant.
+(add-hook 'text-mode-hook #'visual-line-mode)
+
 ;; Cull duplicates in the kill ring to reduce bloat
 (setq kill-do-not-save-duplicates t)
 
 ;;
 ;;; Completion Settings
 
-;; This is a must for completion
-(savehist-mode 1)
+(add-hook
+ 'emacs-startup-hook
+ (lambda ()
+   ;; This is a must for completion
+   (savehist-mode 1)))
 
 ;; TAB cycle if there are only few candidates
 (setq completion-cycle-threshold 3)

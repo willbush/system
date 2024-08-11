@@ -19,13 +19,6 @@
   (column-number-mode))
 
 
-;; Get rid of "For information about GNU Emacs..." message at startup, unless
-;; we're in a daemon session, where it'll say "Starting Emacs daemon." instead,
-;; which isn't so bad.
-(unless (daemonp)
-  (advice-add #'display-startup-echo-area-message :override #'ignore))
-
-
 ;; Highlight matching parentheses
 (use-package paren
   :ensure nil

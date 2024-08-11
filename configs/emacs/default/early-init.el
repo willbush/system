@@ -3,13 +3,11 @@
 ;; Defer garbage collection further back in the startup process
 (setq gc-cons-threshold most-positive-fixnum)
 
-;; Work around to a crippling performance issue I reported affecting Emacs 28
-;; after cario was made the default: https://debbugs.gnu.org/db/40/40733.html I
-;; don't have this font on my system anymore, but I keep this around incase it
-;; finds its way back somehow.
-(add-to-list 'face-ignored-fonts "Adobe Blank")
-
 ;; Prevent the glimpse of un-styled Emacs by disabling these UI elements early.
+;; intentionally avoid calling `menu-bar-mode', `tool-bar-mode', and
+;; `scroll-bar-mode' because their manipulation of frame parameters can
+;; trigger/queue a superfluous (and expensive, depending on the window system)
+;; frame redraw at startup.
 (push '(menu-bar-lines . 0) default-frame-alist)
 (push '(tool-bar-lines . 0) default-frame-alist)
 (push '(vertical-scroll-bars) default-frame-alist)
