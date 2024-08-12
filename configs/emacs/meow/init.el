@@ -35,6 +35,18 @@
 ;;
 ;;; Packages
 
+(use-package which-key
+  :ensure nil ;; included in Emacs.
+  :hook (emacs-startup . which-key-mode)
+  :config
+  (setq which-key-sort-order #'which-key-prefix-then-key-order
+        which-key-sort-uppercase-first nil
+        which-key-add-column-padding 1
+        which-key-max-display-columns nil
+        which-key-min-display-lines 6
+        which-key-side-window-slot -10
+        which-key-idle-delay 0.5))
+
 (use-package doom-themes
   :hook (emacs-startup . load-doom-theme)
   :config
