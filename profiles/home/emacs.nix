@@ -158,6 +158,8 @@
         direnv
         dockerfile-mode
         doom-modeline
+        moody
+        meow
         doom-themes
         eglot-x
         embark
