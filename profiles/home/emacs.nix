@@ -158,8 +158,6 @@
         direnv
         dockerfile-mode
         doom-modeline
-        moody
-        meow
         doom-themes
         eglot-x
         embark
@@ -184,12 +182,15 @@
         haskell-mode
         helpful
         hydra
+        just-mode
         keycast
         magit
         magit-delta
         marginalia
         markdown-mode
         markdown-toc
+        meow
+        moody
         nix-mode
         orderless
         org-modern
