@@ -47,6 +47,26 @@
         which-key-side-window-slot -10
         which-key-idle-delay 0.5))
 
+(require 'init-meow)
+;; (require 'init-completion)
+
+;; TODO
+;; (require 'init-dired)
+;; (require 'init-editing)
+;; (require 'init-misc-tools)
+;; (require 'init-completion)
+;; (require 'init-prog-tools)
+;; (require 'init-languages)
+;; (require 'init-markup-languages)
+;; (require 'init-org)
+;; (require 'init-erc)
+;; (require 'init-funcs)
+;; (require 'init-keys)
+
+
+;;
+;;; Packages
+
 (use-package doom-themes
   :hook (emacs-startup . load-doom-theme)
   :config
