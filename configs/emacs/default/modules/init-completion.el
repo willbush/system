@@ -87,8 +87,8 @@
 
 ;; Keep track of recently opened files
 (use-package recentf
-  :hook (after-init . recentf-mode)
   :ensure nil ;; is included in Emacs.
+  :hook (after-init . recentf-mode)
   :config
   (defun my/recent-file-truename (file)
     (if (or (file-remote-p file nil t)
