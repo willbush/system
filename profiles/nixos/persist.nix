@@ -87,7 +87,6 @@
         ".local/share/zsh"
         ".local/state/k9s"
         ".local/state/wireplumber"
-        ".minikube"
         ".mozilla" # firefox
         ".nuget"
         ".talos"

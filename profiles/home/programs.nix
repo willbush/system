@@ -22,7 +22,6 @@
       shellAliases = {
         k = "kubectl";
         kcn = "kubectl config set-context $(kubectl config current-context) --namespace";
-        mk = "minikube kubectl --"; # https://minikube.sigs.k8s.io/docs/handbook/kubectl/
         em = "emacsclient --create-frame";
         kgp = "kubectl get pods";
         l = "eza";
@@ -40,7 +39,6 @@
           "dotnet"
           "helm"
           "kubectl"
-          "minikube"
           "poetry"
           "rust"
         ];

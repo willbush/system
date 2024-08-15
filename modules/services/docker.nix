@@ -26,9 +26,6 @@ in
       home.packages = with pkgs; [
         docker
         docker-compose
-        # lets me use `minikube start --driver=kvm2` which is useful testing
-        # rook-ceph
-        docker-machine-kvm2
       ];
       programs.zsh.oh-my-zsh.plugins = [
         "docker"

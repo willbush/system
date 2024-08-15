@@ -69,7 +69,7 @@ in
     kubernetes-helm
     kubeseal
     kustomize
-    minikube
+    kind
     talosctl
 
     # Network
