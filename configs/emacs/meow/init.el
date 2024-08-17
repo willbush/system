@@ -4,6 +4,8 @@
 
 (defconst EMACS-BENCH (string-equal (getenv "EMACS_BENCH") "1"))
 
+(setq use-package-always-demand EMACS-BENCH)
+
 ;; A big contributor to startup times is garbage collection. We up the gc
 ;; threshold to temporarily prevent it from running, then reset it later using a
 ;; hook and controlling after that with `gcmh-mode'.
