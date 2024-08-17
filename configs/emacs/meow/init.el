@@ -2,6 +2,8 @@
 
 (defconst GC-CONS-THRESHOLD (* 32 1024 1024)) ; 32 MiB
 
+(defconst EMACS-BENCH (string-equal (getenv "EMACS_BENCH") "1"))
+
 ;; A big contributor to startup times is garbage collection. We up the gc
 ;; threshold to temporarily prevent it from running, then reset it later using a
 ;; hook and controlling after that with `gcmh-mode'.
@@ -16,7 +18,7 @@
 
 (add-to-list 'load-path (expand-file-name "modules/" user-emacs-directory))
 
-(when (string-equal (getenv "EMACS_RUN_BENCHMARK_INIT") "1")
+(when EMACS-BENCH
   (use-package benchmark-init
     :config
     ;; Disable collection of benchmark data after init is done and show results.
@@ -36,6 +38,7 @@
 ;;; Packages
 
 (use-package which-key
+  :demand EMACS-BENCH
   :ensure nil ;; included in Emacs.
   :hook (emacs-startup . which-key-mode)
   :config
@@ -68,6 +71,7 @@
 ;;; Packages
 
 (use-package doom-themes
+  :demand EMACS-BENCH
   :hook (emacs-startup . load-doom-theme)
   :config
   (defun load-doom-theme ()
@@ -75,6 +79,7 @@
 
 
 (use-package moody
+  :demand EMACS-BENCH
   :hook (emacs-startup . my/start-modeline)
   :config
   (defun my/start-modeline ()
@@ -85,6 +90,7 @@
 
 ;; Highlight matching parentheses
 (use-package paren
+  :demand EMACS-BENCH
   :ensure nil
   :hook (prog-mode . show-paren-mode)
   :config
@@ -93,10 +99,12 @@
 
 
 (use-package rainbow-delimiters
+  :demand EMACS-BENCH
   :hook (prog-mode . rainbow-delimiters-mode))
 
 
 (use-package pulsar
+  :demand EMACS-BENCH
   :hook
   (after-init . pulsar-global-mode)
   (next-error . pulsar-pulse-line)
