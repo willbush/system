@@ -38,7 +38,6 @@
 ;;; Packages
 
 (use-package which-key
-  :demand EMACS-BENCH
   :ensure nil ;; included in Emacs.
   :hook (emacs-startup . which-key-mode)
   :config
@@ -71,7 +70,6 @@
 ;;; Packages
 
 (use-package doom-themes
-  :demand EMACS-BENCH
   :hook (emacs-startup . load-doom-theme)
   :config
   (defun load-doom-theme ()
@@ -79,7 +77,6 @@
 
 
 (use-package moody
-  :demand EMACS-BENCH
   :hook (emacs-startup . my/start-modeline)
   :config
   (defun my/start-modeline ()
@@ -90,7 +87,6 @@
 
 ;; Highlight matching parentheses
 (use-package paren
-  :demand EMACS-BENCH
   :ensure nil
   :hook (prog-mode . show-paren-mode)
   :config
@@ -99,12 +95,10 @@
 
 
 (use-package rainbow-delimiters
-  :demand EMACS-BENCH
   :hook (prog-mode . rainbow-delimiters-mode))
 
 
 (use-package pulsar
-  :demand EMACS-BENCH
   :hook
   (after-init . pulsar-global-mode)
   (next-error . pulsar-pulse-line)

@@ -59,7 +59,6 @@
     (<AB10> "/" "?")))
 
 (use-package meow
-  :demand EMACS-BENCH
   ;; after which key so keypad uses it instaed of its own implementation
   :after which-key
   :config
