@@ -71,7 +71,7 @@
   :hook (emacs-startup . load-doom-theme)
   :config
   (defun load-doom-theme ()
-    (load-theme 'doom-Iosvkem t)))
+    (load-theme 'doom-winter-is-coming-dark-blue t)))
 
 
 (use-package moody
