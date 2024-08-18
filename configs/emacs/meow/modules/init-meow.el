@@ -67,8 +67,7 @@
   (setq meow-cheatsheet-layout my/meow-cheatsheet-layout-colemak-dhm)
 
   (meow-motion-overwrite-define-key
-   ;; Use e to move up, n to move down.
-   ;; Since special modes usually use n to move down, we only overwrite e here.
+   '("n" . meow-next)
    '("e" . meow-prev)
    '("<escape>" . ignore))
 
