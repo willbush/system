@@ -62,7 +62,6 @@
   ;; after which key so keypad uses it instaed of its own implementation
   :after which-key
   :config
-
   (setq meow-keypad-leader-dispatch "C-c")
   (setq meow-cheatsheet-physical-layout my/meow-cheatsheet-physical-layout-planck)
   (setq meow-cheatsheet-layout my/meow-cheatsheet-layout-colemak-dhm)
