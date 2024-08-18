@@ -5,7 +5,6 @@
 ;;; their own file.
 
 (use-package project
-  :ensure nil ;; included in Emacs.
   :init
   ;; project.el project root marker for when in a project that's in a
   ;; sub-directory of a git repo.
@@ -53,7 +52,6 @@
          ("\\vimrc\\'" . vimrc-mode)))
 
 (use-package csharp-mode
-  :ensure nil ;; included in Emacs.
   :init
   (add-hook 'csharp-mode-hook
             (lambda ()

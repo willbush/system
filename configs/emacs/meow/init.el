@@ -26,21 +26,16 @@
     ;; Disable collection of benchmark data after init is done and show results.
     (add-hook 'after-init-hook
               (lambda ()
-                (progn
-                  (benchmark-init/deactivate)
-                  (require 'benchmark-init-modes)
-                  (benchmark-init/show-durations-tree)
-                  (benchmark-init/show-durations-tabulated))))))
-
-(require 'init-settings)
-(require 'init-meow)
-
+                (benchmark-init/deactivate)
+                (require 'benchmark-init-modes)
+                (benchmark-init/show-durations-tree)
+                (split-window-right)
+                (benchmark-init/show-durations-tabulated)))))
 
 ;;
 ;;; Packages
 
 (use-package which-key
-  :ensure nil ;; included in Emacs.
   :hook (emacs-startup . which-key-mode)
   :config
   (setq which-key-sort-order #'which-key-prefix-then-key-order
@@ -87,9 +82,7 @@
     (moody-replace-vc-mode)))
 
 
-;; Highlight matching parentheses
 (use-package paren
-  :ensure nil
   :hook (prog-mode . show-paren-mode)
   :config
   (setq show-paren-when-point-inside-paren t
