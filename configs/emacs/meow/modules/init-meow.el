@@ -116,7 +116,7 @@
    '("g" . meow-cancel-selection)
    '("G" . meow-grab)
    '("m" . meow-left)
-   '("m" . meow-left-expand)
+   '("M" . meow-left-expand)
    '("i" . meow-right)
    '("I" . meow-right-expand)
    '("j" . meow-join)
