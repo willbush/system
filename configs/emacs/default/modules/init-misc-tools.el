@@ -99,7 +99,7 @@
   :mode (("\\.pdf\\'" . pdf-view-mode)))
 
 
-(use-package woman 
+(use-package woman
   :defer t
   :config
   (evil-set-initial-state 'woman-mode 'normal)
@@ -112,7 +112,6 @@
 
 
 (use-package cus-edit
-  :defer
   :config
   (evil-set-initial-state 'Custom-mode 'normal)
   (general-def
@@ -130,7 +129,6 @@
 ;; Despite using helpful, I might find myself in help-mode so I'm going to keep
 ;; these settings.
 (use-package help-mode
-  :defer
   :config
   (evil-set-initial-state 'help-mode 'normal)
   (evil-collection-inhibit-insert-state 'help-mode-map)
