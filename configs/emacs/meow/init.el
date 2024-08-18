@@ -46,14 +46,14 @@
         which-key-side-window-slot -10
         which-key-idle-delay 0.5))
 
+(require 'init-settings)
 (require 'init-meow)
-;; (require 'init-completion)
+(require 'init-completion)
+(require 'init-misc-tools)
 
 ;; TODO
 ;; (require 'init-dired)
 ;; (require 'init-editing)
-;; (require 'init-misc-tools)
-;; (require 'init-completion)
 ;; (require 'init-prog-tools)
 ;; (require 'init-languages)
 ;; (require 'init-markup-languages)
