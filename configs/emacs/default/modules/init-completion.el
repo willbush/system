@@ -11,7 +11,6 @@
 
 (use-package vertico-directory
   :after vertico
-  :ensure nil ;; This is an vertico extension
   ;; More convenient directory navigation commands
   :bind (:map vertico-map
               ("RET" . vertico-directory-enter)
@@ -87,7 +86,6 @@
 
 ;; Keep track of recently opened files
 (use-package recentf
-  :ensure nil ;; is included in Emacs.
   :hook (after-init . recentf-mode)
   :config
   (defun my/recent-file-truename (file)

@@ -61,7 +61,6 @@
 
 (use-package flyspell
   :commands (flyspell-mode flyspell-prog-mode)
-  :ensure nil ;; Flyspell is included in Emacs.
   :init (setq ispell-program-name "aspell")
   :config
   ;; improve perf per wiki: https://www.emacswiki.org/emacs/FlySpell
@@ -100,9 +99,8 @@
   :mode (("\\.pdf\\'" . pdf-view-mode)))
 
 
-(use-package woman
-  :defer
-  :ensure nil ;; included in Emacs.
+(use-package woman 
+  :defer t
   :config
   (evil-set-initial-state 'woman-mode 'normal)
   (general-def
@@ -115,7 +113,6 @@
 
 (use-package cus-edit
   :defer
-  :ensure nil ;; included in Emacs.
   :config
   (evil-set-initial-state 'Custom-mode 'normal)
   (general-def
@@ -134,7 +131,6 @@
 ;; these settings.
 (use-package help-mode
   :defer
-  :ensure nil ;; included in Emacs.
   :config
   (evil-set-initial-state 'help-mode 'normal)
   (evil-collection-inhibit-insert-state 'help-mode-map)

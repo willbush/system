@@ -328,7 +328,6 @@ git-timemachine-mode:
 
 
 (use-package eglot
-  :ensure nil ;; included in Emacs.
   :hook ((rust-mode nix-mode) . eglot-ensure)
   :config
   (setq eglot-autoreconnect nil
@@ -404,7 +403,6 @@ git-timemachine-mode:
 
 (use-package debug
   :defer
-  :ensure nil ;; debugger-mode is included in Emacs.
   :config
   (evil-set-initial-state 'debugger-mode 'normal)
 
@@ -436,8 +434,6 @@ git-timemachine-mode:
 
 (use-package compile
   :defer
-  :ensure nil ;; debugger-mode is included in Emacs.
-  :config
   (evil-set-initial-state 'compilation-mode 'normal)
 
   (general-def
@@ -491,7 +487,6 @@ git-timemachine-mode:
 
 
 (use-package ediff
-  :ensure nil ;; included in Emacs.
   :config
   (setq ediff-split-window-function 'split-window-horizontally)
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
