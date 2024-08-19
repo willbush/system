@@ -1,6 +1,12 @@
 ;;; -*- lexical-binding: t; -*-
 
 ;;
+;;; Global Bindings for built-in functions
+
+(global-set-key (kbd "C-+") 'text-scale-adjust)
+(global-set-key (kbd "C--") 'text-scale-adjust)
+
+;;
 ;;; Optimizations
 
 ;;; Runtime optimizations
