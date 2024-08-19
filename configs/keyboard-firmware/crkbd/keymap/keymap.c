@@ -12,8 +12,8 @@ enum crkbd_layers { _COLEMAK, _LOWER, _RAISE, _HYPER, _FN, _NUM, _ADJUST };
 
 // Left Ctrl when held, Escape when tapped.
 #define CTL_ESC LCTL_T(KC_ESC)
-// Right Ctrl when held, quote when tapped.
-#define CTL_QOT RCTL_T(KC_QUOT)
+// Right ALT when held, quote when tapped.
+#define ALT_QOT RALT_T(KC_QUOT)
 // Right shift when held, Enter when tapped.
 #define SFT_ENT RSFT_T(KC_ENT)
 
@@ -23,7 +23,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_TAB,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U, KC_COMM, KC_SCLN, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      CTL_ESC,    KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                         KC_M,    KC_N,    KC_E,    KC_I,    KC_O, CTL_QOT,
+      CTL_ESC,    KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                         KC_M,    KC_N,    KC_E,    KC_I,    KC_O, ALT_QOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H,    KC_Y,  KC_DOT, KC_SLSH, SFT_ENT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
