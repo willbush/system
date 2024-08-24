@@ -5,7 +5,8 @@
 
   home = {
     packages = with pkgs; [
-      bat-extras.batdiff # pretty print git diff (see: https://github.com/eth-p/bat-extras)
+      # broken in unstable nixpkgs
+      # bat-extras.batdiff # pretty print git diff (see: https://github.com/eth-p/bat-extras)
       bat-extras.batgrep # pretty print ripgrep output
       bat-extras.prettybat # formats and then bats output (useful for minified code)
     ];
