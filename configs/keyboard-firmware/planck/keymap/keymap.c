@@ -4,9 +4,9 @@
 #    include "muse.h"
 #endif
 
-enum planck_layers { _COLEMAK, _QWERTY, _LOWER, _RAISE, _HYPER, _FN, _NUM, _ADJUST };
+enum planck_layers { _COLEMAK, _LOWER, _RAISE, _HYPER, _FN, _NUM, _ADJUST };
 
-enum planck_keycodes { COLEMAK = SAFE_RANGE, QWERTY };
+enum planck_keycodes { COLEMAK = SAFE_RANGE };
 
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
@@ -29,12 +29,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_TAB, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_COMM, KC_SCLN, KC_BSPC,
     CTL_ESC, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,    KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    CTL_QOT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    KC_K,    KC_H,    KC_Y,    KC_DOT,  KC_SLSH, SFT_ENT,
-    XXXXXXX, NUM,     XXXXXXX, KC_LGUI, LOWER,   HYPER,   KC_SPC,  RAISE,   FN,      XXXXXXX, XXXXXXX, XXXXXXX
-  ),
-  [_QWERTY] = LAYOUT_planck_grid(
-     KC_TAB, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-    CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, CTL_QOT,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, SFT_ENT,
     XXXXXXX, NUM,     XXXXXXX, KC_LGUI, LOWER,   HYPER,   KC_SPC,  RAISE,   FN,      XXXXXXX, XXXXXXX, XXXXXXX
   ),
   [_LOWER] = LAYOUT_planck_grid(
@@ -69,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_ADJUST] = LAYOUT_planck_grid(
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    XXXXXXX, XXXXXXX, AU_NEXT, AU_ON,   AU_OFF,  XXXXXXX, XXXXXXX, COLEMAK, QWERTY,  XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, AU_NEXT, AU_ON,   AU_OFF,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, AU_PREV, MU_NEXT, MU_ON,   MU_OFF,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DB_TOGG, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, _______, XXXXXXX, XXXXXXX, QK_BOOT, XXXXXXX
   )
@@ -78,24 +72,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case QWERTY:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_QWERTY);
-            }
-            return false;
-            break;
-        case COLEMAK:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_COLEMAK);
-            }
-            return false;
-            break;
-    }
-    return true;
 }
 
 /* https://docs.qmk.fm/#/feature_audio?id=music-mask */
