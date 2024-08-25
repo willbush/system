@@ -2,6 +2,7 @@
 
 #ifdef AUDIO_ENABLE
 #define STARTUP_SONG SONG(PLANCK_SOUND)
+#endif
 
 /* enable basic MIDI features:
    - MIDI notes can be sent when in Music mode is on
