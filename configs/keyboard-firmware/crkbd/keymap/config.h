@@ -2,8 +2,13 @@
 
 #define MASTER_LEFT
 
-#define TAPPING_TERM 100
-#define RETRO_TAPPING
+// Setup double tapping to toggle TT layers.
+#define TAPPING_TOGGLE 2
+
+// https://docs.qmk.fm/tap_hold
+// https://precondition.github.io/home-row-mods#tap-hold-configuration-settings
+#define QUICK_TAP_TERM 0
+#define PERMISSIVE_HOLD
 
 #ifdef RGBLIGHT_ENABLE
 #    define RGBLIGHT_EFFECT_RAINBOW_MOOD
