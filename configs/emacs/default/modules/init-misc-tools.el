@@ -199,7 +199,6 @@
 (use-package gptel
   :config
   (require 'gptel-curl)
-  ;; (require 'gptel-anthropic)
 
   ;; https://github.com/karthink/gptel/issues/302
   ;; hard wrapping doesn't work well because it applies to source blocks
@@ -215,11 +214,22 @@
           :endpoint "/api/v1/chat/completions"
           :stream t
           :key (lambda () (nth 3 (process-lines "gopass" "show" "will/websites/general/openrouter.ai")))
-          :models '("anthropic/claude-3.5-sonnet"
+          :models '(
                     "anthropic/claude-3-haiku"
-                    "openai/gpt-4o-mini-2024-07-18"
+                    "anthropic/claude-3.5-sonnet"
+                    "anthropic/claude-3.5-sonnet:beta"
+                    "deepseek/deepseek-coder"
+                    "google/gemini-flash-1.5"
+                    "google/gemini-pro-1.5"
+                    "gryphe/mythomax-l2-13b"
+                    "meta-llama/llama-3.1-70b-instruct"
+                    "microsoft/wizardlm-2-8x22b"
+                    "mistralai/mistral-nemo"
+                    "mistralai/mixtral-8x22b-instruct"
                     "openai/gpt-4o"
-                    "mistralai/mixtral-8x22b-instruct"))))
+                    "openai/gpt-4o-mini"
+                    "perplexity/llama-3.1-sonar-large-128k-chat"
+                    ))))
 
 
 (use-package keycast
