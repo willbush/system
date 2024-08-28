@@ -93,7 +93,7 @@
         "downloads"
         "dropbox"
         "images"
-        "rdp-share"
+        "public"
         "sync"
         "vms"
         {
