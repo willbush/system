@@ -72,6 +72,7 @@
   ;; TODO bind keys
   :commands (embark-act embark-dwim embark-bindings)
   :init
+  (global-set-key (kbd "C-.") 'embark-act)
   ;; Optionally replace the key help with a completing-read interface
   (setq prefix-help-command #'embark-prefix-help-command)
 
