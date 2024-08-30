@@ -5,7 +5,6 @@
 ;;; their own file.
 
 (use-package project
-  :ensure nil ;; included in Emacs.
   :init
   ;; project.el project root marker for when in a project that's in a
   ;; sub-directory of a git repo.
@@ -32,10 +31,11 @@
 
 (use-package cc-mode)
 (use-package dart-mode :mode "\\.dart\\'")
-(use-package haskell-mode :mode "\\.hs\\'")
-(use-package terraform-mode :mode "\\.tf\\'")
-(use-package protobuf-mode :mode "\\.proto$")
 (use-package dockerfile-mode :mode "Dockerfile\\'")
+(use-package haskell-mode :mode "\\.hs\\'")
+(use-package just-mode :mode ("\\.just'" "justfile\\'"))
+(use-package protobuf-mode :mode "\\.proto$")
+(use-package terraform-mode :mode "\\.tf\\'")
 
 
 ;; CSS / JavaScript (build in modes) indention level
@@ -52,7 +52,6 @@
          ("\\vimrc\\'" . vimrc-mode)))
 
 (use-package csharp-mode
-  :ensure nil ;; included in Emacs.
   :init
   (add-hook 'csharp-mode-hook
             (lambda ()

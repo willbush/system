@@ -328,7 +328,6 @@ git-timemachine-mode:
 
 
 (use-package eglot
-  :ensure nil ;; included in Emacs.
   :hook ((rust-mode nix-mode) . eglot-ensure)
   :config
   (setq eglot-autoreconnect nil
@@ -402,61 +401,6 @@ git-timemachine-mode:
     nil nil 'center))
 
 
-(use-package debug
-  :defer
-  :ensure nil ;; debugger-mode is included in Emacs.
-  :config
-  (evil-set-initial-state 'debugger-mode 'normal)
-
-  (general-def
-    :states 'normal
-    :keymaps 'debugger-mode-map
-    "<backtab>" 'backward-button
-    "<tab>" 'forward-button
-    "RET" 'backtrace-help-follow-symbol
-    "q" 'quit-window)
-
-  (general-def
-    :prefix ","
-    :states 'normal
-    :keymaps 'debugger-mode-map
-    "C" 'debugger-frame-clear
-    "R" 'debugger-record-expression
-    "E" 'debugger-reenable
-    "c" 'debugger-continue
-    "e" 'debugger-eval-expression
-    "f" 'debugger-frame
-    "j" 'debugger-jump
-    "l" 'debugger-list-functions
-    "l" 'debugger-toggle-locals
-    "q" 'debugger-quit
-    "r" 'debugger-return-value
-    "t" 'debugger-step-through))
-
-
-(use-package compile
-  :defer
-  :ensure nil ;; debugger-mode is included in Emacs.
-  :config
-  (evil-set-initial-state 'compilation-mode 'normal)
-
-  (general-def
-    :states 'normal
-    :keymaps 'compilation-mode-map
-    "RET" 'compile-goto-error)
-
-  (general-def
-    :prefix ","
-    :states 'normal
-    :keymaps 'compilation-mode-map
-    "N" 'compilation-next-file
-    "P" 'compilation-previous-file
-    "d" 'compilation-display-error
-    "n" 'compilation-next-error
-    "p" 'compilation-previous-error
-    "r" 'recompile))
-
-
 (use-package browse-at-remote
   :commands browse-at-remote browse-at-remote-kill)
 
@@ -491,7 +435,6 @@ git-timemachine-mode:
 
 
 (use-package ediff
-  :ensure nil ;; included in Emacs.
   :config
   (setq ediff-split-window-function 'split-window-horizontally)
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
