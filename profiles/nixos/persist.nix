@@ -36,7 +36,6 @@
         ".cache/mesa_shader_cache"
         ".cache/mozilla"
         ".cache/nix"
-        ".cache/oh-my-zsh"
         ".cache/org-persist"
         ".cache/remmina"
         ".cache/rust-script"
@@ -87,7 +86,6 @@
         ".local/share/zsh"
         ".local/state/k9s"
         ".local/state/wireplumber"
-        ".minikube"
         ".mozilla" # firefox
         ".nuget"
         ".talos"
@@ -95,7 +93,7 @@
         "downloads"
         "dropbox"
         "images"
-        "rdp-share"
+        "public"
         "sync"
         "vms"
         {

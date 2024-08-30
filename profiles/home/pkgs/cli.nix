@@ -64,12 +64,12 @@ in
     cilium-cli
     fluxcd
     grafana-loki # provides: promtail loki-canary loki logcli
+    kind
     kubectl
     kubelogin-oidc # k8s credential plugin implementing OIDC auth (used by omni)
     kubernetes-helm
     kubeseal
     kustomize
-    minikube
     talosctl
 
     # Network

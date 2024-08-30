@@ -2,10 +2,6 @@
 
 #ifdef AUDIO_ENABLE
 #define STARTUP_SONG SONG(PLANCK_SOUND)
-
-// Using the DVORAK_SOUND below for the GAMING layer.
-#define DEFAULT_LAYER_SONGS \
-  { SONG(COLEMAK_SOUND), SONG(QWERTY_SOUND), SONG(DVORAK_SOUND) }
 #endif
 
 /* enable basic MIDI features:
@@ -16,5 +12,6 @@
 // Setup double tapping to toggle TT layers.
 #define TAPPING_TOGGLE 2
 
-#define TAPPING_TERM 100
-#define RETRO_TAPPING
+// https://docs.qmk.fm/tap_hold
+// https://precondition.github.io/home-row-mods#tap-hold-configuration-settings
+#define QUICK_TAP_TERM 0

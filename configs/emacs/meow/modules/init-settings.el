@@ -1,6 +1,12 @@
 ;;; -*- lexical-binding: t; -*-
 
 ;;
+;;; Global Bindings for built-in functions
+
+(global-set-key (kbd "C-+") 'text-scale-adjust)
+(global-set-key (kbd "C--") 'text-scale-adjust)
+
+;;
 ;;; Optimizations
 
 ;;; Runtime optimizations
@@ -333,4 +339,5 @@
 ;; Not really liking that warnings create a buffer at the bottom.
 (setq warning-display-at-bottom nil)
 
-(provide 'init-defaults)
+
+(provide 'init-settings)

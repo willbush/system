@@ -21,7 +21,6 @@
 
 ;; Highlight matching parentheses
 (use-package paren
-  :ensure nil
   :hook (prog-mode . show-paren-mode)
   :config
   (setq show-paren-when-point-inside-paren t

@@ -4,7 +4,6 @@
 ;;; Org mode
 
 (use-package org
-  :ensure nil ;; Org is included in Emacs.
   :defer 2
   :commands (org-mode
              org-agenda
