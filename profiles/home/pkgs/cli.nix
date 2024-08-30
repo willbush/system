@@ -56,6 +56,7 @@ in
     nethogs
     nix-inspect
     nvtopPackages.amd
+    promql-cli
     viddy # Modern watch command
     zenith
 
