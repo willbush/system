@@ -8,6 +8,7 @@
 // https://docs.qmk.fm/tap_hold
 // https://precondition.github.io/home-row-mods#tap-hold-configuration-settings
 #define QUICK_TAP_TERM 0
+#define PERMISSIVE_HOLD
 
 #ifdef RGBLIGHT_ENABLE
 #    define RGBLIGHT_EFFECT_RAINBOW_MOOD
