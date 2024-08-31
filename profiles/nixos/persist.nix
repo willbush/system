@@ -36,7 +36,6 @@
         ".cache/mesa_shader_cache"
         ".cache/mozilla"
         ".cache/nix"
-        ".cache/org-persist"
         ".cache/remmina"
         ".cache/rust-script"
         ".cache/tealdeer"
