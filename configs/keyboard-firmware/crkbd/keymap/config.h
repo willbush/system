@@ -9,7 +9,7 @@
 // https://precondition.github.io/home-row-mods#tap-hold-configuration-settings
 #define QUICK_TAP_TERM 0
 #define TAPPING_TERM 200
-#define HOLD_ON_OTHER_KEY_PRESS
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
 #ifdef RGBLIGHT_ENABLE
 #    define RGBLIGHT_EFFECT_RAINBOW_MOOD

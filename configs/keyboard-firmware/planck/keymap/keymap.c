@@ -73,6 +73,18 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case ALT_X:
+        case ALT_DOT:
+            // Do not select the hold action when another key is pressed.
+            return false;
+        default:
+            // Immediately select the hold action when another key is pressed.
+            return true;
+    }
+}
+
 /* https://docs.qmk.fm/#/feature_audio?id=music-mask */
 bool music_mask_user(uint16_t keycode) {
     switch (keycode) {
