@@ -149,12 +149,7 @@ in
     hack-font
     inconsolata
     iosevka
-    liberation_ttf
-    libre-baskerville
-    nerdfonts
-    powerline-fonts
     source-code-pro
-    ubuntu_font_family
   ];
 
   stylix = {
