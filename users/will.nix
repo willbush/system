@@ -152,6 +152,7 @@ in
     hasklig
     ibm-plex
     jetbrains-mono
+    noto-fonts-emoji
   ];
 
   stylix = {
@@ -161,6 +162,28 @@ in
       # https://www.reddit.com/r/WidescreenWallpaper/comments/1dzli4w/untitled_7680x2160/
       url = "https://i.redd.it/1k3jwtm7zlbd1.jpeg";
       hash = "sha256-3GJ6pwrExTGJ5y+X//7iBY2ABDUkcFlxQzot24evceo=";
+    };
+
+    fonts = {
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+
+      monospace = {
+        package = pkgs.fira-mono;
+        name = "Fira Mono";
+      };
+
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
     };
   };
 
