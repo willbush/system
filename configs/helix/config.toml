@@ -27,7 +27,7 @@ H	= "search_prev"
 # new mnemonic: r/R = range
 r = "select_mode"
 l = "insert_mode"
-L = "prepend_to_line"
+# L = "prepend_to_line"
 
 # TODO
 # rebind m = "match_mode"
@@ -61,4 +61,4 @@ H	= "search_prev"
 
 # new mnemonic: r/R = range
 l = "insert_mode"
-L = "prepend_to_line"
+# L = "prepend_to_line"
