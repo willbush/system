@@ -102,11 +102,7 @@
  'emacs-startup-hook
  (lambda ()
    ;; Revert buffers when the underlying file has changed
-   (global-auto-revert-mode 1)
-
-   ;; Typed text replaces the selection if the selection is active,
-   ;; pressing delete or backspace deletes the selection.
-   (delete-selection-mode +1)))
+   (global-auto-revert-mode 1)))
 
 ;; yes-or-no-p uses shorter answers "y" or "n".
 (setq use-short-answers t)
