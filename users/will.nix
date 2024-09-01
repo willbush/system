@@ -143,13 +143,15 @@ in
   environment.systemPackages = with pkgs; [ mullvad-vpn ];
 
   fonts.packages = with pkgs; [
+    cascadia-code
     dejavu_fonts
     emacs-all-the-icons-fonts
+    fira-code
     fira-mono
     hack-font
-    inconsolata
-    iosevka
-    source-code-pro
+    hasklig
+    ibm-plex
+    jetbrains-mono
   ];
 
   stylix = {

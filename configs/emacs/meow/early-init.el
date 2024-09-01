@@ -21,17 +21,15 @@
       initial-scratch-message nil
       ring-bell-function 'ignore)
 
-;; Set the default face. The default face is the basis for most other faces used
-;; in Emacs. A "face" is a configuration including font, font size, foreground
-;; and background colors and other attributes. The fixed-pitch and
-;; fixed-pitch-serif faces are monospace faces generally used as the default
-;; face for code. The variable-pitch face is used when `variable-pitch-mode' is
-;; turned on, generally whenever a non-monospace face is preferred.
-(custom-set-faces
- `(default ((t (:font "Fira Mono 12"))))
- `(fixed-pitch ((t (:inherit (default)))))
- `(fixed-pitch-serif ((t (:inherit (default)))))
- `(variable-pitch ((t (:font "DejaVu Sans 12")))))
+;; Do not use `custom-set-faces` because it's slow.
+(set-face-attribute 'default nil
+                    :family "IBM Plex Mono"
+                    :weight 'regular
+                    ;; height = point size * 10
+                    :height 140)
+(set-face-attribute 'fixed-pitch nil :family "IBM Plex Mono")
+(set-face-attribute 'fixed-pitch-serif nil :family "IBM Plex Mono")
+(set-face-attribute 'variable-pitch nil :family "DejaVu Serif")
 
 ;; In Emacs 27+, package initialization occurs before `user-init-file' is
 ;; loaded, but after `early-init-file'. I handle package initialization, so we
