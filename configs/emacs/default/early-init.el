@@ -26,7 +26,7 @@
                     :family "IBM Plex Mono"
                     :weight 'regular
                     ;; height = point size * 10
-                    :height 140)
+                    :height 130)
 (set-face-attribute 'fixed-pitch nil :family "IBM Plex Mono")
 (set-face-attribute 'fixed-pitch-serif nil :family "IBM Plex Mono")
 (set-face-attribute 'variable-pitch nil :family "DejaVu Serif")
