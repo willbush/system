@@ -1,3 +1,6 @@
+[editor.cursor-shape]
+insert = "bar" # use bar cursor in insert mode like vim
+
 # Custom COLEMAK-DHm based keybindings for helix.
 
 # Commented out keys indicate keys that are not remapped. They are copied from
