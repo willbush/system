@@ -192,15 +192,15 @@ i = "select_textobject_inner"
 # "F" => goto_file_vsplit,
 # "C-q" | "q" => wclose,
 # "C-o" | "o" => wonly,
+C-k = "wclose" # "C-k" => jump_view_up,
+k = "wclose" # "k" => jump_view_up,
 
 C-h = "no_op" # "C-h" => jump_view_left,
 C-j = "no_op" # "C-j" => jump_view_down,
-C-k = "no_op" # "C-k" => jump_view_up,
 C-l = "no_op" # "C-l" => jump_view_right,
 
 h = "no_op" # "h" => jump_view_left,
 j = "no_op" # "j" => jump_view_down,
-k = "no_op" # "k" => jump_view_up,
 l = "no_op" # "l" => jump_view_right,
 
 L = "no_op" # "L" => swap_view_right,
@@ -223,7 +223,5 @@ N = "swap_view_down"
 E = "swap_view_up"
 I = "swap_view_right"
 
-# "n" => { "New split scratch buffer"
-#     "C-s" | "s" => hsplit_new,
-#     "C-v" | "v" => vsplit_new,
-# },
+C-b = "vsplit_new"
+b = "vsplit_new"
