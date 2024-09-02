@@ -30,7 +30,6 @@ I = "goto_line_end"
 s = "find_next_char"
 S = "find_prev_char"
 
-
 # new mnemonic: revise
 v = "replace"
 V = "replace_with_yanked"
@@ -105,6 +104,40 @@ H	= "search_prev"
 # "U" => redo,
 # "A-u" => earlier,
 # "A-U" => later,
+
+# "y" => yank,
+# "p" => paste_after,
+# "P" => paste_before,
+
+# "Q" => record_macro,
+# "q" => replay_macro,
+
+# ">" => indent,
+# "<" => unindent,
+# "=" => format_selections,
+# "J" => join_selections,
+# "A-J" => join_selections_space,
+# "K" => keep_selections,
+# "A-K" => remove_selections,
+
+# "," => keep_primary_selection,
+# "A-," => remove_primary_selection,
+
+# "&" => align_selections,
+# "_" => trim_selections,
+
+# "(" => rotate_selections_backward,
+# ")" => rotate_selections_forward,
+# "A-(" => rotate_selection_contents_backward,
+# "A-)" => rotate_selection_contents_forward,
+
+# "A-:" => ensure_selections_forward,
+
+# "esc" => normal_mode,
+# "C-b" | "pageup" => page_up,
+# "C-f" | "pagedown" => page_down,
+# "C-u" => page_cursor_half_up,
+# "C-d" => page_cursor_half_down,
 
 # GOTO mode
 [keys.normal.g]
