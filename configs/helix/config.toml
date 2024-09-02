@@ -1,64 +1,137 @@
-# At most one section each of 'keys.normal', 'keys.insert' and 'keys.select'
+# Custom COLEMAK-DHm based keybindings for helix.
+
+# Commented out keys indicate keys that are not remapped. They are copied from
+# the Rust source.
+
 [keys.normal]
-e = "move_line_up"
-n = "move_line_down"
+j	= "no_op" # "j" | "down" => move_visual_line_down,
+# k	= "no_op" # "k" | "up" => move_visual_line_up,
+R = "no_op" # "R" => replace_with_yanked,
+N = "no_op" # "N" => search_prev,
+E = "no_op" # "E" => move_next_long_word_end,
+
 m = "move_char_left"
+n = "move_visual_line_down"
+e = "move_visual_line_up"
 i = "move_char_right"
 
-# new mnemonic: f/F = far word/WORD
-f = "move_next_word_end"
-F = "move_next_long_word_end"
+# "t" => find_till_char,
+# "T" => till_prev_char,
 
 # new mnemonic: s/S = search
 s = "find_next_char"
 S = "find_prev_char"
 
-"^" = "goto_line_start"
-"$" = "goto_line_end"
-M = "goto_first_nonwhitespace"
-I = "goto_line_end"
 
-# keys that change text.
+# new mnemonic: revise
 v = "replace"
+V = "replace_with_yanked"
+# "A-." =>  repeat_last_motion,
 
-h	= "search_next"
-H	= "search_prev"
+# "~" => switch_case,
+# "`" => switch_to_lowercase,
+# "A-`" => switch_to_uppercase,
+
+# "home" => goto_line_start,
+# "end" => goto_line_end,
+
+# "w" => move_next_word_start,
+# "W" => move_next_long_word_start,
+
+# "b" => move_prev_word_start,
+# "B" => move_prev_long_word_start,
+
+# new mnemonic: f/F = far word/WORD
+f = "move_next_word_end"
+F = "move_next_long_word_end"
 
 # new mnemonic: r/R = range
 r = "select_mode"
 l = "insert_mode"
-# L = "prepend_to_line"
+L = "insert_at_line_start"
+# "a" => append_mode,
+# "A" => insert_at_line_end,
+# "o" => open_below,
+# "O" => open_above,
+# "G" => goto_line,
+# ":" => command_mode,
 
-# TODO
-# rebind m = "match_mode"
-# - rebinding this doesn't seem to be supported yet
+# "d" => delete_selection,
+# "A-d" => delete_selection_noyank,
+# "c" => change_selection,
+# "A-c" => change_selection_noyank,
 
-# new mnemonic: range mode
-[keys.select]
-e = "move_line_up"
-n = "move_line_down"
-m = "move_char_left"
-i = "move_char_right"
+# "C" => copy_selection_on_next_line,
+# "A-C" => copy_selection_on_prev_line,
 
-# new mnemonic: f/F = far word/WORD
-f = "move_next_word_end"
-F = "move_next_long_word_end"
+# "s" => select_regex,    -- rebind to -- GOTO mode
+# "S" => split_selection, -- rebind to -- GOTO mode
 
-# new mnemonic: s/S = search
-s = "find_next_char"
-S = "find_prev_char"
+# TODO rebind these no_ops
+A-s = "no_op" # "A-s" => split_selection_on_newline,
+A-minus = "no_op" # "A-minus" => merge_selections,
+A-_ = "no_op" # "A-_" => merge_consecutive_selections,
+# ";" => collapse_selection,
+# "A-;" => flip_selections,
+A-o = "no_op" # "A-o" | "A-up" => expand_selection,
+A-i = "no_op" # "A-i" | "A-down" => shrink_selection,
+A-I = "no_op" # "A-I" | "A-S-down" => select_all_children,
+A-p = "no_op" # "A-p" | "A-left" => select_prev_sibling,
+A-n = "no_op" # "A-n" | "A-right" => select_next_sibling,
+A-e = "no_op" # "A-e" => move_parent_node_end,
+A-b = "no_op" # "A-b" => move_parent_node_start,
+A-a = "no_op" # "A-a" => select_all_siblings,
+
+# "%" => select_all,
+# "x" => extend_line_below,
+# "X" => extend_to_line_bounds,
+# "A-x" => shrink_to_line_bounds,
 
 "^" = "goto_line_start"
 "$" = "goto_line_end"
 M = "goto_first_nonwhitespace"
 I = "goto_line_end"
 
-# keys that change text.
-v = "replace"
-
 h	= "search_next"
 H	= "search_prev"
 
-# new mnemonic: r/R = range
-l = "insert_mode"
-# L = "prepend_to_line"
+# GOTO mode
+[keys.normal.g]
+# These are pointless.
+k = "no_op" # "k" => move_line_up,
+j = "no_op" # "j" => move_line_down,
+
+# These are rebound
+h = "no_op" # "h" => goto_line_start,
+l = "no_op" # "l" => goto_line_end,
+m = "goto_line_start"
+i = "goto_line_end"
+
+# "g" => goto_file_start,
+# "e" => goto_last_line,
+# "f" => goto_file,
+# "d" => goto_definition,
+# "D" => goto_declaration,
+# "y" => goto_type_definition,
+# "r" => goto_reference,
+I = "goto_implementation"
+# "t" => goto_window_top,
+# "c" => goto_window_center,
+# "b" => goto_window_bottom,
+# "a" => goto_last_accessed_file,
+M = "goto_last_modified_file"
+# "n" => goto_next_buffer,
+# "p" => goto_previous_buffer,
+# "." => goto_last_modification,
+# "w" => goto_word,
+s = "select_regex"
+S = "split_selection"
+
+# Match mode
+[keys.normal.k]
+k = "match_brackets"
+s = "surround_add"
+r = "surround_replace"
+d = "surround_delete"
+a = "select_textobject_around"
+i = "select_textobject_inner"
