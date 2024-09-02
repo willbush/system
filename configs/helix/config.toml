@@ -180,3 +180,50 @@ r = "surround_replace"
 d = "surround_delete"
 a = "select_textobject_around"
 i = "select_textobject_inner"
+
+# Window mode
+[keys.normal.C-w]
+
+# "C-w" | "w" => rotate_view,
+# "C-s" | "s" => hsplit,
+# "C-v" | "v" => vsplit,
+# "C-t" | "t" => transpose_view,
+# "f" => goto_file_hsplit,
+# "F" => goto_file_vsplit,
+# "C-q" | "q" => wclose,
+# "C-o" | "o" => wonly,
+
+h = "no_op" # "h" => jump_view_left,
+C-h = "no_op" # "C-h" => jump_view_left,
+m = "jump_view_left"
+C-m = "jump_view_left"
+
+C-j = "no_op" # "C-j" => jump_view_down,
+j = "no_op" # "j" => jump_view_down,
+C-n = "jump_view_down"
+n = "jump_view_down"
+
+C-k = "no_op" # "C-k" => jump_view_up,
+k = "no_op" # "k" => jump_view_up,
+C-e = "jump_view_up"
+e = "jump_view_up"
+
+C-l = "no_op" # "C-l" => jump_view_right,
+l = "no_op" # "l" => jump_view_right,
+C-i = "jump_view_right"
+i = "jump_view_right"
+
+L = "no_op" # "L" => swap_view_right,
+K = "no_op" # "K" => swap_view_up,
+H = "no_op" # "H" => swap_view_left,
+J = "no_op" # "J" => swap_view_down,
+
+M = "swap_view_left"
+N = "swap_view_down"
+E = "swap_view_up"
+I = "swap_view_right"
+
+# "n" => { "New split scratch buffer"
+#     "C-s" | "s" => hsplit_new,
+#     "C-v" | "v" => vsplit_new,
+# },
