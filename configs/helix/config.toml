@@ -18,6 +18,11 @@ n = "move_visual_line_down"
 e = "move_visual_line_up"
 i = "move_char_right"
 
+M = "goto_line_start"
+I = "goto_line_end"
+"^" = "goto_first_nonwhitespace"
+"$" = "goto_line_end"
+
 # "t" => find_till_char,
 # "T" => till_prev_char,
 
@@ -90,13 +95,16 @@ A-a = "no_op" # "A-a" => select_all_siblings,
 # "X" => extend_to_line_bounds,
 # "A-x" => shrink_to_line_bounds,
 
-"^" = "goto_line_start"
-"$" = "goto_line_end"
-M = "goto_first_nonwhitespace"
-I = "goto_line_end"
-
+# "/" => search,
+# "?" => rsearch,
 h	= "search_next"
 H	= "search_prev"
+# "*" => search_selection,
+
+# "u" => undo,
+# "U" => redo,
+# "A-u" => earlier,
+# "A-U" => later,
 
 # GOTO mode
 [keys.normal.g]
@@ -130,7 +138,8 @@ M = "goto_last_modified_file"
 s = "select_regex"
 S = "split_selection"
 
-# Match mode
+# new mnemonic from match mode to:
+# Knit mode
 [keys.normal.k]
 k = "match_brackets"
 s = "surround_add"
