@@ -18,8 +18,8 @@ n = "move_visual_line_down"
 e = "move_visual_line_up"
 i = "move_char_right"
 
-M = "goto_line_start"
-I = "goto_line_end"
+M   = "goto_line_start"
+I   = "goto_line_end"
 "^" = "goto_first_nonwhitespace"
 "$" = "goto_line_end"
 
@@ -193,30 +193,28 @@ i = "select_textobject_inner"
 # "C-q" | "q" => wclose,
 # "C-o" | "o" => wonly,
 
-h = "no_op" # "h" => jump_view_left,
+h   = "no_op" # "h" => jump_view_left,
 C-h = "no_op" # "C-h" => jump_view_left,
-m = "jump_view_left"
-C-m = "jump_view_left"
-
 C-j = "no_op" # "C-j" => jump_view_down,
-j = "no_op" # "j" => jump_view_down,
-C-n = "jump_view_down"
-n = "jump_view_down"
-
+j   = "no_op" # "j" => jump_view_down,
 C-k = "no_op" # "C-k" => jump_view_up,
-k = "no_op" # "k" => jump_view_up,
-C-e = "jump_view_up"
-e = "jump_view_up"
-
+k   = "no_op" # "k" => jump_view_up,
 C-l = "no_op" # "C-l" => jump_view_right,
-l = "no_op" # "l" => jump_view_right,
-C-i = "jump_view_right"
-i = "jump_view_right"
+l   = "no_op" # "l" => jump_view_right,
 
 L = "no_op" # "L" => swap_view_right,
 K = "no_op" # "K" => swap_view_up,
 H = "no_op" # "H" => swap_view_left,
 J = "no_op" # "J" => swap_view_down,
+
+m   = "jump_view_left"
+C-m = "jump_view_left"
+C-n = "jump_view_down"
+n   = "jump_view_down"
+C-e = "jump_view_up"
+e   = "jump_view_up"
+C-i = "jump_view_right"
+i   = "jump_view_right"
 
 M = "swap_view_left"
 N = "swap_view_down"
