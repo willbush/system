@@ -84,7 +84,9 @@
           view = {
             k = "no_op";
             j = "no_op";
-            N = "no_op";
+
+            E = "page_cursor_half_up";
+            N = "page_cursor_half_down";
 
             e = "scroll_up";
             n = "scroll_down";
@@ -113,8 +115,8 @@
           normal = {
             j = "no_op";
             R = "no_op";
-            N = "no_op";
-            E = "no_op";
+            E = "page_cursor_half_up";
+            N = "page_cursor_half_down";
 
             m = "move_char_left";
             n = "move_visual_line_down";
@@ -321,7 +323,8 @@
           select = normal // {
             j = "no_op";
             l = "no_op";
-            E = "no_op";
+            E = "page_cursor_half_up";
+            N = "page_cursor_half_down";
 
             h = "extend_search_next";
             H = "extend_search_prev";
