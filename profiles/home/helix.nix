@@ -152,6 +152,8 @@
             r = "normal_mode";
 
             g = {
+              j = "no_op";
+              k = "no_op";
               n = "extend_line_down";
               e = "extend_line_up";
             };
