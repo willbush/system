@@ -7,9 +7,12 @@
     enable = true;
 
     settings = {
-      theme = "hex_lavender";
+      theme = "rose_pine";
       # use bar cursor in insert mode like vim
-      editor.cursor-shape.insert = "bar";
+      editor = {
+        cursor-shape.insert = "bar";
+        cursorline = true;
+      };
 
       # Custom COLEMAK-DHm based keybindings for helix.
       #
