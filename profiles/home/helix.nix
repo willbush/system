@@ -210,7 +210,20 @@
             Z = view;
 
             "C-w" = window;
-            space.w = window;
+
+            space = {
+              w = window;
+              # buffer
+              b = {
+                b = "buffer_picker";
+                r = ":reload";
+                R = ":reload-all";
+              };
+              # rapid
+              r = {
+                s = ":write";
+              };
+            };
 
             # Defaults:
             t = "find_till_char";
