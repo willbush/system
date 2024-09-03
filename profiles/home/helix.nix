@@ -320,7 +320,6 @@
           inherit normal;
           select = normal // {
             j = "no_op";
-            k = "no_op";
             l = "no_op";
             E = "no_op";
 
