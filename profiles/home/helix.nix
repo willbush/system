@@ -12,13 +12,21 @@
       editor.cursor-shape.insert = "bar";
 
       # Custom COLEMAK-DHm based keybindings for helix.
+      #
+      # This will bind everything explicitly even if it's the same as the
+      # default because that makes it easier to not lose track of what's bound
+      # to what.
+      #
+      # EXCEPTIONS:
+      # - modes I don't rebind
+      # - arrow keys I don't rebind
+      #
+      # DEFAULTS:
+      # https://github.com/helix-editor/helix/blob/1b5295a3f3d7cccd96eed5bfd394807a4dae87fc/helix-term/src/keymap/default.rs#L8
       keys =
         let
           # WINDOW mode
           window = {
-            C-k = "wclose";
-            k = "wclose";
-
             C-h = "no_op";
             C-j = "no_op";
             C-l = "no_op";
@@ -27,10 +35,13 @@
             j = "no_op";
             l = "no_op";
 
-            L = "no_op";
-            K = "no_op";
             H = "no_op";
             J = "no_op";
+            K = "no_op";
+            L = "no_op";
+
+            C-k = "wclose";
+            k = "wclose";
 
             C-m = "jump_view_left";
             C-n = "jump_view_down";
@@ -49,6 +60,25 @@
 
             C-b = "vsplit_new";
             b = "vsplit_new";
+
+            # Defaults:
+            C-w = "rotate_view";
+            w = "rotate_view";
+
+            C-s = "hsplit";
+            s = "hsplit";
+
+            C-t = "transpose_view";
+            t = "transpose_view";
+
+            f = "goto_file_hsplit";
+            F = "goto_file_vsplit";
+
+            C-q = "wclose";
+            q = "wclose";
+
+            C-o = "wonly";
+            o = "wonly";
           };
           # NORMAL mode
           normal = {
@@ -105,12 +135,11 @@
 
             # GOTO mode
             g = {
-              # These are pointless.
-              k = "no_op";
-              j = "no_op";
-
               h = "no_op";
+              j = "no_op";
+              k = "no_op";
               l = "no_op";
+
               m = "goto_line_start";
               i = "goto_line_end";
 
@@ -118,6 +147,23 @@
               M = "goto_last_modified_file";
               s = "select_regex";
               S = "split_selection";
+
+              # Defaults:
+              g = "goto_file_start";
+              e = "goto_last_line";
+              f = "goto_file";
+              d = "goto_definition";
+              D = "goto_declaration";
+              y = "goto_type_definition";
+              r = "goto_reference";
+              t = "goto_window_top";
+              c = "goto_window_center";
+              b = "goto_window_bottom";
+              a = "goto_last_accessed_file";
+              n = "goto_next_buffer";
+              p = "goto_previous_buffer";
+              "." = "goto_last_modification";
+              w = "goto_word";
             };
             # new mnemonic: KNIT mode
             k = {
@@ -135,8 +181,16 @@
         {
           inherit normal;
           select = normal // {
+            j = "no_op";
             k = "no_op";
             l = "no_op";
+            E = "no_op";
+
+            h = "extend_search_next";
+            H = "extend_search_prev";
+
+            s = "extend_next_char";
+            S = "extend_prev_char";
 
             m = "extend_char_left";
             n = "extend_visual_line_down";
@@ -146,17 +200,33 @@
             f = "extend_next_word_end";
             F = "extend_next_long_word_end";
 
-            h = "extend_search_next";
-            H = "extend_search_prev";
-
             r = "normal_mode";
 
+            # GOTO mode
             g = {
               j = "no_op";
               k = "no_op";
               n = "extend_line_down";
               e = "extend_line_up";
+              w = "extend_to_word";
             };
+
+            # Defaults:
+            w = "extend_next_word_start";
+            W = "extend_next_long_word_start";
+
+            b = "extend_prev_word_start";
+            B = "extend_prev_long_word_start";
+
+            "A-e" = "extend_parent_node_end";
+            "A-b" = "extend_parent_node_start";
+
+            t = "extend_till_char";
+            T = "extend_till_prev_char";
+
+            "home" = "extend_to_line_start";
+            "end" = "extend_to_line_end";
+            "esc" = "exit_select_mode";
           };
         };
     };
