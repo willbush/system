@@ -32,11 +32,6 @@
 
     wofi.enable = true;
 
-    helix = {
-      enable = true;
-      settings = builtins.fromTOML (builtins.readFile ../../configs/helix/config.toml);
-    };
-
     neovim = {
       enable = true;
       extraConfig = builtins.readFile ../../configs/nvim/init.vim;
