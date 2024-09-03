@@ -309,9 +309,9 @@
             # "$" = "shell_keep_pipe";
             C-z = "suspend";
 
-            # TODO rebind
-            C-a = "increment";
-            C-x = "decrement";
+            # My keyboard layers make this easier to reach
+            "+" = "increment";
+            "minus" = "decrement";
           };
         in
         {
