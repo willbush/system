@@ -80,6 +80,35 @@
             C-o = "wonly";
             o = "wonly";
           };
+
+          view = {
+            k = "no_op";
+            j = "no_op";
+            N = "no_op";
+
+            e = "scroll_up";
+            n = "scroll_down";
+
+            h = "search_next";
+            H = "search_prev";
+
+            # Defaults:
+            z = "align_view_center";
+            c = "align_view_center";
+
+            t = "align_view_top";
+            b = "align_view_bottom";
+            m = "align_view_middle";
+            C-b = "page_up";
+            C-f = "page_down";
+            C-u = "page_cursor_half_up";
+            C-d = "page_cursor_half_down";
+            space = "page_cursor_half_down";
+
+            "/" = "search";
+            "?" = "rsearch";
+          };
+
           # NORMAL mode
           normal = {
             j = "no_op";
@@ -116,19 +145,6 @@
             L = "insert_at_line_start";
 
             C-c = "command_mode";
-
-            # TODO rebind these no_ops
-            A-s = "no_op";
-            A-minus = "no_op";
-            A-_ = "no_op";
-            A-o = "no_op";
-            A-i = "no_op";
-            A-I = "no_op";
-            A-p = "no_op";
-            A-n = "no_op";
-            A-e = "no_op";
-            A-b = "no_op";
-            A-a = "no_op";
 
             h = "search_next";
             H = "search_prev";
@@ -168,14 +184,134 @@
             # new mnemonic: KNIT mode
             k = {
               k = "match_brackets";
+              # Defaults:
               s = "surround_add";
               r = "surround_replace";
               d = "surround_delete";
               a = "select_textobject_around";
               i = "select_textobject_inner";
             };
+            # VIEW mode
+            z = view;
+            # sticky VIEW mode
+            Z = view;
+
             "C-w" = window;
             space.w = window;
+
+            # Defaults:
+            t = "find_till_char";
+            T = "till_prev_char";
+
+            "A-." = "repeat_last_motion";
+
+            "~" = "switch_case";
+            "`" = "switch_to_lowercase";
+            "A-`" = "switch_to_uppercase";
+
+            home = "goto_line_start";
+            end = "goto_line_end";
+
+            w = "move_next_word_start";
+            W = "move_next_long_word_start";
+            b = "move_prev_word_start";
+            B = "move_prev_long_word_start";
+
+            G = "goto_line";
+            ":" = "command_mode";
+
+            a = "append_mode";
+            A = "insert_at_line_end";
+            o = "open_below";
+            O = "open_above";
+
+            d = "delete_selection";
+            A-d = "delete_selection_noyank";
+            c = "change_selection";
+            A-c = "change_selection_noyank";
+
+            C = "copy_selection_on_next_line";
+            A-C = "copy_selection_on_prev_line";
+
+            A-s = "split_selection_on_newline";
+            A-minus = "merge_selections";
+            "A-_" = "merge_consecutive_selections";
+            ";" = "collapse_selection";
+            "A-;" = "flip_selections";
+            A-o = "expand_selection";
+            A-i = "shrink_selection";
+            A-I = "select_all_children";
+            A-p = "select_prev_sibling";
+            A-n = "select_next_sibling";
+            A-e = "move_parent_node_end";
+            A-b = "move_parent_node_start";
+            A-a = "select_all_siblings";
+
+            "%" = "select_all";
+            x = "extend_line_below";
+            X = "extend_to_line_bounds";
+            A-x = "shrink_to_line_bounds";
+
+            "/" = "search";
+            "?" = "rsearch";
+            "*" = "search_selection";
+
+            u = "undo";
+            U = "redo";
+            A-u = "earlier";
+            A-U = "later";
+
+            y = "yank";
+            p = "paste_after";
+            P = "paste_before";
+
+            Q = "record_macro";
+            q = "replay_macro";
+
+            ">" = "indent";
+            "<" = "unindent";
+            "=" = "format_selections";
+            J = "join_selections";
+            A-J = "join_selections_space";
+            K = "keep_selections";
+            A-K = "remove_selections";
+
+            "," = "keep_primary_selection";
+            "A-," = "remove_primary_selection";
+
+            "&" = "align_selections";
+            "_" = "trim_selections";
+
+            "(" = "rotate_selections_backward";
+            ")" = "rotate_selections_forward";
+            "A-(" = "rotate_selection_contents_backward";
+            "A-)" = "rotate_selection_contents_forward";
+
+            "A-:" = "ensure_selections_forward";
+
+            esc = "normal_mode";
+            C-b = "page_up";
+            C-f = "page_down";
+            C-u = "page_cursor_half_up";
+            C-d = "page_cursor_half_down";
+
+            C-i = "jump_forward";
+            "tab" = "jump_forward";
+            C-o = "jump_backward";
+            C-s = "save_selection";
+
+            "\\" = "select_register";
+            "|" = "shell_pipe";
+            "A-|" = "shell_pipe_to";
+            "!" = "shell_insert_output";
+            "A-!" = "shell_append_output";
+            # TODO rebind
+            # "$" = "shell_keep_pipe";
+            C-z = "suspend";
+
+            # TODO rebind
+            C-a = "increment";
+            C-x = "decrement";
           };
         in
         {
