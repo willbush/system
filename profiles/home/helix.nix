@@ -90,6 +90,10 @@
 
             E = "page_cursor_half_up";
             N = "page_cursor_half_down";
+            C-E = "page_up";
+            C-N = "page_down";
+
+            G = "goto_last_line";
 
             e = "scroll_up";
             n = "scroll_down";
@@ -116,10 +120,13 @@
 
           # NORMAL mode
           normal = {
-            j = "no_op";
             R = "no_op";
             E = "page_cursor_half_up";
             N = "page_cursor_half_down";
+            C-E = "page_up";
+            C-N = "page_down";
+
+            G = "goto_last_line";
 
             m = "move_char_left";
             n = "move_visual_line_down";
@@ -223,7 +230,7 @@
             b = "move_prev_word_start";
             B = "move_prev_long_word_start";
 
-            G = "goto_line";
+            j = "goto_line"; # new mnemonic: jump
             ":" = "command_mode";
 
             a = "append_mode";
@@ -324,7 +331,6 @@
         {
           inherit normal;
           select = normal // {
-            j = "no_op";
             l = "no_op";
             E = "page_cursor_half_up";
             N = "page_cursor_half_down";
