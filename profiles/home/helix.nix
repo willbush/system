@@ -300,13 +300,14 @@
             C-o = "jump_backward";
             C-s = "save_selection";
 
+            # TODO rebind these
             "\\" = "select_register";
             "|" = "shell_pipe";
             "A-|" = "shell_pipe_to";
             "!" = "shell_insert_output";
             "A-!" = "shell_append_output";
-            # TODO rebind
             # "$" = "shell_keep_pipe";
+
             C-z = "suspend";
 
             # My keyboard layers make this easier to reach
