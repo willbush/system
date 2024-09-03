@@ -145,6 +145,7 @@
             L = "insert_at_line_start";
 
             C-c = "command_mode";
+            C-l = "align_view_top";
 
             h = "search_next";
             H = "search_prev";
