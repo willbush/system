@@ -153,6 +153,7 @@ in
     hasklig
     ibm-plex
     jetbrains-mono
+    nerdfonts
     noto-fonts-emoji
   ];
 
