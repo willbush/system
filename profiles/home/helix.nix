@@ -12,6 +12,7 @@
       editor = {
         cursor-shape.insert = "bar";
         cursorline = true;
+        color-modes = true;
       };
 
       # Custom COLEMAK-DHm based keybindings for helix.
