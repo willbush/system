@@ -31,5 +31,7 @@
     };
 
     gh.enable = true;
+    gitui.enable = true;
+
   };
 }
