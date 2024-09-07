@@ -6,7 +6,6 @@
     gpg-agent = {
       enable = true;
       enableSshSupport = true;
-      enableZshIntegration = true;
       pinentryPackage = pkgs.pinentry-gnome3;
       defaultCacheTtl = 10800; # 3 hours
       defaultCacheTtlSsh = 10800;
