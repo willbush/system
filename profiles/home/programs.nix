@@ -30,6 +30,8 @@
 
     wofi.enable = true;
 
+    yazi.enable = true;
+
     neovim = {
       enable = true;
       extraConfig = builtins.readFile ../../configs/nvim/init.vim;
