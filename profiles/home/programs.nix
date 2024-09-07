@@ -1,8 +1,6 @@
 { ... }:
 {
   programs = {
-    alacritty.enable = true;
-
     fzf = {
       enable = true;
       # This defaults to true, but I want to make it explicit because installing

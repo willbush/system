@@ -50,6 +50,7 @@ in
       ../profiles/home/programs.nix
       ../profiles/home/swayidle.nix
       ../profiles/home/swaylock.nix
+      ../profiles/home/wezterm.nix
       ../profiles/home/xdg.nix
       ../profiles/home/zathura.nix
       ../profiles/home/zsh.nix
