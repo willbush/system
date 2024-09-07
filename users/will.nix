@@ -27,7 +27,7 @@ in
         isNormalUser = true;
         home = "/home/will";
         hashedPassword = config.modules.secrets.willHashedPassword;
-        shell = pkgs.zsh;
+        shell = pkgs.fish;
         extraGroups = [
           "networkmanager"
           "wheel"
@@ -41,6 +41,7 @@ in
       ../profiles/home/bat.nix
       ../profiles/home/dotnet.nix
       ../profiles/home/emacs.nix
+      ../profiles/home/fish.nix
       ../profiles/home/git.nix
       ../profiles/home/gpg.nix
       ../profiles/home/helix.nix
@@ -53,7 +54,6 @@ in
       ../profiles/home/wezterm.nix
       ../profiles/home/xdg.nix
       ../profiles/home/zathura.nix
-      ../profiles/home/zsh.nix
     ];
 
     home = {
@@ -118,7 +118,7 @@ in
     mullvad-vpn.enable = true;
   };
 
-  programs.zsh.enable = true;
+  programs.fish.enable = true;
 
   programs.nh = {
     enable = true;

@@ -1,13 +1,7 @@
 { ... }:
 {
   programs = {
-    fzf = {
-      enable = true;
-      # This defaults to true, but I want to make it explicit because installing
-      # fzf this way is different than putting it in the home.packages list.
-      enableZshIntegration = true;
-    };
-
+    fzf.enable = true;
     htop.enable = true;
     btop.enable = true;
     bottom.enable = true; # command: btm
@@ -17,12 +11,10 @@
 
     zoxide = {
       enable = true;
-      enableZshIntegration = true;
     };
 
     direnv = {
       enable = true;
-      enableZshIntegration = true;
       nix-direnv.enable = true;
     };
 
