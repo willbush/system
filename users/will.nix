@@ -40,7 +40,7 @@ in
     imports = [
       ../profiles/home/dotnet.nix
       ../profiles/home/emacs.nix
-      ../profiles/home/fish
+      ../profiles/home/fish.nix
       ../profiles/home/git.nix
       ../profiles/home/gpg.nix
       ../profiles/home/helix.nix
@@ -48,6 +48,7 @@ in
       ../profiles/home/pkgs/cli.nix
       ../profiles/home/pkgs/gui.nix
       ../profiles/home/programs.nix
+      ../profiles/home/starship.nix
       ../profiles/home/swayidle.nix
       ../profiles/home/swaylock.nix
       ../profiles/home/wezterm.nix
