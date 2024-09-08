@@ -40,7 +40,7 @@ in
     imports = [
       ../profiles/home/dotnet.nix
       ../profiles/home/emacs.nix
-      ../profiles/home/fish.nix
+      ../profiles/home/fish
       ../profiles/home/git.nix
       ../profiles/home/gpg.nix
       ../profiles/home/helix.nix
