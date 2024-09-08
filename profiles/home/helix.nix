@@ -218,6 +218,7 @@
               b = {
                 b = "buffer_picker";
                 r = ":reload";
+                s = ":new"; # new scratch buffer
                 R = ":reload-all";
               };
               # rapid
