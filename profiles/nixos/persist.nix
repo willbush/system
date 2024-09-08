@@ -31,6 +31,7 @@
         ".cache/dconf"
         ".cache/fontconfig"
         ".cache/gstreamer-1.0"
+        ".cache/helix"
         ".cache/helm"
         ".cache/maestral"
         ".cache/mesa_shader_cache"
