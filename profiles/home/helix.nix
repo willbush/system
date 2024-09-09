@@ -221,9 +221,23 @@
                 s = ":new"; # new scratch buffer
                 R = ":reload-all";
               };
+              # quit
+              q = {
+                q = ":write-quit-all";
+                Q = ":write-quit-all!";
+              };
               # rapid
               r = {
                 s = ":write";
+              };
+              # text manipulation
+              x = {
+                x = ":reflow";
+                l = ":pipe sort";
+                L = ":pipe sort --reverse";
+                u = ":pipe uniq";
+                U = ":pipe uniq --repeated";
+                r = ":pipe tac"; # reverse lines
               };
             };
 
