@@ -76,6 +76,7 @@
             inputs.stylix.nixosModules.stylix
             {
               home-manager = {
+                backupFileExtension = "backup";
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 extraSpecialArgs = {
