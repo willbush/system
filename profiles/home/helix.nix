@@ -7,7 +7,7 @@
     enable = true;
 
     settings = {
-      theme = "rose_pine";
+      theme = "hex_lavender";
       # use bar cursor in insert mode like vim
       editor = {
         cursor-shape.insert = "bar";
