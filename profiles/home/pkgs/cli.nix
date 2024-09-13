@@ -35,7 +35,6 @@ in
     gcc # for `treesit-auto-install-all` which builds treesitter grammars
     gdb
     hyperfine # benchmarking tool
-    nil # Nix Language server
     nix-prefetch-git
     nodejs # for copilot.el login
     omnisharp-roslyn # broken until https://github.com/NixOS/nixpkgs/pull/249091
@@ -44,6 +43,9 @@ in
     quickemu # VM manager
     shfmt
     tokei
+    # language servers
+    nil
+    yaml-language-server
 
     # Data processing
     jq
