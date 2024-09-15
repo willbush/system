@@ -160,6 +160,10 @@
             C-c = "command_mode";
             C-l = "align_view_top";
 
+            C-d = "no_op";
+            C-u = "kill_to_line_start";
+            C-k = "kill_to_line_end";
+
             h = "search_next";
             H = "search_prev";
 
@@ -334,8 +338,6 @@
             esc = "normal_mode";
             C-b = "page_up";
             C-f = "page_down";
-            C-u = "page_cursor_half_up";
-            C-d = "page_cursor_half_down";
 
             C-i = "jump_forward";
             C-o = "jump_backward";
