@@ -422,8 +422,8 @@
             h = "search_next";
             H = "search_prev";
 
-            "." = "repeat_last_motion";
-            "A-." = "repeat_last_insert";
+            # cannot rebind (fix upstream)
+            "A-." = "repeat_last_motion";
 
             # GOTO mode
             g = no_op_all // {
