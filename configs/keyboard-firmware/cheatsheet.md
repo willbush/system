@@ -44,7 +44,7 @@ mode      bounds    to next             yanked
 Ctrl + key:
 
 ```
-C-q       C-w       C-f       C-p       C-b       C-j       C-l       C-u       C-y       N/A
+C-q       C-w       C-f       C-p       C-b       C-j       C-l       C-u       C-,       C-;
 N/A       window    page      N/A       page      N/A       align     kill to   N/A
           mode      down                up                  view top  line
                                                                       start
@@ -53,7 +53,7 @@ C-a       C-r       C-s       C-t       C-g       C-m       C-n       C-e       
 N/A       N/A       save      N/A       N/A       N/A       page      page      jump      jump       N/A
                     sel                                     down      up        forward   backward
 
-C-z       C-x       C-c       C-d       C-v       C-k       C-h       N/A       N/A       N/A
+C-z       C-x       C-c       C-d       C-v       C-k       C-h       C-y       C-.       C-/
 suspend   N/A       command   half page N/A       kill to   N/A
                     mode      down                line
                                                   end
