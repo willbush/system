@@ -422,6 +422,9 @@
             h = "search_next";
             H = "search_prev";
 
+            "." = "repeat_last_motion";
+            "A-." = "repeat_last_insert";
+
             # GOTO mode
             g = no_op_all // {
               m = "goto_line_start";
@@ -498,8 +501,6 @@
             # Defaults:
             t = "find_till_char";
             T = "till_prev_char";
-
-            "A-." = "repeat_last_motion";
 
             "~" = "switch_case";
             "`" = "switch_to_lowercase";
