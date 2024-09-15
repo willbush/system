@@ -17,6 +17,10 @@
 
       # Custom COLEMAK-DHm based keybindings for helix.
       #
+      # q w f p b j l u , ;
+      # a r s t g m n e i o '
+      # z x c d v k h y . /
+      #
       # This will bind everything explicitly even if it's the same as the
       # default because that makes it easier to not lose track of what's bound
       # to what.
@@ -28,22 +32,269 @@
       # DEFAULTS:
       # https://github.com/helix-editor/helix/blob/1b5295a3f3d7cccd96eed5bfd394807a4dae87fc/helix-term/src/keymap/default.rs#L8
       keys =
+
         let
+          # Nuke the site from orbit, it's the only way to be sure.
+          no_op_all = {
+            # alphas
+            "a" = "no_op";
+            "b" = "no_op";
+            "c" = "no_op";
+            "d" = "no_op";
+            "e" = "no_op";
+            "f" = "no_op";
+            "g" = "no_op";
+            "h" = "no_op";
+            "i" = "no_op";
+            "j" = "no_op";
+            "k" = "no_op";
+            "l" = "no_op";
+            "m" = "no_op";
+            "n" = "no_op";
+            "o" = "no_op";
+            "p" = "no_op";
+            "q" = "no_op";
+            "r" = "no_op";
+            "s" = "no_op";
+            "t" = "no_op";
+            "u" = "no_op";
+            "v" = "no_op";
+            "w" = "no_op";
+            "x" = "no_op";
+            "y" = "no_op";
+            "z" = "no_op";
+
+            "C-a" = "no_op";
+            "C-b" = "no_op";
+            "C-c" = "no_op";
+            "C-d" = "no_op";
+            "C-e" = "no_op";
+            "C-f" = "no_op";
+            "C-g" = "no_op";
+            "C-h" = "no_op";
+            "C-i" = "no_op";
+            "C-j" = "no_op";
+            "C-k" = "no_op";
+            "C-l" = "no_op";
+            "C-m" = "no_op";
+            "C-n" = "no_op";
+            "C-o" = "no_op";
+            "C-p" = "no_op";
+            "C-q" = "no_op";
+            "C-r" = "no_op";
+            "C-s" = "no_op";
+            "C-t" = "no_op";
+            "C-u" = "no_op";
+            "C-v" = "no_op";
+            "C-w" = "no_op";
+            "C-x" = "no_op";
+            "C-y" = "no_op";
+            "C-z" = "no_op";
+
+            "A-a" = "no_op";
+            "A-b" = "no_op";
+            "A-c" = "no_op";
+            "A-d" = "no_op";
+            "A-e" = "no_op";
+            "A-f" = "no_op";
+            "A-g" = "no_op";
+            "A-h" = "no_op";
+            "A-i" = "no_op";
+            "A-j" = "no_op";
+            "A-k" = "no_op";
+            "A-l" = "no_op";
+            "A-m" = "no_op";
+            "A-n" = "no_op";
+            "A-o" = "no_op";
+            "A-p" = "no_op";
+            "A-q" = "no_op";
+            "A-r" = "no_op";
+            "A-s" = "no_op";
+            "A-t" = "no_op";
+            "A-u" = "no_op";
+            "A-v" = "no_op";
+            "A-w" = "no_op";
+            "A-x" = "no_op";
+            "A-y" = "no_op";
+            "A-z" = "no_op";
+
+            "A" = "no_op";
+            "B" = "no_op";
+            "C" = "no_op";
+            "D" = "no_op";
+            "E" = "no_op";
+            "F" = "no_op";
+            "G" = "no_op";
+            "H" = "no_op";
+            "I" = "no_op";
+            "J" = "no_op";
+            "K" = "no_op";
+            "L" = "no_op";
+            "M" = "no_op";
+            "N" = "no_op";
+            "O" = "no_op";
+            "P" = "no_op";
+            "Q" = "no_op";
+            "R" = "no_op";
+            "S" = "no_op";
+            "T" = "no_op";
+            "U" = "no_op";
+            "V" = "no_op";
+            "W" = "no_op";
+            "X" = "no_op";
+            "Y" = "no_op";
+            "Z" = "no_op";
+
+            "C-A" = "no_op";
+            "C-B" = "no_op";
+            "C-C" = "no_op";
+            "C-D" = "no_op";
+            "C-E" = "no_op";
+            "C-F" = "no_op";
+            "C-G" = "no_op";
+            "C-H" = "no_op";
+            "C-I" = "no_op";
+            "C-J" = "no_op";
+            "C-K" = "no_op";
+            "C-L" = "no_op";
+            "C-M" = "no_op";
+            "C-N" = "no_op";
+            "C-O" = "no_op";
+            "C-P" = "no_op";
+            "C-Q" = "no_op";
+            "C-R" = "no_op";
+            "C-S" = "no_op";
+            "C-T" = "no_op";
+            "C-U" = "no_op";
+            "C-V" = "no_op";
+            "C-W" = "no_op";
+            "C-X" = "no_op";
+            "C-Y" = "no_op";
+            "C-Z" = "no_op";
+
+            "A-A" = "no_op";
+            "A-B" = "no_op";
+            "A-C" = "no_op";
+            "A-D" = "no_op";
+            "A-E" = "no_op";
+            "A-F" = "no_op";
+            "A-G" = "no_op";
+            "A-H" = "no_op";
+            "A-I" = "no_op";
+            "A-J" = "no_op";
+            "A-K" = "no_op";
+            "A-L" = "no_op";
+            "A-M" = "no_op";
+            "A-N" = "no_op";
+            "A-O" = "no_op";
+            "A-P" = "no_op";
+            "A-Q" = "no_op";
+            "A-R" = "no_op";
+            "A-S" = "no_op";
+            "A-T" = "no_op";
+            "A-U" = "no_op";
+            "A-V" = "no_op";
+            "A-W" = "no_op";
+            "A-X" = "no_op";
+            "A-Y" = "no_op";
+            "A-Z" = "no_op";
+
+            # special
+            "$" = "no_op";
+            "!" = "no_op";
+            "#" = "no_op";
+            "%" = "no_op";
+            "&" = "no_op";
+            "'" = "no_op";
+            "(" = "no_op";
+            ")" = "no_op";
+            "*" = "no_op";
+            "+" = "no_op";
+            "," = "no_op";
+            "minus" = "no_op";
+            "." = "no_op";
+            "/" = "no_op";
+            ";" = "no_op";
+            "<" = "no_op";
+            "=" = "no_op";
+            ">" = "no_op";
+            "@" = "no_op";
+            "[" = "no_op";
+            "\"" = "no_op";
+            "\\" = "no_op";
+            "]" = "no_op";
+            "^" = "no_op";
+            "_" = "no_op";
+            "`" = "no_op";
+            "{" = "no_op";
+            "|" = "no_op";
+            "}" = "no_op";
+            "~" = "no_op";
+
+            "C-$" = "no_op";
+            "C-!" = "no_op";
+            "C-#" = "no_op";
+            "C-%" = "no_op";
+            "C-&" = "no_op";
+            "C-'" = "no_op";
+            "C-(" = "no_op";
+            "C-)" = "no_op";
+            "C-*" = "no_op";
+            "C-+" = "no_op";
+            "C-," = "no_op";
+            "C-minus" = "no_op";
+            "C-." = "no_op";
+            "C-/" = "no_op";
+            "C-;" = "no_op";
+            "C-<" = "no_op";
+            "C-=" = "no_op";
+            "C->" = "no_op";
+            "C-@" = "no_op";
+            "C-[" = "no_op";
+            "C-\"" = "no_op";
+            "C-\\" = "no_op";
+            "C-]" = "no_op";
+            "C-^" = "no_op";
+            "C-_" = "no_op";
+            "C-`" = "no_op";
+            "C-{" = "no_op";
+            "C-|" = "no_op";
+            "C-}" = "no_op";
+            "C-~" = "no_op";
+
+            "A-$" = "no_op";
+            "A-!" = "no_op";
+            "A-#" = "no_op";
+            "A-%" = "no_op";
+            "A-&" = "no_op";
+            "A-'" = "no_op";
+            "A-(" = "no_op";
+            "A-)" = "no_op";
+            "A-*" = "no_op";
+            "A-+" = "no_op";
+            "A-," = "no_op";
+            "A-minus" = "no_op";
+            "A-." = "no_op";
+            "A-/" = "no_op";
+            "A-;" = "no_op";
+            "A-<" = "no_op";
+            "A-=" = "no_op";
+            "A->" = "no_op";
+            "A-@" = "no_op";
+            "A-[" = "no_op";
+            "A-\"" = "no_op";
+            "A-\\" = "no_op";
+            "A-]" = "no_op";
+            "A-^" = "no_op";
+            "A-_" = "no_op";
+            "A-`" = "no_op";
+            "A-{" = "no_op";
+            "A-|" = "no_op";
+            "A-}" = "no_op";
+            "A-~" = "no_op";
+          };
           # WINDOW mode
-          window = {
-            C-h = "no_op";
-            C-j = "no_op";
-            C-l = "no_op";
-
-            h = "no_op";
-            j = "no_op";
-            l = "no_op";
-
-            H = "no_op";
-            J = "no_op";
-            K = "no_op";
-            L = "no_op";
-
+          window = no_op_all // {
             C-k = "wclose";
             k = "wclose";
 
@@ -85,10 +336,7 @@
             o = "wonly";
           };
 
-          view = {
-            k = "no_op";
-            j = "no_op";
-
+          view = no_op_all // {
             E = "page_cursor_half_up";
             N = "page_cursor_half_down";
             C-E = "page_up";
@@ -120,8 +368,7 @@
           };
 
           # NORMAL mode
-          normal = {
-            R = "no_op";
+          normal = no_op_all // {
             E = "page_cursor_half_up";
             N = "page_cursor_half_down";
             C-E = "page_up";
@@ -160,7 +407,6 @@
             C-c = "command_mode";
             C-l = "align_view_top";
 
-            C-d = "no_op";
             C-u = "kill_to_line_start";
             C-k = "kill_to_line_end";
 
@@ -168,12 +414,7 @@
             H = "search_prev";
 
             # GOTO mode
-            g = {
-              h = "no_op";
-              j = "no_op";
-              k = "no_op";
-              l = "no_op";
-
+            g = no_op_all // {
               m = "goto_line_start";
               i = "goto_line_end";
 
@@ -200,7 +441,7 @@
               w = "goto_word";
             };
             # new mnemonic: KNIT mode
-            k = {
+            k = no_op_all // {
               k = "match_brackets";
               # Defaults:
               s = "surround_add";
@@ -361,7 +602,6 @@
         {
           inherit normal;
           select = normal // {
-            l = "no_op";
             E = "page_cursor_half_up";
             N = "page_cursor_half_down";
 
@@ -382,9 +622,7 @@
             r = "normal_mode";
 
             # GOTO mode
-            g = {
-              j = "no_op";
-              k = "no_op";
+            g = no_op_all // {
               n = "extend_line_down";
               e = "extend_line_up";
               w = "extend_to_word";
