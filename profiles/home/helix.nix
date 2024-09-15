@@ -338,7 +338,6 @@
             C-d = "page_cursor_half_down";
 
             C-i = "jump_forward";
-            "tab" = "jump_forward";
             C-o = "jump_backward";
             C-s = "save_selection";
 
