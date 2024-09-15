@@ -586,6 +586,8 @@
             "A-:" = "ensure_selections_forward";
 
             esc = "normal_mode";
+            C-g = "normal_mode";
+
             C-b = "page_up";
             C-f = "page_down";
 
@@ -653,6 +655,7 @@
             "home" = "extend_to_line_start";
             "end" = "extend_to_line_end";
             "esc" = "exit_select_mode";
+            "C-g" = "exit_select_mode";
           };
         };
     };
