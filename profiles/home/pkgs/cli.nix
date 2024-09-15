@@ -44,6 +44,7 @@ in
     shfmt
     tokei
     # language servers
+    markdown-oxide
     nil
     yaml-language-server
 
