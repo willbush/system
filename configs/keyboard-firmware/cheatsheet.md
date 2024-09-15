@@ -19,7 +19,7 @@ mode      mode      next      till      mode      left      down      up        
 z         x         c         d         v         k         h         y         .         /
 view      extend    change    delete    replace   match     search    yank      repeat    search
 mode      line      sel       sel                 mode      next                last
-          below                                                                 insert
+          below                                                                 motion
 ```
 
 Uppercase:
@@ -72,9 +72,10 @@ select    N/A       split     N/A       N/A       N/A       select    move      
 all                 sel on                                  next      parent    sel       sel
 siblings            newline                                 sibling   node end
 
-N/A       shrink    change    delete    N/A       remove    N/A       flip      N/A       N/A
-          to line   sel       sel                 sels                sels
-          bounds    noyank    noyank
+A-z       A-x       A-c       A-d       A-v       A-k       A-h       A-y       A-.       A-/
+N/A       shrink    change    delete    N/A       remove    N/A       flip      repeat    N/A
+          to line   sel       sel                 sels                sels      last
+          bounds    noyank    noyank                                            insert
 ```
 
 Lower Layer:
