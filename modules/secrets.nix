@@ -41,19 +41,12 @@ in
       default = [ ];
       type = types.listOf types.str;
     };
-
-    willMatchBlocks = mkOption {
-      default = { };
-      type = types.attrs;
-      description = "ssh match blocks";
-    };
   };
 
   config = mkIf cfg.enable {
     modules.secrets.rootHashedPassword = fileContents ../secrets/hashed-password-root.txt;
     modules.secrets.willHashedPassword = fileContents ../secrets/hashed-password-will.txt;
     modules.secrets.krb5Settings = import ../secrets/krb5-settings.nix;
-    modules.secrets.willMatchBlocks = import ../secrets/ssh-matchblocks-will.nix;
 
     modules.secrets.pkiCertificates = [ "${builtins.readFile ../secrets/work-cert.pem}" ];
   };
