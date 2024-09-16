@@ -24,14 +24,13 @@
       delta.enable = true;
     };
 
-    ssh = {
+    gh = {
       enable = true;
-      serverAliveInterval = 30;
-      matchBlocks = osConfig.modules.secrets.willMatchBlocks;
+      settings = {
+        git_protocol = "ssh";
+        prompt = "enabled";
+      };
     };
-
-    gh.enable = true;
     gitui.enable = true;
-
   };
 }
