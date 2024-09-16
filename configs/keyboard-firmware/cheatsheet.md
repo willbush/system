@@ -108,28 +108,3 @@ N/A       <         >         _         N/A       N/A       @         N/A       
           N/A       N/A       trim
                               sels
 ```
-
-Raise Layer:
-
-```
-1         2         3         4         5         6         7         8         9         0
-
-N/A       Home      PgUp      PgDn      End       Left      Down      Up        Right     N/A        Del
-          goto      N/A       N/A       goto      N/A       N/A       N/A       N/A                  N/A
-          line                          line
-          start                         end
-```
-
-```nix
-A-: = "ensure_selections_forward";
-A-; = "flip_selections";
-A-I = "select_all_children";
-A-_ = "merge_consecutive_selections";
-A-minus = "merge_selections";
-A-( = "rotate_selection_contents_backward";
-A-) = "rotate_selection_contents_forward";
-A-! = "shell_append_output";
-A-| = "shell_pipe_to";
-A-` = "switch_to_uppercase";
-A-U = "later";
-```
