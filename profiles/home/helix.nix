@@ -413,7 +413,6 @@
             l = "insert_mode";
             L = "insert_at_line_start";
 
-            C-c = "command_mode";
             C-l = "align_view_top";
 
             C-u = "kill_to_line_start";
@@ -470,6 +469,8 @@
             "C-w" = window;
 
             space = {
+              space = "command_mode";
+
               w = window;
               # buffer
               b = {
