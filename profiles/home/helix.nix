@@ -1,10 +1,23 @@
-{ ... }:
+{ inputs, pkgs, ... }:
 {
   # No automatic theme stylix
   stylix.targets.helix.enable = false;
 
   programs.helix = {
     enable = true;
+    # package = inputs.helix.packages.${pkgs.system}.default.overrideAttrs (self: {
+    #   makeWrapperArgs =
+    #     with pkgs;
+    #     self.makeWrapperArgs or [ ]
+    #     ++ [
+    #       "--suffix"
+    #       "PATH"
+    #       ":"
+    #       (lib.makeBinPath [
+    #         nil
+    #       ])
+    #     ];
+    # });
 
     settings = {
       theme = "hex_lavender";
@@ -568,7 +581,6 @@
 
             ">" = "indent";
             "<" = "unindent";
-            "=" = "format_selections";
             J = "join_selections";
             A-J = "join_selections_space";
             K = "keep_selections";
@@ -577,7 +589,7 @@
             "," = "keep_primary_selection";
             "A-," = "remove_primary_selection";
 
-            "&" = "align_selections";
+            "=" = "align_selections";
             "_" = "trim_selections";
 
             "(" = "rotate_selections_backward";
@@ -595,8 +607,7 @@
             C-o = "jump_backward";
             C-s = "save_selection";
 
-            # TODO rebind these
-            "\\" = "select_register";
+            "&" = "select_register";
             "|" = "shell_pipe";
             "A-|" = "shell_pipe_to";
             "!" = "shell_insert_output";
@@ -633,7 +644,7 @@
             r = "normal_mode";
 
             # GOTO mode
-            g = no_op_all // {
+            g = {
               n = "extend_line_down";
               e = "extend_line_up";
               w = "extend_to_word";
