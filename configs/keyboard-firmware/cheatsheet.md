@@ -31,8 +31,8 @@ macro     next      next      before    prev      sels      at line             
           WORD      WORD end            WORD                start
 
 A         R         S         T         G         M         N         E         I         O          "
-append    N/A       find      find      goto      goto      page      page      goto      open       select
-at line             prev      prev      last      line      cursor    cursor    line      above      register
+append    N/A       find      find      goto      goto      page      page      goto      open       N/A
+at line             prev      prev      last      line      cursor    cursor    line      above
 end                 char      char      line      start     half down half up   end
 
 Z         X         C         D         V         K         H         Y         >         ?
@@ -50,12 +50,12 @@ N/A       window    page      N/A       page      N/A       align     kill to   
                                                                       start
 
 C-a       C-r       C-s       C-t       C-g       C-m       C-n       C-e       C-i       C-o        C-'
-N/A       N/A       save      N/A       N/A       N/A       page      page      jump      jump       N/A
-                    sel                                     down      up        forward   backward
+N/A       N/A       save      N/A       N/A       N/A       N/A       N/A       jump      jump       N/A
+                    sel                                                         forward   backward
 
 C-z       C-x       C-c       C-d       C-v       C-k       C-h       C-y       C-.       C-/
-suspend   N/A       command   half page N/A       kill to   N/A
-                    mode      down                line
+suspend   N/A       N/A       half page N/A       kill to   N/A
+                              down                line
                                                   end
 ```
 
@@ -84,8 +84,8 @@ Lower Layer:
 1         2         3         4         5         6         7         8         9         0
 
 ~         (         !         =         )         {         %         &         }         |          Del
-switch    rotate    shell     format    rotate    N/A       select    align     N/A       shell      N/A
-case      sels      insert    sels      sels                all       sels                pipe
+switch    rotate    shell     align     rotate    N/A       select    select    N/A       shell      N/A
+case      sels      insert    sels      sels                all       register            pipe
           backward  output              forward
 
 N/A       N/A       N/A       _         N/A       N/A       N/A       N/A       N/A       N/A
