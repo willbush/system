@@ -31,6 +31,7 @@ in
         extraGroups = [
           "networkmanager"
           "wheel"
+          "wireshark"
         ];
       };
     };
@@ -119,6 +120,7 @@ in
   };
 
   programs.fish.enable = true;
+  programs.wireshark.enable = true;
 
   programs.nh = {
     enable = true;
