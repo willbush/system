@@ -43,6 +43,7 @@ in
     quickemu # VM manager
     shfmt
     tokei
+    xxd # hexdump
     # language servers
     markdown-oxide
     nil
