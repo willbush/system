@@ -8,9 +8,9 @@
     simple-scan
 
     # Communication
-    discord
     signal-desktop
     slack
+    vesktop
 
     # Multimedia
     gimp
