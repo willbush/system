@@ -84,7 +84,6 @@ in
   };
 
   modules.unfree.allowList = [
-    "discord"
     "rider"
     "slack"
   ];
