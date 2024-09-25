@@ -119,6 +119,8 @@ in
   };
 
   programs.fish.enable = true;
+  # important for system-wide configuration despite being installed via home-manager
+  programs.hyprland.enable = true;
   programs.wireshark.enable = true;
 
   programs.nh = {
