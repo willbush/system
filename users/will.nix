@@ -86,6 +86,7 @@ in
   modules.unfree.allowList = [
     "rider"
     "slack"
+    "zoom"
   ];
 
   networking = {

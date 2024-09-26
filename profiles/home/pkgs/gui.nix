@@ -11,6 +11,7 @@
     signal-desktop
     slack
     vesktop
+    zoom-us
 
     # Multimedia
     gimp
