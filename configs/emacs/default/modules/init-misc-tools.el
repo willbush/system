@@ -59,13 +59,8 @@
   (add-function :after after-focus-change-function #'gcmh-idle-garbage-collect))
 
 
-(use-package flyspell
-  :commands (flyspell-mode flyspell-prog-mode)
-  :init (setq ispell-program-name "aspell")
-  :config
-  ;; improve perf per wiki: https://www.emacswiki.org/emacs/FlySpell
-  (setq flyspell-issue-message-flag nil))
-
+(use-package jinx
+  :commands (jinx-correct jinx-mode))
 
 (use-package define-word
   :commands define-word-at-point)
