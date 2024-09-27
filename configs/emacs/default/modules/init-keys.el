@@ -40,7 +40,9 @@
   "Fo" 'other-frame
 
   "S" '(:ignore t :wk "spell-checking")
-  "Sb" 'jinx-correct
+  "Sn" 'jinx-next
+  "Sp" 'jinx-previous
+  "Ss" 'jinx-correct
 
   "a" '(:ignore t :wk "apps")
 
@@ -205,7 +207,7 @@
   "tg" '(zoom-mode :wk "zoom-mode golden ratio")
   "tl" 'toggle-truncate-lines
   "tn" 'display-line-numbers-mode
-  "ts" 'flyspell-mode
+  "ts" 'jinx-mode
   "tt" 'display-time-mode
   "tv" 'my/toggle-adaptive-visual-fill-column
 
