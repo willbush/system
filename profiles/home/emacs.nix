@@ -177,6 +177,7 @@
         rainbow-delimiters
         ranger
         rust-mode
+        smartparens
         sudo-edit
         swiper
         terraform-mode
