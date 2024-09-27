@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     # office
     foliate # A simple and modern GTK eBook reader
-    hunspellDicts.en_US-large # spellcheck dictionary used by libreoffice
     libreoffice-fresh
     simple-scan
 
