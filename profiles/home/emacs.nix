@@ -75,33 +75,6 @@
           '';
           meta.description = "Emacs plugin for GitHub Copilot";
         };
-      eglot-x =
-        let
-          rev = inputs.eglot-x.shortRev;
-        in
-        with pkgs;
-        with pkgs.emacsPackages;
-        melpaBuild {
-          pname = "eglot-x";
-          ename = "eglot-x";
-          version = inputs.eglot-x.lastModifiedDate;
-          commit = rev;
-
-          src = fetchFromGitHub {
-            inherit rev;
-            owner = "nemethf";
-            repo = "eglot-x";
-            sha256 = inputs.eglot-x.narHash;
-          };
-
-          recipe = writeText "recipe" ''
-            (eglot-x
-              :repo "nemethf/eglot-x"
-              :fetcher github
-              :files ("*.el" "dist"))
-          '';
-          meta.description = "Protocol extensions for Eglot ";
-        };
 
       atomic-chrome =
         let
@@ -157,7 +130,6 @@
         dockerfile-mode
         doom-modeline
         doom-themes
-        eglot-x
         embark
         embark-consult
         evil

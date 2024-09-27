@@ -339,24 +339,7 @@ git-timemachine-mode:
               ("C-c i" . eglot-find-implementation)
               ("C-c o" . eglot-code-action-organize-imports)
               ("C-c r" . eglot-rename)
-              ("C-c t" . eglot-find-typeDefinition)
-              ;; Extended eglot-x commands
-              ("C-c x S" . eglot-x-structural-search-replace)
-              ("C-c x T" . eglot-x-ask-related-tests)
-              ("C-c x d" . eglot-x-open-external-documentation)
-              ("C-c x e" . eglot-x-expand-macro)
-              ("C-c x f" . eglot-x-run-flycheck)
-              ("C-c x g" . eglot-x-view-crate-graph)
-              ("C-c x h" . eglot-x-view-hir)
-              ("C-c x j" . eglot-x-join-lines)
-              ("C-c x l" . eglot-x-view-recursive-memory-layout)
-              ("C-c x m" . eglot-x-view-mir)
-              ("C-c x p" . eglot-x-rebuild-proc-macros)
-              ("C-c x s" . eglot-x-analyzer-status)
-              ("C-c x t" . eglot-x-show-syntax-tree)
-              ("C-c x w" . eglot-x-reload-workspace)
-              ("C-c x y" . eglot-x-debug-file-sync-problems)
-              ("Cec x r" . eglot-x-find-refs))
+              ("C-c t" . eglot-find-typeDefinition))
 
   :hook ((rust-mode nix-mode) . eglot-ensure)
   :config
@@ -376,12 +359,6 @@ git-timemachine-mode:
 
   (add-to-list 'eglot-server-programs
                '(nix-mode . ("nil"))))
-
-
-(use-package eglot-x
-  :after eglot
-  :config
-  (eglot-x-setup))
 
 
 (use-package git-gutter

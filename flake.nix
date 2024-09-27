@@ -35,12 +35,6 @@
       flake = false;
     };
 
-    # Eventually will be on elpa https://github.com/nemethf/eglot-x/issues/1
-    eglot-x = {
-      url = "github:nemethf/eglot-x";
-      flake = false;
-    };
-
     atomic-chrome = {
       url = "github:KarimAziev/atomic-chrome";
       flake = false;
