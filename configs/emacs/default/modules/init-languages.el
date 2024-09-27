@@ -24,7 +24,8 @@
   :init
   (add-hook 'rust-mode-hook
             (lambda ()
-              (setq fill-column 100)))
+              (setq fill-column 100)
+              (electric-pair-mode 1)))
 
   (setq rust-ts-mode-hook rust-mode-hook))
 
