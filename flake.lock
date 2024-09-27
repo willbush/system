@@ -114,22 +114,6 @@
         "type": "github"
       }
     },
-    "eglot-x": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1724057943,
-        "narHash": "sha256-eu9qq8fDtri6i5Cr9qDOdchiQ133+UjpKUFlNnANmp8=",
-        "owner": "nemethf",
-        "repo": "eglot-x",
-        "rev": "ee39a0edd43431eee899fc7787d936731c157689",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nemethf",
-        "repo": "eglot-x",
-        "type": "github"
-      }
-    },
     "emacs-overlay": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -381,7 +365,6 @@
         "atomic-chrome": "atomic-chrome",
         "chemacs": "chemacs",
         "copilot-el": "copilot-el",
-        "eglot-x": "eglot-x",
         "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
