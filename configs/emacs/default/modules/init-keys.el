@@ -40,11 +40,7 @@
   "Fo" 'other-frame
 
   "S" '(:ignore t :wk "spell-checking")
-  "Sb" 'flyspell-buffer
-  "Sc" 'flyspell-correct-at-point
-  "Sn" 'flyspell-correct-next
-  "Sp" 'flyspell-correct-previous
-  "Sr" 'flyspell-region
+  "Sb" 'jinx-correct
 
   "a" '(:ignore t :wk "apps")
 
