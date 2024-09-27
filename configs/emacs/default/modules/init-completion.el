@@ -118,6 +118,10 @@
 
   (add-hook 'kill-emacs-hook #'recentf-cleanup))
 
+(use-package smartparens
+  :hook (prog-mode text-mode markdown-mode)
+  :config
+  (require 'smartparens-config))
 
 (use-package copilot
   :hook ((prog-mode text-mode) . copilot-mode)
