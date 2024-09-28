@@ -124,7 +124,7 @@
   (require 'smartparens-config))
 
 (use-package copilot
-  :hook ((prog-mode text-mode) . copilot-mode)
+  :hook ((text-mode) . copilot-mode)
   :bind ("C-<tab>" . copilot-accept-completion)
   :config
 
