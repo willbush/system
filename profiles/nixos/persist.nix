@@ -60,6 +60,7 @@
         ".config/emacs.default/transient"
         ".config/emacs.default/tree-sitter"
         ".config/emacs.default/var"
+        ".config/enchant"
         ".config/fish"
         ".config/github-copilot"
         ".config/gopass/config"
