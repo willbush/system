@@ -43,6 +43,7 @@ in
     quickemu # VM manager
     shfmt
     tokei
+    trufflehog # Find, verify, and analyze leaked credentials (must be run with --no-update in NixOS)
     xxd # hexdump
     # language servers
     markdown-oxide
