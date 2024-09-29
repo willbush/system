@@ -36,6 +36,7 @@
 
     # Audio
     helvum # A GTK patchbay for pipewire.
+    pavucontrol
 
     # Utilities
     transmission_4-gtk
