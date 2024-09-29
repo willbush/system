@@ -200,6 +200,8 @@
   (add-hook 'gptel-mode-hook #'visual-line-mode)
   (add-hook 'gptel-post-response-functions 'whitespace-cleanup)
 
+  (setq gptel-default-mode 'org-mode)
+
   (setq gptel-model "anthropic/claude-3.5-sonnet"
         gptel-backend
         (gptel-make-openai "OpenRouter"
