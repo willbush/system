@@ -68,6 +68,7 @@
         ".config/k9s"
         ".config/libreoffice"
         ".config/maestral"
+        ".config/obs-studio"
         ".config/omni"
         ".config/pulse"
         ".config/remmina"
