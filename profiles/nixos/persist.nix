@@ -100,6 +100,7 @@
         "images"
         "public"
         "sync"
+        "videos"
         "vms"
         {
           directory = ".SeedVaultAndroidBackup";
