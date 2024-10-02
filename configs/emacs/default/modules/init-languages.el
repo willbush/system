@@ -8,7 +8,7 @@
   :init
   ;; project.el project root marker for when in a project that's in a
   ;; sub-directory of a git repo.
-  (setq project-vc-extra-root-markers '("Cargo.toml")))
+  (setq project-vc-extra-root-markers '(".envrc")))
 
 
 (use-package treesit-auto
