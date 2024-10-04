@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ ... }:
 {
   # No automatic theme stylix
   stylix.targets.helix.enable = false;
