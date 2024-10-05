@@ -202,7 +202,7 @@
 
   (setq gptel-default-mode 'org-mode)
 
-  (setq gptel-model "anthropic/claude-3.5-sonnet"
+  (setq gptel-model "anthropic/claude-3.5-sonnet:beta"
         gptel-backend
         (gptel-make-openai "OpenRouter"
           :host "openrouter.ai"
