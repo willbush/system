@@ -9,7 +9,7 @@
     # Communication
     signal-desktop
     slack
-    vesktop
+    vesktop # discord client
     zoom-us
 
     # Multimedia
