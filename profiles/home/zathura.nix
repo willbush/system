@@ -2,6 +2,12 @@
 {
   programs.zathura = {
     enable = true;
+
+    options = {
+      recolor = true;
+      recolor-keephue = true;
+    };
+
     mappings = {
       "m" = "scroll left";
       "n" = "scroll down";
