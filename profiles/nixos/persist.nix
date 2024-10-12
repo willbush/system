@@ -38,6 +38,7 @@
         ".cache/mesa_shader_cache_db"
         ".cache/mozilla"
         ".cache/nix"
+        ".cache/nix-output-monitor"
         ".cache/org-persist"
         ".cache/remmina"
         ".cache/rust-script"
