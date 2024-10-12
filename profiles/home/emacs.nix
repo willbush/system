@@ -160,7 +160,6 @@
         marginalia
         markdown-mode
         markdown-toc
-        meow
         moody
         nix-mode
         orderless
