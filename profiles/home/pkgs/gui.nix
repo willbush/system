@@ -20,7 +20,7 @@
     vlc
 
     # Browsers
-    (firefox.override { nativeMessagingHosts = [ browserpass ]; })
+    firefox
     chromium # sometimes I use for testing
 
     # Development
