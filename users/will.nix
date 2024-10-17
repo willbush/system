@@ -158,7 +158,9 @@ in
     hasklig
     ibm-plex
     jetbrains-mono
+    jigmo # Japanese Kanji font set which is the official successor to Hanazono Mincho
     nerdfonts
+    noto-fonts-cjk-sans
     noto-fonts-emoji
   ];
 
