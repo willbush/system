@@ -29,11 +29,6 @@
       flake = false;
     };
 
-    atomic-chrome = {
-      url = "github:KarimAziev/atomic-chrome";
-      flake = false;
-    };
-
     wezterm = {
       url = "github:wez/wezterm/main?dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
