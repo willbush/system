@@ -62,7 +62,6 @@
         ".config/emacs.default/var"
         ".config/enchant"
         ".config/fish"
-        ".config/github-copilot"
         ".config/gopass/config"
         ".config/helm"
         ".config/k9s"
