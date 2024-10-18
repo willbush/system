@@ -355,9 +355,6 @@ git-timemachine-mode:
                  ("rust-analyzer" :initializationOptions (:check (:command "clippy")))))
 
   (add-to-list 'eglot-server-programs
-               '((csharp-ts-mode csharp-mode) . ("OmniSharp" "-lsp")))
-
-  (add-to-list 'eglot-server-programs
                '(nix-mode . ("nil"))))
 
 
