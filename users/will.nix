@@ -39,7 +39,6 @@ in
 
   home-manager.users.will = {
     imports = [
-      ../profiles/home/dotnet.nix
       ../profiles/home/emacs.nix
       ../profiles/home/fish.nix
       ../profiles/home/git.nix
