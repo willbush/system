@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "atomic-chrome": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1728578865,
-        "narHash": "sha256-HamoGeTx1vatwH5ttGyvQszfr7ShmaH1Hq52Csz0Xgw=",
-        "owner": "KarimAziev",
-        "repo": "atomic-chrome",
-        "rev": "4c1fa6519063d7157a37d96da267245747d58451",
-        "type": "github"
-      },
-      "original": {
-        "owner": "KarimAziev",
-        "repo": "atomic-chrome",
-        "type": "github"
-      }
-    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -346,7 +330,6 @@
     },
     "root": {
       "inputs": {
-        "atomic-chrome": "atomic-chrome",
         "chemacs": "chemacs",
         "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",

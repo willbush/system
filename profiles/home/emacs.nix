@@ -39,43 +39,11 @@
   programs.emacs = {
     enable = true;
     package = pkgs.emacs-pgtk;
-    overrides = _self: _super: {
-      atomic-chrome =
-        let
-          rev = inputs.atomic-chrome.shortRev;
-        in
-        with pkgs;
-        with pkgs.emacsPackages;
-        melpaBuild {
-          pname = "atomic-chrome";
-          ename = "atomic-chrome";
-          version = inputs.atomic-chrome.lastModifiedDate;
-          commit = rev;
-
-          packageRequires = [ websocket ];
-
-          src = fetchFromGitHub {
-            inherit rev;
-            owner = "KarimAziev";
-            repo = "atomic-chrome";
-            sha256 = inputs.atomic-chrome.narHash;
-          };
-
-          recipe = writeText "recipe" ''
-            (atomic-chrome
-              :repo "KarimAziev/atomic-chrome"
-              :fetcher github
-              :files ("*.el" "dist"))
-          '';
-          meta.description = "Edit text area on Chrome with Emacs using Atomic Chrome ";
-        };
-    };
     extraPackages = (
       epkgs:
       (with epkgs; [
         adaptive-wrap
         all-the-icons-completion
-        atomic-chrome
         avy
         benchmark-init
         browse-at-remote

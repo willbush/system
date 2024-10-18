@@ -251,7 +251,5 @@
 
 (use-package sudo-edit :commands sudo-edit)
 
-(use-package atomic-chrome
-  :commands (atomic-chrome-start-server))
 
 (provide 'init-misc-tools)
