@@ -22,9 +22,6 @@
     firefox
     chromium # sometimes I use for testing
 
-    # Development
-    jetbrains.rider
-
     # Cloud & Sync
     maestral-gui
     maestral # cli tool
