@@ -29,12 +29,6 @@
       flake = false;
     };
 
-    # Never going to be on melpa.
-    copilot-el = {
-      url = "github:zerolfx/copilot.el";
-      flake = false;
-    };
-
     atomic-chrome = {
       url = "github:KarimAziev/atomic-chrome";
       flake = false;

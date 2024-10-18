@@ -40,42 +40,6 @@
     enable = true;
     package = pkgs.emacs-pgtk;
     overrides = _self: _super: {
-      # I install the packages below by hand because they're not in MELPA, and I
-      # don't want to incur the startup cost of using straight.el.
-      copilot =
-        let
-          rev = inputs.copilot-el.shortRev;
-        in
-        with pkgs;
-        with pkgs.emacsPackages;
-        melpaBuild {
-          pname = "copilot";
-          ename = "copilot";
-          version = inputs.copilot-el.lastModifiedDate;
-          commit = rev;
-          packageRequires = [
-            dash
-            editorconfig
-            s
-            jsonrpc
-          ];
-
-          src = fetchFromGitHub {
-            inherit rev;
-            owner = "zerolfx";
-            repo = "copilot.el";
-            sha256 = inputs.copilot-el.narHash;
-          };
-
-          recipe = writeText "recipe" ''
-            (copilot
-              :repo "zerolfx/copilot.el"
-              :fetcher github
-              :files ("*.el" "dist"))
-          '';
-          meta.description = "Emacs plugin for GitHub Copilot";
-        };
-
       atomic-chrome =
         let
           rev = inputs.atomic-chrome.shortRev;
@@ -117,7 +81,6 @@
         browse-at-remote
         consult
         consult-project-extra
-        copilot
         corfu
         dape
         dart-mode

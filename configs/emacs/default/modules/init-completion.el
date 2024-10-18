@@ -123,20 +123,5 @@
   :config
   (require 'smartparens-config))
 
-(use-package copilot
-  :hook ((text-mode) . copilot-mode)
-  :bind ("C-<tab>" . copilot-accept-completion)
-  :config
-
-  (setq copilot-indent-offset-warning-disable t)
-
-  (add-to-list 'warning-suppress-log-types '(copilot copilot-exceeds-max-char))
-
-  (defun my/disable-copilot-for-gpg-p ()
-    "Return t if the current buffer is visiting a .gpg file."
-    (and (stringp buffer-file-name)
-         (string-match "\\.gpg$" buffer-file-name)))
-
-  (add-to-list 'copilot-disable-predicates #'my/disable-copilot-for-gpg-p))
 
 (provide 'init-completion)
