@@ -95,7 +95,7 @@ in
 
   modules = {
     services.syncthing = {
-      enable = config.modules.secrets.enable && config.networking.hostName != "ton-618";
+      enable = config.modules.secrets.enable;
       user = username;
     };
     services.virt = {
