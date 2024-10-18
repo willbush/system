@@ -74,7 +74,6 @@
         ".config/syncthing"
         ".config/vesktop"
         ".config/vlc"
-        ".dotnet"
         ".java"
         ".krew"
         ".local/share/JetBrains"
