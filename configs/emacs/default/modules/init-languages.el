@@ -50,29 +50,6 @@
   :mode (("\\.vim\\(rc\\)?\\'" . vimrc-mode)
          ("\\vimrc\\'" . vimrc-mode)))
 
-(use-package csharp-mode
-  :init
-  (add-hook 'csharp-mode-hook
-            (lambda ()
-              (c-set-offset 'substatement-open 0)
-              (setq indent-tabs-mode t
-                    c-syntactic-indentation t
-                    fill-column 100
-                    truncate-lines t
-                    tab-width 4
-                    evil-shift-width 4
-                    c-basic-offset 4)))
-
-  (setq csharp-ts-mode-hook csharp-mode-hook)
-
-  (add-hook 'web-mode-hook
-            (lambda ()
-              (when (or (string-match "\\.csproj\\'" (buffer-file-name))
-                        (string-match "\\.xaml\\'" (buffer-file-name))
-                        (string-match "\\.props\\'" (buffer-file-name)))
-                (progn
-                  (setq indent-tabs-mode t)
-                  (web-mode-use-tabs))))))
 
 ;;
 ;;; Nix
