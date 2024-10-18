@@ -50,7 +50,6 @@
       system = "x86_64-linux";
       hosts = [
         "blazar"
-        "ton-618"
       ];
 
       toConfig =
