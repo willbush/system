@@ -10,7 +10,6 @@
     signal-desktop
     slack
     vesktop # discord client
-    zoom-us
 
     # Multimedia
     gimp
