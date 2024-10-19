@@ -34,7 +34,6 @@ in
     # Development
     hyperfine # benchmarking tool
     nix-prefetch-git
-    openssl
     quickemu # VM manager
     shfmt
     tokei
