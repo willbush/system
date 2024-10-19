@@ -32,8 +32,6 @@ in
     zola # blogging
 
     # Development
-    gcc # for `treesit-auto-install-all` which builds treesitter grammars
-    gdb
     hyperfine # benchmarking tool
     nix-prefetch-git
     omnisharp-roslyn # broken until https://github.com/NixOS/nixpkgs/pull/249091
