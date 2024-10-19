@@ -22,10 +22,6 @@
     firefox
     chromium # sometimes I use for testing
 
-    # Cloud & Sync
-    maestral-gui
-    maestral # cli tool
-
     # GNOME Apps
     nautilus # file manager I sometimes use
     seahorse # password and keys manager
