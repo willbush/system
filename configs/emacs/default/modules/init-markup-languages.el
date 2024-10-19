@@ -15,21 +15,6 @@
               (setq show-trailing-whitespace t))))
 
 
-;; markdown preview
-(use-package grip-mode
-  :commands grip-mode
-  :init
-  (general-def
-    :keymaps 'markdown-mode-command-map
-    "g" 'grip-mode)
-  :config
-  (setq grip-github-user "willbush")
-  (setq grip-github-password
-        (funcall
-         (lambda ()
-           (nth 0 (process-lines "gopass" "show" "will/websites/general/github-pat-grip"))))))
-
-
 (use-package yaml-mode
   :mode (("\\.yaml\\'" . yaml-mode)
          ("\\.yml\\'" . yaml-mode))
