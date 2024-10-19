@@ -34,7 +34,6 @@ in
     # Development
     hyperfine # benchmarking tool
     nix-prefetch-git
-    omnisharp-roslyn # broken until https://github.com/NixOS/nixpkgs/pull/249091
     openssl
     quickemu # VM manager
     shfmt
