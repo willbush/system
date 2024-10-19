@@ -72,7 +72,6 @@
         ".config/vlc"
         ".java"
         ".krew"
-        ".local/share/NuGet"
         ".local/share/direnv"
         ".local/share/fish"
         ".local/share/k9s"
@@ -85,7 +84,6 @@
         ".local/state/k9s"
         ".local/state/wireplumber"
         ".mozilla" # firefox
-        ".nuget"
         ".talos"
         "code"
         "downloads"
