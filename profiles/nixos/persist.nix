@@ -52,7 +52,6 @@
         ".config/dconf"
         ".config/emacs.default/.cache"
         ".config/emacs.default/backups"
-        ".config/emacs.default/chatgpt"
         ".config/emacs.default/eln-cache"
         ".config/emacs.default/transient"
         ".config/emacs.default/tree-sitter"
