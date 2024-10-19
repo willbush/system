@@ -26,7 +26,6 @@
     ];
     users.will = {
       directories = [
-        ".cache/JetBrains"
         ".cache/bat"
         ".cache/dconf"
         ".cache/fontconfig"
@@ -45,7 +44,6 @@
         ".cache/thumbnails"
         ".cache/virt-manager"
         ".cargo"
-        ".config/JetBrains"
         ".config/Mullvad VPN"
         ".config/OpenRGB"
         ".config/Signal"
@@ -74,7 +72,6 @@
         ".config/vlc"
         ".java"
         ".krew"
-        ".local/share/JetBrains"
         ".local/share/NuGet"
         ".local/share/direnv"
         ".local/share/fish"
