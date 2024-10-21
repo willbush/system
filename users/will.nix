@@ -132,13 +132,7 @@ in
     sudo.enable = false;
     sudo-rs.enable = true;
     sudo-rs.execWheelOnly = true;
-
     pam.services.swaylock = { };
-
-    krb5 = {
-      enable = secretsEnabled;
-      settings = config.modules.secrets.krb5Settings;
-    };
   };
 
   # List packages installed in system profile.
