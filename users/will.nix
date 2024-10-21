@@ -6,7 +6,6 @@
 }:
 let
   inherit (lib) fileContents;
-  secretsEnabled = config.modules.secrets.enable;
   username = "will";
 in
 {
