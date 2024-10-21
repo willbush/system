@@ -28,10 +28,6 @@
     motherboard = "amd";
   };
 
-  # ROCm is an Advanced Micro Devices (AMD) software stack for graphics processing unit (GPU) programming.
-  # Used by things like ollama and Tabby
-  nixpkgs.config.rocmSupport = true;
-
   # Generated hardware configuration below:
   boot.initrd.availableKernelModules = [
     "nvme"
