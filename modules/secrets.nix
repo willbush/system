@@ -47,7 +47,5 @@ in
     modules.secrets.rootHashedPassword = fileContents ../secrets/hashed-password-root.txt;
     modules.secrets.willHashedPassword = fileContents ../secrets/hashed-password-will.txt;
     modules.secrets.krb5Settings = import ../secrets/krb5-settings.nix;
-
-    modules.secrets.pkiCertificates = [ "${builtins.readFile ../secrets/work-cert.pem}" ];
   };
 }

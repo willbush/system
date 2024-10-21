@@ -133,7 +133,6 @@ in
     sudo-rs.enable = true;
     sudo-rs.execWheelOnly = true;
 
-    pki.certificates = config.modules.secrets.pkiCertificates;
     pam.services.swaylock = { };
 
     krb5 = {
