@@ -92,6 +92,10 @@
         "videos"
         "vms"
         {
+          directory = ".aws";
+          mode = "0700";
+        }
+        {
           directory = ".SeedVaultAndroidBackup";
           mode = "0700";
         }
