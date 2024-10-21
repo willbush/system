@@ -25,13 +25,6 @@
     };
   };
 
-  # services.emacs = {
-  #   enable = true;
-  #   package = pkgs.emacs-pgtk;
-  #   client.enable = true;
-  #   defaultEditor = true;
-  # };
-
   home.packages = with pkgs; [
     hunspellDicts.en_US # used by jinx
   ];
