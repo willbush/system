@@ -202,7 +202,7 @@
 
   (setq gptel-default-mode 'org-mode)
 
-  (setq gptel-model "anthropic/claude-3.5-sonnet:beta"
+  (setq gptel-model "anthropic/claude-3.5-sonnet-20240620:beta"
         gptel-backend
         (gptel-make-openai "OpenRouter"
           :host "openrouter.ai"
@@ -211,8 +211,7 @@
           :key (lambda () (nth 3 (process-lines "gopass" "show" "will/websites/general/openrouter.ai")))
           :models '(
                     "anthropic/claude-3-haiku"
-                    "anthropic/claude-3.5-sonnet"
-                    "anthropic/claude-3.5-sonnet:beta"
+                    "anthropic/claude-3.5-sonnet-20240620:beta"
                     "deepseek/deepseek-coder"
                     "google/gemini-flash-1.5"
                     "google/gemini-pro-1.5"
