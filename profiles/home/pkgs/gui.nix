@@ -8,7 +8,6 @@
 
     # Communication
     signal-desktop
-    slack
     vesktop # discord client
 
     # Multimedia
