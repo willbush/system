@@ -8,7 +8,6 @@
     '';
 
     shellAliases = {
-      k = "kubectl";
       la = "eza -lah";
       tp = "trash-put";
     };

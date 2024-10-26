@@ -59,19 +59,6 @@ in
     viddy # Modern watch command
     zenith
 
-    # Kubernetes
-    argocd
-    cilium-cli
-    fluxcd
-    grafana-loki # provides: promtail loki-canary loki logcli
-    kind
-    kubectl
-    kubelogin-oidc # k8s credential plugin implementing OIDC auth (used by omni)
-    kubernetes-helm
-    kubeseal
-    kustomize
-    talosctl
-
     # Network
     dnsutils
     doggo # DNS Client for Humans.

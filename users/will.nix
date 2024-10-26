@@ -43,7 +43,6 @@ in
       ../profiles/home/git.nix
       ../profiles/home/gpg.nix
       ../profiles/home/helix.nix
-      ../profiles/home/krew.nix
       ../profiles/home/pkgs/cli.nix
       ../profiles/home/pkgs/gui.nix
       ../profiles/home/programs.nix

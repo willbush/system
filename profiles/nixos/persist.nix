@@ -31,7 +31,6 @@
         ".cache/fontconfig"
         ".cache/gstreamer-1.0"
         ".cache/helix"
-        ".cache/helm"
         ".cache/mesa_shader_cache"
         ".cache/mesa_shader_cache_db"
         ".cache/mozilla"
@@ -47,7 +46,6 @@
         ".config/OpenRGB"
         ".config/Signal"
         ".config/Slack"
-        ".config/argocd"
         ".config/dconf"
         ".config/emacs.default/.cache"
         ".config/emacs.default/backups"
@@ -58,29 +56,20 @@
         ".config/enchant"
         ".config/fish"
         ".config/gopass/config"
-        ".config/helm"
-        ".config/k9s"
         ".config/libreoffice"
         ".config/obs-studio"
-        ".config/omni"
         ".config/pulse"
         ".config/syncthing"
         ".config/vesktop"
         ".config/vlc"
         ".java"
-        ".krew"
         ".local/share/direnv"
         ".local/share/fish"
-        ".local/share/k9s"
         ".local/share/keyrings"
-        ".local/share/omni"
-        ".local/share/talos"
         ".local/share/wezterm"
         ".local/share/zoxide"
-        ".local/state/k9s"
         ".local/state/wireplumber"
         ".mozilla" # firefox
-        ".talos"
         "code"
         "downloads"
         "images"
@@ -98,10 +87,6 @@
         }
         {
           directory = ".gnupg";
-          mode = "0700";
-        }
-        {
-          directory = ".kube";
           mode = "0700";
         }
         {
