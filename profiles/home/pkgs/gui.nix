@@ -32,7 +32,6 @@
 
     # Utilities
     transmission_4-gtk
-    remmina
     wireshark
   ];
 }
