@@ -32,6 +32,7 @@ in
     zola # blogging
 
     # Development
+    bacon # watches your rust project and runs jobs in background.
     hyperfine # benchmarking tool
     nix-prefetch-git
     quickemu # VM manager
