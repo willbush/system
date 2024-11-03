@@ -1,5 +1,10 @@
 # https://github.com/nix-community/impermanence#module-usage
 {
+  # workaround https://github.com/nix-community/impermanence/issues/229
+  # note `systemd.tmpfiles.rules` workaround did not work
+  boot.initrd.systemd.suppressedUnits = [ "systemd-machine-id-commit.service" ];
+  systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
+
   environment.persistence."/nix/persist" = {
     hideMounts = true;
     directories = [
