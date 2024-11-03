@@ -2,6 +2,8 @@
 {
   programs.starship = {
     enable = true;
+    enableTransience = true;
+
     settings = {
       format = "$directory$git_branch$git_state$git_status$line_break$character";
 
