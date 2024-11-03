@@ -8,7 +8,6 @@
 {
   imports = [
     "${modulesPath}/installer/scan/not-detected.nix"
-    ../modules/secrets.nix
     ../modules/unfree.nix
     ../profiles/nixos/efi.nix
     ../profiles/nixos/host-settings.nix
@@ -17,10 +16,6 @@
     ../profiles/nixos/printer.nix
     ../users/will.nix
   ];
-
-  # Whether to use git-crypt encrypted secrets directory or use temporary / fake
-  # values.
-  modules.secrets.enable = true;
 
   services.hardware.openrgb = {
     enable = true;

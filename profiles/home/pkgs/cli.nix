@@ -11,7 +11,6 @@ in
     eza
     fd
     file
-    git-crypt
     gopass
     grim # Grab images from a Wayland compositor.
     lsof
@@ -44,6 +43,10 @@ in
     markdown-oxide
     nil
     yaml-language-server
+
+    # Cryptography
+    age
+    sops
 
     # Data processing
     jq

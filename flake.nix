@@ -5,6 +5,12 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     impermanence.url = "github:nix-community/impermanence";
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -13,6 +19,7 @@
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs";
     };
 
     # System-wide colorscheming and typography for NixOS
@@ -53,8 +60,9 @@
           inherit system;
           modules = [
             (./hosts + "/${hostName}.nix")
-            inputs.impermanence.nixosModules.impermanence
             inputs.home-manager.nixosModules.home-manager
+            inputs.impermanence.nixosModules.impermanence
+            inputs.sops-nix.nixosModules.sops
             inputs.stylix.nixosModules.stylix
             {
               home-manager = {

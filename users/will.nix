@@ -7,25 +7,33 @@
 let
   inherit (lib) fileContents;
   username = "will";
+  ageKeyFile = "/home/will/.secrets/sops-nix/admin_will.txt";
 in
 {
   imports = [
     ../modules/services/docker.nix
-    ../modules/services/syncthing.nix
     ../modules/services/virt.nix
     ../profiles/nixos/greetd.nix
     ../profiles/nixos/less.nix
   ];
 
+  sops = {
+    defaultSopsFile = ../secrets/secrets.yaml;
+    age.keyFile = ageKeyFile;
+
+    secrets.root-password-hashed.neededForUsers = true;
+    secrets.will-password-hashed.neededForUsers = true;
+  };
+
   users = {
     mutableUsers = false;
     users = {
-      root.hashedPassword = config.modules.secrets.rootHashedPassword;
+      root.hashedPasswordFile = config.sops.secrets.root-password-hashed.path;
 
       will = {
         isNormalUser = true;
         home = "/home/will";
-        hashedPassword = config.modules.secrets.willHashedPassword;
+        hashedPasswordFile = config.sops.secrets.will-password-hashed.path;
         shell = pkgs.fish;
         extraGroups = [
           "networkmanager"
@@ -58,6 +66,10 @@ in
       inherit username;
       homeDirectory = "/home/will";
 
+      sessionVariables = {
+        SOPS_AGE_KEY_FILE = ageKeyFile;
+      };
+
       file.".ideavimrc".text = fileContents ../configs/nvim/init.vim;
     };
 
@@ -74,6 +86,7 @@ in
       # timeout in milliseconds.
       defaultTimeout = 5000;
     };
+    services.syncthing.enable = true;
 
     # Nicely reload system units when changing configs
     systemd.user.startServices = "sd-switch";
@@ -87,10 +100,6 @@ in
   };
 
   modules = {
-    services.syncthing = {
-      enable = config.modules.secrets.enable;
-      user = username;
-    };
     services.virt = {
       enable = true;
       user = username;

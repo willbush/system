@@ -14,7 +14,7 @@ encryption. Check out [[https://willbush.dev/blog/impermanent-nixos/][this blog]
 ├── profiles
 │   ├── home       # home-manager profiles
 │   └── nixos      # nixos profiles
-├── secrets        # git-crypt encrypted secrets.
+├── secrets        # nix-sops encrypted secrets.
 └── users          # user specific
 #+end_src
 
