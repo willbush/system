@@ -11,6 +11,7 @@
       extraConfig = builtins.readFile ../../configs/nvim/init.vim;
     };
 
+    alacritty.enable = true;
     bat.enable = true;
     bottom.enable = true; # command: btm
     btop.enable = true;

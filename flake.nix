@@ -29,11 +29,6 @@
       flake = false;
     };
 
-    wezterm = {
-      url = "github:wez/wezterm/main?dir=nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # helix = {
     #   url = "github:willbush/helix/wills-mods";
     #   inputs.nixpkgs.follows = "nixpkgs";

@@ -49,7 +49,6 @@ in
       ../profiles/home/starship.nix
       ../profiles/home/swayidle.nix
       ../profiles/home/swaylock.nix
-      ../profiles/home/wezterm.nix
       ../profiles/home/xdg.nix
       ../profiles/home/zathura.nix
     ];

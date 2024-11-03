@@ -65,7 +65,6 @@
         ".local/share/direnv"
         ".local/share/fish"
         ".local/share/keyrings"
-        ".local/share/wezterm"
         ".local/share/zoxide"
         ".local/state/wireplumber"
         ".mozilla" # firefox
