@@ -7,7 +7,7 @@
 let
   inherit (lib) fileContents;
   username = "will";
-  ageKeyFile = "/home/will/.secrets/sops-nix/admin_will.txt";
+  ageKeyFile = "/nix/persist/home/will/.secrets/sops-nix/admin_will.txt";
 in
 {
   imports = [
