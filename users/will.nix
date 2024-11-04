@@ -116,10 +116,6 @@ in
     gnome.gnome-keyring.enable = true;
 
     mullvad-vpn.enable = true;
-    tailscale = {
-      enable = true;
-      useRoutingFeatures = "client";
-    };
   };
 
   programs.fish.enable = true;
