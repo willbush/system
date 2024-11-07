@@ -309,6 +309,10 @@
 ;; `completion-at-point' is often bound to M-TAB.
 (setq tab-always-indent 'complete)
 
+;; Emacs 30 and newer: Disable Ispell completion function. Using `cape-dict` as
+;; an alternative.
+(setq text-mode-ispell-word-completion nil)
+
 ;;
 ;;; Extra file extensions to support
 
