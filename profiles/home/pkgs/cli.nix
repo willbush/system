@@ -15,6 +15,7 @@ in
     lsof
     nixfmt-rfc-style
     nodePackages.prettier
+    pinentry-gnome3
     ripgrep
     slurp # Select a region in a Wayland compositor (used with grim)
     tealdeer # tldr in Rust
@@ -45,7 +46,7 @@ in
 
     # Cryptography
     age
-    bitwarden-cli
+    rbw
     sops
 
     # Data processing
