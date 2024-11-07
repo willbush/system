@@ -40,6 +40,7 @@
         avy
         benchmark-init
         browse-at-remote
+        cape
         consult
         consult-project-extra
         corfu
