@@ -109,6 +109,18 @@
           directory = "keepass";
           mode = "0700";
         }
+        {
+          directory = ".cache/rbw";
+          mode = "0700";
+        }
+        {
+          directory = ".config/rbw";
+          mode = "0700";
+        }
+        {
+          directory = ".local/share/rbw";
+          mode = "0700";
+        }
       ];
       files = [
         ".bash_history"
