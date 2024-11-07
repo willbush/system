@@ -11,7 +11,6 @@ in
     eza
     fd
     file
-    gopass
     grim # Grab images from a Wayland compositor.
     lsof
     nixfmt-rfc-style
@@ -46,6 +45,7 @@ in
 
     # Cryptography
     age
+    bitwarden-cli
     sops
 
     # Data processing

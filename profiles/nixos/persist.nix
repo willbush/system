@@ -58,7 +58,6 @@
         ".config/emacs.default/var"
         ".config/enchant"
         ".config/fish"
-        ".config/gopass/config"
         ".config/libreoffice"
         ".config/obs-studio"
         ".config/pulse"
