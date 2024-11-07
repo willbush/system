@@ -109,18 +109,6 @@
   "gb" '(browse-at-remote :wk "browse remote url")
   "gy" '(browse-at-remote-kill :wk "yank remote url")
 
-  "gp" '(:ignore t :wk "pass")
-  "gpf" 'password-store-copy-field
-  "gpp" 'password-store-copy
-  "gpu" 'password-store-url
-
-  "gpg" '(:ignore t :wk "generate")
-  "gpgh" 'password-generator-phonetic
-  "gpgp" 'password-generator-paranoid
-  "gpgs" 'password-generator-strong
-  "gpgx" '(my/gopass-generate-xkcd-passwords :wk "xkcd passwords")
-  "gpgm" '(my/gopass-generate-passwords :wk "many passwords")
-
   "h" '(:ignore t :wk "help")
   "hI" 'info-display-manual
   "hi" 'info

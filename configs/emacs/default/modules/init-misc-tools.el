@@ -164,22 +164,6 @@
     "q" 'quit-window))
 
 
-(use-package password-store
-  :commands
-  (password-store-url
-   password-store-copy
-   password-store-copy-field)
-  :config
-  (setq password-store-executable "gopass"))
-
-
-(use-package password-generator
-  :commands
-  (password-generator-phonetic
-   password-generator-strong
-   password-generator-paranoid))
-
-
 (use-package vterm
   :commands vterm
   :config
@@ -208,7 +192,6 @@
           :host "openrouter.ai"
           :endpoint "/api/v1/chat/completions"
           :stream t
-          :key (lambda () (nth 3 (process-lines "gopass" "show" "will/websites/general/openrouter.ai")))
           :models '(
                     "anthropic/claude-3-haiku"
                     "anthropic/claude-3.5-sonnet-20240620:beta"

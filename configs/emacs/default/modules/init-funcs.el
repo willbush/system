@@ -271,24 +271,6 @@ gets zoomed to make it center."
     (interactive)
     (revert-buffer :ignore-auto :noconfirm))
 
-(defun my/gopass-generate-xkcd-passwords ()
-  "Use gopass to generate xkcd style passwords to a shell buffer"
-  (interactive)
-  (my/gopass--generate-passwords "gopass pwgen --xkcd --lang en --sep ' '"))
-
-(defun my/gopass-generate-passwords ()
-  "Use gopass to generate passwords to a shell buffer"
-  (interactive)
-  (my/gopass--generate-passwords "gopass pwgen --one-per-line"))
-
-(defun my/gopass--generate-passwords (command)
-  (let* ((buf-name "*gopass passwords*")
-         (buf (get-buffer-create buf-name)))
-    (async-shell-command command buf)
-
-    (when (not (string-equal buf-name (buffer-name (current-buffer))))
-      (switch-to-buffer-other-window buf))))
-
 (defun my/rsync-diff-home ()
   "Diff persistent ~ to ephemeral ~"
   (interactive)

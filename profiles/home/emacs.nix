@@ -90,8 +90,6 @@
         org-roam
         ox-gfm
         page-break-lines # emacs-dashboard dependency
-        password-generator
-        password-store
         pdf-tools
         powershell
         protobuf-mode
