@@ -192,6 +192,7 @@
           :host "openrouter.ai"
           :endpoint "/api/v1/chat/completions"
           :stream t
+          :key (lambda () (nth 0 (process-lines "rbw" "get" "openrouter" "--field" "api key")))
           :models '(
                     "anthropic/claude-3-haiku"
                     "anthropic/claude-3.5-sonnet-20240620:beta"
