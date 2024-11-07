@@ -25,7 +25,7 @@ in
     usbutils
     wget
     wl-clipboard-rs
-    # wl-screenrec # TODO broken in unstable
+    wl-screenrec
     zip
     zola # blogging
 

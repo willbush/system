@@ -79,8 +79,6 @@ in
       enable = true;
       extraConfig = builtins.readFile ../configs/hypr/hyprland.conf;
     };
-    # TODO: remove this workaround https://github.com/danth/stylix/pull/605
-    stylix.targets.hyprland.enable = false;
 
     # lightweight notification daemon for Wayland
     services.mako = {
@@ -122,7 +120,6 @@ in
 
   programs.fish.enable = true;
   # important for system-wide configuration despite being installed via home-manager
-
   programs.hyprland.enable = true;
   programs.wireshark.enable = true;
 
