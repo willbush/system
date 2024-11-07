@@ -182,7 +182,7 @@
   ;; https://github.com/karthink/gptel/issues/302
   ;; hard wrapping doesn't work well because it applies to source blocks
   (add-hook 'gptel-mode-hook #'visual-line-mode)
-  (add-hook 'gptel-post-response-functions 'whitespace-cleanup)
+  (add-hook 'gptel-post-response-functions (lambda (&rest _) (whitespace-cleanup)))
 
   (setq gptel-default-mode 'org-mode)
 
