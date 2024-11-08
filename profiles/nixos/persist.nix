@@ -90,10 +90,6 @@
           mode = "0700";
         }
         {
-          directory = ".password-store";
-          mode = "0700";
-        }
-        {
           directory = ".pki";
           mode = "0700";
         }
