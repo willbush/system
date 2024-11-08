@@ -49,7 +49,6 @@ in
       ../profiles/home/emacs.nix
       ../profiles/home/fish.nix
       ../profiles/home/git.nix
-      ../profiles/home/gpg.nix
       ../profiles/home/helix.nix
       ../profiles/home/pkgs/cli.nix
       ../profiles/home/pkgs/gui.nix
