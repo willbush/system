@@ -6,11 +6,6 @@
       enable = true;
       userName = "Will Bush";
       userEmail = "git@willbush.dev";
-      signing = {
-        # public key fingerprint
-        key = "4441422E61E4C8F3EBFE5E333823864B54B13BDA";
-        signByDefault = true;
-      };
 
       extraConfig = {
         blame.ignoreRevsFile = ".git-blame-ignore-revs";
