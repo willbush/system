@@ -102,10 +102,6 @@
           mode = "0700";
         }
         {
-          directory = "keepass";
-          mode = "0700";
-        }
-        {
           directory = ".cache/rbw";
           mode = "0700";
         }
