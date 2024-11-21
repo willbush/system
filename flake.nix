@@ -23,7 +23,8 @@
 
     # System-wide colorscheming and typography for NixOS
     stylix = {
-      url = "github:danth/stylix";
+      # TODO: remove workaround https://github.com/danth/stylix/pull/605
+      url = "github:danth/stylix?rev=04afcfc0684d9bbb24bb1dc77afda7c1843ec93b";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
