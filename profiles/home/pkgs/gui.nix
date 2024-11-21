@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     # office
     foliate # A simple and modern GTK eBook reader
-    libreoffice-fresh
+    libreoffice
     simple-scan
 
     # Communication
