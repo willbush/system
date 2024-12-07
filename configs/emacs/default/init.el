@@ -32,7 +32,6 @@
 ;; order matters in the initialization process.
 (require 'init-defaults)
 (require 'init-key-packages)
-(require 'init-dashboard)
 (require 'init-ui)
 (require 'init-dired)
 (require 'init-editing)

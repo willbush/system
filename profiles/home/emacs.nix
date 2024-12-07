@@ -46,7 +46,6 @@
         corfu
         dape
         dart-mode
-        dashboard
         deadgrep
         define-word
         dired-narrow
@@ -90,7 +89,6 @@
         org-modern
         org-roam
         ox-gfm
-        page-break-lines # emacs-dashboard dependency
         pdf-tools
         powershell
         protobuf-mode
