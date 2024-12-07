@@ -68,12 +68,10 @@
 
   "b" '(:ignore t :wk "buffer")
   "bB" 'consult-buffer-other-window
-  "bD" 'my/kill-all-buffers
-  "bI" 'ibuffer
+  "bK" 'my/kill-all-buffers
   "bO" 'my/kill-other-windows-buffers
   "bb" 'consult-buffer
-  "bd" 'my/kill-this-buffer
-  "bk" 'kill-buffer ;; requests buffer to kill
+  "bk" 'my/kill-this-buffer
   "bm" 'my/switch-to-messages
 
   "bn" '(:ignore t :wk "narrow")
