@@ -167,21 +167,6 @@ Compare them on count first,and in case of tie sort them alphabetically."
   (interactive)
   (switch-to-buffer "*scratch*"))
 
-(defun my/switch-to-dashboard ()
-  "Switch to *dashboard* (creates if needed)"
-  (interactive)
-  (when (not (get-buffer dashboard-buffer-name))
-    (generate-new-buffer dashboard-buffer-name))
-  (dashboard-refresh-buffer))
-
-(defun my/kill-all-buffers-then-switch-to-dashboard ()
-  "Kills all buffers then switches to *dashboard* (creates if needed)"
-  (interactive)
-  (progn
-    (my/kill-all-buffers)
-    (my/switch-to-dashboard)
-    (cd "~/")))
-
 (defun my/kill-this-buffer ()
   "Kill the current buffer."
   (interactive)
@@ -216,17 +201,6 @@ Compare them on count first,and in case of tie sort them alphabetically."
     (window-configuration-to-register ?_)
     (delete-other-windows)))
 
-(defun my/center-horizontal-split ()
-  "Nice for ultra-wide screen when you have a buffer taking up the
-entire screen. This function splits the window horizontally,
-switches the left window to the dashboard and the right window
-gets zoomed to make it center."
-  (interactive)
-  (progn
-    (split-window-horizontally)
-    (my/switch-to-dashboard)
-    (evil-window-right 1)
-    (zoom)))
 
 ;; depends on https://elpa.gnu.org/packages/adaptive-wrap.html
 (defun my/toggle-adaptive-visual-fill-column ()

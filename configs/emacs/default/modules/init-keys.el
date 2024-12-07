@@ -69,12 +69,10 @@
   "b" '(:ignore t :wk "buffer")
   "bB" 'consult-buffer-other-window
   "bD" 'my/kill-all-buffers
-  "bH" 'my/kill-all-buffers-then-switch-to-dashboard
   "bI" 'ibuffer
   "bO" 'my/kill-other-windows-buffers
   "bb" 'consult-buffer
   "bd" 'my/kill-this-buffer
-  "bh" 'my/switch-to-dashboard
   "bk" 'kill-buffer ;; requests buffer to kill
   "bm" 'my/switch-to-messages
 
@@ -208,7 +206,6 @@
   "wM" 'evil-window-move-far-left
   "wN" 'evil-window-move-very-bottom
   "wb" 'balance-windows
-  "wc" 'my/center-horizontal-split
   "wd" 'delete-window
   "we" 'evil-window-up
   "wg" '(zoom :wk "zoom golden ratio")
