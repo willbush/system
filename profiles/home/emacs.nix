@@ -36,7 +36,6 @@
       epkgs:
       (with epkgs; [
         adaptive-wrap
-        all-the-icons-completion
         avy
         benchmark-init
         browse-at-remote
@@ -84,6 +83,8 @@
         markdown-mode
         markdown-toc
         moody
+        nerd-icons
+        nerd-icons-completion
         nix-mode
         orderless
         org-modern

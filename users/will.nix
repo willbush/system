@@ -141,17 +141,16 @@ in
   environment.systemPackages = with pkgs; [ mullvad-vpn ];
 
   fonts.packages = with pkgs; [
-    cascadia-code
     dejavu_fonts
-    emacs-all-the-icons-fonts
-    fira-code
-    fira-mono
-    hack-font
     hasklig
     ibm-plex
-    jetbrains-mono
     jigmo # Japanese Kanji font set which is the official successor to Hanazono Mincho
-    nerdfonts
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
+    nerd-fonts.hack
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.noto
+    nerd-fonts.symbols-only # used by emacs nerd-icons.el
     noto-fonts-cjk-sans
     noto-fonts-emoji
   ];

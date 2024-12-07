@@ -1,6 +1,8 @@
 ;;; -*- lexical-binding: t; -*-
 ;; Also see `early-init-file' because it sets UI elements early.
 
+(use-package nerd-icons)
+
 ;; Set `doom-themes' early to prevent non-stylized UI flash.
 (use-package doom-themes
   :config

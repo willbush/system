@@ -91,12 +91,11 @@
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
-
-(use-package all-the-icons-completion
+(use-package nerd-icons-completion
+  :after marginalia
   :config
-  (all-the-icons-completion-mode)
-  (add-hook 'marginalia-mode-hook #'all-the-icons-completion-marginalia-setup))
-
+  (nerd-icons-completion-mode)
+  (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
 
 ;; Keep track of recently opened files
 (use-package recentf
