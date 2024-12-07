@@ -23,13 +23,14 @@
 
 ;; Do not use `custom-set-faces` because it's slow.
 (set-face-attribute 'default nil
-                    :family "IBM Plex Mono"
+                    :family "ZedMono NFM"
                     :weight 'regular
                     ;; height = point size * 10
                     :height 140)
-(set-face-attribute 'fixed-pitch nil :family "IBM Plex Mono")
-(set-face-attribute 'fixed-pitch-serif nil :family "IBM Plex Mono")
-(set-face-attribute 'variable-pitch nil :family "DejaVu Serif")
+
+(set-face-attribute 'fixed-pitch nil :family "ZedMono NFM")
+(set-face-attribute 'fixed-pitch-serif nil :family "ZedMono NFM")
+(set-face-attribute 'variable-pitch nil :family "ZedMono NFP")
 
 ;; In Emacs 27+, package initialization occurs before `user-init-file' is
 ;; loaded, but after `early-init-file'. I handle package initialization, so we

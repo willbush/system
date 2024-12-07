@@ -142,15 +142,10 @@ in
 
   fonts.packages = with pkgs; [
     dejavu_fonts
-    hasklig
-    ibm-plex
     jigmo # Japanese Kanji font set which is the official successor to Hanazono Mincho
-    nerd-fonts.fira-code
-    nerd-fonts.fira-mono
-    nerd-fonts.hack
-    nerd-fonts.jetbrains-mono
     nerd-fonts.noto
     nerd-fonts.symbols-only # used by emacs nerd-icons.el
+    nerd-fonts.zed-mono
     noto-fonts-cjk-sans
     noto-fonts-emoji
   ];
@@ -184,8 +179,8 @@ in
       };
 
       monospace = {
-        package = pkgs.fira-mono;
-        name = "Fira Mono";
+        package = pkgs.nerd-fonts.zed-mono;
+        name = "ZedMono NFM Extd";
       };
 
       emoji = {
