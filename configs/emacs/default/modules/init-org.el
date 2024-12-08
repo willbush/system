@@ -111,19 +111,19 @@
 
   (setq org-capture-templates
         '(("w" "work project")
-          ("wt" "Tasks [work]" entry (file+headline "~/org/work/tasks.org" "Tasks [Work Project]") "* TODO %i%?")
-          ("ws" "Someday [work]" entry (file+headline "~/org/work/someday.org" "Someday [Work Project]") "* TODO %i%?")
-          ("wT" "Tickler [work]" entry (file+headline "~/org/work/tickler.org" "Tickler [Work Project]") "* TODO %i%? \n %U")
+          ("wt" "Tasks [work]" entry (file+headline "~/code/org/work/tasks.org" "Tasks [Work Project]") "* TODO %i%?")
+          ("ws" "Someday [work]" entry (file+headline "~/code/org/work/someday.org" "Someday [Work Project]") "* TODO %i%?")
+          ("wT" "Tickler [work]" entry (file+headline "~/code/org/work/tickler.org" "Tickler [Work Project]") "* TODO %i%? \n %U")
 
           ("p" "play project")
-          ("pt" "Tasks [play]" entry (file+headline "~/org/play/tasks.org" "Tasks [Play Project]") "* TODO %i%?")
-          ("ps" "Someday [play]" entry (file+headline "~/org/play/someday.org" "Someday [Play Project]") "* TODO %i%?")
-          ("pT" "Tickler [play]" entry (file+headline "~/org/play/tickler.org" "Tickler [Play Project]") "* TODO %i%? \n %U")
+          ("pt" "Tasks [play]" entry (file+headline "~/code/org/play/tasks.org" "Tasks [Play Project]") "* TODO %i%?")
+          ("ps" "Someday [play]" entry (file+headline "~/code/org/play/someday.org" "Someday [Play Project]") "* TODO %i%?")
+          ("pT" "Tickler [play]" entry (file+headline "~/code/org/play/tickler.org" "Tickler [Play Project]") "* TODO %i%? \n %U")
 
           ("r" "rest project")
-          ("rt" "Tasks [rest]" entry (file+headline "~/org/rest/tasks.org" "Tasks [Rest Project]") "* TODO %i%?")
-          ("rs" "Someday [rest]" entry (file+headline "~/org/rest/someday.org" "Someday [Rest Project]") "* TODO %i%?")
-          ("rT" "Tickler [rest]" entry (file+headline "~/org/tasks/tickler.org" "Tickler [Rest Project]") "* TODO %i%? \n %U")))
+          ("rt" "Tasks [rest]" entry (file+headline "~/code/org/rest/tasks.org" "Tasks [Rest Project]") "* TODO %i%?")
+          ("rs" "Someday [rest]" entry (file+headline "~/code/org/rest/someday.org" "Someday [Rest Project]") "* TODO %i%?")
+          ("rT" "Tickler [rest]" entry (file+headline "~/code/org/tasks/tickler.org" "Tickler [Rest Project]") "* TODO %i%? \n %U")))
 
   (setq org-refile-targets '((nil :maxlevel . 3)
                             (org-agenda-files :maxlevel . 3)))
