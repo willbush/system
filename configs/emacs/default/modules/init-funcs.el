@@ -167,6 +167,18 @@ Compare them on count first,and in case of tie sort them alphabetically."
   (interactive)
   (switch-to-buffer "*scratch*"))
 
+(defun my/center-horizontal-split ()
+  "Nice for ultra-wide screen when you have a buffer taking up the
+entire screen. This function splits the window horizontally,
+switches the left window to the scratch and the right window
+gets zoomed to make it center."
+  (interactive)
+  (progn
+    (split-window-horizontally)
+    (my/switch-to-scratch)
+    (evil-window-right 1)
+    (zoom)))
+
 (defun my/kill-this-buffer ()
   "Kill the current buffer."
   (interactive)
