@@ -62,7 +62,8 @@
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."crypted".device = "/dev/disk/by-uuid/ee9aa93f-df8c-4a85-a0a9-49a4bae51d5a";
+  boot.initrd.luks.devices."crypted".device =
+    "/dev/disk/by-uuid/ee9aa93f-df8c-4a85-a0a9-49a4bae51d5a";
 
   swapDevices = [
     {

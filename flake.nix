@@ -35,6 +35,11 @@
       flake = false;
     };
 
+    lianli-pwm-rgb-sync = {
+      url = "github:willbush/lianli-pwm-rgb-sync";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # helix = {
     #   url = "github:willbush/helix/wills-mods";
     #   inputs.nixpkgs.follows = "nixpkgs";

@@ -12,6 +12,7 @@ in
 {
   imports = [
     ../modules/services/docker.nix
+    ../modules/services/lianli-pwm-rgb-sync.nix
     ../modules/services/virt.nix
     ../profiles/nixos/greetd.nix
     ../profiles/nixos/less.nix
@@ -98,15 +99,16 @@ in
     wireguard.enable = true;
   };
 
-  modules = {
-    services.virt = {
+  modules.services = {
+    virt = {
       enable = true;
       user = username;
     };
-    services.docker = {
+    docker = {
       enable = true;
       user = username;
     };
+    lianli-pwm-rgb-sync.enable = true;
   };
 
   services = {
