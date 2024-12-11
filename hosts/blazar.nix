@@ -8,6 +8,7 @@
 {
   imports = [
     "${modulesPath}/installer/scan/not-detected.nix"
+    ../modules/services/openrgb.nix
     ../modules/unfree.nix
     ../profiles/nixos/efi.nix
     ../profiles/nixos/host-settings.nix
@@ -17,11 +18,7 @@
     ../users/will.nix
   ];
 
-  services.hardware.openrgb = {
-    enable = true;
-    package = pkgs.openrgb-with-all-plugins;
-    motherboard = "amd";
-  };
+  modules.services.openrgb.enable = true;
 
   # Generated hardware configuration below:
   boot.initrd.availableKernelModules = [
