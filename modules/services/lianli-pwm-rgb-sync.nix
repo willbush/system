@@ -22,6 +22,7 @@ in
     systemd.services.lianli-pwm-rgb-sync = {
       description = "lianli-pwm-rgb-sync service";
       wantedBy = [ "multi-user.target" ];
+      before = [ "openrgb.service" ];
       serviceConfig = {
         Type = "oneshot";
         ExecStart = "${lianli-pwm-rgb-sync}/bin/lianli-pwm-rgb-sync";
