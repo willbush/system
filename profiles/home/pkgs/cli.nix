@@ -46,7 +46,6 @@ in
 
     # Cryptography
     age
-    rbw
     sops
 
     # Data processing
