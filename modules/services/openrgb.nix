@@ -24,14 +24,11 @@ in
       motherboard = "amd";
     };
 
-    systemd.services.openrgb-profile-loader = {
+    systemd.user.services.openrgb-profile-loader = {
       description = "openrgb with primary profile";
-      wantedBy = [ "multi-user.target" ];
+      wantedBy = [ "graphical-session.target" ];
       serviceConfig = {
-        StateDirectory = "OpenRGB";
-        WorkingDirectory = "/var/lib/OpenRGB";
         ExecStart = "${orgb-package}/bin/openrgb --profile primary";
-        after = [ "openrgb.service" ];
         Type = "oneshot";
       };
     };
