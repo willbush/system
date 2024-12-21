@@ -2,8 +2,14 @@
   description = "Trying to build the perfect system";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     impermanence.url = "github:nix-community/impermanence";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    systems.url = "github:nix-systems/default";
+
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.systems.follows = "systems";
+    };
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -25,8 +31,10 @@
     stylix = {
       url = "github:danth/stylix";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
         home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
       };
     };
 
@@ -37,7 +45,10 @@
 
     lianli-pwm-rgb-sync = {
       url = "github:willbush/lianli-pwm-rgb-sync";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
 
     # helix = {
