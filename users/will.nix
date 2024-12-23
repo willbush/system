@@ -165,10 +165,10 @@ in
       # Explicitly setting this in-case I want to quickly increase size from the
       # defaults.
       sizes = {
-        applications = 12; # default: 12
-        desktop = 10; # default: 10
-        popups = 10; # default: 10
-        terminal = 12; # default: 12
+        applications = 14; # default: 12
+        desktop = 12; # default: 10
+        popups = 12; # default: 10
+        terminal = 14; # default: 12
       };
       serif = {
         package = pkgs.dejavu_fonts;
