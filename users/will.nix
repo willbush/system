@@ -154,7 +154,7 @@ in
 
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
     image = pkgs.fetchurl {
       # https://www.reddit.com/r/WidescreenWallpaper/comments/1dzli4w/untitled_7680x2160/
       url = "https://i.redd.it/1k3jwtm7zlbd1.jpeg";
