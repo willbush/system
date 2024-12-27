@@ -6,11 +6,6 @@
       nix-direnv.enable = true;
     };
 
-    neovim = {
-      enable = true;
-      extraConfig = builtins.readFile ../../configs/nvim/init.vim;
-    };
-
     alacritty.enable = true;
     bat.enable = true;
     bottom.enable = true; # command: btm
