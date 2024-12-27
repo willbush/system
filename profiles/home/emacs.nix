@@ -1,27 +1,22 @@
 { inputs, pkgs, ... }:
 {
-  home = {
-    sessionVariables = {
-      EDITOR = "emacs";
+  home.file = {
+    ".config/chemacs-repo" = {
+      source = inputs.chemacs;
+      # Work around for home-manager not being able to copy instead of link.
+      # see: https://github.com/nix-community/home-manager/issues/3090
+      onChange = ''
+        rm -rf ~/.config/emacs
+        cp -a ~/.config/chemacs-repo/ ~/.config/emacs/
+        chmod u+w ~/.config/emacs/ -R
+      '';
     };
-    file = {
-      ".config/chemacs-repo" = {
-        source = inputs.chemacs;
-        # Work around for home-manager not being able to copy instead of link.
-        # see: https://github.com/nix-community/home-manager/issues/3090
-        onChange = ''
-          rm -rf ~/.config/emacs
-          cp -a ~/.config/chemacs-repo/ ~/.config/emacs/
-          chmod u+w ~/.config/emacs/ -R
-        '';
-      };
-      ".config/chemacs/profiles.el" = {
-        source = ../../configs/emacs/profiles.el;
-      };
-      ".config/emacs.default" = {
-        source = ../../configs/emacs/default;
-        recursive = true;
-      };
+    ".config/chemacs/profiles.el" = {
+      source = ../../configs/emacs/profiles.el;
+    };
+    ".config/emacs.default" = {
+      source = ../../configs/emacs/default;
+      recursive = true;
     };
   };
 
