@@ -26,6 +26,5 @@
         prompt = "enabled";
       };
     };
-    gitui.enable = true;
   };
 }
