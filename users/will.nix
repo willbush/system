@@ -69,8 +69,6 @@ in
       sessionVariables = {
         SOPS_AGE_KEY_FILE = ageKeyFile;
       };
-
-      file.".ideavimrc".text = fileContents ../configs/nvim/init.vim;
     };
 
     gtk.enable = true;
