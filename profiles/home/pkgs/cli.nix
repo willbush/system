@@ -24,6 +24,7 @@ in
     unar
     unzip
     usbutils
+    viu # Terminal image viewer (used by neovim fzf-lua)
     wget
     wl-clipboard-rs
     wl-screenrec
