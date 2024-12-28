@@ -18,7 +18,6 @@
       gcc
       gnumake
       tree-sitter
-      luajitPackages.luarocks
     ];
   };
 }
