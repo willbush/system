@@ -59,6 +59,7 @@
         ".config/enchant"
         ".config/fish"
         ".config/libreoffice"
+        ".config/nvim" # usually symlink into it, but sometimes copy code into it directly to iterate quickly
         ".config/obs-studio"
         ".config/pulse"
         ".config/syncthing"
