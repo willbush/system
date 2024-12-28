@@ -12,6 +12,7 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+    vimdiffAlias = true;
     # Make these packages available to neovim, but not globally.
     extraPackages = with pkgs; [
       gcc
