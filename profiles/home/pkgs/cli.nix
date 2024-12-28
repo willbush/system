@@ -40,6 +40,7 @@ in
     trufflehog # Find, verify, and analyze leaked credentials (must be run with --no-update in NixOS)
     xxd # hexdump
     # language servers
+    luajitPackages.lua-lsp
     markdown-oxide
     nil
     yaml-language-server
