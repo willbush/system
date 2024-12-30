@@ -1,14 +1,16 @@
 local map = vim.keymap.set
 
 -- up/down/left/right movements
-map({'n', 'x', 'o'}, 'm', 'h')
-map({'n', 'x', 'o'}, 'n', 'j')
-map({'n', 'x', 'o'}, 'e', 'k')
-map({'n', 'x', 'o'}, 'i', 'l')
+map({'n', 'x', 'o'}, 'm', 'h', { desc = "Left" })
+map({'n', 'x', 'o'}, 'n', 'j', { desc = "Down" })
+map({'n', 'x', 'o'}, 'e', 'k', { desc = "Up" })
+map({'n', 'x', 'o'}, 'i', 'l', { desc = "Right" })
 
 -- far word/WORD
-map({'n', 'x', 'o'}, 'f', 'e')
-map({'n', 'x', 'o'}, 'F', 'E')
+map({'n', 'x', 'o'}, 'f', 'e', { desc = "Far word forward" })
+map({'n', 'x', 'o'}, 'F', 'E', { desc = "Far WORD forward" })
+map({'n', 'x', 'o'}, 'gf', 'ge', { desc = "Far word forward" })
+map({'n', 'x', 'o'}, 'gF', 'gE', { desc = "Far WORD forward" })
 
 -- insert mode
 map('n', 'l', 'i')
@@ -60,6 +62,8 @@ map({'n', 'x', 'o'}, '&', '"')
 --  See `:help hlsearch`
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+map('n', '<leader><space>', ':', { desc = 'Command mode' })
+
 map('n', '<leader>qq', '<cmd>wqa<CR>', { desc = 'Write and Quit all' })
 
 -- Rapid (emphasize easy access over mnemonics)
@@ -88,13 +92,47 @@ map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 --
 --  See `:help wincmd` for a list of all window commands
 
-map("n", "<C-w>m", "<C-w>h", { desc = "Go to Left Window" })
+-- Disable original hjkl bindings
+map("n", "<C-w><C-h>", "<nop>")
+map("n", "<C-w><C-j>", "<nop>")
+map("n", "<C-w><C-k>", "<nop>")
+map("n", "<C-w><C-l>", "<nop>")
+map("n", "<C-w>H", "<nop>")
+map("n", "<C-w>J", "<nop>")
+map("n", "<C-w>K", "<nop>")
+map("n", "<C-w>L", "<nop>")
 map("n", "<C-w>h", "<nop>")
-
-map("n", "<C-w>n", "<C-w>h", { desc = "Go to Left Window" })
 map("n", "<C-w>j", "<nop>")
 map("n", "<C-w>k", "<nop>")
 map("n", "<C-w>l", "<nop>")
+
+-- New mnei bindings for window navigation
+map("n", "<C-w><C-e>", "<C-w>k", { desc = "Go to the Top Window" })
+map("n", "<C-w><C-i>", "<C-w>l", { desc = "Go to the Right Window" })
+map("n", "<C-w><C-m>", "<C-w>h", { desc = "Go to the Left Window" })
+map("n", "<C-w><C-n>", "<C-w>j", { desc = "Go to the Bottom Window" })
+map("n", "<C-w>E", "<C-w>K", { desc = "Move window to top" })
+map("n", "<C-w>I", "<C-w>L", { desc = "Move window far right" })
+map("n", "<C-w>M", "<C-w>H", { desc = "Move window far left" })
+map("n", "<C-w>N", "<C-w>J", { desc = "Move window to bottom" })
+map("n", "<C-w>e", "<C-w>k", { desc = "Go to the Top Window" })
+map("n", "<C-w>i", "<C-w>l", { desc = "Go to the Right Window" })
+map("n", "<C-w>m", "<C-w>h", { desc = "Go to the Left Window" })
+map("n", "<C-w>n", "<C-w>j", { desc = "Go to the Bottom Window" })
+
+-- |CTRL-W_H|	CTRL-W H	   move current window to the far left
+-- |CTRL-W_J|	CTRL-W J	   move current window to the very bottom
+-- |CTRL-W_K|	CTRL-W K	   move current window to the very top
+-- |CTRL-W_L|	CTRL-W L	   move current window to the far right
+--
+-- |CTRL-W_h|	CTRL-W h	   go to Nth left window (stop at first window)
+-- |CTRL-W_j|	CTRL-W j	   go N windows down (stop at last window)
+-- |CTRL-W_k|	CTRL-W k	   go N windows up (stop at first window)
+-- |CTRL-W_l|	CTRL-W l	   go to Nth right window (stop at last window)
+--
+-- |CTRL-W_i|	CTRL-W i	   split window and jump to declaration of identifier under the cursor
+--
+
 -- map("n", "<C-m>", "<C-w>m", { desc = "Go to Left Window", remap = true })
 
 -- map("n", "<C-m>", "<C-w>m", { desc = "Go to Left Window", remap = true })

@@ -4,7 +4,6 @@ return {
     -- optional: provides snippets for the snippet source
     dependencies = 'rafamadriz/friendly-snippets',
 
-    -- use a release tag to download pre-built binaries
     version = '*',
 
     opts = {
@@ -31,9 +30,24 @@ return {
     cmd = "FzfLua",
 
     config = function()
-      require("fzf-lua").setup({
-        "skim", -- Use skim profile
-      })
+      -- Use skim profile
+      require("fzf-lua").setup({ "skim" })
+
+      -- Add zoxide integration
+      local function zoxide_list()
+        require('fzf-lua').fzf_exec('zoxide query -l', {
+          actions = {
+            ['default'] = function(selected)
+              vim.cmd('cd ' .. selected[1])
+            end,
+          },
+          prompt = 'Zoxide> '
+        })
+      end
+
+      -- Create command and keymap
+      vim.api.nvim_create_user_command('Z', zoxide_list, {})
+      vim.keymap.set('n', '<leader>z', zoxide_list, { desc = "Zoxide Jump" })
     end,
 
     keys = {
@@ -47,6 +61,7 @@ return {
       -- { "<leader>/", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
       -- { "<leader>:", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
       -- { "<leader><space>", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+
       -- -- find
       -- { "<leader>fb", "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
       -- { "<leader>fc", LazyVim.pick.config_files(), desc = "Find Config File" },
@@ -55,9 +70,53 @@ return {
       -- { "<leader>fg", "<cmd>FzfLua git_files<cr>", desc = "Find Files (git-files)" },
       -- { "<leader>fr", "<cmd>FzfLua oldfiles<cr>", desc = "Recent" },
       -- { "<leader>fR", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
+      {
+        "<leader>fb",
+        function() require('fzf-lua').buffers() end,
+        desc = "Buffers"
+      },
+      {
+        "<leader>fc",
+        function() require('fzf-lua').files({ cwd = vim.fn.stdpath("config") }) end,
+        desc = "Find Config File"
+      },
+      {
+        "<leader>ff",
+        function() require('fzf-lua').files() end,
+        desc = "Find Files (Root Dir)"
+      },
+      {
+        "<leader>fF",
+        function() require('fzf-lua').files({ cwd = vim.uv.cwd() }) end,
+        desc = "Find Files (cwd)"
+      },
+      {
+        "<leader>fg",
+        function() require('fzf-lua').git_files() end,
+        desc = "Find Files (git-files)"
+      },
+      {
+        "<leader>fr",
+        function() require('fzf-lua').oldfiles() end,
+        desc = "Recent"
+      },
+      {
+        "<leader>fR",
+        function() require('fzf-lua').oldfiles({ cwd = vim.uv.cwd() }) end,
+        desc = "Recent (cwd)"
+      },
+
       -- -- git
       -- { "<leader>gc", "<cmd>FzfLua git_commits<CR>", desc = "Commits" },
       -- { "<leader>gs", "<cmd>FzfLua git_status<CR>", desc = "Status" },
+
+      -- rapid
+      {
+        "<leader>rc",
+        function() require('fzf-lua').colorschemes() end,
+        desc = "Colorscheme with Preview"
+      },
+
       -- search
       -- { '<leader>s"', "<cmd>FzfLua registers<cr>", desc = "Registers" },
       { "<leader>sa", "<cmd>FzfLua autocmds<cr>", desc = "Auto Commands" },
@@ -77,11 +136,28 @@ return {
       { "<leader>sm", "<cmd>FzfLua marks<cr>", desc = "Jump to Mark" },
       { "<leader>sR", "<cmd>FzfLua resume<cr>", desc = "Resume" },
       { "<leader>sq", "<cmd>FzfLua quickfix<cr>", desc = "Quickfix List" },
-      -- { "<leader>sw", LazyVim.pick("grep_cword"), desc = "Word (Root Dir)" },
-      -- { "<leader>sW", LazyVim.pick("grep_cword", { root = false }), desc = "Word (cwd)" },
-      -- { "<leader>sw", LazyVim.pick("grep_visual"), mode = "v", desc = "Selection (Root Dir)" },
-      -- { "<leader>sW", LazyVim.pick("grep_visual", { root = false }), mode = "v", desc = "Selection (cwd)" },
-      -- { "<leader>uC", LazyVim.pick("colorschemes"), desc = "Colorscheme with Preview" },
+      {
+        "<leader>sw",
+        function() require('fzf-lua').grep_cword() end,
+        desc = "Word (Root Dir)"
+      },
+      {
+        "<leader>sW",
+        function() require('fzf-lua').grep_cword({cwd = vim.uv.cwd()}) end,
+        desc = "Word (cwd)"
+      },
+      {
+        "<leader>sw",
+        function() require('fzf-lua').grep_visual() end,
+        mode = "v",
+        desc = "Selection (Root Dir)"
+      },
+      {
+        "<leader>sW",
+        function() require('fzf-lua').grep_visual({cwd = vim.uv.cwd()}) end,
+        mode = "v",
+        desc = "Selection (cwd)"
+      },
       {
         "<leader>ss",
         function()
@@ -103,3 +179,5 @@ return {
     },
   },
 }
+
+-- vim: ts=2 sts=2 sw=2 et

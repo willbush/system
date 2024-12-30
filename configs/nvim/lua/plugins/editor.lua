@@ -3,7 +3,6 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
-    ---@type snacks.Config
     opts = {
       bigfile = { enabled = false },
       dashboard = { enabled = false },
@@ -63,6 +62,20 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
+
+      plugins = {
+        presets = {
+          -- disable the built-in window commands since I remap many of them. It
+          -- will show the hjkl mappings even if I filter them out.
+          windows = false,
+        }
+      },
+
+      -- Exclude mappings with no description
+      filter = function(mapping)
+        return mapping.desc and mapping.desc ~= ""
+      end,
+
       icons = {
         -- set icon mappings to true if you have a Nerd Font
         mappings = vim.g.have_nerd_font,
@@ -75,38 +88,22 @@ return {
           -- { "<leader>c", group = "code" },
           -- { "<leader>d", group = "debug" },
           -- { "<leader>dp", group = "profiler" },
-          -- { "<leader>f", group = "file/find" },
           -- { "<leader>g", group = "git" },
           -- { "<leader>gh", group = "hunks" },
           -- { "<leader>q", group = "quit/session" },
           -- { "<leader>u", group = "ui", icon = { icon = "󰙵 ", color = "cyan" } },
           -- { "<leader>x", group = "diagnostics/quickfix", icon = { icon = "󱖫 ", color = "green" } },
+          -- { "gs", group = "surround" },
+          { "<leader>f", group = "file" },
+          { "<leader>q", group = "quit" },
           { "<leader>r", group = "rapid" },
           { "<leader>s", group = "search" },
+          { "<leader>w", proxy = "<c-w>", group = "windows" }, -- proxy to window mappings
           { "[", group = "prev" },
           { "]", group = "next" },
           { "g", group = "goto" },
-          -- { "gs", group = "surround" },
           { "z", group = "fold" },
-          {
-            "<leader>b",
-            group = "buffer",
-            -- creates numerical key to window mappings
-            expand = function()
-              return require("which-key.extras").expand.buf()
-            end,
-          },
-          {
-            "<leader>w",
-            group = "windows",
-            proxy = "<c-w>",
-            -- creates numerical key to buffer mappings
-            expand = function()
-              return require("which-key.extras").expand.win()
-            end,
-          },
-          -- better descriptions
-          { "gx", desc = "Open with system app" },
+          {"<leader>b", group = "buffer" },
         },
       },
     },
@@ -120,6 +117,7 @@ return {
       },
     },
   },
+
 
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -166,7 +164,16 @@ return {
 
     opts = {
       servers = {
-        lua_ls = {},
+        lua_ls = {
+          settings = {
+            Lua = {
+              completion = {
+                callSnippet = 'Replace',
+              },
+              diagnostics = { globals = { "vim" }, },
+            },
+          },
+        },
         rust_analyzer = {},
       }
     },
@@ -179,6 +186,5 @@ return {
         lspconfig[server].setup(config)
       end
     end
-
   },
 }
