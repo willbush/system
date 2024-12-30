@@ -51,7 +51,6 @@ in
       ../profiles/home/fish.nix
       ../profiles/home/git.nix
       ../profiles/home/helix.nix
-      ../profiles/home/neovim.nix
       ../profiles/home/pkgs/cli.nix
       ../profiles/home/pkgs/gui.nix
       ../profiles/home/programs.nix

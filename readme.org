@@ -30,13 +30,9 @@ with [[https://github.com/rycee/home-manager][home manager]].
 Keyboard firmware code managed by Nix and the [[file:configs/keyboard-firmware/readme.org][readme]] that goes into depth on my
 key layout and customized Evil / Vim keybindings.
 
-*** emacs / nvim
+*** emacs
 
 My emacs configuration code. See its [[file:configs/emacs/readme.org][readme]] for more information.
-
-I typically only use Vim if Emacs is not available for some reason. In the
-~init.vim~ file there are just the most important key bindings in my [[configs/keyboard-firmware/readme.org][customized
-Evil / Vim keybindings]]
 
 
 * License

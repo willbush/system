@@ -24,7 +24,6 @@ in
     unar
     unzip
     usbutils
-    viu # Terminal image viewer (used by neovim fzf-lua)
     wget
     wl-clipboard-rs
     wl-screenrec
@@ -41,7 +40,6 @@ in
     trufflehog # Find, verify, and analyze leaked credentials (must be run with --no-update in NixOS)
     xxd # hexdump
     # language servers
-    lua-language-server
     markdown-oxide
     nil
     yaml-language-server
