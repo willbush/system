@@ -52,7 +52,7 @@
     };
 
     helix = {
-      url = "github:willbush/helix/wills-mods";
+      url = "github:willbush/helix/master";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
