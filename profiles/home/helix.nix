@@ -40,7 +40,7 @@
       #
       # EXCEPTIONS:
       # - modes I don't rebind
-      # - arrow / home / end / page up / page down keys I don't touch.
+      # - tab / arrow / home / end / page up / page down keys I don't touch.
       #
       # DEFAULTS:
       # https://github.com/helix-editor/helix/blob/1b5295a3f3d7cccd96eed5bfd394807a4dae87fc/helix-term/src/keymap/default.rs#L8
