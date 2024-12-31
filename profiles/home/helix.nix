@@ -311,6 +311,9 @@
             C-k = "wclose";
             k = "wclose";
 
+            C-q = "wclose";
+            q = "wclose";
+
             C-m = "jump_view_left";
             C-n = "jump_view_down";
             C-e = "jump_view_up";
@@ -350,9 +353,6 @@
 
             f = "goto_file_hsplit";
             F = "goto_file_vsplit";
-
-            C-q = "wclose";
-            q = "wclose";
 
             C-o = "wonly";
             o = "wonly";
