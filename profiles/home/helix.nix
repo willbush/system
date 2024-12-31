@@ -1,23 +1,23 @@
-{ ... }:
+{ inputs, pkgs, ... }:
 {
   # No automatic theme stylix
   stylix.targets.helix.enable = false;
 
   programs.helix = {
     enable = true;
-    # package = inputs.helix.packages.${pkgs.system}.default.overrideAttrs (self: {
-    #   makeWrapperArgs =
-    #     with pkgs;
-    #     self.makeWrapperArgs or [ ]
-    #     ++ [
-    #       "--suffix"
-    #       "PATH"
-    #       ":"
-    #       (lib.makeBinPath [
-    #         nil
-    #       ])
-    #     ];
-    # });
+    package = inputs.helix.packages.${pkgs.system}.default.overrideAttrs (self: {
+      makeWrapperArgs =
+        with pkgs;
+        self.makeWrapperArgs or [ ]
+        ++ [
+          "--suffix"
+          "PATH"
+          ":"
+          (lib.makeBinPath [
+            nil
+          ])
+        ];
+    });
 
     settings = {
       theme = "hex_lavender";

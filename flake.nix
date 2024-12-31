@@ -51,10 +51,13 @@
       };
     };
 
-    # helix = {
-    #   url = "github:willbush/helix/wills-mods";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    helix = {
+      url = "github:willbush/helix/wills-mods";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
   };
 
   outputs =
