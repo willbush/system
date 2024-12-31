@@ -34,7 +34,6 @@ in
     bacon # watches your rust project and runs jobs in background.
     hyperfine # benchmarking tool
     nix-prefetch-git
-    quickemu # VM manager
     shfmt
     tokei
     trufflehog # Find, verify, and analyze leaked credentials (must be run with --no-update in NixOS)
