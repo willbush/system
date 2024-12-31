@@ -20,7 +20,7 @@
     });
 
     settings = {
-      theme = "hex_lavender";
+      theme = "tokyonight";
       # use bar cursor in insert mode like vim
       editor = {
         cursor-shape.insert = "bar";
