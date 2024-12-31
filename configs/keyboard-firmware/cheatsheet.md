@@ -105,6 +105,6 @@ lowercase                                         first     sel                 
                                                   whitespace
 
 N/A       <         >         _         N/A       N/A       @         N/A       N/A       N/A
-          N/A       N/A       trim
+          unindent  indent    trim
                               sels
 ```
