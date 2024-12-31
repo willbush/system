@@ -393,6 +393,7 @@
           normal = no_op_all // {
             E = "page_cursor_half_up";
             N = "page_cursor_half_down";
+
             C-E = "page_up";
             C-N = "page_down";
 
@@ -565,7 +566,8 @@
 
             "/" = "search";
             "?" = "rsearch";
-            "*" = "search_selection";
+            "*" = "search_selection_detect_word_boundaries";
+            "A-*" = "search_selection";
 
             u = "undo";
             U = "redo";
