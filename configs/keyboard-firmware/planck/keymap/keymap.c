@@ -4,7 +4,7 @@
 #    include "muse.h"
 #endif
 
-enum planck_layers { _COLEMAK, _LOWER, _RAISE, _HYPER, _FN, _NUM, _ADJUST };
+enum planck_layers { _COLEMAK, _LOWER, _HYPER, _RAISE, _FN, _NUM, _ADJUST };
 
 enum planck_keycodes { COLEMAK = SAFE_RANGE };
 

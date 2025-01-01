@@ -1,7 +1,7 @@
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 
-enum crkbd_layers { _COLEMAK, _LOWER, _RAISE, _HYPER, _FN, _NUM, _ADJUST };
+enum crkbd_layers { _COLEMAK, _LOWER, _HYPER, _RAISE, _FN, _NUM, _ADJUST };
 
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
