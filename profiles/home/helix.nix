@@ -359,8 +359,9 @@
           };
 
           view = no_op_all // {
-            E = "page_cursor_half_up";
-            N = "page_cursor_half_down";
+            E = "@10e";
+            N = "@10n";
+
             C-E = "page_up";
             C-N = "page_down";
 
@@ -391,8 +392,8 @@
 
           # NORMAL mode
           normal = no_op_all // {
-            E = "page_cursor_half_up";
-            N = "page_cursor_half_down";
+            E = "@10e";
+            N = "@10n";
 
             C-E = "page_up";
             C-N = "page_down";
