@@ -1,11 +1,9 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }:
 let
-  inherit (lib) fileContents;
   username = "will";
   ageKeyFile = "/nix/persist/home/will/.secrets/sops-nix/admin_will.txt";
 in
