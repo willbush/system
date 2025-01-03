@@ -63,6 +63,7 @@ in
     zenith
 
     # Network
+    awscli
     dnsutils
     doggo # DNS Client for Humans.
     openconnect
