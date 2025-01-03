@@ -11,11 +11,11 @@ enum crkbd_layers { _COLEMAK, _LOWER, _HYPER, _RAISE, _FN, _NUM, _ADJUST };
 #define NUM TT(_NUM)
 
 // right hand
-#define ALT_X RALT_T(KC_X)
+#define ALT_DOT RALT_T(KC_DOT)
 #define CTL_QOT RCTL_T(KC_QUOT)
 #define SFT_ENT RSFT_T(KC_ENT)
 // left hand
-#define ALT_DOT LALT_T(KC_DOT)
+#define ALT_X LALT_T(KC_X)
 #define CTL_ESC LCTL_T(KC_ESC)
 
 // clang-format off
@@ -28,7 +28,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    KC_Z,   ALT_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H,    KC_Y, ALT_DOT, KC_SLSH, SFT_ENT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,   LOWER,   HYPER,     KC_SPC,   RAISE,      FN
+                                          KC_LGUI,   LOWER,   HYPER,     KC_SPC,   RAISE,  KC_RALT
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -38,9 +38,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LCTL, KC_TILD, KC_LPRN, KC_EXLM, KC_EQL,  KC_RPRN,                      KC_LCBR, KC_PERC, KC_AMPR, KC_RCBR, KC_PIPE,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX,   KC_LT,   KC_GT, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, KC_RALT, XXXXXXX, XXXXXXX,
+      _______, XXXXXXX,   KC_LT,   KC_GT, XXXXXXX,      FN,                      XXXXXXX, XXXXXXX, XXXXXXX, KC_RALT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, _______, XXXXXXX,    _______,  ADJUST, XXXXXXX
+                                          XXXXXXX, _______, XXXXXXX,    _______,  ADJUST, _______
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, XXXXXXX,   KC_LT,   KC_GT, KC_UNDS,     NUM,                      XXXXXXX,   KC_AT, XXXXXXX, KC_RALT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, _______,    _______, XXXXXXX, XXXXXXX
+                                          XXXXXXX, XXXXXXX, _______,    _______, XXXXXXX, _______
                                       //`--------------------------'  `--------------------------'
   ),
 
