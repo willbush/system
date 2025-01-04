@@ -504,6 +504,12 @@
               r = {
                 s = ":write";
               };
+              # toggle
+              t = {
+                c = "switch_case";
+                u = "switch_to_lowercase";
+                U = "switch_to_uppercase";
+              };
               # text manipulation
               x = {
                 x = ":reflow";
