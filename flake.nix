@@ -52,7 +52,7 @@
     };
 
     helix = {
-      url = "github:willbush/helix/master";
+      url = "github:willbush/helix/colemak-dhm";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
