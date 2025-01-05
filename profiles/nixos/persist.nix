@@ -48,6 +48,7 @@
         ".config/Mullvad VPN"
         ".config/OpenRGB"
         ".config/Signal"
+        ".config/Slack"
         ".config/dconf"
         ".config/emacs.default/.cache"
         ".config/emacs.default/backups"

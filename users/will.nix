@@ -88,6 +88,10 @@ in
     systemd.user.startServices = "sd-switch";
   };
 
+  modules.unfree.allowList = [
+    "slack"
+  ];
+
   networking = {
     firewall.enable = true;
     networkmanager.enable = true;
