@@ -68,6 +68,7 @@
         ".local/share/direnv"
         ".local/share/fish"
         ".local/share/keyrings"
+        ".local/share/nix"
         ".local/share/zoxide"
         ".local/state/wireplumber"
         ".mozilla" # firefox
@@ -125,7 +126,6 @@
         ".config/emacs.default/projects"
         ".config/emacs.default/recentf"
         ".config/ncpamixer.conf"
-        ".local/share/nix/repl-history"
       ];
     };
   };
