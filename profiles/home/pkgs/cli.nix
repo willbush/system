@@ -33,12 +33,15 @@ in
     # Development
     bacon # watches your rust project and runs jobs in background.
     hyperfine # benchmarking tool
+    lsp-ai
     nix-prefetch-git
+    rust-analyzer
     shfmt
     tokei
     trufflehog # Find, verify, and analyze leaked credentials (must be run with --no-update in NixOS)
     xxd # hexdump
-    # language servers
+
+    # Language servers
     markdown-oxide
     nil
     yaml-language-server
