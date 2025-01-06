@@ -62,6 +62,7 @@
         ".config/obs-studio"
         ".config/pulse"
         ".config/syncthing"
+        ".config/trader"
         ".config/vesktop"
         ".config/vlc"
         ".local/share/direnv"
