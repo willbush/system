@@ -20,6 +20,10 @@
 
   modules.services.openrgb.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    nixgl.nixVulkanIntel
+  ];
+
   # Generated hardware configuration below:
   boot.initrd.availableKernelModules = [
     "nvme"

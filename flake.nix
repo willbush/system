@@ -27,6 +27,12 @@
       inputs.nixpkgs-stable.follows = "nixpkgs";
     };
 
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+
     # System-wide colorscheming and typography for NixOS
     stylix = {
       url = "github:danth/stylix";
@@ -94,7 +100,10 @@
             }
             {
               networking.hostName = hostName;
-              nixpkgs.overlays = [ inputs.emacs-overlay.overlays.default ];
+              nixpkgs.overlays = [
+                inputs.emacs-overlay.overlays.default
+                inputs.nixgl.overlay
+              ];
             }
           ];
           specialArgs = {
