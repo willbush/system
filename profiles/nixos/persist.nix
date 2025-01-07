@@ -41,6 +41,7 @@
         ".cache/mozilla"
         ".cache/nix"
         ".cache/nix-output-monitor"
+        ".cache/org-persist"
         ".cache/tealdeer"
         ".cache/thumbnails"
         ".cache/virt-manager"
