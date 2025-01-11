@@ -27,6 +27,17 @@
         cursor-shape.insert = "bar";
         cursorline = true;
         color-modes = true;
+
+        # Minimum severity to show a diagnostic after the end of a line:
+        end-of-line-diagnostics = "hint";
+
+        inline-diagnostics = {
+          # Minimum severity to show a diagnostic on the primary cursor's line.
+          # Note that `cursor-line` diagnostics are hidden in insert mode.
+          cursor-line = "hint";
+          # Minimum severity to show a diagnostic on other lines:
+          other-lines = "hint";
+        };
       };
 
       keys =
