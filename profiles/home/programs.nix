@@ -6,7 +6,26 @@
       nix-direnv.enable = true;
     };
 
-    alacritty.enable = true;
+    alacritty = {
+      enable = true;
+      settings = {
+        keyboard.bindings = [
+          {
+            key = "Plus";
+            # alacritty thinks I'm pressing shift even though I'm not. Perhaps
+            # something to do with QMK firmware.
+            # https://github.com/alacritty/alacritty/issues/6496
+            mods = "Control | Shift";
+            action = "IncreaseFontSize";
+          }
+          {
+            key = "Minus";
+            mods = "Control";
+            action = "DecreaseFontSize";
+          }
+        ];
+      };
+    };
     bat.enable = true;
     bottom.enable = true; # command: btm
     btop.enable = true;
