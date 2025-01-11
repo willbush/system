@@ -48,7 +48,7 @@
             N = "@10n";
 
             space = {
-              tab = "goto_next_buffer";
+              space = "command_mode";
 
               # buffer
               b = {
