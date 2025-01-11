@@ -48,12 +48,19 @@
             N = "@10n";
 
             space = {
+              tab = "goto_next_buffer";
+
               # buffer
               b = {
                 b = "buffer_picker";
                 r = ":reload";
                 s = ":new"; # new scratch buffer
                 R = ":reload-all";
+
+                A = ":buffer-close-all!";
+                a = ":buffer-close-all";
+                D = ":buffer-close!";
+                d = ":buffer-close";
               };
               # quit
               q = {
@@ -80,7 +87,6 @@
                 r = ":pipe tac"; # reverse lines
               };
             };
-
           };
         in
         {
