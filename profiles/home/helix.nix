@@ -94,5 +94,46 @@
           select = normal;
         };
     };
+
+    languages = {
+      language-server.lsp-ai = {
+        command = "lsp-ai";
+        config = {
+          memory.file_store = { };
+          models.model1 = {
+            type = "open_ai";
+            chat_endpoint = "https://openrouter.ai/api/v1/chat/completions";
+            model = "anthropic/claude-3.5-sonnet:beta";
+            auth_token_env_var_name = "OPENROUTER_API_KEY";
+          };
+          completion = {
+            model = "model1";
+            parameters = {
+              max_tokens = 64;
+              max_context = 1024;
+            };
+          };
+          chat = [
+            {
+              trigger = "!C";
+              action_display_name = "Chat";
+              model = "model1";
+              parameters = {
+                max_context = 4096;
+                max_tokens = 1024;
+                system = "You are a helpful assistant.";
+              };
+            }
+          ];
+        };
+      };
+
+      language = [
+        {
+          name = "markdown";
+          language-servers = [ "lsp-ai" ];
+        }
+      ];
+    };
   };
 }
