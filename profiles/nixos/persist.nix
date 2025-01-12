@@ -34,8 +34,10 @@
         ".cache/bat"
         ".cache/dconf"
         ".cache/fontconfig"
+        ".cache/ghostty"
         ".cache/gstreamer-1.0"
         ".cache/helix"
+        ".cache/lsp-ai"
         ".cache/mesa_shader_cache"
         ".cache/mesa_shader_cache_db"
         ".cache/mozilla"
@@ -73,6 +75,7 @@
         ".local/share/zoxide"
         ".local/state/wireplumber"
         ".mozilla" # firefox
+        ".ollama"
         "code"
         "downloads"
         "images"
