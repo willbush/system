@@ -47,8 +47,8 @@
           "ctrl+a>v=new_split:right" # vertical
 
           "ctrl+shift+enter=toggle_split_zoom"
-          "ctrl+shift+n=goto_split:next"
-          "ctrl+shift+p=goto_split:previous"
+          "ctrl+shift+down=goto_split:next"
+          "ctrl+shift+up=goto_split:previous"
         ];
       };
     };
