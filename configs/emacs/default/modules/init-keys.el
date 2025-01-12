@@ -196,9 +196,9 @@
   "tv" 'my/toggle-adaptive-visual-fill-column
 
   "w" '(:ignore t :wk "window")
-  "w-" 'split-window-vertically
-  "w/" 'split-window-horizontally
-  "wB" 'balance-windows-area
+  "ww" 'evil-window-rotate-downwards
+  "ws" 'split-window-vertically ;; vim like hsplit
+  "wv" 'split-window-horizontally ;; vim like vsplit
   "wE" 'evil-window-move-very-top
   "wI" 'evil-window-move-far-right
   "wM" 'evil-window-move-far-left
