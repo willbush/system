@@ -96,6 +96,10 @@
     };
 
     languages = {
+      language-server.rust-analyzer = {
+        config.check.command = "clippy";
+      };
+
       language-server.lsp-ai = {
         command = "lsp-ai";
         config = {
