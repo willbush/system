@@ -76,6 +76,7 @@
                 c = "switch_case";
                 u = "switch_to_lowercase";
                 U = "switch_to_uppercase";
+                w = ":toggle whitespace.render all none";
               };
               # text manipulation
               x = {
