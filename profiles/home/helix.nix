@@ -74,6 +74,7 @@
               # toggle
               t = {
                 c = "switch_case";
+                n = ":toggle line-number relative absolute";
                 u = "switch_to_lowercase";
                 U = "switch_to_uppercase";
                 w = ":toggle whitespace.render all none";
