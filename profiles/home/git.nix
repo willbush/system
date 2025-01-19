@@ -1,5 +1,17 @@
-{ ... }:
+{ config, ... }:
 {
+  sops = {
+    secrets."ssh/work/host" = { };
+    secrets."ssh/work/user" = { };
+
+    templates."ssh-work-config".content = ''
+      Host ${config.sops.placeholder."ssh/work/host"}
+        User ${config.sops.placeholder."ssh/work/user"}
+        ForwardAgent yes
+        ServerAliveInterval 120
+        IdentityFile ~/.ssh/id_ed25519_github
+    '';
+  };
 
   programs = {
     git = {
@@ -41,6 +53,8 @@
       enable = true;
       addKeysToAgent = "yes";
 
+      includes = [ config.sops.templates."ssh-work-config".path ];
+
       matchBlocks = {
         "github.com" = {
           identityFile = "~/.ssh/id_ed25519_github";
@@ -51,4 +65,5 @@
       };
     };
   };
+  services.ssh-agent.enable = true;
 }

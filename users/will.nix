@@ -22,7 +22,20 @@ in
 
     secrets.root-password-hashed.neededForUsers = true;
     secrets.will-password-hashed.neededForUsers = true;
+
+    secrets."aws/access_key_id" = { };
+    secrets."aws/secret_access_key" = { };
+
+    # Create a template for AWS environment
+    templates."aws-environment".content = ''
+      AWS_ACCESS_KEY_ID=${config.sops.placeholder."aws/access_key_id"}
+      AWS_SECRET_ACCESS_KEY=${config.sops.placeholder."aws/secret_access_key"}
+      AWS_EC2_METADATA_DISABLED=true
+    '';
   };
+
+  systemd.services.nix-daemon.serviceConfig.EnvironmentFile =
+    config.sops.templates."aws-environment".path;
 
   users = {
     mutableUsers = false;
@@ -67,6 +80,12 @@ in
       sessionVariables = {
         SOPS_AGE_KEY_FILE = ageKeyFile;
       };
+    };
+
+    # Setup sops for home-manager
+    sops = {
+      defaultSopsFile = ../secrets/secrets.yaml;
+      age.keyFile = "/nix/persist/home/will/.secrets/sops-nix/admin_will.txt";
     };
 
     gtk.enable = true;
