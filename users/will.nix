@@ -23,12 +23,12 @@ in
     secrets.root-password-hashed.neededForUsers = true;
     secrets.will-password-hashed.neededForUsers = true;
 
-    secrets."aws/access_key_id" = { };
-    secrets."aws/secret_access_key" = { };
+    secrets."work/aws/access_key_id" = { };
+    secrets."work/aws/secret_access_key" = { };
 
     templates."aws-environment".content = ''
-      AWS_ACCESS_KEY_ID=${config.sops.placeholder."aws/access_key_id"}
-      AWS_SECRET_ACCESS_KEY=${config.sops.placeholder."aws/secret_access_key"}
+      AWS_ACCESS_KEY_ID=${config.sops.placeholder."work/aws/access_key_id"}
+      AWS_SECRET_ACCESS_KEY=${config.sops.placeholder."work/aws/secret_access_key"}
       AWS_EC2_METADATA_DISABLED=true
     '';
   };

@@ -1,12 +1,12 @@
 { config, ... }:
 {
   sops = {
-    secrets."ssh/work/host" = { };
-    secrets."ssh/work/user" = { };
+    secrets."work/ssh/host" = { };
+    secrets."work/ssh/user" = { };
 
     templates."ssh-work-config".content = ''
-      Host ${config.sops.placeholder."ssh/work/host"}
-        User ${config.sops.placeholder."ssh/work/user"}
+      Host ${config.sops.placeholder."work/ssh/host"}
+        User ${config.sops.placeholder."work/ssh/user"}
         ForwardAgent yes
         ServerAliveInterval 120
         IdentityFile ~/.ssh/id_ed25519_github
