@@ -102,6 +102,14 @@ in
     };
     services.syncthing.enable = true;
 
+    services.ollama = {
+      enable = true;
+      acceleration = "rocm";
+      environmentVariables = {
+        HSA_OVERRIDE_GFX_VERSION = "11.0.0"; # For RX 7900 XTX
+      };
+    };
+
     # Nicely reload system units when changing configs
     systemd.user.startServices = "sd-switch";
   };
