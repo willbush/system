@@ -26,7 +26,6 @@ in
     secrets."aws/access_key_id" = { };
     secrets."aws/secret_access_key" = { };
 
-    # Create a template for AWS environment
     templates."aws-environment".content = ''
       AWS_ACCESS_KEY_ID=${config.sops.placeholder."aws/access_key_id"}
       AWS_SECRET_ACCESS_KEY=${config.sops.placeholder."aws/secret_access_key"}
