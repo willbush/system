@@ -74,6 +74,12 @@
               # toggle
               t = {
                 c = "switch_case";
+                d = {
+                  # diagnostics
+                  e = ":toggle end-of-line-diagnostics disable hint";
+                  l = ":toggle inline-diagnostics.cursor-line disable hint";
+                  L = ":toggle inline-diagnostics.other-lines disable hint";
+                };
                 n = ":toggle line-number relative absolute";
                 u = "switch_to_lowercase";
                 U = "switch_to_uppercase";
