@@ -194,19 +194,11 @@
           :stream t
           :key (lambda () (nth 0 (process-lines "rbw" "get" "openrouter" "--field" "api key")))
           :models '(
-                    "anthropic/claude-3-haiku"
                     "anthropic/claude-3.5-sonnet:beta"
-                    "deepseek/deepseek-coder"
+                    "deepseek/deepseek-r1"
                     "google/gemini-flash-1.5"
-                    "google/gemini-pro-1.5"
-                    "gryphe/mythomax-l2-13b"
-                    "meta-llama/llama-3.1-70b-instruct"
-                    "microsoft/wizardlm-2-8x22b"
-                    "mistralai/mistral-nemo"
-                    "mistralai/mixtral-8x22b-instruct"
                     "openai/gpt-4o"
                     "openai/gpt-4o-mini"
-                    "perplexity/llama-3.1-sonar-large-128k-chat"
                     ))))
 
 
