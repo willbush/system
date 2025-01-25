@@ -36,6 +36,18 @@ in
   systemd.services.nix-daemon.serviceConfig.EnvironmentFile =
     config.sops.templates."aws-environment".path;
 
+  services.ollama = {
+    enable = true;
+    acceleration = "rocm";
+    rocmOverrideGfx = "11.0.0";
+    # pin until https://nixpk.gs/pr-tracker.html?pr=375850
+    package =
+      (import (builtins.fetchTarball {
+        sha256 = "sha256:1hh0p0p42yqrm69kqlxwzx30m7i7xqw9m8f224i3bm6wsj4dxm05";
+        url = "https://github.com/NixOS/nixpkgs/archive/d0169965cf1ce1cd68e50a63eabff7c8b8959743.tar.gz";
+      }) { system = pkgs.system; }).ollama-rocm;
+  };
+
   users = {
     mutableUsers = false;
     users = {
@@ -101,14 +113,6 @@ in
       defaultTimeout = 5000;
     };
     services.syncthing.enable = true;
-
-    services.ollama = {
-      enable = true;
-      acceleration = "rocm";
-      environmentVariables = {
-        HSA_OVERRIDE_GFX_VERSION = "11.0.0"; # For RX 7900 XTX
-      };
-    };
 
     # Nicely reload system units when changing configs
     systemd.user.startServices = "sd-switch";
