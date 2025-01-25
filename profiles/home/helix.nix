@@ -118,8 +118,12 @@
             model = "anthropic/claude-3.5-sonnet:beta";
             auth_token_env_var_name = "OPENROUTER_API_KEY";
           };
+          models.model2 = {
+            type = "ollama";
+            model = "deepseek-r1:32b";
+          };
           completion = {
-            model = "model1";
+            model = "model2";
             parameters = {
               max_tokens = 64;
               max_context = 1024;
@@ -129,7 +133,7 @@
             {
               trigger = "!C";
               action_display_name = "Chat";
-              model = "model1";
+              model = "model2";
               parameters = {
                 max_context = 4096;
                 max_tokens = 1024;
