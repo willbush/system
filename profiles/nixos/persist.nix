@@ -20,6 +20,7 @@
       "/var/lib/nixos" # contains important state: https://github.com/nix-community/impermanence/issues/178
       "/var/lib/swtpm-localca" # needed for Windows VM via qemu
       "/var/lib/systemd"
+      "/var/lib/private/ollama"
       "/var/log"
     ];
     files = [
@@ -75,7 +76,6 @@
         ".local/share/zoxide"
         ".local/state/wireplumber"
         ".mozilla" # firefox
-        ".ollama"
         "code"
         "downloads"
         "images"
