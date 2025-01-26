@@ -18,9 +18,10 @@
       "/var/lib/docker"
       "/var/lib/libvirt"
       "/var/lib/nixos" # contains important state: https://github.com/nix-community/impermanence/issues/178
+      "/var/lib/private/ollama"
       "/var/lib/swtpm-localca" # needed for Windows VM via qemu
       "/var/lib/systemd"
-      "/var/lib/private/ollama"
+      "/var/lib/tailscale"
       "/var/log"
     ];
     files = [
@@ -65,12 +66,14 @@
         ".config/libreoffice"
         ".config/obs-studio"
         ".config/pulse"
+        ".config/spotify"
         ".config/syncthing"
         ".config/trader"
         ".config/vesktop"
         ".config/vlc"
         ".local/share/direnv"
         ".local/share/fish"
+        ".local/share/hyprland"
         ".local/share/keyrings"
         ".local/share/nix"
         ".local/share/zoxide"
