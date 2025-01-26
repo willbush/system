@@ -120,6 +120,7 @@ in
 
   modules.unfree.allowList = [
     "slack"
+    "spotify"
   ];
 
   networking = {

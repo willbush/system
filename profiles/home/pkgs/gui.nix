@@ -15,6 +15,7 @@
     gimp
     inkscape
     obs-studio
+    spotify
     swappy # Wayland native snapshot editing tool
     vlc
 
