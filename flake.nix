@@ -6,11 +6,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default";
 
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-      inputs.systems.follows = "systems";
-    };
-
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,17 +22,22 @@
       inputs.nixpkgs-stable.follows = "nixpkgs";
     };
 
+    helix = {
+      url = "github:willbush/helix/colemak-dhm";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixgl = {
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
+      inputs.flake-utils.follows = "helix/flake-utils";
     };
 
     # System-wide colorscheming and typography for NixOS
     stylix = {
       url = "github:danth/stylix";
       inputs = {
-        flake-utils.follows = "flake-utils";
+        flake-utils.follows = "helix/flake-utils";
         home-manager.follows = "home-manager";
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
@@ -53,15 +53,8 @@
       url = "github:willbush/lianli-pwm-rgb-sync";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
-
-    helix = {
-      url = "github:willbush/helix/colemak-dhm";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
+        crane.follows = "helix/crane";
+        flake-utils.follows = "helix/flake-utils";
       };
     };
   };

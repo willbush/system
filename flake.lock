@@ -97,21 +97,6 @@
         "type": "github"
       }
     },
-    "crane_2": {
-      "locked": {
-        "lastModified": 1736547013,
-        "narHash": "sha256-7kZ8I9pbVEj5ZyzMJ9/tHHakZjElQOn11Avst22eiig=",
-        "owner": "ipetkov",
-        "repo": "crane",
-        "rev": "a711c6ec54eb85d2ce00f969c3f30c0fb06c87aa",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ipetkov",
-        "repo": "crane",
-        "type": "github"
-      }
-    },
     "emacs-overlay": {
       "inputs": {
         "nixpkgs": [
@@ -169,9 +154,7 @@
     },
     "flake-utils": {
       "inputs": {
-        "systems": [
-          "systems"
-        ]
+        "systems": "systems"
       },
       "locked": {
         "lastModified": 1731533236,
@@ -271,9 +254,7 @@
     "helix": {
       "inputs": {
         "crane": "crane",
-        "flake-utils": [
-          "flake-utils"
-        ],
+        "flake-utils": "flake-utils",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -331,8 +312,12 @@
     },
     "lianli-pwm-rgb-sync": {
       "inputs": {
-        "crane": "crane_2",
+        "crane": [
+          "helix",
+          "crane"
+        ],
         "flake-utils": [
+          "helix",
           "flake-utils"
         ],
         "nixpkgs": [
@@ -356,6 +341,7 @@
     "nixgl": {
       "inputs": {
         "flake-utils": [
+          "helix",
           "flake-utils"
         ],
         "nixpkgs": [
@@ -396,7 +382,6 @@
       "inputs": {
         "chemacs": "chemacs",
         "emacs-overlay": "emacs-overlay",
-        "flake-utils": "flake-utils",
         "helix": "helix",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
@@ -405,7 +390,7 @@
         "nixpkgs": "nixpkgs",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
-        "systems": "systems"
+        "systems": "systems_2"
       }
     },
     "rust-overlay": {
@@ -458,6 +443,7 @@
         "firefox-gnome-theme": "firefox-gnome-theme",
         "flake-compat": "flake-compat",
         "flake-utils": [
+          "helix",
           "flake-utils"
         ],
         "git-hooks": "git-hooks",
@@ -491,6 +477,21 @@
       }
     },
     "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_2": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
