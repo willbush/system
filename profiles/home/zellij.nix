@@ -16,6 +16,7 @@ in
                     hide_frame_for_single_pane "true"
 
                     format_left  "{mode}#[fg=#89B4FA,bg=#181825,bold] {session}#[bg=#181825] {tabs}"
+                    format_right "{datetime}"
                     format_space "#[bg=#181825]"
 
                     mode_normal          "#[bg=#89B4FA] "
