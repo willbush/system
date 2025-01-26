@@ -81,6 +81,7 @@ in
       ../profiles/home/swaylock.nix
       ../profiles/home/xdg.nix
       ../profiles/home/zathura.nix
+      ../profiles/home/zellij.nix
     ];
 
     home = {

@@ -390,7 +390,8 @@
         "nixpkgs": "nixpkgs",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
-        "systems": "systems_2"
+        "systems": "systems_2",
+        "zjstatus": "zjstatus"
       }
     },
     "rust-overlay": {
@@ -569,6 +570,38 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-zed",
+        "type": "github"
+      }
+    },
+    "zjstatus": {
+      "inputs": {
+        "crane": [
+          "helix",
+          "crane"
+        ],
+        "flake-utils": [
+          "helix",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": [
+          "helix",
+          "rust-overlay"
+        ]
+      },
+      "locked": {
+        "lastModified": 1737741991,
+        "narHash": "sha256-FCIlCT8HNEVEWwtiL5zwWH01XW1vHir83HWodfKeWU4=",
+        "owner": "dj95",
+        "repo": "zjstatus",
+        "rev": "8e9aa9d977ec70991c4e4cde8bcda9942dee3f5d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dj95",
+        "repo": "zjstatus",
         "type": "github"
       }
     }

@@ -57,6 +57,16 @@
         flake-utils.follows = "helix/flake-utils";
       };
     };
+
+    zjstatus = {
+      url = "github:dj95/zjstatus";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "helix/flake-utils";
+        crane.follows = "helix/crane";
+        rust-overlay.follows = "helix/rust-overlay";
+      };
+    };
   };
 
   outputs =
