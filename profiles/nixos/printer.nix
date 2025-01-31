@@ -6,7 +6,7 @@
       netDevices = {
         office-printer = {
           model = "HL-2380DW";
-          ip = "192.168.68.62";
+          ip = "192.168.68.58";
         };
       };
     };
