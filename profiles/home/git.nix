@@ -34,6 +34,7 @@
     lazygit = {
       enable = true;
       settings = {
+        disableStartupPopups = true;
         git.paging = {
           colorArg = "always";
           pager = "delta --dark --paging=never";
