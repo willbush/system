@@ -149,6 +149,14 @@
           name = "markdown";
           language-servers = [ "lsp-ai" ];
         }
+        {
+          name = "lua";
+          auto-format = true;
+          formatter = {
+            command = "stylua";
+            args = [ "-" ];
+          };
+        }
       ];
     };
   };

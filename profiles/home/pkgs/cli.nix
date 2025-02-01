@@ -13,7 +13,6 @@ in
     file
     grim # Grab images from a Wayland compositor.
     lsof
-    nixfmt-rfc-style
     nodePackages.prettier
     pinentry-gnome3
     ripgrep
@@ -37,12 +36,17 @@ in
     lsp-ai
     nix-prefetch-git
     rust-analyzer
-    shfmt
     tokei
     trufflehog # Find, verify, and analyze leaked credentials (must be run with --no-update in NixOS)
     xxd # hexdump
 
+    # Language formatters
+    nixfmt-rfc-style
+    shfmt
+    stylua
+
     # Language servers
+    lua-language-server
     markdown-oxide
     nil
     yaml-language-server
