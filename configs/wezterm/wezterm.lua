@@ -29,7 +29,7 @@ return {
 	default_workspace = "~",
 
 	-- Define the leader key
-	leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 },
+	leader = { key = "g", mods = "CTRL", timeout_milliseconds = 1000 },
 	colors = {
 		compose_cursor = "orange",
 	},
@@ -38,6 +38,7 @@ return {
 		{ key = "Tab", mods = "CTRL", action = act.ActivateTabRelative(1) },
 		{ key = "Tab", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(-1) },
 
+		-- workspace_switcher
 		{
 			key = "w",
 			mods = "LEADER",
@@ -47,6 +48,14 @@ return {
 			key = "W",
 			mods = "LEADER",
 			action = workspace_switcher.switch_to_prev_workspace(),
+		},
+		-- Spawn commands
+		{
+			key = "g",
+			mods = "LEADER",
+			action = act.SpawnCommandInNewWindow({
+				args = { "lazygit" },
+			}),
 		},
 		-- Vertical split with leader+v
 		-- NOTE wezterm named these backwards from vim..
