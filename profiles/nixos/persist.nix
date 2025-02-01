@@ -36,7 +36,6 @@
         ".cache/bat"
         ".cache/dconf"
         ".cache/fontconfig"
-        ".cache/ghostty"
         ".cache/gstreamer-1.0"
         ".cache/helix"
         ".cache/lsp-ai"
@@ -76,6 +75,7 @@
         ".local/share/hyprland"
         ".local/share/keyrings"
         ".local/share/nix"
+        ".local/share/wezterm"
         ".local/share/zoxide"
         ".local/state/wireplumber"
         ".mozilla" # firefox

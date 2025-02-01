@@ -106,6 +106,11 @@ in
       extraConfig = builtins.readFile ../configs/hypr/hyprland.conf;
     };
 
+    programs.wezterm = {
+      enable = true;
+      extraConfig = builtins.readFile ../configs/wezterm/wezterm.lua;
+    };
+
     # lightweight notification daemon for Wayland
     services.mako = {
       enable = true;
