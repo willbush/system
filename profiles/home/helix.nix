@@ -24,9 +24,10 @@
       theme = "tokyonight";
       # use bar cursor in insert mode like vim
       editor = {
-        cursor-shape.insert = "bar";
-        cursorline = true;
         color-modes = true;
+        cursorline = true;
+        cursor-shape.insert = "bar";
+        line-number = "relative"; 
 
         # Minimum severity to show a diagnostic after the end of a line:
         end-of-line-diagnostics = "hint";
@@ -80,7 +81,7 @@
                   l = ":toggle inline-diagnostics.cursor-line disable hint";
                   L = ":toggle inline-diagnostics.other-lines disable hint";
                 };
-                n = ":toggle line-number relative absolute";
+                n = ":toggle line-number absolute relative";
                 u = "switch_to_lowercase";
                 U = "switch_to_uppercase";
                 w = ":toggle whitespace.render all none";
