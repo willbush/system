@@ -149,6 +149,7 @@ return {
 			action = act.ActivateKeyTable({
 				name = "window_mode",
 				one_shot = false,
+				timeout_milliseconds = 5000,
 			}),
 		},
 		{
@@ -157,6 +158,7 @@ return {
 			action = act.ActivateKeyTable({
 				name = "window_mode",
 				one_shot = false,
+				timeout_milliseconds = 5000,
 			}),
 		},
 		{
@@ -165,6 +167,7 @@ return {
 			action = act.ActivateKeyTable({
 				name = "view_mode",
 				one_shot = false,
+				timeout_milliseconds = 5000,
 			}),
 		},
 		{
@@ -173,6 +176,7 @@ return {
 			action = act.ActivateKeyTable({
 				name = "view_mode",
 				one_shot = false,
+				timeout_milliseconds = 5000,
 			}),
 		},
 	},
