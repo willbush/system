@@ -104,10 +104,15 @@ return {
 			action = act.ShowDebugOverlay,
 		},
 
-		-- workspace_switcher
+		-- workspace_switcher (mnemonic p for project)
 		{
-			key = "w",
+			key = "p",
 			mods = "LEADER",
+			action = workspace_switcher.switch_workspace(),
+		},
+		{
+			key = "p",
+			mods = "LEADER|CTRL", -- allows C-a C-p
 			action = workspace_switcher.switch_workspace(),
 		},
 		{
@@ -129,41 +134,21 @@ return {
 			action = act.EmitEvent("trigger-hx-with-scrollback"),
 		},
 
-		-- Vertical split with leader+v
-		-- NOTE wezterm named these backwards from vim..
-		{
-			key = "v",
-			mods = "LEADER",
-			action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
-		},
-		-- Horizontal split with leader+s
-		{
-			key = "s",
-			mods = "LEADER",
-			action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
-		},
-		-- Panes
-		{
-			mods = "LEADER",
-			key = "n",
-			action = act.ActivatePaneDirection("Prev"),
-		},
-		{
-			mods = "LEADER",
-			key = "e",
-			action = act.ActivatePaneDirection("Next"),
-		},
-		{
-			key = "x",
-			mods = "LEADER",
-			action = act.TogglePaneZoomState,
-		},
 		-- Custom sticky modes
+		-- mnemonic w for window (similar to helix)
 		{
-			key = "p",
+			key = "w",
 			mods = "LEADER",
 			action = act.ActivateKeyTable({
-				name = "pane_mode",
+				name = "window_mode",
+				one_shot = false,
+			}),
+		},
+		{
+			key = "w",
+			mods = "LEADER|CTRL",
+			action = act.ActivateKeyTable({
+				name = "window_mode",
 				one_shot = false,
 			}),
 		},
@@ -178,9 +163,21 @@ return {
 	},
 
 	key_tables = {
-		pane_mode = {
+		window_mode = {
 			-- escape hatch
 			{ key = "Escape", action = "PopKeyTable" },
+
+			-- Vertical split
+			-- NOTE wezterm named these backwards from vim..
+			{
+				key = "v",
+				action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+			},
+			-- Horizontal split
+			{
+				key = "s",
+				action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
+			},
 
 			{ key = "n", action = act.ActivatePaneDirection("Prev") },
 			{ key = "e", action = act.ActivatePaneDirection("Next") },
@@ -191,6 +188,7 @@ return {
 			{ key = "I", action = act.AdjustPaneSize({ "Right", 5 }) },
 
 			{ key = "x", action = act.TogglePaneZoomState },
+			{ key = "k", action = act.CloseCurrentPane({ confirm = true }) },
 		},
 		view_mode = {
 			-- escape hatch
