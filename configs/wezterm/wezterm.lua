@@ -13,7 +13,7 @@ wezterm.on("update-right-status", function(window, _)
 	window:set_right_status(name or "")
 end)
 
--- Eliminates need for a copy mode.
+-- Eliminates need for a copy mode. Think I'd use this over search mode too.
 wezterm.on("trigger-hx-with-scrollback", function(window, pane)
 	local text = pane:get_lines_as_text(pane:get_dimensions().scrollback_rows)
 
@@ -135,7 +135,6 @@ return {
 		{ key = "-", mods = "CTRL", action = act.DecreaseFontSize },
 		{ key = "+", mods = "SHIFT|CTRL", action = act.IncreaseFontSize }, -- actually C-+ due to QMK quirk
 
-		{ key = "F", mods = "CTRL", action = act.Search("CurrentSelectionOrEmptyString") },
 		{ key = "K", mods = "CTRL", action = act.ClearScrollback("ScrollbackOnly") },
 		{ key = "L", mods = "CTRL", action = act.ShowDebugOverlay },
 		{ key = "M", mods = "CTRL", action = act.Hide },
@@ -173,19 +172,6 @@ return {
 			{ key = "n", action = act.RotatePanes("CounterClockwise") },
 			{ key = "e", action = act.RotatePanes("Clockwise") },
 			{ key = "i", action = act.AdjustPaneSize({ "Right", 5 }) },
-		},
-
-		search_mode = {
-			{ key = "Enter", action = act.CopyMode("PriorMatch") },
-			{ key = "Escape", action = act.CopyMode("Close") },
-			{ key = "n", mods = "CTRL", action = act.CopyMode("NextMatch") },
-			{ key = "p", mods = "CTRL", action = act.CopyMode("PriorMatch") },
-			{ key = "r", mods = "CTRL", action = act.CopyMode("CycleMatchType") },
-			{ key = "u", mods = "CTRL", action = act.CopyMode("ClearPattern") },
-			{ key = "PageUp", action = act.CopyMode("PriorMatchPage") },
-			{ key = "PageDown", action = act.CopyMode("NextMatchPage") },
-			{ key = "UpArrow", action = act.CopyMode("PriorMatch") },
-			{ key = "DownArrow", action = act.CopyMode("NextMatch") },
 		},
 	},
 }
