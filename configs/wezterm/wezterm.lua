@@ -13,7 +13,7 @@ wezterm.on("update-right-status", function(window, _)
 	window:set_right_status(name or "")
 end)
 
--- Eliminates need for a copy mode. Think I'd use this over search mode too.
+-- Eliminates need for a copy mode. Think I'll use this over search mode too.
 wezterm.on("trigger-hx-with-scrollback", function(window, pane)
 	local text = pane:get_lines_as_text(pane:get_dimensions().scrollback_rows)
 
@@ -60,8 +60,46 @@ return {
 	},
 
 	keys = {
+		-- Non LEADER keys:
+		{ key = "0", mods = "CTRL", action = act.ResetFontSize },
+		{ key = "-", mods = "CTRL", action = act.DecreaseFontSize },
+		{ key = "+", mods = "SHIFT|CTRL", action = act.IncreaseFontSize }, -- actually C-+ due to QMK quirk
+
 		{ key = "Tab", mods = "CTRL", action = act.ActivateTabRelative(1) },
 		{ key = "Tab", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(-1) },
+
+		{ key = "K", mods = "CTRL", action = act.ClearScrollback("ScrollbackOnly") },
+		{ key = "L", mods = "CTRL", action = act.ShowDebugOverlay },
+		{ key = "N", mods = "CTRL", action = act.SpawnWindow },
+		{ key = "R", mods = "CTRL", action = act.ReloadConfiguration },
+		{ key = "T", mods = "CTRL", action = act.SpawnTab("CurrentPaneDomain") },
+		{ key = "Z", mods = "CTRL", action = act.TogglePaneZoomState },
+
+		{
+			key = "U",
+			mods = "CTRL",
+			action = act.CharSelect({ copy_on_select = true, copy_to = "ClipboardAndPrimarySelection" }),
+		},
+
+		{ key = "W", mods = "CTRL", action = act.CloseCurrentTab({ confirm = true }) },
+
+		{ key = "C", mods = "CTRL", action = act.CopyTo("Clipboard") },
+		{ key = "V", mods = "CTRL", action = act.PasteFrom("Clipboard") },
+
+		{ key = "w", mods = "SHIFT|CTRL", action = act.CloseCurrentTab({ confirm = true }) },
+
+		-- LEADER keys:
+		{
+			key = "phys:Space",
+			mods = "LEADER",
+			action = act.ActivateCommandPalette,
+		},
+		{
+			key = "Enter",
+			mods = "LEADER",
+			-- similar to jump to word in hx
+			action = act.QuickSelect,
+		},
 
 		-- workspace_switcher
 		{
@@ -70,7 +108,7 @@ return {
 			action = workspace_switcher.switch_workspace(),
 		},
 		{
-			key = "W",
+			key = "phys:Tab",
 			mods = "LEADER",
 			action = workspace_switcher.switch_to_prev_workspace(),
 		},
@@ -122,6 +160,7 @@ return {
 			key = "i",
 			action = act.AdjustPaneSize({ "Right", 5 }),
 		},
+		-- Custom modes
 		{
 			key = "p",
 			mods = "LEADER",
@@ -130,37 +169,14 @@ return {
 				one_shot = false,
 			}),
 		},
-
-		{ key = "0", mods = "CTRL", action = act.ResetFontSize },
-		{ key = "-", mods = "CTRL", action = act.DecreaseFontSize },
-		{ key = "+", mods = "SHIFT|CTRL", action = act.IncreaseFontSize }, -- actually C-+ due to QMK quirk
-
-		{ key = "K", mods = "CTRL", action = act.ClearScrollback("ScrollbackOnly") },
-		{ key = "L", mods = "CTRL", action = act.ShowDebugOverlay },
-		{ key = "M", mods = "CTRL", action = act.Hide },
-		{ key = "N", mods = "CTRL", action = act.SpawnWindow },
-		{ key = "P", mods = "CTRL", action = act.ActivateCommandPalette },
-		{ key = "R", mods = "CTRL", action = act.ReloadConfiguration },
-		{ key = "T", mods = "CTRL", action = act.SpawnTab("CurrentPaneDomain") },
-		{ key = "Z", mods = "CTRL", action = act.TogglePaneZoomState },
-
 		{
-			key = "U",
-			mods = "CTRL",
-			action = act.CharSelect({ copy_on_select = true, copy_to = "ClipboardAndPrimarySelection" }),
+			key = "z",
+			mods = "LEADER",
+			action = act.ActivateKeyTable({
+				name = "view_mode",
+				one_shot = false,
+			}),
 		},
-
-		{ key = "W", mods = "CTRL", action = act.CloseCurrentTab({ confirm = true }) },
-
-		{ key = "C", mods = "CTRL", action = act.CopyTo("Clipboard") },
-
-		{ key = "V", mods = "CTRL", action = act.PasteFrom("Clipboard") },
-
-		{ key = "w", mods = "SHIFT|CTRL", action = act.CloseCurrentTab({ confirm = true }) },
-		{ key = "phys:Space", mods = "SHIFT|CTRL", action = act.QuickSelect },
-
-		{ key = "PageUp", mods = "SHIFT", action = act.ScrollByPage(-1) },
-		{ key = "PageDown", mods = "SHIFT", action = act.ScrollByPage(1) },
 	},
 
 	key_tables = {
@@ -172,6 +188,16 @@ return {
 			{ key = "n", action = act.RotatePanes("CounterClockwise") },
 			{ key = "e", action = act.RotatePanes("Clockwise") },
 			{ key = "i", action = act.AdjustPaneSize({ "Right", 5 }) },
+		},
+		view_mode = {
+			-- escape hatch
+			{ key = "Escape", action = "PopKeyTable" },
+
+			{ key = "e", action = act.ScrollByLine(-1) },
+			{ key = "n", action = act.ScrollByLine(1) },
+
+			{ key = "E", action = act.ScrollByPage(-1) },
+			{ key = "N", action = act.ScrollByPage(1) },
 		},
 	},
 }
