@@ -48,6 +48,8 @@
             E = "@10e";
             N = "@10n";
 
+            ret = "goto_word";
+
             space = {
               space = "command_mode";
 
