@@ -160,6 +160,14 @@ return {
 				one_shot = false,
 			}),
 		},
+		{
+			key = "z",
+			mods = "LEADER|CTRL",
+			action = act.ActivateKeyTable({
+				name = "view_mode",
+				one_shot = false,
+			}),
+		},
 	},
 
 	key_tables = {
@@ -169,26 +177,27 @@ return {
 
 			-- Vertical split
 			-- NOTE wezterm named these backwards from vim..
-			{
-				key = "v",
-				action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
-			},
+			{ key = "v", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+			{ key = "v", mods = "CTRL", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 			-- Horizontal split
-			{
-				key = "s",
-				action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
-			},
-
+			{ key = "s", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+			{ key = "s", mods = "CTRL", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+			-- movement
 			{ key = "n", action = act.ActivatePaneDirection("Prev") },
+			{ key = "n", mods = "CTRL", action = act.ActivatePaneDirection("Prev") },
 			{ key = "e", action = act.ActivatePaneDirection("Next") },
-
+			{ key = "e", mods = "CTRL", action = act.ActivatePaneDirection("Next") },
+			-- pane adjustment
 			{ key = "M", action = act.AdjustPaneSize({ "Left", 5 }) },
 			{ key = "N", action = act.RotatePanes("CounterClockwise") },
 			{ key = "E", action = act.RotatePanes("Clockwise") },
 			{ key = "I", action = act.AdjustPaneSize({ "Right", 5 }) },
-
+			-- zoom
 			{ key = "x", action = act.TogglePaneZoomState },
+			{ key = "x", mods = "CTRL", action = act.TogglePaneZoomState },
+			-- kill
 			{ key = "k", action = act.CloseCurrentPane({ confirm = true }) },
+			{ key = "k", mods = "CTRL", action = act.CloseCurrentPane({ confirm = true }) },
 		},
 		view_mode = {
 			-- escape hatch
