@@ -65,30 +65,17 @@ return {
 		{ key = "-", mods = "CTRL", action = act.DecreaseFontSize },
 		{ key = "+", mods = "SHIFT|CTRL", action = act.IncreaseFontSize }, -- actually C-+ due to QMK quirk
 
-		{ key = "Tab", mods = "CTRL", action = act.ActivateTabRelative(1) },
-		{ key = "Tab", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(-1) },
-
-		{ key = "K", mods = "CTRL", action = act.ClearScrollback("ScrollbackOnly") },
-		{ key = "L", mods = "CTRL", action = act.ShowDebugOverlay },
-		{ key = "N", mods = "CTRL", action = act.SpawnWindow },
-		{ key = "R", mods = "CTRL", action = act.ReloadConfiguration },
-		{ key = "T", mods = "CTRL", action = act.SpawnTab("CurrentPaneDomain") },
-		{ key = "Z", mods = "CTRL", action = act.TogglePaneZoomState },
-
-		{
-			key = "U",
-			mods = "CTRL",
-			action = act.CharSelect({ copy_on_select = true, copy_to = "ClipboardAndPrimarySelection" }),
-		},
-
-		{ key = "W", mods = "CTRL", action = act.CloseCurrentTab({ confirm = true }) },
-
+		-- copy / paste
 		{ key = "C", mods = "CTRL", action = act.CopyTo("Clipboard") },
 		{ key = "V", mods = "CTRL", action = act.PasteFrom("Clipboard") },
 
-		{ key = "w", mods = "SHIFT|CTRL", action = act.CloseCurrentTab({ confirm = true }) },
+		-- tab control
+		{ key = "Tab", mods = "CTRL", action = act.ActivateTabRelative(1) },
+		{ key = "Tab", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(-1) },
+		{ key = "T", mods = "CTRL", action = act.SpawnTab("CurrentPaneDomain") },
+		{ key = "W", mods = "CTRL", action = act.CloseCurrentTab({ confirm = true }) },
 
-		-- LEADER keys:
+		-- LEADER based keys:
 		{
 			key = "phys:Space",
 			mods = "LEADER",
@@ -99,6 +86,27 @@ return {
 			mods = "LEADER",
 			-- similar to jump to word in hx
 			action = act.QuickSelect,
+		},
+		{
+			key = "U",
+			mods = "LEADER",
+			-- Select and copy emoji
+			action = act.CharSelect({ copy_on_select = true, copy_to = "ClipboardAndPrimarySelection" }),
+		},
+		{
+			key = "x",
+			mods = "LEADER",
+			action = act.TogglePaneZoomState,
+		},
+		{
+			key = "L",
+			mods = "LEADER",
+			action = act.ClearScrollback("ScrollbackOnly"),
+		},
+		{
+			key = "D",
+			mods = "LEADER",
+			action = act.ShowDebugOverlay,
 		},
 
 		-- workspace_switcher
