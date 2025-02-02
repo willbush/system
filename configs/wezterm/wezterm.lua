@@ -94,11 +94,6 @@ return {
 			action = act.CharSelect({ copy_on_select = true, copy_to = "ClipboardAndPrimarySelection" }),
 		},
 		{
-			key = "x",
-			mods = "LEADER",
-			action = act.TogglePaneZoomState,
-		},
-		{
 			key = "L",
 			mods = "LEADER",
 			action = act.ClearScrollback("ScrollbackOnly"),
@@ -147,28 +142,23 @@ return {
 			mods = "LEADER",
 			action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
 		},
-		{
-			mods = "LEADER",
-			key = "m",
-			action = act.AdjustPaneSize({ "Left", 5 }),
-		},
 		-- Panes
 		{
 			mods = "LEADER",
 			key = "n",
-			action = act.RotatePanes("CounterClockwise"),
+			action = act.ActivatePaneDirection("Prev"),
 		},
 		{
 			mods = "LEADER",
 			key = "e",
-			action = act.RotatePanes("Clockwise"),
+			action = act.ActivatePaneDirection("Next"),
 		},
 		{
+			key = "x",
 			mods = "LEADER",
-			key = "i",
-			action = act.AdjustPaneSize({ "Right", 5 }),
+			action = act.TogglePaneZoomState,
 		},
-		-- Custom modes
+		-- Custom sticky modes
 		{
 			key = "p",
 			mods = "LEADER",
@@ -192,10 +182,15 @@ return {
 			-- escape hatch
 			{ key = "Escape", action = "PopKeyTable" },
 
-			{ key = "m", action = act.AdjustPaneSize({ "Left", 5 }) },
-			{ key = "n", action = act.RotatePanes("CounterClockwise") },
-			{ key = "e", action = act.RotatePanes("Clockwise") },
-			{ key = "i", action = act.AdjustPaneSize({ "Right", 5 }) },
+			{ key = "n", action = act.ActivatePaneDirection("Prev") },
+			{ key = "e", action = act.ActivatePaneDirection("Next") },
+
+			{ key = "M", action = act.AdjustPaneSize({ "Left", 5 }) },
+			{ key = "N", action = act.RotatePanes("CounterClockwise") },
+			{ key = "E", action = act.RotatePanes("Clockwise") },
+			{ key = "I", action = act.AdjustPaneSize({ "Right", 5 }) },
+
+			{ key = "x", action = act.TogglePaneZoomState },
 		},
 		view_mode = {
 			-- escape hatch
