@@ -27,6 +27,12 @@ return {
 	tab_bar_at_bottom = true,
 	use_fancy_tab_bar = false,
 	default_workspace = "~",
+	window_padding = {
+		left = "1cell",
+		right = "1cell",
+		top = "0.5cell",
+		bottom = "0cell",
+	},
 
 	-- Define the leader key
 	leader = { key = "g", mods = "CTRL", timeout_milliseconds = 1000 },
