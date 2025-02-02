@@ -81,6 +81,7 @@ return {
 			key = "m",
 			action = act.AdjustPaneSize({ "Left", 5 }),
 		},
+		-- Panes
 		{
 			mods = "LEADER",
 			key = "n",
@@ -109,71 +110,39 @@ return {
 		{ key = "-", mods = "CTRL", action = act.DecreaseFontSize },
 		{ key = "+", mods = "SHIFT|CTRL", action = act.IncreaseFontSize }, -- actually C-+ due to QMK quirk
 
-		{ key = "C", mods = "CTRL", action = act.CopyTo("Clipboard") },
-		{ key = "C", mods = "SHIFT|CTRL", action = act.CopyTo("Clipboard") },
 		{ key = "F", mods = "CTRL", action = act.Search("CurrentSelectionOrEmptyString") },
-		{ key = "F", mods = "SHIFT|CTRL", action = act.Search("CurrentSelectionOrEmptyString") },
 		{ key = "K", mods = "CTRL", action = act.ClearScrollback("ScrollbackOnly") },
-		{ key = "K", mods = "SHIFT|CTRL", action = act.ClearScrollback("ScrollbackOnly") },
 		{ key = "L", mods = "CTRL", action = act.ShowDebugOverlay },
-		{ key = "L", mods = "SHIFT|CTRL", action = act.ShowDebugOverlay },
 		{ key = "M", mods = "CTRL", action = act.Hide },
-		{ key = "M", mods = "SHIFT|CTRL", action = act.Hide },
 		{ key = "N", mods = "CTRL", action = act.SpawnWindow },
-		{ key = "N", mods = "SHIFT|CTRL", action = act.SpawnWindow },
 		{ key = "P", mods = "CTRL", action = act.ActivateCommandPalette },
-		{ key = "P", mods = "SHIFT|CTRL", action = act.ActivateCommandPalette },
 		{ key = "R", mods = "CTRL", action = act.ReloadConfiguration },
-		{ key = "R", mods = "SHIFT|CTRL", action = act.ReloadConfiguration },
 		{ key = "T", mods = "CTRL", action = act.SpawnTab("CurrentPaneDomain") },
-		{ key = "T", mods = "SHIFT|CTRL", action = act.SpawnTab("CurrentPaneDomain") },
+		{ key = "Z", mods = "CTRL", action = act.TogglePaneZoomState },
+
 		{
 			key = "U",
 			mods = "CTRL",
 			action = act.CharSelect({ copy_on_select = true, copy_to = "ClipboardAndPrimarySelection" }),
 		},
-		{
-			key = "U",
-			mods = "SHIFT|CTRL",
-			action = act.CharSelect({ copy_on_select = true, copy_to = "ClipboardAndPrimarySelection" }),
-		},
-		{ key = "V", mods = "CTRL", action = act.PasteFrom("Clipboard") },
-		{ key = "V", mods = "SHIFT|CTRL", action = act.PasteFrom("Clipboard") },
+
 		{ key = "W", mods = "CTRL", action = act.CloseCurrentTab({ confirm = true }) },
-		{ key = "W", mods = "SHIFT|CTRL", action = act.CloseCurrentTab({ confirm = true }) },
-		{ key = "X", mods = "CTRL", action = act.ActivateCopyMode },
-		{ key = "X", mods = "SHIFT|CTRL", action = act.ActivateCopyMode },
-		{ key = "Z", mods = "CTRL", action = act.TogglePaneZoomState },
-		{ key = "Z", mods = "SHIFT|CTRL", action = act.TogglePaneZoomState },
-		{ key = "c", mods = "SHIFT|CTRL", action = act.CopyTo("Clipboard") },
-		{ key = "f", mods = "SHIFT|CTRL", action = act.Search("CurrentSelectionOrEmptyString") },
-		{ key = "k", mods = "SHIFT|CTRL", action = act.ClearScrollback("ScrollbackOnly") },
-		{ key = "l", mods = "SHIFT|CTRL", action = act.ShowDebugOverlay },
-		{ key = "m", mods = "SHIFT|CTRL", action = act.Hide },
-		{ key = "n", mods = "SHIFT|CTRL", action = act.SpawnWindow },
-		{ key = "p", mods = "SHIFT|CTRL", action = act.ActivateCommandPalette },
-		{ key = "r", mods = "SHIFT|CTRL", action = act.ReloadConfiguration },
-		{ key = "t", mods = "SHIFT|CTRL", action = act.SpawnTab("CurrentPaneDomain") },
+
 		{
-			key = "u",
-			mods = "SHIFT|CTRL",
-			action = act.CharSelect({ copy_on_select = true, copy_to = "ClipboardAndPrimarySelection" }),
+			key = "c",
+			mods = "LEADER",
+			action = act.ActivateCopyMode,
 		},
-		{ key = "v", mods = "SHIFT|CTRL", action = act.PasteFrom("Clipboard") },
+
+		{ key = "C", mods = "CTRL", action = act.CopyTo("Clipboard") },
+
+		{ key = "V", mods = "CTRL", action = act.PasteFrom("Clipboard") },
+
 		{ key = "w", mods = "SHIFT|CTRL", action = act.CloseCurrentTab({ confirm = true }) },
-		{ key = "x", mods = "SHIFT|CTRL", action = act.ActivateCopyMode },
-		{ key = "z", mods = "SHIFT|CTRL", action = act.TogglePaneZoomState },
 		{ key = "phys:Space", mods = "SHIFT|CTRL", action = act.QuickSelect },
 
 		{ key = "PageUp", mods = "SHIFT", action = act.ScrollByPage(-1) },
 		{ key = "PageDown", mods = "SHIFT", action = act.ScrollByPage(1) },
-
-		{ key = "PageUp", mods = "SHIFT|CTRL", action = act.MoveTabRelative(-1) },
-		{ key = "PageDown", mods = "SHIFT|CTRL", action = act.MoveTabRelative(1) },
-		{ key = "Insert", mods = "SHIFT", action = act.PasteFrom("PrimarySelection") },
-		{ key = "Insert", mods = "CTRL", action = act.CopyTo("PrimarySelection") },
-		{ key = "Copy", mods = "NONE", action = act.CopyTo("Clipboard") },
-		{ key = "Paste", mods = "NONE", action = act.PasteFrom("Clipboard") },
 	},
 
 	key_tables = {
