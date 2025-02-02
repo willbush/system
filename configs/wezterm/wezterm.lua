@@ -11,22 +11,14 @@ wezterm.on("update-right-status", function(window, _)
 	window:set_right_status(name or "")
 end)
 
-wezterm.on("update-right-status", function(window, _)
-	local leader = ""
-	if window:leader_is_active() then
-		leader = "LEADER"
-	end
-	window:set_right_status(leader)
-end)
-
 return {
 	check_for_updates = false,
+	default_workspace = "~",
 	disable_default_key_bindings = true,
 	hide_tab_bar_if_only_one_tab = false,
 	tab_and_split_indices_are_zero_based = true,
 	tab_bar_at_bottom = true,
 	use_fancy_tab_bar = false,
-	default_workspace = "~",
 	window_padding = {
 		left = "1cell",
 		right = "1cell",
@@ -37,6 +29,8 @@ return {
 	-- Define the leader key
 	leader = { key = "g", mods = "CTRL", timeout_milliseconds = 1000 },
 	colors = {
+		-- change the cursor color when IME, dead key, or leader key composition states
+		-- are active.
 		compose_cursor = "orange",
 	},
 
