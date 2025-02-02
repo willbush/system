@@ -129,6 +129,13 @@ return {
 			}),
 		},
 		{
+			key = "g",
+			mods = "LEADER|CTRL",
+			action = act.SpawnCommandInNewWindow({
+				args = { "lazygit" },
+			}),
+		},
+		{
 			key = "E",
 			mods = "LEADER",
 			action = act.EmitEvent("trigger-hx-with-scrollback"),
