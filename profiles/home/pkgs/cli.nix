@@ -33,6 +33,7 @@ in
     bacon # watches your rust project and runs jobs in background.
     cargo-show-asm
     hyperfine # benchmarking tool
+    lldb # Debugger
     lsp-ai
     nix-prefetch-git
     rust-analyzer
