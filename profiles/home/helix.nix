@@ -19,6 +19,7 @@
           ])
         ];
     });
+    package = inputs.helix.packages.${pkgs.system}.default;
 
     settings = {
       theme = "tokyonight";
