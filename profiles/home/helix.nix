@@ -148,6 +148,14 @@
             args = [ "-" ];
           };
         }
+        {
+          name = "nix";
+          auto-format = true;
+          formatter = {
+            command = "nixfmt";
+            args = [ ];
+          };
+        }
       ];
     };
   };
