@@ -204,10 +204,9 @@
           :models '(
                     "anthropic/claude-3.5-sonnet:beta"
                     "deepseek/deepseek-r1"
-                    "google/gemini-flash-1.5"
-                    "openai/gpt-4o"
-                    "openai/gpt-4o-mini"
-                    ))))
+                    "deepseek/deepseek-r1:free"
+                    "deepseek/deepseek-r1-distill-llama-70b:free"
+                    "google/gemini-2.0-flash-001"))))
 
 
 (use-package keycast
