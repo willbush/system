@@ -60,7 +60,7 @@
               };
               # rapid
               r = {
-                s = ":write";
+                s = ":update";
               };
               # toggle
               t = {
