@@ -201,12 +201,12 @@
           :endpoint "/api/v1/chat/completions"
           :stream t
           :key (lambda () (nth 0 (process-lines "rbw" "get" "openrouter" "--field" "api key")))
-          :models '(
-                    "anthropic/claude-3.5-sonnet:beta"
+          :models '("anthropic/claude-3.5-sonnet:beta"
                     "deepseek/deepseek-r1"
-                    "deepseek/deepseek-r1:free"
                     "deepseek/deepseek-r1-distill-llama-70b:free"
-                    "google/gemini-2.0-flash-001"))))
+                    "deepseek/deepseek-r1:free"
+                    "google/gemini-2.0-flash-001"
+                    "google/gemini-2.0-flash-thinking-exp:free"))))
 
 
 (use-package keycast
