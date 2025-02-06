@@ -6,19 +6,6 @@
   programs.helix = {
     enable = true;
     defaultEditor = true;
-    package = inputs.helix.packages.${pkgs.system}.default.overrideAttrs (self: {
-      makeWrapperArgs =
-        with pkgs;
-        self.makeWrapperArgs or [ ]
-        ++ [
-          "--suffix"
-          "PATH"
-          ":"
-          (lib.makeBinPath [
-            nil
-          ])
-        ];
-    });
     package = inputs.helix.packages.${pkgs.system}.default;
 
     settings = {
