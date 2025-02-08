@@ -43,13 +43,15 @@
               b = {
                 b = "buffer_picker";
                 r = ":reload";
-                s = ":new"; # new scratch buffer
                 R = ":reload-all";
 
-                A = ":buffer-close-all!";
+                s = ":open [scratch]";
+                n = ":new";
+
                 a = ":buffer-close-all";
-                D = ":buffer-close!";
+                A = ":buffer-close-all!";
                 d = ":buffer-close";
+                D = ":buffer-close!";
               };
               # quit
               q = {
