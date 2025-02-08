@@ -262,16 +262,15 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1738305957,
-        "narHash": "sha256-s2VDdO8MAx2Rth+T88/nFnb2VuCtp5AbAzDe6QMH0Hg=",
+        "lastModified": 1738980585,
+        "narHash": "sha256-kG+umRz29Zs60V2rmqikqdAunYXIoWBMfvuxADJ9eZM=",
         "owner": "willbush",
         "repo": "helix",
-        "rev": "a3cc2099e74d9b4258ea3467def8f2b13a7dd699",
+        "rev": "31de4ace8ee0bd1754e45735fd49427ea467a55d",
         "type": "github"
       },
       "original": {
         "owner": "willbush",
-        "ref": "colemak-dhm",
         "repo": "helix",
         "type": "github"
       }
@@ -391,8 +390,7 @@
         "nixpkgs": "nixpkgs",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
-        "systems": "systems_2",
-        "zjstatus": "zjstatus"
+        "systems": "systems_2"
       }
     },
     "rust-overlay": {
@@ -571,38 +569,6 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-zed",
-        "type": "github"
-      }
-    },
-    "zjstatus": {
-      "inputs": {
-        "crane": [
-          "helix",
-          "crane"
-        ],
-        "flake-utils": [
-          "helix",
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": [
-          "helix",
-          "rust-overlay"
-        ]
-      },
-      "locked": {
-        "lastModified": 1738084440,
-        "narHash": "sha256-sARyUquyuNapFbICL/PJEhcDgBzpxTcHUNw8R/xL1iA=",
-        "owner": "dj95",
-        "repo": "zjstatus",
-        "rev": "096dc72a909fd0fb34768a98354aad6207002671",
-        "type": "github"
-      },
-      "original": {
-        "owner": "dj95",
-        "repo": "zjstatus",
         "type": "github"
       }
     }
