@@ -1,8 +1,8 @@
 { pkgs, ... }:
-let
-  # planck = pkgs.callPackage ../../../configs/keyboard-firmware/planck { };
-  crkbd = pkgs.callPackage ../../../configs/keyboard-firmware/crkbd { };
-in
+# let
+#   # planck = pkgs.callPackage ../../../configs/keyboard-firmware/planck { };
+#   crkbd = pkgs.callPackage ../../../configs/keyboard-firmware/crkbd { };
+# in
 {
   home.packages = with pkgs; [
     # Utilities
@@ -80,7 +80,7 @@ in
     xh
 
     # Keyboard firmware flash
-    crkbd
+    # crkbd
     # planck
   ];
 }
