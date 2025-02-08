@@ -15,7 +15,7 @@
         color-modes = true;
         cursorline = true;
         cursor-shape.insert = "bar";
-        line-number = "relative"; 
+        line-number = "relative";
 
         # Minimum severity to show a diagnostic after the end of a line:
         end-of-line-diagnostics = "hint";
@@ -35,8 +35,6 @@
           normal = {
             E = "@10e";
             N = "@10n";
-
-            ret = "goto_word";
 
             space = {
               space = "command_mode";
