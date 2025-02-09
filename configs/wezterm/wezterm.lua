@@ -114,6 +114,11 @@ return {
 			mods = "LEADER",
 			action = workspace_switcher.switch_to_prev_workspace(),
 		},
+		{
+			key = "phys:Tab",
+			mods = "LEADER|CTRL",
+			action = workspace_switcher.switch_to_prev_workspace(),
+		},
 		-- Spawn commands
 		{
 			key = "g",
