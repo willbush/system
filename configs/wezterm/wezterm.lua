@@ -36,6 +36,11 @@ wezterm.on("trigger-hx-with-scrollback", function(window, pane)
 	)
 end)
 
+-- An helper function to perform an action then pop key table.
+local function with_pop(action)
+	return act.Multiple({ action, "PopKeyTable" })
+end
+
 return {
 	check_for_updates = false,
 	default_workspace = "~",
@@ -171,33 +176,33 @@ return {
 	},
 
 	key_tables = {
+		-- Windows in wezterm are gimped compared to something like hyprland. Never want
+		-- to have more than one split because there's no way to balance them. However,
+		-- this simplifies bindings because I'm only ever dealing with one split.
 		window_mode = {
 			-- escape hatch
 			{ key = "Escape", action = "PopKeyTable" },
 
 			-- Vertical split
 			-- NOTE wezterm named these backwards from vim..
-			{ key = "v", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-			{ key = "v", mods = "CTRL", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+			{ key = "v", action = with_pop(act.SplitHorizontal({ domain = "CurrentPaneDomain" })) },
+			{ key = "v", mods = "CTRL", action = with_pop(act.SplitHorizontal({ domain = "CurrentPaneDomain" })) },
 			-- Horizontal split
-			{ key = "s", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-			{ key = "s", mods = "CTRL", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+			{ key = "s", action = with_pop(act.SplitVertical({ domain = "CurrentPaneDomain" })) },
+			{ key = "s", mods = "CTRL", action = with_pop(act.SplitVertical({ domain = "CurrentPaneDomain" })) },
 			-- movement
-			{ key = "n", action = act.ActivatePaneDirection("Prev") },
-			{ key = "n", mods = "CTRL", action = act.ActivatePaneDirection("Prev") },
-			{ key = "e", action = act.ActivatePaneDirection("Next") },
-			{ key = "e", mods = "CTRL", action = act.ActivatePaneDirection("Next") },
+			{ key = "w", action = with_pop(act.ActivatePaneDirection("Prev")) },
+			{ key = "w", mods = "CTRL", action = with_pop(act.ActivatePaneDirection("Prev")) },
 			-- pane adjustment
-			{ key = "M", action = act.AdjustPaneSize({ "Left", 5 }) },
-			{ key = "N", action = act.RotatePanes("CounterClockwise") },
-			{ key = "E", action = act.RotatePanes("Clockwise") },
-			{ key = "I", action = act.AdjustPaneSize({ "Right", 5 }) },
-			-- zoom
-			{ key = "x", action = act.TogglePaneZoomState },
-			{ key = "x", mods = "CTRL", action = act.TogglePaneZoomState },
+			-- rotate similar to vim
+			{ key = "r", action = with_pop(act.RotatePanes("CounterClockwise")) },
+			{ key = "r", mods = "CTRL", action = with_pop(act.RotatePanes("CounterClockwise")) },
 			-- kill
-			{ key = "k", action = act.CloseCurrentPane({ confirm = true }) },
-			{ key = "k", mods = "CTRL", action = act.CloseCurrentPane({ confirm = true }) },
+			{ key = "k", action = with_pop(act.CloseCurrentPane({ confirm = true })) },
+			{ key = "k", mods = "CTRL", action = with_pop(act.CloseCurrentPane({ confirm = true })) },
+			-- zoom
+			{ key = "x", action = with_pop(act.TogglePaneZoomState) },
+			{ key = "x", mods = "CTRL", action = with_pop(act.TogglePaneZoomState) },
 		},
 		view_mode = {
 			-- escape hatch
