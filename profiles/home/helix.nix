@@ -36,6 +36,8 @@
             E = "@10e";
             N = "@10n";
 
+            C-q = ":write-quit-all!";
+
             space = {
               space = "command_mode";
 
@@ -54,8 +56,7 @@
                 D = ":buffer-close!";
               };
               # quit
-              q = ":write-quit-all";
-              Q = ":write-quit-all!";
+              q = ":write-quit-all!";
               # rapid
               r = {
                 s = ":update";

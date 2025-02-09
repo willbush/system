@@ -49,6 +49,8 @@ return {
 	tab_and_split_indices_are_zero_based = true,
 	tab_bar_at_bottom = true,
 	use_fancy_tab_bar = false,
+	window_close_confirmation = "NeverPrompt",
+
 	window_padding = {
 		left = "1cell",
 		right = "1cell",
@@ -81,6 +83,10 @@ return {
 		{ key = "W", mods = "CTRL", action = act.CloseCurrentTab({ confirm = true }) },
 
 		-- LEADER based keys:
+		-- Terminate the WezTerm application, killing all tabs.
+		{ key = "q", mods = "LEADER", action = wezterm.action.QuitApplication },
+		{ key = "q", mods = "LEADER|CTRL", action = wezterm.action.QuitApplication },
+
 		{
 			key = "phys:Space",
 			mods = "LEADER",
