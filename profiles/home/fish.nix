@@ -10,7 +10,7 @@
     shellAliases = {
       la = "eza -lah";
       tp = "trash-put";
-      h = "SKIM_DEFAULT_COMMAND='fd --type f' sk | xargs -r hx";
+      h = "hx .";
     };
   };
 }
