@@ -106,7 +106,7 @@ return {
 		},
 		{
 			key = "p",
-			mods = "LEADER|CTRL", -- allows C-a C-p
+			mods = "LEADER|CTRL", -- allows <leader> C-p
 			action = workspace_switcher.switch_workspace(),
 		},
 		{
