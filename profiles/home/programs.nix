@@ -13,7 +13,14 @@
     imv.enable = true; # command line image viewer intended for use with tiling window managers.
     rbw.enable = true;
     skim.enable = true;
-    wofi.enable = true;
+    tofi = {
+      enable = true;
+      # style settings / font handled by stylix
+      settings = {
+        border-width = 1;
+        outline-width = 1;
+      };
+    };
     yazi.enable = true;
     zoxide.enable = true;
   };
