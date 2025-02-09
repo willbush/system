@@ -88,11 +88,6 @@ return {
 			action = act.CharSelect({ copy_on_select = true, copy_to = "ClipboardAndPrimarySelection" }),
 		},
 		{
-			key = "L",
-			mods = "LEADER",
-			action = act.ClearScrollback("ScrollbackOnly"),
-		},
-		{
 			key = "D",
 			mods = "LEADER",
 			action = act.ShowDebugOverlay,
