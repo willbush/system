@@ -54,10 +54,8 @@
                 D = ":buffer-close!";
               };
               # quit
-              q = {
-                q = ":write-quit-all";
-                Q = ":write-quit-all!";
-              };
+              q = ":write-quit-all";
+              Q = ":write-quit-all!";
               # rapid
               r = {
                 s = ":update";
