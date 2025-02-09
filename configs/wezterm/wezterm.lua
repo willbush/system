@@ -82,12 +82,6 @@ return {
 			action = act.ActivateCommandPalette,
 		},
 		{
-			key = "Enter",
-			mods = "LEADER",
-			-- similar to jump to word in hx
-			action = act.QuickSelect,
-		},
-		{
 			key = "U",
 			mods = "LEADER",
 			-- Select and copy emoji
