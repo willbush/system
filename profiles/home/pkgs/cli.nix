@@ -50,6 +50,7 @@
     lua-language-server
     markdown-oxide
     nil
+    taplo # TOML toolkit
     yaml-language-server
 
     # Cryptography
