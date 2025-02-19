@@ -87,7 +87,7 @@ in
       stateVersion = "24.11";
       inherit username;
       homeDirectory = "/home/will";
-
+      shell.enableFishIntegration = true;
       sessionVariables = {
         SOPS_AGE_KEY_FILE = ageKeyFile;
       };
