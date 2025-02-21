@@ -21,7 +21,6 @@
         outline-width = 1;
       };
     };
-    yazi.enable = true;
     zoxide.enable = true;
   };
 }

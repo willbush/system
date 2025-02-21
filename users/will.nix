@@ -80,6 +80,7 @@ in
       ../profiles/home/swayidle.nix
       ../profiles/home/swaylock.nix
       ../profiles/home/xdg.nix
+      ../profiles/home/yazi.nix
       ../profiles/home/zathura.nix
     ];
 
