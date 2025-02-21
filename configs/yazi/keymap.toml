@@ -89,7 +89,6 @@ keymap = [
 
 	# Find
 	{ on = "/", run = "find --smart",            desc = "Find next file" },
-	{ on = "?", run = "find --previous --smart", desc = "Find previous file" },
 	{ on = "h", run = "find_arrow",              desc = "Goto the next found" },
 	{ on = "H", run = "find_arrow --previous",   desc = "Goto the previous found" },
 
@@ -109,10 +108,11 @@ keymap = [
 	{ on = [ ",", "r" ], run = "sort random --reverse=no",                      desc = "Sort randomly" },
 
 	# Goto
-	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
-	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Goto ~/.config" },
-	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Goto ~/Downloads" },
-	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
+	{ on = [ "g", "h" ],       run = "cd ~",               desc = "Go home ~" },
+	{ on = [ "g", "c" ],       run = "cd ~/.config",       desc = "Goto ~/.config" },
+	{ on = [ "g", "d" ],       run = "cd ~/downloads",     desc = "Goto ~/downloads" },
+	{ on = [ "g", "s" ],       run = "cd ~/code/system",   desc = "Goto ~/code/system" },
+	{ on = [ "g", "<Space>" ], run = "cd --interactive",   desc = "Jump interactively" },
 
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
@@ -137,8 +137,7 @@ keymap = [
 	{ on = "w", run = "tasks_show", desc = "Show task manager" },
 
 	# Help
-	{ on = "~",    run = "help", desc = "Open help" },
-	{ on = "<F1>", run = "help", desc = "Open help" },
+	{ on = "?",    run = "help", desc = "Open help" },
 ]
 
 [tasks]
@@ -153,12 +152,14 @@ keymap = [
 	{ on = "E", run = "arrow -10", desc = "Move cursor up" },
 	{ on = "N", run = "arrow 10",  desc = "Move cursor down" },
 
+	{ on = "<Up>",   run = "arrow -1", desc = "Move cursor up" },
+	{ on = "<Down>", run = "arrow 1",  desc = "Move cursor down" },
+
 	{ on = "<Enter>", run = "inspect", desc = "Inspect the task" },
 	{ on = "x",       run = "cancel",  desc = "Cancel the task" },
 
 	# Help
-	{ on = "~",    run = "help", desc = "Open help" },
-	{ on = "<F1>", run = "help", desc = "Open help" },
+	{ on = "?",    run = "help", desc = "Open help" },
 ]
 
 [spot]
@@ -173,12 +174,14 @@ keymap = [
 	{ on = "m", run = "swipe -1", desc = "Swipe to the previous file" },
 	{ on = "i", run = "swipe 1",  desc = "Swipe to the next file" },
 
+	{ on = "<Up>",   run = "arrow -1", desc = "Move cursor up" },
+	{ on = "<Down>", run = "arrow 1",  desc = "Move cursor down" },
+
 	# Copy
 	{ on = [ "c", "c" ], run = "copy cell", desc = "Copy selected cell" },
 
 	# Help
-	{ on = "~",    run = "help", desc = "Open help" },
-	{ on = "<F1>", run = "help", desc = "Open help" },
+	{ on = "?",    run = "help", desc = "Open help" },
 ]
 
 [pick]
@@ -191,9 +194,11 @@ keymap = [
 	{ on = "e", run = "arrow -1", desc = "Move cursor up" },
 	{ on = "n", run = "arrow 1",  desc = "Move cursor down" },
 
+	{ on = "<Up>",   run = "arrow -1", desc = "Move cursor up" },
+	{ on = "<Down>", run = "arrow 1",  desc = "Move cursor down" },
+
 	# Help
-	{ on = "~",    run = "help", desc = "Open help" },
-	{ on = "<F1>", run = "help", desc = "Open help" },
+	{ on = "?",    run = "help", desc = "Open help" },
 ]
 
 [input]
@@ -259,8 +264,7 @@ keymap = [
 	{ on = "U", run = "redo", desc = "Redo the last operation" },
 
 	# Help
-	{ on = "~",    run = "help", desc = "Open help" },
-	{ on = "<F1>", run = "help", desc = "Open help" },
+	{ on = "?",    run = "help", desc = "Open help" },
 ]
 
 [confirm]
@@ -279,9 +283,11 @@ keymap = [
 	{ on = "<C-p>", run = "arrow -1", desc = "Move cursor up" },
 	{ on = "<C-n>", run = "arrow 1",  desc = "Move cursor down" },
 
+	{ on = "<Up>",   run = "arrow -1", desc = "Move cursor up" },
+	{ on = "<Down>", run = "arrow 1",  desc = "Move cursor down" },
+
 	# Help
-	{ on = "~",    run = "help", desc = "Open help" },
-	{ on = "<F1>", run = "help", desc = "Open help" },
+	{ on = "?",    run = "help", desc = "Open help" },
 ]
 
 [completion]
@@ -294,9 +300,11 @@ keymap = [
 	{ on = "<C-p>", run = "arrow -1", desc = "Move cursor up" },
 	{ on = "<C-n>", run = "arrow 1",  desc = "Move cursor down" },
 
+	{ on = "<Up>",   run = "arrow -1", desc = "Move cursor up" },
+	{ on = "<Down>", run = "arrow 1",  desc = "Move cursor down" },
+
 	# Help
-	{ on = "~",    run = "help", desc = "Open help" },
-	{ on = "<F1>", run = "help", desc = "Open help" },
+	{ on = "?",    run = "help", desc = "Open help" },
 ]
 
 [help]
@@ -308,8 +316,12 @@ keymap = [
 	# Navigation
 	{ on = "e", run = "arrow -1", desc = "Move cursor up" },
 	{ on = "n", run = "arrow 1",  desc = "Move cursor down" },
+
 	{ on = "E", run = "arrow -10", desc = "Move cursor up" },
 	{ on = "N", run = "arrow 10",  desc = "Move cursor down" },
+
+	{ on = "<Up>",   run = "arrow -1", desc = "Move cursor up" },
+	{ on = "<Down>", run = "arrow 1",  desc = "Move cursor down" },
 
 	# Filtering
 	{ on = "/", run = "filter", desc = "Apply a filter for the help items" },
