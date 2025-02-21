@@ -108,11 +108,11 @@ keymap = [
 	{ on = [ ",", "r" ], run = "sort random --reverse=no",                      desc = "Sort randomly" },
 
 	# Goto
-	{ on = [ "g", "h" ],       run = "cd ~",               desc = "Go home ~" },
-	{ on = [ "g", "c" ],       run = "cd ~/.config",       desc = "Goto ~/.config" },
+	{ on = [ "g", "c" ],       run = "cd ~/code",          desc = "Goto ~/code" },
 	{ on = [ "g", "d" ],       run = "cd ~/downloads",     desc = "Goto ~/downloads" },
-	{ on = [ "g", "s" ],       run = "cd ~/code/system",   desc = "Goto ~/code/system" },
+	{ on = [ "g", "h" ],       run = "cd ~",               desc = "Go home ~" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive",   desc = "Jump interactively" },
+	{ on = [ "g", "s" ],       run = "cd ~/code/system",   desc = "Goto ~/code/system" },
 
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
@@ -134,7 +134,7 @@ keymap = [
 	{ on = "}", run = "tab_swap 1",  desc = "Swap current tab with next tab" },
 
 	# Tasks
-	{ on = "w", run = "tasks_show", desc = "Show task manager" },
+	{ on = ["<Space>", "t"], run = "tasks_show", desc = "Show task manager" },
 
 	# Help
 	{ on = "?",    run = "help", desc = "Open help" },
