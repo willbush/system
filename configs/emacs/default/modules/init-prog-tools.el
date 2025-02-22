@@ -231,31 +231,6 @@ magit-blame-mode:
   (add-hook 'magit-blame-mode-hook #'evil-normalize-keymaps))
 
 
-(use-package magit-delta
-  ;; This package does a require on magit which takes ~500ms, so definitely want to lazy load it.
-  :commands
-  (magit-delta-mode
-   my/magit-delta-toggle)
-  :if (executable-find "delta")
-  ;; Default to off for now due to crippling performance when magit has a large
-  ;; number of diffs https://github.com/dandavison/magit-delta/issues/9 :hook
-  ;;:hook (magit-mode . magit-delta-mode)
-  :init
-
-  (defun my/magit-delta-toggle ()
-    "Toggle magit-delta-mode and refresh magit."
-    (interactive)
-    (progn
-      (call-interactively 'magit-delta-mode)
-      (magit-refresh)))
-
-  (general-def
-    :prefix ","
-    :states 'normal
-    :keymaps 'magit-mode-map
-    "t" '(my/magit-delta-toggle :wk "toggle magit-delta")))
-
-
 (use-package git-timemachine
   :commands git-timemachine
   :config

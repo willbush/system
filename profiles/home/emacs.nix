@@ -73,7 +73,6 @@
         just-mode
         keycast
         magit
-        magit-delta
         marginalia
         markdown-mode
         markdown-toc
