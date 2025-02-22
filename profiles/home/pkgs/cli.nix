@@ -16,6 +16,7 @@
     nodePackages.prettier
     pinentry-gnome3
     ripgrep
+    sd # sed alternative
     slurp # Select a region in a Wayland compositor (used with grim)
     tealdeer # tldr in Rust
     trash-cli

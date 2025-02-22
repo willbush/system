@@ -83,6 +83,7 @@
                 u = ":pipe uniq";
                 U = ":pipe uniq --repeated";
                 r = ":pipe tac"; # reverse lines
+                w = ":pipe sd '[[:blank:]]+$' ''"; # remove trailing whitespace
               };
             };
           };
