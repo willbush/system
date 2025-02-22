@@ -12,14 +12,14 @@ quit      move      move      paste     move      goto      insert    undo      
           word      word end            word                                    sel
 
 a         r         s         t         g         m         n         e         i         o          '
-append    select    find      find      goto      move      move      move      move      open       N/A
-mode      mode      next      till      mode      left      down      up        right     below
-                    char      char
+append    select    find      find      goto      move      move      move      move      open       repeat
+mode      mode      next      till      mode      left      down      up        right     below      last
+                    char      char                                                                   motion
 
 z         x         c         d         v         k         h         y         .         /
 view      extend    change    delete    replace   match     search    yank      repeat    search
 mode      line      sel       sel                 mode      next                last
-          below                                                                 motion
+          below                                                                 insert
 ```
 
 Uppercase:
@@ -31,9 +31,9 @@ macro     next      next      before    prev      sels      at line             
           WORD      WORD end            WORD                start
 
 A         R         S         T         G         M         N         E         I         O          "
-append    N/A       find      find      goto      goto      page      page      goto      open       N/A
-at line             prev      prev      last      line      cursor    cursor    line      above
-end                 char      char      line      start     half down half up   end
+append    N/A       find      find      goto      goto      page      page      goto      open       rep last
+at line             prev      prev      last      line      cursor    cursor    line      above      motion
+end                 char      char      line      start     half down half up   end                  reverse
 
 Z         X         C         D         V         K         H         Y         >         ?
 sticky    extend    copy      N/A       replace   keep      search    N/A       indent    reverse
@@ -73,9 +73,9 @@ all                 sel on                                  next      parent    
 siblings            newline                                 sibling   node end
 
 A-z       A-x       A-c       A-d       A-v       A-k       A-h       A-y       A-.       A-/
-N/A       shrink    change    delete    N/A       remove    N/A       flip      repeat    N/A
-          to line   sel       sel                 sels                sels      last
-          bounds    noyank    noyank                                            insert
+N/A       shrink    change    delete    N/A       remove    N/A       flip      N/A       N/A
+          to line   sel       sel                 sels                sels
+          bounds    noyank    noyank
 ```
 
 Lower Layer:
