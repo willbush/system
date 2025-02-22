@@ -63,9 +63,9 @@ Alt + key:
 
 ```
 A-q       A-w       A-f       A-p       A-b       A-j       A-l       A-u       A-,       A-;
-N/A       N/A       N/A       select    move      N/A       N/A       earlier   remove    repeat
-                              prev      parent                                  primary   last
-                              sibling   node start                              sel       motion
+N/A       N/A       N/A       select    move      N/A       N/A       earlier   remove    flip
+                              prev      parent                                  primary   sels
+                              sibling   node start                              sel
 
 A-a       A-r       A-s       A-t       A-g       A-m       A-n       A-e       A-i       A-o        A-'
 select    N/A       split     N/A       N/A       N/A       select    move      shrink    expand     N/A
