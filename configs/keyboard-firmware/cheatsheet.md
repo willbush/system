@@ -37,8 +37,8 @@ end                 char      char      line      start     half down half up   
 
 Z         X         C         D         V         K         H         Y         >         ?
 sticky    extend    copy      N/A       replace   keep      search    N/A       indent    reverse
-view      to line   sel                 with      sels      prev                          search
-mode      bounds    to next             yanked
+view      line      sel                 with      sels      prev                          search
+mode      above     to next             yanked
 ```
 
 Ctrl + key:
@@ -50,8 +50,8 @@ N/A       window    page      N/A       page      N/A       align     kill to   
                                                                       start
 
 C-a       C-r       C-s       C-t       C-g       C-m       C-n       C-e       C-i       C-o        C-'
-N/A       N/A       save      N/A       N/A       N/A       N/A       N/A       jump      jump       N/A
-                    sel                                                         forward   backward
+N/A       N/A       save      N/A       wezterm   N/A       N/A       N/A       jump      jump       N/A
+                    sel                 prefix                                  forward   backward
 
 C-z       C-x       C-c       C-d       C-v       C-k       C-h       C-y       C-.       C-/
 suspend   N/A       N/A       half page N/A       kill to   N/A
