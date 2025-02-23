@@ -124,9 +124,9 @@ Lower Layer:
 1         2         3         4         5         6         7         8         9         0
 
 ~         (         !         =         )         {         %         &         }         |          Del
-switch    rotate    shell     align     rotate              match     select              shell
-case      sels      insert    sels      sels                brackets  register            pipe
-          backward  output              forward
+switch    rotate              align     rotate              match     select
+case      sels                sels      sels                brackets  register
+          backward                      forward
 
                               _
                               trim
