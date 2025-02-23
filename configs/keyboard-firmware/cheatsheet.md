@@ -2,6 +2,7 @@ Abbreviations:
 
 - sel: selection
 - sels: selections
+- []: [mode] (leader keys)
 
 Lowercase:
 
@@ -35,6 +36,11 @@ mode      line      sel       sel                           next                
   "a" => select_all,
   "c" => collapse_selection,
 
+  "f" => ensure_selections_forward,
+  "r" => select_regex,
+  "s" => split_selection,
+  "t" => flip_selections,
+
   "k" => keep_selections,
   "K" => remove_selections,
 
@@ -45,10 +51,6 @@ mode      line      sel       sel                           next                
 
   "i" => shrink_selection,
   "o" => expand_selection,
-
-  "r" => select_regex,
-  "s" => split_selection,
-  "t" => flip_selections,
 },
 "j" => { "Jump"
   "j" => goto_line,
@@ -111,8 +113,8 @@ A-a       A-r       A-s       A-t       A-g       A-m       A-n       A-e       
 
 
 A-z       A-x       A-c       A-d       A-v       A-k       A-h       A-y       A-.       A-/
-                    change    delete                                  flip
-                    sel       sel                                     sels
+                    change    delete
+                    sel       sel
                     noyank    noyank
 ```
 
@@ -137,8 +139,8 @@ Hyper Layer:
 1         2         3         4         5         6         7         8         9         0
 
 \`        [         +         -         ]         ^         *         #         $         \          Del
-switch              increment decrement           goto      search              goto
-lowercase                                         first     sel                 line
+switch              increment decrement           goto                          goto
+lowercase                                         first                         line
                                                   non                           end
                                                   whitespace
 
