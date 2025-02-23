@@ -77,8 +77,8 @@ at line                                 last      line      cursor    cursor    
 end                                     line      start     half down half up   end                  reverse
 
 Z         X         C         D         V         K         H         Y         >         ?
-sticky    extend    copy                replace             search              indent    reverse
-view      line      sel                 with                prev                          search
+sticky    extend    copy                replace             search    yank      indent    reverse
+view      line      sel                 with                prev      joined              search
 mode      above     to next             yanked
 ```
 
