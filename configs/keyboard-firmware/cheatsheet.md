@@ -7,22 +7,51 @@ Lowercase:
 
 ```
 q         w         f         p         b         j         l         u         ,         ;
-quit      move      move      paste     move      goto      insert    undo      keep      collapse
-          next      next      after     prev      line      mode                primary   sel
-          word      word end            word                                    sel
+quit      move      move      paste     move      [jump]    insert    undo      keep      remove
+          next      next      after     prev                mode                primary   primary
+          word      word end            word                                    sel       sel
 
 a         r         s         t         g         m         n         e         i         o          '
-append    select    find      find      goto      move      move      move      move      open       repeat
-mode      mode      next      till      mode      left      down      up        right     below      last
-                    char      char                                                                   motion
+append    select    [search]  [tap]     [goto]    move      move      move      move      open       repeat
+mode      mode                                    left      down      up        right     below      last
+                                                                                                     motion
 
 z         x         c         d         v         k         h         y         .         /
-view      extend    change    delete    replace   match     search    yank      repeat    search
-mode      line      sel       sel                 mode      next                last
+view      extend    change    delete    replace   [knit]    search    yank      repeat    search
+mode      line      sel       sel                           next                last
           below                                                                 insert
 ```
 
-Uppercase:
+```rust
+"s" => { "Search"
+  "s" => find_next_char,
+  "S" => find_prev_char,
+  "t" => find_till_char,
+  "T" => till_prev_char,
+},
+"t" => { "Tap select"
+  "a" => select_all,
+  "c" => collapse_selection,
+  "r" => select_regex,
+  "s" => split_selection,
+  "t" => flip_selections,
+
+  "i" => shrink_selection,
+  "o" => expand_selection,
+},
+
+"j" => { "Jump"
+  "j" => goto_line,
+
+  "n" => select_next_sibling,
+  "p" => select_prev_sibling,
+
+  "b" => move_parent_node_start,
+  "e" => move_parent_node_end,
+},
+```
+
+S-*:
 
 ```
 Q         W         F         P         B         J         L         U         <         :
@@ -31,49 +60,49 @@ macro     next      next      before    prev      sels      at line             
           WORD      WORD end            WORD                start
 
 A         R         S         T         G         M         N         E         I         O          "
-append    N/A       find      find      goto      goto      page      page      goto      open       rep last
-at line             prev      prev      last      line      cursor    cursor    line      above      motion
-end                 char      char      line      start     half down half up   end                  reverse
+append                                  goto      goto      page      page      goto      open       rep last
+at line                                 last      line      cursor    cursor    line      above      motion
+end                                     line      start     half down half up   end                  reverse
 
 Z         X         C         D         V         K         H         Y         >         ?
-sticky    extend    copy      N/A       replace   keep      search    N/A       indent    reverse
+sticky    extend    copy                replace   keep      search              indent    reverse
 view      line      sel                 with      sels      prev                          search
 mode      above     to next             yanked
 ```
 
-Ctrl + key:
+C-*:
 
 ```
 C-q       C-w       C-f       C-p       C-b       C-j       C-l       C-u       C-,       C-;
-N/A       window    page      N/A       page      N/A       align     kill to   N/A
+          window    page                page                align     kill to
           mode      down                up                  view top  line
                                                                       start
 
 C-a       C-r       C-s       C-t       C-g       C-m       C-n       C-e       C-i       C-o        C-'
-N/A       N/A       save      N/A       wezterm   N/A       N/A       N/A       jump      jump       N/A
+                    save                wezterm                                 jump      jump
                     sel                 prefix                                  forward   backward
 
 C-z       C-x       C-c       C-d       C-v       C-k       C-h       C-y       C-.       C-/
-suspend   N/A       N/A       half page N/A       kill to   N/A
+suspend                       half page           kill to
                               down                line
                                                   end
 ```
 
-Alt + key:
+A-*:
 
 ```
 A-q       A-w       A-f       A-p       A-b       A-j       A-l       A-u       A-,       A-;
-N/A       N/A       N/A       select    move      N/A       N/A       earlier   remove    flip
-                              prev      parent                                  primary   sels
-                              sibling   node start                              sel
+                              select    move                          earlier
+                              prev      parent
+                              sibling   node start
 
 A-a       A-r       A-s       A-t       A-g       A-m       A-n       A-e       A-i       A-o        A-'
-select    N/A       split     N/A       N/A       N/A       select    move      shrink    expand     N/A
-all                 sel on                                  next      parent    sel       sel
+select              split                                   select    move
+all                 sel on                                  next      parent
 siblings            newline                                 sibling   node end
 
 A-z       A-x       A-c       A-d       A-v       A-k       A-h       A-y       A-.       A-/
-N/A       shrink    change    delete    N/A       remove    N/A       flip      N/A       N/A
+          shrink    change    delete              remove              flip
           to line   sel       sel                 sels                sels
           bounds    noyank    noyank
 ```
@@ -84,11 +113,11 @@ Lower Layer:
 1         2         3         4         5         6         7         8         9         0
 
 ~         (         !         =         )         {         %         &         }         |          Del
-switch    rotate    shell     align     rotate    N/A       select    select    N/A       shell      N/A
-case      sels      insert    sels      sels                all       register            pipe
+switch    rotate    shell     align     rotate              match     select              shell
+case      sels      insert    sels      sels                brackets  register            pipe
           backward  output              forward
 
-N/A       N/A       N/A       _         N/A       N/A       N/A       N/A       N/A       N/A
+                              _
                               trim
                               sels
 ```
@@ -99,12 +128,12 @@ Hyper Layer:
 1         2         3         4         5         6         7         8         9         0
 
 \`        [         +         -         ]         ^         *         #         $         \          Del
-switch    N/A       increment decrement N/A       goto      search    N/A       goto      N/A        N/A
+switch              increment decrement           goto      search              goto
 lowercase                                         first     sel                 line
                                                   non                           end
                                                   whitespace
 
-N/A       <         >         _         N/A       N/A       @         N/A       N/A       N/A
-          unindent  indent    trim
+                              _                             @
+                              trim
                               sels
 ```
