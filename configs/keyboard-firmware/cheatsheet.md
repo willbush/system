@@ -22,24 +22,34 @@ mode      line      sel       sel                           next                
           below                                                                 insert
 ```
 
-```rust
+```
 "s" => { "Search"
   "s" => find_next_char,
   "S" => find_prev_char,
   "t" => find_till_char,
   "T" => till_prev_char,
+  "w" => search_selection,
+  "W" => search_selection_detect_word_boundaries,
 },
-"t" => { "Tap select"
+"t" => { "Tap"
   "a" => select_all,
   "c" => collapse_selection,
-  "r" => select_regex,
-  "s" => split_selection,
-  "t" => flip_selections,
+
+  "k" => keep_selections,
+  "K" => remove_selections,
+
+  "M" => merge_consecutive_selections,
+  "m" => merge_selections,
+
+  "n" => split_selection_on_newline,
 
   "i" => shrink_selection,
   "o" => expand_selection,
-},
 
+  "r" => select_regex,
+  "s" => split_selection,
+  "t" => flip_selections,
+},
 "j" => { "Jump"
   "j" => goto_line,
 
@@ -65,8 +75,8 @@ at line                                 last      line      cursor    cursor    
 end                                     line      start     half down half up   end                  reverse
 
 Z         X         C         D         V         K         H         Y         >         ?
-sticky    extend    copy                replace   keep      search              indent    reverse
-view      line      sel                 with      sels      prev                          search
+sticky    extend    copy                replace             search              indent    reverse
+view      line      sel                 with                prev                          search
 mode      above     to next             yanked
 ```
 
@@ -92,19 +102,18 @@ A-*:
 
 ```
 A-q       A-w       A-f       A-p       A-b       A-j       A-l       A-u       A-,       A-;
-                              select    move                          earlier
-                              prev      parent
-                              sibling   node start
+                                                                      earlier
+
+
 
 A-a       A-r       A-s       A-t       A-g       A-m       A-n       A-e       A-i       A-o        A-'
-select              split                                   select    move
-all                 sel on                                  next      parent
-siblings            newline                                 sibling   node end
+
+
 
 A-z       A-x       A-c       A-d       A-v       A-k       A-h       A-y       A-.       A-/
-          shrink    change    delete              remove              flip
-          to line   sel       sel                 sels                sels
-          bounds    noyank    noyank
+                    change    delete                                  flip
+                    sel       sel                                     sels
+                    noyank    noyank
 ```
 
 Lower Layer:
