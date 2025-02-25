@@ -106,7 +106,7 @@
           models.model1 = {
             type = "open_ai";
             chat_endpoint = "https://openrouter.ai/api/v1/chat/completions";
-            model = "anthropic/claude-3.5-sonnet:beta";
+            model = "anthropic/claude-3.7-sonnet";
             auth_token_env_var_name = "OPENROUTER_API_KEY";
           };
           models.model2 = {

@@ -194,14 +194,14 @@
                      :stream t
                      :models '(deepseek-r1:32b))
 
-  (setq gptel-model "anthropic/claude-3.5-sonnet:beta"
+  (setq gptel-model "anthropic/claude-3.7-sonnet"
         gptel-backend
         (gptel-make-openai "OpenRouter"
           :host "openrouter.ai"
           :endpoint "/api/v1/chat/completions"
           :stream t
           :key (lambda () (nth 0 (process-lines "rbw" "get" "openrouter" "--field" "api key")))
-          :models '("anthropic/claude-3.5-sonnet"
+          :models '("anthropic/claude-3.7-sonnet"
                     "deepseek/deepseek-r1"
                     "deepseek/deepseek-r1:free"
                     "google/gemini-2.0-flash-001"
