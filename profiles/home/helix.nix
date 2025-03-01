@@ -1,7 +1,13 @@
 { inputs, pkgs, ... }:
+let
+  get-git-url = pkgs.writeScriptBin "get-git-url" (builtins.readFile ./scripts/get-get-url.fish);
+in
 {
   # No automatic theme stylix
   stylix.targets.helix.enable = false;
+
+  # custom scripts I use in helix
+  home.packages = [ get-git-url ];
 
   programs.helix = {
     enable = true;
@@ -54,6 +60,10 @@
                 A = ":buffer-close-all!";
                 d = ":buffer-close";
                 D = ":buffer-close!";
+              };
+              g = {
+                b = ":sh git blame -L %{cursor_line},%{cursor_line} %{buffer_name}";
+                o = ":sh get-git-url %{buffer_name} %{cursor_line} | wl-copy";
               };
               # quit
               q = ":write-quit-all!";
