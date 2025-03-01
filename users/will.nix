@@ -156,6 +156,7 @@ in
       enable = true;
       useRoutingFeatures = "client";
     };
+    resolved.enable = true;
   };
 
   programs.fish.enable = true;
