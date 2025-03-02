@@ -1,13 +1,20 @@
 { inputs, pkgs, ... }:
 let
-  get-git-url = pkgs.writeScriptBin "get-git-url" (builtins.readFile ./scripts/get-get-url.fish);
+  inherit (pkgs) writeScriptBin;
+  get-git-url = writeScriptBin "get-git-url" (builtins.readFile ./scripts/get-get-url.fish);
+  yazi-file-picker = writeScriptBin "yazi-file-picker" (
+    builtins.readFile ./scripts/yazi-file-picker.sh
+  );
 in
 {
   # No automatic theme stylix
   stylix.targets.helix.enable = false;
 
   # custom scripts I use in helix
-  home.packages = [ get-git-url ];
+  home.packages = [
+    get-git-url
+    yazi-file-picker
+  ];
 
   programs.helix = {
     enable = true;
@@ -60,6 +67,9 @@ in
                 A = ":buffer-close-all!";
                 d = ":buffer-close";
                 D = ":buffer-close!";
+              };
+              f = {
+                y = ":sh wezterm cli spawn --new-window --cwd $PWD -- yazi-file-picker $WEZTERM_PANE > /dev/null 2>&1";
               };
               # git
               g = {
