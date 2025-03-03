@@ -21,6 +21,7 @@
 
     # Browsers
     firefox
+    librewolf
     chromium # sometimes I use for testing
 
     # GNOME Apps
