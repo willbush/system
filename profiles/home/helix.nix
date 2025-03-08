@@ -22,7 +22,25 @@ in
     package = inputs.helix.packages.${pkgs.system}.default;
 
     settings = {
-      theme = "tokyonight";
+      # Some of me favorite themes:
+      #
+      # ao
+      # beans
+      # carbonfox
+      # catppuccin
+      # dracula_at_night
+      # github_dark_tritanopia
+      # hex
+      # kanagawa
+      # material_deep_ocean
+      # nightfox
+      # night_owl
+      # onedarker
+      # poimandres
+      # rose_pine
+      # snazzy
+      # tokyonight
+      theme = "beans";
       # use bar cursor in insert mode like vim
       editor = {
         color-modes = true;
