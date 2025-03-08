@@ -53,7 +53,6 @@
       url = "github:willbush/lianli-pwm-rgb-sync";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        crane.follows = "helix/crane";
         flake-utils.follows = "helix/flake-utils";
       };
     };
