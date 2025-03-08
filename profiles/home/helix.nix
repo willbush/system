@@ -91,7 +91,7 @@ in
               };
               # git
               g = {
-                B = ":sh git blame -L %{cursor_line},%{cursor_line} %{buffer_name}";
+                B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}";
                 b = ":sh wezterm cli spawn --new-window --cwd $PWD tig blame %{buffer_name} +%{cursor_line} > /dev/null 2>&1";
                 o = ":sh get-git-url %{buffer_name} %{cursor_line} | wl-copy";
               };
