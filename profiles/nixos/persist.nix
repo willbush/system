@@ -65,8 +65,8 @@
         ".config/emacs.default/tree-sitter"
         ".config/emacs.default/var"
         ".config/enchant"
-        ".config/inkscape"
         ".config/fish"
+        ".config/inkscape"
         ".config/libreoffice"
         ".config/obs-studio"
         ".config/pulse"
@@ -141,6 +141,8 @@
         ".config/emacs.default/projects"
         ".config/emacs.default/recentf"
         ".config/ncpamixer.conf"
+        ".local/share/recently-used.xbel"
+        ".local/state/lesshst"
         ".local/state/tofi-drun-history"
         ".local/state/tofi-history"
       ];
