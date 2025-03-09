@@ -35,6 +35,7 @@
       directories = [
         ".cache/bat"
         ".cache/dconf"
+        ".cache/fish"
         ".cache/fontconfig"
         ".cache/gstreamer-1.0"
         ".cache/helix"
@@ -64,6 +65,7 @@
         ".config/emacs.default/tree-sitter"
         ".config/emacs.default/var"
         ".config/enchant"
+        ".config/inkscape"
         ".config/fish"
         ".config/libreoffice"
         ".config/obs-studio"
