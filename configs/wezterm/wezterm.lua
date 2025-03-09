@@ -131,6 +131,9 @@ return {
 			mods = "LEADER",
 			action = act.SpawnCommandInNewWindow({
 				args = { "lazygit" },
+				set_environment_variables = {
+					EDITOR = "hx",
+				},
 			}),
 		},
 		{
@@ -138,10 +141,13 @@ return {
 			mods = "LEADER|CTRL",
 			action = act.SpawnCommandInNewWindow({
 				args = { "lazygit" },
+				set_environment_variables = {
+					EDITOR = "hx",
+				},
 			}),
 		},
 		{
-			key = "E",
+			key = "e",
 			mods = "LEADER",
 			action = act.EmitEvent("trigger-hx-with-scrollback"),
 		},
