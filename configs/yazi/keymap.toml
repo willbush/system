@@ -110,8 +110,10 @@ keymap = [
 	# Goto
 	{ on = [ "g", "c" ],       run = "cd ~/code",          desc = "Goto ~/code" },
 	{ on = [ "g", "d" ],       run = "cd ~/downloads",     desc = "Goto ~/downloads" },
-	{ on = [ "g", "h" ],       run = "cd ~",               desc = "Go home ~" },
-	{ on = [ "g", "<Space>" ], run = "cd --interactive",   desc = "Jump interactively" },
+	{ on = [ "g", "h" ],       run = "cd ~",               desc = "Goto ~" },
+	{ on = [ "g", "~" ],       run = "cd ~",               desc = "Goto ~" },
+	{ on = [ "g", "/" ],       run = "cd /",               desc = "Goto /" },
+	{ on = [ "g", "<Space>" ], run = "cd --interactive",   desc = "cd interactively" },
 	{ on = [ "g", "s" ],       run = "cd ~/code/system",   desc = "Goto ~/code/system" },
 
 	# Tabs
