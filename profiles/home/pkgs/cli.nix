@@ -8,6 +8,7 @@
     # Utilities
     curl
     du-dust
+    exiftool
     eza
     fd
     file
