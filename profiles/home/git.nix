@@ -39,6 +39,36 @@
           colorArg = "always";
           pager = "delta --dark --paging=never";
         };
+        keybinding = {
+          universal = {
+            prevItem-alt = "e";
+            nextItem-alt = "n";
+            scrollLeft = "M";
+            scrollRight = "I";
+            prevBlock-alt = "m";
+            nextBlock-alt = "i";
+
+            nextMatch = "h";
+            prevMatch = "H";
+
+            createRebaseOptionsMenu = "R";
+          };
+          files = {
+            openMergeTool = "T";
+            ignoreFile = "<c-x>";
+          };
+          branches = {
+            viewGitFlowOptions = "G";
+          };
+          commits = {
+            moveDownCommit = "<c-n>";
+            moveUpCommit = "<c-e>";
+            startInteractiveRebase = "<c-b>";
+          };
+          submodules = {
+            init = "s";
+          };
+        };
       };
     };
 
