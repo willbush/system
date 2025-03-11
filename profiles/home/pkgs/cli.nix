@@ -37,6 +37,7 @@
     hyperfine # benchmarking tool
     lldb # Debugger
     lsp-ai
+    mergiraf # Syntax-aware git merge driver
     nix-prefetch-git
     rust-analyzer
     tig # text-mode interface for Git

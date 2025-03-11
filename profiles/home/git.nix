@@ -1,4 +1,9 @@
-{ config, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   sops = {
     secrets."work/ssh/host" = { };
@@ -13,6 +18,43 @@
     '';
   };
 
+  # from `mergiraf languages --gitattributes`
+  home.file.".config/git/gitattributes".text = ''
+    *java merge=mergiraf
+    *kt merge=mergiraf
+    *rs merge=mergiraf
+    *go merge=mergiraf
+    *js merge=mergiraf
+    *jsx merge=mergiraf
+    *mjs merge=mergiraf
+    *json merge=mergiraf
+    *yml merge=mergiraf
+    *yaml merge=mergiraf
+    *toml merge=mergiraf
+    *html merge=mergiraf
+    *htm merge=mergiraf
+    *xhtml merge=mergiraf
+    *xml merge=mergiraf
+    *c merge=mergiraf
+    *h merge=mergiraf
+    *cc merge=mergiraf
+    *cpp merge=mergiraf
+    *hpp merge=mergiraf
+    *cs merge=mergiraf
+    *dart merge=mergiraf
+    *dts merge=mergiraf
+    *scala merge=mergiraf
+    *sbt merge=mergiraf
+    *ts merge=mergiraf
+    *tsx merge=mergiraf
+    *py merge=mergiraf
+    *php merge=mergiraf
+    *phtml merge=mergiraf
+    *sol merge=mergiraf
+    *lua merge=mergiraf
+    *rb merge=mergiraf
+  '';
+
   programs = {
     git = {
       enable = true;
@@ -26,6 +68,11 @@
         merge.conflictstyle = "zdiff3";
         pull.rebase = false;
         push.autoSetupRemote = true;
+        # https://mergiraf.org/usage.html#registration-as-a-git-merge-driver
+        merge.mergiraf = {
+          name = "mergiraf";
+          driver = "${lib.getExe pkgs.mergiraf} merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L";
+        };
       };
 
       delta.enable = true;
