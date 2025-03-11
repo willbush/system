@@ -51,6 +51,9 @@
             nextMatch = "h";
             prevMatch = "H";
 
+            new = "<c-n>";
+            edit = "<c-e>";
+
             createRebaseOptionsMenu = "R";
           };
           files = {
