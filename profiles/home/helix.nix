@@ -86,9 +86,6 @@ in
                 d = ":buffer-close";
                 D = ":buffer-close!";
               };
-              f = {
-                y = ":sh wezterm cli spawn --new-window --cwd $PWD -- yazi-file-picker $WEZTERM_PANE > /dev/null 2>&1";
-              };
               # git
               g = {
                 B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}";
@@ -125,6 +122,19 @@ in
                 r = ":pipe tac"; # reverse lines
                 w = ":pipe sd '[[:blank:]]+$' ''"; # remove trailing whitespace
               };
+              # yazi directly within helix. fzf doesn't work for some reason.
+              # https://github.com/sxyazi/yazi/pull/2461
+              y = [
+                ":sh rm -f /tmp/hx-yazi-picker"
+                ":insert-output yazi %{buffer_name} --chooser-file=/tmp/hx-yazi-picker"
+                ":insert-output echo '\x1b[?1049h\x1b[?2004h' > /dev/tty"
+                # Doesn't support opening multiple files.
+                ":open %sh{cat /tmp/hx-yazi-picker | head -n1}"
+                ":redraw"
+                ":set mouse false"
+                ":set mouse true"
+              ];
+              Y = ":sh wezterm cli spawn --new-window --cwd $PWD -- yazi-file-picker $WEZTERM_PANE > /dev/null 2>&1";
             };
           };
         in
