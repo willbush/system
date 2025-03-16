@@ -82,8 +82,6 @@ in
       ../profiles/home/pkgs/gui.nix
       ../profiles/home/programs.nix
       ../profiles/home/starship.nix
-      ../profiles/home/swayidle.nix
-      ../profiles/home/swaylock.nix
       ../profiles/home/xdg.nix
       ../profiles/home/yazi.nix
       ../profiles/home/zathura.nix
@@ -167,7 +165,6 @@ in
     sudo.enable = false;
     sudo-rs.enable = true;
     sudo-rs.execWheelOnly = true;
-    pam.services.swaylock = { };
   };
 
   environment.systemPackages = with pkgs; [ mullvad-vpn ];
