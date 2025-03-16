@@ -14,6 +14,7 @@ in
     ../modules/services/lianli-pwm-rgb-sync.nix
     ../modules/services/virt.nix
     ../profiles/mixed/theme.nix
+    ../profiles/mixed/wayland.nix
     ../profiles/nixos/greetd.nix
     ../profiles/nixos/less.nix
   ];
@@ -105,22 +106,11 @@ in
 
     gtk.enable = true;
 
-    wayland.windowManager.hyprland = {
-      enable = true;
-      extraConfig = builtins.readFile ../configs/hypr/hyprland.conf;
-    };
-
     programs.wezterm = {
       enable = true;
       extraConfig = builtins.readFile ../configs/wezterm/wezterm.lua;
     };
 
-    # lightweight notification daemon for Wayland
-    services.mako = {
-      enable = true;
-      # timeout in milliseconds.
-      defaultTimeout = 5000;
-    };
     services.syncthing.enable = true;
 
     # Nicely reload system units when changing configs
@@ -164,8 +154,6 @@ in
   };
 
   programs.fish.enable = true;
-  # important for system-wide configuration despite being installed via home-manager
-  programs.hyprland.enable = true;
   programs.wireshark.enable = true;
 
   programs.nh = {
