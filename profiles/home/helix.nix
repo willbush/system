@@ -40,7 +40,7 @@ in
       # rose_pine
       # snazzy
       # tokyonight
-      theme = "kanagawa";
+      theme = "rose_pine";
       # use bar cursor in insert mode like vim
       editor = {
         color-modes = true;
