@@ -146,7 +146,6 @@
         ".config/emacs.default/recentf"
         ".config/ncpamixer.conf"
         ".local/share/recently-used.xbel"
-        ".local/state/lesshst"
         ".local/state/tofi-drun-history"
         ".local/state/tofi-history"
       ];
