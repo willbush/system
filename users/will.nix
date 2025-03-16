@@ -101,6 +101,14 @@ in
 
     gtk.enable = true;
 
+    home.pointerCursor = {
+      enable = true;
+      gtk.enable = true;
+      name = "BreezeX-RosePine-Linux";
+      package = pkgs.rose-pine-cursor;
+      size = 32;
+    };
+
     wayland.windowManager.hyprland = {
       enable = true;
       extraConfig = builtins.readFile ../configs/hypr/hyprland.conf;
@@ -161,7 +169,6 @@ in
 
   programs.fish.enable = true;
   # important for system-wide configuration despite being installed via home-manager
-
   programs.hyprland.enable = true;
   programs.wireshark.enable = true;
 
