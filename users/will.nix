@@ -182,7 +182,6 @@ in
     pam.services.swaylock = { };
   };
 
-  # List packages installed in system profile.
   environment.systemPackages = with pkgs; [ mullvad-vpn ];
 
   fonts.packages = with pkgs; [
