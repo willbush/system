@@ -4,7 +4,6 @@
   ...
 }:
 let
-  username = "will";
   ageKeyFile = "/nix/persist/home/will/.secrets/sops-nix/admin_will.txt";
 in
 {
@@ -83,7 +82,7 @@ in
 
     home = {
       stateVersion = "24.11";
-      inherit username;
+      username = config.user.name;
       homeDirectory = "/home/will";
       sessionVariables = {
         SOPS_AGE_KEY_FILE = ageKeyFile;
@@ -121,14 +120,8 @@ in
   };
 
   modules.services = {
-    virt = {
-      enable = true;
-      user = username;
-    };
-    docker = {
-      enable = true;
-      user = username;
-    };
+    virt.enable = true;
+    docker.enable = true;
     lianli-pwm-rgb-sync.enable = true;
   };
 

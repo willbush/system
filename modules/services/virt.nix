@@ -14,12 +14,11 @@ in
       type = types.bool;
       default = false;
     };
-    user = mkOption { type = types.str; };
   };
 
   config = mkIf cfg.enable {
 
-    users.users."${cfg.user}".extraGroups = [ "libvirtd" ];
+    users.users."${config.user.name}".extraGroups = [ "libvirtd" ];
 
     programs.virt-manager.enable = true;
     programs.dconf.enable = true; # virt-manager requires dconf to remember settings

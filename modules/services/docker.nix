@@ -14,15 +14,14 @@ in
       type = types.bool;
       default = false;
     };
-    user = mkOption { type = types.str; };
   };
 
   config = mkIf cfg.enable {
-    users.users."${cfg.user}".extraGroups = [ "docker" ];
+    users.users."${config.user.name}".extraGroups = [ "docker" ];
 
     virtualisation.docker.enable = true;
 
-    home-manager.users."${cfg.user}" = {
+    home-manager.users."${config.user.name}" = {
       home.packages = with pkgs; [
         docker
         docker-compose
