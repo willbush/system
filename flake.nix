@@ -56,6 +56,15 @@
         flake-utils.follows = "helix/flake-utils";
       };
     };
+
+    # TODO: remove once helix support is released
+    yazi = {
+      url = "github:sxyazi/yazi";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "helix/flake-utils";
+      };
+    };
   };
 
   outputs =
@@ -98,6 +107,7 @@
               nixpkgs.overlays = [
                 inputs.emacs-overlay.overlays.default
                 inputs.nixgl.overlay
+                inputs.yazi.overlays.default
               ];
             }
           ];
