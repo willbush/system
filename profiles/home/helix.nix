@@ -110,10 +110,10 @@ in
                   L = ":toggle inline-diagnostics.other-lines disable hint";
                 };
                 n = ":toggle line-number absolute relative";
-                u = "switch_to_lowercase";
-                U = "switch_to_uppercase";
                 w = ":toggle whitespace.render all none";
               };
+              u = "switch_to_lowercase";
+              U = "switch_to_uppercase";
               # text manipulation
               x = {
                 x = ":reflow";
