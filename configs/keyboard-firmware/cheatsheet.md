@@ -26,12 +26,12 @@ mode      line      sel       sel                           next                
 ```
 "s" => { "Search"
   "s" => find_next_char,
-  "S" => find_prev_char,
   "t" => find_till_char,
-  "T" => till_prev_char,
   "w" => search_selection,
   "W" => search_selection_detect_word_boundaries,
 },
+"S" => find_prev_char,
+"T" => till_prev_char,
 "t" => { "Tap"
   "a" => select_all,
   "c" => collapse_selection,
@@ -72,9 +72,9 @@ macro     next      next      before    prev      sels      at line             
           WORD      WORD end            WORD                start
 
 A         R         S         T         G         M         N         E         I         O          "
-append                                  goto      goto      page      page      goto      open       rep last
-at line                                 last      line      cursor    cursor    line      above      motion
-end                                     line      start     half down half up   end                  reverse
+append              find      till      goto      goto      page      page      goto      open       rep last
+at line             prev      prev      last      line      cursor    cursor    line      above      motion
+end                 chart     char      line      start     half down half up   end                  reverse
 
 Z         X         C         D         V         K         H         Y         >         ?
 sticky    extend    copy                replace             search    yank      indent    reverse
