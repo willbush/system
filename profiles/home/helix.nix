@@ -47,6 +47,8 @@ in
         cursorline = true;
         cursor-shape.insert = "bar";
         line-number = "relative";
+        trim-final-newlines = true;
+        trim-trailing-whitespace = true;
 
         # Minimum severity to show a diagnostic after the end of a line:
         end-of-line-diagnostics = "hint";
