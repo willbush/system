@@ -4,7 +4,7 @@ Abbreviations:
 - sels: selections
 - []: [mode] (leader keys)
 
-Lowercase:
+# lowercase
 
 ```
 q         w         f         p         b         j         l         u         ,         ;
@@ -63,7 +63,7 @@ mode      line      sel       sel                           next                
 },
 ```
 
-S-*:
+# shift keys
 
 ```
 Q         W         F         P         B         J         L         U         <         :
@@ -82,7 +82,7 @@ view      line      sel                 with                prev      joined    
 mode      above     to next             yanked
 ```
 
-C-*:
+# ctrl keys
 
 ```
 C-q       C-w       C-f       C-p       C-b       C-j       C-l       C-u       C-,       C-;
@@ -100,7 +100,7 @@ suspend                       half page           kill to
                                                   end
 ```
 
-A-*:
+# alt keys
 
 ```
 A-q       A-w       A-f       A-p       A-b       A-j       A-l       A-u       A-,       A-;
@@ -118,7 +118,7 @@ A-z       A-x       A-c       A-d       A-v       A-k       A-h       A-y       
                     noyank    noyank
 ```
 
-Lower Layer:
+# lower layer
 
 ```
 1         2         3         4         5         6         7         8         9         0
@@ -133,7 +133,7 @@ case      sels                sels      sels                brackets  register
                               sels
 ```
 
-Hyper Layer:
+# hyper layer
 
 ```
 1         2         3         4         5         6         7         8         9         0
