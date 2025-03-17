@@ -82,7 +82,7 @@ in
                 r = ":reload";
                 R = ":reload-all";
 
-                s = ":open [scratch]";
+                s = ":open /tmp/scratch";
                 n = ":new";
 
                 a = ":buffer-close-all";
