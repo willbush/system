@@ -109,6 +109,7 @@ in
                   l = ":toggle inline-diagnostics.cursor-line disable hint";
                   L = ":toggle inline-diagnostics.other-lines disable hint";
                 };
+                l = ":toggle soft-wrap.enable";
                 n = ":toggle line-number absolute relative";
                 w = ":toggle whitespace.render all none";
               };
