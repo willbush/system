@@ -122,7 +122,6 @@ in
                 u = ":pipe uniq";
                 U = ":pipe uniq --repeated";
                 r = ":pipe tac"; # reverse lines
-                w = ":pipe sd '[[:blank:]]+$' ''"; # remove trailing whitespace
               };
               # yazi directly within helix. fzf doesn't work for some reason.
               # https://github.com/sxyazi/yazi/pull/2461
