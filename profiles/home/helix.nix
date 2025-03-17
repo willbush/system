@@ -58,7 +58,7 @@ in
           # Note that `cursor-line` diagnostics are hidden in insert mode.
           cursor-line = "hint";
           # Minimum severity to show a diagnostic on other lines:
-          other-lines = "hint";
+          other-lines = "disable";
         };
       };
 
