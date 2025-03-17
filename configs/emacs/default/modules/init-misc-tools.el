@@ -179,7 +179,6 @@
   :commands (gptel gptel-send gptel-abort gptel-end-of-response)
   :config
   (require 'gptel-curl)
-  (require 'gptel-ollama)
 
   ;; https://github.com/karthink/gptel/issues/302
   ;; hard wrapping doesn't work well because it applies to source blocks
@@ -187,12 +186,6 @@
   (add-hook 'gptel-post-response-functions (lambda (&rest _) (whitespace-cleanup)))
 
   (setq gptel-default-mode 'org-mode)
-
-  ;; Register Ollama backend
-  (gptel-make-ollama "Ollama"
-                     :host "localhost:11434"
-                     :stream t
-                     :models '(deepseek-r1:32b))
 
   (setq gptel-model "anthropic/claude-3.7-sonnet"
         gptel-backend
@@ -203,8 +196,6 @@
           :key (lambda () (nth 0 (process-lines "rbw" "get" "openrouter" "--field" "api key")))
           :models '("anthropic/claude-3.7-sonnet"
                     "anthropic/claude-3.7-sonnet:thinking"
-                    "deepseek/deepseek-r1"
-                    "deepseek/deepseek-r1:free"
                     "google/gemini-2.0-flash-001"
                     "openai/o3-mini"
                     "openai/o3-mini-high"))))
