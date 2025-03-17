@@ -40,12 +40,6 @@ in
   systemd.services.nix-daemon.serviceConfig.EnvironmentFile =
     config.sops.templates."aws-environment".path;
 
-  services.ollama = {
-    enable = true;
-    acceleration = "rocm";
-    rocmOverrideGfx = "11.0.0";
-  };
-
   users = {
     mutableUsers = false;
     users = {

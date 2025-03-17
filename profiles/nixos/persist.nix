@@ -18,7 +18,6 @@
       "/var/lib/docker"
       "/var/lib/libvirt"
       "/var/lib/nixos" # contains important state: https://github.com/nix-community/impermanence/issues/178
-      "/var/lib/private/ollama"
       "/var/lib/swtpm-localca" # needed for Windows VM via qemu
       "/var/lib/systemd"
       "/var/lib/tailscale"
