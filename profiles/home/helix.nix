@@ -89,6 +89,7 @@ in
                 A = ":buffer-close-all!";
                 d = ":buffer-close";
                 D = ":buffer-close!";
+                y = ":yank-diagnostic";
               };
               # git
               g = {
