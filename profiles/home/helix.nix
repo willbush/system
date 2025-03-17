@@ -46,6 +46,8 @@ in
         color-modes = true;
         cursorline = true;
         cursor-shape.insert = "bar";
+        # Favor the home row of Colemak-dh first, non-pinky finger keys second.
+        jump-label-alphabet = "ntesiroamgjblpufwdhcyxzq";
         line-number = "relative";
         trim-final-newlines = true;
         trim-trailing-whitespace = true;
