@@ -187,18 +187,18 @@
 
   (setq gptel-default-mode 'org-mode)
 
-  (setq gptel-model "anthropic/claude-3.7-sonnet"
+  (setq gptel-model 'anthropic/claude-3.7-sonnet
         gptel-backend
         (gptel-make-openai "OpenRouter"
           :host "openrouter.ai"
           :endpoint "/api/v1/chat/completions"
           :stream t
           :key (lambda () (nth 0 (process-lines "rbw" "get" "openrouter" "--field" "api key")))
-          :models '("anthropic/claude-3.7-sonnet"
-                    "anthropic/claude-3.7-sonnet:thinking"
-                    "google/gemini-2.0-flash-001"
-                    "openai/o3-mini"
-                    "openai/o3-mini-high"))))
+          :models '(anthropic/claude-3.7-sonnet
+                    anthropic/claude-3.7-sonnet:thinking
+                    google/gemini-2.0-flash-001
+                    openai/o3-mini
+                    openai/o3-mini-high))))
 
 
 (use-package keycast
