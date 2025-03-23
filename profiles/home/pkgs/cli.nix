@@ -1,8 +1,18 @@
 { pkgs, ... }:
-# let
-#   # planck = pkgs.callPackage ../../../configs/keyboard-firmware/planck { };
-#   crkbd = pkgs.callPackage ../../../configs/keyboard-firmware/crkbd { };
-# in
+let
+  inherit (pkgs) writeScriptBin;
+  rsync-diff-home = writeScriptBin "rsync-diff-home" (
+    builtins.readFile ../scripts/rsync-diff-home.sh
+  );
+  rsync-diff-root = writeScriptBin "rsync-diff-root" (
+    builtins.readFile ../scripts/rsync-diff-root.sh
+  );
+  rsync-find-orphaned-files = writeScriptBin "rsync-find-orphaned-files" (
+    builtins.readFile ../scripts/rsync-find-orphaned-files.sh
+  );
+  # planck = pkgs.callPackage ../../../configs/keyboard-firmware/planck { };
+  # crkbd = pkgs.callPackage ../../../configs/keyboard-firmware/crkbd { };
+in
 {
   home.packages = with pkgs; [
     # Utilities
@@ -88,5 +98,10 @@
     # Keyboard firmware flash
     # crkbd
     # planck
+
+    # Custom scripts
+    rsync-diff-home
+    rsync-diff-root
+    rsync-find-orphaned-files
   ];
 }

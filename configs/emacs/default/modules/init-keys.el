@@ -47,9 +47,6 @@
   "a" '(:ignore t :wk "apps")
 
   "aD" 'deer-jump-other-window
-  "aH" 'my/rsync-diff-home
-  "aO" 'my/rsync-find-orphaned-files
-  "aR" 'my/rsync-diff-root
   "ad" 'deer ;; minimal ranger dired
 
   "ae" '(:ignore t :wk "direnv")
