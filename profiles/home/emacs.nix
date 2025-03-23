@@ -89,7 +89,6 @@
         protobuf-mode
         pulsar
         rainbow-delimiters
-        ranger
         rust-mode
         smartparens
         sudo-edit

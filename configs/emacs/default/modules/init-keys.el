@@ -46,9 +46,6 @@
 
   "a" '(:ignore t :wk "apps")
 
-  "aD" 'deer-jump-other-window
-  "ad" 'deer ;; minimal ranger dired
-
   "ae" '(:ignore t :wk "direnv")
   "aeU" 'direnv-update-directory-environment
   "aea" 'direnv-allow
@@ -60,7 +57,6 @@
   "apr" 'profiler-report
   "aps" 'profiler-start
   "apw" 'profiler-report-write-profile
-  "ar" 'ranger
   "as" 'speedbar
 
   "b" '(:ignore t :wk "buffer")
