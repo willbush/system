@@ -83,6 +83,8 @@ in
                 R = ":reload-all";
 
                 s = ":open /tmp/scratch";
+                # Using "messages" as mnemonic (habbit from Emacs)
+                m = ":log-open";
                 n = ":new";
 
                 a = ":buffer-close-all";
