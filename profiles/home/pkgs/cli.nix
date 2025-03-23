@@ -51,6 +51,7 @@
     stylua
 
     # Language servers
+    marksman # for markdown
     lua-language-server
     markdown-oxide
     nil
