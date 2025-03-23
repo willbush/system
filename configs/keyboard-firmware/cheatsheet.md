@@ -139,8 +139,8 @@ case      sels                sels      sels                brackets  register
 1         2         3         4         5         6         7         8         9         0
 
 \`        [         +         -         ]         ^         *         #         $         \          Del
-switch              increment decrement           goto                          goto
-lowercase                                         first                         line
+switch    [left     increment decrement [right    goto                          goto
+lowercase bracket]                      bracket]  first                         line
                                                   non                           end
                                                   whitespace
 
