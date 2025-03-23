@@ -91,6 +91,13 @@ in
                 D = ":buffer-close!";
                 y = ":yank-diagnostic";
               };
+              f = {
+                # Yank document path to `"` register.
+                # NOTE:` rc` (SPC r c) maps to copy_between_registers
+                y = "@ rc%\"";
+                # Yank document path to system clipboard register.
+                Y = "@ rc%+";
+              };
               # git
               g = {
                 B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}";
@@ -102,6 +109,7 @@ in
               # rapid
               r = {
                 s = ":update";
+                c = "copy_between_registers";
               };
               # toggle
               t = {
