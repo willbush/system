@@ -22,7 +22,7 @@
     # Browsers
     firefox
     librewolf
-    chromium # sometimes I use for testing
+    ungoogled-chromium # sometimes I use for testing
 
     # GNOME Apps
     nautilus # file manager I sometimes use
