@@ -67,6 +67,7 @@
         ".config/emacs.default/var"
         ".config/enchant"
         ".config/fish"
+        ".config/glab-cli"
         ".config/inkscape"
         ".config/libreoffice"
         ".config/obs-studio"
