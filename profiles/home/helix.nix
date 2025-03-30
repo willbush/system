@@ -66,6 +66,8 @@ in
           # Minimum severity to show a diagnostic on other lines:
           other-lines = "disable";
         };
+        # don't ignore hidden files. hx ignores .gitignore files and that should be enough.
+        file-picker.hidden = false;
       };
 
       keys =
