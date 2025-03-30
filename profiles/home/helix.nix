@@ -79,6 +79,9 @@ in
 
             C-q = ":write-quit-all!";
 
+            # [goto] definition other window
+            g.o = "@<C-w>o<C-w>vgd";
+
             space = {
               space = "command_mode";
 
