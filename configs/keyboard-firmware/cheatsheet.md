@@ -81,22 +81,43 @@ view      line      sel                 with                prev      joined    
 mode      above     to next             yanked
 ```
 
-# ctrl keys
+# ctrl keys (insert mode)
+
 
 ```
 C-q       C-w       C-f       C-p       C-b       C-j       C-l       C-u       C-,       C-;
-          window    page                page                align     kill to
-          mode      down                up                  view top  line
+          del word                                RET                 kill to
+          backward                                                    line
                                                                       start
+
+C-a       C-r       C-s       C-t       C-g       C-m       C-n       C-e       C-i       C-o        C-'
+goto                commit              wezterm                       goto
+line                undo                prefix                        line end
+start               checkpt                                           newline
+
+C-z       C-x       C-c       C-d       C-v       C-k       C-h       C-y       C-.       C-/
+          complete            del char            kill to   backspace
+                              forward             line
+                                                  end
+```
+
+# ctrl keys (normal mode)
+
+
+```
+C-q       C-w       C-f       C-p       C-b       C-j       C-l       C-u       C-,       C-;
+          window    page                page                align
+          mode      down                up                  view top
+
 
 C-a       C-r       C-s       C-t       C-g       C-m       C-n       C-e       C-i       C-o        C-'
                     save                wezterm                                 jump      jump
                     sel                 prefix                                  forward   backward
 
 C-z       C-x       C-c       C-d       C-v       C-k       C-h       C-y       C-.       C-/
-suspend                       half page           kill to   backspace
-                              down                line      term
-                                                  end       compat
+suspend                       half page
+                              down
+
 ```
 
 # alt keys
