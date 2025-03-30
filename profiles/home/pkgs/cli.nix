@@ -24,6 +24,7 @@ in
     file
     grim # Grab images from a Wayland compositor.
     lsof
+    mdbook
     nodePackages.prettier
     pinentry-gnome3
     ripgrep
