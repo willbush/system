@@ -74,6 +74,7 @@ in
           # hide indicator. Can tell it's wrapping b/c of the lack of line-number.
           wrap-indicator = "";
         };
+        smart-tab.enable = false;
       };
 
       keys =
