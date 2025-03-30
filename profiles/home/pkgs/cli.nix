@@ -21,6 +21,7 @@ in
     exiftool
     eza
     fd
+    ffmpeg
     file
     grim # Grab images from a Wayland compositor.
     lsof

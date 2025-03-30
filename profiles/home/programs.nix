@@ -13,7 +13,10 @@
     imv.enable = true; # command line image viewer intended for use with tiling window managers.
     mpv.enable = true;
     rbw.enable = true;
+
+    fzf.enable = true; # used by yazi
     skim.enable = true;
+
     tofi = {
       enable = true;
       # style settings / font handled by stylix
