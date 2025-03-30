@@ -47,18 +47,17 @@ mode      line      sel       sel                           next                
   "M" => merge_consecutive_selections,
   "m" => merge_selections,
 
-  "n" => split_selection_on_newline,
+  "l" => split_selection_on_newline,
 
   "i" => shrink_selection,
   "o" => expand_selection,
-},
-"j" => { "Jump"
-  "j" => goto_line,
 
   "n" => select_next_sibling,
   "p" => select_prev_sibling,
-
-  "b" => move_parent_node_start,
+},
+"j" => { "Jump"
+  "j" => goto_line,
+  "s" => move_parent_node_start,
   "e" => move_parent_node_end,
 },
 ```
@@ -95,9 +94,9 @@ C-a       C-r       C-s       C-t       C-g       C-m       C-n       C-e       
                     sel                 prefix                                  forward   backward
 
 C-z       C-x       C-c       C-d       C-v       C-k       C-h       C-y       C-.       C-/
-suspend                       half page           kill to
-                              down                line
-                                                  end
+suspend                       half page           kill to   backspace
+                              down                line      term
+                                                  end       compat
 ```
 
 # alt keys
