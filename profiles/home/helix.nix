@@ -54,7 +54,6 @@ in
 
         # 5 is supposed to be instant
         completion-timeout = 5;
-        idle-timeout = 5;
 
         # Minimum severity to show a diagnostic after the end of a line:
         end-of-line-diagnostics = "hint";
