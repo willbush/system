@@ -19,7 +19,7 @@
   };
 
   # from `mergiraf languages --gitattributes`
-  home.file.".config/git/gitattributes".text = ''
+  home.file.".config/git/attributes".text = ''
     *java merge=mergiraf
     *kt merge=mergiraf
     *rs merge=mergiraf
