@@ -68,6 +68,13 @@ in
         };
         # don't ignore hidden files. hx ignores .gitignore files and that should be enough.
         file-picker.hidden = false;
+        soft-wrap = {
+          # false is default, but must be set explicitly whe modifying other settings:
+          # https://github.com/helix-editor/helix/issues/12512
+          enable = false;
+          # hide indicator. Can tell it's wrapping b/c of the lack of line-number.
+          wrap-indicator = "";
+        };
       };
 
       keys =
