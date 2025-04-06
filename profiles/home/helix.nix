@@ -56,7 +56,7 @@ in
         completion-timeout = 5;
 
         # Minimum severity to show a diagnostic after the end of a line:
-        end-of-line-diagnostics = "hint";
+        end-of-line-diagnostics = "disable";
 
         inline-diagnostics = {
           # Minimum severity to show a diagnostic on the primary cursor's line.
