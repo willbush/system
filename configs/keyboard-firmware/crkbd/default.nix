@@ -13,7 +13,7 @@ let
     ${qmk}/bin/qmk flash ./.build/crkbd_rev1_willbush.hex -bl dfu
   '';
 in
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   name = "crkbd-rev6-firmware";
 
   src = fetchFromGitHub {
