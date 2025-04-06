@@ -57,7 +57,7 @@
       };
     };
 
-    # TODO: remove once helix support is released
+    # TODO: remove once helix support is released. likely > v25.3.2
     yazi = {
       url = "github:sxyazi/yazi";
       inputs = {
