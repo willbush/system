@@ -178,6 +178,7 @@
                     anthropic/claude-3.7-sonnet:thinking
                     google/gemini-2.0-flash-001
                     google/gemini-2.5-pro-exp-03-25:free
+                    google/gemini-2.5-pro-preview-03-25
                     openai/o3-mini
                     openai/o3-mini-high))))
 
