@@ -96,6 +96,7 @@ in
     doggo # DNS Client for Humans.
     openconnect
     rustscan
+    trippy
     xh
 
     # Keyboard firmware flash
