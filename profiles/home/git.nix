@@ -65,7 +65,6 @@
       userEmail = "git@willbush.dev";
 
       extraConfig = {
-        blame.ignoreRevsFile = ".git-blame-ignore-revs";
         core.autocrlf = "input";
         init.defaultBranch = "main";
         merge.conflictstyle = "zdiff3";
