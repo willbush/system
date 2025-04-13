@@ -33,7 +33,7 @@
         "image/jpeg" = "imv.desktop";
         "image/jpg" = "imv.desktop";
         "image/png" = "imv.desktop";
-        "image/svg+xml" = "librewolf.desktop";
+        "image/svg+xml" = "firefox.desktop";
         "image/tiff" = "imv.desktop";
         "image/vnd.microsoft.icon" = "imv.desktop";
         "image/webp" = "imv.desktop";
@@ -41,7 +41,7 @@
         # Open directory in Emacs dired.
         "inode/directory" = "emacsclient.desktop";
 
-        "text/html" = "librewolf.desktop";
+        "text/html" = "firefox.desktop";
         "text/plain" = "emacsclient.desktop";
 
         "video/mp4" = "vlc.desktop";
@@ -51,10 +51,10 @@
         "video/x-matroska" = "vlc.desktop";
         "video/x-msvideo" = "vlc.desktop";
 
-        "x-scheme-handler/about" = "librewolf.desktop";
-        "x-scheme-handler/http" = "librewolf.desktop";
-        "x-scheme-handler/https" = "librewolf.desktop";
-        "x-scheme-handler/unknown" = "librewolf.desktop";
+        "x-scheme-handler/about" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
+        "x-scheme-handler/unknown" = "firefox.desktop";
       };
 
       associations.added = {
