@@ -91,10 +91,8 @@
         "code"
         "downloads"
         "images"
-        "public"
         "sync"
         "videos"
-        "vms"
         {
           directory = ".aws";
           mode = "0700";
