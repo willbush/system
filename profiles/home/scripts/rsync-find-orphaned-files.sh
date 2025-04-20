@@ -3,5 +3,5 @@
 rsync -amvxx \
   --dry-run \
   --no-links \
-  /nix/persist / \
+  /nix/persist/ / \
   | rg -v '^skipping|/$'
