@@ -159,28 +159,21 @@
   :commands (gptel gptel-send gptel-abort gptel-end-of-response)
   :config
   (require 'gptel-curl)
+  (require 'gptel-gemini)
 
   ;; https://github.com/karthink/gptel/issues/302
   ;; hard wrapping doesn't work well because it applies to source blocks
   (add-hook 'gptel-mode-hook #'visual-line-mode)
   (add-hook 'gptel-post-response-functions (lambda (&rest _) (whitespace-cleanup)))
 
-  (setq gptel-default-mode 'org-mode)
+  (setq gptel-default-mode 'markdown-mode)
 
-  (setq gptel-model 'google/gemini-2.5-pro-preview-03-25
-        gptel-backend
-        (gptel-make-openai "OpenRouter"
-          :host "openrouter.ai"
-          :endpoint "/api/v1/chat/completions"
-          :stream t
-          :key (lambda () (nth 0 (process-lines "rbw" "get" "openrouter" "--field" "api key")))
-          :models '(anthropic/claude-3.7-sonnet
-                    anthropic/claude-3.7-sonnet:thinking
-                    google/gemini-2.5-flash-preview
-                    google/gemini-2.5-flash-preview:thinking
-                    google/gemini-2.5-pro-exp-03-25:free
-                    google/gemini-2.5-pro-preview-03-25
-                    ))))
+  (setq
+   gptel-model 'gemini-2.5-pro-exp-03-25
+   gptel-backend
+   (gptel-make-gemini "Gemini"
+                      :key (lambda () (nth 0 (process-lines "rbw" "get" "gemini" "--field" "api key")))
+                      :stream t)))
 
 
 (use-package keycast
