@@ -44,6 +44,7 @@ in
       # use bar cursor in insert mode like vim
       editor = {
         color-modes = true;
+        continue-comments = false;
         cursorline = true;
         cursor-shape.insert = "bar";
         # Favor the home row of Colemak-dh first, non-pinky finger keys second.
