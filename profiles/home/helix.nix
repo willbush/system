@@ -25,6 +25,7 @@ in
       # Some of me favorite themes:
       #
       # ao
+      # ashen
       # beans
       # carbonfox
       # catppuccin
@@ -40,7 +41,7 @@ in
       # rose_pine
       # snazzy
       # tokyonight
-      theme = "rose_pine";
+      theme = "ashen";
       # use bar cursor in insert mode like vim
       editor = {
         color-modes = true;
