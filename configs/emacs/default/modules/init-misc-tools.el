@@ -167,7 +167,7 @@
 
   (setq gptel-default-mode 'org-mode)
 
-  (setq gptel-model 'anthropic/claude-3.7-sonnet
+  (setq gptel-model 'google/gemini-2.5-pro-preview-03-25
         gptel-backend
         (gptel-make-openai "OpenRouter"
           :host "openrouter.ai"
@@ -176,11 +176,11 @@
           :key (lambda () (nth 0 (process-lines "rbw" "get" "openrouter" "--field" "api key")))
           :models '(anthropic/claude-3.7-sonnet
                     anthropic/claude-3.7-sonnet:thinking
-                    google/gemini-2.0-flash-001
+                    google/gemini-2.5-flash-preview
+                    google/gemini-2.5-flash-preview:thinking
                     google/gemini-2.5-pro-exp-03-25:free
                     google/gemini-2.5-pro-preview-03-25
-                    openai/o3-mini
-                    openai/o3-mini-high))))
+                    ))))
 
 
 (use-package keycast
