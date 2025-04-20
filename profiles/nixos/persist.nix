@@ -67,7 +67,6 @@
         ".config/fish"
         ".config/glab-cli"
         ".config/inkscape"
-        ".config/io.datasette.llm" # llm cli tool
         ".config/libreoffice"
         ".config/obs-studio"
         ".config/pulse"
@@ -93,6 +92,10 @@
         "images"
         "sync"
         "videos"
+        {
+          directory = ".config/io.datasette.llm"; # llm cli tool
+          mode = "0700";
+        }
         {
           directory = ".aws";
           mode = "0700";
