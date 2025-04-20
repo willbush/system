@@ -131,7 +131,6 @@
       ];
       files = [
         ".bash_history"
-        ".cache/tofi-compgen"
         ".cache/tofi-drun"
         ".config/emacs.default/.org-id-locations" # org-roam
         ".config/emacs.default/bookmarks"
@@ -140,9 +139,7 @@
         ".config/emacs.default/projects"
         ".config/emacs.default/recentf"
         ".config/ncpamixer.conf"
-        ".local/share/recently-used.xbel"
         ".local/state/tofi-drun-history"
-        ".local/state/tofi-history"
       ];
     };
   };
