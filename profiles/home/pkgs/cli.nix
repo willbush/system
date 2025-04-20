@@ -57,6 +57,14 @@ in
     trufflehog # Find, verify, and analyze leaked credentials (must be run with --no-update in NixOS)
     xxd # hexdump
 
+    # AI cli
+    (python3.withPackages (
+      ps: with ps; [
+        llm
+        llm-gemini
+      ]
+    ))
+
     # Language formatters
     nixfmt-rfc-style
     shfmt

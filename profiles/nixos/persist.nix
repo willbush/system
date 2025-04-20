@@ -67,6 +67,7 @@
         ".config/fish"
         ".config/glab-cli"
         ".config/inkscape"
+        ".config/io.datasette.llm" # llm cli tool
         ".config/libreoffice"
         ".config/obs-studio"
         ".config/pulse"
