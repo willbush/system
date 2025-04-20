@@ -75,6 +75,10 @@ in
           # hide indicator. Can tell it's wrapping b/c of the lack of line-number.
           wrap-indicator = "";
         };
+        lsp = {
+          display-messages = true;
+          display-progress-messages = true;
+        };
         smart-tab.enable = false;
       };
 
