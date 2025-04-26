@@ -41,7 +41,7 @@ in
       # rose_pine
       # snazzy
       # tokyonight
-      theme = "ashen";
+      theme = "rose_pine";
       # use bar cursor in insert mode like vim
       editor = {
         color-modes = true;
@@ -147,6 +147,7 @@ in
                 l = ":toggle soft-wrap.enable";
                 n = ":toggle line-number absolute relative";
                 w = ":toggle whitespace.render all none";
+                "." = ":toggle-option file-picker.hidden";
               };
               u = "switch_to_lowercase";
               U = "switch_to_uppercase";
