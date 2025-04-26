@@ -144,10 +144,14 @@ in
                   l = ":toggle inline-diagnostics.cursor-line disable hint";
                   L = ":toggle inline-diagnostics.other-lines disable hint";
                 };
+                f = {
+                  h = ":toggle-option file-picker.hidden";
+                  g = ":toggle-option file-picker.git-ignore";
+                  x = ":toggle-option file-picker.git-exclude";
+                };
                 l = ":toggle soft-wrap.enable";
                 n = ":toggle line-number absolute relative";
                 w = ":toggle whitespace.render all none";
-                "." = ":toggle-option file-picker.hidden";
               };
               u = "switch_to_lowercase";
               U = "switch_to_uppercase";
