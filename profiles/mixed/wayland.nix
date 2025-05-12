@@ -22,7 +22,7 @@ in
     # lightweight notification daemon for Wayland
     services.mako = {
       enable = true;
-      defaultTimeout = "5000";
+      settings.default-timeout = "5000";
     };
 
     # requires `security.pam.services.swaylock = { };` at the system level or else
