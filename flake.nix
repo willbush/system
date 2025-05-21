@@ -30,14 +30,12 @@
     nixgl = {
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "helix/flake-utils";
     };
 
     # System-wide colorscheming and typography for NixOS
     stylix = {
       url = "github:danth/stylix";
       inputs = {
-        flake-utils.follows = "helix/flake-utils";
         home-manager.follows = "home-manager";
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
@@ -53,7 +51,6 @@
       url = "github:willbush/lianli-pwm-rgb-sync";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "helix/flake-utils";
       };
     };
   };
