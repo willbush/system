@@ -46,6 +46,7 @@ in
     # Development
     bacon # watches your rust project and runs jobs in background.
     cargo-show-asm
+    git-absorb
     glab
     hyperfine # benchmarking tool
     lldb # Debugger
