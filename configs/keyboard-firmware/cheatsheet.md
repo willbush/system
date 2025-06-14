@@ -59,6 +59,8 @@ mode      line      sel       sel                           next                
   "j" => goto_line,
   "s" => move_parent_node_start,
   "e" => move_parent_node_end,
+  "(" => rotate_selections_first,
+  ")" => rotate_selections_last,
 },
 ```
 
