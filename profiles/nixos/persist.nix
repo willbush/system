@@ -68,6 +68,7 @@
         ".config/glab-cli"
         ".config/inkscape"
         ".config/libreoffice"
+        ".config/nvim" # usually symlink into it, but sometimes copy code into it directly to iterate quickly
         ".config/obs-studio"
         ".config/pulse"
         ".config/spotify"
