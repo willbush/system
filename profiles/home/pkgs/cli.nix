@@ -85,6 +85,7 @@ in
 
     # Data processing
     jq
+    xan # CSV
     xq # jq in rust
     yq-go # YAML processor
 
