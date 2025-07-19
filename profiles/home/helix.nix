@@ -29,6 +29,7 @@ in
       # beans
       # carbonfox
       # catppuccin
+      # doom-one
       # dracula_at_night
       # github_dark_tritanopia
       # hex
