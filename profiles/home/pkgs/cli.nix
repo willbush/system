@@ -65,6 +65,7 @@ in
         llm-gemini
       ]
     ))
+    repomix
 
     # Language formatters
     nixfmt-rfc-style
