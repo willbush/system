@@ -6,21 +6,6 @@
 }:
 
 let
-  ## downgrade until next release: https://github.com/jesseduffield/lazygit/issues/4770
-  lazygit-downgraded = pkgs.lazygit.overrideAttrs (oldAttrs: rec {
-    pname = "lazygit";
-    version = "0.52.0";
-    src = pkgs.fetchFromGitHub {
-      owner = "jesseduffield";
-      repo = "lazygit";
-      rev = "v0.52.0";
-      sha256 = "sha256-tbFRovaB0f+0VyX34DEXvWYjV3fipc5kbRNhm7rVMlo=";
-    };
-    ldflags = [
-      "-X main.version=${version}"
-      "-X main.buildSource=nix"
-    ];
-  });
   my-git-user = {
     email = "git@willbush.dev";
     name = "Will Bush";
@@ -110,7 +95,6 @@ in
 
     lazygit = {
       enable = true;
-      package = lazygit-downgraded;
       settings = {
         disableStartupPopups = true;
         git.paging = {
