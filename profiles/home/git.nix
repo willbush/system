@@ -21,6 +21,10 @@ let
       "-X main.buildSource=nix"
     ];
   });
+  my-git-user = {
+    email = "git@willbush.dev";
+    name = "Will Bush";
+  };
 in
 {
   sops = {
@@ -77,10 +81,16 @@ in
   '';
 
   programs = {
+    jujutsu = {
+      enable = true;
+      settings = {
+        user = my-git-user;
+      };
+    };
     git = {
       enable = true;
-      userName = "Will Bush";
-      userEmail = "git@willbush.dev";
+      userName = my-git-user.name;
+      userEmail = my-git-user.email;
 
       extraConfig = {
         core.autocrlf = "input";
