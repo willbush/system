@@ -38,9 +38,9 @@
   # networking.interfaces.enp6s0.useDHCP = lib.mkDefault true;
 
   # Change the default timeout for a service from 90 seconds.
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=30s
-  '';
+  systemd.settings.Manager = {
+    DefaultTimeoutStopSec = "30s";
+  };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
