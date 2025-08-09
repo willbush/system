@@ -292,7 +292,7 @@ keymap = [
 	{ on = "?",    run = "help", desc = "Open help" },
 ]
 
-[completion]
+[cmp]
 
 keymap = [
 	{ on = "<C-c>",   run = "close",                                      desc = "Cancel completion" },
