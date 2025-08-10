@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    # Development
+    meld
+
     # office
     foliate # A simple and modern GTK eBook reader
     libreoffice
