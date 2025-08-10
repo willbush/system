@@ -45,11 +45,13 @@ in
 
     # Development
     bacon # watches your rust project and runs jobs in background.
-    cargo-show-asm
     cargo-expand
+    cargo-show-asm
     git-absorb
     glab
     hyperfine # benchmarking tool
+    lazyjj
+    jjui
     lldb # Debugger
     mergiraf # Syntax-aware git merge driver
     nix-prefetch-git
