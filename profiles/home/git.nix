@@ -70,6 +70,11 @@ in
       enable = true;
       settings = {
         user = my-git-user;
+        ui = {
+          default-command = "log";
+          diff-formatter = ":git"; # required for `delta`
+          pager = "delta";
+        };
       };
     };
     git = {
