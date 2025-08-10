@@ -90,7 +90,13 @@ in
         };
       };
 
-      delta.enable = true;
+      delta = {
+        enable = true;
+        options = {
+          line-numbers = true;
+          side-by-side = true;
+        };
+      };
     };
 
     lazygit = {
