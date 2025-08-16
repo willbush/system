@@ -3,7 +3,7 @@
   stylix = {
     enable = true;
     # NB: when switching themes make sure new theme doesn't break difftastic colors
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     image = pkgs.fetchurl {
       # https://www.reddit.com/r/WidescreenWallpaper/comments/1dzli4w/untitled_7680x2160/
       url = "https://i.redd.it/1k3jwtm7zlbd1.jpeg";
@@ -11,8 +11,6 @@
     };
 
     fonts = {
-      # Explicitly setting this in-case I want to quickly increase size from the
-      # defaults.
       sizes = {
         applications = 14; # default: 12
         desktop = 12; # default: 10
