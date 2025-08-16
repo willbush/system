@@ -72,8 +72,12 @@ in
         user = my-git-user;
         ui = {
           default-command = "log";
-          diff-formatter = ":git"; # required for `delta`
-          pager = "delta";
+          diff-formatter = [
+            "difft"
+            "--color=always"
+            "$left"
+            "$right"
+          ];
         };
       };
     };
@@ -93,12 +97,18 @@ in
           name = "mergiraf";
           driver = "${lib.getExe pkgs.mergiraf} merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L";
         };
+        alias = {
+          dl = "-c diff.external=difft log -p --ext-diff";
+          ds = "-c diff.external=difft show --ext-diff";
+          df = "-c diff.external=difft diff";
+        };
       };
-
+      # Use delta by default, but difft via alias
       delta = {
         enable = true;
         options = {
           line-numbers = true;
+          side-by-side = true;
         };
       };
     };
@@ -108,8 +118,7 @@ in
       settings = {
         disableStartupPopups = true;
         git.paging = {
-          colorArg = "always";
-          pager = "delta --dark --paging=never";
+          externalDiffCommand = "difft --color=always";
         };
         keybinding = {
           universal = {

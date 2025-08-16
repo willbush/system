@@ -2,6 +2,7 @@
 {
   stylix = {
     enable = true;
+    # NB: when switching themes make sure new theme doesn't break difftastic colors
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
     image = pkgs.fetchurl {
       # https://www.reddit.com/r/WidescreenWallpaper/comments/1dzli4w/untitled_7680x2160/
