@@ -45,13 +45,6 @@
       url = "github:plexus/chemacs2";
       flake = false;
     };
-
-    lianli-pwm-rgb-sync = {
-      url = "github:willbush/lianli-pwm-rgb-sync";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
   };
 
   outputs =
