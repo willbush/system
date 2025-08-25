@@ -1,10 +1,10 @@
 local map = vim.keymap.set
 
 -- up/down/left/right movements
-map({'n', 'x', 'o'}, 'm', 'h', { desc = "Left" })
-map({'n', 'x', 'o'}, 'n', 'j', { desc = "Down" })
-map({'n', 'x', 'o'}, 'e', 'k', { desc = "Up" })
-map({'n', 'x', 'o'}, 'i', 'l', { desc = "Right" })
+map({'n', 'x'}, 'm', 'h', { desc = "Left" })
+map({'n', 'x'}, 'n', 'j', { desc = "Down" })
+map({'n', 'x'}, 'e', 'k', { desc = "Up" })
+map({'n', 'x'}, 'i', 'l', { desc = "Right" })
 
 -- far word/WORD
 map({'n', 'x', 'o'}, 'f', 'e', { desc = "Far word forward" })
