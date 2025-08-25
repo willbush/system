@@ -45,6 +45,7 @@
         ".cache/mozilla"
         ".cache/nix"
         ".cache/nix-output-monitor"
+        ".cache/nvim"
         ".cache/org-persist"
         ".cache/radv_builtin_shaders"
         ".cache/spotify"
@@ -68,7 +69,6 @@
         ".config/glab-cli"
         ".config/inkscape"
         ".config/libreoffice"
-        ".config/nvim" # usually symlink into it, but sometimes copy code into it directly to iterate quickly
         ".config/obs-studio"
         ".config/pulse"
         ".config/spotify"
@@ -83,10 +83,12 @@
         ".local/share/keyrings"
         ".local/share/nautilus"
         ".local/share/nix"
+        ".local/share/nvim"
         ".local/share/tig"
         ".local/share/wezterm"
         ".local/share/zoxide"
         ".local/state/lazygit"
+        ".local/state/nvim"
         ".local/state/wireplumber"
         ".mozilla" # firefox
         "code"
