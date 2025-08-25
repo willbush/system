@@ -1,5 +1,19 @@
 return {
   {
+    'stevearc/conform.nvim',
+    event = { 'BufWritePre' },
+    cmd = { 'ConformInfo' },
+    -- This will provide type hinting with LuaLS
+    ---@module "conform"
+    ---@type conform.setupOpts
+    opts = {
+      formatters_by_ft = {
+        lua = { 'stylua' },
+      },
+      format_on_save = { timeout_ms = 500 },
+    },
+  },
+  {
     'saghen/blink.cmp',
     -- optional: provides snippets for the snippet source
     dependencies = 'rafamadriz/friendly-snippets',
@@ -11,27 +25,27 @@ return {
 
       appearance = {
         use_nvim_cmp_as_default = true,
-        nerd_font_variant = 'mono'
+        nerd_font_variant = 'mono',
       },
-      signature = { enabled = true }
+      signature = { enabled = true },
     },
-    opts_extend = { "sources.default" }
+    opts_extend = { 'sources.default' },
   },
   {
-    "ibhagwan/fzf-lua",
+    'ibhagwan/fzf-lua',
     config = function()
-      require("fzf-lua").setup({
-        "skim", -- Use skim profile
+      require('fzf-lua').setup({
+        'skim', -- Use skim profile
       })
-    end
+    end,
   },
   {
-    "ibhagwan/fzf-lua",
-    cmd = "FzfLua",
+    'ibhagwan/fzf-lua',
+    cmd = 'FzfLua',
 
     config = function()
       -- Use skim profile
-      require("fzf-lua").setup({ "skim" })
+      require('fzf-lua').setup({ 'skim' })
 
       -- Add zoxide integration
       local function zoxide_list()
@@ -41,13 +55,13 @@ return {
               vim.cmd('cd ' .. selected[1])
             end,
           },
-          prompt = 'Zoxide> '
+          prompt = 'Zoxide> ',
         })
       end
 
       -- Create command and keymap
       vim.api.nvim_create_user_command('Z', zoxide_list, {})
-      vim.keymap.set('n', '<leader>z', zoxide_list, { desc = "Zoxide Jump" })
+      vim.keymap.set('n', '<leader>z', zoxide_list, { desc = 'Zoxide Jump' })
     end,
 
     keys = {
@@ -71,39 +85,53 @@ return {
       -- { "<leader>fr", "<cmd>FzfLua oldfiles<cr>", desc = "Recent" },
       -- { "<leader>fR", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
       {
-        "<leader>fb",
-        function() require('fzf-lua').buffers() end,
-        desc = "Buffers"
+        '<leader>fb',
+        function()
+          require('fzf-lua').buffers()
+        end,
+        desc = 'Buffers',
       },
       {
-        "<leader>fc",
-        function() require('fzf-lua').files({ cwd = vim.fn.stdpath("config") }) end,
-        desc = "Find Config File"
+        '<leader>fc',
+        function()
+          require('fzf-lua').files({ cwd = vim.fn.stdpath('config') })
+        end,
+        desc = 'Find Config File',
       },
       {
-        "<leader>ff",
-        function() require('fzf-lua').files() end,
-        desc = "Find Files (Root Dir)"
+        '<leader>ff',
+        function()
+          require('fzf-lua').files()
+        end,
+        desc = 'Find Files (Root Dir)',
       },
       {
-        "<leader>fF",
-        function() require('fzf-lua').files({ cwd = vim.uv.cwd() }) end,
-        desc = "Find Files (cwd)"
+        '<leader>fF',
+        function()
+          require('fzf-lua').files({ cwd = vim.uv.cwd() })
+        end,
+        desc = 'Find Files (cwd)',
       },
       {
-        "<leader>fg",
-        function() require('fzf-lua').git_files() end,
-        desc = "Find Files (git-files)"
+        '<leader>fg',
+        function()
+          require('fzf-lua').git_files()
+        end,
+        desc = 'Find Files (git-files)',
       },
       {
-        "<leader>fr",
-        function() require('fzf-lua').oldfiles() end,
-        desc = "Recent"
+        '<leader>fr',
+        function()
+          require('fzf-lua').oldfiles()
+        end,
+        desc = 'Recent',
       },
       {
-        "<leader>fR",
-        function() require('fzf-lua').oldfiles({ cwd = vim.uv.cwd() }) end,
-        desc = "Recent (cwd)"
+        '<leader>fR',
+        function()
+          require('fzf-lua').oldfiles({ cwd = vim.uv.cwd() })
+        end,
+        desc = 'Recent (cwd)',
       },
 
       -- -- git
@@ -112,74 +140,84 @@ return {
 
       -- rapid
       {
-        "<leader>rc",
-        function() require('fzf-lua').colorschemes() end,
-        desc = "Colorscheme with Preview"
+        '<leader>rc',
+        function()
+          require('fzf-lua').colorschemes()
+        end,
+        desc = 'Colorscheme with Preview',
       },
 
       -- search
       -- { '<leader>s"', "<cmd>FzfLua registers<cr>", desc = "Registers" },
-      { "<leader>sa", "<cmd>FzfLua autocmds<cr>", desc = "Auto Commands" },
-      { "<leader>sb", "<cmd>FzfLua grep_curbuf<cr>", desc = "Buffer" },
-      { "<leader>sc", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
-      { "<leader>sC", "<cmd>FzfLua commands<cr>", desc = "Commands" },
-      { "<leader>sd", "<cmd>FzfLua diagnostics_document<cr>", desc = "Document Diagnostics" },
-      { "<leader>sD", "<cmd>FzfLua diagnostics_workspace<cr>", desc = "Workspace Diagnostics" },
+      { '<leader>sa', '<cmd>FzfLua autocmds<cr>', desc = 'Auto Commands' },
+      { '<leader>sb', '<cmd>FzfLua grep_curbuf<cr>', desc = 'Buffer' },
+      { '<leader>sc', '<cmd>FzfLua command_history<cr>', desc = 'Command History' },
+      { '<leader>sC', '<cmd>FzfLua commands<cr>', desc = 'Commands' },
+      { '<leader>sd', '<cmd>FzfLua diagnostics_document<cr>', desc = 'Document Diagnostics' },
+      { '<leader>sD', '<cmd>FzfLua diagnostics_workspace<cr>', desc = 'Workspace Diagnostics' },
       -- { "<leader>sg", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
       -- { "<leader>sG", LazyVim.pick("live_grep", { root = false }), desc = "Grep (cwd)" },
-      { "<leader>sh", "<cmd>FzfLua help_tags<cr>", desc = "Help Pages" },
-      { "<leader>sH", "<cmd>FzfLua highlights<cr>", desc = "Search Highlight Groups" },
-      { "<leader>sj", "<cmd>FzfLua jumps<cr>", desc = "Jumplist" },
-      { "<leader>sk", "<cmd>FzfLua keymaps<cr>", desc = "Key Maps" },
-      { "<leader>sl", "<cmd>FzfLua loclist<cr>", desc = "Location List" },
-      { "<leader>sM", "<cmd>FzfLua man_pages<cr>", desc = "Man Pages" },
-      { "<leader>sm", "<cmd>FzfLua marks<cr>", desc = "Jump to Mark" },
-      { "<leader>sR", "<cmd>FzfLua resume<cr>", desc = "Resume" },
-      { "<leader>sq", "<cmd>FzfLua quickfix<cr>", desc = "Quickfix List" },
+      { '<leader>sh', '<cmd>FzfLua help_tags<cr>', desc = 'Help Pages' },
+      { '<leader>sH', '<cmd>FzfLua highlights<cr>', desc = 'Search Highlight Groups' },
+      { '<leader>sj', '<cmd>FzfLua jumps<cr>', desc = 'Jumplist' },
+      { '<leader>sk', '<cmd>FzfLua keymaps<cr>', desc = 'Key Maps' },
+      { '<leader>sl', '<cmd>FzfLua loclist<cr>', desc = 'Location List' },
+      { '<leader>sM', '<cmd>FzfLua man_pages<cr>', desc = 'Man Pages' },
+      { '<leader>sm', '<cmd>FzfLua marks<cr>', desc = 'Jump to Mark' },
+      { '<leader>sR', '<cmd>FzfLua resume<cr>', desc = 'Resume' },
+      { '<leader>sq', '<cmd>FzfLua quickfix<cr>', desc = 'Quickfix List' },
       {
-        "<leader>sw",
-        function() require('fzf-lua').grep_cword() end,
-        desc = "Word (Root Dir)"
-      },
-      {
-        "<leader>sW",
-        function() require('fzf-lua').grep_cword({cwd = vim.uv.cwd()}) end,
-        desc = "Word (cwd)"
-      },
-      {
-        "<leader>sw",
-        function() require('fzf-lua').grep_visual() end,
-        mode = "v",
-        desc = "Selection (Root Dir)"
-      },
-      {
-        "<leader>sW",
-        function() require('fzf-lua').grep_visual({cwd = vim.uv.cwd()}) end,
-        mode = "v",
-        desc = "Selection (cwd)"
-      },
-      {
-        "<leader>ss",
+        '<leader>sw',
         function()
-          require("fzf-lua").lsp_document_symbols({
+          require('fzf-lua').grep_cword()
+        end,
+        desc = 'Word (Root Dir)',
+      },
+      {
+        '<leader>sW',
+        function()
+          require('fzf-lua').grep_cword({ cwd = vim.uv.cwd() })
+        end,
+        desc = 'Word (cwd)',
+      },
+      {
+        '<leader>sw',
+        function()
+          require('fzf-lua').grep_visual()
+        end,
+        mode = 'v',
+        desc = 'Selection (Root Dir)',
+      },
+      {
+        '<leader>sW',
+        function()
+          require('fzf-lua').grep_visual({ cwd = vim.uv.cwd() })
+        end,
+        mode = 'v',
+        desc = 'Selection (cwd)',
+      },
+      {
+        '<leader>ss',
+        function()
+          require('fzf-lua').lsp_document_symbols({
             regex_filter = symbols_filter,
           })
         end,
-        desc = "Goto Symbol",
+        desc = 'Goto Symbol',
       },
       {
-        "<leader>sS",
+        '<leader>sS',
         function()
-          require("fzf-lua").lsp_live_workspace_symbols({
+          require('fzf-lua').lsp_live_workspace_symbols({
             regex_filter = symbols_filter,
           })
         end,
-        desc = "Goto Symbol (Workspace)",
+        desc = 'Goto Symbol (Workspace)',
       },
     },
   },
   {
-    "folke/snacks.nvim",
+    'folke/snacks.nvim',
     priority = 1000,
     lazy = false,
     opts = {
@@ -198,18 +236,18 @@ return {
     'folke/tokyonight.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme('tokyonight-night')
 
       -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+      vim.cmd.hi('Comment gui=none')
     end,
   },
   -- git signs highlights text that has changed since the list
   -- git commit, and also lets you interactively stage & unstage
   -- hunks in a commit.
   {
-    "lewis6991/gitsigns.nvim",
-    event = "VimEnter",
+    'lewis6991/gitsigns.nvim',
+    event = 'VimEnter',
     opts = {},
   },
 
@@ -235,8 +273,8 @@ return {
   --   end,
   -- },
   {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
     opts = {
 
       plugins = {
@@ -244,12 +282,12 @@ return {
           -- disable the built-in window commands since I remap many of them. It
           -- will show the hjkl mappings even if I filter them out.
           windows = false,
-        }
+        },
       },
 
       -- Exclude mappings with no description
       filter = function(mapping)
-        return mapping.desc and mapping.desc ~= ""
+        return mapping.desc and mapping.desc ~= ''
       end,
 
       icons = {
@@ -259,7 +297,7 @@ return {
       -- Document existing key chains
       spec = {
         {
-          mode = { "n", "v" },
+          mode = { 'n', 'v' },
           -- { "<leader><tab>", group = "tabs" },
           -- { "<leader>c", group = "code" },
           -- { "<leader>d", group = "debug" },
@@ -270,30 +308,29 @@ return {
           -- { "<leader>u", group = "ui", icon = { icon = "󰙵 ", color = "cyan" } },
           -- { "<leader>x", group = "diagnostics/quickfix", icon = { icon = "󱖫 ", color = "green" } },
           -- { "gs", group = "surround" },
-          { "<leader>f", group = "file" },
-          { "<leader>q", group = "quit" },
-          { "<leader>r", group = "rapid" },
-          { "<leader>s", group = "search" },
-          { "<leader>w", proxy = "<c-w>", group = "windows" }, -- proxy to window mappings
-          { "[", group = "prev" },
-          { "]", group = "next" },
-          { "g", group = "goto" },
-          { "z", group = "fold" },
-          {"<leader>b", group = "buffer" },
+          { '<leader>f', group = 'file' },
+          { '<leader>q', group = 'quit' },
+          { '<leader>r', group = 'rapid' },
+          { '<leader>s', group = 'search' },
+          { '<leader>w', proxy = '<c-w>', group = 'windows' }, -- proxy to window mappings
+          { '[', group = 'prev' },
+          { ']', group = 'next' },
+          { 'g', group = 'goto' },
+          { 'z', group = 'fold' },
+          { '<leader>b', group = 'buffer' },
         },
       },
     },
     keys = {
       {
-        "<leader>?",
+        '<leader>?',
         function()
-          require("which-key").show({ global = false })
+          require('which-key').show({ global = false })
         end,
-        desc = "Buffer Local Keymaps (which-key)",
+        desc = 'Buffer Local Keymaps (which-key)',
       },
     },
   },
-
 
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -301,21 +338,21 @@ return {
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-        ensure_installed = {
-          'bash',
-          'c',
-          'diff',
-          'html',
-          'lua',
-          'luadoc',
-          'markdown',
-          'markdown_inline',
-          'query',
-          'ron',
-          'rust',
-          'vim',
-          'vimdoc',
-        },
+      ensure_installed = {
+        'bash',
+        'c',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'ron',
+        'rust',
+        'vim',
+        'vimdoc',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -346,12 +383,12 @@ return {
               completion = {
                 callSnippet = 'Replace',
               },
-              diagnostics = { globals = { "vim" }, },
+              diagnostics = { globals = { 'vim' } },
             },
           },
         },
         rust_analyzer = {},
-      }
+      },
     },
     config = function(_, opts)
       local lspconfig = require('lspconfig')
@@ -361,6 +398,6 @@ return {
         config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
         lspconfig[server].setup(config)
       end
-    end
+    end,
   },
 }
