@@ -118,7 +118,8 @@ in
       settings = {
         disableStartupPopups = true;
         git.paging = {
-          externalDiffCommand = "difft --color=always";
+          colorArg = "always";
+          pager = "delta --dark --paging=never";
         };
         keybinding = {
           universal = {
