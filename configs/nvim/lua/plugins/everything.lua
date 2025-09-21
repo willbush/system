@@ -1,5 +1,5 @@
 return {
-  {
+  { -- auto-format
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
@@ -12,6 +12,25 @@ return {
       },
       format_on_save = { timeout_ms = 500 },
     },
+  },
+  {
+    -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+    -- used for completion, annotations and signatures of Neovim apis
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {
+      library = {
+        -- Load luvit types when the `vim.uv` word is found
+        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+      },
+    },
+  },
+  {
+    'neovim/nvim-lspconfig',
+    config = function()
+      vim.lsp.enable('rust-analyzer')
+      vim.lsp.enable('lua-language-server')
+    end,
   },
   {
     'saghen/blink.cmp',
@@ -32,12 +51,9 @@ return {
     opts_extend = { 'sources.default' },
   },
   {
-    'ibhagwan/fzf-lua',
-    config = function()
-      require('fzf-lua').setup({
-        'skim', -- Use skim profile
-      })
-    end,
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.8',
+    dependencies = { 'nvim-lua/plenary.nvim' },
   },
   {
     'ibhagwan/fzf-lua',
@@ -272,66 +288,118 @@ return {
   --     --  Check out: https://github.com/echasnovski/mini.nvim
   --   end,
   -- },
+
   {
-    'folke/which-key.nvim',
-    event = 'VeryLazy',
-    opts = {
+    'nvim-mini/mini.nvim',
+    version = '*',
+    config = function()
+      -- You can configure other mini modules here as well
 
-      plugins = {
-        presets = {
-          -- disable the built-in window commands since I remap many of them. It
-          -- will show the hjkl mappings even if I filter them out.
-          windows = false,
+      -- Set up mini.clue
+      require('mini.clue').setup({
+        -- Must be set to true or a table with options
+        triggers = {
+          -- Leader triggers
+          { mode = 'n', keys = '<Leader>' },
+          { mode = 'x', keys = '<Leader>' },
+
+          -- Built-in completion
+          { mode = 'i', keys = '<C-x>' },
+
+          -- `g` key
+          { mode = 'n', keys = 'g' },
+          { mode = 'x', keys = 'g' },
+
+          -- Marks
+          { mode = 'n', keys = "'" },
+          { mode = 'n', keys = '`' },
+          { mode = 'x', keys = "'" },
+          { mode = 'x', keys = '`' },
+
+          -- Registers
+          { mode = 'n', keys = '"' },
+          { mode = 'x', keys = '"' },
+          { mode = 'i', keys = '<C-r>' },
+          { mode = 'c', keys = '<C-r>' },
+
+          -- Window commands
+          { mode = 'n', keys = '<C-w>' },
+
+          -- `z` key
+          { mode = 'n', keys = 'z' },
+          { mode = 'x', keys = 'z' },
         },
-      },
 
-      -- Exclude mappings with no description
-      filter = function(mapping)
-        return mapping.desc and mapping.desc ~= ''
-      end,
-
-      icons = {
-        -- set icon mappings to true if you have a Nerd Font
-        mappings = vim.g.have_nerd_font,
-      },
-      -- Document existing key chains
-      spec = {
-        {
-          mode = { 'n', 'v' },
-          -- { "<leader><tab>", group = "tabs" },
-          -- { "<leader>c", group = "code" },
-          -- { "<leader>d", group = "debug" },
-          -- { "<leader>dp", group = "profiler" },
-          -- { "<leader>g", group = "git" },
-          -- { "<leader>gh", group = "hunks" },
-          -- { "<leader>q", group = "quit/session" },
-          -- { "<leader>u", group = "ui", icon = { icon = "󰙵 ", color = "cyan" } },
-          -- { "<leader>x", group = "diagnostics/quickfix", icon = { icon = "󱖫 ", color = "green" } },
-          -- { "gs", group = "surround" },
-          { '<leader>f', group = 'file' },
-          { '<leader>q', group = 'quit' },
-          { '<leader>r', group = 'rapid' },
-          { '<leader>s', group = 'search' },
-          { '<leader>w', proxy = '<c-w>', group = 'windows' }, -- proxy to window mappings
-          { '[', group = 'prev' },
-          { ']', group = 'next' },
-          { 'g', group = 'goto' },
-          { 'z', group = 'fold' },
-          { '<leader>b', group = 'buffer' },
+        clues = {
+          -- Enhance this by adding descriptions for <Leader> mapping groups
+          require('mini.clue').gen_clues.builtin_completion(),
+          require('mini.clue').gen_clues.g(),
+          require('mini.clue').gen_clues.marks(),
+          require('mini.clue').gen_clues.registers(),
+          require('mini.clue').gen_clues.z(),
         },
-      },
-    },
-    keys = {
-      {
-        '<leader>?',
-        function()
-          require('which-key').show({ global = false })
-        end,
-        desc = 'Buffer Local Keymaps (which-key)',
-      },
-    },
+      })
+    end,
   },
+  -- {
+  -- 	"folke/which-key.nvim",
+  -- 	event = "VeryLazy",
+  -- 	opts = {
 
+  -- 		plugins = {
+  -- 			presets = {
+  -- 				-- disable the built-in window commands since I remap many of them. It
+  -- 				-- will show the hjkl mappings even if I filter them out.
+  -- 				windows = false,
+  -- 			},
+  -- 		},
+
+  -- 		-- Exclude mappings with no description
+  -- 		filter = function(mapping)
+  -- 			return mapping.desc and mapping.desc ~= ""
+  -- 		end,
+
+  -- 		icons = {
+  -- 			-- set icon mappings to true if you have a Nerd Font
+  -- 			mappings = vim.g.have_nerd_font,
+  -- 		},
+  -- 		-- Document existing key chains
+  -- 		spec = {
+  -- 			{
+  -- 				mode = { "n", "v" },
+  -- 				-- { "<leader><tab>", group = "tabs" },
+  -- 				-- { "<leader>c", group = "code" },
+  -- 				-- { "<leader>d", group = "debug" },
+  -- 				-- { "<leader>dp", group = "profiler" },
+  -- 				-- { "<leader>g", group = "git" },
+  -- 				-- { "<leader>gh", group = "hunks" },
+  -- 				-- { "<leader>q", group = "quit/session" },
+  -- 				-- { "<leader>u", group = "ui", icon = { icon = "󰙵 ", color = "cyan" } },
+  -- 				-- { "<leader>x", group = "diagnostics/quickfix", icon = { icon = "󱖫 ", color = "green" } },
+  -- 				-- { "gs", group = "surround" },
+  -- 				{ "<leader>f", group = "file" },
+  -- 				{ "<leader>q", group = "quit" },
+  -- 				{ "<leader>r", group = "rapid" },
+  -- 				{ "<leader>s", group = "search" },
+  -- 				{ "<leader>w", proxy = "<c-w>", group = "windows" }, -- proxy to window mappings
+  -- 				{ "[", group = "prev" },
+  -- 				{ "]", group = "next" },
+  -- 				{ "g", group = "goto" },
+  -- 				{ "z", group = "fold" },
+  -- 				{ "<leader>b", group = "buffer" },
+  -- 			},
+  -- 		},
+  -- 	},
+  -- 	keys = {
+  -- 		{
+  -- 			"<leader>?",
+  -- 			function()
+  -- 				require("which-key").show({ global = false })
+  -- 			end,
+  -- 			desc = "Buffer Local Keymaps (which-key)",
+  -- 		},
+  -- 	},
+  -- },
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
@@ -357,19 +425,8 @@ return {
       auto_install = true,
       highlight = {
         enable = true,
-        -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-        --  If you are experiencing weird indenting issues, add the language to
-        --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { 'ruby' },
       },
-      indent = { enable = true, disable = { 'ruby' } },
     },
-    -- There are additional nvim-treesitter modules that you can use to interact
-    -- with nvim-treesitter. You should go explore a few and see what interests you:
-    --
-    --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-    --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-    --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
   {
     'neovim/nvim-lspconfig',
