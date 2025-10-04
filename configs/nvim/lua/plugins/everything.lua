@@ -310,63 +310,63 @@ return {
     end,
   },
   -- {
-  -- 	"folke/which-key.nvim",
-  -- 	event = "VeryLazy",
-  -- 	opts = {
-
-  -- 		plugins = {
-  -- 			presets = {
-  -- 				-- disable the built-in window commands since I remap many of them. It
-  -- 				-- will show the hjkl mappings even if I filter them out.
-  -- 				windows = false,
-  -- 			},
-  -- 		},
-
-  -- 		-- Exclude mappings with no description
-  -- 		filter = function(mapping)
-  -- 			return mapping.desc and mapping.desc ~= ""
-  -- 		end,
-
-  -- 		icons = {
-  -- 			-- set icon mappings to true if you have a Nerd Font
-  -- 			mappings = vim.g.have_nerd_font,
-  -- 		},
-  -- 		-- Document existing key chains
-  -- 		spec = {
-  -- 			{
-  -- 				mode = { "n", "v" },
-  -- 				-- { "<leader><tab>", group = "tabs" },
-  -- 				-- { "<leader>c", group = "code" },
-  -- 				-- { "<leader>d", group = "debug" },
-  -- 				-- { "<leader>dp", group = "profiler" },
-  -- 				-- { "<leader>g", group = "git" },
-  -- 				-- { "<leader>gh", group = "hunks" },
-  -- 				-- { "<leader>q", group = "quit/session" },
-  -- 				-- { "<leader>u", group = "ui", icon = { icon = "󰙵 ", color = "cyan" } },
-  -- 				-- { "<leader>x", group = "diagnostics/quickfix", icon = { icon = "󱖫 ", color = "green" } },
-  -- 				-- { "gs", group = "surround" },
-  -- 				{ "<leader>f", group = "file" },
-  -- 				{ "<leader>q", group = "quit" },
-  -- 				{ "<leader>r", group = "rapid" },
-  -- 				{ "<leader>s", group = "search" },
-  -- 				{ "<leader>w", proxy = "<c-w>", group = "windows" }, -- proxy to window mappings
-  -- 				{ "[", group = "prev" },
-  -- 				{ "]", group = "next" },
-  -- 				{ "g", group = "goto" },
-  -- 				{ "z", group = "fold" },
-  -- 				{ "<leader>b", group = "buffer" },
-  -- 			},
-  -- 		},
-  -- 	},
-  -- 	keys = {
-  -- 		{
-  -- 			"<leader>?",
-  -- 			function()
-  -- 				require("which-key").show({ global = false })
-  -- 			end,
-  -- 			desc = "Buffer Local Keymaps (which-key)",
-  -- 		},
-  -- 	},
+  --   'folke/which-key.nvim',
+  --   event = 'VeryLazy',
+  --   opts = {
+  --
+  --     plugins = {
+  --       presets = {
+  --         -- disable the built-in window commands since I remap many of them. It
+  --         -- will show the hjkl mappings even if I filter them out.
+  --         windows = false,
+  --       },
+  --     },
+  --
+  --     -- Exclude mappings with no description
+  --     filter = function(mapping)
+  --       return mapping.desc and mapping.desc ~= ''
+  --     end,
+  --
+  --     icons = {
+  --       -- set icon mappings to true if you have a Nerd Font
+  --       mappings = vim.g.have_nerd_font,
+  --     },
+  --     -- Document existing key chains
+  --     spec = {
+  --       {
+  --         mode = { 'n', 'v' },
+  --         -- { "<leader><tab>", group = "tabs" },
+  --         -- { "<leader>c", group = "code" },
+  --         -- { "<leader>d", group = "debug" },
+  --         -- { "<leader>dp", group = "profiler" },
+  --         -- { "<leader>g", group = "git" },
+  --         -- { "<leader>gh", group = "hunks" },
+  --         -- { "<leader>q", group = "quit/session" },
+  --         -- { "<leader>u", group = "ui", icon = { icon = "󰙵 ", color = "cyan" } },
+  --         -- { "<leader>x", group = "diagnostics/quickfix", icon = { icon = "󱖫 ", color = "green" } },
+  --         -- { "gs", group = "surround" },
+  --         { '<leader>f', group = 'file' },
+  --         { '<leader>q', group = 'quit' },
+  --         { '<leader>r', group = 'rapid' },
+  --         { '<leader>s', group = 'search' },
+  --         { '<leader>w', proxy = '<c-w>', group = 'windows' }, -- proxy to window mappings
+  --         { '[', group = 'prev' },
+  --         { ']', group = 'next' },
+  --         { 'g', group = 'goto' },
+  --         { 'z', group = 'fold' },
+  --         { '<leader>b', group = 'buffer' },
+  --       },
+  --     },
+  --   },
+  --   keys = {
+  --     {
+  --       '<leader>?',
+  --       function()
+  --         require('which-key').show({ global = false })
+  --       end,
+  --       desc = 'Buffer Local Keymaps (which-key)',
+  --     },
+  --   },
   -- },
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
