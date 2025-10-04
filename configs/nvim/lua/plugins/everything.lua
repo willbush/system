@@ -1,18 +1,4 @@
 return {
-  { -- auto-format
-    'stevearc/conform.nvim',
-    event = { 'BufWritePre' },
-    cmd = { 'ConformInfo' },
-    -- This will provide type hinting with LuaLS
-    ---@module "conform"
-    ---@type conform.setupOpts
-    opts = {
-      formatters_by_ft = {
-        lua = { 'stylua' },
-      },
-      format_on_save = { timeout_ms = 500 },
-    },
-  },
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
