@@ -3,7 +3,16 @@ return {
     'neovim/nvim-lspconfig',
     config = function()
       vim.lsp.enable('rust-analyzer')
+      vim.lsp.config('rust-analyzer', {
+        cmd = { 'rust-analyzer' },
+        filetypes = { 'rust' },
+      })
+
       vim.lsp.enable('lua-language-server')
+      vim.lsp.config('lua-language-server', {
+        cmd = { 'lua-language-server' },
+        filetypes = { 'lua' },
+      })
     end,
   },
   {
