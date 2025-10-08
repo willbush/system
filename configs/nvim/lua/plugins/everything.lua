@@ -282,6 +282,13 @@ return {
           require('mini.clue').gen_clues.registers(),
           require('mini.clue').gen_clues.z(),
         },
+        window = {
+          delay = 0,
+          config = {
+            width = 125,
+            border = 'rounded',
+          },
+        },
       })
     end,
   },
