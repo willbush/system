@@ -6,7 +6,11 @@ return {
       local gen_clues = require('mini.clue').gen_clues
 
       local function custom_window_clues()
-        local window_clues = gen_clues.windows()
+        local window_clues = gen_clues.windows({
+          submode_resize = true,
+          submode_navigate = true,
+          submode_move = true,
+        })
 
         local remapped_keys = {
           -- rebind hjkl -> mnei
