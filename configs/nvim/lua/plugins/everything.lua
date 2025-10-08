@@ -237,11 +237,40 @@ return {
     'nvim-mini/mini.nvim',
     version = '*',
     config = function()
-      -- You can configure other mini modules here as well
+      local gen_clues = require('mini.clue').gen_clues
 
-      -- Set up mini.clue
+      local function custom_window_clues()
+        local window_clues = gen_clues.windows()
+
+        local remapped_keys = {
+          -- rebind hjkl -> mnei
+          ['<C-w>h'] = true,
+          ['<C-w>j'] = true,
+          ['<C-w>k'] = true,
+          ['<C-w>l'] = true,
+          -- rebind HJKL -> MNEI
+          ['<C-w>H'] = true,
+          ['<C-w>J'] = true,
+          ['<C-w>K'] = true,
+          ['<C-w>L'] = true,
+          -- rebind i -> j and n -> c
+          ['<C-w>c'] = true,
+          ['<C-w>i'] = true,
+          ['<C-w>n'] = true,
+        }
+
+        local custom_clues = {}
+
+        for _, clue in ipairs(window_clues) do
+          if not remapped_keys[clue.keys] then
+            table.insert(custom_clues, clue)
+          end
+        end
+
+        return custom_clues
+      end
+
       require('mini.clue').setup({
-        -- Must be set to true or a table with options
         triggers = {
           -- Leader triggers
           { mode = 'n', keys = '<Leader>' },
@@ -275,12 +304,19 @@ return {
         },
 
         clues = {
-          -- Enhance this by adding descriptions for <Leader> mapping groups
-          require('mini.clue').gen_clues.builtin_completion(),
-          require('mini.clue').gen_clues.g(),
-          require('mini.clue').gen_clues.marks(),
-          require('mini.clue').gen_clues.registers(),
-          require('mini.clue').gen_clues.z(),
+          gen_clues.builtin_completion(),
+          gen_clues.g(),
+          gen_clues.marks(),
+          gen_clues.registers(),
+          gen_clues.z(),
+          custom_window_clues(),
+
+          { mode = 'n', keys = '<leader>b', desc = '+Buffers' },
+          { mode = 'n', keys = '<leader>q', desc = '+Quit' },
+          { mode = 'n', keys = '<leader>r', desc = '+Rapid' },
+          { mode = 'n', keys = '<leader>w', desc = '+Window' },
+
+          { mode = 'n', keys = '<C-w>', desc = '+Window' },
         },
         window = {
           delay = 0,
