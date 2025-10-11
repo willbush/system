@@ -11,7 +11,6 @@ in
     ../modules/user.nix
     ../modules/services/docker.nix
     ../modules/services/lianli-pwm-rgb-sync.nix
-    ../modules/services/virt.nix
     ../profiles/mixed/theme.nix
     ../profiles/mixed/wayland.nix
     ../profiles/nixos/greetd.nix
@@ -115,7 +114,6 @@ in
   };
 
   modules.services = {
-    virt.enable = true;
     docker.enable = true;
     lianli-pwm-rgb-sync.enable = true;
   };
