@@ -40,7 +40,6 @@
         ".cache/mesa_shader_cache_db"
         ".cache/mozilla"
         ".cache/nix"
-        ".cache/nix-output-monitor"
         ".cache/nvim"
         ".cache/org-persist"
         ".cache/radv_builtin_shaders"
