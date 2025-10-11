@@ -25,8 +25,6 @@ in
     file
     grim # Grab images from a Wayland compositor.
     lsof
-    mdbook
-    nodePackages.prettier
     pinentry-gnome3
     ripgrep
     sd # sed alternative
@@ -60,11 +58,11 @@ in
     rust-analyzer
     tig # text-mode interface for Git
     tokei
-    trufflehog # Find, verify, and analyze leaked credentials (must be run with --no-update in NixOS)
     xxd # hexdump
 
     # Language formatters
     nixfmt-rfc-style
+    nodePackages.prettier
     shfmt
     stylua
 
