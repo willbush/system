@@ -167,15 +167,30 @@ in
 
     ssh = {
       enable = true;
-      addKeysToAgent = "yes";
-
+      # disable the old, deprecated default behavior. (fixing a warning)
+      enableDefaultConfig = false;
       includes = [ config.sops.templates."ssh-work-config".path ];
 
       matchBlocks = {
+        "*" = {
+          forwardAgent = false;
+          addKeysToAgent = "no";
+          compression = false;
+          serverAliveInterval = 120;
+          serverAliveCountMax = 3;
+          hashKnownHosts = false;
+          userKnownHostsFile = "~/.ssh/known_hosts";
+          # connection multiplexing
+          controlMaster = "auto";
+          controlPath = "~/.ssh/master-%r@%n:%p";
+          controlPersist = "10m";
+        };
         "github.com" = {
+          addKeysToAgent = "yes";
           identityFile = "~/.ssh/id_ed25519_github";
         };
         "gitlab.com" = {
+          addKeysToAgent = "yes";
           identityFile = "~/.ssh/id_ed25519_gitlab";
         };
       };
