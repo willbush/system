@@ -56,20 +56,12 @@ in
     lldb # Debugger
     mergiraf # Syntax-aware git merge driver
     nix-prefetch-git
+    repomix
     rust-analyzer
     tig # text-mode interface for Git
     tokei
     trufflehog # Find, verify, and analyze leaked credentials (must be run with --no-update in NixOS)
     xxd # hexdump
-
-    # AI cli
-    (python3.withPackages (
-      ps: with ps; [
-        llm
-        llm-gemini
-      ]
-    ))
-    repomix
 
     # Language formatters
     nixfmt-rfc-style
