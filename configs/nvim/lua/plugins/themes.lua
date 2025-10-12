@@ -2,15 +2,25 @@ return {
   -- theme releated
   { 'echasnovski/mini.icons', lazy = true, opts = {}, version = false },
   { 'echasnovski/mini.statusline', opts = {}, version = false },
-  -- themes
+  {
+    'rose-pine/neovim',
+    lazy = false,
+    name = 'rose-pine',
+    config = function()
+      vim.cmd('colorscheme rose-pine')
+    end,
+  },
   {
     'folke/tokyonight.nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
-    init = function()
-      vim.cmd.colorscheme('tokyonight-night')
-
-      -- You can configure highlights by doing something like:
-      vim.cmd.hi('Comment gui=none')
-    end,
+    lazy = true,
+    opts = {},
+  },
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    lazy = true,
+    opts = {
+      auto_integrations = true,
+    },
   },
 }
