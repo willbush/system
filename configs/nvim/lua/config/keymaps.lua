@@ -60,6 +60,14 @@ local maps = {
       desc = 'Find Lines in Current Buffer',
     },
 
+    -- Project
+    ['<leader>pp'] = {
+      function()
+        require('fzf-lua').zoxide()
+      end,
+      desc = 'Zoxide travel',
+    },
+
     ['<leader>/'] = {
       function()
         require('fzf-lua').live_grep()
