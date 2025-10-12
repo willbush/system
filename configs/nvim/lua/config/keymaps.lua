@@ -1,67 +1,81 @@
--- modes
-local n = { 'n' }
+local maps = {
+  -- Normal Mode
+  n = {
+    -- Global keys:
 
-local keymaps = {
-  -- Note this maps over default `U` (see `:h U`) which "undo all latest
-  -- changes on one line." I fail to imagine ever wanting that.
-  { lhs = 'U', rhs = '<C-R>', desc = 'Redo', modes = n },
-  { lhs = '<esc>', rhs = '<cmd>nohlsearch<cr>', desc = 'Clear search highlights', modes = n },
+    -- Note this maps over default `U` (see `:h U`) which "undo all latest
+    -- changes on one line." I fail to imagine ever wanting that.
+    ['U'] = { '<C-R>', desc = 'Redo' },
+    ['<Esc>'] = { '<cmd>nohlsearch<cr>', desc = 'Clear Search Highlights' },
 
-  -- Exit terminal mode in the builtin terminal with a shortcut that is a bit
-  -- easier for people to discover. Otherwise, you normally need to press
-  -- <C-\><C-n>, which is not what someone will guess without a bit more
-  -- experience.
-  { lhs = '<esc><esc>', rhs = '<C-\\><C-n>', desc = 'Exit terminal mode', modes = { 't' } },
+    -- Leader keys:
 
-  -- Rapid (emphasize easy access over mnemonics)
-  { lhs = '<leader>rs', rhs = '<cmd>w<cr>', desc = 'Save buffer', modes = n },
+    -- Rapid (emphasize easy access over mnemonics)
+    ['<leader>rs'] = { '<cmd>w<cr>', desc = 'Save Buffer' },
 
-  -- Buffers
-  {
-    lhs = '<leader>bb',
-    rhs = function()
-      require('fzf-lua').buffers()
-    end,
-    desc = 'Buffer picker',
-    modes = n,
+    -- Buffers
+    ['<leader>bb'] = {
+      function()
+        require('fzf-lua').buffers()
+      end,
+      desc = 'Buffer Picker',
+    },
+    ['<leader>bd'] = {
+      function()
+        require('snacks').bufdelete()
+      end,
+      desc = 'Delete Buffer',
+    },
+    ['<leader>bk'] = { '<cmd>bd<cr>', desc = 'Kill (delete) Buffer and Window' },
+    ['<leader>bD'] = {
+      function()
+        require('snacks').bufdelete.all()
+      end,
+      desc = 'Delete All Buffers',
+    },
+    ['<leader>bO'] = {
+      function()
+        require('snacks').bufdelete.other()
+      end,
+      desc = 'Delete Other Buffers',
+    },
+
+    -- Quit
+    ['<leader>qq'] = { '<cmd>wqa<cr>', desc = 'Write and Quit All' },
   },
-  {
-    lhs = '<leader>bd',
-    rhs = function()
-      require('snacks').bufdelete()
-    end,
-    desc = 'Delete Buffer',
-    modes = n,
-  },
-  {
-    lhs = '<leader>bk',
-    rhs = '<cmd>bd<cr>',
-    desc = 'Kill (delete) Buffer and Window',
-    modes = n,
-  },
-  {
-    lhs = '<leader>bD',
-    rhs = function()
-      require('snacks').bufdelete.all()
-    end,
-    desc = 'Delete All Buffers',
-    modes = n,
-  },
-  {
-    lhs = '<leader>bO',
-    rhs = function()
-      require('snacks').bufdelete.other()
-    end,
-    desc = 'Delete Other Buffers',
-    modes = n,
+
+  -- Terminal Mode
+  t = {
+    -- Exit terminal mode in the builtin terminal with a shortcut that is a bit
+    -- easier for people to discover. Otherwise, you normally need to press
+    -- <C-\><C-n>, which is not what someone will guess without a bit more
+    -- experience.
+    ['<Esc><Esc>'] = { '<C-\\><C-n>', desc = 'Exit Terminal Mode' },
   },
 }
 
-for _, ks in ipairs(keymaps) do
-  local opts = { desc = ks.desc }
-  -- Merge any extra options
-  if ks.opts then
-    opts = vim.tbl_extend('force', opts, ks.opts)
+local function set_keymaps(maps)
+  for mode, mode_maps in pairs(maps) do
+    for lhs, definition in pairs(mode_maps) do
+      local rhs, opts
+
+      if type(definition) == 'table' then
+        rhs = definition[1]
+        opts = {}
+        for key, value in pairs(definition) do
+          if type(key) == 'string' then -- Only copy named keys into opts
+            opts[key] = value
+          end
+        end
+      else
+        -- mappings like: ['j'] = 'gj'
+        rhs = definition
+        opts = {}
+      end
+
+      vim.keymap.set(mode, lhs, rhs, opts)
+    end
   end
-  vim.keymap.set(ks.modes, ks.lhs, ks.rhs, opts)
 end
+
+set_keymaps(maps)
