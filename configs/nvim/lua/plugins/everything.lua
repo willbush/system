@@ -215,6 +215,6 @@ return {
     opts = {},
   },
 
-  { 'echasnovski/mini.icons', lazy = true, version = false },
+  { 'echasnovski/mini.icons', lazy = true, opts = {}, version = false },
   { 'echasnovski/mini.statusline', opts = {}, version = false },
 }
