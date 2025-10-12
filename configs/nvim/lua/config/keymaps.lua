@@ -40,6 +40,33 @@ local maps = {
       desc = 'Delete Other Buffers',
     },
 
+    -- Files
+    ['<leader>ff'] = {
+      function()
+        require('fzf-lua').files()
+      end,
+      desc = 'Find Files',
+    },
+    ['<leader>fl'] = {
+      function()
+        require('fzf-lua').lines()
+      end,
+      desc = 'Find Lines in All Buffers',
+    },
+    ['<leader>fL'] = {
+      function()
+        require('fzf-lua').blines()
+      end,
+      desc = 'Find Lines in Current Buffer',
+    },
+
+    ['<leader>/'] = {
+      function()
+        require('fzf-lua').live_grep()
+      end,
+      desc = 'Live grep',
+    },
+
     -- Quit
     ['<leader>qq'] = { '<cmd>wqa<cr>', desc = 'Write and Quit All' },
   },
