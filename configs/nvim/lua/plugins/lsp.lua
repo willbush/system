@@ -1,6 +1,7 @@
 return {
   {
     'neovim/nvim-lspconfig',
+    event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       vim.lsp.enable('rust-analyzer')
       vim.lsp.config('rust-analyzer', {
