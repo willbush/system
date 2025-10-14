@@ -4,7 +4,7 @@ return {
     ---@module 'oil'
     ---@type oil.SetupOpts
     opts = {},
-    dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
+    dependencies = { 'nvim-mini/mini.icons' },
     -- Lazy loading is not recommended
     lazy = false,
   },
