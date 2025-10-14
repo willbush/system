@@ -16,6 +16,15 @@
     vimAlias = true;
     vimdiffAlias = true;
 
+    # Make these packages available to neovim, but not globally.
+    extraPackages = with pkgs; [
+      # Following are used by nvim-treesitter to download and compile parsers
+      # (which seems to work fine on NixOS).
+      gcc
+      tree-sitter
+      nodejs_24
+    ];
+
     # Changing the config home to here nvim lua config should be in this repo.
     # After deploying emacs config for year via nix. Think I'm going to try it
     # the ideomatic non-nix way and just use a plugin manager.
