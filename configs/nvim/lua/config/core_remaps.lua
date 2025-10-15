@@ -47,8 +47,8 @@ local keymaps = {
   -- - And for what mode?
   --
   -- Columns:
-  -- - left of center is [A]vaiable
-  -- - right of center is [R]emap or should `<nop>`
+  -- - left of center is [R]emap or should `<nop>`
+  -- - right of center is [A]vaiable
 
   -- |Norm n | Vis x | Opr o |
   -- | R   A | R   A | R   A |
