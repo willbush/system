@@ -34,6 +34,7 @@ in
     tree
     unar
     unzip
+    viu # image viewer (used by fff.nvim)
     usbutils
     wget
     wl-clipboard-rs
