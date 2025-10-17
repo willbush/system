@@ -43,9 +43,21 @@ local maps = {
     -- Files
     ['<leader>ff'] = {
       function()
+        require('fff').find_files()
+      end,
+      desc = 'FFF Find Files',
+    },
+    ['<leader>fg'] = {
+      function()
+        require('fff').find_in_git_root()
+      end,
+      desc = 'FFF Find Files in current git repo',
+    },
+    ['<leader>fz'] = {
+      function()
         require('fzf-lua').files()
       end,
-      desc = 'Find Files',
+      desc = 'FZF Find Files',
     },
     ['<leader>fl'] = {
       function()
