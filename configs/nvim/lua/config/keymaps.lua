@@ -1,4 +1,28 @@
-local maps = {
+local function set_keymaps(maps)
+  for mode, mode_maps in pairs(maps) do
+    for lhs, definition in pairs(mode_maps) do
+      local rhs, opts
+
+      if type(definition) == 'table' then
+        rhs = definition[1]
+        opts = {}
+        for key, value in pairs(definition) do
+          if type(key) == 'string' then -- Only copy named keys into opts
+            opts[key] = value
+          end
+        end
+      else
+        -- mappings like: ['j'] = 'gj'
+        rhs = definition
+        opts = {}
+      end
+
+      vim.keymap.set(mode, lhs, rhs, opts)
+    end
+  end
+end
+
+set_keymaps({
   -- Normal Mode
   n = {
     -- Global keys:
@@ -116,30 +140,4 @@ local maps = {
     -- experience.
     ['<Esc><Esc>'] = { '<C-\\><C-n>', desc = 'Exit Terminal Mode' },
   },
-}
-
-local function set_keymaps(maps)
-  for mode, mode_maps in pairs(maps) do
-    for lhs, definition in pairs(mode_maps) do
-      local rhs, opts
-
-      if type(definition) == 'table' then
-        rhs = definition[1]
-        opts = {}
-        for key, value in pairs(definition) do
-          if type(key) == 'string' then -- Only copy named keys into opts
-            opts[key] = value
-          end
-        end
-      else
-        -- mappings like: ['j'] = 'gj'
-        rhs = definition
-        opts = {}
-      end
-
-      vim.keymap.set(mode, lhs, rhs, opts)
-    end
-  end
-end
-
-set_keymaps(maps)
+})
