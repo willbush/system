@@ -47,7 +47,12 @@ local maps = {
       end,
       desc = 'Explore Directory with Oil',
     },
-
+    ['<leader>E'] = {
+      function()
+        require('oil').open(vim.fn.getcwd())
+      end,
+      desc = 'Open CWD in Oil',
+    },
     -- Files
     ['<leader>ff'] = {
       function()
