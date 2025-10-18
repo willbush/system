@@ -58,7 +58,7 @@ vim.o.wrap = false -- disable wrapping of lines longer than the width of window
 vim.o.breakindent = true -- wrap indent to match line start
 
 vim.diagnostic.config({
-  virtual_text = false,
+  virtual_text = true,
   severity_sort = true,
 
   signs = {
