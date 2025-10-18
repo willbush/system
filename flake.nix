@@ -22,11 +22,6 @@
       inputs.nixpkgs-stable.follows = "nixpkgs";
     };
 
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     helix = {
       url = "github:willbush/helix";
       inputs.nixpkgs.follows = "nixpkgs";
