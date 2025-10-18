@@ -40,6 +40,14 @@ local maps = {
       desc = 'Delete Other Buffers',
     },
 
+    -- Explore
+    ['<leader>e'] = {
+      function()
+        require('oil').open()
+      end,
+      desc = 'Explore Directory with Oil',
+    },
+
     -- Files
     ['<leader>ff'] = {
       function()
