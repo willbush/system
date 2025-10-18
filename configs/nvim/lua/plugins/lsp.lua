@@ -16,9 +16,14 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       vim.lsp.enable({
-        'rust_analyzer',
         'lua_ls',
       })
     end,
+  },
+  {
+    -- This handles setting lsp for rust
+    'mrcjkb/rustaceanvim',
+    version = '^6',
+    lazy = false, -- This plugin is already lazy
   },
 }
