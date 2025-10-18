@@ -9,15 +9,15 @@ vim.g.have_nerd_font = true
 -- [[ Setting options ]]
 --  For more options `:help option-list`
 
--- Make line numbers default
-vim.o.number = true
+vim.o.number = true -- Make line numbers default
 vim.o.relativenumber = true
 
--- Enable mouse mode
-vim.o.mouse = 'a'
+vim.o.jumpoptions = 'stack'
 
--- Don't show the mode, since it's already in the status line
-vim.o.showmode = false
+vim.o.mouse = 'a' -- Enable mouse mode
+
+vim.o.showmode = false -- disable showing modes in command line
+vim.o.termguicolors = true -- enable 24-bit RGB color in the TUI
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
@@ -26,25 +26,18 @@ vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'
 end)
 
-vim.o.breakindent = true
-vim.o.undofile = true
+vim.o.undofile = true -- enable persistent undo
 
--- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.o.ignorecase = true
-vim.o.smartcase = true
+vim.o.ignorecase = true -- case insensitive searching
+vim.o.smartcase = true -- case sensitive searching
 
--- Keep signcolumn on by default
-vim.o.signcolumn = 'yes'
+vim.o.signcolumn = 'yes' -- Keep signcolumn on by default
 
--- Decrease update time
-vim.o.updatetime = 250
+vim.o.updatetime = 250 -- Decrease update time
+vim.o.timeoutlen = 300 -- Decrease mapped sequence wait time
 
--- Decrease mapped sequence wait time
-vim.o.timeoutlen = 300
-
--- Configure how new splits should be opened
-vim.o.splitright = true
-vim.o.splitbelow = true
+vim.o.splitbelow = true -- splitting a new window below the current one
+vim.o.splitright = true -- splitting a new window at the right of the current one
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
@@ -52,28 +45,39 @@ vim.o.splitbelow = true
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
--- Preview substitutions live when typing!
-vim.o.inccommand = 'split'
+vim.o.inccommand = 'split' -- Preview substitutions live when typing!
+vim.o.cursorline = true -- Show which line your cursor is on
+vim.o.scrolloff = 10 -- Minimal number of screen lines to keep above and below the cursor.
+vim.o.confirm = true -- raise a dialog asking if you wish to save the current file(s)
 
--- Show which line your cursor is on
-vim.o.cursorline = true
+vim.o.shiftwidth = 0 -- number of space inserted for indentation; when zero the 'tabstop' value will be used
+vim.opt.tabstop = 2 -- number of space in a tab
+vim.o.expandtab = true -- enable the use of space in tab
 
--- Minimal number of screen lines to keep above and below the cursor.
-vim.o.scrolloff = 10
+vim.o.wrap = false -- disable wrapping of lines longer than the width of window
+vim.o.breakindent = true -- wrap indent to match line start
 
--- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
--- instead raise a dialog asking if you wish to save the current file(s)
--- See `:help 'confirm'`
-vim.o.confirm = true
+vim.diagnostic.config({
+  virtual_text = false,
+  severity_sort = true,
 
--- TODO move this
--- vim.diagnostic.config({
---   -- Use the default configuration
---   virtual_lines = true,
---
---   -- Alternatively, customize specific options
---   -- virtual_lines = {
---   --  -- Only show virtual line diagnostics for the current cursor line
---   --  current_line = true,
---   -- },
--- })
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '',
+      [vim.diagnostic.severity.WARN] = '',
+      [vim.diagnostic.severity.INFO] = '',
+      [vim.diagnostic.severity.HINT] = '',
+    },
+  },
+
+  float = {
+    source = true,
+    border = 'rounded',
+    header = '',
+    prefix = '',
+  },
+
+  jump = {
+    float = true,
+  },
+})
