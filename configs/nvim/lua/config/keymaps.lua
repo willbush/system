@@ -58,7 +58,7 @@ local maps = {
       function()
         require('fzf-lua').files()
       end,
-      desc = 'FZF Find Files',
+      desc = 'Find Files',
     },
     ['<leader>fl'] = {
       function()
@@ -75,6 +75,22 @@ local maps = {
 
     -- Project
     ['<leader>pp'] = {
+      function()
+        require('fzf-lua').zoxide({
+          actions = {
+            enter = function(selected)
+              if not selected[1] then
+                return
+              end
+              local path = selected[1]:match('[^\t]+$') or selected[1]
+              require('oil').open(path)
+            end,
+          },
+        })
+      end,
+      desc = 'Zoxide Project Peek',
+    },
+    ['<leader>pt'] = {
       function()
         require('fzf-lua').zoxide()
       end,
