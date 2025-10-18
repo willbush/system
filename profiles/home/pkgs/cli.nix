@@ -34,7 +34,7 @@ in
     tree
     unar
     unzip
-    viu # cli image viewer
+    viu # cli image viewer (used by fzf-lua)
     usbutils
     wget
     wl-clipboard-rs
