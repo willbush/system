@@ -28,7 +28,7 @@ return {
     config = function()
       vim.g.rustaceanvim = {
         server = {
-          on_attach = function(client, bufnr)
+          on_attach = function(_, bufnr)
             local function map(mode, lhs, rhs, opts)
               opts = opts or {}
               opts.buffer = bufnr
