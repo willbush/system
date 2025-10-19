@@ -31,6 +31,8 @@ set_keymaps({
     -- changes on one line." I fail to imagine ever wanting that.
     ['U'] = { '<C-R>', desc = 'Redo' },
     ['<Esc>'] = { '<cmd>nohlsearch<cr>', desc = 'Clear Search Highlights' },
+    ['<Tab>'] = { '<cmd>bnext<cr>', desc = 'Next buffer' },
+    ['<S-Tab>'] = { '<cmd>bprev<cr>', desc = 'Prev buffer' },
 
     -- Leader keys:
 
