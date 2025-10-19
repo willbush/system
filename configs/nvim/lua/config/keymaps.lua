@@ -98,17 +98,60 @@ set_keymaps({
       end,
       desc = 'Find Files',
     },
-    ['<leader>fl'] = {
+    ['<leader>fo'] = {
+      function()
+        require('fzf-lua').oldfiles()
+      end,
+      desc = 'Find Old Files (History)',
+    },
+    -- Search
+    ['<leader>sl'] = {
       function()
         require('fzf-lua').lines()
       end,
-      desc = 'Find Lines in All Buffers',
+      desc = 'Search Lines in All Buffers',
     },
-    ['<leader>fL'] = {
+    ['<leader>sL'] = {
       function()
         require('fzf-lua').blines()
       end,
-      desc = 'Find Lines in Current Buffer',
+      desc = 'Search Lines in Current Buffer',
+    },
+    ['<leader>sw'] = {
+      function()
+        require('fzf-lua').grep_cword()
+      end,
+      desc = 'Search Word under cursor',
+    },
+    ['<leader>sW'] = {
+      function()
+        require('fzf-lua').grep_cWORD()
+      end,
+      desc = 'Search WORD under cursor',
+    },
+    ['<leader>sr'] = {
+      function()
+        require('fzf-lua').resume()
+      end,
+      desc = 'Resume last FZF search',
+    },
+    ['<leader>sm'] = {
+      function()
+        require('fzf-lua').marks()
+      end,
+      desc = 'Search Marks',
+    },
+    ['<leader>sj'] = {
+      function()
+        require('fzf-lua').jumps()
+      end,
+      desc = 'Search Jumps',
+    },
+    ['<leader>sh'] = {
+      function()
+        require('fzf-lua').helptags()
+      end,
+      desc = 'Search Help Tags',
     },
 
     -- Project
@@ -126,13 +169,38 @@ set_keymaps({
           },
         })
       end,
-      desc = 'Zoxide Project Peek',
+      desc = 'Zoxide peek dir',
     },
     ['<leader>pt'] = {
       function()
         require('fzf-lua').zoxide()
       end,
       desc = 'Zoxide travel',
+    },
+    -- Project LSP
+    ['<leader>ps'] = {
+      function()
+        require('fzf-lua').lsp_document_symbols()
+      end,
+      desc = 'LSP Symbols (Document)',
+    },
+    ['<leader>pS'] = {
+      function()
+        require('fzf-lua').lsp_live_workspace_symbols()
+      end,
+      desc = 'LSP Symbols (Workspace)',
+    },
+    ['<leader>pr'] = {
+      function()
+        require('fzf-lua').lsp_references()
+      end,
+      desc = 'LSP References',
+    },
+    ['<leader>pd'] = {
+      function()
+        require('fzf-lua').diagnostics_workspace()
+      end,
+      desc = 'Diagnostics (Workspace)',
     },
 
     ['<leader>/'] = {

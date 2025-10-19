@@ -85,6 +85,7 @@ return {
           { mode = 'n', keys = '<leader>f', desc = '+Files' },
           { mode = 'n', keys = '<leader>q', desc = '+Quit' },
           { mode = 'n', keys = '<leader>r', desc = '+Rapid' },
+          { mode = 'n', keys = '<leader>s', desc = '+Search' },
           { mode = 'n', keys = '<leader>w', desc = '+Window' },
 
           { mode = 'n', keys = '<C-w>', desc = '+Window' },
