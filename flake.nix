@@ -45,6 +45,11 @@
       url = "github:plexus/chemacs2";
       flake = false;
     };
+
+    ghostty-shaders = {
+      url = "github:hackr-sh/ghostty-shaders";
+      flake = false;
+    };
   };
 
   outputs =

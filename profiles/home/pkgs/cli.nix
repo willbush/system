@@ -57,7 +57,6 @@ in
     nix-prefetch-git
     repomix
     rust-analyzer
-    tig # text-mode interface for Git
     tokei
     xxd # hexdump
 

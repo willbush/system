@@ -2,9 +2,6 @@
 let
   inherit (pkgs) writeScriptBin;
   get-git-url = writeScriptBin "get-git-url" (builtins.readFile ./scripts/get-get-url.fish);
-  yazi-file-picker = writeScriptBin "yazi-file-picker" (
-    builtins.readFile ./scripts/yazi-file-picker.sh
-  );
 in
 {
   # No automatic theme stylix
@@ -13,7 +10,6 @@ in
   # custom scripts I use in helix
   home.packages = [
     get-git-url
-    yazi-file-picker
   ];
 
   programs.helix = {
@@ -126,7 +122,6 @@ in
               # git
               g = {
                 B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}";
-                b = ":sh wezterm cli spawn --new-window --cwd $PWD tig blame %{buffer_name} +%{cursor_line} > /dev/null 2>&1";
                 o = ":sh get-git-url %{buffer_name} %{cursor_line} | wl-copy";
               };
               # quit
@@ -187,7 +182,6 @@ in
                 ":set mouse false"
                 ":set mouse true"
               ];
-              y = ":sh wezterm cli spawn --new-window --cwd $PWD -- yazi-file-picker $WEZTERM_PANE > /dev/null 2>&1";
             };
           };
         in

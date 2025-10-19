@@ -93,8 +93,8 @@ C-q       C-w       C-f       C-p       C-b       C-j       C-l       C-u       
                                                                       start
 
 C-a       C-r       C-s       C-t       C-g       C-m       C-n       C-e       C-i       C-o        C-'
-goto                commit              wezterm                       goto
-line                undo                prefix                        line end
+goto                commit                                            goto
+line                undo                                              line end
 start               checkpt                                           newline
 
 C-z       C-x       C-c       C-d       C-v       C-k       C-h       C-y       C-.       C-/
@@ -113,8 +113,8 @@ C-q       C-w       C-f       C-p       C-b       C-j       C-l       C-u       
 
 
 C-a       C-r       C-s       C-t       C-g       C-m       C-n       C-e       C-i       C-o        C-'
-                    save                wezterm                                 jump      jump
-                    sel                 prefix                                  forward   backward
+                    save                                                        jump      jump
+                    sel                                                         forward   backward
 
 C-z       C-x       C-c       C-d       C-v       C-k       C-h       C-y       C-.       C-/
 suspend                       half page

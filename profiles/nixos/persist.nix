@@ -78,7 +78,6 @@
         ".local/share/nix"
         ".local/share/nvim"
         ".local/share/tig"
-        ".local/share/wezterm"
         ".local/share/zoxide"
         ".local/state/lazygit"
         ".local/state/nvim"

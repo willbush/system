@@ -62,6 +62,7 @@ in
     imports = [
       ../profiles/home/emacs.nix
       ../profiles/home/fish.nix
+      ../profiles/home/ghostty.nix
       ../profiles/home/git.nix
       ../profiles/home/helix.nix
       ../profiles/home/neovim.nix
@@ -90,11 +91,6 @@ in
     };
 
     gtk.enable = true;
-
-    programs.wezterm = {
-      enable = true;
-      extraConfig = builtins.readFile ../configs/wezterm/wezterm.lua;
-    };
 
     services.syncthing.enable = true;
 

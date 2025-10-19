@@ -178,6 +178,22 @@
         "type": "github"
       }
     },
+    "ghostty-shaders": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1760430395,
+        "narHash": "sha256-E0043J2WB07xQEtVH8Z8JZs4kePxgFKWy4UDTbirxsc=",
+        "owner": "hackr-sh",
+        "repo": "ghostty-shaders",
+        "rev": "cb6eb4b0d1a3101c869c62e458b25a826f9dcde3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hackr-sh",
+        "repo": "ghostty-shaders",
+        "type": "github"
+      }
+    },
     "gnome-shell": {
       "flake": false,
       "locked": {
@@ -317,6 +333,7 @@
       "inputs": {
         "chemacs": "chemacs",
         "emacs-overlay": "emacs-overlay",
+        "ghostty-shaders": "ghostty-shaders",
         "helix": "helix",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
