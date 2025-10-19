@@ -28,6 +28,12 @@ return {
     config = function()
       vim.g.rustaceanvim = {
         server = {
+          default_settings = {
+            ['rust-analyzer'] = {
+              -- manually trigger due to perf reasons (large projects)
+              checkOnSave = false,
+            },
+          },
           on_attach = function(_, bufnr)
             local function map(mode, lhs, rhs, opts)
               opts = opts or {}
@@ -43,6 +49,18 @@ return {
               vim.cmd.RustLsp('codeAction')
             end, { desc = 'Code Action (Rustaceanvim)' })
             map('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to Definition' })
+
+            map('n', '<leader>pc', function()
+              vim.cmd.RustLsp('flyCheck') -- defaults to run
+            end, { desc = 'Run check' })
+
+            map('n', '<leader>pC', function()
+              vim.cmd.RustLsp({ 'flyCheck', 'clear' })
+            end, { desc = 'Clear check' })
+
+            map('n', '<leader>px', function()
+              vim.cmd.RustLsp({ 'flyCheck', 'cancel' })
+            end, { desc = 'Cancel check' })
           end,
         },
       }
