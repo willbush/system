@@ -44,6 +44,18 @@ set_keymaps({
       end,
       desc = 'Buffer Picker',
     },
+    ['<leader>ba'] = {
+      function()
+        require('snacks').bufdelete.all()
+      end,
+      desc = 'Delete all buffers',
+    },
+    ['<leader>bA'] = {
+      function()
+        require('snacks').bufdelete.all({ force = true })
+      end,
+      desc = 'Force delete all buffers',
+    },
     ['<leader>bd'] = {
       function()
         require('snacks').bufdelete()
@@ -52,9 +64,9 @@ set_keymaps({
     },
     ['<leader>bD'] = {
       function()
-        require('snacks').bufdelete.all()
+        require('snacks').bufdelete({ force = true })
       end,
-      desc = 'Delete All Buffers',
+      desc = 'Force delete buffer',
     },
     ['<leader>bO'] = {
       function()
