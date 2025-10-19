@@ -10,7 +10,6 @@
     shellAliases = {
       la = "eza -lah";
       tp = "trash-put";
-      h = "hx .";
     };
   };
 }
