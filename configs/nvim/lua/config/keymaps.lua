@@ -35,7 +35,7 @@ set_keymaps({
     -- Leader keys:
 
     -- Rapid (emphasize easy access over mnemonics)
-    ['<leader>rs'] = { '<cmd>w<cr>', desc = 'Save Buffer' },
+    ['<leader>rs'] = { '<cmd>update<cr>', desc = 'Save Buffer' },
 
     -- Buffers
     ['<leader>bb'] = {
