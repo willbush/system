@@ -36,9 +36,6 @@ vim.o.signcolumn = 'yes' -- Keep signcolumn on by default
 vim.o.updatetime = 250 -- Decrease update time
 vim.o.timeoutlen = 300 -- Decrease mapped sequence wait time
 
-vim.o.splitbelow = true -- splitting a new window below the current one
-vim.o.splitright = true -- splitting a new window at the right of the current one
-
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
