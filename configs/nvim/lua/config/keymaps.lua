@@ -63,7 +63,8 @@ set_keymaps({
       desc = 'Delete Other Buffers',
     },
     ['<leader>bk'] = { '<cmd>bd<cr>', desc = 'Kill (delete) Buffer and Window' },
-    ['<leader>bs'] = { '<cmd>enew<cr>', desc = 'Open a scratch buffer' },
+    ['<leader>bn'] = { '<cmd>enew<cr>', desc = 'New Buffer' },
+    ['<leader>bs'] = { '<cmd>edit /tmp/scratch<cr>', desc = 'Edit the scratch buffer' },
 
     -- Explore
     ['<leader>e'] = {
