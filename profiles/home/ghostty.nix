@@ -8,7 +8,7 @@
     settings = {
       auto-update = "off";
       window-decoration = false;
-      custom-shader = "${inputs.ghostty-shaders}/cursor_blaze.glsl";
+      custom-shader = "${inputs.ghostty-shader-playground}/public/shaders/cursor_smear.glsl";
 
       # Keybindings
       keybind = [

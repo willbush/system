@@ -46,8 +46,8 @@
       flake = false;
     };
 
-    ghostty-shaders = {
-      url = "github:hackr-sh/ghostty-shaders";
+    ghostty-shader-playground = {
+      url = "github:KroneCorylus/ghostty-shader-playground";
       flake = false;
     };
   };

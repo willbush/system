@@ -178,19 +178,19 @@
         "type": "github"
       }
     },
-    "ghostty-shaders": {
+    "ghostty-shader-playground": {
       "flake": false,
       "locked": {
-        "lastModified": 1760430395,
-        "narHash": "sha256-E0043J2WB07xQEtVH8Z8JZs4kePxgFKWy4UDTbirxsc=",
-        "owner": "hackr-sh",
-        "repo": "ghostty-shaders",
-        "rev": "cb6eb4b0d1a3101c869c62e458b25a826f9dcde3",
+        "lastModified": 1760399422,
+        "narHash": "sha256-ha45+1ri4LciepHX4Y5BIi883T4t7dT7CTuhq/9Z4EA=",
+        "owner": "KroneCorylus",
+        "repo": "ghostty-shader-playground",
+        "rev": "7b0c94df4c5dfeb6686edeb9ef8d89456bbc8ae3",
         "type": "github"
       },
       "original": {
-        "owner": "hackr-sh",
-        "repo": "ghostty-shaders",
+        "owner": "KroneCorylus",
+        "repo": "ghostty-shader-playground",
         "type": "github"
       }
     },
@@ -333,7 +333,7 @@
       "inputs": {
         "chemacs": "chemacs",
         "emacs-overlay": "emacs-overlay",
-        "ghostty-shaders": "ghostty-shaders",
+        "ghostty-shader-playground": "ghostty-shader-playground",
         "helix": "helix",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
