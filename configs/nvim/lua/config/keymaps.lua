@@ -50,7 +50,6 @@ set_keymaps({
       end,
       desc = 'Delete Buffer',
     },
-    ['<leader>bk'] = { '<cmd>bd<cr>', desc = 'Kill (delete) Buffer and Window' },
     ['<leader>bD'] = {
       function()
         require('snacks').bufdelete.all()
@@ -63,6 +62,8 @@ set_keymaps({
       end,
       desc = 'Delete Other Buffers',
     },
+    ['<leader>bk'] = { '<cmd>bd<cr>', desc = 'Kill (delete) Buffer and Window' },
+    ['<leader>bs'] = { '<cmd>enew<cr>', desc = 'Open a scratch buffer' },
 
     -- Explore
     ['<leader>e'] = {
