@@ -10,6 +10,7 @@ let
   rsync-find-orphaned-files = writeScriptBin "rsync-find-orphaned-files" (
     builtins.readFile ../scripts/rsync-find-orphaned-files.sh
   );
+  hyprcwd = writeScriptBin "hyprcwd" (builtins.readFile ../scripts/hyprcwd.sh);
   # planck = pkgs.callPackage ../../../configs/keyboard-firmware/planck { };
   # crkbd = pkgs.callPackage ../../../configs/keyboard-firmware/crkbd { };
 in
@@ -110,5 +111,6 @@ in
     rsync-diff-home
     rsync-diff-root
     rsync-find-orphaned-files
+    hyprcwd
   ];
 }
