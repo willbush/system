@@ -74,6 +74,7 @@
         ".local/share/fish"
         ".local/share/hyprland"
         ".local/share/keyrings"
+        ".local/share/metric-dashboards"
         ".local/share/nautilus"
         ".local/share/nix"
         ".local/share/nvim"
