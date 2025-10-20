@@ -8,6 +8,8 @@
     settings = {
       auto-update = "off";
       window-decoration = false;
+      # don't prompt to close window if process is still running.
+      confirm-close-surface = false;
       custom-shader = "${inputs.ghostty-shader-playground}/public/shaders/cursor_smear.glsl";
 
       # Keybindings
