@@ -83,6 +83,7 @@ return {
 
           { mode = 'n', keys = '<leader>b', desc = '+Buffers' },
           { mode = 'n', keys = '<leader>f', desc = '+Files' },
+          { mode = 'n', keys = '<leader>p', desc = '+Project' },
           { mode = 'n', keys = '<leader>q', desc = '+Quit' },
           { mode = 'n', keys = '<leader>r', desc = '+Rapid' },
           { mode = 'n', keys = '<leader>s', desc = '+Search' },
