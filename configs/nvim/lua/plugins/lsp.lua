@@ -45,9 +45,15 @@ return {
             map('n', 'K', function()
               vim.cmd.RustLsp({ 'hover', 'actions' })
             end, { desc = 'Hover Actions (Rustaceanvim)' })
-            map('n', '<leader>a', function()
+
+            map('n', '<leader>pa', vim.lsp.buf.code_action, { desc = 'Code Action' })
+
+            -- Not exactly sure if rustaceanvim adds actions not found through
+            -- nvim api above. Leaving this here to see.
+            map('n', '<leader>pA', function()
               vim.cmd.RustLsp('codeAction')
             end, { desc = 'Code Action (Rustaceanvim)' })
+
             map('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to Definition' })
 
             map('n', '<leader>pc', function()
