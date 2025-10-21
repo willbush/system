@@ -38,11 +38,8 @@
         "image/vnd.microsoft.icon" = "imv.desktop";
         "image/webp" = "imv.desktop";
 
-        # Open directory in Emacs dired.
-        "inode/directory" = "emacsclient.desktop";
-
         "text/html" = "firefox.desktop";
-        "text/plain" = "emacsclient.desktop";
+        "text/plain" = "nvim.desktop";
 
         "video/mp4" = "vlc.desktop";
         "video/mpeg" = "vlc.desktop";
@@ -60,7 +57,6 @@
       associations.added = {
         # These apps overwrite mimeapps.list on startup unless this is explicitly added
         "x-scheme-handler/magnet" = "transmission-gtk.desktop";
-        "x-scheme-handler/tg" = "telegramdesktop.desktop";
       };
     };
 
