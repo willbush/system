@@ -28,12 +28,15 @@ return {
     config = function()
       vim.g.rustaceanvim = {
         server = {
-          default_settings = {
-            ['rust-analyzer'] = {
-              -- manually trigger due to perf reasons (large projects)
-              checkOnSave = false,
-            },
-          },
+          -- TODO: need to look into large project perf more..
+          -- - maybe try https://github.com/ethowitz/cargo-subspace
+          -- - maybe try https://github.com/crisidev/bacon-ls
+          -- default_settings = {
+          --   ['rust-analyzer'] = {
+          --     -- manually trigger due to perf reasons (large projects)
+          --     checkOnSave = false,
+          --   },
+          -- },
           on_attach = function(_, bufnr)
             local function map(mode, lhs, rhs, opts)
               opts = opts or {}
