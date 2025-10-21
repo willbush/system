@@ -8,9 +8,10 @@
     '';
 
     shellAliases = {
+      g = "lazygit";
+      h = "hx .";
       la = "eza -lah";
       tp = "trash-put";
-      g = "lazygit";
     };
   };
 }
