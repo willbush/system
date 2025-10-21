@@ -28,7 +28,8 @@
         "ctrl+shift+c=copy_to_clipboard"
         "ctrl+shift+v=paste_from_clipboard"
 
-        "ctrl+shift+o=write_screen_file:open"
+        "ctrl+a>h=write_scrollback_file:copy"
+        "ctrl+a>s=write_screen_file:copy"
       ];
     };
   };
