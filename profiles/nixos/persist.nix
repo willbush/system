@@ -78,6 +78,7 @@
         ".local/share/nautilus"
         ".local/share/nix"
         ".local/share/nvim"
+        ".local/share/viewer"
         ".local/share/zoxide"
         ".local/state/lazygit"
         ".local/state/nvim"
