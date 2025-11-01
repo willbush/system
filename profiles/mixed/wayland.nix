@@ -76,6 +76,8 @@ in
         # approach to wallpapers so it doesn't need to be in the nix-store.
         preload = [
           "~/images/wallpapers/1.png"
+          "~/images/wallpapers/2.jpg"
+          "~/images/wallpapers/3.jpg"
           "~/images/wallpapers/wildflowers.png"
           "~/images/wallpapers/blood-moon.png"
         ];
@@ -85,7 +87,7 @@ in
         # or `, /home/me/amongus.png` to apply to all monitors.
         # - https://wiki.hypr.land/Hypr-Ecosystem/hyprpaper/#the-preload-and-wallpaper-keywords
         wallpaper = [
-          "DP-1, ~/images/wallpapers/1.png"
+          "DP-1, ~/images/wallpapers/2.jpg"
         ];
       };
     };
