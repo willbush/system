@@ -4,11 +4,6 @@
     enable = true;
     # NB: when switching themes make sure new theme doesn't break difftastic colors
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-    image = pkgs.fetchurl {
-      # https://www.reddit.com/r/WidescreenWallpaper/comments/1dzli4w/untitled_7680x2160/
-      url = "https://i.redd.it/1k3jwtm7zlbd1.jpeg";
-      hash = "sha256-3GJ6pwrExTGJ5y+X//7iBY2ABDUkcFlxQzot24evceo=";
-    };
 
     cursor = {
       name = "BreezeX-RosePine-Linux";

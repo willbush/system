@@ -66,5 +66,26 @@ in
         }
       ];
     };
+
+    services.hyprpaper = {
+      enable = true;
+      settings = {
+        ipc = "on";
+        # if files are not present, it will just fallback to hyprland's default
+        # wallpaper which is fine with me. I rather have a non-declaritve
+        # approach to wallpapers so it doesn't need to be in the nix-store.
+        preload = [
+          "~/images/wallpapers/1.jpg"
+        ];
+
+        # Format: `monitor, /home/me/amongus.png`.
+        # monitors info using `hyprctl monitors`.
+        # or `, /home/me/amongus.png` to apply to all monitors.
+        # - https://wiki.hypr.land/Hypr-Ecosystem/hyprpaper/#the-preload-and-wallpaper-keywords
+        wallpaper = [
+          "DP-1, ~/images/wallpapers/1.jpg"
+        ];
+      };
+    };
   };
 }
