@@ -83,10 +83,11 @@ in
     };
     git = {
       enable = true;
-      userName = my-git-user.name;
-      userEmail = my-git-user.email;
-
-      extraConfig = {
+      settings = {
+        user = {
+          name = my-git-user.name;
+          email = my-git-user.email;
+        };
         core.autocrlf = "input";
         init.defaultBranch = "main";
         merge.conflictstyle = "zdiff3";
@@ -103,13 +104,15 @@ in
           df = "-c diff.external=difft diff";
         };
       };
+    };
+
+    delta = {
+      enable = true;
       # Use delta by default, but difft via alias
-      delta = {
-        enable = true;
-        options = {
-          line-numbers = true;
-          side-by-side = true;
-        };
+      enableGitIntegration = true;
+      options = {
+        line-numbers = true;
+        side-by-side = true;
       };
     };
 
