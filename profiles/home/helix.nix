@@ -2,6 +2,7 @@
 let
   inherit (pkgs) writeScriptBin;
   get-git-url = writeScriptBin "get-git-url" (builtins.readFile ./scripts/get-get-url.fish);
+  system = pkgs.stdenv.hostPlatform.system;
 in
 {
   # No automatic theme stylix
@@ -14,7 +15,7 @@ in
 
   programs.helix = {
     enable = true;
-    package = inputs.helix.packages.${pkgs.system}.default;
+    package = inputs.helix.packages.${system}.default;
 
     settings = {
       # Some of me favorite themes:

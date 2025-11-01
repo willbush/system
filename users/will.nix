@@ -76,7 +76,7 @@ in
     ];
 
     home = {
-      stateVersion = "24.11";
+      stateVersion = "25.11";
       username = config.user.name;
       homeDirectory = "/home/will";
       sessionVariables = {
@@ -153,5 +153,5 @@ in
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.11";
 }

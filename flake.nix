@@ -26,6 +26,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # This flake causes the following evaluation warnings:
+    # 'system' has been renamed to/replaced by 'stdenv.hostPlatform.system'
+    # `mesa.drivers` is deprecated, use `mesa` instead
     nixgl = {
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
