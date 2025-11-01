@@ -18,7 +18,7 @@ in
   home.packages = with pkgs; [
     # Utilities
     curl
-    du-dust
+    dust
     exiftool
     eza
     fd
