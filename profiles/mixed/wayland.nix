@@ -75,7 +75,9 @@ in
         # wallpaper which is fine with me. I rather have a non-declaritve
         # approach to wallpapers so it doesn't need to be in the nix-store.
         preload = [
-          "~/images/wallpapers/1.jpg"
+          "~/images/wallpapers/1.png"
+          "~/images/wallpapers/wildflowers.png"
+          "~/images/wallpapers/blood-moon.png"
         ];
 
         # Format: `monitor, /home/me/amongus.png`.
@@ -83,7 +85,7 @@ in
         # or `, /home/me/amongus.png` to apply to all monitors.
         # - https://wiki.hypr.land/Hypr-Ecosystem/hyprpaper/#the-preload-and-wallpaper-keywords
         wallpaper = [
-          "DP-1, ~/images/wallpapers/1.jpg"
+          "DP-1, ~/images/wallpapers/1.png"
         ];
       };
     };
