@@ -17,24 +17,10 @@
         popups = 12; # default: 10
         terminal = 14; # default: 12
       };
-      serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
-      };
-
-      sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
-      };
-
+      # Change the default momonospace font
       monospace = {
         package = pkgs.nerd-fonts.zed-mono;
         name = "ZedMono NFM Extd";
-      };
-
-      emoji = {
-        package = pkgs.noto-fonts-color-emoji;
-        name = "Noto Color Emoji";
       };
     };
   };

@@ -146,13 +146,10 @@ in
   environment.systemPackages = with pkgs; [ mullvad-vpn ];
 
   fonts.packages = with pkgs; [
-    dejavu_fonts
     jigmo # Japanese Kanji font set which is the official successor to Hanazono Mincho
     nerd-fonts.noto
     nerd-fonts.symbols-only # used by emacs nerd-icons.el
-    nerd-fonts.zed-mono
     noto-fonts-cjk-sans
-    noto-fonts-color-emoji
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
