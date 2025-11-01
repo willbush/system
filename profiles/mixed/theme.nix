@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   stylix = {
     enable = true;
@@ -8,6 +8,12 @@
       # https://www.reddit.com/r/WidescreenWallpaper/comments/1dzli4w/untitled_7680x2160/
       url = "https://i.redd.it/1k3jwtm7zlbd1.jpeg";
       hash = "sha256-3GJ6pwrExTGJ5y+X//7iBY2ABDUkcFlxQzot24evceo=";
+    };
+
+    cursor = {
+      name = "BreezeX-RosePine-Linux";
+      package = pkgs.rose-pine-cursor;
+      size = 32;
     };
 
     fonts = {
@@ -22,16 +28,6 @@
         package = pkgs.nerd-fonts.zed-mono;
         name = "ZedMono NFM Extd";
       };
-    };
-  };
-
-  home-manager.users.${config.user.name} = {
-    home.pointerCursor = {
-      enable = true;
-      gtk.enable = true;
-      name = "BreezeX-RosePine-Linux";
-      package = pkgs.rose-pine-cursor;
-      size = 32;
     };
   };
 }
