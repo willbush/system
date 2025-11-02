@@ -46,11 +46,6 @@
       url = "github:plexus/chemacs2";
       flake = false;
     };
-
-    ghostty-shader-playground = {
-      url = "github:KroneCorylus/ghostty-shader-playground";
-      flake = false;
-    };
   };
 
   outputs =

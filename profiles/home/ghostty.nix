@@ -1,7 +1,4 @@
-{
-  inputs,
-  ...
-}:
+{ ... }:
 {
   programs.ghostty = {
     enable = true;
@@ -10,7 +7,11 @@
       window-decoration = false;
       # don't prompt to close window if process is still running.
       confirm-close-surface = false;
-      custom-shader = "${inputs.ghostty-shader-playground}/public/shaders/cursor_smear.glsl";
+
+      custom-shader = [
+        "${../../configs/ghostty/shaders/cursor_warp.glsl}"
+        "${../../configs/ghostty/shaders/cursor_ripple.glsl}"
+      ];
 
       # Keybindings
       keybind = [
