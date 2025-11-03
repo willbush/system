@@ -323,7 +323,8 @@
         "nixgl": "nixgl",
         "nixpkgs": "nixpkgs",
         "sops-nix": "sops-nix",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "unsecrets": "unsecrets"
       }
     },
     "rust-overlay": {
@@ -510,6 +511,21 @@
         "owner": "tinted-theming",
         "repo": "base16-zed",
         "type": "github"
+      }
+    },
+    "unsecrets": {
+      "locked": {
+        "lastModified": 1762129543,
+        "narHash": "sha256-WY6bMF84VGed8ZaN9WMUtcYXnHHbSidcn+HmHPnntZc=",
+        "ref": "refs/heads/main",
+        "rev": "6987f08fda0ef4f365ec9f786d478622a832be8c",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@github.com/willbush/private-nix-unsecrets.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/willbush/private-nix-unsecrets.git"
       }
     }
   },

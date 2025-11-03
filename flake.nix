@@ -5,6 +5,11 @@
     impermanence.url = "github:nix-community/impermanence";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    unsecrets = {
+      # Nonpublic nix config.
+      url = "git+ssh://git@github.com/willbush/private-nix-unsecrets.git";
+    };
+
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -67,6 +72,7 @@
             (./hosts + "/${hostName}.nix")
             inputs.home-manager.nixosModules.home-manager
             inputs.impermanence.nixosModules.impermanence
+            inputs.unsecrets.nixosModules.default
             inputs.sops-nix.nixosModules.sops
             inputs.stylix.nixosModules.stylix
             {
