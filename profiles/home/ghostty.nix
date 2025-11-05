@@ -29,8 +29,8 @@
         "ctrl+shift+c=copy_to_clipboard"
         "ctrl+shift+v=paste_from_clipboard"
 
-        "ctrl+a>h=write_scrollback_file:copy"
-        "ctrl+a>s=write_screen_file:copy"
+        "alt+a>h=write_scrollback_file:copy"
+        "alt+a>s=write_screen_file:copy"
       ];
     };
   };
