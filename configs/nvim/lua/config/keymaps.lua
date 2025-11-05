@@ -216,6 +216,19 @@ set_keymaps({
     ['<leader>qq'] = { '<cmd>wqa<cr>', desc = 'Write and Quit All' },
   },
 
+  -- Insert Mode
+  i = {
+    -- Emacs-like keybindings for line navigation
+    ['<C-a>'] = { '<Home>', desc = 'Beginning of line' },
+    ['<C-e>'] = { '<End>', desc = 'End of line' },
+  },
+
+  -- Command-line Mode
+  c = {
+    ['<C-a>'] = { '<Home>', desc = 'Beginning of line' },
+    ['<C-e>'] = { '<End>', desc = 'End of line' },
+  },
+
   -- Terminal Mode
   t = {
     -- Exit terminal mode in the builtin terminal with a shortcut that is a bit
