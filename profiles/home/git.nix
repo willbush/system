@@ -152,10 +152,12 @@ in
       enable = true;
       settings = {
         disableStartupPopups = true;
-        git.paging = {
-          colorArg = "always";
-          pager = "delta --dark --paging=never";
-        };
+        git.pagers = [
+          {
+            colorArg = "always";
+            pager = "delta --dark --paging=never";
+          }
+        ];
         keybinding = {
           universal = {
             prevItem-alt = "e";
@@ -174,7 +176,7 @@ in
             createRebaseOptionsMenu = "R";
           };
           files = {
-            openMergeTool = "T";
+            openMergeOptions = "T";
             ignoreFile = "<c-x>";
           };
           branches = {
