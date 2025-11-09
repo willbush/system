@@ -10,6 +10,7 @@
     shellAliases = {
       g = "lazygit";
       h = "hx .";
+      v = "nvim -c 'FzfLua files'";
       la = "eza -lah";
       tp = "trash-put";
     };
