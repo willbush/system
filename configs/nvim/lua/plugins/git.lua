@@ -1,7 +1,3 @@
 return {
-  {
-    'lewis6991/gitsigns.nvim',
-    event = 'VimEnter',
-    opts = {},
-  },
+  { 'nvim-mini/mini.diff', opts = {}, version = false },
 }
