@@ -1,7 +1,7 @@
 return {
   {
-    'nvim-mini/mini.nvim',
-    version = '*',
+    'nvim-mini/mini.clue',
+    version = false,
     config = function()
       local gen_clues = require('mini.clue').gen_clues
 
@@ -46,6 +46,10 @@ return {
           { mode = 'n', keys = '<Leader>' },
           { mode = 'x', keys = '<Leader>' },
 
+          -- `[` and `]` keys
+          { mode = 'n', keys = '[' },
+          { mode = 'n', keys = ']' },
+
           -- Built-in completion
           { mode = 'i', keys = '<C-x>' },
 
@@ -74,6 +78,7 @@ return {
         },
 
         clues = {
+          gen_clues.square_brackets(),
           gen_clues.builtin_completion(),
           gen_clues.g(),
           gen_clues.marks(),
