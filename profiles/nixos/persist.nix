@@ -98,6 +98,10 @@
           mode = "0700";
         }
         {
+          directory = ".codex";
+          mode = "0700";
+        }
+        {
           directory = ".SeedVaultAndroidBackup";
           mode = "0700";
         }
