@@ -53,28 +53,3 @@ vim.o.expandtab = true -- enable the use of space in tab
 
 vim.o.wrap = false -- disable wrapping of lines longer than the width of window
 vim.o.breakindent = true -- wrap indent to match line start
-
-vim.diagnostic.config({
-  virtual_text = true,
-  severity_sort = true,
-
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = '',
-      [vim.diagnostic.severity.WARN] = '',
-      [vim.diagnostic.severity.INFO] = '',
-      [vim.diagnostic.severity.HINT] = '',
-    },
-  },
-
-  float = {
-    source = true,
-    border = 'rounded',
-    header = '',
-    prefix = '',
-  },
-
-  jump = {
-    float = true,
-  },
-})
