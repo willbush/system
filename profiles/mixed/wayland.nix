@@ -56,11 +56,11 @@ in
       ];
       timeouts = [
         {
-          timeout = 300;
+          timeout = 600;
           command = lock;
         }
         {
-          timeout = 600;
+          timeout = 1200;
           command = "${hyprlandPkg}/bin/hyprctl dispatch dpms off";
           resumeCommand = "${hyprlandPkg}/bin/hyprctl dispatch dpms on";
         }
