@@ -31,12 +31,16 @@ return {
           -- TODO: need to look into large project perf more..
           -- - maybe try https://github.com/ethowitz/cargo-subspace
           -- - maybe try https://github.com/crisidev/bacon-ls
-          -- default_settings = {
-          --   ['rust-analyzer'] = {
-          --     -- manually trigger due to perf reasons (large projects)
-          --     checkOnSave = false,
-          --   },
-          -- },
+          default_settings = {
+            ['rust-analyzer'] = {
+              checkOnSave = true,
+              check = {
+                command = 'check',
+                workspace = false,
+                allTargets = false,
+              },
+            },
+          },
           on_attach = function(_, bufnr)
             local function map(mode, lhs, rhs, opts)
               opts = opts or {}
