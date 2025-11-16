@@ -179,25 +179,8 @@ set_keymaps({
       end,
       desc = 'Zoxide travel',
     },
-    -- Project LSP
-    ['<leader>ps'] = {
-      function()
-        require('fzf-lua').lsp_document_symbols()
-      end,
-      desc = 'LSP Symbols (Document)',
-    },
-    ['<leader>pS'] = {
-      function()
-        require('fzf-lua').lsp_live_workspace_symbols()
-      end,
-      desc = 'LSP Symbols (Workspace)',
-    },
-    ['<leader>pr'] = {
-      function()
-        require('fzf-lua').lsp_references()
-      end,
-      desc = 'LSP References',
-    },
+
+    -- TODO: not sure if I want to have all or most LSP key binds here or under goto.
     ['<leader>pd'] = {
       function()
         require('fzf-lua').diagnostics_workspace()
