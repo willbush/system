@@ -19,3 +19,13 @@ vim.api.nvim_create_autocmd({ 'VimResized' }, {
     vim.cmd('tabnext ' .. current_tab)
   end,
 })
+
+-- Move :help commands into vsplit to far right
+vim.api.nvim_create_autocmd('FileType', {
+  group = augroup('vertical_help'),
+  pattern = 'help',
+  callback = function()
+    vim.cmd('wincmd L')
+  end,
+  desc = 'Open :help in vertical split',
+})
