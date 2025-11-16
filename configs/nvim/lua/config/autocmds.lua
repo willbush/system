@@ -3,10 +3,14 @@ local function augroup(name)
 end
 
 -- Highlight on yank
+vim.api.nvim_set_hl(0, 'YankHighlight', { bg = '#9e38a4', fg = '#000000' })
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = augroup('highlight_yank'),
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank({
+      higroup = 'YankHighlight',
+      timeout = 100,
+    })
   end,
 })
 
