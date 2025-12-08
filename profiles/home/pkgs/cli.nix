@@ -19,7 +19,6 @@ in
     # Utilities
     curl
     dust
-    exiftool
     eza
     fd
     ffmpeg
