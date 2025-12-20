@@ -83,6 +83,7 @@
         ".local/state/lazygit"
         ".local/state/nvim"
         ".local/state/wireplumber"
+        ".local/state/yazi"
         ".mozilla" # firefox
         "code"
         "downloads"
