@@ -3,7 +3,7 @@
   stylix = {
     enable = true;
     # NB: when switching themes make sure new theme doesn't break difftastic colors
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
 
     cursor = {
       name = "BreezeX-RosePine-Linux";
