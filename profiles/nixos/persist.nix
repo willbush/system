@@ -64,6 +64,7 @@
         ".config/libreoffice"
         ".config/obs-studio"
         ".config/pulse"
+        ".config/qmk"
         ".config/spotify"
         ".config/syncthing"
         ".config/trader"
