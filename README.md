@@ -25,11 +25,6 @@ A sort of catch all for config / non-nix code.
 Some are simply configuration files that are symlinked to `~/.config/` and managed
 with [home manager](https://github.com/rycee/home-manager).
 
-### keyboard firmware
-
-Keyboard firmware code managed by Nix and the [readme](file:configs/keyboard-firmware/readme.org) that goes into depth on my
-key layout and customized Evil / Vim keybindings.
-
 ### emacs
 
 My emacs configuration code. See its [readme](file:configs/emacs/readme.org) for more information.

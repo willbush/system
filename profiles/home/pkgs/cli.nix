@@ -11,8 +11,6 @@ let
     builtins.readFile ../scripts/rsync-find-orphaned-files.sh
   );
   hyprcwd = writeScriptBin "hyprcwd" (builtins.readFile ../scripts/hyprcwd.sh);
-  # planck = pkgs.callPackage ../../../configs/keyboard-firmware/planck { };
-  # crkbd = pkgs.callPackage ../../../configs/keyboard-firmware/crkbd { };
 in
 {
   home.packages = with pkgs; [
@@ -101,10 +99,6 @@ in
     rustscan
     trippy
     xh
-
-    # Keyboard firmware flash
-    # crkbd
-    # planck
 
     # Custom scripts
     rsync-diff-home
