@@ -92,7 +92,7 @@ in
     zenith
 
     # Network
-    awscli
+    awscli2
     dnsutils
     doggo # DNS Client for Humans.
     openconnect
