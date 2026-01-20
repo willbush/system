@@ -9,7 +9,7 @@
           --time \
           --asterisks \
           --user-menu \
-          --cmd Hyprland
+          --cmd start-hyprland
       '';
     };
   };
