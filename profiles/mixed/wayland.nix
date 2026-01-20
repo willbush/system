@@ -63,6 +63,7 @@ in
       enable = true;
       settings = {
         ipc = "on";
+        splash = false;
         # if files are not present, it will just fallback to hyprland's default
         # wallpaper which is fine with me. I rather have a non-declaritve
         # approach to wallpapers so it doesn't need to be in the nix-store.
