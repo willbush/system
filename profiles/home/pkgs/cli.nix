@@ -59,7 +59,7 @@ in
     xxd # hexdump
 
     # Language formatters
-    nixfmt-rfc-style
+    nixfmt
     nodePackages.prettier
     shfmt
     stylua
