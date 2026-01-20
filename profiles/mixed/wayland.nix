@@ -79,7 +79,10 @@ in
         # or `, /home/me/amongus.png` to apply to all monitors.
         # - https://wiki.hypr.land/Hypr-Ecosystem/hyprpaper/#the-preload-and-wallpaper-keywords
         wallpaper = [
-          "DP-1, ~/images/wallpapers/2.jpg"
+          {
+            monitor = "DP-1";
+            path = "~/images/wallpapers/2.jpg";
+          }
         ];
       };
     };
