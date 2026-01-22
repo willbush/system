@@ -75,14 +75,11 @@ in
           "~/images/wallpapers/blood-moon.png"
         ];
 
-        # Format: `monitor, /home/me/amongus.png`.
-        # monitors info using `hyprctl monitors`.
-        # or `, /home/me/amongus.png` to apply to all monitors.
-        # - https://wiki.hypr.land/Hypr-Ecosystem/hyprpaper/#the-preload-and-wallpaper-keywords
+        # https://wiki.hypr.land/Hypr-Ecosystem/hyprpaper/#the-preload-and-wallpaper-keywords
         wallpaper = [
           {
             monitor = "DP-1";
-            path = "~/images/wallpapers/2.jpg";
+            path = "~/images/wallpapers/1.png";
           }
         ];
       };
