@@ -9,11 +9,13 @@
     bat.enable = true;
     bottom.enable = true; # command: btm
     btop.enable = true;
-    codex.enable = true;
     htop.enable = true;
     imv.enable = true; # command line image viewer intended for use with tiling window managers.
     mpv.enable = true;
     rbw.enable = true;
+
+    codex.enable = true;
+    gemini-cli.enable = true;
 
     fzf.enable = true; # used by yazi
     skim.enable = true;
