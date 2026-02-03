@@ -38,7 +38,6 @@ in
     wl-clipboard-rs
     wl-screenrec
     zip
-    zola # blogging
 
     # Development
     bacon # watches your rust project and runs jobs in background.
