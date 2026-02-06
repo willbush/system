@@ -15,7 +15,6 @@
     rbw.enable = true;
 
     codex.enable = true;
-    gemini-cli.enable = true;
 
     fzf.enable = true; # used by yazi
     skim.enable = true;
