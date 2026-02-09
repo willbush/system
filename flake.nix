@@ -95,7 +95,6 @@
               networking.hostName = hostName;
               nixpkgs.overlays = [
                 inputs.emacs-overlay.overlays.default
-                inputs.nixgl.overlay
               ];
             }
           ];
