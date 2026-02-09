@@ -1,4 +1,7 @@
-{ ... }:
+{ inputs, pkgs, ... }:
+let
+  system = pkgs.stdenv.hostPlatform.system;
+in
 {
   programs = {
     direnv = {
@@ -14,7 +17,10 @@
     mpv.enable = true;
     rbw.enable = true;
 
-    codex.enable = true;
+    codex = {
+      enable = true;
+      package = inputs.codex-cli-nix.packages.${system}.default;
+    };
 
     fzf.enable = true; # used by yazi
     skim.enable = true;

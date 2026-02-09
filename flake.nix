@@ -41,14 +41,17 @@
     # System-wide colorscheming and typography for NixOS
     stylix = {
       url = "github:danth/stylix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     chemacs = {
       url = "github:plexus/chemacs2";
       flake = false;
+    };
+
+    codex-cli-nix = {
+      url = "github:sadjow/codex-cli-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
