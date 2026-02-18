@@ -37,15 +37,6 @@ return {
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
-        providers = {
-          --see readme: https://github.com/folke/lazydev.nvim
-          lazydev = {
-            name = 'LazyDev',
-            module = 'lazydev.integrations.blink',
-            -- make lazydev completions top priority (see `:h blink.cmp`)
-            score_offset = 100,
-          },
-        },
       },
 
       -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

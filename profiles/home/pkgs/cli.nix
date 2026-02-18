@@ -65,7 +65,6 @@ in
 
     # Language servers
     marksman # for markdown
-    lua-language-server
     markdown-oxide
     nil
     taplo # TOML toolkit
