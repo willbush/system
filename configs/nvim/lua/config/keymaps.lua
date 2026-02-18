@@ -22,6 +22,18 @@ local function set_keymaps(maps)
   end
 end
 
+local function yank_current_file_path(register)
+  local path = vim.fn.expand('%:p')
+  if path == '' then
+    vim.notify('No file path for current buffer', vim.log.levels.WARN)
+    return
+  end
+
+  local target_register = register or '"'
+  vim.fn.setreg(target_register, path)
+  vim.notify(('Yanked path (%s): %s'):format(target_register, path))
+end
+
 set_keymaps({
   -- Normal Mode
   n = {
@@ -105,6 +117,18 @@ set_keymaps({
         require('fzf-lua').oldfiles()
       end,
       desc = 'Find Old Files (History)',
+    },
+    ['<leader>fy'] = {
+      function()
+        yank_current_file_path('"')
+      end,
+      desc = 'Yank Absolute File Path',
+    },
+    ['<leader>fY'] = {
+      function()
+        yank_current_file_path('+')
+      end,
+      desc = 'Yank Absolute File Path to Clipboard',
     },
     -- Search
     ['<leader>sl'] = {

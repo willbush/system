@@ -94,6 +94,7 @@ return {
           { mode = 'n', keys = '<leader>r', desc = '+Rapid' },
           { mode = 'n', keys = '<leader>s', desc = '+Search' },
           { mode = 'n', keys = '<leader>w', desc = '+Window' },
+          { mode = 'n', keys = '<leader>x', desc = '+Text manipulation' },
 
           { mode = 'n', keys = '<C-w>', desc = '+Window' },
         },
