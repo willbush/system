@@ -197,6 +197,11 @@ set_keymaps({
 
     -- Quit
     ['<leader>qq'] = { '<cmd>wqa<cr>', desc = 'Write and Quit All' },
+
+    -- Yank / Paste
+    ['<leader>xy'] = { '"+y', desc = 'Yank to system clipboard' },
+    ['<leader>xp'] = { '"+p', desc = 'Paste from system clipboard' },
+    ['<leader>xP'] = { '"+P', desc = 'Paste before from system clipboard' },
   },
 
   -- Insert Mode
@@ -210,6 +215,13 @@ set_keymaps({
   c = {
     ['<C-a>'] = { '<Home>', desc = 'Beginning of line' },
     ['<C-e>'] = { '<End>', desc = 'End of line' },
+  },
+
+  -- Visual Mode
+  x = {
+    -- Yank / Paste
+    ['<leader>xy'] = { '"+y', desc = 'Yank selection to system clipboard' },
+    ['<leader>xp'] = { '"+p', desc = 'Paste from system clipboard' },
   },
 
   -- Terminal Mode

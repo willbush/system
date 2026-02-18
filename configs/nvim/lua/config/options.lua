@@ -19,13 +19,6 @@ vim.o.mouse = 'a' -- Enable mouse mode
 vim.o.showmode = false -- disable showing modes in command line
 vim.o.termguicolors = true -- enable 24-bit RGB color in the TUI
 
--- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
---  See `:help 'clipboard'`
-vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
-end)
-
 vim.o.undofile = true -- enable persistent undo
 
 vim.o.ignorecase = true -- case insensitive searching
