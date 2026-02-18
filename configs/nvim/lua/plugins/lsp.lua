@@ -13,6 +13,9 @@ return {
           default_settings = {
             ['rust-analyzer'] = {
               checkOnSave = true,
+              check = {
+                command = 'check',
+              },
             },
           },
           on_attach = function(_, bufnr)
