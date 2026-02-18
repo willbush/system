@@ -18,7 +18,7 @@ in
     package = inputs.helix.packages.${system}.default;
 
     settings = {
-      # Some of me favorite themes:
+      # Some of my favorite themes:
       #
       # ao
       # ashen
