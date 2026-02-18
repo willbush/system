@@ -2,7 +2,7 @@
 {
   programs.yazi = {
     enable = true;
-    # Adds https://yazi-rs.github.io/docs/quick-start#shell-wrapper as `yy` command
+    # Adds https://yazi-rs.github.io/docs/quick-start#shell-wrapper as `y` command
     enableFishIntegration = true;
   };
 
