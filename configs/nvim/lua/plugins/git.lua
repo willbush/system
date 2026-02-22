@@ -1,3 +1,7 @@
 return {
-  { 'nvim-mini/mini.diff', opts = {}, version = false },
+  {
+    'lewis6991/gitsigns.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
+    opts = {},
+  },
 }
