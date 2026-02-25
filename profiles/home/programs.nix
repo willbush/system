@@ -22,6 +22,11 @@ in
       package = inputs.codex-cli-nix.packages.${system}.default;
     };
 
+    claude-code = {
+      enable = true;
+      package = inputs.claude-code-nix.packages.${system}.claude-code;
+    };
+
     fzf.enable = true; # used by yazi
     skim.enable = true;
 
