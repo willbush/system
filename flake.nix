@@ -26,11 +26,6 @@
       inputs.nixpkgs-stable.follows = "nixpkgs";
     };
 
-    helix = {
-      url = "github:willbush/helix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # This flake causes the following evaluation warnings:
     # 'system' has been renamed to/replaced by 'stdenv.hostPlatform.system'
     nixgl = {

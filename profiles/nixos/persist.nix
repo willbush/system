@@ -37,7 +37,6 @@
         ".cache/fontconfig"
         ".cache/gstreamer-1.0"
         ".cache/gtk-4.0"
-        ".cache/helix"
         ".cache/lua-language-server"
         ".cache/mesa_shader_cache"
         ".cache/mesa_shader_cache_db"

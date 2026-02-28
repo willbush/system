@@ -275,27 +275,6 @@
         "type": "gitlab"
       }
     },
-    "helix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": "rust-overlay"
-      },
-      "locked": {
-        "lastModified": 1759538729,
-        "narHash": "sha256-y1LIzI2eYDHNt1OLamxTzTqtgbF0BU52cv7Uj3DFKmM=",
-        "owner": "willbush",
-        "repo": "helix",
-        "rev": "4d0fc891fcdc805786b05073f22adfb1783ffc03",
-        "type": "github"
-      },
-      "original": {
-        "owner": "willbush",
-        "repo": "helix",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -440,7 +419,6 @@
         "claude-code-nix": "claude-code-nix",
         "codex-cli-nix": "codex-cli-nix",
         "emacs-overlay": "emacs-overlay",
-        "helix": "helix",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "nixgl": "nixgl",
@@ -448,27 +426,6 @@
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "unsecrets": "unsecrets"
-      }
-    },
-    "rust-overlay": {
-      "inputs": {
-        "nixpkgs": [
-          "helix",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1740623427,
-        "narHash": "sha256-3SdPQrZoa4odlScFDUHd4CUPQ/R1gtH4Mq9u8CBiK8M=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "d342e8b5fd88421ff982f383c853f0fc78a847ab",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "type": "github"
       }
     },
     "sops-nix": {
