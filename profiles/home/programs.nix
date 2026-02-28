@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 let
   system = pkgs.stdenv.hostPlatform.system;
 in
@@ -16,17 +21,6 @@ in
     imv.enable = true; # command line image viewer intended for use with tiling window managers.
     mpv.enable = true;
     rbw.enable = true;
-
-    codex = {
-      enable = true;
-      package = inputs.codex-cli-nix.packages.${system}.default;
-    };
-
-    claude-code = {
-      enable = true;
-      package = inputs.claude-code-nix.packages.${system}.claude-code;
-    };
-
     fzf.enable = true; # used by yazi
     skim.enable = true;
 
@@ -39,5 +33,16 @@ in
       };
     };
     zoxide.enable = true;
+  };
+
+  # This also has the undocumented effect of `.claude.json` ending up in this folder.
+  home.sessionVariables.CLAUDE_CONFIG_DIR = "${config.xdg.configHome}/claude";
+  programs.claude-code = {
+    enable = true;
+    package = inputs.claude-code-nix.packages.${system}.claude-code;
+  };
+  programs.codex = {
+    enable = true;
+    package = inputs.codex-cli-nix.packages.${system}.default;
   };
 }

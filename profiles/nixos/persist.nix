@@ -55,6 +55,7 @@
         ".config/OpenRGB"
         ".config/Signal"
         ".config/Slack"
+        ".config/claude"
         ".config/dconf"
         ".config/emacs.default/backups"
         ".config/emacs.default/.cache"
