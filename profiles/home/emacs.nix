@@ -76,6 +76,7 @@
         marginalia
         markdown-mode
         markdown-toc
+        meow
         moody
         nerd-icons
         nerd-icons-completion
