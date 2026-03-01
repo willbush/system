@@ -84,33 +84,6 @@
   :commands exec-path-from-shell-copy-env)
 
 
-(use-package gptel
-  :defer 3
-  :config
-  (require 'gptel-curl)
-  ;; (require 'gptel-anthropic)
-
-  ;; https://github.com/karthink/gptel/issues/302
-  ;; hard wrapping doesn't work well because it applies to source blocks
-  (add-hook 'gptel-mode-hook #'visual-line-mode)
-  (add-hook 'gptel-post-response-functions 'whitespace-cleanup)
-
-  (setq gptel-default-mode 'org-mode)
-
-  (setq gptel-model "anthropic/claude-3.5-sonnet"
-        gptel-backend
-        (gptel-make-openai "OpenRouter"
-          :host "openrouter.ai"
-          :endpoint "/api/v1/chat/completions"
-          :stream t
-          :key (lambda () (nth 3 (process-lines "gopass" "show" "will/websites/general/openrouter.ai")))
-          :models '("anthropic/claude-3.5-sonnet"
-                    "anthropic/claude-3-haiku"
-                    "openai/gpt-4o-mini-2024-07-18"
-                    "openai/gpt-4o"
-                    "mistralai/mixtral-8x22b-instruct"))))
-
-
 (use-package keycast
   :commands
   (keycast-header-line-mode

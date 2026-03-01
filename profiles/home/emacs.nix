@@ -65,7 +65,6 @@
         git-gutter
         git-gutter-fringe
         git-timemachine
-        gptel
         haskell-mode
         helpful
         hydra

@@ -155,27 +155,6 @@
   :commands exec-path-from-shell-copy-env)
 
 
-(use-package gptel
-  :commands (gptel gptel-send gptel-abort gptel-end-of-response)
-  :config
-  (require 'gptel-curl)
-  (require 'gptel-gemini)
-
-  ;; https://github.com/karthink/gptel/issues/302
-  ;; hard wrapping doesn't work well because it applies to source blocks
-  (add-hook 'gptel-mode-hook #'visual-line-mode)
-  (add-hook 'gptel-post-response-functions (lambda (&rest _) (whitespace-cleanup)))
-
-  (setq gptel-default-mode 'markdown-mode)
-
-  (setq
-   gptel-model 'gemini-2.5-pro-preview-05-06
-   gptel-backend
-   (gptel-make-gemini "Gemini"
-                      :key (lambda () (nth 0 (process-lines "rbw" "get" "gemini" "--field" "api key")))
-                      :stream t)))
-
-
 (use-package keycast
   :commands
   (keycast-header-line-mode
