@@ -10,7 +10,7 @@
     simple-scan
 
     # Communication
-    signal-desktop-bin
+    signal-desktop
     slack
     vesktop # discord client
 
