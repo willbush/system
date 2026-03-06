@@ -10,13 +10,11 @@
     directories = [
       "/etc/NetworkManager/system-connections"
       "/etc/mullvad-vpn"
-      "/var/cache/libvirt"
       "/var/cache/mullvad-vpn"
       "/var/cache/tuigreet"
       "/var/lib/OpenRGB"
       "/var/lib/alsa"
       "/var/lib/docker"
-      "/var/lib/libvirt"
       "/var/lib/nixos" # contains important state: https://github.com/nix-community/impermanence/issues/178
       "/var/lib/systemd"
       "/var/lib/tailscale"
@@ -48,7 +46,6 @@
         ".cache/spotify"
         ".cache/tealdeer"
         ".cache/thumbnails"
-        ".cache/virt-manager"
         ".cargo"
         ".config/Mullvad VPN"
         ".config/OpenRGB"
