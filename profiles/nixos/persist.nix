@@ -10,6 +10,7 @@
     directories = [
       "/etc/NetworkManager/system-connections"
       "/etc/mullvad-vpn"
+      "/var/cache/man"
       "/var/cache/mullvad-vpn"
       "/var/cache/tuigreet"
       "/var/lib/OpenRGB"
