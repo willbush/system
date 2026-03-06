@@ -9,13 +9,17 @@ in
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # important for system-wide configuration despite being installed via home-manager
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
 
   security.pam.services.hyprlock = { };
 
   home-manager.users.${config.user.name} = {
     wayland.windowManager.hyprland = {
       enable = true;
+      systemd.enable = false; # managed by UWSM instead
       extraConfig = builtins.readFile ../../configs/hypr/hyprland.conf;
     };
 

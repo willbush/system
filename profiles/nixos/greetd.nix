@@ -9,7 +9,7 @@
           --time \
           --asterisks \
           --user-menu \
-          --cmd start-hyprland
+          --cmd "uwsm start hyprland.desktop"
       '';
     };
   };
