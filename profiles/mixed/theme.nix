@@ -2,6 +2,7 @@
 {
   stylix = {
     enable = true;
+    polarity = "dark";
     # NB: when switching themes make sure new theme doesn't break difftastic colors
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
 
