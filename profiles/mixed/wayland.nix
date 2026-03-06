@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 let
-  lock = "${pkgs.swaylock-effects}/bin/swaylock --daemonize --screenshots --clock --indicator";
   hmConfig = config.home-manager.users.${config.user.name};
   hyprlandPkg = hmConfig.wayland.windowManager.hyprland.package;
 in
@@ -11,7 +10,6 @@ in
   # important for system-wide configuration despite being installed via home-manager
   programs.hyprland.enable = true;
 
-  security.pam.services.swaylock = { };
 
   home-manager.users.${config.user.name} = {
     wayland.windowManager.hyprland = {
@@ -25,32 +23,9 @@ in
       settings.default-timeout = "5000";
     };
 
-    # requires `security.pam.services.swaylock = { };` at the system level or else
-    # unlock will not work.
-    programs.swaylock = {
-      enable = true;
-      package = pkgs.swaylock-effects;
-
-      settings = {
-        indicator-radius = 100;
-        indicator-thickness = 7;
-        effect-blur = "7x5";
-        effect-vignette = "0.5:0.5";
-        fade-in = 0.2;
-      };
-    };
-
     services.swayidle = {
       enable = true;
-      events = {
-        "before-sleep" = lock;
-        "lock" = lock;
-      };
       timeouts = [
-        {
-          timeout = 600;
-          command = lock;
-        }
         {
           timeout = 1200;
           command = "${hyprlandPkg}/bin/hyprctl dispatch dpms off";
