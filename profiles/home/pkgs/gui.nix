@@ -31,7 +31,6 @@
     seahorse # password and keys manager
 
     # Audio
-    helvum # A GTK patchbay for pipewire.
     pavucontrol
 
     # Utilities
