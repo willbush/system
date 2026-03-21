@@ -108,10 +108,6 @@
           mode = "0700";
         }
         {
-          directory = ".SeedVaultAndroidBackup";
-          mode = "0700";
-        }
-        {
           directory = ".gnupg";
           mode = "0700";
         }
