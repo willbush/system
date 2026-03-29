@@ -33,6 +33,9 @@
     # Audio
     pavucontrol
 
+    # Photo
+    ente-desktop
+
     # Utilities
     transmission_4-gtk
     wireshark

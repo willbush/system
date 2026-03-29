@@ -17,6 +17,7 @@ in
     # Utilities
     curl
     dust
+    ente-cli
     eza
     fd
     ffmpeg
@@ -32,8 +33,8 @@ in
     tree
     unar
     unzip
-    viu # cli image viewer (used by fzf-lua)
     usbutils
+    viu # cli image viewer (used by fzf-lua)
     wget
     wl-clipboard-rs
     wl-screenrec
