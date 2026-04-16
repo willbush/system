@@ -60,7 +60,7 @@ in
 
     # Language formatters
     nixfmt
-    nodePackages.prettier
+    prettier
     shfmt
     stylua
 
