@@ -118,7 +118,7 @@ in
     # programs willing to store secrets.
     gnome.gnome-keyring.enable = true;
 
-    mullvad-vpn.enable = true;
+    mullvad-vpn.enable = false;
     tailscale = {
       enable = true;
       useRoutingFeatures = "client";
