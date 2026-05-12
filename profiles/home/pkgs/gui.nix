@@ -16,7 +16,7 @@
 
     # Multimedia
     gimp
-    inkscape
+    # inkscape # disable because it wants to compile without cache for some reason
     obs-studio
     spotify
     swappy # Wayland native snapshot editing tool
