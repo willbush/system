@@ -64,7 +64,6 @@
         ".config/ente"
         ".config/fish"
         ".config/glab-cli"
-        ".config/inkscape"
         ".config/libreoffice"
         ".config/obs-studio"
         ".config/pulse"
