@@ -92,9 +92,6 @@ in
     gtk.enable = true;
 
     services.syncthing.enable = true;
-
-    # Nicely reload system units when changing configs
-    systemd.user.startServices = "sd-switch";
   };
 
   modules.unfree.allowList = [
