@@ -26,13 +26,6 @@
       inputs.nixpkgs-stable.follows = "nixpkgs";
     };
 
-    # This flake causes the following evaluation warnings:
-    # 'system' has been renamed to/replaced by 'stdenv.hostPlatform.system'
-    nixgl = {
-      url = "github:nix-community/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # System-wide colorscheming and typography for NixOS
     stylix = {
       url = "github:danth/stylix";

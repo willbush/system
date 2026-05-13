@@ -6,27 +6,6 @@
   inputs,
   ...
 }:
-let
-  # nixGL currently emits evaluation warnings on modern nixpkgs due to legacy
-  # `final.system` and `xorg.*` attribute usage; this local import/aliasing keeps
-  # behavior the same while silencing those warnings in this system flake.
-  # TODO: Remove this compatibility wrapper once nix-community/nixGL replaces
-  # xorg.libX11/libxcb/libxshmfence with libx11/libxcb/libxshmfence upstream.
-  pkgsForNixGL = pkgs.extend (
-    _final: prev: {
-      xorg = prev.xorg // {
-        libX11 = prev.libx11;
-        libxcb = prev.libxcb;
-        libxshmfence = prev.libxshmfence;
-      };
-    }
-  );
-  nixgl = import "${inputs.nixgl}/default.nix" {
-    pkgs = pkgsForNixGL;
-    enable32bits = pkgs.stdenv.hostPlatform.system == "x86_64-linux";
-    enableIntelX86Extensions = pkgs.stdenv.hostPlatform.system == "x86_64-linux";
-  };
-in
 {
   imports = [
     "${modulesPath}/installer/scan/not-detected.nix"
@@ -41,10 +20,6 @@ in
   ];
 
   modules.services.openrgb.enable = true;
-
-  environment.systemPackages = [
-    nixgl.nixVulkanIntel
-  ];
 
   # Generated hardware configuration below:
   boot.initrd.availableKernelModules = [
