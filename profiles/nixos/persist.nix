@@ -85,6 +85,7 @@
         ".local/share/viewer"
         ".local/share/zoxide"
         ".local/state/lazygit"
+        ".local/state/nix"
         ".local/state/nix-output-monitor"
         ".local/state/nvim"
         ".local/state/wireplumber"
