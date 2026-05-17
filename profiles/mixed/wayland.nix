@@ -20,6 +20,7 @@ in
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = false; # managed by UWSM instead
+      configType = "hyprlang";
       extraConfig = builtins.readFile ../../configs/hypr/hyprland.conf;
     };
 
