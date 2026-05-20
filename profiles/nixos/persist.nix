@@ -38,7 +38,6 @@
         ".cache/gtk-4.0"
         ".cache/lua-language-server"
         ".cache/mesa_shader_cache"
-        ".cache/mesa_shader_cache_db"
         ".cache/mozilla"
         ".cache/nix"
         ".cache/nvim"
