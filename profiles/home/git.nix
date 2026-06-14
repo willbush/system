@@ -210,6 +210,14 @@ in
       includes = [ config.sops.templates."ssh-work-config".path ];
 
       settings = {
+        "github.com" = {
+          AddKeysToAgent = "yes";
+          IdentityFile = "~/.ssh/id_ed25519_github";
+        };
+        "gitlab.com" = {
+          AddKeysToAgent = "yes";
+          IdentityFile = "~/.ssh/id_ed25519_gitlab";
+        };
         "*" = {
           ForwardAgent = false;
           AddKeysToAgent = "no";
@@ -222,14 +230,6 @@ in
           ControlMaster = "auto";
           ControlPath = "~/.ssh/master-%r@%n:%p";
           ControlPersist = "10m";
-        };
-        "github.com" = {
-          AddKeysToAgent = "yes";
-          IdentityFile = "~/.ssh/id_ed25519_github";
-        };
-        "gitlab.com" = {
-          AddKeysToAgent = "yes";
-          IdentityFile = "~/.ssh/id_ed25519_gitlab";
         };
       };
     };
