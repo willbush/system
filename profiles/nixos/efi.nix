@@ -15,6 +15,7 @@
         # compatibility. See description in:
         # nixpkgs/nixos/modules/system/boot/loader/systemd-boot/systemd-boot.nix
         editor = false;
+        bootCounting.enable = true;
       };
     };
   };
