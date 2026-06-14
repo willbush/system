@@ -209,27 +209,27 @@ in
       enableDefaultConfig = false;
       includes = [ config.sops.templates."ssh-work-config".path ];
 
-      matchBlocks = {
+      settings = {
         "*" = {
-          forwardAgent = false;
-          addKeysToAgent = "no";
-          compression = false;
-          serverAliveInterval = 120;
-          serverAliveCountMax = 3;
-          hashKnownHosts = false;
-          userKnownHostsFile = "~/.ssh/known_hosts";
+          ForwardAgent = false;
+          AddKeysToAgent = "no";
+          Compression = false;
+          ServerAliveInterval = 120;
+          ServerAliveCountMax = 3;
+          HashKnownHosts = false;
+          UserKnownHostsFile = "~/.ssh/known_hosts";
           # connection multiplexing
-          controlMaster = "auto";
-          controlPath = "~/.ssh/master-%r@%n:%p";
-          controlPersist = "10m";
+          ControlMaster = "auto";
+          ControlPath = "~/.ssh/master-%r@%n:%p";
+          ControlPersist = "10m";
         };
         "github.com" = {
-          addKeysToAgent = "yes";
-          identityFile = "~/.ssh/id_ed25519_github";
+          AddKeysToAgent = "yes";
+          IdentityFile = "~/.ssh/id_ed25519_github";
         };
         "gitlab.com" = {
-          addKeysToAgent = "yes";
-          identityFile = "~/.ssh/id_ed25519_gitlab";
+          AddKeysToAgent = "yes";
+          IdentityFile = "~/.ssh/id_ed25519_gitlab";
         };
       };
     };
