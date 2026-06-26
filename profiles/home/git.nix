@@ -125,7 +125,6 @@ in
         merge.conflictstyle = "zdiff3";
         pull.rebase = false;
         push.autoSetupRemote = true;
-        blame.ignoreRevsFile = ":(optional).git-blame-ignore-revs";
         # https://mergiraf.org/usage.html#registration-as-a-git-merge-driver
         merge.mergiraf = {
           name = "mergiraf";
