@@ -6,6 +6,12 @@ vim.g.maplocalleader = ','
 
 vim.g.have_nerd_font = true
 
+-- Disable unused language providers
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_node_provider = 0
+
 -- [[ Setting options ]]
 --  For more options `:help option-list`
 

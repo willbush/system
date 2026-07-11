@@ -20,4 +20,6 @@ require('lazy').setup({
   spec = {
     { import = 'plugins' },
   },
+  -- No plugins use luarocks
+  rocks = { enabled = false },
 })
