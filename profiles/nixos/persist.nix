@@ -71,7 +71,6 @@
         ".config/syncthing"
         ".config/trader"
         ".config/transmission"
-        ".config/vesktop"
         ".config/vlc"
         ".local/share/direnv"
         ".local/share/fish"
