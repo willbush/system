@@ -97,6 +97,8 @@ in
   modules.unfree.allowList = [
     "slack"
     "spotify"
+    "steam"
+    "steam-unwrapped"
   ];
 
   networking = {
@@ -124,6 +126,8 @@ in
   };
 
   programs.fish.enable = true;
+  # also enables 32-bit graphics for its wine/proton games
+  programs.steam.enable = true;
   programs.wireshark.enable = true;
 
   programs.nh = {

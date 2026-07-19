@@ -72,6 +72,7 @@
         ".config/trader"
         ".config/transmission"
         ".config/vlc"
+        ".local/share/Steam" # game installs, proton prefixes, shader caches
         ".local/share/direnv"
         ".local/share/fish"
         ".local/share/hyprland"
@@ -89,6 +90,7 @@
         ".local/state/wireplumber"
         ".local/state/yazi"
         ".mozilla" # firefox
+        ".steam" # steam symlinks + registry.vdf
         "code"
         "downloads"
         "images"
