@@ -50,6 +50,12 @@ set_keymaps({
 
     -- Rapid (emphasize easy access over mnemonics)
     ['<leader>rs'] = { '<cmd>update<cr>', desc = 'Save Buffer' },
+    ['<leader>rt'] = {
+      function()
+        require('fzf-lua').colorschemes()
+      end,
+      desc = 'Theme Picker',
+    },
 
     -- Buffers
     ['<leader>bb'] = {
