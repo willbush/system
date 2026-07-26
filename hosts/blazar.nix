@@ -35,6 +35,9 @@
   boot.extraModulePackages = [ ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # needed for mounting the NAS
+  boot.supportedFilesystems = [ "nfs" ];
+
   fileSystems."/" = {
     device = "none";
     fsType = "tmpfs";
