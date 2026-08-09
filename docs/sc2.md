@@ -1,0 +1,46 @@
+# StarCraft II
+
+Battle.net via Steam + Proton Experimental, with the cursor confined to the
+game by running it inside a wine virtual desktop sized exactly to the game.
+
+## Install
+
+1. Steam → Add a Non-Steam Game → `Battle.net-Setup.exe`
+2. Shortcut Properties → Compatibility → force **Proton Experimental**
+3. Launch, install Battle.net + SC2. This creates the wine prefix at
+   `~/.local/share/Steam/steamapps/compatdata/<appid>/pfx/`
+4. Battle.net settings: exit launcher on game start
+
+## Cursor confinement
+
+Proton ignores wine's automatic virtual-desktop registry setting, so the
+desktop is injected via launch options. Target stays untouched, since changing
+it changes the appid and orphans the prefix:
+
+```
+bash -c 'exec "${@:1:$#-1}" explorer.exe /desktop=sc2,2560x1600 "C:\Program Files (x86)\Battle.net\Battle.net.exe"' -- %command%
+```
+
+Registry, in the prefix. Use `reg.exe` while wine is running, and never edit
+`user.reg` directly unless every wine process incl. `services.exe` is dead:
+
+```
+reg add "HKCU\Software\Wine\Explorer\Desktops" /v sc2 /d 2560x1600 /f
+reg add "HKCU\Software\Wine\AppDefaults\SC2_x64.exe\X11 Driver" /v GrabFullscreen /d Y /f
+```
+
+From the host: `steam-run python3 "<proton dir>/proton" run reg.exe ...` with
+`STEAM_COMPAT_DATA_PATH=<compatdata/appid>` and
+`STEAM_COMPAT_CLIENT_INSTALL_PATH=~/.local/share/Steam` exported.
+
+The `sc2 - Wine Desktop` windowrule in `configs/hypr/hyprland.lua` floats it
+centered at 2560x1600, borderless, and blacks out everything around it.
+
+## In-game settings
+
+- 2560x1600, windowed fullscreen, fills the desktop window exactly
+- 144 fps cap, vsync off (uncapped pegs the GPU when unfocused)
+- Settings live in `<pfx>/drive_c/users/steamuser/Documents/StarCraft II/Variables.txt`
+
+The cursor grab engages when the game gains focus. If it isn't confining,
+switch workspaces away and back.
