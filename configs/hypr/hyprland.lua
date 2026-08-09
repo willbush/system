@@ -79,6 +79,18 @@ hl.window_rule({ match = { class = "^(emacs)$" }, opacity = "0.98 0.88" })
 hl.window_rule({ match = { initial_title = "^viewer.*$" }, float = true, fullscreen = true })
 hl.window_rule({ match = { initial_title = "^Metric dashboards$" }, float = true, persistent_size = true })
 
+-- SC2 in a game-sized wine virtual desktop so wine can confine the cursor
+hl.window_rule({
+  match = { title = "^(sc2 - Wine Desktop)$" },
+  float = true,
+  center = true,
+  size = "2560 1600",
+  border_size = 0,
+  rounding = 0,
+  dim_around = true,
+  no_shadow = true,
+})
+
 -- Smart gaps:
 -- see https://wiki.hyprland.org/Configuring/Workspace-Rules/#smart-gaps
 hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
@@ -90,6 +102,11 @@ hl.window_rule({ match = { workspace = "f[1]", float = false }, border_size = 0,
 hl.config({
   general = {
     layout = "master",
+  },
+
+  decoration = {
+    -- dim_around rule dims to full black
+    dim_around = 1.0,
   },
 
   input = {
