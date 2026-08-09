@@ -2,7 +2,7 @@
 let
   hmConfig = config.home-manager.users.${config.user.name};
   hyprlandPkg = hmConfig.wayland.windowManager.hyprland.package;
-  lock = "${hyprlandPkg}/bin/hyprctl dispatch exec hyprlock";
+  lock = "${hyprlandPkg}/bin/hyprctl dispatch 'hl.dsp.exec_cmd(\"hyprlock\")'";
 in
 {
   # enable Ozone Wayland support in Chromium and Electron based applications
@@ -20,8 +20,8 @@ in
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = false; # managed by UWSM instead
-      configType = "hyprlang";
-      extraConfig = builtins.readFile ../../configs/hypr/hyprland.conf;
+      configType = "lua";
+      extraConfig = builtins.readFile ../../configs/hypr/hyprland.lua;
     };
 
     # lightweight notification daemon for Wayland
@@ -72,8 +72,8 @@ in
         }
         {
           timeout = 1200;
-          command = "${hyprlandPkg}/bin/hyprctl dispatch dpms off";
-          resumeCommand = "${hyprlandPkg}/bin/hyprctl dispatch dpms on";
+          command = "${hyprlandPkg}/bin/hyprctl dispatch 'hl.dsp.dpms({ action = \"off\" })'";
+          resumeCommand = "${hyprlandPkg}/bin/hyprctl dispatch 'hl.dsp.dpms({ action = \"on\" })'";
         }
       ];
     };
