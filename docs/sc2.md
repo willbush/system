@@ -18,16 +18,8 @@ desktop is injected via launch options. Target stays untouched, since changing
 it changes the appid and orphans the prefix:
 
 ```
-bash -c 'exec "${@:1:$#-1}" explorer.exe /desktop=sc2,2560x1600 "C:\Program Files (x86)\Battle.net\Battle.net.exe"' -- %command%
+mangohud bash -c 'exec "${@:1:$#-1}" explorer.exe /desktop=sc2,2560x1600 "C:\Program Files (x86)\Battle.net\Battle.net.exe"' -- %command%
 ```
-
-## Frame cap
-
-The virtual desktop reports a fake 60Hz monitor, so the in-game refresh
-setting only offers 60 and vsync paces to 60. `DXVK_FRAME_RATE` and MangoHud
-do not work here (limiter inert in Valve's DXVK, MangoHud not in the runtime).
-What works: `frameratecap=144` in `Variables.txt`. It overshoots to ~166 fps,
-which is fine. Uncapped runs 500+ and pegs the GPU.
 
 Registry, in the prefix. Use `reg.exe` while wine is running, and never edit
 `user.reg` directly unless every wine process incl. `services.exe` is dead:
@@ -44,10 +36,24 @@ From the host: `steam-run python3 "<proton dir>/proton" run reg.exe ...` with
 The `sc2 - Wine Desktop` windowrule in `configs/hypr/hyprland.lua` floats it
 centered at 2560x1600, borderless, and blacks out everything around it.
 
+## Frame cap and monitoring
+
+The virtual desktop reports a fake 60Hz monitor, so the in-game refresh
+setting only offers 60 and vsync paces to 60. `DXVK_FRAME_RATE` was removed
+in DXVK 3.0. Uncapped runs 500+ fps and pegs the GPU. What works:
+
+- MangoHud `fps_limit=144`, exact. Configured via `programs.mangohud` in
+  home-manager, applied by the `mangohud` prefix in the launch options.
+  Also the monitoring overlay: fps, frametimes, temps, throttling. Toggle
+  with Shift_R+F12. All keybinds are pinned to right shift because the
+  Shift_L+F1..F4 defaults collide with shift-queueing.
+- `frameratecap=144` in `Variables.txt` as backstop, overshoots to ~166.
+- `dxvk.maxFrameRate` in a conf file via `DXVK_CONFIG_FILE` also works.
+
 ## In-game settings
 
 - 2560x1600, windowed fullscreen, fills the desktop window exactly
-- 144 fps cap, vsync off (uncapped pegs the GPU when unfocused)
+- vsync off, fps capped by MangoHud
 - Settings live in `<pfx>/drive_c/users/steamuser/Documents/StarCraft II/Variables.txt`
 
 The cursor grab engages when the game gains focus. If it isn't confining,
