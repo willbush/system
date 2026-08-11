@@ -21,6 +21,14 @@ it changes the appid and orphans the prefix:
 bash -c 'exec "${@:1:$#-1}" explorer.exe /desktop=sc2,2560x1600 "C:\Program Files (x86)\Battle.net\Battle.net.exe"' -- %command%
 ```
 
+## Frame cap
+
+The virtual desktop reports a fake 60Hz monitor, so the in-game refresh
+setting only offers 60 and vsync paces to 60. `DXVK_FRAME_RATE` and MangoHud
+do not work here (limiter inert in Valve's DXVK, MangoHud not in the runtime).
+What works: `frameratecap=144` in `Variables.txt`. It overshoots to ~166 fps,
+which is fine. Uncapped runs 500+ and pegs the GPU.
+
 Registry, in the prefix. Use `reg.exe` while wine is running, and never edit
 `user.reg` directly unless every wine process incl. `services.exe` is dead:
 
