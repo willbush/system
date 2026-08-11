@@ -56,6 +56,8 @@ hl.bind(s .. " + I", hl.dsp.layout("mfact -0.05"))
 hl.bind(s .. " + X", hl.dsp.window.fullscreen({ mode = "maximized" }))
 -- [D]rop: Toggle floating on current window.
 hl.bind(s .. " + D", hl.dsp.window.float())
+-- [C]enter: recenter floating window
+hl.bind(s .. " + C", hl.dsp.window.center())
 
 -- These are Colemak-DH keys. I don't dedicated number row unless I go
 -- through a layer key. So I rather use keys close to the home row.
@@ -85,6 +87,8 @@ hl.window_rule({
   float = true,
   center = true,
   size = "2560 1600",
+  min_size = { 2560, 1600 },
+  max_size = { 2560, 1600 },
   border_size = 0,
   rounding = 0,
   dim_around = true,
