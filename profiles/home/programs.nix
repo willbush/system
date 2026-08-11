@@ -26,6 +26,7 @@ in
       enable = true;
       settings = {
         fps_limit = 144;
+        no_display = true;
         position = "top-right";
         # defaults sit on Shift_L+F1..F4, too easy to hit
         toggle_hud = "Shift_R+F12";
