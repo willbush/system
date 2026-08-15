@@ -13,12 +13,14 @@ local sc = "SUPER + CTRL"
 local terminal = "ghostty --working-directory=home"
 local menu = "tofi-drun --drun-launch=true"
 local lazygit = 'lazygit --path "$(hyprcwd)"'
+local firefox = "firefox"
+local spotify = "spotify"
 
 hl.bind(c .. " + Space", hl.dsp.exec_cmd(menu))
 hl.bind(s .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
 hl.bind(ss .. " + C", hl.dsp.window.close()) -- [C]lose
-hl.bind(ss .. " + BackSpace", hl.dsp.exec_cmd("firefox"))
+hl.bind(ss .. " + BackSpace", hl.dsp.exec_cmd(firefox))
 hl.bind(ss .. " + Apostrophe", hl.dsp.exec_cmd(terminal .. " -e " .. lazygit))
 hl.bind(ss .. " + Return", hl.dsp.exec_cmd(terminal))
 
@@ -148,4 +150,6 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "default
 hl.on("hyprland.start", function()
   hl.exec_cmd(terminal, { workspace = "1 silent" })
   hl.exec_cmd(terminal, { workspace = "1 silent" })
+  hl.exec_cmd(firefox, { workspace = "2 silent" })
+  hl.exec_cmd(spotify, { workspace = "3 silent" })
 end)
