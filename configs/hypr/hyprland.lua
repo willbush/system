@@ -83,19 +83,8 @@ hl.window_rule({ match = { class = "^(emacs)$" }, opacity = "0.98 0.88" })
 hl.window_rule({ match = { initial_title = "^viewer.*$" }, float = true, fullscreen = true })
 hl.window_rule({ match = { initial_title = "^Metric dashboards$" }, float = true, persistent_size = true })
 
--- SC2 in a game-sized wine virtual desktop so wine can confine the cursor
-hl.window_rule({
-  match = { title = "^(sc2 - Wine Desktop)$" },
-  float = true,
-  center = true,
-  size = "2560 1600",
-  min_size = { 2560, 1600 },
-  max_size = { 2560, 1600 },
-  border_size = 0,
-  rounding = 0,
-  dim_around = true,
-  no_shadow = true,
-})
+-- SC2 via gamescope: fullscreen, gamescope letterboxes and confines the cursor
+hl.window_rule({ match = { class = "^(gamescope)$" }, fullscreen = true })
 
 -- Smart gaps:
 -- see https://wiki.hyprland.org/Configuring/Workspace-Rules/#smart-gaps

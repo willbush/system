@@ -1,7 +1,9 @@
 # StarCraft II
 
-Battle.net via Steam + Proton Experimental, with the cursor confined to the
-game by running it inside a wine virtual desktop sized exactly to the game.
+Battle.net via Steam + Proton Experimental, run fullscreen inside gamescope.
+Gamescope letterboxes the 2560x1600 game on the 3840x1600 monitor and
+confines the cursor to the game area. Needs gamescope >= 3.16.25 (older
+versions anchor the confinement region wrong for letterboxed games).
 
 ## Install
 
@@ -11,50 +13,42 @@ game by running it inside a wine virtual desktop sized exactly to the game.
    `~/.local/share/Steam/steamapps/compatdata/<appid>/pfx/`
 4. Battle.net settings: exit launcher on game start
 
-## Cursor confinement
+## Launch
 
-Proton ignores wine's automatic virtual-desktop registry setting, so the
-desktop is injected via launch options. Target stays untouched, since changing
-it changes the appid and orphans the prefix:
-
-```
-mangohud bash -c 'exec "${@:1:$#-1}" explorer.exe /desktop=sc2,2560x1600 "C:\Program Files (x86)\Battle.net\Battle.net.exe"' -- %command%
-```
-
-Registry, in the prefix. Use `reg.exe` while wine is running, and never edit
-`user.reg` directly unless every wine process incl. `services.exe` is dead:
+Requires `programs.gamescope.enable` (`users/will.nix`). Launch options on
+the shortcut:
 
 ```
-reg add "HKCU\Software\Wine\Explorer\Desktops" /v sc2 /d 2560x1600 /f
-reg add "HKCU\Software\Wine\AppDefaults\SC2_x64.exe\X11 Driver" /v GrabFullscreen /d Y /f
+gamescope -W 3840 -H 1600 -w 2560 -h 1600 -r 144 -o 30 --framerate-limit 144 -f --force-grab-cursor -- bash -c 'exec "${@:1:$#-1}" "C:\Program Files (x86)\Battle.net\Battle.net.exe"' -- %command%
 ```
 
-From the host: `steam-run python3 "<proton dir>/proton" run reg.exe ...` with
-`STEAM_COMPAT_DATA_PATH=<compatdata/appid>` and
-`STEAM_COMPAT_CLIENT_INSTALL_PATH=~/.local/share/Steam` exported.
+- The bash slice swaps the trailing installer path for the installed
+  Battle.net.exe. The shortcut Target stays `Battle.net-Setup.exe`, since
+  changing it changes the appid and orphans the prefix.
+- Game height equals output height, so the default fit scaler renders 1:1
+  with pure side bars.
+- `--force-grab-cursor` confines unconditionally instead of trusting the
+  game's own confine request, which historically got dropped between wine
+  and the display layer.
+- `--framerate-limit 144` divides the `-r 144` refresh evenly, exact cap.
+  `frameratecap=144` in `Variables.txt` stays as a backstop (lands ~166).
 
-The `sc2 - Wine Desktop` windowrule in `configs/hypr/hyprland.lua` floats it
-centered at 2560x1600, borderless, and blacks out everything around it.
-
-## Frame cap and monitoring
-
-The virtual desktop reports a fake 60Hz monitor, so the in-game refresh
-setting only offers 60 and vsync paces to 60. `DXVK_FRAME_RATE` was removed
-in DXVK 3.0. Uncapped runs 500+ fps and pegs the GPU. What works:
-
-- MangoHud `fps_limit=144`, exact. Configured via `programs.mangohud` in
-  home-manager, applied by the `mangohud` prefix in the launch options.
-  Also the monitoring overlay: fps, frametimes, temps, throttling. Toggle
-  with Shift_R+F12. All keybinds are pinned to right shift because the
-  Shift_L+F1..F4 defaults collide with shift-queueing.
-- `frameratecap=144` in `Variables.txt` as backstop, overshoots to ~166.
-- `dxvk.maxFrameRate` in a conf file via `DXVK_CONFIG_FILE` also works.
+The `gamescope` windowrule in `configs/hypr/hyprland.lua` fullscreens the
+window at map. Fullscreen focus also satisfies `vrr = 2`.
 
 ## In-game settings
 
-- 2560x1600, windowed fullscreen, fills the desktop window exactly
-- vsync off, fps capped by MangoHud
+- 2560x1600, windowed fullscreen, fills gamescope's nested display exactly
+- vsync off, gamescope caps the frame rate
 - Settings live in `<pfx>/drive_c/users/steamuser/Documents/StarCraft II/Variables.txt`
 
-The cursor grab engages when the game gains focus. If it isn't confining,
-switch workspaces away and back.
+## Prefix leftovers
+
+Inert registry keys from the earlier wine virtual-desktop approach remain in
+the prefix: `Explorer\Desktops` `sc2`, `GrabFullscreen=Y` for `SC2_x64.exe`,
+`UseTakeFocus=N`. Harmless under gamescope. If registry edits are ever
+needed, use `reg.exe` while wine is running, and never edit `user.reg`
+directly unless every wine process incl. `services.exe` is dead. From the
+host: `steam-run python3 "<proton dir>/proton" run reg.exe ...` with
+`STEAM_COMPAT_DATA_PATH=<compatdata/appid>` and
+`STEAM_COMPAT_CLIENT_INSTALL_PATH=~/.local/share/Steam` exported.
