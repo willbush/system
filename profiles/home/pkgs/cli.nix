@@ -39,6 +39,7 @@ in
     wl-clipboard-rs
     wl-screenrec
     zip
+    xset # sets key repeat in gamescope's nested X server
 
     # Development
     bacon # watches your rust project and runs jobs in background.
