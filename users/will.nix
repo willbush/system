@@ -128,8 +128,6 @@ in
   programs.fish.enable = true;
   # also enables 32-bit graphics for its wine/proton games
   programs.steam.enable = true;
-  # nested compositor for SC2 cursor confinement
-  programs.gamescope.enable = true;
   programs.wireshark.enable = true;
 
   programs.nh = {

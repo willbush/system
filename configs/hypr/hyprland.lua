@@ -83,24 +83,8 @@ hl.window_rule({ match = { class = "^(emacs)$" }, opacity = "0.98 0.88" })
 hl.window_rule({ match = { initial_title = "^viewer.*$" }, float = true, fullscreen = true })
 hl.window_rule({ match = { initial_title = "^Metric dashboards$" }, float = true, persistent_size = true })
 
--- SC2 via gamescope, game-sized so hyprland confines the cursor and keeps
--- mouse accel. gamescope's own grab confines but drops accel
-hl.window_rule({
-  match = { class = "^(gamescope)$" },
-  float = true,
-  center = true,
-  size = "2560 1600",
-  min_size = { 2560, 1600 },
-  max_size = { 2560, 1600 },
-  confine_pointer = true,
-  border_size = 0,
-  rounding = 0,
-  dim_around = true,
-  no_shadow = true,
-})
-
--- SC2 without gamescope. It sizes itself to 16:9 at monitor height and
--- re-asserts that over any resize, so only center it and confine the cursor.
+-- SC2 sizes itself to 16:9 at monitor height and re-asserts that over any
+-- resize, so only center it and confine the cursor. See docs/sc2.md
 hl.window_rule({
   match = { title = "^(StarCraft II)$" },
   float = true,
