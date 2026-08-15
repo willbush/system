@@ -19,7 +19,7 @@ Requires `programs.gamescope.enable` (`users/will.nix`). Launch options on
 the shortcut:
 
 ```
-gamescope -W 3840 -H 1600 -w 2560 -h 1600 -r 144 -o 30 --framerate-limit 144 -f --force-grab-cursor -- bash -c 'exec "${@:1:$#-1}" "C:\Program Files (x86)\Battle.net\Battle.net.exe"' -- %command%
+gamescope -W 3840 -H 1600 -w 2560 -h 1600 -r 144 -o 30 -f --force-grab-cursor --mouse-sensitivity 1.8 -- bash -c 'exec "${@:1:$#-1}" "C:\Program Files (x86)\Battle.net\Battle.net.exe"' -- %command%
 ```
 
 - The bash slice swaps the trailing installer path for the installed
@@ -30,8 +30,9 @@ gamescope -W 3840 -H 1600 -w 2560 -h 1600 -r 144 -o 30 --framerate-limit 144 -f 
 - `--force-grab-cursor` confines unconditionally instead of trusting the
   game's own confine request, which historically got dropped between wine
   and the display layer.
-- `--framerate-limit 144` divides the `-r 144` refresh evenly, exact cap.
-  `frameratecap=144` in `Variables.txt` stays as a backstop (lands ~166).
+- The frame cap is `frameratecap=144` in `Variables.txt` (lands ~166,
+  preferred over vsync for latency). gamescope's `--framerate-limit` is a
+  refresh divisor that only affects vsynced apps, so it is not used.
 
 The `gamescope` windowrule in `configs/hypr/hyprland.lua` fullscreens the
 window at map. Fullscreen focus also satisfies `vrr = 2`.
@@ -39,7 +40,10 @@ window at map. Fullscreen focus also satisfies `vrr = 2`.
 ## In-game settings
 
 - 2560x1600, windowed fullscreen, fills gamescope's nested display exactly
-- vsync off, gamescope caps the frame rate
+- vsync off, capped by `frameratecap=144`. Turning vsync on instead gives
+  an exact 144 against the 144Hz nested display, if ever wanted.
+- In-game mouse sensitivity is inert under gamescope (the game follows
+  the absolute cursor), adjust via mouse DPI or `--mouse-sensitivity`
 - Settings live in `<pfx>/drive_c/users/steamuser/Documents/StarCraft II/Variables.txt`
 
 ## Prefix leftovers
