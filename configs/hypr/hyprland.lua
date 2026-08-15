@@ -99,6 +99,19 @@ hl.window_rule({
   no_shadow = true,
 })
 
+-- SC2 without gamescope. It sizes itself to 16:9 at monitor height and
+-- re-asserts that over any resize, so only center it and confine the cursor.
+hl.window_rule({
+  match = { title = "^(StarCraft II)$" },
+  float = true,
+  center = true,
+  confine_pointer = true,
+  border_size = 0,
+  rounding = 0,
+  dim_around = true,
+  no_shadow = true,
+})
+
 -- Smart gaps:
 -- see https://wiki.hyprland.org/Configuring/Workspace-Rules/#smart-gaps
 hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
