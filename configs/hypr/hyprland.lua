@@ -116,7 +116,7 @@ hl.config({
 
   input = {
     repeat_delay = 250, -- default 600ms
-    repeat_rate = 35, -- default 25/s
+    repeat_rate = 40, -- default 25/s
   },
 
   master = {
