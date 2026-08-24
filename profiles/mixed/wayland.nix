@@ -98,7 +98,7 @@ in
         wallpaper = [
           {
             monitor = "DP-1";
-            path = "~/images/wallpapers/1.png";
+            path = "~/images/wallpapers/wildflowers.png";
           }
         ];
       };
