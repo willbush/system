@@ -5,8 +5,8 @@ Suffix=_GLS
 [Hotkeys]
 FPS=Alt+K
 Sound=Alt+S
-AlertRecall=
-CameraCenter=0
+AlertRecall=Comma
+CameraCenter=BackMouseButton
 CommanderAbility0=
 CommanderAbility1=
 CommanderAbility2=
@@ -66,7 +66,7 @@ MinimapColors=
 MinimapTerrain=
 PauseGame=Alt+P
 QuickSave=Alt+Q
-TownCamera=9
+TownCamera=ForwardMouseButton
 CommandButtonAlt00=
 CommandButtonAlt01=
 CommandButtonAlt03=
@@ -101,7 +101,7 @@ CameraSave3=Control+4
 CameraSave4=Control+5
 CameraSave5=Control+6
 CameraSave6=Control+7
-CameraSave7=Control+8,ForwardMouseButton
+CameraSave7=Control+8
 CameraView0=1
 CameraView1=2
 CameraView2=3
@@ -109,7 +109,7 @@ CameraView3=4
 CameraView4=5
 CameraView5=6
 CameraView6=7
-CameraView7=8,BackMouseButton
+CameraView7=8
 
 [Commands]
 BlindingCloud/Viper=P
