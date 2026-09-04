@@ -122,7 +122,11 @@ in
       enable = true;
       useRoutingFeatures = "client";
     };
-    resolved.enable = true;
+    resolved = {
+      enable = true;
+      # avahi owns mDNS, two responders make .local flaky
+      settings.Resolve.MulticastDNS = false;
+    };
   };
 
   programs.fish.enable = true;
