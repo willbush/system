@@ -31,7 +31,6 @@
         ".cache/fontconfig"
         ".cache/gstreamer-1.0"
         ".cache/gtk-4.0"
-        ".cache/lua-language-server"
         ".cache/mesa_shader_cache"
         ".cache/mozilla"
         ".cache/nix"
@@ -91,10 +90,6 @@
         "images"
         "sync"
         "videos"
-        {
-          directory = ".config/io.datasette.llm"; # llm cli tool
-          mode = "0700";
-        }
         {
           directory = ".aws";
           mode = "0700";
