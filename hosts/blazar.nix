@@ -48,6 +48,9 @@
     ];
   };
 
+  # compressed swap in RAM as a safety net
+  zramSwap.enable = true;
+
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/7198-4C39";
     fsType = "vfat";
