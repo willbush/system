@@ -67,6 +67,7 @@ MinimapTerrain=
 PauseGame=Alt+P
 QuickSave=Alt+Q
 TownCamera=9
+TargetChoose=LeftMouseButton,P,T,D
 CommandButtonAlt00=
 CommandButtonAlt01=
 CommandButtonAlt03=
