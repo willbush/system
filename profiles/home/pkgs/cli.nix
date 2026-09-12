@@ -11,6 +11,21 @@ let
     builtins.readFile ../scripts/rsync-find-orphaned-files.sh
   );
   hyprcwd = writeScriptBin "hyprcwd" (builtins.readFile ../scripts/hyprcwd.sh);
+  sc2reader = pkgs.python3Packages.buildPythonPackage rec {
+    pname = "sc2reader";
+    version = "1.9.0";
+    pyproject = true;
+    build-system = [ pkgs.python3Packages.setuptools ];
+    src = pkgs.fetchPypi {
+      inherit pname version;
+      hash = "sha256-kb5eRl7fKUdc8uT41KUv9MKKA4caIMHBq4iuW7p6qaI=";
+    };
+    dependencies = with pkgs.python3Packages; [ mpyq pillow ];
+    doCheck = false;
+  };
+  sc2-practice-replays = pkgs.writers.writePython3Bin "sc2-practice-replays" {
+    libraries = [ sc2reader ];
+  } (builtins.readFile ../scripts/sc2-practice-replays.py);
 in
 {
   home.packages = with pkgs; [
@@ -103,5 +118,6 @@ in
     rsync-diff-root
     rsync-find-orphaned-files
     hyprcwd
+    sc2-practice-replays
   ];
 }
