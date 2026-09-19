@@ -90,6 +90,8 @@ hl.window_rule({
   float = true,
   center = true,
   confine_pointer = true,
+  -- SC2 asks to be maximized on a clean start, which hangs it on a black screen
+  suppress_event = "maximize fullscreen",
   border_size = 0,
   rounding = 0,
   dim_around = true,
