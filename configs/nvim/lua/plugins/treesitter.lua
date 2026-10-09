@@ -33,7 +33,6 @@ local languages = {
   'nix',
   'ocaml',
   'powershell',
-  'prolog',
   'promql',
   'purescript',
   'python',
