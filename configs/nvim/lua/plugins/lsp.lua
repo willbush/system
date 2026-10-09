@@ -2,7 +2,7 @@ return {
   {
     -- This handles setting lsp for rust
     'mrcjkb/rustaceanvim',
-    version = '^7',
+    version = '^9',
     lazy = false, -- This plugin is already lazy
     config = function()
       vim.g.rustaceanvim = {
