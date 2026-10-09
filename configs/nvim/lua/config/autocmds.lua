@@ -54,7 +54,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     map('n', 'grd', function()
       require('fzf-lua').diagnostics_workspace()
-    end, 'LSP Definitions')
+    end, 'Diagnostics (Workspace)')
 
     map('n', 'grD', function()
       require('fzf-lua').lsp_declarations()
