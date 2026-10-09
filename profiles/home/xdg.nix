@@ -23,15 +23,14 @@
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = "calc.desktop";
 
         "audio/aac" = "vlc.desktop";
+        "audio/midi" = "vlc.desktop";
         "audio/mpeg" = "vlc.desktop";
         "audio/ogg" = "vlc.desktop";
-        "audio/wav" = "vlc.desktop";
+        "audio/vnd.wave" = "vlc.desktop";
         "audio/webm" = "vlc.desktop";
-        "audio/x-midi" = "vlc.desktop";
 
         "image/gif" = "imv.desktop";
         "image/jpeg" = "imv.desktop";
-        "image/jpg" = "imv.desktop";
         "image/png" = "imv.desktop";
         "image/svg+xml" = "firefox.desktop";
         "image/tiff" = "imv.desktop";
@@ -41,12 +40,13 @@
         "text/html" = "firefox.desktop";
         "text/plain" = "nvim.desktop";
 
+        "video/matroska" = "vlc.desktop";
         "video/mp4" = "vlc.desktop";
         "video/mpeg" = "vlc.desktop";
         "video/ogg" = "vlc.desktop";
+        "video/quicktime" = "vlc.desktop";
+        "video/vnd.avi" = "vlc.desktop";
         "video/webm" = "vlc.desktop";
-        "video/x-matroska" = "vlc.desktop";
-        "video/x-msvideo" = "vlc.desktop";
 
         "x-scheme-handler/about" = "firefox.desktop";
         "x-scheme-handler/http" = "firefox.desktop";
