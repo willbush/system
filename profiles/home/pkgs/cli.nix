@@ -69,7 +69,6 @@ in
     mergiraf # Syntax-aware git merge driver
     nix-prefetch-git
     repomix
-    rust-analyzer
     tokei
     xxd # hexdump
 
