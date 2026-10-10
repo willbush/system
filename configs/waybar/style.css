@@ -1,0 +1,115 @@
+/* base16 catppuccin: 00 base, 01 surface0, 02 surface1, 03 overlay0, 04 subtext0,
+ * 05 text, 06 rosewater, 07 lavender, 08 red, 09 peach, 0A yellow, 0B green, 0C teal,
+ * 0D blue, 0E mauve, 0F flamingo */
+
+window#waybar {
+    background-color: @base00;
+    border-bottom: 1px solid @base0C;
+}
+
+tooltip {
+    background-color: @base00;
+    border: 1px solid @base01;
+    border-radius: 8px;
+    padding: 6px 10px;
+}
+
+tooltip label {
+    color: @base05;
+}
+
+menu {
+    background-color: @base00;
+    border: 1px solid @base01;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+menu menuitem {
+    padding: 6px 10px;
+    border-radius: 6px;
+    color: @base04;
+}
+
+menu menuitem:hover {
+    background-color: @base02;
+    color: @base05;
+}
+
+/* ---------- shared module pill ---------- */
+
+#workspaces,
+#window,
+#clock,
+#pulseaudio,
+#cpu,
+#memory,
+#disk,
+#tray {
+    color: @base05;
+    padding: 4px 12px;
+    margin: 2px 3px;
+}
+
+/* ---------- workspaces ---------- */
+
+#workspaces {
+    padding: 0 6px;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    margin: 2px;
+    border-radius: 8px;
+    color: @base04;
+    font-size: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+#workspaces button.active {
+    color: @base0E;
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    background-color: @base08;
+    color: @base00;
+}
+
+/* ---------- modules ---------- */
+
+#clock {
+    color: @base0D;
+    font-weight: bold;
+}
+
+#pulseaudio {
+    color: @base0B;
+}
+
+#pulseaudio.muted {
+    color: @base03;
+}
+
+#cpu {
+    color: @base09;
+}
+
+#memory {
+    color: @base07;
+}
+
+#disk {
+    color: @base0E;
+}
+
+/* ---------- tray ---------- */
+
+#tray {
+    padding: 2px 10px;
+}
+
+#tray > .needs-attention {
+    background-color: @base08;
+    border-radius: 8px;
+}
