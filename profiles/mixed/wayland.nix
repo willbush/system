@@ -59,6 +59,25 @@ in
       };
     };
 
+    # styled by stylix. UWSM drives the graphical-session.target the unit hangs off
+    programs.waybar = {
+      enable = true;
+      systemd.enable = true;
+      settings.main = {
+        layer = "top";
+        position = "top";
+        modules-left = [ "hyprland/workspaces" ];
+        modules-center = [ "hyprland/window" ];
+        modules-right = [
+          "tray"
+          "pulseaudio"
+          "clock"
+        ];
+        clock.format = "{:%a %b %d  %H:%M}";
+        tray.spacing = 8;
+      };
+    };
+
     services.swayidle = {
       enable = true;
       events = {
