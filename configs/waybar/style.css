@@ -67,7 +67,9 @@ menu menuitem:hover {
 }
 
 #workspaces button.active {
-    color: @base0E;
+    min-width: 40px;
+    background-color: @base0E;
+    color: @base00;
     font-weight: bold;
 }
 
