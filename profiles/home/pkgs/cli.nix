@@ -32,6 +32,7 @@ in
     # Utilities
     curl
     dust
+    dysk # df alternative
     ente-cli
     eza
     fd
