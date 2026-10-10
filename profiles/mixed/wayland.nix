@@ -3,7 +3,6 @@ let
   hmConfig = config.home-manager.users.${config.user.name};
   hyprlandPkg = hmConfig.wayland.windowManager.hyprland.package;
   lock = "${hyprlandPkg}/bin/hyprctl dispatch 'hl.dsp.exec_cmd(\"hyprlock\")'";
-  colors = config.lib.stylix.colors.withHashtag;
 in
 {
   # enable Ozone Wayland support in Chromium and Electron based applications
@@ -58,38 +57,6 @@ in
           }
         ];
       };
-    };
-
-    home.packages = [ pkgs.ironbar ];
-
-    # no stylix target for ironbar, so recolor its built-in minimal theme
-    xdg.configFile."ironbar/style.css".text = ''
-      @import url("file://${pkgs.ironbar.src}/examples/minimal/style.css");
-
-      :root {
-        --color-dark-primary: ${colors.base00};
-        --color-dark-secondary: ${colors.base02};
-        --color-white: ${colors.base05};
-        --color-active: ${colors.base0D};
-        --color-urgent: ${colors.base08};
-      }
-    '';
-
-    # mirrors upstream's ironbar.service; UWSM drives graphical-session.target
-    systemd.user.services.ironbar = {
-      Unit = {
-        Description = "Ironbar status bar";
-        PartOf = [ "graphical-session.target" ];
-        After = [ "graphical-session.target" ];
-        Requisite = [ "graphical-session.target" ];
-        X-Restart-Triggers = [ hmConfig.xdg.configFile."ironbar/style.css".source ];
-      };
-      Service = {
-        # explicit built-in layout, else a missing config.json is logged as an error
-        ExecStart = "${pkgs.ironbar}/bin/ironbar --config minimal --theme ${hmConfig.xdg.configHome}/ironbar/style.css";
-        Restart = "on-failure";
-      };
-      Install.WantedBy = [ "graphical-session.target" ];
     };
 
     services.swayidle = {
