@@ -47,8 +47,8 @@ menu menuitem:hover {
 #disk,
 #tray {
     color: @base05;
-    padding: 4px 12px;
-    margin: 2px 3px;
+    padding: 3px 12px;
+    margin: 1px 3px;
 }
 
 /* ---------- workspaces ---------- */
@@ -59,7 +59,7 @@ menu menuitem:hover {
 
 #workspaces button {
     padding: 0 8px;
-    margin: 2px;
+    margin: 1px 2px;
     border-radius: 8px;
     color: @base04;
     font-size: 20px;
