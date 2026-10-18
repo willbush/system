@@ -95,7 +95,10 @@ in
           separate-outputs = true;
           tooltip = false;
         };
-        tray.icon-size = 18;
+        tray = {
+          icon-size = 18;
+          spacing = 10;
+        };
         pulseaudio = {
           # NFM squeezes glyphs to one cell, the non-mono NF variant draws them full size
           # (an x-large span instead pushed the text off the baseline)
