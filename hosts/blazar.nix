@@ -21,6 +21,33 @@
 
   modules.services.openrgb.enable = true;
 
+  # UMC204HD probe loop since 7.2.10. Rebuilds only sound/usb so the kernel
+  # stays cached.
+  # TODO: drop once upstream narrows b5c4823cf3e4:
+  # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b5c4823cf3e49b3419a3bc8c6715101e1ac6cc59
+  boot.extraModulePackages =
+    let
+      inherit (config.boot.kernelPackages) kernel kernelModuleMakeFlags;
+    in
+    [
+      (kernel.stdenv.mkDerivation {
+        pname = "snd-usb-audio-behringer";
+        inherit (kernel) version src;
+        patches = [ ./patches/behringer-boot-quirk-cm1a-only.patch ];
+        nativeBuildInputs = kernel.moduleBuildDependencies;
+        makeFlags = kernelModuleMakeFlags ++ [
+          "-C"
+          "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
+          "M=$(PWD)/sound/usb"
+          "INSTALL_MOD_PATH=$(out)"
+        ];
+        installFlags = [ "INSTALL_MOD_STRIP=1" ];
+        enableParallelBuilding = true;
+        buildFlags = [ "modules" ];
+        installTargets = [ "modules_install" ];
+      })
+    ];
+
   # Generated hardware configuration below:
   boot.initrd.availableKernelModules = [
     "nvme"
@@ -32,7 +59,6 @@
   ];
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # needed for mounting the NAS
