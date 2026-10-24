@@ -2,9 +2,6 @@
   boot = {
     tmp.cleanOnBoot = true;
 
-    # Keep late boot status lines off the tuigreet screen.
-    kernelParams = [ "quiet" ];
-
     loader = {
       # Timeout (in seconds) until loader boots the default menu item.
       timeout = 2;

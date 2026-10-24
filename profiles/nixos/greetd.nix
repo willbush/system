@@ -2,6 +2,8 @@
 {
   services.greetd = {
     enable = true;
+    # Puts greetd on tty1 so systemd stops printing boot status over tuigreet.
+    useTextGreeter = true;
     settings = {
       # Build as one line. An escaped multiline string serializes to a TOML
       # literal greetd can't parse.
