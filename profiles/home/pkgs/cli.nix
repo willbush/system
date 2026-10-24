@@ -4,8 +4,8 @@ let
   persist-diff = pkgs.writers.writeFishBin "persist-diff" (
     builtins.readFile ../scripts/persist-diff.fish
   );
-  rsync-find-orphaned-files = writeScriptBin "rsync-find-orphaned-files" (
-    builtins.readFile ../scripts/rsync-find-orphaned-files.sh
+  persist-orphans = pkgs.writers.writeFishBin "persist-orphans" (
+    builtins.readFile ../scripts/persist-orphans.fish
   );
   hyprcwd = writeScriptBin "hyprcwd" (builtins.readFile ../scripts/hyprcwd.sh);
   sc2reader = pkgs.python3Packages.buildPythonPackage rec {
@@ -112,7 +112,7 @@ in
 
     # Custom scripts
     persist-diff
-    rsync-find-orphaned-files
+    persist-orphans
     hyprcwd
     sc2-practice-replays
   ];
