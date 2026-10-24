@@ -138,8 +138,6 @@ hl.config({
   misc = {
     -- Set to 0 or 1 to disable the anime mascot wallpapers
     force_default_wallpaper = 0,
-    -- TODO remove once viewer fixed
-    enable_anr_dialog = false,
     -- Adaptive sync, but only while a fullscreen app is focused
     vrr = 2,
   },
