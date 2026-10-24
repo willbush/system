@@ -14,7 +14,6 @@ in
       nix-direnv.enable = true;
     };
 
-    bat.enable = true;
     bottom.enable = true; # command: btm
     btop.enable = true;
     htop.enable = true;

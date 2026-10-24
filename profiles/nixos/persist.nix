@@ -26,7 +26,6 @@
     ];
     users.will = {
       directories = [
-        ".cache/bat"
         ".cache/dconf"
         ".cache/fish"
         ".cache/fontconfig"
