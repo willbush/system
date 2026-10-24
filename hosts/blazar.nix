@@ -23,8 +23,8 @@
 
   # UMC204HD probe loop since 7.2.10. Rebuilds only sound/usb so the kernel
   # stays cached.
-  # TODO: drop once upstream narrows b5c4823cf3e4:
-  # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b5c4823cf3e49b3419a3bc8c6715101e1ac6cc59
+  # TODO: drop once this fix lands in stable (the build fails then):
+  # https://lore.kernel.org/all/20261019102347.2425406-1-tiwai@suse.de/
   boot.extraModulePackages =
     let
       inherit (config.boot.kernelPackages) kernel kernelModuleMakeFlags;
@@ -33,7 +33,7 @@
       (kernel.stdenv.mkDerivation {
         pname = "snd-usb-audio-behringer";
         inherit (kernel) version src;
-        patches = [ ./patches/behringer-boot-quirk-cm1a-only.patch ];
+        patches = [ ./patches/behringer-boot-quirk-skip-umc.patch ];
         nativeBuildInputs = kernel.moduleBuildDependencies;
         makeFlags = kernelModuleMakeFlags ++ [
           "-C"
