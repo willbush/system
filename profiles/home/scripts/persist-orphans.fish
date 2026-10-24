@@ -3,4 +3,4 @@ for p in (findmnt -ln -o FSROOT | string match '/persist/*')
     set -a prune -path /nix$p -prune -o
 end
 
-find /nix/persist -xdev $prune -type f -print
+find /nix/persist -xdev $prune -type f -print -o -type d -empty -printf '%p/\n'
