@@ -1,11 +1,8 @@
 { pkgs, ... }:
 let
   inherit (pkgs) writeScriptBin;
-  rsync-diff-home = writeScriptBin "rsync-diff-home" (
-    builtins.readFile ../scripts/rsync-diff-home.sh
-  );
-  rsync-diff-root = writeScriptBin "rsync-diff-root" (
-    builtins.readFile ../scripts/rsync-diff-root.sh
+  persist-diff = pkgs.writers.writeFishBin "persist-diff" (
+    builtins.readFile ../scripts/persist-diff.fish
   );
   rsync-find-orphaned-files = writeScriptBin "rsync-find-orphaned-files" (
     builtins.readFile ../scripts/rsync-find-orphaned-files.sh
@@ -114,8 +111,7 @@ in
     xh
 
     # Custom scripts
-    rsync-diff-home
-    rsync-diff-root
+    persist-diff
     rsync-find-orphaned-files
     hyprcwd
     sc2-practice-replays
