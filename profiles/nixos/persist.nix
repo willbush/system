@@ -11,6 +11,7 @@
       "/var/lib/OpenRGB"
       "/var/lib/alsa"
       "/var/lib/docker"
+      "/var/lib/lastlog"
       "/var/lib/nixos" # contains important state: https://github.com/nix-community/impermanence/issues/178
       "/var/lib/systemd"
       "/var/lib/tailscale"
