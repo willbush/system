@@ -80,7 +80,8 @@ hl.bind(s .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 hl.window_rule({ match = { class = "^(com\\.mitchellh\\.ghostty)$" }, opacity = "0.98 0.88" })
 hl.window_rule({ match = { class = "^(emacs)$" }, opacity = "0.98 0.88" })
 
-hl.window_rule({ match = { initial_title = "^viewer.*$" }, float = true, fullscreen = true })
+-- Not fullscreen: a workspace allows only one, so a second viewer would demote the first
+hl.window_rule({ match = { initial_title = "^viewer.*$" }, float = true, move = "0 0", size = "monitor_w monitor_h" })
 hl.window_rule({ match = { initial_title = "^Metric dashboards$" }, float = true, persistent_size = true })
 
 -- SC2 sizes itself to 16:9 at monitor height and re-asserts that over any
