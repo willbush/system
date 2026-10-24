@@ -12,6 +12,7 @@
       "/var/lib/alsa"
       "/var/lib/docker"
       "/var/lib/lastlog"
+      "/var/lib/logrotate"
       "/var/lib/nixos" # contains important state: https://github.com/nix-community/impermanence/issues/178
       "/var/lib/systemd"
       "/var/lib/tailscale"
@@ -22,7 +23,6 @@
       # file you won't be able to easily use journalctl to look at journals for
       # previous boots.
       "/etc/machine-id"
-      "/var/lib/logrotate.status"
     ];
     users.will = {
       directories = [
@@ -142,4 +142,10 @@
       ];
     };
   };
+
+  # logrotate renames over its state file, which fails on a bind-mounted file
+  services.logrotate.extraArgs = [
+    "--state"
+    "/var/lib/logrotate/status"
+  ];
 }
