@@ -19,7 +19,12 @@ in
   config = mkIf cfg.enable {
     users.users."${config.user.name}".extraGroups = [ "docker" ];
 
-    virtualisation.docker.enable = true;
+    virtualisation.docker = {
+      enable = true;
+      # Start on first use via docker.socket. On boot it pulls in
+      # network-online.target, which stalls greetd.
+      enableOnBoot = false;
+    };
 
     home-manager.users."${config.user.name}" = {
       home.packages = with pkgs; [
