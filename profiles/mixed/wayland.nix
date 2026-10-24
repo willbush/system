@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   hmConfig = config.home-manager.users.${config.user.name};
   hyprlandPkg = hmConfig.wayland.windowManager.hyprland.package;
@@ -156,6 +161,13 @@ in
         };
       };
     };
+
+    # 0.15.0 crashes on pipewire restart and its ~13G core dump stalls switches
+    # TODO: drop once a release has Alexays/Waybar#5158
+    systemd.user.services.waybar.Service.LimitCORE = 0;
+    warnings = lib.optional (lib.versionOlder "0.15.0" hmConfig.programs.waybar.package.version) ''
+      waybar is past 0.15.0, drop LimitCORE in profiles/mixed/wayland.nix if it has Alexays/Waybar#5158
+    '';
 
     services.swayidle = {
       enable = true;
