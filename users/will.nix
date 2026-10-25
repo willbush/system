@@ -86,7 +86,7 @@ in
     # Setup sops for home-manager
     sops = {
       defaultSopsFile = ../secrets/secrets.yaml;
-      age.keyFile = "/nix/persist/home/will/.secrets/sops-nix/admin_will.txt";
+      age.keyFile = ageKeyFile;
     };
 
     gtk.enable = true;
