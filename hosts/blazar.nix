@@ -50,18 +50,9 @@
 
   # No SATA drives. Probing the empty ports delays the keyboard at the LUKS prompt.
   boot.blacklistedKernelModules = [ "ahci" ];
+  # Keep amdgpu out of the initrd. It blanks the LUKS prompt.
 
   # Generated hardware configuration below:
-  boot.initrd.availableKernelModules = [
-    "nvme"
-    "xhci_pci"
-    "ahci"
-    "usbhid"
-    "usb_storage"
-    "sd_mod"
-  ];
-  # Keep amdgpu out of the initrd. It blanks the LUKS prompt.
-  boot.kernelModules = [ "kvm-amd" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # needed for mounting the NAS
