@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -24,13 +23,6 @@ in
       # Start on first use via docker.socket. On boot it pulls in
       # network-online.target, which stalls greetd.
       enableOnBoot = false;
-    };
-
-    home-manager.users."${config.user.name}" = {
-      home.packages = with pkgs; [
-        docker
-        docker-compose
-      ];
     };
   };
 }
