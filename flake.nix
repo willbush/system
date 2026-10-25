@@ -2,7 +2,11 @@
   description = "Trying to build the perfect system";
 
   inputs = {
-    impermanence.url = "github:nix-community/impermanence";
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     unsecrets = {
@@ -28,7 +32,7 @@
 
     # System-wide colorscheming and typography for NixOS
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
