@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 {
   time.timeZone = "America/Chicago";
 
@@ -37,6 +37,4 @@
   systemd.settings.Manager = {
     DefaultTimeoutStopSec = "30s";
   };
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }

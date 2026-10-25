@@ -55,7 +55,6 @@
       inherit (lib) nixosSystem;
       inherit (lib.attrsets) genAttrs;
 
-      system = "x86_64-linux";
       hosts = [
         "blazar"
       ];
@@ -63,7 +62,6 @@
       toConfig =
         hostName:
         nixosSystem {
-          inherit system;
           modules = [
             (./hosts + "/${hostName}.nix")
             inputs.home-manager.nixosModules.home-manager
