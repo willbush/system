@@ -3,8 +3,8 @@
     tmp.cleanOnBoot = true;
 
     loader = {
-      # Timeout (in seconds) until loader boots the default menu item.
-      timeout = 2;
+      # Menu hidden. Tap space repeatedly at boot to show it.
+      timeout = 0;
 
       efi.canTouchEfiVariables = true;
 
