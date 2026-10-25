@@ -4,8 +4,8 @@
   pkgs,
   ...
 }:
-with lib;
 let
+  inherit (lib) mkIf mkOption types;
   cfg = config.modules.services.openrgb;
   orgb-package = pkgs.openrgb-with-all-plugins;
 in
@@ -17,11 +17,10 @@ in
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     services.hardware.openrgb = {
       enable = true;
       package = orgb-package;
-      motherboard = "amd";
     };
 
     systemd.user.services.openrgb-profile-loader = {

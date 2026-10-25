@@ -24,10 +24,8 @@
     alsa.enable = true;
     jack.enable = true;
     pulse.enable = true;
-    wireplumber.enable = true;
   };
   # needed for wayland
-  security.polkit.enable = true;
   hardware.graphics.enable = true;
 
   # enable non-root access to the firmware of QMK keyboards.

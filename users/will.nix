@@ -89,8 +89,6 @@ in
       age.keyFile = ageKeyFile;
     };
 
-    gtk.enable = true;
-
     services.syncthing.enable = true;
   };
 
