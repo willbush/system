@@ -48,6 +48,9 @@
       })
     ];
 
+  # No SATA drives. Probing the empty ports delays the keyboard at the LUKS prompt.
+  boot.blacklistedKernelModules = [ "ahci" ];
+
   # Generated hardware configuration below:
   boot.initrd.availableKernelModules = [
     "nvme"
