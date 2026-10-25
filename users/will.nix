@@ -115,7 +115,10 @@ in
     # programs willing to store secrets.
     gnome.gnome-keyring.enable = true;
 
-    mullvad-vpn.enable = true;
+    mullvad-vpn = {
+      enable = true;
+      gui.enable = true;
+    };
     tailscale = {
       enable = true;
       useRoutingFeatures = "client";
@@ -144,8 +147,6 @@ in
     sudo-rs.enable = true;
     sudo-rs.execWheelOnly = true;
   };
-
-  environment.systemPackages = with pkgs; [ mullvad-vpn ];
 
   fonts.packages = with pkgs; [
     jigmo # Japanese Kanji font set which is the official successor to Hanazono Mincho
