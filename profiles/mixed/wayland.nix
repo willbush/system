@@ -193,18 +193,7 @@ in
       settings = {
         ipc = "on";
         splash = false;
-        # if files are not present, it will just fallback to hyprland's default
-        # wallpaper which is fine with me. I rather have a non-declaritve
-        # approach to wallpapers so it doesn't need to be in the nix-store.
-        preload = [
-          "~/images/wallpapers/1.png"
-          "~/images/wallpapers/2.jpg"
-          "~/images/wallpapers/3.jpg"
-          "~/images/wallpapers/wildflowers.png"
-          "~/images/wallpapers/blood-moon.png"
-        ];
-
-        # https://wiki.hypr.land/Hypr-Ecosystem/hyprpaper/#the-preload-and-wallpaper-keywords
+        # outside the nix store on purpose
         wallpaper = [
           {
             monitor = "DP-1";
