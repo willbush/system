@@ -16,6 +16,8 @@
         # nixpkgs/nixos/modules/system/boot/loader/systemd-boot/systemd-boot.nix
         editor = false;
         bootCounting.enable = true;
+        # The 511M ESP filled up at 30 generations.
+        configurationLimit = 20;
       };
     };
   };
