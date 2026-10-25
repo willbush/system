@@ -36,6 +36,5 @@
 
     # Utilities
     transmission_4-gtk
-    wireshark
   ];
 }
