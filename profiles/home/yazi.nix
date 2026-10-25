@@ -1,10 +1,6 @@
 { ... }:
 {
-  programs.yazi = {
-    enable = true;
-    # Adds https://yazi-rs.github.io/docs/quick-start#shell-wrapper as `y` command
-    enableFishIntegration = true;
-  };
+  programs.yazi.enable = true;
 
   home.file = {
     ".config/yazi/keymap.toml" = {
