@@ -215,7 +215,7 @@ local keymaps = {
   -- so will not rebind them.
 
   -- New mnei bindings for window navigation
-  { lhs = '<C-w>m', rhs = '<C-w>h', esc = 'Go to the Left Window', modes = n },
+  { lhs = '<C-w>m', rhs = '<C-w>h', desc = 'Go to the Left Window', modes = n },
   { lhs = '<C-w><C-m>', rhs = '<C-w>h', desc = 'Go to the Left Window', modes = n },
   { lhs = '<leader>wm', rhs = '<C-w>h', desc = 'Go to the Left Window', modes = n, alias = true },
 
