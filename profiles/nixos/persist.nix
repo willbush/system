@@ -47,6 +47,7 @@
         ".config/Slack"
         ".config/claude"
         ".config/dconf"
+        ".config/duckstation"
         ".config/emacs.default/.cache"
         ".config/emacs.default/backups"
         ".config/emacs.default/eln-cache"

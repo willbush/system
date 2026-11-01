@@ -132,6 +132,11 @@ in
   programs.fish.enable = true;
   # also enables 32-bit graphics for its wine/proton games
   programs.steam.enable = true;
+  # duckstation left nixpkgs at upstream's request, run the AppImage
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
 
   programs.nh = {
     enable = true;
