@@ -70,7 +70,12 @@ local workspace_keys = { "Q", "W", "F", "P", "B", "A", "R", "S", "T", "G" }
 for i, key in ipairs(workspace_keys) do
   hl.bind(s .. " + " .. key, hl.dsp.focus({ workspace = i }))
   hl.bind(ss .. " + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
+  -- keep them off Sunshine's headless output
+  hl.workspace_rule({ workspace = tostring(i), monitor = "DP-1" })
 end
+
+-- Sunshine's headless output starts here instead of the next free number
+hl.workspace_rule({ workspace = "name:tv", monitor = "SUNSHINE", default = true })
 
 -- Move/resize windows with mod + LMB/RMB and dragging
 hl.bind(s .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
@@ -98,6 +103,10 @@ hl.window_rule({
   dim_around = true,
   no_shadow = true,
 })
+
+-- Qt requests fullscreen on the output it guesses (likely DP-1). Ignore that so
+-- it opens on the focused monitor, which Sunshine sets to its headless output
+hl.window_rule({ match = { class = "^(org\\.duckstation\\.DuckStation)$" }, suppress_event = "fullscreenoutput" })
 
 -- Smart gaps:
 -- see https://wiki.hyprland.org/Configuring/Workspace-Rules/#smart-gaps

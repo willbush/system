@@ -124,6 +124,11 @@
           mode = "0700";
         }
         {
+          # pairing certs and web UI login
+          directory = ".config/sunshine";
+          mode = "0700";
+        }
+        {
           directory = ".local/share/rbw";
           mode = "0700";
         }

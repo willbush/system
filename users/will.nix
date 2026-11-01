@@ -15,6 +15,7 @@ in
     ../profiles/mixed/wayland.nix
     ../profiles/nixos/greetd.nix
     ../profiles/nixos/less.nix
+    ../profiles/nixos/sunshine.nix
   ];
 
   user.name = "will";
