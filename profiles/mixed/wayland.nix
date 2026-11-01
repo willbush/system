@@ -6,8 +6,7 @@
 }:
 let
   hmConfig = config.home-manager.users.${config.user.name};
-  hyprlandPkg = hmConfig.wayland.windowManager.hyprland.package;
-  lock = "${hyprlandPkg}/bin/hyprctl dispatch 'hl.dsp.exec_cmd(\"hyprlock\")'";
+  dpms = action: "hyprctl dispatch 'hl.dsp.dpms({ action = \"${action}\" })'";
   colors = config.lib.stylix.colors.withHashtag;
 in
 {
@@ -169,23 +168,28 @@ in
       waybar is past 0.15.0, drop LimitCORE in profiles/mixed/wayland.nix if it has Alexays/Waybar#5158
     '';
 
-    services.swayidle = {
+    # serves org.freedesktop.ScreenSaver so D-Bus inhibits (DuckStation on a gamepad) hold off the lock
+    services.hypridle = {
       enable = true;
-      events = {
-        "before-sleep" = lock;
-        "lock" = lock;
+      settings = {
+        general = {
+          # via Hyprland so restarting hypridle can't kill hyprlock
+          lock_cmd = "pidof hyprlock || hyprctl dispatch 'hl.dsp.exec_cmd(\"hyprlock\")'";
+          before_sleep_cmd = "loginctl lock-session";
+          after_sleep_cmd = dpms "on";
+        };
+        listener = [
+          {
+            timeout = 600;
+            on-timeout = "loginctl lock-session";
+          }
+          {
+            timeout = 1200;
+            on-timeout = dpms "off";
+            on-resume = dpms "on";
+          }
+        ];
       };
-      timeouts = [
-        {
-          timeout = 600;
-          command = lock;
-        }
-        {
-          timeout = 1200;
-          command = "${hyprlandPkg}/bin/hyprctl dispatch 'hl.dsp.dpms({ action = \"off\" })'";
-          resumeCommand = "${hyprlandPkg}/bin/hyprctl dispatch 'hl.dsp.dpms({ action = \"on\" })'";
-        }
-      ];
     };
 
     services.hyprpaper = {

@@ -141,6 +141,9 @@ hl.config({
     force_default_wallpaper = 0,
     -- Adaptive sync, but only while a fullscreen app is focused
     vrr = 2,
+    -- wake monitors on input even if hypridle misses the resume
+    key_press_enables_dpms = true,
+    mouse_move_enables_dpms = true,
   },
 })
 
