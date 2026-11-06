@@ -105,6 +105,33 @@ menu menuitem:hover {
     color: @base0E;
 }
 
+/* states in wayland.nix set the classes */
+@keyframes pulse-warning {
+    to {
+        background-color: @base0A;
+        color: @base00;
+    }
+}
+
+@keyframes pulse-critical {
+    to {
+        background-color: @base08;
+        color: @base00;
+    }
+}
+
+#memory.warning,
+#disk.warning {
+    border-radius: 8px;
+    animation: pulse-warning 1s ease-in-out infinite alternate;
+}
+
+#memory.critical,
+#disk.critical {
+    border-radius: 8px;
+    animation: pulse-critical 1s ease-in-out infinite alternate;
+}
+
 /* ---------- tray ---------- */
 
 #tray {

@@ -125,6 +125,10 @@ in
           format = "mem: {percentage}%";
           tooltip-format = "RAM: {used:0.1f}G / {total:0.1f}G";
           interval = 4;
+          states = {
+            warning = 80;
+            critical = 90;
+          };
         };
         disk = {
           format = "disk: {percentage_used}%";
@@ -132,6 +136,10 @@ in
           unit = "GB";
           path = "/nix";
           interval = 30;
+          states = {
+            warning = 80;
+            critical = 90;
+          };
         };
         clock = {
           format = "{:%H:%M}";
