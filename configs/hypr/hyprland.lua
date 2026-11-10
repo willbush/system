@@ -104,6 +104,14 @@ hl.window_rule({
   no_shadow = true,
 })
 
+-- WoW's "Windowed (Fullscreen)" only maximizes, so force real fullscreen.
+-- Matched by title since SC2 and Battle.net share its class
+hl.window_rule({
+  match = { title = "^(World of Warcraft)$" },
+  fullscreen = true,
+  suppress_event = "maximize",
+})
+
 -- Qt requests fullscreen on the output it guesses (likely DP-1). Ignore that so
 -- it opens on the focused monitor, which Sunshine sets to its headless output
 hl.window_rule({ match = { class = "^(org\\.duckstation\\.DuckStation)$" }, suppress_event = "fullscreenoutput" })
