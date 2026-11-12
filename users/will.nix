@@ -40,6 +40,10 @@ in
   systemd.services.nix-daemon.serviceConfig.EnvironmentFile =
     config.sops.templates."aws-environment".path;
 
+  # Upstream wants network-online.target, so wait-online (~10s) runs at boot
+  # and delays greetd (Type=idle) by 5s. tailscaled copes with a late network.
+  systemd.services.tailscaled.wants = lib.mkForce [ ];
+
   users = {
     mutableUsers = false;
     users = {
