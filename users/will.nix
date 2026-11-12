@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
@@ -101,6 +102,7 @@ in
     "spotify"
     "steam"
     "steam-unwrapped"
+    "wowup-cf"
   ];
 
   networking = {

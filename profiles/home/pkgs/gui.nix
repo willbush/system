@@ -36,5 +36,8 @@
 
     # Utilities
     transmission_4-gtk
+
+    # Games
+    wowup-cf
   ];
 }

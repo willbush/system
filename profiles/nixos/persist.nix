@@ -45,6 +45,7 @@
         ".config/OpenRGB"
         ".config/Signal"
         ".config/Slack"
+        ".config/WowUpCf"
         ".config/claude"
         ".config/dconf"
         ".config/duckstation"
