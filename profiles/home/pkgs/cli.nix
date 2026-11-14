@@ -26,17 +26,6 @@ let
   sc2-practice-replays = pkgs.writers.writePython3Bin "sc2-practice-replays" {
     libraries = [ sc2reader ];
   } (builtins.readFile ../scripts/sc2-practice-replays.py);
-  # cargoSetupHook now links common -sys crates against system libs
-  # (nixpkgs#537108), and these packages don't provide them yet.
-  # Drop once nixpkgs#584999 lands.
-  xan = pkgs.xan.overrideAttrs (old: {
-    nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ pkgs.pkg-config ];
-    buildInputs = (old.buildInputs or [ ]) ++ [ pkgs.zstd ];
-  });
-  # Drop once nixpkgs#585402 (merged 2026-11-09) reaches nixos-unstable.
-  viddy = pkgs.viddy.overrideAttrs (old: {
-    buildInputs = (old.buildInputs or [ ]) ++ [ pkgs.sqlite ];
-  });
 in
 {
   home.packages = with pkgs; [
