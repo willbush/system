@@ -69,6 +69,7 @@ in
     lldb # Debugger
     mergiraf # Syntax-aware git merge driver
     nix-prefetch-git
+    python3
     repomix
     tokei
     xxd # hexdump
