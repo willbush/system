@@ -17,7 +17,10 @@ let
       inherit pname version;
       hash = "sha256-kb5eRl7fKUdc8uT41KUv9MKKA4caIMHBq4iuW7p6qaI=";
     };
-    dependencies = with pkgs.python3Packages; [ mpyq pillow ];
+    dependencies = with pkgs.python3Packages; [
+      mpyq
+      pillow
+    ];
     doCheck = false;
   };
   sc2-practice-replays = pkgs.writers.writePython3Bin "sc2-practice-replays" {
@@ -104,7 +107,6 @@ in
     yq-go # YAML processor
 
     # Monitoring
-    glances
     ncpamixer # mixer for PulseAudio inspired by pavucontrol
     nethogs
     nix-inspect
