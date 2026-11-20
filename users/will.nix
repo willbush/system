@@ -143,8 +143,6 @@ in
   programs.appimage = {
     enable = true;
     binfmt = true;
-    # TODO: drop if NixOS/nixpkgs#580890 restores it to the default libs
-    package = pkgs.appimage-run.override { extraPkgs = pkgs: [ pkgs.libgpg-error ]; };
   };
 
   programs.nh = {
